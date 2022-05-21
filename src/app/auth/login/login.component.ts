@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,45 +14,79 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   hide = true;
   loading = false;
-
-  constructor(private fb: FormBuilder, private _snackbar: MatSnackBar, private router: Router) {
+  fail = true;
+  constructor(private fb: FormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService) {
     this.form = this.fb.group({
-      usuario:['', Validators.required],
-      password:['', Validators.required]
+      usuario: ['', Validators.required],
+      password: ['', Validators.required]
     });
-   }
+  }
 
   ngOnInit(): void {
+    this.redireccion();
   }
 
-  ingresar(){
+  ingresar() {
     const usuario = this.form.value.usuario;
     const password = this.form.value.password;
-    if(usuario =='angela' && password =='123'){
-        //redireccionamos a la pagina principal
+
+
+    this.authService.login(usuario, password).then(res => {
+      this.fail = false;
       this.redireccionPaginaPrincipal();
-    }else{
-      //mostramos mensaje de error
+    }).catch(err => {
       this.error();
       this.form.reset();
-    }
+    });
+
+
   }
 
+  IngresarConGoogle() {
+    this.authService.loginWithGoogle().then(res => {
+      console.log("Ingreso: ", res);
+      this.redireccionPaginaPrincipal();
+    }).catch(err => {
+      this.error();
+    });
+  }
   // muestra el mensaje de error
-  error(){
-    this._snackbar.open('El usuario o contraseña son invalidos','',{
-      duration:5000,
-      horizontalPosition:'center',
+  error() {
+    this._snackbar.open('El usuario o contraseña son invalidos', '', {
+      duration: 5000,
+      horizontalPosition: 'center',
       verticalPosition: 'top'
     })
   }
 
-  redireccionPaginaPrincipal(){
+  redireccionPaginaPrincipal() {
     this.loading = true;
-    setTimeout(()=>{
+    setTimeout(() => {
       // se debe de redireccionar a la pagina principal
-      this.router.navigate(['menuPrincipal'])
-    }, 1500);
+      this.router.navigateByUrl('/menuPrincipal')
+      this.authService.getUserLogged().subscribe(res =>{
+        if(res?.email == null){
+          this.loading = false;
+          this.error();
+          this.form.reset();
+        }
+      })
+    }, 1500)
   }
+  redireccion() {
+    this.loading = true;
+    setTimeout(() => {
+      // se debe de redireccionar a la pagina principal
+      this.router.navigateByUrl('/menuPrincipal')
+      this.authService.getUserLogged().subscribe(res =>{
+        if(res?.email == null){
+          this.loading = false;
+        }
+      })
+    }, 1500)
+  }
+  
+
+
 
 }

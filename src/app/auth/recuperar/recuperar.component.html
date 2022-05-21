@@ -1,0 +1,18 @@
+<div class="card text-center">
+    <img src="./assets/images/login.png" width="100%" style="position: absolute; right: 0; top: 0; z-index: -100; opacity: 0.75;">
+    <div class="card-header">
+      <b>Recuperar contraseña</b>
+    </div>
+    <div>
+      <label for="" style="float: left">Email</label>
+      <input
+        class="form-control"
+        type="email"
+        placeholder="Ingrse su email"
+        [formControl] = "userEmail"
+      />
+      <br>
+      <button type="submit" (click)="recuperarContra()" class="ancho" mat-raised-button color="primary">Recuperar contraseña</button>
+    
+    </div>
+  </div>

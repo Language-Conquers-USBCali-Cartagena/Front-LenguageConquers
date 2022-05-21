@@ -4,11 +4,13 @@ import { PerfilEstudianteComponent } from "../perfil-estudiante/perfil-estudiant
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { InicioComponent } from "./inicio/inicio.component";
 import { DragDrog1Component } from './drag-drog1/drag-drog1.component';
+import { AuthGuardGuard } from "../shared/guards/authGuard.guard";
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
+    canActivate: [AuthGuardGuard],
     children: [
       {
         path: '',

@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo:'auth'
+    redirectTo:'menuPrincipal'
   },
   {
     path: 'auth',
@@ -17,9 +17,10 @@ const routes: Routes = [
     loadChildren: () => import('./pagina-principal/pagina-principal.module').then(m => m.PaginaPrincipalModule)
   },
   {
-    path: 'perfilEstudiante',
-    component: PerfilEstudianteComponent,
+    path: '**',
+    redirectTo: 'auth'
   },
+  
 ];
 
 @NgModule({

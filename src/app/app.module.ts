@@ -11,7 +11,10 @@ import { PaginaPrincipalModule } from './pagina-principal/pagina-principal.modul
 import { PerfilEstudianteComponent } from './perfil-estudiante/perfil-estudiante.component';
 import { MaterialModule } from './material/material.module';
 import { NavbarComponent } from './pagina-principal/navbar/navbar.component';
-
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { AngularFireModule } from "@angular/fire/compat";
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { NavbarComponent } from './pagina-principal/navbar/navbar.component';
     HttpClientModule,
     ReactiveFormsModule,
     PaginaPrincipalModule,
-    MaterialModule
+    MaterialModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
 
 
 
