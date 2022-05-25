@@ -34,7 +34,9 @@ export class LoginComponent implements OnInit {
     this.authService.login(usuario, password).then(res => {
       this.fail = false;
       this.redireccionPaginaPrincipal();
-    }).catch(err => {
+    }
+
+    ).catch(err => {
       this.error();
       this.form.reset();
     });
@@ -64,13 +66,7 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {
       // se debe de redireccionar a la pagina principal
       this.router.navigateByUrl('/menuPrincipal')
-      this.authService.getUserLogged().subscribe(res =>{
-        if(res?.email == null){
-          this.loading = false;
-          this.error();
-          this.form.reset();
-        }
-      })
+      
     }, 1500)
   }
   redireccion() {
@@ -85,7 +81,7 @@ export class LoginComponent implements OnInit {
       })
     }, 1500)
   }
-  
+
 
 
 
