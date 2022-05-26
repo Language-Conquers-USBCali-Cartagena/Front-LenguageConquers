@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/service/auth.service';
+import { AuthService } from 'src/app/core/service/auth.service';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   providers: [AuthService],
 })
 export class RecuperarComponent implements OnInit {
+
+  loading = false;
   userEmail = new FormControl('');
   constructor(private authService: AuthService, private route: Router) { }
 

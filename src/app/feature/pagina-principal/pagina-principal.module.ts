@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { PaginaPrincipalRoutingModule } from './pagina-principal-routing.module';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../../shared/material/material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DragDrog1Component } from './drag-drog1/drag-drog1.component';
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/service/auth.service';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {
       // se debe de redireccionar a la pagina principal
       this.router.navigateByUrl('/menuPrincipal')
-      
+
     }, 1500)
   }
   redireccion() {

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/shared/service/auth.service';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -25,9 +25,9 @@ export class NavbarComponent implements OnInit {
 
   ObtenerUsuarioLogueado(){
     this.authService.getUserLogged().subscribe(res => {
-     
+
       console.log("Usuario: ", res?.email);
-      
+
     });
   }
 }
