@@ -16,10 +16,10 @@ const routes: Routes = [
     path: 'menuPrincipal',
     loadChildren: () => import('./pagina-principal/pagina-principal.module').then(m => m.PaginaPrincipalModule)
   },
-  {
-    path: '**',
-    redirectTo: 'auth'
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'auth'
+  // },
   
 ];
 

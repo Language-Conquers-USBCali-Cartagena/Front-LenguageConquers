@@ -32,8 +32,13 @@ export class LoginComponent implements OnInit {
 
 
     this.authService.login(usuario, password).then(res => {
-      this.fail = false;
-      this.redireccionPaginaPrincipal();
+      if(res?.user?.emailVerified == true){
+        this.fail = false;
+        console.log(res);
+        this.redireccionPaginaPrincipal();
+      }else if(res?.user?.emailVerified == false){
+        this.router.navigate(['/auth/verificar-email']);
+      }
     }).catch(err => {
       this.error();
       this.form.reset();
@@ -63,14 +68,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     setTimeout(() => {
       // se debe de redireccionar a la pagina principal
-      this.router.navigateByUrl('/menuPrincipal')
-      this.authService.getUserLogged().subscribe(res =>{
-        if(res?.email == null){
-          this.loading = false;
-          this.error();
-          this.form.reset();
-        }
-      })
+      this.router.navigateByUrl('/menuPrincipal');
     }, 1500)
   }
   redireccion() {
