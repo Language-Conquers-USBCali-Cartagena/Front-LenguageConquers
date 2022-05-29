@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { authInstanceFactory } from '@angular/fire/auth/auth.module';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app'
 import { Observable } from 'rxjs';
@@ -27,6 +28,9 @@ export class AuthService {
   async register(email: string, password: string){
       return await this.afauth.createUserWithEmailAndPassword(email, password);
     
+  }
+  async loginWithFacebook(){
+    return await this.afauth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   }
 
   getUserLogged(){

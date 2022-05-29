@@ -55,6 +55,15 @@ export class LoginComponent implements OnInit {
       this.error();
     });
   }
+
+  IngresarConFacebook(){
+    this.authService.loginWithFacebook().then(res => {
+      console.log("Ingreso: ", res);
+      this.redireccionPaginaPrincipal();
+    }).catch(err => {
+      this.error();
+    })
+  }
   // muestra el mensaje de error
   error() {
     this._snackbar.open('El usuario o contraseña son invalidos', '', {
