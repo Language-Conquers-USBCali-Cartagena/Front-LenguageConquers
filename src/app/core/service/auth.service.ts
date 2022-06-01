@@ -25,8 +25,8 @@ export class AuthService {
   
     
   }
-  async register(email: string, password: string){
-      return await this.afauth.createUserWithEmailAndPassword(email, password);
+  register(email: string, password: string){
+      return this.afauth.createUserWithEmailAndPassword(email, password);
     
   }
   async loginWithFacebook(){

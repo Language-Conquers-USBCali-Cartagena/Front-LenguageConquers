@@ -1,0 +1,19 @@
+<div class="body">
+  <div class="login">
+    <img src="./assets/images/login.png" width="100%" style="position: absolute; right: 0; top: 0; z-index: -100; opacity: 0.75;">
+    <mat-card class="fondoTarjeta">
+      <mat-card-content>
+        <mat-spinner class="spinner" *ngIf="loading" ></mat-spinner>
+            <label class="text font1"> Ingrese su Email para recuperar la contraseña</label>
+              <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input type= "email" matInput autocomplete="off" class="form-control" [formControl]="userEmail">
+              </mat-form-field>
+              <button type="submit" (click)="recuperarContra()" class="ancho" mat-raised-button color="primary">Recuperar</button>
+
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+
+</div>

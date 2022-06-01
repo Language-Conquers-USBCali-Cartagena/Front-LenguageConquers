@@ -11,13 +11,7 @@
 
 
 }
-.login{
-  width: 40%;
-  max-width: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
+
 .fondoTarjeta{
   max-width: 435px;
   top: 30px;
@@ -34,12 +28,7 @@
 .ancho{
   width: 100%;
 }
-.cambiar-contra{
-  justify-content: center;
-  text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 15px;
-}
+
 .button{
   height: 50px;
   background-color:rgb(115, 112, 121);
@@ -47,4 +36,14 @@
 }
 .spinner{
   margin: 0 auto;
+}
+.centrar{
+  text-align: center;
+  color: black;
+}
+.text
+{
+  text-align: center;
+  color: black;
+  font-size:15px;
 }

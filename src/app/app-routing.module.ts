@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PerfilEstudianteComponent } from './perfil-estudiante/perfil-estudiante.component';
+import { PerfilEstudianteComponent } from './feature/perfil-estudiante/perfil-estudiante.component';
 
 const routes: Routes = [
   {
@@ -10,11 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    loadChildren:() => import('./auth/auth.module').then(m => m.AuthModule)
+    loadChildren:() => import('./feature/auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'menuPrincipal',
-    loadChildren: () => import('./pagina-principal/pagina-principal.module').then(m => m.PaginaPrincipalModule)
+    loadChildren: () => import('./feature/pagina-principal/pagina-principal.module').then(m => m.PaginaPrincipalModule)
   },
   // {
   //   path: '**',

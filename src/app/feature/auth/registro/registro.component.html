@@ -1,0 +1,24 @@
+<form [formGroup] ="form" (ngsubmit)="registrarse()">
+  <div>
+      <mat-form-field class="ancho" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type= "text" matInput autocomplete="off"  formControlName="usuario">
+          <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill" class="ancho">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</form>
+
+<button class="ancho" mat-raised-button color="primary" (click)="registrarse()" >Create Account</button>
+<div class="centrar">
+  <u class="cambiar-contra"><a href="/auth/login">Ya tiene una cuenta?</a></u>
+</div>
+

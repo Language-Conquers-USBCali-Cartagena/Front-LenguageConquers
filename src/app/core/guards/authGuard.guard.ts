@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AuthService } from 'src/app/shared/service/auth.service';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +17,10 @@ export class AuthGuardGuard implements CanActivate {
           this.router.navigate(['/auth/login']);
           return false;
         }
-        
+
         return true;
       })
     );
   }
-  
+
 }

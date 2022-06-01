@@ -1,8 +1,8 @@
 
 import {  Component, OnInit } from '@angular/core';
-import { AuthService } from '../../shared/service/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 @Component({
   selector: 'app-inicio',
