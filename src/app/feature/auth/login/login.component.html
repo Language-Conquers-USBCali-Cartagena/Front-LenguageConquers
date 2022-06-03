@@ -4,7 +4,7 @@
     <img src="./assets/images/logging.png" width="1550px" height="740px" style="position: absolute; right: 0; top: 0; z-index: -100; ">
     <mat-card class="fondoTarjeta">
       <mat-card-content>
-        <img src="./assets/images/logo.png" style="position: relative; width: 60%;" >
+        <img src="./assets/images/logo.png" class="logo" >
         <mat-spinner class="spinner" *ngIf="loading" ></mat-spinner>
         <form *ngIf="!loading" [formGroup] ="form" (ngsubmit)="ingresar()">
             <mat-tab-group >

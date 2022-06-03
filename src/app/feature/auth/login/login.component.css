@@ -23,13 +23,20 @@
   max-width: 435px;
   top: 20px;
   bottom: 55px;
-
+  right: 50px;
    /*Efecto espejo*/
-  padding: 2em;
-  width: 70%;
+  padding: 1em;
+  width: 80%;
   position: relative;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.30);
+}
+.logo{
+  position: static;
+  width: 329px;
+  height: 213px;
+  right: 92px;
+  top: 144px;
 }
 
 .ancho{
