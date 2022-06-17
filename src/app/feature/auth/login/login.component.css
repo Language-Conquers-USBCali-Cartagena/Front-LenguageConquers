@@ -44,10 +44,12 @@
 .ancho{
   width: 100%;
 }
-.entradauc {
+.entradauc1 {
   margin-left: 100px;
-  border-radius: 20%;
-  font-family: Pirata One;
+  width: 235px;
+}
+.entradauc2 {
+  margin-left: 100px;
 }
 
 .cambiar-contra{
@@ -195,7 +197,11 @@
   background-repeat: no-repeat;
  
 }
-.entradauc {
+.entradauc1 {
+  margin-left: 40px;
+  width: 235px;
+}
+.entradauc2 {
   margin-left: 40px;
 }
 .ingresar {
