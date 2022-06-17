@@ -4,12 +4,11 @@
   justify-content: left;
   width: 100%;
   height: 100%;
-  align-items: center;
-  line-height: 60px;
+  line-height: 20px;
   background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url(../../../../assets/images/logging.png);
   background-size: cover;
-  
-
 }
 .login{
   width: 40%;
@@ -17,6 +16,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  
 }
 
 .fondoTarjeta{
@@ -27,27 +27,27 @@
    /*Efecto espejo*/
   padding: 1em;
   width: 80%;
-  position: relative;
+  
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.11);
+  font-family: Pirata One;
  
 }
+
 .logo{
-  position: initial;
-  width: 329px;
-  height: 213px;
-  right: 120px;
-  top: 144px;
+  height: 220px;
+  padding-right: 30px
   
 }
-
 .ancho{
   width: 100%;
 }
+
+
 .cambiar-contra{
   justify-content: center;
   text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Pirata One' ;
   font-size: 15px;
   color: white;
 }
@@ -58,8 +58,69 @@
 }
 .spinner{
   margin: 0 auto;
+  
 }
 .centrar{
   text-align: center;
   color: rgb(255, 255, 255);
 }
+@media screen and (max-width: 600px) {
+  .bg-img {
+    width: 100%;
+    margin-top: 0;
+    background-image: none;
+    background-color: black;
+    
+  }
+}
+.botones {
+  width: 10em;
+  font-family: Pirata One;
+  border-radius: 10px;
+  margin-top: 20px;
+  background-color: aqua;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding-left: 1em;
+  font-size: 1.5em;
+  margin-left: 5em;
+  align-content: center;
+  color: black;
+  
+}
+.botones:hover{
+  background-color: black;
+  color: aqua;
+}
+.entradas {
+  width: 22em;
+  
+  max-width: 500em;
+  max-height: 250em;
+  padding-left: 2em;
+  margin-left: 2em;
+  height: 3em;
+  font-family: 'Pirata One' ;
+}
+.mat-label{
+  color: white;
+}
+.otrac {
+  padding-left: 40px;
+  display: flex;
+ margin-top: 20px;
+ margin-bottom: 10px; 
+}
+.mat-tab-label .mat-tab-label-content {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  color: white;
+  font-family: 'Pirata One' ;
+}
+
+
+
