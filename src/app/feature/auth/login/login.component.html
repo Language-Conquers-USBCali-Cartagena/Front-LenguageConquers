@@ -8,11 +8,11 @@
         <form *ngIf="!loading" [formGroup]="form" (ngsubmit)="ingresar()">
           <mat-tab-group mat-align-tabs="center">
             <mat-tab label="Login" >
-              <mat-form-field class="ancho entradas" appearance="fill">
+              <mat-form-field class="ancho entradas" appearance="fill" class="entradauc">
                 <mat-label style="color: white;">Usuario</mat-label>
                 <input type="text"  matInput autocomplete="off" formControlName="usuario"class="colorentrada">
               </mat-form-field>
-              <mat-form-field appearance="fill"  class="ancho entradas">
+              <mat-form-field appearance="fill"  class="ancho entradas" class="entradauc">
                 <mat-label style="color: white;">Enter your password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'"  autocomplete="off" formControlName="password" class="colorentrada">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
