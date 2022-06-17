@@ -13,7 +13,7 @@
                 <input type="text"  matInput autocomplete="off" formControlName="usuario">
               </mat-form-field>
               <mat-form-field appearance="fill"  class="ancho entradas">
-                <mat-label>Enter your password</mat-label>
+                <mat-label style="color: white;">Enter your password</mat-label>
                 <input matInput [type]="hide ? 'password' : 'text'"  autocomplete="off" formControlName="password" >
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                   [attr.aria-pressed]="hide" style="color: white;">
