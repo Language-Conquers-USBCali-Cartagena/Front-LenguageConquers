@@ -47,6 +47,7 @@
 .entradauc {
   margin-left: 100px;
   border-radius: 20%;
+  font-family: Pirata One;
 }
 
 .cambiar-contra{
@@ -165,12 +166,12 @@
   .botones {
     width: 6em;
     font-family: Pirata One;
-    border-radius: 1px;
+    border-radius: 20px;
     background-color: aqua;
-    -webkit-border-radius: 1px;
-    -moz-border-radius: 1px;
-    -ms-border-radius: 1px;
-    -o-border-radius: 1px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
     align-content: center;
     margin-left: 20px;
         
