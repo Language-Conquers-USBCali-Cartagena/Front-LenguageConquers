@@ -4,10 +4,10 @@ import { LoginComponent } from './login/login.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { RegistroComponent } from './registro/registro.component';
 import { RecuperarComponent } from './recuperar/recuperar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { EmailVerificationComponent } from 'src/app/feature/auth/email-verification/email-verification.component';
-
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,10 @@ import { EmailVerificationComponent } from 'src/app/feature/auth/email-verificat
     CommonModule,
     MaterialModule,
     AuthRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    MatRadioModule,
+    
   ]
 })
 export class AuthModule { }
