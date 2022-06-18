@@ -21,6 +21,7 @@
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
               </mat-form-field>
+<<<<<<< Updated upstream
               
               <button type="submit" (click)="ingresar()" class="botones" [disabled]="form.invalid" >Ingresar</button>
               
@@ -32,6 +33,12 @@
               </div>
 
               
+=======
+              <button type="submit" (click)="ingresar()" class="ancho" mat-raised-button color="primary" [disabled]="form.invalid">Ingresar</button>
+              <button type="submit" (click)="IngresarConGoogle()" class="ancho" mat-raised-button color="primary" id="google">Ingresar con Google</button>
+              <button type="submit" (click)="IngresarConFacebook()" class="ancho" mat-raised-button color="primary" id="facebook">Ingresar con Facebook</button>
+              <u class="cambiar-contra" ><a href="/auth/registro">Registrarse</a></u>
+>>>>>>> Stashed changes
               <!--<u class="cambiar-contra" ><a href="/auth/registro">Registrarse</a></u>-->
               <div class="centrar">
                 <u class="cambiar-contra"><a href="/auth/recuperar">Recuperar contraseña</a></u>
