@@ -1,35 +1,43 @@
-
-<div class="body">
+<div class="body bg-img">
   <div class="login">
-    <img src="./assets/images/login.png" width="100%" style="position: absolute; right: 0; top: 0; z-index: -100; opacity: 0.75;">
+    <!-- <img  src="./assets/images/logging.png" width="1550px" height="740px" style="position: absolute; right: 0; top: 0; z-index: -100; "> -->
     <mat-card class="fondoTarjeta">
-      <mat-card-content>
-        <mat-spinner class="spinner" *ngIf="loading" ></mat-spinner>
-        <form *ngIf="!loading" [formGroup] ="form" (ngsubmit)="ingresar()">
-            <mat-tab-group >
-            <mat-tab label="Login">
-              <p></p>
-              <mat-form-field class="ancho" appearance="fill">
-                <mat-label>Usuario</mat-label>
-                <input type= "text" matInput autocomplete="off"  formControlName="usuario">
+      <mat-card-content >
+        <img src="./assets/images/logo.png" class="logo">
+        <mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
+        <form *ngIf="!loading" [formGroup]="form" (ngsubmit)="ingresar()">
+          <mat-tab-group mat-align-tabs="center">
+            <mat-tab label="Login" >
+              <mat-form-field class="ancho entradas" appearance="fill" class="entradauc1">
+                <mat-label style="color: white;">Usuario</mat-label>
+                <input type="text"  matInput autocomplete="off" formControlName="usuario"class="colorentrada">
+                <mat-icon matSuffix class="boton" style="font-size: 2em;" style="color: white ;">account_box</mat-icon>
               </mat-form-field>
-              <mat-form-field appearance="fill" class="ancho">
-                <mat-label>Enter your password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-form-field appearance="fill"  class="ancho entradas" class="entradauc2">
+                <mat-label style="color: white;">Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'"  autocomplete="off" formControlName="password" class="colorentrada">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide" style="color: white;">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
               </mat-form-field>
-              <button type="submit" (click)="ingresar()" class="ancho" mat-raised-button color="primary" [disabled]="form.invalid">Ingresar</button>
-              <button type="submit" (click)="IngresarConGoogle()" class="ancho" mat-raised-button color="primary">Ingresar con Google</button>
-              <button type="submit" (click)="IngresarConFacebook()" class="ancho" mat-raised-button color="primary">Ingresar con Facebook</button>
-              <u class="cambiar-contra" ><a href="/auth/registro">Registrarse</a></u>
+              
+              <button type="submit" (click)="ingresar()" class="botones" [disabled]="form.invalid" >Ingresar</button>
+              
+              <div class="otrac">
+                <a type="submit" (click)="IngresarConGoogle()" class="ancho otrac"><img
+                    src="../../../../assets/images/google.png" /></a>
+                <a type="submit" (click)="IngresarConFacebook()" class="ancho otrac"><img
+                    src="../../../../assets/images/facebook.png" /></a>
+              </div>
+
+              
               <!--<u class="cambiar-contra" ><a href="/auth/registro">Registrarse</a></u>-->
               <div class="centrar">
-                <u class="cambiar-contra"><a  href="/auth/recuperar">Recuperar contraseña</a></u>
+                <u class="cambiar-contra"><a href="/auth/recuperar">Recuperar contraseña</a></u>
               </div>
             </mat-tab>
-            <mat-tab label="Create Account">
+            <mat-tab label="Create Account" class="labels">
               <app-registro></app-registro>
             </mat-tab>
           </mat-tab-group>
@@ -39,4 +47,3 @@
   </div>
 
 </div>
-  

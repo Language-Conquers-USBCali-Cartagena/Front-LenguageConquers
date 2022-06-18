@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
   ObtenerUsuarioLogueado(){
     this.authService.getUserLogged().subscribe(res => {
 
-      console.log("Usuario: ", res?.email);
+      console.log("Usuario: ", res);
 
     });
   }

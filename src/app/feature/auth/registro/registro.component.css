@@ -33,6 +33,19 @@
 
 .ancho{
   width: 100%;
+  
+  
+}
+.ancho1{
+  font-family: Pirata One;
+  font-size: 20px;
+  color: black;
+  background-color: aqua;
+  margin-left: 150px;
+}
+.ancho1:hover{
+  background-color: black;
+  color: aqua;
 }
 .cambiar-contra{
   justify-content: center;
@@ -51,4 +64,17 @@
 .centrar{
   text-align: center;
   color: black;
+}
+.email {
+ color: white;
+ font-family: Pirata One;
+}
+.boton {
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .ancho1{
+    margin-left: 85px;
+  }
 }

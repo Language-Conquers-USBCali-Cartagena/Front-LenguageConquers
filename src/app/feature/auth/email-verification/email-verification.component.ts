@@ -11,11 +11,11 @@ import { AuthService } from 'src/app/core/service/auth.service';
 })
 export class EmailVerificationComponent implements OnInit {
   public user$:Observable<any> = this.authService.afauth.user;
-  constructor(private authService: AuthService, private router: Router) { 
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
-    
+
   }
 
   onSendEmail():void{
@@ -27,24 +27,20 @@ export class EmailVerificationComponent implements OnInit {
   }
 
   async verificationEmail(){
-    
+
     await this.user$.subscribe(res =>{
+      console.log(res);
       if(res.emailVerified == true){
         this.router.navigate(['menuPrincipal'])
       }else{
-        setTimeout(() => {
-          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-          this.router.onSameUrlNavigation = 'reload';
-          this.router.navigateByUrl('/auth/verificar-email', {skipLocationChange: false});
-          console.log('Redireccionando');
-        }, 5000)
+        this.router.navigateByUrl('/auth/verificar-email', {skipLocationChange: false});
       }
-      
+
     })
   }
-  async salir(){
-    await this.authService.logout();
+   salir(){
+    //await this.authService.logout();
     this.router.navigateByUrl("/auth/login");
-    
+
   }
 }
