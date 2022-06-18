@@ -17,7 +17,9 @@
   </div>
 </form>
 
-<button class="ancho" mat-raised-button color="primary" (click)="registrarse()" >Create Account</button>
+<button class="ancho" mat-raised-button color="primary" (click)="registrarse()" [disabled]="form.invalid">Create Account</button>
+<button type="submit" (click)="IngresarConGoogle()" class="ancho" mat-raised-button color="primary">Ingresar con Google</button>
+<button type="submit" (click)="IngresarConFacebook()" class="ancho" mat-raised-button color="primary">Ingresar con Facebook</button>
 <div class="centrar">
   <u class="cambiar-contra"><a href="/auth/login">Ya tiene una cuenta?</a></u>
 </div>

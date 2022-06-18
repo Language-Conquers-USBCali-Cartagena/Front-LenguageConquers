@@ -1,12 +1,53 @@
+.body
+{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  line-height: 60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+.login{
+  width: 40%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.fondoTarjeta{
+  max-width: 435px;
+  top: 30px;
+  bottom: 65px;
+
+   /*Efecto espejo*/
+  padding: 2em;
+  width: 70%;
+  position: relative;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.30);
+}
+
 .ancho{
   width: 100%;
 }
 .cambiar-contra{
   justify-content: center;
+  text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 15px;
 }
-
+.button{
+  height: 50px;
+  background-color:rgb(115, 112, 121);
+  color: white;
+}
+.spinner{
+  margin: 0 auto;
+}
 .centrar{
   text-align: center;
   color: black;

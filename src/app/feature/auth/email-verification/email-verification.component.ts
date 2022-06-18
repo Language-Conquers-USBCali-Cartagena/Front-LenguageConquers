@@ -19,7 +19,11 @@ export class EmailVerificationComponent implements OnInit {
   }
 
   onSendEmail():void{
-    this.authService.emailVerification();    
+    this.authService.emailVerification(); 
+    console.log(
+      this.authService.afauth.user  
+    );
+     
   }
 
   async verificationEmail(){
