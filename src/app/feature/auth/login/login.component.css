@@ -131,6 +131,27 @@
   color: white;
 }
 
+/**lineas*/
+.lienas{
+  color: white;
+  text-align: center;
+  font-family: 'Pirata One' ;
+  margin-top: 20px;
+}
+.lienas::after,.lienas::before{
+  content: '';
+  position: absolute;
+  width: 170px;
+  height: 3px;
+  background-color: currentColor;
+  margin-top: 15px;
+}
+.lienas::before{
+  left: -10px;
+}
+.lienas::after{
+  right: -10px;
+}
 /***************************/
 
 @media screen and (max-width: 600px) {
@@ -212,9 +233,29 @@
 .otrac {
  padding-left: 1px;
  display: flex;
- margin-top: 18px;
+ margin-top: 10px;
  margin-bottom: 1px; 
  margin-left: 30px;
+}
+.lienas{
+  color: white;
+  text-align: center;
+  font-family: 'Pirata One' ;
+  margin-top: 20px;
+}
+.lienas::after,.lienas::before{
+  content: '';
+  position: absolute;
+  width: 97px;
+  height: 3px;
+  background-color: currentColor;
+  margin-top: 15px;
+}
+.lienas::before{
+  left: -10px;
+}
+.lienas::after{
+  right: -10px;
 }
 }
 
