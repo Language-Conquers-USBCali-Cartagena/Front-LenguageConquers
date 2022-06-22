@@ -187,7 +187,7 @@
     justify-content: center;
     align-items: flex-start;
     display: flex;
-    
+   
   }
   .botones {
     width: 6em;
@@ -247,7 +247,7 @@
   content: '';
   position: absolute;
   width: 97px;
-  height: 3px;
+  height: 1.5px;
   background-color: currentColor;
   margin-top: 15px;
 }
@@ -263,4 +263,7 @@
 #google{
   background-image: url('../../../../assets/images/google.png');
   background-repeat: no-repeat;
+}
+mat-tab-group{
+  font-family: 'Pirata One' ;
 }
