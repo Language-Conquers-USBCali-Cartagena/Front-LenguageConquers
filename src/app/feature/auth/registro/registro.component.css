@@ -20,7 +20,19 @@
   font-size: 15px;
   
 }
-
+.vinculos-contra{
+  font-family: Pirata One;
+  font-size: 20px;
+  color: black;
+ top: 20px;
+ bottom: 20px; 
+ margin-left: 25px;
+}
+.vinculos-contra:hover{
+ 
+  color: white;
+ 
+}
 .centrar{
   text-align: center;
   color: black;
@@ -41,7 +53,7 @@
   margin-left: 125px;
 }
 .vinculos:hover{
-  color: aqua;
+  color: rgb(255, 255, 255);
 }
 
 @media screen and (max-width: 600px) {
@@ -57,13 +69,11 @@
     margin-left: 55px;
   }
   .vinculos:hover{
-    color: aqua;
+    color: rgb(255, 255, 255);
   }
 }
 /*boton de check*/
-.example-h2 {
-  margin: 10px;
-}
+
 
 .example-section {
   display: flex;
