@@ -158,8 +158,8 @@ display: flex;
   .bg-img {
     width: 100%;
     margin-top: 0;
-    background-image: none;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url(../../../../assets/images/FondoLogin.png);
+    
     display: inline-table;
   }
   .fondoTarjeta{

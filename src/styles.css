@@ -21,3 +21,6 @@ body { margin: 0;font-family: 'Pirata One', cursive; }
   font-family: 'Pirata One', cursive;
   
 }
+a {
+  text-decoration: none;
+  }
