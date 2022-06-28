@@ -155,14 +155,14 @@ display: flex;
 .vinculos-contra{
   font-family: Pirata One;
   font-size: 20px;
-  color: black;
+  color: white;
  top: 20px;
  bottom: 20px; 
  margin-left: 16px;
 }
 .vinculos-contra:hover{
  
-  color: white;
+  color: aqua;
  
 }
 /***************************/
