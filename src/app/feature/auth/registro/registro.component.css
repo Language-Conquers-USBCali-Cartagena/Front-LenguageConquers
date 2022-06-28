@@ -1,7 +1,5 @@
 .ancho{
   width: 100%;
-  
-  
 }
 .ancho1{
   font-family: Pirata One;
@@ -9,6 +7,7 @@
   color: black;
   background-color: aqua;
   margin-left: 150px;
+  
 }
 .ancho1:hover{
   background-color: black;
@@ -16,8 +15,10 @@
 }
 .cambiar-contra{
   justify-content: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Pirata One;
+  
   font-size: 15px;
+  
 }
 
 .centrar{
@@ -31,10 +32,32 @@
 .boton {
   color: white;
 }
+.vinculos{
+  font-family: Pirata One;
+  font-size: 20px;
+  color: black;
+ top: 20px;
+ bottom: 20px;
+  margin-left: 125px;
+}
+.vinculos:hover{
+  color: aqua;
+}
 
 @media screen and (max-width: 600px) {
   .ancho1{
     margin-left: 85px;
+  }
+  .vinculos{
+    font-family: Pirata One;
+    font-size: 20px;
+    color: black;
+    top: 20px;
+    bottom: 20px;
+    margin-left: 55px;
+  }
+  .vinculos:hover{
+    color: aqua;
   }
 }
 /*boton de check*/
@@ -52,3 +75,6 @@
 .example-margin {
   margin: 0 10px;
 }
+
+
+
