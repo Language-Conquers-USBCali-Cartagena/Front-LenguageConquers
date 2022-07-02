@@ -74,4 +74,5 @@ export class RegistroComponent implements OnInit {
       this.router.navigateByUrl('/menuPrincipal');
     }, 1500)
   }
+  
 }

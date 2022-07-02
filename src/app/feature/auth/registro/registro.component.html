@@ -16,12 +16,18 @@
     </mat-form-field>
   </div>
 </form>
-   <a href="#" target="_blank" class="vinculos"><input type="checkbox" [(ngModel)]="terminos">Terminos y Condicones</a> 
+   <a href="#" target="_window" class="vinculos"><input type="checkbox" [(ngModel)]="terminos">Terminos y Condicones</a> 
   <div *ngIf="terminos===true" style="top: 20px;">
     <br>
     <button class="ancho1" mat-raised-button color="primary" (click)="registrarse()" >Create Account</button>  
   </div>
 <br>
+<div class="otrac">
+  <a type="submit" (click)="IngresarConGoogle()" class="ancho otrac"><img
+      src="../../../../assets/images/google.png" /></a>
+  <a type="submit" (click)="IngresarConFacebook()" class="ancho otrac"><img
+      src="../../../../assets/images/facebook.png" /></a>
+</div>
 
 <div class="centrar">
   <u class="cambiar-contra "><a class="vinculos-contra" style="right: 20px;" href="/auth/login">Ya tiene una cuenta?</a></u>
