@@ -1,17 +1,37 @@
 .ancho{
-  width: 100%;
+  width: 20%;
 }
 .ancho1{
+  max-width: 10em;
+  width: 10em;
   font-family: Pirata One;
-  font-size: 20px;
-  color: black;
+  border-radius: 10px;
+  margin-top: 10px;
   background-color: aqua;
-  margin-left: 150px;
-  
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding-left: 1em;
+  font-size: 1.5em;
+  margin-left: 5.45em;
+  text-align: center;
+  color: black;
 }
+
 .ancho1:hover{
   background-color: black;
   color: aqua;
+}
+
+.entradauc1 {
+  margin-left: 100px;
+  width: 235px;
+  font-family: Pirata One;
+}
+.entradauc2 {
+  margin-left: 100px;
+  font-family: Pirata One;
 }
 .cambiar-contra{
   justify-content: center;
