@@ -27,3 +27,6 @@ body { margin: 0;font-family: 'Pirata One', cursive; }
 a {
   text-decoration: none;
   }
+.mat-input-element{
+  color: white !important;
+}
