@@ -46,7 +46,7 @@
   color: white;
  top: 20px;
  bottom: 20px; 
- margin-left: 25px;
+ margin-left: -7px;
 }
 .vinculos-contra:hover{
  
@@ -76,35 +76,6 @@
   color: rgb(255, 255, 255);
 }
 
-@media screen and (max-width: 600px) {
-  .ancho1{
-    margin-left: 85px;
-  }
-  .vinculos{
-    font-family: Pirata One;
-    font-size: 20px;
-    color: black;
-    top: 20px;
-    bottom: 20px;
-    margin-left: 55px;
-  }
-  .vinculos:hover{
-    color: rgb(255, 255, 255);
-  }
-}
-/*boton de check*/
-
-
-.example-section {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  height: 60px;
-}
-
-.example-margin {
-  margin: 0 10px;
-}
 .otrac {
   
   display: flex;
@@ -114,5 +85,53 @@
    width: auto;
    height: auto;
   }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+  
+@media screen and (max-width: 600px) {
+  .ancho1{
+    margin-left: 49px;
+  }
+  .vinculos{
+    font-family: Pirata One;
+    font-size: 20px;
+    color: black;
+    top: 20px;
+    bottom: 20px;
+    margin-left: 55px;
+  }
+
+  .vinculos:hover{
+    color: rgb(255, 255, 255);
+  }
+  .otrac {
+    
+    padding-left: 1px;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 1px; 
+    margin-left: 38.5px;
+
+   }
+  .entradauc1 {
+    margin-left: 40px;
+    width: 235px;
+  }
+  .entradauc2 {
+    margin-left: 40px;
+  }
+}
+/*boton de check*/
+
+
 
 
