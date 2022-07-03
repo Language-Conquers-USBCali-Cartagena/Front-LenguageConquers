@@ -8,6 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { EmailVerificationComponent } from 'src/app/feature/auth/email-verification/email-verification.component';
 import {MatRadioModule} from '@angular/material/radio';
+import { ServiciosLoginService } from '../../shared/services/Login/servicios-login.service';
+import { CrearUsuarioComponent } from './crearUsuario/crear-usuario/crear-usuario.component';
+import { AutenticacionComponent } from './autenticacion/autenticacion.component';
+import { FormularioProfesorComponent } from './crearUsuario/formulario-profesor/formulario-profesor.component';
+import { FormularioEstudianteComponent } from './crearUsuario/formulario-estudiante/formulario-estudiante.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +20,10 @@ import {MatRadioModule} from '@angular/material/radio';
     RegistroComponent,
     RecuperarComponent,
     EmailVerificationComponent,
+    CrearUsuarioComponent,
+    AutenticacionComponent,
+    FormularioProfesorComponent,
+    FormularioEstudianteComponent,
   ],
   imports: [
     CommonModule,
@@ -24,6 +33,10 @@ import {MatRadioModule} from '@angular/material/radio';
     FormsModule,
     MatRadioModule,
     
+    
+  ],
+  providers: [
+    ServiciosLoginService
   ]
 })
 export class AuthModule { }

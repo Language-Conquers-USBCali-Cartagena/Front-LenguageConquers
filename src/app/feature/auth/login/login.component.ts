@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
+import { ServiciosLoginService } from '../../../shared/services/Login/servicios-login.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   loading = false;
   fail = true;
-  constructor(private fb: FormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService) {
     this.form = this.fb.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required]
@@ -46,6 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
   IngresarConGoogle() {
+    // this.validarExistenciaBD('wefohef@wge.com')
     this.authService.loginWithGoogle().then(res => {
       console.log("Ingreso: ", res);
       this.redireccionPaginaPrincipal();
@@ -90,6 +92,7 @@ export class LoginComponent implements OnInit {
       })
     }, 1500)
   }
+
 
 
 

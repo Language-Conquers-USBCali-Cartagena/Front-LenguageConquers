@@ -6,6 +6,7 @@ import { MaterialModule } from '../../shared/material/material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DragDrog1Component } from './drag-drog1/drag-drog1.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { ServiciosLoginService } from 'src/app/shared/services/Login/servicios-login.service';
 
 
 
@@ -23,6 +24,9 @@ import { InicioComponent } from './inicio/inicio.component';
   ],
   exports: [
     NavbarComponent
+  ],
+  providers: [
+    ServiciosLoginService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

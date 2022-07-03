@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PerfilEstudianteComponent } from './feature/perfil-estudiante/perfil-estudiante.component';
 
 const routes: Routes = [
   {

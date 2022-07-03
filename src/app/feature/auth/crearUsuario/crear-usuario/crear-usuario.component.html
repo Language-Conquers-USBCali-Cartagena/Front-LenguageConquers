@@ -1,0 +1,22 @@
+<div class="card" *ngIf="user$ | async as user; else loading">
+    
+    <div class = "crearUsuario">
+        <mat-card class="fondoTarjeta">
+            <mat-card-content>
+                <mat-tab-group>
+                    <mat-tab label="Estudiante">
+                        <app-formulario-estudiante></app-formulario-estudiante>
+                    </mat-tab>
+                    <mat-tab label="Profesor">
+                        <app-formulario-profesor></app-formulario-profesor>
+                    </mat-tab>
+                </mat-tab-group>
+            </mat-card-content>
+            
+        </mat-card>
+    </div>
+    <a mat-raised-button  color="accent" (click)="salir()">Sign Up</a>
+</div>
+<ng-template #loading>
+    loading...
+</ng-template>

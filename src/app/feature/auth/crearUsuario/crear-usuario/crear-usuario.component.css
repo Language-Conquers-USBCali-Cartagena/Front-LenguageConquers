@@ -1,0 +1,13 @@
+.fondoTarjeta{
+    max-width: 20em;
+    top: 1px;
+    bottom: px;
+    right: 1px;
+    left: 1px;
+    font-family: Pirata One;
+     /*Efecto espejo*/
+    padding: 1em;
+    max-width: 100%;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.176);
+  }
