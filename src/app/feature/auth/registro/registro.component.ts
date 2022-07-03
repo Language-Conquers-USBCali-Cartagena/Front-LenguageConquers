@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -13,6 +12,7 @@ export class RegistroComponent implements OnInit {
   form: FormGroup;
   hide = true;
   loading = false;
+  terminos= true;
   constructor(private fb: FormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService) { 
     this.form = this.fb.group({
       usuario: ['', Validators.required],
@@ -74,4 +74,5 @@ export class RegistroComponent implements OnInit {
       this.router.navigateByUrl('/menuPrincipal');
     }, 1500)
   }
+  
 }

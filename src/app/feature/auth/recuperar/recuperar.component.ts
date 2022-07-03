@@ -29,5 +29,6 @@ export class RecuperarComponent implements OnInit {
       console.log(error);
     }
   }
+  
 
 }

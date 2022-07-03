@@ -32,26 +32,59 @@
 }
 
 .ancho{
-  width: 100%;
-  
-  
+  width: 20%;
 }
 .ancho1{
+  max-width: 10em;
+  width: 10em;
   font-family: Pirata One;
-  font-size: 20px;
-  color: black;
+  border-radius: 10px;
+  margin-top: 10px;
   background-color: aqua;
-  margin-left: 150px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding-left: 1em;
+  font-size: 1.5em;
+  margin-left: 5.45em;
+  text-align: center;
+  color: black;
 }
+
 .ancho1:hover{
   background-color: black;
   color: aqua;
 }
+
+.entradauc1 {
+  margin-left: 100px;
+  width: 235px;
+  font-family: Pirata One;
+}
+.entradauc2 {
+  margin-left: 100px;
+  font-family: Pirata One;
+}
 .cambiar-contra{
   justify-content: center;
-  text-align: center;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: Pirata One;
+  
   font-size: 15px;
+  
+}
+.vinculos-contra{
+  font-family: Pirata One;
+  font-size: 20px;
+  color: white;
+ top: 20px;
+ bottom: 20px; 
+ margin-left: -7px;
+}
+.vinculos-contra:hover{
+ 
+  color: white;
+ 
 }
 .button{
   height: 50px;
@@ -72,9 +105,74 @@
 .boton {
   color: white;
 }
+.vinculos{
+  font-family: Pirata One;
+  font-size: 20px;
+  color: white;
+ top: 20px;
+ bottom: 20px;
+  margin-left: 125px;
+}
+.vinculos:hover{
+  color: rgb(255, 255, 255);
+}
 
+.otrac {
+  
+  display: flex;
+   margin-top: 5px;
+   margin-bottom: 10px; 
+   margin-left: 67.5px;
+   width: auto;
+   height: auto;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 0 10px;
+  }
+  
 @media screen and (max-width: 600px) {
   .ancho1{
-    margin-left: 85px;
+    margin-left: 49px;
+  }
+  .vinculos{
+    font-family: Pirata One;
+    font-size: 20px;
+    color: black;
+    top: 20px;
+    bottom: 20px;
+    margin-left: 55px;
+  }
+
+  .vinculos:hover{
+    color: rgb(255, 255, 255);
+  }
+  .otrac {
+    
+    padding-left: 1px;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 1px; 
+    margin-left: 38.5px;
+
+   }
+  .entradauc1 {
+    margin-left: 40px;
+    width: 235px;
+  }
+  .entradauc2 {
+    margin-left: 40px;
   }
 }
+/*boton de check*/
+
+
+
+

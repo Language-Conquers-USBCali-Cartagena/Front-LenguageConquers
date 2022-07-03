@@ -41,6 +41,7 @@ export class EmailVerificationComponent implements OnInit {
    salir(){
     //await this.authService.logout();
     this.router.navigateByUrl("/auth/login");
+    this.authService.logout();
 
   }
 }

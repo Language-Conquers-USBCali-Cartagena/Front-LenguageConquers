@@ -21,3 +21,12 @@ body { margin: 0;font-family: 'Pirata One', cursive; }
   font-family: 'Pirata One', cursive;
   
 }
+.mat-tab-body-content{
+  overflow: hidden !important;
+}
+a {
+  text-decoration: none;
+  }
+.mat-input-element{
+  color: white !important;
+}

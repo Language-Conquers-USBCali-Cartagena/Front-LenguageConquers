@@ -15,7 +15,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AngularFireModule } from "@angular/fire/compat";
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +31,7 @@ import { AngularFireModule } from "@angular/fire/compat";
     PaginaPrincipalModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
-
+    
 
 
 

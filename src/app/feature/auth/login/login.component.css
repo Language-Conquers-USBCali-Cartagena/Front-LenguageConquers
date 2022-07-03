@@ -7,7 +7,7 @@
   line-height: 20px;
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url(../../../../assets/images/logging.png);
+  background-image: url(../../../../assets/images/logging.png); 
   background-size: cover;
 }
 .login{
@@ -79,7 +79,7 @@
   width: 10em;
   font-family: Pirata One;
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
   background-color: aqua;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -87,8 +87,8 @@
   -o-border-radius: 10px;
   padding-left: 1em;
   font-size: 1.5em;
-  margin-left: 5em;
-  align-content: center;
+  margin-left: 5.45em;
+  text-align: center;
   color: black;
   
   
@@ -98,24 +98,23 @@
   color: aqua;
 }
 .entradas {
-  width: 22em;
+  width: 180em;
   
   max-width: 500em;
   max-height: 250em;
   padding-left: 2em;
   margin-left: 2em;
-  height: 3em;
+  height: 5em;
   font-family: 'Pirata One' ;
 }
 .mat-label{
   color: white;
 }
 .otrac {
-  padding-left: 40px;
-  display: flex;
- margin-top: 20px;
+display: flex;
+ margin-top: 5px;
  margin-bottom: 10px; 
- margin-left: 20px;
+ margin-left: 67.5px;
  width: auto;
  height: auto;
 }
@@ -131,14 +130,48 @@
   color: white;
 }
 
+/**lineas*/
+.lienas{
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: 'Pirata One' ;
+  margin-top: 20px;
+}
+.lienas::after,.lienas::before{
+  content: '';
+  position: absolute;
+  width: 170px;
+  height: 3px;
+  background-color: aqua;
+  margin-top: 10px;
+}
+.lienas::before{
+  left: -10px;
+}
+.lienas::after{
+  right: -10px;
+}
+.vinculos-contra{
+  font-family: Pirata One;
+  font-size: 20px;
+  color: white;
+ top: 20px;
+ bottom: 20px; 
+ margin-left: -7px;
+}
+.vinculos-contra:hover{
+ 
+  color: aqua;
+ 
+}
 /***************************/
 
 @media screen and (max-width: 600px) {
   .bg-img {
     width: 100%;
     margin-top: 0;
-    background-image: none;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-image: url(../../../../assets/images/logging.png);
+    
     display: inline-table;
   }
   .fondoTarjeta{
@@ -166,7 +199,7 @@
     justify-content: center;
     align-items: flex-start;
     display: flex;
-    
+   
   }
   .botones {
     width: 6em;
@@ -178,7 +211,7 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     align-content: center;
-    margin-left: 85px;
+    margin-left: 81px;
         
 }
   .botones:hover{
@@ -188,7 +221,7 @@
   }
   .entradas {
     width: 42em;
-    padding-left:-60px;
+    padding-left: 50px;
     font-family: 'Pirata One' ;
   }
   .body
@@ -212,9 +245,29 @@
 .otrac {
  padding-left: 1px;
  display: flex;
- margin-top: 18px;
+ margin-top: 10px;
  margin-bottom: 1px; 
- margin-left: 30px;
+ margin-left: 38.5px;
+}
+.lienas{
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-family: 'Pirata One' ;
+  margin-top: 20px;
+}
+.lienas::after,.lienas::before{
+  content: '';
+  position: absolute;
+  width: 97px;
+  height: 1.5px;
+  background-color: aqua;
+  margin-top: 15px;
+}
+.lienas::before{
+  left: -10px;
+}
+.lienas::after{
+  right: -10px;
 }
 }
 
@@ -222,4 +275,7 @@
 #google{
   background-image: url('../../../../assets/images/google.png');
   background-repeat: no-repeat;
+}
+mat-tab-group{
+  font-family: 'Pirata One' ;
 }
