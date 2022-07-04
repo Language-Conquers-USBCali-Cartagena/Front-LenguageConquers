@@ -47,11 +47,9 @@ export class FormularioProfesorComponent implements OnInit {
     let profesor: Profesor = {nombre: nombre, apellido: apellido, correo:correo, foto:foto, usuarioCreador: usuarioCreador, fechaCreacion: fechaCreacion, idGenero: genero}
     
     this.loginService.createProfesor(profesor).subscribe(resp => {
-      console.log(resp)
-      this.router.navigateByUrl('/menuPrincipal')
+      this.router.navigateByUrl('/menuPrincipal');
     }, err => {
-        console.log(err)
-        this.router.navigateByUrl('/menuPrincipal')
+        this.router.navigateByUrl('/menuPrincipal');
       }
         
     );

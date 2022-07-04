@@ -6,6 +6,13 @@ import { Semestre } from '../../../../shared/models/semestre';
 import { GeneroService } from '../../../../shared/services/genero/genero.service';
 import { SemestreService } from '../../../../shared/services/semestre/semestre.service';
 import { AvatarService } from '../../../../shared/services/avatar/avatar.service';
+import { ServiciosLoginService } from '../../../../shared/services/Login/servicios-login.service';
+import { Estudiante } from '../../../../shared/models/estudiante';
+import { Router } from '@angular/router';
+import { ProgramaService } from '../../../../shared/services/programa/programa.service';
+import { Programa } from '../../../../shared/models/programa';
+import { AuthService } from '../../../../core/service/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-formulario-estudiante',
@@ -17,15 +24,21 @@ export class FormularioEstudianteComponent implements OnInit {
   generos: Genero[] = [];
   avatares: Avatar[] = [];
   semestres: Semestre[] = [];
+  programas: Programa[] = [];
+  correo: string = '';
   terminos= true;
-  constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService) {
+  public user$:Observable<any> = this.authService.afauth.user;
+  constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService, 
+              private loginService: ServiciosLoginService, private router:Router, private programaService: ProgramaService,  private authService: AuthService) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
       apellido: ['', Validators.required],
       nickName: ['', Validators.required],
       semestre: ['', Validators.required],
+      fechaNacimiento: ['', Validators.required],
       avatar: ['', Validators.required],
       genero: ['', Validators.required],
+      programa: ['', Validators.required],
     })
    }
 
@@ -33,22 +46,31 @@ export class FormularioEstudianteComponent implements OnInit {
       this.getGenero();
       this.getAvatar();
       this.getSemestre();
+      this.getPrograma();
+      this.user$.subscribe(res => 
+        {this.correo = res.email
+      });
   }
 
   crearEstudiante(){
+    const correo = this.correo;
     const nombre = this.form.value.nombre;
     const apellido = this.form.value.apellido;
     const nickName = this.form.value.nickName;
-    const semestre = this.form.value.semestre;
-    const avatar = this.form.value.avatar;
-    const genero = this.form.value.genero;
-
-    console.log(nombre);
-    console.log(apellido);
-    console.log(nickName);
-    console.log(semestre);
-    console.log(avatar);
-    console.log(genero);
+    const semestre = this.form.value.semestre.idSemestre;
+    const avatar = this.form.value.avatar.idAvatar;
+    const genero = this.form.value.genero.idGenero;
+    const nacimiento: Date = this.form.value.fechaNacimiento;
+    const programa = this.form.value.programa.idPrograma
+    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioCreador: 'Admin', 
+                                  fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: 1}
+    this.loginService.createEstudiante(estudiante).subscribe(resp =>{
+      this.router.navigateByUrl('/menuPrincipal');
+    }, err =>{
+      console.log(err);
+      
+      this.router.navigateByUrl('/menuPrincipal');
+    })
     
   }
   getGenero(){
@@ -59,5 +81,8 @@ export class FormularioEstudianteComponent implements OnInit {
   }
   getAvatar(){
     this.avatarService.getAvatar().subscribe(resp => this.avatares = resp);
+  }
+  getPrograma(){
+    this.programaService.getProgramas().subscribe(resp => this.programas = resp)
   }
 }

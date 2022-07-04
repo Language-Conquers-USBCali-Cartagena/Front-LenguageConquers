@@ -35,7 +35,7 @@ export class ServiciosLoginService {
   }
 
   createEstudiante(estudiante: Estudiante): Observable<string>{
-    return this.http.post<string>(`${this.baseUrl}/estudiante`, estudiante);
+    return this.http.post<string>(`${this.baseUrl}/estudiante/crearEstudiante`, estudiante);
   }
 
   createProfesor(profesor: Profesor): Observable<string>{
