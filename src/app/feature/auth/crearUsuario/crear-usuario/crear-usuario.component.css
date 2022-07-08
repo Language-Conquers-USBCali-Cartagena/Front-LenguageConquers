@@ -1,27 +1,84 @@
+.crearUsuario{
+  display: grid;
+}
 .fondoTarjeta{
-    max-width: 20em;
-    top: 160px;
+   width: 74em;
+    top: 1px;
     bottom: 1px;
     right: 1px;
-    left: 160px;
+    left: 180px;
     font-family: Pirata One;
      /*Efecto espejo*/
     padding: 1em;
-    max-width: 70%;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.176);
   }
   .fondo{
-    background-image: url(../../../../../assets/images/Creaciondeusuarios.png);
+    background-image: url(../../../../../assets/images/fondocrear.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 750px;
     width: auto;
   }
   a{
-    margin-left: 610px;
-    margin-top: 200px;
-    padding-left: 100px;
-    padding-right: 100px;
-    font-size: medium;
+    
+    margin-top: 1px;
+    height: auto;
+    width: 100px;
+    margin-left: 680px;
+  }
+  h1{
+    font-size: 90px;
+    margin: 0 390px ;
+  }
+  .color{
+    height: 100px;
+    
+  }
+  img{
+    width:auto; 
+    height:100px;
+  }
+  @media screen and (max-width: 600px){
+    .fondo{
+      background-image: url(../../../../../assets/images/fondocrear.png);
+      background-repeat: repeat;
+      
+      height: 900px;
+      width:400px;
+    }
+    .fondoTarjeta{
+      max-width: 10em;
+      width: 450px;
+      height: auto;
+      top: 10px;
+      bottom: 1px;
+      right: 1px;
+      left: 16px;
+      font-family: Pirata One;
+       /*Efecto espejo*/
+      padding: 1em;
+      max-width: 70%;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.176);
+    }
+    a{
+      margin-left: 140px;
+      margin-top: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+      
+    }
+    h1{
+      font-size: 45px;
+      margin: 0 10px ;
+    }
+    .color{
+      height: 50px;
+      
+    }
+    img{
+      width:auto; 
+      height:50px;
+    }
   }
