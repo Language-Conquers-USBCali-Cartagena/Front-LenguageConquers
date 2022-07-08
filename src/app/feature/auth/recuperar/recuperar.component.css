@@ -1,5 +1,4 @@
-.body
-{
+.body {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -8,42 +7,127 @@
   line-height: 60px;
   background-repeat: no-repeat;
   background-size: cover;
-
-
+  background-image: url(../../../../assets/images/principal.png);
 }
 
-.fondoTarjeta{
+.fondoTarjeta {
   max-width: 435px;
   top: 30px;
   bottom: 65px;
 
-   /*Efecto espejo*/
+  /*Efecto espejo*/
   padding: 2em;
   width: 70%;
   position: relative;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.30);
+  background: rgba(255, 255, 255, 0.3);
 }
 
-.ancho{
+.ancho {
   width: 100%;
 }
 
-.button{
-  height: 50px;
-  background-color:rgb(115, 112, 121);
-  color: white;
+.botones {
+  width: 14em;
+  font-family: Pirata One;
+  border-radius: 10px;
+  background-color: aqua;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  align-content: center;
+  margin-left: 130px;
 }
-.spinner{
+
+.botones:hover {
+  background-color: black;
+  color: aqua;
+}
+
+.spinner {
   margin: 0 auto;
 }
-.centrar{
-  text-align: center;
+
+.text {
+  margin-left: 58px;
   color: black;
+  font-size: 20px;
+ 
 }
-.text
-{
-  text-align: center;
-  color: black;
-  font-size:15px;
+
+.login {
+  width: 50%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+img{
+  width: 140px;
+  height: auto;
+  margin-left: 150px;
+  
+}
+@media screen and (max-width: 600px) {
+  .fondoTarjeta {
+    max-width: 473px;
+    top: -56px;
+    bottom: 97px;
+    padding: 4em;
+    width: 60%;
+    /*Efecto espejo*/
+    position: relative;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .ancho {
+    width: 100%;
+  }
+
+  .spinner {
+    margin: 0 auto;
+  }
+
+  .text {
+    margin-left: 4px;
+    color: black;
+    font-size: 19px;
+    display: flow-root;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .login {
+    width: 50%;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .botones {
+    width: 8em;
+    font-family: Pirata One;
+    border-radius: 10px;
+    background-color: aqua;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    align-content: center;
+    margin-left: 5px;
+  }
+
+  .botones:hover {
+    background-color: black;
+    color: aqua;
+  }
+  img{
+    width: 100px;
+    height: auto;
+    margin-left: 0px;
+  }
 }
