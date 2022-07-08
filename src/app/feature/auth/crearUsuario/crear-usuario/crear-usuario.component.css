@@ -1,13 +1,27 @@
 .fondoTarjeta{
     max-width: 20em;
-    top: 1px;
-    bottom: px;
+    top: 160px;
+    bottom: 1px;
     right: 1px;
-    left: 1px;
+    left: 160px;
     font-family: Pirata One;
      /*Efecto espejo*/
     padding: 1em;
-    max-width: 100%;
+    max-width: 70%;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.176);
+  }
+  .fondo{
+    background-image: url(../../../../../assets/images/Creaciondeusuarios.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 750px;
+    width: auto;
+  }
+  a{
+    margin-left: 610px;
+    margin-top: 200px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-size: medium;
   }

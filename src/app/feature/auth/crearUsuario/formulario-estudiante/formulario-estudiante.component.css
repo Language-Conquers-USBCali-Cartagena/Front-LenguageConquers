@@ -1,0 +1,9 @@
+.botones{
+    margin-left: 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+form{
+    height: 300px;
+    width: auto;
+}
