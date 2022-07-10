@@ -1,4 +1,7 @@
-<form [formGroup]="form" (ngSubmit)="crearEstudiante()">
+<form [formGroup]="form" (ngSubmit)="crearEstudiante()" >
+    <div class="entradas">
+
+    
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Nombre</mat-label>
@@ -36,9 +39,25 @@
             <mat-label>Avatar</mat-label>
             
             <mat-select formControlName="avatar">
-                <mat-option *ngFor="let avatar of avatares" [value]="avatar">
-                    {{avatar.nombreAvatar}}
-                </mat-option>
+                <!-- <mat-option *ngFor="let avatar of avatares" [value]="avatar">
+                    {{avatar.imgAvatar}}
+                </mat-option> -->
+                <mat-optgroup >
+                    <legend>Elige un avatar</legend>
+                    <mat-option style="height: 80px;"*ngFor="let avatar of avatares" [value]="avatar">
+                        <input type="radio" name="avatar" value="avatar1" class="radio"> 
+                        <img src={{avatar.imgAvatar}} style="height: 70px;" alt="avatar1">
+                        
+                    </mat-option>
+                    <!-- <mat-option style="height: 80px;">
+                        <input type="radio" name="avatar" value="avatar1" class="radio"> 
+                        <img src="../../../../../assets/images/avatar/avatar1.png" style="height: 70px;" alt="avatar1">
+                    </mat-option>
+                    <mat-option style="height: 80px;">
+                        <input type="radio" name="avatar" value="avatar1" class="radio"> 
+                        <img src="../../../../../assets/images/avatar/avatar1.png" style="height: 70px;" alt="avatar1">
+                    </mat-option> -->
+                </mat-optgroup>
             </mat-select>
             <mat-icon matSuffix class="boton">avatar</mat-icon>
         </mat-form-field>
@@ -81,8 +100,9 @@
             </mat-datepicker>
           </mat-form-field>
     </div>
-    <div  style="top: 20px;">
-        <button class="ancho1" mat-raised-button color="primary" >Create Account</button>  
+    </div>
+    <div  class="boton">
+        <button  mat-raised-button color="primary" >Create Account</button>  
     </div>
 
 </form>

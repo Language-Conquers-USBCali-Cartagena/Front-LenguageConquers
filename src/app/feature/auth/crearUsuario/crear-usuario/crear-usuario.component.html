@@ -1,9 +1,14 @@
+<div class="fondo">
+    <mat-toolbar class="color"  style="opacity: 0.4;">
+        <img src="./assets/images/logo.png" alt="" >
+        <h1 >Crear Cuenta</h1>  
+      </mat-toolbar>
 <div class="card" *ngIf="user$ | async as user; else loading">
     
     <div class = "crearUsuario">
         <mat-card class="fondoTarjeta">
             <mat-card-content>
-                <mat-tab-group>
+                <mat-tab-group mat-align-tabs="center">
                     <mat-tab label="Estudiante">
                         <app-formulario-estudiante></app-formulario-estudiante>
                     </mat-tab>
@@ -14,9 +19,12 @@
             </mat-card-content>
             
         </mat-card>
+        <a mat-raised-button  color="accent" (click)="salir()">Sign Up</a>
     </div>
-    <a mat-raised-button  color="accent" (click)="salir()">Sign Up</a>
+    
 </div>
+
 <ng-template #loading>
     loading...
 </ng-template>
+</div>
