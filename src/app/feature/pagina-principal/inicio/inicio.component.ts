@@ -28,9 +28,15 @@ export class InicioComponent implements OnInit {
      
     await this.loginService.existEstudianteByCorreo(email).toPromise().then((response) => {
       this.estudianteExiste = response;
+      if(response == true){
+        this.router.navigateByUrl("/estudiante/menu")
+      }
     })
     await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
       this.profesorExiste = response;
+      if(response == true){
+        this.router.navigateByUrl("/profesor/menu")
+      }
     })
   
     if(this.estudianteExiste == true || this. profesorExiste == true){
@@ -54,10 +60,6 @@ export class InicioComponent implements OnInit {
         }
       })
       
-    })
-    
+    }) 
   }
-
-
-
 }

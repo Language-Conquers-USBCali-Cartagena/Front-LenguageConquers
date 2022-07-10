@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { ServiciosLoginService } from '../../../shared/services/Login/servicios-login.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -12,10 +13,14 @@ import { ServiciosLoginService } from '../../../shared/services/Login/servicios-
 })
 export class LoginComponent implements OnInit {
 
+  public user$:Observable<any> = this.authService.afauth.user;
   form: FormGroup;
   hide = true;
   loading = false;
   fail = true;
+  profesorExiste: boolean = false;
+  estudianteExiste: boolean = false;
+
   constructor(private fb: FormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService) {
     this.form = this.fb.group({
       usuario: ['', Validators.required],
@@ -24,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.redireccion();
+    this.validaciones()
   }
 
   ingresar() {
@@ -36,7 +41,7 @@ export class LoginComponent implements OnInit {
       if(res?.user?.emailVerified == true){
         this.fail = false;
         console.log(res);
-        this.redireccionPaginaPrincipal();
+        this.validaciones();
       }else if(res?.user?.emailVerified == false){
         this.router.navigate(['/auth/verificar-email']);
       }
@@ -50,7 +55,7 @@ export class LoginComponent implements OnInit {
     // this.validarExistenciaBD('wefohef@wge.com')
     this.authService.loginWithGoogle().then(res => {
       console.log("Ingreso: ", res);
-      this.redireccionPaginaPrincipal();
+      this.validaciones();
     }).catch(err => {
       this.error();
     });
@@ -59,7 +64,7 @@ export class LoginComponent implements OnInit {
   IngresarConFacebook(){
     this.authService.loginWithFacebook().then(res => {
       console.log("Ingreso: ", res);
-      this.redireccionPaginaPrincipal();
+      this.validaciones();
     }).catch(err => {
       this.error();
     })
@@ -93,7 +98,53 @@ export class LoginComponent implements OnInit {
     }, 1500)
   }
 
+  async validarExistenciaBD(email: String){
+     
+    await this.loginService.existEstudianteByCorreo(email).toPromise().then((response) => {
+      this.estudianteExiste = response;
+      if(response == true){
+        this.router.navigateByUrl("/estudiante/menu")
+      }
+    })
+    await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
+      this.profesorExiste = response;
+      if(response == true){
+        this.router.navigateByUrl("/profesor/menu")
+      }
+    })
+  
+    if(this.estudianteExiste == true || this. profesorExiste == true){
+      return true
+    }else {
+      return false
+    }
 
+  }
+  validaciones(){
+    this.loading = true;
+    setTimeout(() => {
+      this.authService.getUserLogged().subscribe(res =>{
+        if(res?.email == null){
+          this.loading = false;
+        }
+      })
+      let correo= ''; 
+      this.user$.subscribe(  res => {
+        if(res.emailVerified == false){
+          this.router.navigate(['auth/verificar-email'])
+        }
+        correo = res.email;
+        this.validarExistenciaBD(correo).then(resp => {
+          if(resp == false){
+            this.router.navigateByUrl("/auth/crearUsuario")
+          }
+        })
+        
+      }) 
+
+    }, 1500)
+
+  }
 
 
 

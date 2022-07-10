@@ -15,6 +15,14 @@ const routes: Routes = [
     path: 'menuPrincipal',
     loadChildren: () => import('./feature/pagina-principal/pagina-principal.module').then(m => m.PaginaPrincipalModule)
   },
+  {
+    path: 'estudiante',
+    loadChildren: ()=>import('./feature/estudiante/estudiante.module').then(m => m.EstudianteModule)
+  },
+  {
+    path: 'profesor',
+    loadChildren: ()=>import('./feature/profesor/profesor.module').then(m => m.ProfesorModule)
+  }
   // {
   //   path: '**',
   //   redirectTo: 'auth'
