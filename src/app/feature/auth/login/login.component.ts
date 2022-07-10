@@ -78,32 +78,32 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  redireccionPaginaPrincipal() {
-    this.loading = true;
-    setTimeout(() => {
-      // se debe de redireccionar a la pagina principal
-      this.router.navigateByUrl('/menuPrincipal');
-    }, 1500)
-  }
-  redireccion() {
-    this.loading = true;
-    setTimeout(() => {
-      // se debe de redireccionar a la pagina principal
-      this.router.navigateByUrl('/menuPrincipal')
-      this.authService.getUserLogged().subscribe(res =>{
-        if(res?.email == null){
-          this.loading = false;
-        }
-      })
-    }, 1500)
-  }
+  // redireccionPaginaPrincipal() {
+  //   this.loading = true;
+  //   setTimeout(() => {
+  //     // se debe de redireccionar a la pagina principal
+  //     this.router.navigateByUrl('/menuPrincipal');
+  //   }, 1500)
+  // }
+  // redireccion() {
+  //   this.loading = true;
+  //   setTimeout(() => {
+  //     // se debe de redireccionar a la pagina principal
+  //     this.router.navigateByUrl('/menuPrincipal')
+  //     this.authService.getUserLogged().subscribe(res =>{
+  //       if(res?.email == null){
+  //         this.loading = false;
+  //       }
+  //     })
+  //   }, 1500)
+  // }
 
   async validarExistenciaBD(email: String){
      
     await this.loginService.existEstudianteByCorreo(email).toPromise().then((response) => {
       this.estudianteExiste = response;
       if(response == true){
-        this.router.navigateByUrl("/estudiante/menu")
+        this.router.navigateByUrl("/estudiante/menu/" + email)
       }
     })
     await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {

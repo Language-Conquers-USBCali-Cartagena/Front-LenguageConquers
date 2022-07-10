@@ -13,10 +13,11 @@
         <br>
         <a>Opcion 6</a>
         <br>
-        <a>Opcion 7</a>
+        <button mat-button (click)="salir()">salir</button>
         <br>
     </mat-sidenav >
     <mat-sidenav-content>
+        <!-- Aqui va todo lo que esta por fuera del sidenav -->
         <button mat-button (click)="sidenav.toggle()">Toggle</button>
         <router-outlet></router-outlet>
     </mat-sidenav-content>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../core/service/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ServiciosLoginService } from '../../../shared/services/Login/servicios-login.service';
+import { Estudiante } from '../../../shared/models/estudiante';
 
 @Component({
   selector: 'app-menu',
@@ -8,14 +10,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
-  constructor(private authService: AuthService, private router: Router) { }
-
+  estudiante: Estudiante = {};
+  correo: string = '';
+  constructor(private authService: AuthService, private router: Router, private loginService: ServiciosLoginService, private _route: ActivatedRoute) { }
   ngOnInit(): void {
+    this.correo = this._route.snapshot?.paramMap?.get('correo')!;
+    this.obtenerEstudiante(this.correo);
+    
   }
 
-  salir(){
-    this.authService.logout()
-    this.router.navigateByUrl("/auth/login");
+  async obtenerEstudiante(correo: string){
+    await this.loginService.getEstudiante(correo).toPromise().then((response) => {
+      this.estudiante = response;
+    } 
+    )
+    console.log(this.estudiante)
+    console.log(this.correo)
   }
 }

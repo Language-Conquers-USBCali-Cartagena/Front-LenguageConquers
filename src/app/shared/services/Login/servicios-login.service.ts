@@ -15,6 +15,7 @@ export class ServiciosLoginService {
 
   constructor(private http: HttpClient) { }
   baseUrl: string = environment.endpoint;
+
   existEstudianteByCorreo(email: String): Observable<boolean>{
     let paramsHttp = new HttpParams({
       fromObject: {
@@ -40,5 +41,13 @@ export class ServiciosLoginService {
 
   createProfesor(profesor: Profesor): Observable<string>{
     return this.http.post<string>(`${this.baseUrl}/profesor/registrarProfesor`, profesor);
+  }
+  getEstudiante(email: string): Observable<Estudiante>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        correo: `${email}`
+      }
+    });
+    return this.http.get<Estudiante>(`${this.baseUrl}/estudiante/porCorrero`, {params: paramsHttp});
   }
 }

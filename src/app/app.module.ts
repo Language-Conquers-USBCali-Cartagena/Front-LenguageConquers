@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PaginaPrincipalModule } from './feature/pagina-principal/pagina-principal.module';
+// import { PaginaPrincipalModule } from './feature/pagina-principal/pagina-principal.module';
 import { PerfilEstudianteComponent } from './feature/perfil-estudiante/perfil-estudiante.component';
 import { MaterialModule } from './shared/material/material.module';
 import { environment } from '../environments/environment';
@@ -24,7 +24,7 @@ import { AngularFireModule } from "@angular/fire/compat";
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    PaginaPrincipalModule,
+    // PaginaPrincipalModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
     
