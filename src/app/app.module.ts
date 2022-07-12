@@ -11,6 +11,8 @@ import { PerfilEstudianteComponent } from './feature/perfil-estudiante/perfil-es
 import { MaterialModule } from './shared/material/material.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from "@angular/fire/compat";
+import { FrontModule } from './front/front.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,7 @@ import { AngularFireModule } from "@angular/fire/compat";
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FrontModule,
     // PaginaPrincipalModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
