@@ -1,61 +1,16 @@
 <div class="body">
-    <img src="./assets/images/fondoPerfil.png" width="100%" style="position: absolute; right: 0; top: 0; z-index: -100; opacity: 0.65;">
-    <br>
-    <mat-grid-list cols="1" rowHeight="220px">
-      <mat-grid-tile>
-        <img src="assets/images/avatar/avatar1.png" alt="" height="200">
-        <div id="imageChange">
-          <h2>Puntos Individuales: {{estudiante.puntaje}}</h2>
-          <button mat-button style="background-color: rgb(90, 134, 155); color: rgb(255, 255, 255)"> Cambiar avatar</button>
-          <br><br>
-        </div>
-      </mat-grid-tile>
-  
-      <mat-grid-tile>
-        <table class="example-full-width" cellspacing="10">
-          <tr>
-          <td><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>{{estudiante.nombre}}</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-  
-          <td><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>{{estudiante.apellido}}</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-          <th><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>{{estudiante.nickName}}</mat-label>
-            <input matInput>
-          </mat-form-field></th>
-        </tr>
-        <tr>
-          <td><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>{{estudiante.idGenero}}</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>{{estudiante.correo}}</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-          <td><mat-form-field class="example-full-width" appearance="fill">
-            <mat-label>{{estudiante.idPrograma}}</mat-label>
-            <input matInput>
-          </mat-form-field></td>
-        </tr>
-        <tr>
-          <td>
-            <button mat-button style="background-color: rgb(90, 134, 155); color: rgb(255, 255, 255); " > Guardar Cambios</button>
-          </td>
-          <td>
-            <button mat-button style="background-color: rgb(90, 134, 155); color: rgb(255, 255, 255)" disabled> Cancelar</button>
-          </td>
-        </tr>
-      </table>
-      </mat-grid-tile>
-  
-    </mat-grid-list>
-  
-  
-  
-  </div>
-  
+
+    <div class="fondoTarjeta">
+      <div class="estudiante" >
+
+        <img src="assets/images/avatar/avatar1.png" alt="" height="100">
+          <h2>Nombre: {{estudiante.nombre}} </h2>
+          <!-- <h3>Puntos Individuales: {{estudiante.puntaje}}</h3> -->
+          <button mat-button style="background-color: rgb(90, 134, 155); color: rgb(255, 255, 255)"> Cambiar
+            avatar</button>
+          </div>
+            <mat-card class="fondoTarjeta2">
+              
+            </mat-card>
+    </div>
+</div>

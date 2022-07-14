@@ -1,10 +1,15 @@
-.entradas {
-    margin-left: 120px;
-    display: grid;
-    grid-template-columns: repeat(2, 20em);
-    justify-content: center;
+.entradas {  
+     display: grid;
+    margin: 10px auto;
+    grid-template-columns: repeat(2, 18em);
+    justify-content: center; 
+   
 }
-
+.campo-entrada{
+    float: right;
+    width: 50%;
+    
+}
 form {
     height: 350px;
     width: auto;
@@ -13,21 +18,25 @@ form {
 .boton {
     margin: 1px;
     position: relative;
-    left: 47%;
-
+    left: 40%;
 }
 
 @media screen and (max-width: 600px) {
+    
+        
     .entradas {
-        margin-left: 0;
-        grid-template-columns: repeat(2, 10em);
-        justify-content: start;
-
+        margin:10px auto;
+        grid-template-columns: repeat(2, 130px);
+    }
+    .campo-entrada{
+        
+        width: 5px;
+        
     }
 
     form {
-        height: 350px;
-        width: auto;
+        height: auto;
+        width: 350px;
     }
 
     .boton {
@@ -37,12 +46,7 @@ form {
 
     }
 
-    .mat-form-field-infix {
-        display: block;
-        position: relative;
-        flex: auto;
-        min-width: 0;
-        width: 104px;
-    }
+  
+    
 
 }
