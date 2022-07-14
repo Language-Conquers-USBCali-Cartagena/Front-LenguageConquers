@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { FrontRoutingModule } from './front-routing.module';
 import { MaterialModule } from '../shared/material/material.module';
-import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+
 
 
 @NgModule({
   declarations: [
-    NavbarComponent
+   
+  
+    SidebarComponent
   ],
   imports: [
     CommonModule,

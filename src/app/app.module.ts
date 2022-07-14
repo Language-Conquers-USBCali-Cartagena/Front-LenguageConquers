@@ -13,10 +13,12 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from "@angular/fire/compat";
 import { FrontModule } from './front/front.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     PerfilEstudianteComponent,
+    
 
 
   ],

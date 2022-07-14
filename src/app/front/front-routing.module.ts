@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+
 
 const routes: Routes = [{
   path:'',
-  component:NavbarComponent,
+  component:SidebarComponent,
   children:[
-    // {
-    //  path:'urlprueba',
-    //  component:NavbarComponent, 
-    // }
+     {
+      path:'urlprueba',
+      component:SidebarComponent, 
+     }
   ]
 }];
 
