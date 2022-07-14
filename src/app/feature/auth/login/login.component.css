@@ -114,7 +114,7 @@
 display: flex;
  margin-top: 5px;
  margin-bottom: 10px; 
- margin-left: 67.5px;
+ margin-left: 65px;
  width: auto;
  height: auto;
 }
@@ -165,7 +165,26 @@ display: flex;
  
 }
 /***************************/
-
+.google{
+  width: 55px;
+  height: 55px;
+  background: url(../../../../assets/images/google.png);
+}
+.google:hover{
+  width: 55px;
+  height: 55px;
+  background: url(../../../../assets/images/google2.png);
+}
+.facebook{
+  width: 55px;
+  height: 55px;
+  background: url(../../../../assets/images/facebook.png);
+}
+.facebook:hover{
+  width: 55px;
+  height: 55px;
+  background: url(../../../../assets/images/facebook2.png);
+}
 @media screen and (max-width: 600px) {
   .bg-img {
     width: 100%;
@@ -272,10 +291,7 @@ display: flex;
 }
 
 
-#google{
-  background-image: url('../../../../assets/images/google.png');
-  background-repeat: no-repeat;
-}
+
 mat-tab-group{
   font-family: 'Pirata One' ;
 }

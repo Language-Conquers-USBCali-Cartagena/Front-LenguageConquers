@@ -13,7 +13,7 @@ import { CrearUsuarioComponent } from './crearUsuario/crear-usuario/crear-usuari
 import { AutenticacionComponent } from './autenticacion/autenticacion.component';
 import { FormularioProfesorComponent } from './crearUsuario/formulario-profesor/formulario-profesor.component';
 import { FormularioEstudianteComponent } from './crearUsuario/formulario-estudiante/formulario-estudiante.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     LoginComponent,
@@ -32,7 +32,7 @@ import { FormularioEstudianteComponent } from './crearUsuario/formulario-estudia
     ReactiveFormsModule,
     FormsModule,
     MatRadioModule,
-    
+    MatGridListModule
     
   ],
   providers: [
