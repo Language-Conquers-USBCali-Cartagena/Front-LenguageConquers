@@ -3,7 +3,13 @@ mat-sidenav-container{
 }
 mat-sidenav{
     width: 100px;
-    background-color: bisque;
+    background-color: aqua;
+    
+}
+.menu>a{
+
+    color: white;
+    
 }
 .color{
     background: url(../../../../assets/images/homeestudiante.png);
@@ -69,5 +75,25 @@ mat-toolbar{
   }
   .center:hover div {
     transform: scale(0);
+  }
+  @media screen  and (max-width: 600px) {
+    .color{
+        
+        justify-content: none;
+    }
+    .menu>a{
+
+        color: white;
+        
+    }
+    .color>img{
+        height: 37px;
+    }
+    .color>h1{
+        font-size: 37px;
+        color: white;
+       
+    }
+    
   }
   
