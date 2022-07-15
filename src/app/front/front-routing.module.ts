@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MenuProfesorComponent } from './menu-profesor/menu-profesor.component';
+import { ProfesorComponent } from './profesor/profesor.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 const routes: Routes = [{
   path:'',
-  component:SidebarComponent,
+  component:ProfesorComponent,
   children:[
      {
-      path:'urlprueba',
-      component:SidebarComponent, 
+       
+      path:'menu/prueba',
+      component:MenuProfesorComponent,
      }
   ]
 }];
 
+
+
+  
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

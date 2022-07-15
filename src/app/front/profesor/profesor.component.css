@@ -1,0 +1,98 @@
+mat-sidenav-container{
+    height: 100%;
+}
+mat-sidenav{
+    width: 100px;
+    background-color: aqua;
+    
+}
+.menu>a{
+
+    color: white;
+    
+}
+.color{
+    background: url(../../../assets/images/homeestudiante.png);
+    background-size: cover;
+    justify-content: space-between;
+}
+.color>img{
+    height: 70px;
+}
+.color>h1{
+    font-size: 37px;
+    color: white;
+   
+}
+
+mat-toolbar{
+    align-content:space-between 10px ;
+}
+
+/**menu burger*/
+.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 50px;
+    background-color: black;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+  
+  .center:before,
+  .center:after{
+    background: white;
+    content: "";
+    display: block;
+    height: 6px;
+    border-radius: 3px;
+    margin: 7px 0;
+    transition: 0.5s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+  .center div{
+    background: aqua;
+    content: "";
+    display: block;
+    height: 6px;
+    border-radius: 3px;
+    margin: 7px 0;
+    transition: 0.5s;
+  }
+  .center:hover:before {
+    transform: translateY(12px) rotate(135deg);
+  }
+  .center:hover:after {
+    transform: translateY(-12px) rotate(-135deg);
+  }
+  .center:hover div {
+    transform: scale(0);
+  }
+  @media screen  and (max-width: 600px) {
+    .color{
+        
+        justify-content: none;
+    }
+    .menu>a{
+
+        color: white;
+        
+    }
+    .color>img{
+        height: 37px;
+    }
+    .color>h1{
+        font-size: 37px;
+        color: white;
+       
+    }
+    
+  }
