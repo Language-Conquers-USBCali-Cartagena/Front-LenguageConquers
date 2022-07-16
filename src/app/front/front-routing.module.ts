@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MenuProfesorComponent } from './menu-profesor/menu-profesor.component';
 import { ProfesorComponent } from './profesor/profesor.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+
 
 
 const routes: Routes = [{
