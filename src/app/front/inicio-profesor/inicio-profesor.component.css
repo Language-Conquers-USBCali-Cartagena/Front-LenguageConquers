@@ -39,6 +39,12 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
+.noti{
+    background:url(../../../assets/icons/campana.png);
+    background-size: cover;
+    width: 45px ;
+    height: 45px;
+}
 .estudiante>img{
     margin-left: 640px;
    
@@ -55,7 +61,7 @@ h2{
     margin-left: 22em;
 }
 .color{
-    background: url(../../../assets/images/homeestudiante.png);
+    background: url(../../../assets/images/isla-1.png);
     background-size: cover;
     justify-content: space-between;
 }
@@ -72,6 +78,10 @@ h2{
         background: url(../../../assets/images/isla-1.png);
         background-size: cover;
        
+    }
+    .confi {
+        background: url(../../../assets/icons/tuerca.png);
+        background-size: cover;
     }
     .color{
         
@@ -127,9 +137,9 @@ h2{
     .estudiante>button{
         margin-left: 110px;
     }
-    .boton-cursos{
-        background:url(../../../assets/images/boton.png);
-        background-size: cover;
+    .noti{
+        background:url(../../../assets/icons/campana.png);
+        background-size: 28px;
         background-repeat: no-repeat;
         height: 30px;
         width: 30px;
