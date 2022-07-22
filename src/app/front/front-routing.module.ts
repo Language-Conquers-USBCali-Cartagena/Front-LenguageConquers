@@ -21,7 +21,7 @@ const routes: Routes = [{
       component:InicioProfesorComponent
      },
      {
-      path: 'inicioestu', 
+      path: 'inicioes', 
       component:InicioEstudianteComponent
      },
         
