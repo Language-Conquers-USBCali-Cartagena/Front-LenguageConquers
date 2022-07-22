@@ -3,16 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { InicioProfesorComponent } from './inicio-profesor/inicio-profesor.component';
 import { MenuProfesorComponent } from './menu-profesor/menu-profesor.component';
 import { ProfesorComponent } from './profesor/profesor.component';
+import { VistaComponent } from './vista/vista.component';
 
 
 
 const routes: Routes = [{
   path:'',
-  component:InicioProfesorComponent,
+  component:VistaComponent,
   children:[
      {
       path:'menu',
-      component:MenuProfesorComponent
+      component:ProfesorComponent
      },
      {
       path: 'inicio', 
