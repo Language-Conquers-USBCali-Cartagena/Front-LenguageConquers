@@ -6,6 +6,8 @@ import { MaterialModule } from '../shared/material/material.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ProfesorComponent } from './profesor/profesor.component';
 import { MenuProfesorComponent } from './menu-profesor/menu-profesor.component';
+import { InicioProfesorComponent } from './inicio-profesor/inicio-profesor.component';
+import { InicioEstudianteComponent } from './inicio-estudiante/inicio-estudiante.component';
 
 
 
@@ -15,7 +17,9 @@ import { MenuProfesorComponent } from './menu-profesor/menu-profesor.component';
   
     SidebarComponent,
     ProfesorComponent,
-    MenuProfesorComponent
+    MenuProfesorComponent,
+    InicioProfesorComponent,
+    InicioEstudianteComponent
   ],
   imports: [
     CommonModule,
