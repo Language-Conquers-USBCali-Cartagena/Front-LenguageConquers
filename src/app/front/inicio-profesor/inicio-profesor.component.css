@@ -40,10 +40,40 @@ h2{
     color: white;
     margin-left: 22em;
 }
+.color{
+    background: url(../../../assets/images/homeestudiante.png);
+    background-size: cover;
+    justify-content: space-between;
+}
+.color>img{
+    height: 50px;
+}
+.color>h1{
+    font-size: 37px;
+    color: white;
+   
+}
 @media screen  and (max-width: 600px) {
     .body{
         background: url(../../../assets/images/isla-1.png);
         background-size: cover;
+       
+    }
+    .color{
+        
+        justify-content: none;
+    }
+    .menu>a{
+
+        color: white;
+        
+    }
+    .color>img{
+        height: 37px;
+    }
+    .color>h1{
+        font-size: 37px;
+        color: white;
        
     }
     .fondoTarjeta {
