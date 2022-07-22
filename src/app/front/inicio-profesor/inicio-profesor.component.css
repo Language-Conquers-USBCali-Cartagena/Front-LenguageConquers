@@ -2,6 +2,9 @@
     background: url(../../../assets/images/isla-1.png);
     background: cover;
 }
+.confi {
+    background:url(../../../assets/icons/tuerca.png); ;
+}
 .fondoTarjeta {
     width: 100em;
     height: 648px;
