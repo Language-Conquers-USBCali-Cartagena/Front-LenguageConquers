@@ -164,4 +164,18 @@ background:url(../../../assets/icons/tuerca.png);
         color: white;
         margin-left: 5em;
     }
+    .confi {
+        background:url(../../../assets/icons/tuerca.png);
+        width: 30px;
+        height: 30px;
+        background-size: 100%;
+        border: none;
+    }
+    .confi:hover {
+        background:url(../../../assets/icons/tuerca.png);
+        width: 30px;
+        height: 30px;
+        background-size: 50%;
+        border: none;
+    }
 }

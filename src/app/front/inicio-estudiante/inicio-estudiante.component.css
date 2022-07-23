@@ -23,6 +23,7 @@
     width: 45px ;
     height: 45px;
     text-align: left;
+    border: 1em;
 }
 .confi:hover {
     background:url(../../../assets/icons/tuerca.png);
