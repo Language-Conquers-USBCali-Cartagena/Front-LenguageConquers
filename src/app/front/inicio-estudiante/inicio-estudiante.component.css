@@ -13,15 +13,22 @@
     background:url(../../../assets/icons/campana.png);
     background-size: cover;
     width: 45px ;
-    height: 45px;
-    text-align: left;
+    height: 40px;
+    border: none;
+    margin-left: 16px;
 }
 .tienda {
     background:url(../../../assets/icons/tienda.png);
-    background-size: cover;
-    width: 45px ;
-    height: 45px;
-    text-align: left;
+    width: 48px;
+    height: 48px;
+    background-position: center;
+    background-size: 100%;
+    border: none;
+    margin-left: 16px;
+}
+.boto{
+    justify-content: space-between;
+    
 }
 .confi:hover {
     background:url(../../../assets/icons/tuerca.png);
@@ -30,9 +37,24 @@
     background-size: 50%;
     border: none;
 }
+.noti:hover{
+    background:url(../../../assets/icons/campana.png);
+    background-size: cover;
+    width: 45px ;
+    height: 40px;
+    background-size: 50%;
+    border: none;
+}
+.tienda:hover {
+    background:url(../../../assets/icons/tienda.png);
+    width: 48px;
+    height: 48px;
+    background-size: 50%;
+    border: none;
+}
 .titulo {
     text-align: center;
-    margin-right: 400px;
+    margin-right: 100px;
 }
 .puntos {
     color: yellow;
@@ -92,6 +114,10 @@ h2{
         
         justify-content: none;
     }
+    .titulo {
+        text-align: center;
+        margin-right: 20px;
+    }
     .menu>a{
 
         color: white;
@@ -138,5 +164,55 @@ h2{
     h2{
         color: white;
         margin-left: 5em;
+    }
+    /**/
+    
+    .noti{
+        background:url(../../../assets/icons/campana.png);
+        background-size: cover;
+        width: 20px;
+        height: 20px;
+        background-size: 100%;
+        border: none;
+        margin-left: 6px;
+
+    }
+    
+    .noti:hover{
+        background:url(../../../assets/icons/campana.png);
+        background-size: cover;
+        width: 20px;
+        height: 20px;
+        background-size: 50%;
+        border: none;
+    }
+    .tienda {
+        background:url(../../../assets/icons/tienda.png);
+        width: 20px;
+        height: 20px;
+        background-size: 100%;
+        border: none;
+        margin-left: 6px;
+    }
+    .tienda:hover {
+        background:url(../../../assets/icons/tienda.png);
+        width: 20px;
+        height: 20px;
+        background-size: 50%;
+        border: none;
+    }
+    .confi {
+        background:url(../../../assets/icons/tuerca.png);
+        width: 20px;
+        height: 20px;
+        background-size: 100%;
+        border: none;
+    }
+    .confi:hover {
+        background:url(../../../assets/icons/tuerca.png);
+        width: 20px;
+        height: 20px;
+        background-size: 50%;
+        border: none;
     }
 }
