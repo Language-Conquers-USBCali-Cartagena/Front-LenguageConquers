@@ -41,6 +41,7 @@
     background-repeat: no-repeat;
     height: 60px;
     width: 60px;
+    border: 1em;
 }
 h2{
     color: white;
