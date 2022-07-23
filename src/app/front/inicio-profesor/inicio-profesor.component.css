@@ -39,11 +39,18 @@
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
+.titulo{
+    text-align: center;
+    margin-right: 350px;
+
+}
 .noti{
     background:url(../../../assets/icons/campana.png);
     background-size: cover;
     width: 45px ;
     height: 45px;
+    margin-right: 100px;
+    border: 1em;
 }
 .estudiante>img{
     margin-left: 640px;
@@ -82,6 +89,7 @@ h2{
     .confi {
         background: url(../../../assets/icons/tuerca.png);
         background-size: cover;
+        
     }
     .color{
         
@@ -142,7 +150,15 @@ h2{
         background-size: 28px;
         background-repeat: no-repeat;
         height: 30px;
+        width: 30px;    
+    }
+    .confi {
+background:url(../../../assets/icons/tuerca.png);
+        background-size: 28px;
+        background-repeat: no-repeat;
+        height: 30px;
         width: 30px;
+
     }
     h2{
         color: white;
