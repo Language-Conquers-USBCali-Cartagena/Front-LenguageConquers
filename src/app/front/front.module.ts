@@ -13,6 +13,7 @@ import { VistaComponent } from './vista/vista.component';
 
 
 
+
 @NgModule({
   declarations: [
 
@@ -25,7 +26,8 @@ import { VistaComponent } from './vista/vista.component';
   imports: [
     CommonModule,
     FrontRoutingModule,
-    MaterialModule
+    MaterialModule,
+    
   ]
 })
 export class FrontModule { }

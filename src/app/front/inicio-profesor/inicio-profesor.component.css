@@ -63,16 +63,25 @@ h2{
 .color{
     background: url(../../../assets/images/isla-1.png);
     background-size: cover;
-    justify-content: space-between;
+    height: 100px;
 }
-.color>img{
+
+.colorc {
+    margin-left: 600px;
+  }
+  
+  .colorc>img {
     height: 50px;
-}
-.color>h1{
+    margin-left: 40px;
+    margin-top: 10px;
+  }
+  
+  .colorc>h1 {
     font-size: 37px;
     color: white;
-   
-}
+    margin-left: 30px;
+  
+  }
 @media screen  and (max-width: 600px) {
     .body{
         background: url(../../../assets/images/isla-1.png);
@@ -92,10 +101,13 @@ h2{
         color: white;
         
     }
-    .color>img{
+    .colorc {
+        margin-left: 80px;
+      }
+    .colorc>img{
         height: 37px;
     }
-    .color>h1{
+    .colorc>h1{
         font-size: 37px;
         color: white;
        

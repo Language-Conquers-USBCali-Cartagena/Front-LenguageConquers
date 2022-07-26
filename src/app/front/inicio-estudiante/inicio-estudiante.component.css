@@ -1,6 +1,7 @@
 .body{
     background: url(../../../assets/images/isla-0.png);
     background: cover;
+    
 }
 .confi {
     background:url(../../../assets/icons/tuerca.png);
@@ -52,10 +53,7 @@
     background-size: 50%;
     border: none;
 }
-.titulo {
-    text-align: center;
-    margin-right: 100px;
-}
+
 .puntos {
     color: yellow;
     text-align: center;
@@ -90,15 +88,22 @@ h2{
 .color{
     background: url(../../../assets/images/isla-1.png);
     background-size: cover;
-    justify-content: space-between;
+    
 }
-.color>img{
-    height: 50px;
+.colorc {
+    margin-left: 490px;
+  }
+.colorc>img{
+    margin-left: 35px;
+    height: 37px;
 }
-.color>h1{
+.colorc>h1{
     font-size: 37px;
     color: white;
    
+}
+mat-toolbar{
+    height: 100px;
 }
 @media screen  and (max-width: 600px) {
     .body{
@@ -123,10 +128,14 @@ h2{
         color: white;
         
     }
-    .color>img{
+    .colorc {
+        margin-left: 40px;
+      }
+    .colorc>img{
+        margin-left: 35px;
         height: 37px;
     }
-    .color>h1{
+    .colorc>h1{
         font-size: 37px;
         color: white;
        
@@ -170,8 +179,8 @@ h2{
     .noti{
         background:url(../../../assets/icons/campana.png);
         background-size: cover;
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         background-size: 100%;
         border: none;
         margin-left: 6px;
@@ -181,37 +190,37 @@ h2{
     .noti:hover{
         background:url(../../../assets/icons/campana.png);
         background-size: cover;
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         background-size: 50%;
         border: none;
     }
     .tienda {
         background:url(../../../assets/icons/tienda.png);
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         background-size: 100%;
         border: none;
         margin-left: 6px;
     }
     .tienda:hover {
         background:url(../../../assets/icons/tienda.png);
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         background-size: 50%;
         border: none;
     }
     .confi {
         background:url(../../../assets/icons/tuerca.png);
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         background-size: 100%;
         border: none;
     }
     .confi:hover {
         background:url(../../../assets/icons/tuerca.png);
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         background-size: 50%;
         border: none;
     }

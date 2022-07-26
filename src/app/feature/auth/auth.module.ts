@@ -14,6 +14,8 @@ import { AutenticacionComponent } from './autenticacion/autenticacion.component'
 import { FormularioProfesorComponent } from './crearUsuario/formulario-profesor/formulario-profesor.component';
 import { FormularioEstudianteComponent } from './crearUsuario/formulario-estudiante/formulario-estudiante.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { CoreModule } from 'src/app/core/core.module';
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -32,7 +34,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ReactiveFormsModule,
     FormsModule,
     MatRadioModule,
-    MatGridListModule
+    MatGridListModule,
+    CoreModule
     
   ],
   providers: [
