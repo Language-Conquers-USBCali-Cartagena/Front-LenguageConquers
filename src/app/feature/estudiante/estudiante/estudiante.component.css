@@ -3,26 +3,37 @@ mat-sidenav-container{
 }
 mat-sidenav{
     width: 200px;
-    background: linear-gradient(rgba(0, 255, 255, 0.403), rgb(38,38,38));
-    
+    /* background: linear-gradient(rgba(0, 255, 255, 0.403), rgb(38,38,38)); */
+    background: rgb(38, 38, 38);
+}
+mat-toolbar{
+  height: 100px;
 }
 .menu>a{
 
-    color: white;
+  color: white;
+  margin-left: 30px;
     
+}
+.salida {
+  color: white;
+  margin-left: 20px;
 }
 .color{
     background: url(../../../../assets/images/homeestudiante.png);
     background-size: cover;
-    justify-content: space-between;
+    
 }
-.color>img{
-    height: 50px;
+.colorc {
+  margin-left: 650px;
 }
-.color>h1{
-    font-size: 37px;
-    color: white;
-   
+.colorc>img{
+  height: 37px;
+}
+.colorc>h1{
+  font-size: 37px;
+  color: white;
+  margin-left: -80px;
 }
 
 mat-toolbar{
@@ -77,22 +88,22 @@ mat-toolbar{
     transform: scale(0);
   }
   @media screen  and (max-width: 600px) {
-    .color{
-        
-        justify-content: none;
-    }
     .menu>a{
 
-        color: white;
+      color: white;
+      margin-left: 30px;
         
     }
-    .color>img{
-        height: 37px;
+    .colorc {
+      margin-left: 80px;
     }
-    .color>h1{
-        font-size: 37px;
-        color: white;
-       
+    .colorc>img{
+      height: 37px;
+    }
+    .colorc>h1{
+      font-size: 37px;
+      color: white;
+      margin-left: -80px;
     }
     
   }

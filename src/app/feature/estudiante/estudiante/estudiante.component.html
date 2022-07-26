@@ -1,7 +1,7 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav mode= "side" >
         <!-- Aqui va todo lo que esta adentro del sidenav -->
-        
+        <div class="menu">
         <a>Opcion 1</a>
         <br>
         <a>Opcion 2</a>
@@ -14,17 +14,19 @@
         <br>
         <a>Opcion 6</a>
         <br>
-        <button mat-button (click)="salir()">salir</button>
+        <button mat-button (click)="salir()" class="salida">salir</button>
         <br>
-        
+        </div>
     </mat-sidenav >
     <mat-sidenav-content>
         <!-- Aqui va todo lo que esta por fuera del sidenav -->
         
         <mat-toolbar class="color" >
             <button mat-button (click)="sidenav.toggle()"><div class="center" ><div></div></div></button>
-            <h1 >Perfil  estudiante</h1>
-            <img src="./assets/images/logo.png" alt="" >
+            <div class="colorc">
+                <img src="./assets/images/logo.png" alt="" > 
+                <h1 >Perfil  estudiante</h1>
+            </div>
           </mat-toolbar>
           
        <router-outlet ></router-outlet>
