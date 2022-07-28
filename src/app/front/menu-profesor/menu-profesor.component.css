@@ -27,19 +27,20 @@
 }
 .estudiante{
     display: flex;
-    align-items: stretch;
+    margin-left: 530px;
+}
+.orden{
+    display: grid;
+    grid-column: span;
 }
 .estudiante>img{
     margin-left: 40px;
    
 }
-.estudiante>p{
-    margin-left: 40px;
+.orden>h1{
     color: white;
 }
-.estudiante>button{
-    margin-left: 40px;
-}
+
 .boton-cursos{
     background:url(../../../assets/images/boton.png);
     background-size: cover;
