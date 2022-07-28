@@ -1,7 +1,8 @@
 .body{
-    background: url(../../../assets/images/isla-0.png);
-    background: cover;
+    background: url(../../../assets/images/fondoMar.png);
     
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .confi {
     background:url(../../../assets/icons/tuerca.png);
