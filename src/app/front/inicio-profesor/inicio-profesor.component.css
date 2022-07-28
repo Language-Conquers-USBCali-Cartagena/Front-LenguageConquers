@@ -52,20 +52,28 @@
     margin-right: 100px;
     border: 1em;
 }
+
+
+
+.estudiante{
+    display: flex;
+    margin-left: 530px;
+}
+.orden{
+    display: grid;
+    grid-column: span;
+}
 .estudiante>img{
-    margin-left: 640px;
+    margin-left: 40px;
    
 }
-.estudiante>h2{
-    margin-left: 640px;
-}
-.estudiante>button{
-    margin-left: 640px;
+.orden>h2{
+    color: white;
 }
 
 h2{
     color: white;
-    margin-left: 22em;
+    
 }
 .color{
     background: url(../../../assets/images/isla-1.png);
@@ -109,6 +117,7 @@ h2{
         color: white;
         
     }
+    
     .colorc {
         margin-left: 80px;
       }
@@ -157,6 +166,7 @@ h2{
     .estudiante>button{
         margin-left: 110px;
     }
+    
     .noti{
         background:url(../../../assets/icons/campana.png);
         background-size: 28px;
