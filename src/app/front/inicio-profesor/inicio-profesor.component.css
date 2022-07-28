@@ -156,16 +156,21 @@ h2{
         -ms-border-radius: 5px;
         -o-border-radius: 5px;
 }
-    .estudiante>img{
-        margin-left: 110px;
-       
-    }
-    .estudiante>h2{
-        margin-left: 110px;
-    }
-    .estudiante>button{
-        margin-left: 110px;
-    }
+.estudiante{
+    display: flex;
+    margin-left: 20px;
+}
+.orden{
+    display: grid;
+    grid-column: span;
+}
+.estudiante>img{
+    margin-left: 0px;
+   
+}
+.orden>h2{
+    color: white;
+}
     
     .noti{
         background:url(../../../assets/icons/campana.png);
@@ -182,10 +187,7 @@ background:url(../../../assets/icons/tuerca.png);
         width: 30px;
 
     }
-    h2{
-        color: white;
-        margin-left: 5em;
-    }
+    
     .confi {
         background:url(../../../assets/icons/tuerca.png);
         width: 30px;

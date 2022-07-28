@@ -86,16 +86,21 @@ h2{
         -ms-border-radius: 5px;
         -o-border-radius: 5px;
 }
-    .estudiante>img{
-        margin-left: 110px;
-       
-    }
-    .estudiante>h2{
-        margin-left: 110px;
-    }
-    .estudiante>button{
-        margin-left: 110px;
-    }
+.estudiante{
+    display: flex;
+    margin-left: 30px;
+}
+.orden{
+    display: grid;
+    grid-column: span;
+}
+.estudiante>img{
+    margin-left: 40px;
+   
+}
+.orden>h1{
+    color: white;
+}
     .boton-cursos{
         background:url(../../../assets/images/boton.png);
         background-size: cover;
