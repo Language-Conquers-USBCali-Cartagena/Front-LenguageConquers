@@ -9,6 +9,8 @@ import { MenuProfesorComponent } from './menu-profesor/menu-profesor.component';
 import { InicioProfesorComponent } from './inicio-profesor/inicio-profesor.component';
 import { InicioEstudianteComponent } from './inicio-estudiante/inicio-estudiante.component';
 import { VistaComponent } from './vista/vista.component';
+import { NivelunoinfoComponent } from './nivelunoinfo/nivelunoinfo.component';
+import { NivelunoComponent } from './niveluno/niveluno.component';
 
 
 
@@ -21,7 +23,9 @@ import { VistaComponent } from './vista/vista.component';
     MenuProfesorComponent,
     InicioProfesorComponent,
     InicioEstudianteComponent,
-    VistaComponent
+    VistaComponent,
+    NivelunoinfoComponent,
+    NivelunoComponent
   ],
   imports: [
     CommonModule,
