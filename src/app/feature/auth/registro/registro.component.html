@@ -17,15 +17,13 @@
   </div>
 </form>
    <a href="#" target="_window" class="vinculos"><input type="checkbox" [(ngModel)]="terminos">Terminos y Condicones</a> 
-  <div *ngIf="terminos===true" style="top: 20px;">
+  <div *ngIf="terminos===true" style="top: 100px;">
     <button class="ancho1" mat-raised-button color="primary" (click)="registrarse()" >Create Account</button>  
   </div>
 <br>
 <div class="otrac">
-  <a type="submit" (click)="IngresarConGoogle()" class="ancho otrac"><img
-      src="../../../../assets/images/google.png" /></a>
-  <a type="submit" (click)="IngresarConFacebook()" class="ancho otrac"><img
-      src="../../../../assets/images/facebook.png" /></a>
+  <a type="submit" (click)="IngresarConGoogle()" class="ancho otrac google"></a>
+  <a type="submit" (click)="IngresarConFacebook()" class="ancho otrac facebook"></a>
 </div>
 
 <div class="centrar">

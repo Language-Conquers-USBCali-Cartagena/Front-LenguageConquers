@@ -1,29 +1,27 @@
 <form [formGroup]="form" (ngSubmit)="crearEstudiante()" >
     <div class="entradas">
-
-    
-    <div>
+    <div class="campo-entrada">
         <mat-form-field appearance="fill">
             <mat-label>Nombre</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="nombre">
+            <input type="text" matInput autocomplete="off" formControlName="nombre" class="ancho">
             <mat-icon matSuffix class="boton">name</mat-icon>
         </mat-form-field>
     </div>
-    <div>
+    <div class="campo-entrada">
         <mat-form-field appearance="fill">
             <mat-label>Apellido</mat-label>
             <input type="text" matInput autocomplete="off" formControlName="apellido">
             <mat-icon matSuffix class="boton">lastname</mat-icon>
         </mat-form-field>
     </div>
-    <div>
+    <div class="campo-entrada">
         <mat-form-field appearance="fill">
             <mat-label>NickName</mat-label>
             <input type="text" matInput autocomplete="off" formControlName="nickName">
             <mat-icon matSuffix class="boton">nickname</mat-icon>
         </mat-form-field>
     </div>
-    <div>
+    <div class="campo-entrada">
         <mat-form-field appearance="fill">
             <mat-label>Semestre</mat-label>
             <mat-select formControlName="semestre" >
@@ -34,7 +32,7 @@
             <mat-icon matSuffix class="boton">semester</mat-icon>
         </mat-form-field>
     </div>
-    <div>
+    <div class="campo-entrada">
         <mat-form-field appearance="fill">
             <mat-label>Avatar</mat-label>
             
@@ -57,12 +55,13 @@
                         <input type="radio" name="avatar" value="avatar1" class="radio"> 
                         <img src="../../../../../assets/images/avatar/avatar1.png" style="height: 70px;" alt="avatar1">
                     </mat-option> -->
+                    <app-carussel-avatares></app-carussel-avatares>
                 </mat-optgroup>
             </mat-select>
             <mat-icon matSuffix class="boton">avatar</mat-icon>
         </mat-form-field>
     </div>
-    <div>
+    <div class="campo-entrada">
         <mat-form-field appearance="fill">
             <mat-label>Genero</mat-label>
             
@@ -74,7 +73,7 @@
             <mat-icon matSuffix class="boton">gender</mat-icon>
         </mat-form-field>
     </div>
-    <div>
+    <div class="campo-entrada">
         <mat-form-field appearance="fill">
             <mat-label>Programa</mat-label>
             
@@ -86,7 +85,7 @@
             <mat-icon matSuffix class="boton">gender</mat-icon>
         </mat-form-field>
     </div>
-    <div>
+    <div class="campo-entrada">
         <mat-form-field appearance="fill" class="example-form-field">
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="datepicker" formControlName="fechaNacimiento" >

@@ -1,0 +1,205 @@
+.body{
+    background: url(../../../assets/images/isla-1.png);
+    background: cover;
+}
+.confi {
+    background:url(../../../assets/icons/tuerca.png);
+    width: 50px;
+    height: 50px;
+    background-size: 100%;
+    border: none;
+}
+.confi:hover {
+    background:url(../../../assets/icons/tuerca.png);
+    width: 50px;
+    height: 50px;
+    background-size: 50%;
+    border: none;
+}
+.fondoTarjeta {
+    width: 100em;
+    height: 648px;
+    font-family: Pirata One;
+    /*Efecto espejo*/
+    margin-left: 60px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.176);
+    
+  }
+  .fondoTarjeta2 {
+    width: 70em;
+    height: 348px;
+    margin: 10px auto;
+    font-family: Pirata One;
+    /*Efectoespejo*/padding: 1em;
+    border-radius: 10px;
+    background: rgba(38, 38, 38);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.titulo{
+    text-align: center;
+    margin-right: 350px;
+
+}
+.noti{
+    background:url(../../../assets/icons/campana.png);
+    background-size: cover;
+    width: 45px ;
+    height: 45px;
+    margin-right: 100px;
+    border: 1em;
+}
+
+
+
+.estudiante{
+    display: flex;
+    margin-left: 530px;
+}
+.orden{
+    display: grid;
+    grid-column: span;
+}
+.estudiante>img{
+    margin-left: 40px;
+   
+}
+.orden>h2{
+    color: white;
+}
+
+h2{
+    color: white;
+    
+}
+.color{
+    background: url(../../../assets/images/isla-1.png);
+    background-size: cover;
+    height: 100px;
+}
+
+.colorc {
+    margin-left: 600px;
+  }
+  
+  .colorc>img {
+    height: 50px;
+    margin-left: 40px;
+    margin-top: 10px;
+  }
+  
+  .colorc>h1 {
+    font-size: 37px;
+    color: white;
+    margin-left: 30px;
+  
+  }
+@media screen  and (max-width: 600px) {
+    .body{
+        background: url(../../../assets/images/isla-1.png);
+        background-size: cover;
+       
+    }
+    .confi {
+        background: url(../../../assets/icons/tuerca.png);
+        background-size: cover;
+        
+    }
+    .color{
+        
+        justify-content: none;
+    }
+    .menu>a{
+
+        color: white;
+        
+    }
+    
+    .colorc {
+        margin-left: 80px;
+      }
+    .colorc>img{
+        height: 37px;
+    }
+    .colorc>h1{
+        font-size: 37px;
+        color: white;
+       
+    }
+    .fondoTarjeta {
+        width: 22em;
+        height: 600px;
+        font-family: Pirata One;
+        /*Efectoespejo*/
+        margin-left: 30px;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.176);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+}
+      .fondoTarjeta2 {
+        width: 20em;
+        height: 250px;
+        
+        font-family: Pirata One;
+        /*Efectoespejo*/
+        padding: 1em;
+        border-radius: 5px;
+        background: rgba(38, 38, 38);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+}
+.estudiante{
+    display: flex;
+    margin-left: 20px;
+}
+.orden{
+    display: grid;
+    grid-column: span;
+}
+.estudiante>img{
+    margin-left: 0px;
+   
+}
+.orden>h2{
+    color: white;
+}
+    
+    .noti{
+        background:url(../../../assets/icons/campana.png);
+        background-size: 28px;
+        background-repeat: no-repeat;
+        height: 30px;
+        width: 30px;    
+    }
+    .confi {
+background:url(../../../assets/icons/tuerca.png);
+        background-size: 28px;
+        background-repeat: no-repeat;
+        height: 30px;
+        width: 30px;
+
+    }
+    
+    .confi {
+        background:url(../../../assets/icons/tuerca.png);
+        width: 30px;
+        height: 30px;
+        background-size: 100%;
+        border: none;
+    }
+    .confi:hover {
+        background:url(../../../assets/icons/tuerca.png);
+        width: 30px;
+        height: 30px;
+        background-size: 50%;
+        border: none;
+    }
+}

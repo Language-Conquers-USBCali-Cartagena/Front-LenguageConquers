@@ -1,0 +1,44 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode= "side" >
+        <!-- Aqui va todo lo que esta adentro del sidenav -->
+        <div class="altos">
+        <a routerLink="/inicio/">inicio</a>
+        <br>
+        <a routerLink="/inicioes/">inicio estudiante</a>
+        <br>
+        <a routerLink="/nivelinfo/">nivelinfo</a>
+        <br>
+        <a routerLink="/nivel/">nivel1</a>
+        <br>
+        <a>Opcion 5</a>
+        <br>
+        <a>Opcion 6</a>
+        <br>
+        <button mat-button class="salida" >salir</button>
+        <br>
+        </div>
+    </mat-sidenav >
+    <mat-sidenav-content>
+        <!-- Aqui va todo lo que esta por fuera del sidenav -->
+        
+        <mat-toolbar class="color" >
+            <button mat-button (click)="sidenav.toggle()"><div class="center" ><div></div></div></button>
+            <div class="colorc">
+                <img src="./assets/images/logo.png" alt="" >
+                <h1 >nivel 1 información</h1>
+            </div>
+            
+            
+        </mat-toolbar>
+        <div class="body">
+            <div>
+
+            </div>
+            <div>
+                
+            </div>
+              
+        </div>
+       
+    </mat-sidenav-content>
+</mat-sidenav-container>

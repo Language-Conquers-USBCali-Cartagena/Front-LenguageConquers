@@ -1,84 +1,93 @@
-.crearUsuario{
+.crearUsuario {
   display: grid;
+  padding: 10px;
 }
-.fondoTarjeta{
-   width: 74em;
-    top: 1px;
-    bottom: 1px;
-    right: 1px;
-    left: 180px;
-    font-family: Pirata One;
-     /*Efecto espejo*/
-    padding: 1em;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.176);
-  }
-  .fondo{
+
+.fondoTarjeta {
+  width: 40em;
+  margin: 10px auto;
+  font-family: Pirata One;
+  /*Efecto espejo*/
+  padding: 1em;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.176);
+}
+
+.fondo {
+  background-image: url(../../../../../assets/images/fondocrear.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 750px;
+  width: auto;
+}
+
+a {
+
+  margin-top: 1px;
+  height: auto;
+  width: 100px;
+  margin:10px auto;
+}
+
+h1 {
+  font-size: 90px;
+  margin: 0 390px;
+}
+
+.color {
+  height: 100px;
+
+}
+
+img {
+  width: auto;
+  height: 100px;
+}
+
+@media screen and (max-width: 600px) {
+  .fondo {
     background-image: url(../../../../../assets/images/fondocrear.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 750px;
+    background-repeat: repeat;
+
+    height: 900px;
+    width: 400px;
+  }
+
+  .fondoTarjeta {
+    width: 20em;
+    height: 40em;
+    margin: 10px auto;
+    font-family: Pirata One;
+    /*Efectoespejo*/
+    padding: 1em;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.176);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+  a {
+    margin-left: 140px;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+  }
+
+  h1 {
+    font-size: 45px;
+    margin: 0 10px;
+  }
+
+  .color {
+    height: 50px;
+
+  }
+
+  img {
     width: auto;
+    height: 50px;
   }
-  a{
-    
-    margin-top: 1px;
-    height: auto;
-    width: 100px;
-    margin-left: 680px;
-  }
-  h1{
-    font-size: 90px;
-    margin: 0 390px ;
-  }
-  .color{
-    height: 100px;
-    
-  }
-  img{
-    width:auto; 
-    height:100px;
-  }
-  @media screen and (max-width: 600px){
-    .fondo{
-      background-image: url(../../../../../assets/images/fondocrear.png);
-      background-repeat: repeat;
-      
-      height: 900px;
-      width:400px;
-    }
-    .fondoTarjeta{
-      max-width: 10em;
-      width: 450px;
-      height: auto;
-      top: 10px;
-      bottom: 1px;
-      right: 1px;
-      left: 16px;
-      font-family: Pirata One;
-       /*Efecto espejo*/
-      padding: 1em;
-      max-width: 70%;
-      border-radius: 10px;
-      background: rgba(0, 0, 0, 0.176);
-    }
-    a{
-      margin-left: 140px;
-      margin-top: 20px;
-      padding-left: 10px;
-      padding-right: 10px;
-      
-    }
-    h1{
-      font-size: 45px;
-      margin: 0 10px ;
-    }
-    .color{
-      height: 50px;
-      
-    }
-    img{
-      width:auto; 
-      height:50px;
-    }
-  }
+}

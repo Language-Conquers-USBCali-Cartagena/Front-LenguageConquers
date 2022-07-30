@@ -1,0 +1,272 @@
+.body {
+    background: url(../../../assets/images/fondoMar.png);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.confi {
+    background: url(../../../assets/icons/tuerca.png);
+    width: 50px;
+    height: 50px;
+    background-size: 100%;
+    border: none;
+}
+
+.noti {
+    background: url(../../../assets/icons/campana.png);
+    background-size: cover;
+    width: 45px;
+    height: 40px;
+    border: none;
+    margin-left: 16px;
+}
+
+.tienda {
+    background: url(../../../assets/icons/tienda.png);
+    width: 48px;
+    height: 48px;
+    background-position: center;
+    background-size: 100%;
+    border: none;
+    margin-left: 16px;
+}
+
+.boto {
+    justify-content: space-between;
+
+}
+
+.confi:hover {
+    background: url(../../../assets/icons/tuerca.png);
+    width: 50px;
+    height: 50px;
+    background-size: 50%;
+    border: none;
+}
+
+.noti:hover {
+    background: url(../../../assets/icons/campana.png);
+    background-size: cover;
+    width: 45px;
+    height: 40px;
+    background-size: 50%;
+    border: none;
+}
+
+.tienda:hover {
+    background: url(../../../assets/icons/tienda.png);
+    width: 48px;
+    height: 48px;
+    background-size: 50%;
+    border: none;
+}
+
+.puntos {
+    color: yellow;
+    text-align: center;
+    margin-right: 50px;
+    margin-top: -17px;
+}
+
+.fondoTarjeta {
+    width: 100em;
+    height: 648px;
+    font-family: Pirata One;
+    /*Efecto espejo*/
+    margin-left: 60px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.176);
+
+}
+
+.estudiante{
+    display: flex;
+    margin-left: 530px;
+}
+.orden{
+    display: grid;
+    grid-column: span;
+}
+.estudiante>img{
+    margin-left: 40px;
+   
+}
+.orden>h2{
+    margin-top: -7px;
+    color: white;
+}
+
+h2{
+    color: white;
+    
+}
+.orden>button{
+    margin-top: -18px;
+}
+
+
+
+.color {
+    background: url(../../../assets/images/isla-1.png);
+    background-size: cover;
+
+}
+
+.colorc {
+    margin-left: 490px;
+}
+
+.colorc>img {
+    margin-left: 35px;
+    height: 37px;
+}
+
+.colorc>h1 {
+    font-size: 37px;
+    color: white;
+
+}
+
+mat-toolbar {
+    height: 100px;
+}
+
+@media screen and (max-width: 600px) {
+    .body {
+        background: url(../../../assets/images/isla-1.png);
+        background-size: cover;
+
+    }
+
+    .confi {
+        background: url(../../../assets/icons/tuerca.png);
+        background-size: cover;
+    }
+
+    .color {
+
+        justify-content: none;
+    }
+
+    .titulo {
+        text-align: center;
+        margin-right: 20px;
+    }
+
+    .menu>a {
+
+        color: white;
+
+    }
+
+    .colorc {
+        margin-left: 10px;
+    }
+
+    .colorc>img {
+        margin-left: 35px;
+        height: 37px;
+    }
+
+    .colorc>h1 {
+        font-size: 37px;
+        color: white;
+
+    }
+
+    .fondoTarjeta {
+        width: 22em;
+        height: 600px;
+        font-family: Pirata One;
+        /*Efectoespejo*/
+        margin-left: 30px;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.176);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+
+    .estudiante{
+        display: flex;
+        margin-left: 60px;
+    }
+    .orden{
+        display: grid;
+        grid-column: span;
+    }
+    .estudiante>img{
+        margin-left: 0px;
+       
+    }
+    .orden>h2{
+        color: white;
+    }
+
+    .noti {
+        background: url(../../../assets/icons/campana.png);
+        background-size: 28px;
+        background-repeat: no-repeat;
+        height: 30px;
+        width: 30px;
+    }
+
+  
+
+    /**/
+
+    .noti {
+        background: url(../../../assets/icons/campana.png);
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+        background-size: 100%;
+        border: none;
+        margin-left: 6px;
+
+    }
+
+    .noti:hover {
+        background: url(../../../assets/icons/campana.png);
+        background-size: cover;
+        width: 30px;
+        height: 30px;
+        background-size: 50%;
+        border: none;
+    }
+
+    .tienda {
+        background: url(../../../assets/icons/tienda.png);
+        width: 30px;
+        height: 30px;
+        background-size: 100%;
+        border: none;
+        margin-left: 6px;
+    }
+
+    .tienda:hover {
+        background: url(../../../assets/icons/tienda.png);
+        width: 30px;
+        height: 30px;
+        background-size: 50%;
+        border: none;
+    }
+
+    .confi {
+        background: url(../../../assets/icons/tuerca.png);
+        width: 30px;
+        height: 30px;
+        background-size: 100%;
+        border: none;
+    }
+
+    .confi:hover {
+        background: url(../../../assets/icons/tuerca.png);
+        width: 30px;
+        height: 30px;
+        background-size: 50%;
+        border: none;
+    }
+}
