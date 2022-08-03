@@ -1,12 +1,12 @@
 <div class="body" *ngIf="user$ | async as user; else loading">
     <div class="fondoTarjeta">
-        <h3 class="align">Gracias por registrarse!</h3>
-        <div class="form-group">
-            <p class="texto">Se envio un corre de verificacion a : <strong>{{user?.email}}</strong></p>
-            <p class="texto">Por favor revise su email y de click en el link de verificación</p>
+      <img src="./assets/images/LogoV1.png" class="logo">
+        <h3 class="align">¡Gracias por registrarse!</h3>
+        <div>
+            <p class="texto">Se envio un corre de verificación a:<strong>{{user?.email}}</strong> Por favor revise su email y de click en el link de verificación</p>
         </div>
-        <div class="form-group">
-            <button class="boton" (click)="onSendEmail()">Reenviar verificacion</button>
+        <div class="botones">
+            <button class="boton" (click)="onSendEmail()">Reenviar verificación</button>
             <button class="boton" (click)="salir()">Salir</button>
         </div>
     </div>

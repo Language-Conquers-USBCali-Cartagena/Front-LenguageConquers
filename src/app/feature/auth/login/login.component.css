@@ -7,7 +7,7 @@
   line-height: 20px;
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url(../../../../assets/images/logging.png); 
+  background-image: url(../../../../assets/images/logging.png);
   background-size: cover;
 }
 .login{
@@ -16,7 +16,6 @@
   justify-content: center;
   align-items: center;
   display: flex;
-  
 }
 
 .fondoTarjeta{
@@ -24,51 +23,49 @@
   top: 20px;
   bottom: 55px;
   right: 50px;
-  font-family: Pirata One;
+  font-family: Mouse Memoirs;
    /*Efecto espejo*/
   padding: 1em;
   width: 80%;
-  
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.11);
-  
- 
+  border-radius: 15px;
+  background: rgba(151, 116, 116, 0);
 }
 
 .logo{
-  height: 220px;
-  
+  height: 150px;
   padding-left: 35px;
-  
 }
 .ancho{
   width: 100%;
 }
 .entradauc1 {
   margin-left: 100px;
-  width: 235px;
-  font-family: Pirata One;
+  width: 260px;
+  font-family: 'Mouse Memoirs';
+  font-size: 20px;
 }
 .entradauc2 {
   margin-left: 100px;
-  font-family: Pirata One;
+  width: 260px;
+  font-family: 'Mouse Memoirs';
+  font-size: 20px;
 }
 
 .cambiar-contra{
   justify-content: center;
   text-align: center;
-  font-family: 'Pirata One' ;
+  font-family: 'Mouse Memoirs';
   font-size: 15px;
   color: white;
 }
 .button{
   height: 50px;
   /*background-color:rgb(115, 112, 121);*/
-  color: white;
+  color: rgb(241,231,194);
 }
 .spinner{
   margin: 0 auto;
-  
+
 }
 .centrar{
   text-align: center;
@@ -77,10 +74,10 @@
 .botones {
   max-width: 10em;
   width: 10em;
-  font-family: Pirata One;
+  font-family: 'Mouse Memoirs';
   border-radius: 10px;
   margin-top: 10px;
-  background-color: aqua;
+  background-color: rgb(217,161,84) ;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -89,31 +86,29 @@
   font-size: 1.5em;
   margin-left: 5.45em;
   text-align: center;
-  color: black;
-  
-  
+  color: rgb(241,231,194);
 }
 .botones:hover{
-  background-color: black;
-  color: aqua;
+  background-color: rgb(241,231,194);
+  color: rgb(217,161,84);
 }
 .entradas {
   width: 180em;
-  
+
   max-width: 500em;
   max-height: 250em;
   padding-left: 2em;
   margin-left: 2em;
   height: 5em;
-  font-family: 'Pirata One' ;
+  font-family: 'Mouse Memoirs';
 }
 .mat-label{
-  color: white;
+  color: rgb(241,231,194);
 }
 .otrac {
 display: flex;
  margin-top: 5px;
- margin-bottom: 10px; 
+ margin-bottom: 10px;
  margin-left: 65px;
  width: auto;
  height: auto;
@@ -123,26 +118,27 @@ display: flex;
   justify-content: center;
   align-items: center;
   white-space: nowrap;
-  color: white;
-  font-family: 'Pirata One' ;
+  color: rgb(241,231,194);
+  font-family: 'Mouse Memoirs' ;
 }
 .colorentrada{
-  color: white;
+  color: rgb(241,231,194);
 }
 
 /**lineas*/
 .lienas{
-  color: rgb(255, 255, 255);
+  color: rgb(241,231,194);
   text-align: center;
-  font-family: 'Pirata One' ;
+  font-family: 'Mouse Memoirs' ;
   margin-top: 20px;
+  font-size: 20px;
 }
 .lienas::after,.lienas::before{
   content: '';
   position: absolute;
   width: 170px;
   height: 3px;
-  background-color: aqua;
+  background-color: rgb(201,131,69);
   margin-top: 10px;
 }
 .lienas::before{
@@ -152,17 +148,17 @@ display: flex;
   right: -10px;
 }
 .vinculos-contra{
-  font-family: Pirata One;
+  font-family: 'Mouse Memoirs';
   font-size: 20px;
-  color: white;
+  color: rgb(241,231,194);
  top: 20px;
- bottom: 20px; 
+ bottom: 20px;
  margin-left: -7px;
 }
 .vinculos-contra:hover{
- 
-  color: aqua;
- 
+
+  color: rgb(117,76,36);
+
 }
 /***************************/
 .google{
@@ -190,7 +186,7 @@ display: flex;
     width: 100%;
     margin-top: 0;
     background-image: url(../../../../assets/images/logging.png);
-    
+
     display: inline-table;
   }
   .fondoTarjeta{
@@ -199,7 +195,7 @@ display: flex;
     bottom: px;
     right: 1px;
     left: 1px;
-    font-family: Pirata One;
+    font-family: 'Mouse Memoirs';
      /*Efecto espejo*/
     padding: 1em;
     max-width: 100%;
@@ -207,49 +203,49 @@ display: flex;
     background: rgba(0, 0, 0, 0.176);
   }
   .logo{
-    height: 170px;
-    
+    height: 100px;
     padding:20px ;
-
   }
+
   .login{
     width: 100%;
     max-width: 100%;
     justify-content: center;
     align-items: flex-start;
     display: flex;
-   
+
   }
   .botones {
     width: 6em;
-    font-family: Pirata One;
+    font-family: 'Mouse Memoirs';
     border-radius: 10px;
-    background-color: aqua;
+    background-color: rgb(217,161,84);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     align-content: center;
     margin-left: 81px;
-        
+    color: rgb(241,231,194);
+
 }
   .botones:hover{
-    background-color: black;
-    color: aqua;
+    background-color: rgb(241,231,194);
+    color: rgb(217,161,84);
 
   }
   .entradas {
     width: 42em;
     padding-left: 50px;
-    font-family: 'Pirata One' ;
+    font-family: 'Mouse Memoirs';
   }
   .body
 {
-  
+
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
- 
+
 }
 .entradauc1 {
   margin-left: 40px;
@@ -265,13 +261,13 @@ display: flex;
  padding-left: 1px;
  display: flex;
  margin-top: 10px;
- margin-bottom: 1px; 
+ margin-bottom: 1px;
  margin-left: 38.5px;
 }
 .lienas{
   color: rgb(255, 255, 255);
   text-align: center;
-  font-family: 'Pirata One' ;
+  font-family: 'Mouse Memoirs' ;
   margin-top: 20px;
 }
 .lienas::after,.lienas::before{
@@ -279,7 +275,7 @@ display: flex;
   position: absolute;
   width: 97px;
   height: 1.5px;
-  background-color: aqua;
+  background-color: rgb(241,231,194);
   margin-top: 15px;
 }
 .lienas::before{
@@ -290,8 +286,6 @@ display: flex;
 }
 }
 
-
-
 mat-tab-group{
-  font-family: 'Pirata One' ;
+  font-family: 'Mouse Memoirs' ;
 }

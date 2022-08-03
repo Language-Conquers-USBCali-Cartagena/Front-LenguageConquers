@@ -37,10 +37,10 @@
 .ancho1{
   max-width: 10em;
   width: 10em;
-  font-family: Pirata One;
+  font-family: Mouse Memoirs;
   border-radius: 10px;
   margin-top: 30px;
-  background-color: aqua;
+  background-color: rgb(217,161,84);
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -49,48 +49,51 @@
   font-size: 1.5em;
   margin-left: 5.45em;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: rgb(241,231,194);
 }
 
 .ancho1:hover{
-  background-color: black;
-  color: aqua;
+  background-color: rgb(241,231,194);
+  color: rgb(217,161,84);
 }
 
 .entradauc1 {
   margin-left: 100px;
-  width: 235px;
-  font-family: Pirata One;
+  width: 260px;
+  font-family: Mouse Memoirs;
+  font-size: 20px;
 }
 .entradauc2 {
   margin-left: 100px;
-  font-family: Pirata One;
+  width: 260px;
+  font-family: Mouse Memoirs;
+  font-size: 20px;
 }
 .cambiar-contra{
   justify-content: center;
-  font-family: Pirata One;
-  
+  font-family: Mouse Memoirs;
+
   font-size: 15px;
-  
+
 }
 .vinculos-contra{
-  font-family: Pirata One;
+  font-family: Mouse Memoirs;
   font-size: 20px;
-  color: white;
+  color: rgb(241,231,194);
   top: 20px;
-  bottom: 20px; 
+  bottom: 20px;
   margin-left: -7px;
-  
+
 }
 .vinculos-contra:hover{
- 
-  color: white;
- 
+
+  color: rgb(117,76,36);
+
 }
 .button{
   height: 50px;
   background-color:rgb(115, 112, 121);
-  color: white;
+  color: rgb(241,231,194);
 }
 .spinner{
   margin: 0 auto;
@@ -100,41 +103,41 @@
   color: black;
 }
 .email {
- color: white;
- font-family: Pirata One;
+ color: rgb(241,231,194);
+ font-family: Mouse Memoirs;
 }
 .boton {
-  color: white;
+  color: rgb(217,161,84);
 }
 .vinculos{
-  font-family: Pirata One;
+  font-family: Mouse Memoirs;
   font-size: 20px;
-  color: white;
+  color: rgb(241,231,194);
  margin-top: 100px;
  bottom: 20px;
   margin-left: 125px;
 }
 .vinculos:hover{
-  color: rgb(255, 255, 255);
+  color: rgb(217,161,84);
 }
 
 .otrac {
-  
+
   display: flex;
    margin-top: 5px;
-   margin-bottom: 10px; 
+   margin-bottom: 10px;
    margin-left: 65px;
    width: auto;
    height: auto;
   }
-  
+
   .example-section {
     display: flex;
     align-content: center;
     align-items: center;
     height: 60px;
   }
-  
+
   .example-margin {
     margin: 0 10px;
   }
@@ -158,13 +161,13 @@
     height: 55px;
     background: url(../../../../assets/images/facebook2.png);
   }
-  
+
 @media screen and (max-width: 600px) {
   .ancho1{
     margin-left: 49px;
   }
   .vinculos{
-    font-family: Pirata One;
+    font-family: Mouse Memoirs;
     font-size: 20px;
     color: black;
     top: 20px;
@@ -176,11 +179,11 @@
     color: rgb(255, 255, 255);
   }
   .otrac {
-    
+
     padding-left: 1px;
     display: flex;
     margin-top: 10px;
-    margin-bottom: 1px; 
+    margin-bottom: 1px;
     margin-left: 38.5px;
 
    }

@@ -11,7 +11,7 @@
 }
 
 .fondoTarjeta {
-  max-width: 435px;
+  max-width: 485px;
   top: 30px;
   bottom: 65px;
 
@@ -25,24 +25,32 @@
 
 .ancho {
   width: 100%;
-}
 
+}
+.fuente{
+  font-size:20px;
+}
 .botones {
   width: 14em;
-  font-family: Pirata One;
+  font-family: Mouse Memoirs;
+  border-color: rgb(217,161,84);
   border-radius: 10px;
-  background-color: aqua;
+  background-color: rgb(217,161,84) ;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   align-content: center;
   margin-left: 130px;
+  text-align: center;
+  font-size: 20px;
+  color: rgb(241,231,194);
 }
 
 .botones:hover {
-  background-color: black;
-  color: aqua;
+  border-color: rgb(241,231,194);
+  background-color: rgb(241,231,194);
+  color: rgb(217,161,84);
 }
 
 .spinner {
@@ -50,10 +58,11 @@
 }
 
 .text {
-  margin-left: 58px;
-  color: black;
+  margin-left: 110px;
+  color: rgb(136,82,38);
   font-size: 20px;
- 
+  text-align: center;
+
 }
 
 .login {
@@ -65,10 +74,10 @@
 }
 
 img{
-  width: 140px;
+  width: 460px;
   height: auto;
-  margin-left: 150px;
-  
+  margin-left: 20px;
+
 }
 @media screen and (max-width: 600px) {
   .fondoTarjeta {
@@ -93,7 +102,7 @@ img{
 
   .text {
     margin-left: 4px;
-    color: black;
+    color: rgb(136,82,38);
     font-size: 19px;
     display: flow-root;
     line-height: 20px;
@@ -110,20 +119,21 @@ img{
 
   .botones {
     width: 8em;
-    font-family: Pirata One;
+    font-family: Mouse Memoirs;
     border-radius: 10px;
-    background-color: aqua;
+    background-color: rgb(217,161,84);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     align-content: center;
     margin-left: 5px;
+    color: rgb(241,231,194);
   }
 
   .botones:hover {
-    background-color: black;
-    color: aqua;
+    background-color: rgb(241,231,194);
+    color: rgb(217,161,84);
   }
   img{
     width: 100px;

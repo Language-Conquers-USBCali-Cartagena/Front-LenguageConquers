@@ -8,7 +8,7 @@
   </div>
   <div>
     <mat-form-field appearance="fill" class="ancho , entradauc1">
-      <mat-label class="email">Enter your password</mat-label>
+      <mat-label class="email">Contraseña</mat-label>
       <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon class="boton">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -16,9 +16,9 @@
     </mat-form-field>
   </div>
 </form>
-   <a href="#" target="_window" class="vinculos"><input type="checkbox" [(ngModel)]="terminos">Terminos y Condicones</a> 
+   <a href="#" target="_window" class="vinculos"><input type="checkbox" [(ngModel)]="terminos">Terminos y Condicones</a>
   <div *ngIf="terminos===true" style="top: 100px;">
-    <button class="ancho1" mat-raised-button color="primary" (click)="registrarse()" >Create Account</button>  
+    <button class="ancho1" mat-raised-button color="primary" (click)="registrarse()">Crear Cuenta</button>
   </div>
 <br>
 <div class="otrac">

@@ -9,17 +9,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .font1
 {
   font-family: 'Ubuntu', sans-serif;
-  
+
 } */
-body { margin: 0; font-family:'Pirata One', cursive; }
+body { margin: 0; font-family:'Mouse Memoirs', sans-serif; }
 
 html, body { height: 100%; }
-body { margin: 0;font-family: 'Pirata One', cursive; }
+body { margin: 0;font-family: 'Mouse Memoirs', sans-serif; }
 
 .font1
 {
-  font-family: 'Pirata One', cursive;
-  
+  font-family: Mouse Memoirs;
 }
 .mat-tab-body-content{
   overflow: hidden !important;

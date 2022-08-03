@@ -2,16 +2,16 @@
   <div class="login">
     <mat-card class="fondoTarjeta">
       <mat-card-content>
-        <img src="../../../../assets/images/logo.png" alt="app logo">
+        <img src="../../../../assets/images/LogoV1.png" alt="app logo">
         <br>
         <mat-spinner class="spinner" *ngIf="loading" ></mat-spinner>
             <label class="text font1"> Ingrese su Email para recuperar la contraseña</label>
               <mat-form-field class="ancho" appearance="fill">
-                <mat-label>Email</mat-label>
+                <mat-label class="fuente">Email</mat-label>
                 <input type= "email" matInput autocomplete="off" class="form-control" [formControl]="userEmail">
               </mat-form-field>
               <button type="submit" (click)="recuperarContra()" class="botones">Recuperar</button>
-              
+
       </mat-card-content>
     </mat-card>
 

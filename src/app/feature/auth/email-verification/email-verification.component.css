@@ -1,23 +1,25 @@
 .boton {
-   
     position: relative;
-
     max-width: 10em;
     width: 10em;
-    font-family: Pirata One;
+    font-family: 'Mouse Memoirs';
     border-radius: 10px;
     margin-top: 10px;
-    background-color: aqua;
+    background-color: rgb(217,161,84) ;
+    border-color: rgb(217,161,84);
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-
-    font-size: 1.5em;
-    
+    font-size: 25px;
     text-align: center;
-    color: black;
+    color: rgb(255, 255, 255);
 
+}
+.boton:hover{
+  background-color: rgb(241,231,194);
+  border-color: rgb(241,231,194);
+  color: rgb(217,161,84);
 }
 .body {
     display: flex;
@@ -30,26 +32,36 @@
     background-size: cover;
     background-image: url(../../../../assets/images/principal.png);
   }
-  
-  .fondoTarjeta {
+.botones{
+  text-align: center;
+}
+.logo{
+  height: 150px;
+  padding-left: 35px;
+}
+
+.fondoTarjeta {
     max-width: 435px;
-    
-    
-  
     /*Efecto espejo*/
     padding: 2em;
     width: 70%;
     position: relative;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.3);
-  }
-  .align{
+}
+.align{
     justify-content:center ;
-  }
-  .texto{
+    font-size: 30px;
+    text-align: center;
+    color: rgb(117,76,36);
+}
+.texto{
     display: flex;
     flex-wrap: wrap;
-  }
+    font-size: 25px;
+    text-align: center;
+    color: rgb(117,76,36);
+}
 
 @media screen and (max-width: 600px) {
     .fondoTarjeta {
@@ -63,22 +75,26 @@
         border-radius: 10px;
         background: rgba(255, 255, 255, 0.3);
       }
+      .botones{
+        text-align: center;
+      }
       .boton {
         width: 8em;
-        font-family: Pirata One;
+        font-family: 'Mouse Memoirs';
         border-radius: 10px;
-        background-color: aqua;
+        background-color: rgb(217,161,84);
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
         align-content: center;
         margin-left: 5px;
+        color: rgb(241,231,194);
       }
-    
+
       .boton:hover {
-        background-color: black;
-        color: aqua;
+        background-color: rgb(241,231,194);
+        color: rgb(217,161,84);
       }
 
 

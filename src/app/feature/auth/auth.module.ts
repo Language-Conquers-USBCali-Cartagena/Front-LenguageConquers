@@ -16,6 +16,7 @@ import { FormularioEstudianteComponent } from './crearUsuario/formulario-estudia
 import {MatGridListModule} from '@angular/material/grid-list';
 import { CoreModule } from 'src/app/core/core.module';
 
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -26,6 +27,7 @@ import { CoreModule } from 'src/app/core/core.module';
     AutenticacionComponent,
     FormularioProfesorComponent,
     FormularioEstudianteComponent,
+
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,7 @@ import { CoreModule } from 'src/app/core/core.module';
     MatRadioModule,
     MatGridListModule,
     CoreModule
-    
+
   ],
   providers: [
     ServiciosLoginService
