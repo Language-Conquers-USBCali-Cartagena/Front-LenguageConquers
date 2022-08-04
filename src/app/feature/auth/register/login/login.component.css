@@ -7,7 +7,7 @@
   line-height: 20px;
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url(../../../../assets/images/logging.png);
+  background-image: url(../../../../../assets/images/logging.png);
   background-size: cover;
 }
 .login{
@@ -164,28 +164,28 @@ display: flex;
 .google{
   width: 55px;
   height: 55px;
-  background: url(../../../../assets/images/google.png);
+  background: url(../../../../../assets/images/google.png);
 }
 .google:hover{
   width: 55px;
   height: 55px;
-  background: url(../../../../assets/images/google2.png);
+  background: url(../../../../../assets/images/google2.png);
 }
 .facebook{
   width: 55px;
   height: 55px;
-  background: url(../../../../assets/images/facebook.png);
+  background: url(../../../../../assets/images/facebook.png);
 }
 .facebook:hover{
   width: 55px;
   height: 55px;
-  background: url(../../../../assets/images/facebook2.png);
+  background: url(../../../../../assets/images/facebook2.png);
 }
 @media screen and (max-width: 600px) {
   .bg-img {
     width: 100%;
     margin-top: 0;
-    background-image: url(../../../../assets/images/logging.png);
+    background-image: url(../../../../../assets/images/logging.png);
 
     display: inline-table;
   }
