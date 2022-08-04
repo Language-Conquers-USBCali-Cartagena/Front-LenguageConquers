@@ -1,6 +1,6 @@
 <mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
 <form *ngIf="!loading" [formGroup]="form" (ngsubmit)="ingresar()">
-  <mat-form-field class="ancho entradas" appearance="fill" class="entradauc1">
+  <mat-form-field  appearance="fill" class="entradauc1">
     <mat-label style="color: rgb(241, 231, 194)">Usuario</mat-label>
     <input
       type="text"
@@ -17,7 +17,7 @@
       >account_box</mat-icon
     >
   </mat-form-field>
-  <mat-form-field appearance="fill" class="ancho entradas" class="entradauc2">
+  <mat-form-field appearance="fill"  class="entradauc2">
     <mat-label style="color: rgb(241, 231, 194); font-family: 'Mouse Memoirs'"
       >Contraseña</mat-label
     >

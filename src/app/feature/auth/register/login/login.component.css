@@ -1,13 +1,12 @@
 .body
 {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   width: 100%;
   height: 100%;
   line-height: 20px;
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: url(../../../../../assets/images/logging.png);
   background-size: cover;
 }
 .login{
@@ -17,6 +16,7 @@
   align-items: center;
   display: flex;
 }
+
 
 .fondoTarjeta{
   max-width: 435px;
@@ -39,14 +39,15 @@
   width: 100%;
 }
 .entradauc1 {
-  margin-left: 100px;
-  width: 260px;
+  margin-left: 50px;
+  margin-right: 20px;
+  width: 350px;
   font-family: 'Mouse Memoirs';
   font-size: 20px;
 }
 .entradauc2 {
-  margin-left: 100px;
-  width: 260px;
+  margin-left: 50px;
+  width: 350px;
   font-family: 'Mouse Memoirs';
   font-size: 20px;
 }
@@ -65,6 +66,7 @@
 }
 .spinner{
   margin: 0 auto;
+  color:rgb(241,231,194);
 
 }
 .centrar{
@@ -72,7 +74,7 @@
   color: rgb(255, 255, 255);
 }
 .botones {
-  max-width: 10em;
+  max-width: 15em;
   width: 10em;
   font-family: 'Mouse Memoirs';
   border-radius: 10px;
@@ -86,6 +88,7 @@
   font-size: 1.5em;
   margin-left: 5.45em;
   text-align: center;
+  align-items: center;
   color: rgb(241,231,194);
 }
 .botones:hover{

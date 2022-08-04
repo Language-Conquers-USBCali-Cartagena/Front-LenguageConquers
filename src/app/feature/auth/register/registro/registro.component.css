@@ -5,11 +5,9 @@
   width: 100%;
   height: 100%;
   align-items: center;
-  line-height: 60px;
+  line-height: 20px;
   background-repeat: no-repeat;
   background-size: cover;
-
-
 }
 .login{
   width: 40%;
@@ -20,14 +18,15 @@
 }
 .fondoTarjeta{
   max-width: 435px;
-  top: 30px;
-  bottom: 65px;
-
+  top: 20px;
+  bottom: 55px;
+  right: 50px;
+  font-family: Mouse Memoirs;
    /*Efecto espejo*/
-  padding: 2em;
-  width: 70%;
+  padding: 1em;
+  width: 80%;
   position: relative;
-  border-radius: 10px;
+  border-radius: 15px;
   background: rgba(255, 255, 255, 0.30);
 }
 
@@ -58,23 +57,22 @@
 }
 
 .entradauc1 {
-  margin-left: 100px;
-  width: 260px;
+  margin-left: 50px;
+  width: 350px;
   font-family: Mouse Memoirs;
   font-size: 20px;
 }
 .entradauc2 {
-  margin-left: 100px;
-  width: 260px;
+  margin-left: 50px;
+  width: 350px;
   font-family: Mouse Memoirs;
   font-size: 20px;
 }
 .cambiar-contra{
   justify-content: center;
   font-family: Mouse Memoirs;
-
   font-size: 15px;
-
+  color: white;
 }
 .vinculos-contra{
   font-family: Mouse Memoirs;
