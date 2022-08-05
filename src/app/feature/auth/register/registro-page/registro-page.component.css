@@ -2,35 +2,27 @@
 {
   display: flex;
   justify-content: left;
-  width: auto;
+  width: 100%;
   height: 100%;
+  line-height: 20px;
   background-repeat: no-repeat;
-  background-size: auto;
-  background-color: rgba(36, 28, 25, 0.918);
-}
-.fondo{
-  background-image: url(../../../../../assets/images/FondoPrincipal1.png);
+  background-size: 100%;
+  background-image: url(../../../../../assets/images/logging.png);
   background-size: cover;
 }
-
 .login{
-  height: 30%;
-  bottom: 50%;
-  width: auto;
-  height: 100%;
-  margin-left:auto;
-  margin-right:auto;
+  width: 40%;
+  max-width: 100%;
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
 .fondoTarjeta{
-  height: auto;
-  width: auto;
-  top: auto;
-  bottom: auto;
-  align-items: center;
+  max-width: 435px;
+  top: 20px;
+  bottom: 55px;
+  right: 50px;
   font-family: Mouse Memoirs;
    /*Efecto espejo*/
   padding: 1em;
@@ -40,36 +32,18 @@
 }
 
 .logo{
-  height: 120px;
-  padding-left: 70px;
+  height: 150px;
+  padding-left: 35px;
 }
 
-/*Responsive Mobile*/
-
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .bg-img {
     width: 100%;
     margin-top: 0;
-    background-image: url(../../../../../assets/images/FondoPrincipal1.png);
+    background-image: url(../../../../../assets/images/logging.png);
+
     display: inline-table;
   }
 
 }
 
-/*Responsive Tablet*/
-
-@media only screen and (max-width: 768px){
-
-}
-
-/*Responsive Laptop*/
-
-@media only screen and (max-width: 992px){
-
-}
-
-/*Responsive Large Screen*/
-
-@media only screen and (max-width: 1200px){
-
-}

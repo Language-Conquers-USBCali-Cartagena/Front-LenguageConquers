@@ -1,23 +1,21 @@
-<mat-grid-list cols="3"  rowHeight="1:1">
-  <mat-grid-tile [colspan]="1" [rowspan]="2">
-    <div class="body bg-img">
-        <div class="login">
-          <!-- <img  src="./assets/images/logging.png" width="1550px" height="740px" style="position: absolute; right: 0; top: 0; z-index: -100; "> -->
-          <mat-card class="fondoTarjeta">
-            <mat-card-content  class="medidas">
-              <img src="./assets/images/LogoV1.png" class="logo">
-                <mat-tab-group mat-align-tabs="center"  >
-                  <mat-tab  label="Iniciar Sesión" >
-                    <app-login></app-login>
-                  </mat-tab>
-                  <mat-tab label="Crear Cuenta" >
-                    <app-registro></app-registro>
-                  </mat-tab>
-                </mat-tab-group>
-            </mat-card-content>
-          </mat-card>
-        </div>
-      </div>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="2" [rowspan]="2" class="fondo"></mat-grid-tile>
-</mat-grid-list>
+
+
+<div class="body bg-img">
+    <div class="login">
+      <!-- <img  src="./assets/images/logging.png" width="1550px" height="740px" style="position: absolute; right: 0; top: 0; z-index: -100; "> -->
+      <mat-card class="fondoTarjeta">
+        <mat-card-content  >
+          <img src="./assets/images/LogoV1.png" class="logo">
+            <mat-tab-group mat-align-tabs="center"  >
+              <mat-tab  label="Iniciar Sesión" >
+                <app-login></app-login>
+              </mat-tab>
+              <mat-tab label="Crear Cuenta" class="labels">
+                <app-registro></app-registro>
+              </mat-tab>
+            </mat-tab-group>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  
+  </div>
