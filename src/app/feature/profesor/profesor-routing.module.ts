@@ -13,7 +13,7 @@ const routes:Routes = [
         // canActivate: [AuthGuardGuard],
         children: [
             {
-                path: 'menu/:correo',
+                path: 'menuProfesor/:id',
                 component: MenuProfesorComponent
             }
         ]

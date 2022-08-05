@@ -12,7 +12,7 @@ import { MaterialModule } from '../../shared/material/material.module';
   declarations: [
     ProfesorComponent,
     MenuProfesorComponent,
-    InicioProfesorComponent
+    InicioProfesorComponent,
   ],
   imports: [
     CommonModule,

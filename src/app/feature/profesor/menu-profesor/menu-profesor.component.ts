@@ -11,11 +11,15 @@ import { ActivatedRoute } from '@angular/router';
 export class MenuProfesorComponent implements OnInit {
   profesor: Profesor = {};
   correo: string ='';
-  constructor(private loginService: ServiciosLoginService, private _route: ActivatedRoute) { }
+  constructor(private loginService: ServiciosLoginService, private _route: ActivatedRoute) { 
 
+    
+  }
   ngOnInit(): void {
-    this.correo = this._route.snapshot?.paramMap?.get('correo')!;
+    this.correo = this._route.snapshot.params.id!;
+    
     this.obtenerProfesor(this.correo);
+   
   }
 
   async obtenerProfesor(correo: string) {
@@ -26,4 +30,5 @@ export class MenuProfesorComponent implements OnInit {
     console.log(this.profesor)
     console.log(this.correo)
   }
+
 }

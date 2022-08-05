@@ -81,7 +81,7 @@ export class RegistroComponent implements OnInit {
     await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
       this.profesorExiste = response;
       if(response == true){
-        this.router.navigateByUrl("/profesor/menu")
+        this.router.navigateByUrl("/profesor/menuProfesor/" + email)
       }
     })
   

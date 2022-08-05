@@ -81,16 +81,16 @@ export class LoginComponent implements OnInit {
 
   async validarExistenciaBD(email: String){
      
+    await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
+      this.profesorExiste = response;
+      if(response == true){
+        this.router.navigateByUrl("/profesor/menuProfesor/" + email)
+      }
+    })
     await this.loginService.existEstudianteByCorreo(email).toPromise().then((response) => {
       this.estudianteExiste = response;
       if(response == true){
         this.router.navigateByUrl("/estudiante/menu/" + email)
-      }
-    })
-    await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
-      this.profesorExiste = response;
-      if(response == true){
-        this.router.navigateByUrl("/profesor/menu/" + email)
       }
     })
   

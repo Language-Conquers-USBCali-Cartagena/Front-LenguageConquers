@@ -13,7 +13,7 @@ export class MenuComponent implements OnInit {
   correo: string = '';
   constructor(private loginService: ServiciosLoginService, private _route: ActivatedRoute) { }
   ngOnInit(): void {
-    this.correo = this._route.snapshot?.paramMap?.get('correo')!;
+    this.correo = this._route.snapshot.params.correo!;
     this.obtenerEstudiante(this.correo);
 
   }
