@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../core/service/auth.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ServiciosLoginService } from '../../../shared/services/Login/servicios-login.service';
 import { Estudiante } from '../../../shared/models/estudiante';
 
@@ -12,17 +11,17 @@ import { Estudiante } from '../../../shared/models/estudiante';
 export class MenuComponent implements OnInit {
   estudiante: Estudiante = {};
   correo: string = '';
-  constructor(private authService: AuthService, private router: Router, private loginService: ServiciosLoginService, private _route: ActivatedRoute) { }
+  constructor(private loginService: ServiciosLoginService, private _route: ActivatedRoute) { }
   ngOnInit(): void {
     this.correo = this._route.snapshot?.paramMap?.get('correo')!;
     this.obtenerEstudiante(this.correo);
-    
+
   }
 
-  async obtenerEstudiante(correo: string){
+  async obtenerEstudiante(correo: string) {
     await this.loginService.getEstudiante(correo).toPromise().then((response) => {
       this.estudiante = response;
-    } 
+    }
     )
     console.log(this.estudiante)
     console.log(this.correo)

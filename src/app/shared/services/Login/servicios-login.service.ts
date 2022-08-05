@@ -50,4 +50,12 @@ export class ServiciosLoginService {
     });
     return this.http.get<Estudiante>(`${this.baseUrl}/estudiante/porCorrero`, {params: paramsHttp});
   }
+  getProfesor(email: string): Observable<Profesor>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        correo: `${email}`
+      }
+    });
+    return this.http.get<Profesor>(`${this.baseUrl}/profesor/porCorreo`, {params: paramsHttp})
+  }
 }

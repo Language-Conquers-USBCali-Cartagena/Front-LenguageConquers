@@ -14,21 +14,18 @@
         <br>
         <a>Opcion 6</a>
         <br>
-        <button mat-button class="salida" >salir</button>
+        <button mat-button class="salida" (click)="salir()">salir</button>
         <br>
         </div>
     </mat-sidenav >
     <mat-sidenav-content>
         <!-- Aqui va todo lo que esta por fuera del sidenav -->
-        
         <mat-toolbar class="color" >
             <button mat-button (click)="sidenav.toggle()"><div class="center" ><div></div></div></button>
             <div class="colorc">
                 <img src="./assets/images/logo.png" alt="" >
                 <h1 >Perfil  Docente</h1>
             </div>
-            
-            
         </mat-toolbar>
           
        <app-menu-profesor></app-menu-profesor>

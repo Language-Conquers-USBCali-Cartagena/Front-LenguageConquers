@@ -12,10 +12,6 @@ const routes: Routes = [
     loadChildren:() => import('./feature/auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'menuPrincipal',
-    loadChildren: () => import('./feature/pagina-principal/pagina-principal.module').then(m => m.PaginaPrincipalModule)
-  },
-  {
     path: 'estudiante',
     loadChildren: ()=>import('./feature/estudiante/estudiante.module').then(m => m.EstudianteModule)
   },
