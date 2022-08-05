@@ -20,7 +20,7 @@ export class RecuperarComponent implements OnInit {
   async recuperarContra(){
     const email = this.userEmail.value;
     console.log(this.userEmail.value);
-    
+
     try{
       await this.authService.recuperarContraseña(email);
       window.alert('Correo enviado, revise su inbox')
@@ -29,6 +29,9 @@ export class RecuperarComponent implements OnInit {
       console.log(error);
     }
   }
-  
+  atras(){
+    this.route.navigate(['/auth/login']);
+  }
+
 
 }
