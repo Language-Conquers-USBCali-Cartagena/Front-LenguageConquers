@@ -2042,7 +2042,7 @@ td.mat-footer-cell {
 }
 .mat-progress-spinner circle,
 .mat-spinner circle {
-  stroke: #3f51b5;
+  stroke: rgb(160, 153, 128);
 }
 .mat-progress-spinner.mat-accent circle,
 .mat-spinner.mat-accent circle {
