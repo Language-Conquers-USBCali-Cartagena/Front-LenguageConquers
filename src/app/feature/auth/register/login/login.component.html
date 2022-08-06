@@ -1,75 +1,35 @@
-<br><br>
+<br /><br />
 <mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
-<br><br>
+<br /><br />
 <form *ngIf="!loading" [formGroup]="form" (ngsubmit)="ingresar()">
-  <mat-form-field  appearance="fill" class="entradauc1">
+  <mat-form-field appearance="fill" class="entradauc1">
     <mat-label style="color: rgb(241, 231, 194)">Usuario</mat-label>
-    <input
-      type="text"
-      matInput
-      autocomplete="off"
-      formControlName="usuario"
-      class="colorentrada"
-    />
-    <mat-icon
-      matSuffix
-      class="boton"
-      style="font-size: 2em"
-      style="color: rgb(217, 161, 84)"
-      >account_box</mat-icon
-    >
+    <input type="text" matInput autocomplete="off" formControlName="usuario" class="colorentrada" />
+    <mat-icon matSuffix class="boton" style="font-size: 2em" style="color: rgb(217, 161, 84)">account_box</mat-icon>
   </mat-form-field>
-  <mat-form-field appearance="fill"  class="entradauc2">
-    <mat-label style="color: rgb(241, 231, 194); font-family: 'Mouse Memoirs'"
-      >Contraseña</mat-label
-    >
-    <input
-      matInput
-      [type]="hide ? 'password' : 'text'"
-      autocomplete="off"
-      formControlName="password"
-      class="colorentrada"
-    />
-    <button
-      mat-icon-button
-      matSuffix
-      (click)="hide = !hide"
-      [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide"
-      style="color: rgb(217, 161, 84)"
-    >
+  <mat-form-field appearance="fill" class="entradauc2">
+    <mat-label style="color: rgb(241, 231, 194); font-family: 'Mouse Memoirs'">Contraseña</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password"
+      class="colorentrada" />
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide" style="color: rgb(217, 161, 84)">
       <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
     </button>
   </mat-form-field>
 
-  <button
-    type="submit"
-    (click)="ingresar()"
-    class="botones"
-    [disabled]="form.invalid"
-  >
+  <button type="submit" (click)="ingresar()" class="botones" [disabled]="form.invalid">
     Ingresar
   </button>
   <h3 class="lienas">Ingresar Con</h3>
   <div class="otrac">
-    <a
-      type="submit"
-      (click)="IngresarConGoogle()"
-      class="ancho otrac google"
-    ></a>
-    <a
-      type="submit"
-      (click)="IngresarConFacebook()"
-      class="ancho otrac facebook"
-    ></a>
+    <a type="submit" (click)="IngresarConGoogle()" class="ancho otrac google"></a>
+    <a type="submit" (click)="IngresarConFacebook()" class="ancho otrac facebook"></a>
   </div>
 
   <!--<u class="cambiar-contra" ><a href="/auth/registro">Registrarse</a></u>-->
   <div class="centrar">
-    <u class="cambiar-contra"
-      ><a class="vinculos-contra" href="/auth/recuperar">
+    <u class="cambiar-contra"><a class="vinculos-contra" href="/auth/recuperar">
         Recuperar contraseña
-      </a></u
-    >
+      </a></u>
   </div>
 </form>
