@@ -1,7 +1,9 @@
 .mat-badge-content {
   font-weight: 600;
   font-size: 12px;
+
   font-family: "Mouse Memoirs";
+
 }
 .mat-badge-small .mat-badge-content {
   font-size: 9px;
@@ -12,50 +14,58 @@
 .mat-h1,
 .mat-headline,
 .mat-typography h1 {
-  font: 400 24px/32px "Mouse Memoirs";
+  font: 400 24px/32px 'Mouse Memoirs';
   letter-spacing: normal;
   margin: 0 0 16px;
 }
 .mat-h2,
 .mat-title,
 .mat-typography h2 {
+
   font: 500 20px/32px "Mouse Memoirs";
+
   letter-spacing: normal;
   margin: 0 0 16px;
 }
 .mat-h3,
 .mat-subheading-2,
 .mat-typography h3 {
-  font: 400 16px/28px "Mouse Memoirs";
+
+  font: 400 16px/28px 'Mouse Memoirs';
+
   letter-spacing: normal;
   margin: 0 0 16px;
 }
 .mat-h4,
 .mat-subheading-1,
 .mat-typography h4 {
-  font: 400 15px/24px "Mouse Memoirs";
+
+  font: 400 15px/24px 'Mouse Memoirs';
   letter-spacing: normal;
   margin: 0 0 16px;
 }
 .mat-h5,
 .mat-typography h5 {
-  font: 400 calc(14px * 0.83) / 20px "Mouse Memoirs";
+  font: 400 calc(14px * 0.83) / 20px 'Mouse Memoirs';
   margin: 0 0 12px;
 }
 .mat-h6,
 .mat-typography h6 {
-  font: 400 calc(14px * 0.67) / 20px "Mouse Memoirs";
+
+  font: 400 calc(14px * 0.67) / 20px 'Mouse Memoirs';
   margin: 0 0 12px;
 }
 .mat-body-strong,
 .mat-body-2 {
-  font: 500 14px/24px "Mouse Memoirs";
+
+  font: 500 14px/24px 'Mouse Memoirs';
   letter-spacing: normal;
 }
 .mat-body,
 .mat-body-1,
 .mat-typography {
-  font: 400 14px/20px "Mouse Memoirs";
+
+  font: 400 14px/20px 'Mouse Memoirs';
   letter-spacing: normal;
 }
 .mat-body p,
@@ -65,35 +75,37 @@
 }
 .mat-small,
 .mat-caption {
-  font: 400 12px/20px "Mouse Memoirs";
+  font: 400 12px/20px 'Mouse Memoirs';
   letter-spacing: normal;
 }
 .mat-display-4,
 .mat-typography .mat-display-4 {
-  font: 300 112px/112px "Mouse Memoirs";
+
+  font: 300 112px/112px 'Mouse Memoirs';
   letter-spacing: -0.05em;
   margin: 0 0 56px;
 }
 .mat-display-3,
 .mat-typography .mat-display-3 {
-  font: 400 56px/56px "Mouse Memoirs";
+
+  font: 400 56px/56px 'Mouse Memoirs';
   letter-spacing: -0.02em;
   margin: 0 0 64px;
 }
 .mat-display-2,
 .mat-typography .mat-display-2 {
-  font: 400 45px/48px "Mouse Memoirs";
+  font: 400 45px/48px 'Mouse Memoirs';
   letter-spacing: -0.005em;
   margin: 0 0 64px;
 }
 .mat-display-1,
 .mat-typography .mat-display-1 {
-  font: 400 34px/40px "Mouse Memoirs";
+  font: 400 34px/40px 'Mouse Memoirs';
   letter-spacing: normal;
   margin: 0 0 64px;
 }
 .mat-bottom-sheet-container {
-  font: 400 14px/20px "Mouse Memoirs";
+  font: 400 14px/20px 'Mouse Memoirs';
   letter-spacing: normal;
 }
 .mat-button,
@@ -103,15 +115,16 @@
 .mat-flat-button,
 .mat-fab,
 .mat-mini-fab {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
   font-size: 14px;
   font-weight: 500;
 }
 .mat-button-toggle {
-  font-family: "Mouse Memoirs";
+  font-family: 'Mouse Memoirs';
 }
 .mat-card {
-  font-family: "Mouse Memoirs";
+  font-family: 'Mouse Memoirs';
 }
 .mat-card-title {
   font-size: 24px;
@@ -125,7 +138,8 @@
   font-size: 14px;
 }
 .mat-checkbox {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
 }
 .mat-checkbox-layout .mat-checkbox-label {
   line-height: 24px;
@@ -139,7 +153,8 @@
   font-size: 18px;
 }
 .mat-table {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
 }
 .mat-header-cell {
   font-size: 12px;
@@ -150,7 +165,8 @@
   font-size: 14px;
 }
 .mat-calendar {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
 }
 .mat-calendar-body {
   font-size: 13px;
@@ -165,23 +181,25 @@
   font-weight: 400;
 }
 .mat-dialog-title {
-  font: 500 20px/32px "Mouse Memoirs";
+
+  font: 500 20px/32px 'Mouse Memoirs';
   letter-spacing: normal;
 }
 .mat-expansion-panel-header {
-  font-family: "Mouse Memoirs";
+  font-family: 'Mouse Memoirs';
   font-size: 15px;
   font-weight: 400;
 }
 .mat-expansion-panel-content {
-  font: 400 14px/20px "Mouse Memoirs";
+
+  font: 400 14px/20px 'Mouse Memoirs';
   letter-spacing: normal;
 }
 .mat-form-field {
   font-size: inherit;
   font-weight: 400;
   line-height: 1.125;
-  font-family: "Mouse Memoirs";
+  font-family: 'Mouse Memoirs';
   letter-spacing: normal;
 }
 .mat-form-field-wrapper {
@@ -369,35 +387,38 @@ input.mat-input-element {
   margin-top: -0.0625em;
 }
 .mat-menu-item {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
   font-size: 14px;
   font-weight: 400;
 }
 .mat-paginator,
 .mat-paginator-page-size .mat-select-trigger {
-  font-family: "Mouse Memoirs";
+  font-family: 'Mouse Memoirs';
   font-size: 12px;
 }
 .mat-radio-button {
-  font-family: "Mouse Memoirs";
+  font-family: 'Mouse Memoirs';
 }
 .mat-select {
-  font-family: "Mouse Memoirs";
+  font-family: 'Mouse Memoirs';
 }
 .mat-select-trigger {
   height: 1.125em;
 }
 .mat-slide-toggle-content {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
 }
 .mat-slider-thumb-label-text {
-  font-family: "Mouse Memoirs";
+  font-family: 'Mouse Memoirs';
   font-size: 12px;
   font-weight: 500;
 }
 .mat-stepper-vertical,
 .mat-stepper-horizontal {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
 }
 .mat-step-label {
   font-size: 14px;
@@ -414,11 +435,12 @@ input.mat-input-element {
   font-weight: 500;
 }
 .mat-tab-group {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
 }
 .mat-tab-label,
 .mat-tab-link {
-  font-family: "Mouse Memoirs";
+  font-family: 'Mouse Memoirs';
   font-size: 25px;
   font-weight: 500;
 }
@@ -429,12 +451,14 @@ input.mat-input-element {
 .mat-toolbar h4,
 .mat-toolbar h5,
 .mat-toolbar h6 {
-  font: 500 20px/32px "Mouse Memoirs";
+
+  font: 500 20px/32px 'Mouse Memoirs';
   letter-spacing: normal;
   margin: 0;
 }
 .mat-tooltip {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
   font-size: 10px;
   padding-top: 6px;
   padding-bottom: 6px;
@@ -445,10 +469,11 @@ input.mat-input-element {
   padding-bottom: 8px;
 }
 .mat-list-item {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
 }
 .mat-list-option {
-  font-family: "Mouse Memoirs";
+  font-family: 'Mouse Memoirs';
 }
 .mat-list-base .mat-list-item {
   font-size: 16px;
@@ -477,7 +502,8 @@ input.mat-input-element {
   font-size: 14px;
 }
 .mat-list-base .mat-subheader {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
   font-size: 14px;
   font-weight: 500;
 }
@@ -508,20 +534,22 @@ input.mat-input-element {
   font-size: 12px;
 }
 .mat-list-base[dense] .mat-subheader {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
   font-size: 12px;
   font-weight: 500;
 }
 .mat-option {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
   font-size: 16px;
 }
 .mat-optgroup-label {
-  font: 500 14px/24px "Mouse Memoirs";
+  font: 500 14px/24px 'Mouse Memoirs';
   letter-spacing: normal;
 }
 .mat-simple-snackbar {
-  font-family: "Mouse Memoirs";
+  font-family: 'Mouse Memoirs';
   font-size: 14px;
 }
 .mat-simple-snackbar-action {
@@ -531,7 +559,8 @@ input.mat-input-element {
   font-weight: 500;
 }
 .mat-tree {
-  font-family: "Mouse Memoirs";
+
+  font-family: 'Mouse Memoirs';
 }
 .mat-tree-node,
 .mat-nested-tree-node {
@@ -844,7 +873,8 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   background: #fff;
   color: rgba(0, 0, 0, 0.87);
 }
-.mat-autocomplete-panel:not([class*="mat-elevation-z"]) {
+
+.mat-autocomplete-panel:not([class*='mat-elevation-z']) {
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
@@ -894,21 +924,24 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-badge-small.mat-badge-before .mat-badge-content {
   left: -16px;
 }
-[dir="rtl"] .mat-badge-small.mat-badge-before .mat-badge-content {
+
+[dir='rtl'] .mat-badge-small.mat-badge-before .mat-badge-content {
   left: auto;
   right: -16px;
 }
 .mat-badge-small.mat-badge-after .mat-badge-content {
   right: -16px;
 }
-[dir="rtl"] .mat-badge-small.mat-badge-after .mat-badge-content {
+
+[dir='rtl'] .mat-badge-small.mat-badge-after .mat-badge-content {
   right: auto;
   left: -16px;
 }
 .mat-badge-small.mat-badge-overlap.mat-badge-before .mat-badge-content {
   left: -8px;
 }
-[dir="rtl"]
+
+[dir='rtl']
   .mat-badge-small.mat-badge-overlap.mat-badge-before
   .mat-badge-content {
   left: auto;
@@ -917,7 +950,8 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-badge-small.mat-badge-overlap.mat-badge-after .mat-badge-content {
   right: -8px;
 }
-[dir="rtl"]
+
+[dir='rtl']
   .mat-badge-small.mat-badge-overlap.mat-badge-after
   .mat-badge-content {
   right: auto;
@@ -937,21 +971,24 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-badge-medium.mat-badge-before .mat-badge-content {
   left: -22px;
 }
-[dir="rtl"] .mat-badge-medium.mat-badge-before .mat-badge-content {
+
+[dir='rtl'] .mat-badge-medium.mat-badge-before .mat-badge-content {
   left: auto;
   right: -22px;
 }
 .mat-badge-medium.mat-badge-after .mat-badge-content {
   right: -22px;
 }
-[dir="rtl"] .mat-badge-medium.mat-badge-after .mat-badge-content {
+
+[dir='rtl'] .mat-badge-medium.mat-badge-after .mat-badge-content {
   right: auto;
   left: -22px;
 }
 .mat-badge-medium.mat-badge-overlap.mat-badge-before .mat-badge-content {
   left: -11px;
 }
-[dir="rtl"]
+
+[dir='rtl']
   .mat-badge-medium.mat-badge-overlap.mat-badge-before
   .mat-badge-content {
   left: auto;
@@ -960,7 +997,8 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
   right: -11px;
 }
-[dir="rtl"]
+
+[dir='rtl']
   .mat-badge-medium.mat-badge-overlap.mat-badge-after
   .mat-badge-content {
   right: auto;
@@ -980,21 +1018,24 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-badge-large.mat-badge-before .mat-badge-content {
   left: -28px;
 }
-[dir="rtl"] .mat-badge-large.mat-badge-before .mat-badge-content {
+
+[dir='rtl'] .mat-badge-large.mat-badge-before .mat-badge-content {
   left: auto;
   right: -28px;
 }
 .mat-badge-large.mat-badge-after .mat-badge-content {
   right: -28px;
 }
-[dir="rtl"] .mat-badge-large.mat-badge-after .mat-badge-content {
+
+[dir='rtl'] .mat-badge-large.mat-badge-after .mat-badge-content {
   right: auto;
   left: -28px;
 }
 .mat-badge-large.mat-badge-overlap.mat-badge-before .mat-badge-content {
   left: -14px;
 }
-[dir="rtl"]
+
+[dir='rtl']
   .mat-badge-large.mat-badge-overlap.mat-badge-before
   .mat-badge-content {
   left: auto;
@@ -1003,7 +1044,8 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-badge-large.mat-badge-overlap.mat-badge-after .mat-badge-content {
   right: -14px;
 }
-[dir="rtl"]
+
+[dir='rtl']
   .mat-badge-large.mat-badge-overlap.mat-badge-after
   .mat-badge-content {
   right: auto;
@@ -1199,35 +1241,36 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-mini-fab.mat-warn .mat-ripple-element {
   background-color: rgba(255, 255, 255, 0.1);
 }
-.mat-stroked-button:not([class*="mat-elevation-z"]),
-.mat-flat-button:not([class*="mat-elevation-z"]) {
+
+.mat-stroked-button:not([class*='mat-elevation-z']),
+.mat-flat-button:not([class*='mat-elevation-z']) {
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
     0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }
-.mat-raised-button:not([class*="mat-elevation-z"]) {
+.mat-raised-button:not([class*='mat-elevation-z']) {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
-.mat-raised-button:not(.mat-button-disabled):active:not([class*="mat-elevation-z"]) {
+.mat-raised-button:not(.mat-button-disabled):active:not([class*='mat-elevation-z']) {
   box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
     0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
-.mat-raised-button.mat-button-disabled:not([class*="mat-elevation-z"]) {
+.mat-raised-button.mat-button-disabled:not([class*='mat-elevation-z']) {
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
     0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }
-.mat-fab:not([class*="mat-elevation-z"]),
-.mat-mini-fab:not([class*="mat-elevation-z"]) {
+.mat-fab:not([class*='mat-elevation-z']),
+.mat-mini-fab:not([class*='mat-elevation-z']) {
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
     0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
 }
-.mat-fab:not(.mat-button-disabled):active:not([class*="mat-elevation-z"]),
-.mat-mini-fab:not(.mat-button-disabled):active:not([class*="mat-elevation-z"]) {
+.mat-fab:not(.mat-button-disabled):active:not([class*='mat-elevation-z']),
+.mat-mini-fab:not(.mat-button-disabled):active:not([class*='mat-elevation-z']) {
   box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2),
     0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
 }
-.mat-fab.mat-button-disabled:not([class*="mat-elevation-z"]),
-.mat-mini-fab.mat-button-disabled:not([class*="mat-elevation-z"]) {
+.mat-fab.mat-button-disabled:not([class*='mat-elevation-z']),
+.mat-mini-fab.mat-button-disabled:not([class*='mat-elevation-z']) {
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2),
     0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
 }
@@ -1258,7 +1301,8 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   + .mat-button-toggle {
   border-left: solid 1px rgba(0, 0, 0, 0.12);
 }
-[dir="rtl"]
+
+[dir='rtl']
   .mat-button-toggle-group-appearance-standard
   .mat-button-toggle
   + .mat-button-toggle {
@@ -1300,11 +1344,12 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   background: #fff;
   color: rgb(201, 131, 69);
 }
-.mat-card:not([class*="mat-elevation-z"]) {
+
+.mat-card:not([class*='mat-elevation-z']) {
   box-shadow: 0px 2px 1px -1px rgb(201, 131, 69),
     0px 1px 1px 0px rgb(201, 131, 69), 0px 1px 3px 0px rgb(201, 131, 69);
 }
-.mat-card.mat-card-flat:not([class*="mat-elevation-z"]) {
+.mat-card.mat-card-flat:not([class*='mat-elevation-z']) {
   box-shadow: 0px 0px 0px 0px rgb(201, 131, 69),
     0px 0px 0px 0px rgb(201, 131, 69), 0px 0px 0px 0px rgb(201, 131, 69);
 }
@@ -1493,7 +1538,8 @@ td.mat-footer-cell {
   background: rgba(249, 171, 0, 0.2);
 }
 .mat-calendar-body-comparison-bridge-start::before,
-[dir="rtl"] .mat-calendar-body-comparison-bridge-end::before {
+
+[dir='rtl'] .mat-calendar-body-comparison-bridge-end::before {
   background: linear-gradient(
     to right,
     rgba(63, 81, 181, 0.2) 50%,
@@ -1501,7 +1547,8 @@ td.mat-footer-cell {
   );
 }
 .mat-calendar-body-comparison-bridge-end::before,
-[dir="rtl"] .mat-calendar-body-comparison-bridge-start::before {
+
+[dir='rtl'] .mat-calendar-body-comparison-bridge-start::before {
   background: linear-gradient(
     to left,
     rgba(63, 81, 181, 0.2) 50%,
@@ -1553,7 +1600,8 @@ td.mat-footer-cell {
 .mat-datepicker-content.mat-accent
   .mat-calendar-body-comparison-bridge-start::before,
 .mat-datepicker-content.mat-accent
-  [dir="rtl"]
+
+  [dir='rtl']
   .mat-calendar-body-comparison-bridge-end::before {
   background: linear-gradient(
     to right,
@@ -1564,7 +1612,8 @@ td.mat-footer-cell {
 .mat-datepicker-content.mat-accent
   .mat-calendar-body-comparison-bridge-end::before,
 .mat-datepicker-content.mat-accent
-  [dir="rtl"]
+
+  [dir='rtl']
   .mat-calendar-body-comparison-bridge-start::before {
   background: linear-gradient(
     to left,
@@ -1623,7 +1672,8 @@ td.mat-footer-cell {
 .mat-datepicker-content.mat-warn
   .mat-calendar-body-comparison-bridge-start::before,
 .mat-datepicker-content.mat-warn
-  [dir="rtl"]
+
+  [dir='rtl']
   .mat-calendar-body-comparison-bridge-end::before {
   background: linear-gradient(
     to right,
@@ -1634,7 +1684,8 @@ td.mat-footer-cell {
 .mat-datepicker-content.mat-warn
   .mat-calendar-body-comparison-bridge-end::before,
 .mat-datepicker-content.mat-warn
-  [dir="rtl"]
+
+  [dir='rtl']
   .mat-calendar-body-comparison-bridge-start::before {
   background: linear-gradient(
     to left,
@@ -1714,7 +1765,8 @@ td.mat-footer-cell {
   background: #fff;
   color: rgba(0, 0, 0, 0.87);
 }
-.mat-expansion-panel:not([class*="mat-elevation-z"]) {
+
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
@@ -1722,15 +1774,16 @@ td.mat-footer-cell {
   border-top-color: rgba(0, 0, 0, 0.12);
 }
 .mat-expansion-panel
-  .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled="true"]),
+
+  .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled='true']),
 .mat-expansion-panel
-  .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled="true"]),
+  .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled='true']),
 .mat-expansion-panel:not(.mat-expanded)
-  .mat-expansion-panel-header:hover:not([aria-disabled="true"]) {
+  .mat-expansion-panel-header:hover:not([aria-disabled='true']) {
   background: rgba(0, 0, 0, 0.04);
 }
 @media (hover: none) {
-  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled="true"])
+  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled='true'])
     .mat-expansion-panel-header:hover {
     background: #fff;
   }
@@ -1742,12 +1795,13 @@ td.mat-footer-cell {
 .mat-expansion-indicator::after {
   color: rgba(0, 0, 0, 0.54);
 }
-.mat-expansion-panel-header[aria-disabled="true"] {
+
+.mat-expansion-panel-header[aria-disabled='true'] {
   color: rgba(0, 0, 0, 0.26);
 }
-.mat-expansion-panel-header[aria-disabled="true"]
+.mat-expansion-panel-header[aria-disabled='true']
   .mat-expansion-panel-header-title,
-.mat-expansion-panel-header[aria-disabled="true"]
+.mat-expansion-panel-header[aria-disabled='true']
   .mat-expansion-panel-header-description {
   color: inherit;
 }
@@ -1965,7 +2019,8 @@ td.mat-footer-cell {
 .mat-menu-panel {
   background: #fff;
 }
-.mat-menu-panel:not([class*="mat-elevation-z"]) {
+
+.mat-menu-panel:not([class*='mat-elevation-z']) {
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
@@ -2042,7 +2097,8 @@ td.mat-footer-cell {
 }
 .mat-progress-spinner circle,
 .mat-spinner circle {
-  stroke: #3f51b5;
+
+  stroke: rgb(160, 153, 128);
 }
 .mat-progress-spinner.mat-accent circle,
 .mat-spinner.mat-accent circle {
@@ -2117,7 +2173,8 @@ td.mat-footer-cell {
 .mat-select-panel {
   background: #fff;
 }
-.mat-select-panel:not([class*="mat-elevation-z"]) {
+
+.mat-select-panel:not([class*='mat-elevation-z']) {
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
@@ -2161,11 +2218,13 @@ td.mat-footer-cell {
   border-left: solid 1px rgba(0, 0, 0, 0.12);
   border-right: none;
 }
-[dir="rtl"] .mat-drawer-side {
+
+
+[dir='rtl'] .mat-drawer-side {
   border-left: solid 1px rgba(0, 0, 0, 0.12);
   border-right: none;
 }
-[dir="rtl"] .mat-drawer-side.mat-drawer-end {
+[dir='rtl'] .mat-drawer-side.mat-drawer-end {
   border-left: none;
   border-right: solid 1px rgba(0, 0, 0, 0.12);
 }
@@ -2318,10 +2377,11 @@ td.mat-footer-cell {
 .mat-step-header.cdk-keyboard-focused,
 .mat-step-header.cdk-program-focused,
 .mat-step-header:hover:not([aria-disabled]),
-.mat-step-header:hover[aria-disabled="false"] {
+
+.mat-step-header:hover[aria-disabled='false'] {
   background-color: rgba(0, 0, 0, 0.04);
 }
-.mat-step-header:hover[aria-disabled="true"] {
+.mat-step-header:hover[aria-disabled='true'] {
   cursor: default;
 }
 @media (hover: none) {
@@ -2427,8 +2487,9 @@ td.mat-footer-cell {
 .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
   border-color: rgba(0, 0, 0, 0.38);
 }
-.mat-tab-group[class*="mat-background-"] > .mat-tab-header,
-.mat-tab-nav-bar[class*="mat-background-"] {
+
+.mat-tab-group[class*='mat-background-'] > .mat-tab-header,
+.mat-tab-nav-bar[class*='mat-background-'] {
   border-bottom: none;
   border-top: none;
 }

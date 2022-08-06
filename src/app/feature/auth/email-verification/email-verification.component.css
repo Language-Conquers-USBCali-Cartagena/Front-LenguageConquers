@@ -13,13 +13,20 @@
     -o-border-radius: 10px;
     font-size: 25px;
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgb(241,231,194);
 
 }
 .boton:hover{
   background-color: rgb(241,231,194);
   border-color: rgb(241,231,194);
   color: rgb(217,161,84);
+}
+.tarjeta{
+  width: 50%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 .body {
     display: flex;
@@ -30,18 +37,24 @@
     line-height: 60px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(../../../../assets/images/principal.png);
+    background-image: url(../../../../assets/images/FondoEmailVerification.png);
   }
 .botones{
   text-align: center;
 }
 .logo{
-  height: 150px;
-  padding-left: 35px;
+  height: 120px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 350px;
 }
 
 .fondoTarjeta {
-    max-width: 435px;
+  max-height: 800px;
+    max-width: 485px;
+    top: 30px;
+    bottom: auto;
+    margin-bottom: 55px;
     /*Efecto espejo*/
     padding: 2em;
     width: 70%;
@@ -51,16 +64,17 @@
 }
 .align{
     justify-content:center ;
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
     color: rgb(117,76,36);
 }
 .texto{
     display: flex;
     flex-wrap: wrap;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     color: rgb(117,76,36);
+    line-height: 20px;
 }
 
 @media screen and (max-width: 600px) {

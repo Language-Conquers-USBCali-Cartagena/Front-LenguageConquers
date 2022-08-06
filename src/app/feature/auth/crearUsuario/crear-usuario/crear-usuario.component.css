@@ -35,7 +35,11 @@ h1 {
 }
 
 .color {
-  height: 100px;
+  height: 120px;
+  align-items: center;
+  padding-left: 45%;
+  background-color: rgba(36, 28, 25, 0.918);
+  opacity: 0.9;
 
 }
 
