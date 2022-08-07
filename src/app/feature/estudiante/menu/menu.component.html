@@ -11,6 +11,15 @@
           </div>
             <mat-card class="fondoTarjeta2">
               <h2>Mis cursos</h2>
+              <div *ngFor="let curso of cursos">
+                <div [routerLink]="['/curso', curso.idCurso]" (click)="correo">
+                  {{curso.nombre}}
+
+                </div>
+                
+                
+                
+              </div>
               <button class="boton-cursos"></button>
             </mat-card>
     </div>

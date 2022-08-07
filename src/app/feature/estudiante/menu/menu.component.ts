@@ -13,17 +13,14 @@ import { Curso } from '../../../shared/models/curso';
 })
 export class MenuComponent implements OnInit {
   estudiante: Estudiante = {};
-  cursos?: Observable<Curso[]>;
+  cursos?: Curso[];
   correo: string = '';
   constructor(private estudianteService: EstudianteServiceService, private _route: ActivatedRoute) { }
   ngOnInit(): void {
     this.correo = this._route.snapshot.params.correo!;
     this.obtenerEstudiante(this.correo);
-    this.cursos = this.estudianteService.getCursos(this.correo);
-    this.cursos.subscribe(res => {
-      console.log(res);
-      
-    })
+    this.obtenerCursos(this.correo);
+    
   }
 
   async obtenerEstudiante(correo: string) {
@@ -34,5 +31,12 @@ export class MenuComponent implements OnInit {
     console.log(this.estudiante)
     console.log(this.correo)
   }
+
+  async obtenerCursos(correo: string){
+    await this.estudianteService.getCursos(correo).toPromise().then((response) => {
+      this.cursos = response;
+    })
+  }
+
   
 }

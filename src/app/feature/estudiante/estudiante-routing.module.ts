@@ -15,6 +15,9 @@ const routes:Routes = [
             {
                 path: 'menu/:correo',
                 component: MenuComponent
+            },
+            {
+                path: 'curso/:idCurso'
             }
         ]
     }
