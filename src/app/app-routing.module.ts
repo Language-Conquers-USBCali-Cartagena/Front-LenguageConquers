@@ -19,10 +19,7 @@ const routes: Routes = [
     path: 'profesor',
     loadChildren: ()=>import('./feature/profesor/profesor.module').then(m => m.ProfesorModule)
   },
-  {
-    path:'pruebas',
-    loadChildren:()=>import('./front/front.module').then(m=>m.FrontModule)
-  }
+
   // {
   //   path: '**',
   //   redirectTo: 'auth'
