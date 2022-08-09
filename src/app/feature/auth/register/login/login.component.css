@@ -121,29 +121,31 @@ display: flex;
   width: 55px;
   height: 55px;
   background: url(../../../../../assets/images/google.png);
+  background-size: contain;
 }
 .google:hover{
   width: 55px;
   height: 55px;
   background: url(../../../../../assets/images/google2.png);
+  background-size: contain;
 }
 .facebook{
   width: 55px;
   height: 55px;
   background: url(../../../../../assets/images/facebook.png);
+  background-size: contain;
 }
 .facebook:hover{
   width: 55px;
   height: 55px;
   background: url(../../../../../assets/images/facebook2.png);
+  background-size: contain;
 }
 @media screen and (max-width: 600px) {
  
   .fondoTarjeta{
     width: 30em;
-    top: 1px;
-    right: 1px;
-    left: 1px;
+    margin-left: 20px;
     font-family: 'Mouse Memoirs';
     
   }
