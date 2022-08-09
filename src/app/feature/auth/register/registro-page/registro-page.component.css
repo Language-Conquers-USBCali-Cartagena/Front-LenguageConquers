@@ -61,15 +61,7 @@
     align-items: center;
     font-family: Mouse Memoirs;
     /*Efectoespejo*/
-    padding: 2em;
-    width: 100%;
-    border-radius: 15px;
-    background: rgba(151, 116, 116, 0);
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    margin-left: 10px;
+   
 }
 
 }

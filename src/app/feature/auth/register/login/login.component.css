@@ -140,16 +140,12 @@ display: flex;
 @media screen and (max-width: 600px) {
  
   .fondoTarjeta{
-    width: 20em;
+    width: 30em;
     top: 1px;
     right: 1px;
     left: 1px;
     font-family: 'Mouse Memoirs';
-     /*Efecto espejo*/
-    padding: 1em;
-    max-width: 100%;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.176);
+    
   }
   
   .botones {
@@ -189,9 +185,6 @@ display: flex;
  margin-bottom: 1px;
  margin-left: 38.5px;
 }
-
-
-
 .entradauc1 {
   margin-left: 10px;
   margin-right: 50px;
