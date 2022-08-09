@@ -140,9 +140,8 @@ display: flex;
 @media screen and (max-width: 600px) {
  
   .fondoTarjeta{
-    max-width: 20em;
+    width: 20em;
     top: 1px;
-    bottom: px;
     right: 1px;
     left: 1px;
     font-family: 'Mouse Memoirs';
@@ -190,28 +189,9 @@ display: flex;
  margin-bottom: 1px;
  margin-left: 38.5px;
 }
-.lienas{
-  color: rgb(255, 255, 255);
-  text-align: center;
-  font-family: 'Mouse Memoirs' ;
-  margin-top: 20px;
-  width: 100px;
 
-}
-.lienas::after,.lienas::before{
-  content: '';
-  position: absolute;
-  width: 100px;
-  height: 1.5px;
-  background-color: rgb(241,231,194);
-  margin-top: 15px;
-}
-.lienas::before{
-  left: -10px;
-}
-.lienas::after{
-  right: -10px;
-}
+
+
 .entradauc1 {
   margin-left: 10px;
   margin-right: 50px;
@@ -237,10 +217,10 @@ display: flex;
 .lienas::after,.lienas::before{
   content: '';
   position: absolute;
-  width: 160px;
-  height: 3px;
-  background-color: rgb(201,131,69);
-  margin-top: 10px;
+  width: 97px;
+  height: 1.5px;
+  background-color: rgb(241,231,194);
+  margin-top: 15px;
 }
 .lienas::before{
   left: -10px;
