@@ -1,8 +1,7 @@
-<br /><br />
+
 <mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
 <br /><br />
-<div class="body">
-<div class="login">
+
 
 
 <form *ngIf="!loading" [formGroup]="form" (ngsubmit)="ingresar()">
@@ -22,7 +21,7 @@
     </button>
   </mat-form-field>
 
-  <button type="submit" (click)="ingresar()" class="botones" [disabled]="form.invalid">
+  <button type="submit" (click)="ingresar()" class="botones " [disabled]="form.invalid">
     Ingresar
   </button>
 </div>
@@ -39,5 +38,3 @@
       </a></u>
   </div>
 </form>
-</div>
-</div>
