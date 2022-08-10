@@ -1,7 +1,12 @@
-<br /><br />
+
 <mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
 <br /><br />
+<div class="body">
+<div class="login">
+
+
 <form *ngIf="!loading" [formGroup]="form" (ngsubmit)="ingresar()">
+  <div class="fondoTarjeta">
   <mat-form-field appearance="fill" class="entradauc1">
     <mat-label style="color: rgb(241, 231, 194)">Usuario</mat-label>
     <input type="text" matInput autocomplete="off" formControlName="usuario" class="colorentrada" />
@@ -20,6 +25,7 @@
   <button type="submit" (click)="ingresar()" class="botones" [disabled]="form.invalid">
     Ingresar
   </button>
+</div>
   <h3 class="lienas">Ingresar Con</h3>
   <div class="otrac">
     <a type="submit" (click)="IngresarConGoogle()" class="ancho otrac google"></a>
@@ -33,3 +39,5 @@
       </a></u>
   </div>
 </form>
+</div>
+</div>

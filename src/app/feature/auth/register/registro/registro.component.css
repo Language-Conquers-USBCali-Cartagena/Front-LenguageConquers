@@ -18,16 +18,8 @@
 }
 .fondoTarjeta{
   max-width: 435px;
-  top: 20px;
-  bottom: 55px;
-  right: 50px;
+  margin-right: 100px;
   font-family: Mouse Memoirs;
-   /*Efecto espejo*/
-  padding: 1em;
-  width: 80%;
-  position: relative;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.30);
 }
 
 .ancho{
@@ -143,55 +135,106 @@
     width: 55px;
     height: 55px;
     background: url(../../../../../assets/images/google.png);
+    background-size: contain;
   }
   .google:hover{
     width: 55px;
     height: 55px;
     background: url(../../../../../assets/images/google2.png);
+    background-size: contain;
   }
   .facebook{
     width: 55px;
     height: 55px;
     background: url(../../../../../assets/images/facebook.png);
+    background-size: contain;
   }
   .facebook:hover{
     width: 55px;
     height: 55px;
     background: url(../../../../../assets/images/facebook2.png);
+    background-size: contain;
   }
 
 @media screen and (max-width: 600px) {
-  .ancho1{
-    margin-left: 49px;
+  .fondoTarjeta{
+    width: 20em;
+    margin-left: 20px;
+    font-family: 'Mouse Memoirs';
+    
   }
-  .vinculos{
-    font-family: Mouse Memoirs;
-    font-size: 20px;
-    color: black;
-    top: 20px;
-    bottom: 20px;
-    margin-left: 55px;
-  }
+  
+  .botones {
+    width: 6em;
+    font-family: 'Mouse Memoirs';
+    border-radius: 10px;
+    background-color: rgb(217,161,84);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    align-content: center;
+    margin-left: 81px;
+    color: rgb(241,231,194);
+    margin-left: 80px;
+}
+  .botones:hover{
+    background-color: rgb(241,231,194);
+    color: rgb(217,161,84);
 
-  .vinculos:hover{
-    color: rgb(255, 255, 255);
   }
-  .otrac {
+ 
+.entradauc1 {
+  margin-left: 0px;
+  margin-right: 50px;
+  width: 300px;
+  font-family: 'Mouse Memoirs';
+  font-size: 20px;
+}
+.entradauc2 {
+  margin-left: 0px;
+  margin-right: 50px;
+  width: 300px;
+  font-family: 'Mouse Memoirs';
+  font-size: 20px;
+}
 
-    padding-left: 1px;
-    display: flex;
-    margin-top: 10px;
-    margin-bottom: 1px;
-    margin-left: 38.5px;
-
-   }
-  .entradauc1 {
-    margin-left: 40px;
-    width: 235px;
-  }
-  .entradauc2 {
-    margin-left: 40px;
-  }
+.otrac {
+  padding-left: 1px;
+  display: flex;
+  margin-top: 2px;
+  margin-bottom: 1px;
+  margin-left: 49px;
+ }
+ .vinculos{
+  font-family: Mouse Memoirs;
+  font-size: 20px;
+  color: rgb(241,231,194);
+ margin-top: 100px;
+ bottom: 20px;
+  margin-left: 70px;
+}
+.ancho1{
+  max-width: 10em;
+  width: 10em;
+  font-family: Mouse Memoirs;
+  border-radius: 10px;
+  margin-top: 30px;
+  background-color: rgb(217,161,84);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding-left: 1em;
+  font-size: 1.5em;
+  margin-left: 2.45em;
+  text-align: center;
+  color: rgb(241,231,194);
+}
+.vinculos-contra {
+  margin-top: 0px;
+  text-align: center;
+}
 }
 /*boton de check*/
 

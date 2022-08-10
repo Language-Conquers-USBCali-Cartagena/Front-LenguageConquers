@@ -41,7 +41,7 @@
 
 .logo{
   height: 120px;
-  padding-left: 70px;
+  padding-left: 40px;
 }
 
 /*Responsive Mobile*/
@@ -49,10 +49,20 @@
 @media only screen and (max-width: 600px) {
   .bg-img {
     width: 100%;
-    margin-top: 0;
+    margin-top: 5px;
     background-image: url(../../../../../assets/images/FondoPrincipal1.png);
     display: inline-table;
   }
+  .fondoTarjeta{
+    height: auto;
+    width: auto;
+    top: auto;
+    bottom: auto;
+    align-items: center;
+    font-family: Mouse Memoirs;
+    /*Efectoespejo*/
+   
+}
 
 }
 
