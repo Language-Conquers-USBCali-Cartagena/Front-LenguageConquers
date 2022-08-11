@@ -92,14 +92,19 @@ img{
 @media screen and (max-width: 600px) {
   .fondoTarjeta {
     max-width: 473px;
-    top: -56px;
+    top: 56px;
     bottom: 97px;
-    padding: 4em;
+    padding: 5em;
     width: 60%;
     /*Efecto espejo*/
     position: relative;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.3);
+  }
+  .logo {
+    width: 200px;
+    height: 80px;
+    margin: -50px; 
   }
 
   .ancho {
@@ -113,10 +118,12 @@ img{
   .text {
     margin-left: 4px;
     color: rgb(136,82,38);
-    font-size: 19px;
+    font-size: 20px;
     display: flow-root;
     line-height: 20px;
     text-align: center;
+    margin: 30px;
+    margin-top: 40px;
   }
 
   .login {
@@ -137,7 +144,7 @@ img{
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
     align-content: center;
-    margin-left: 5px;
+    margin-left: -20px;
     color: rgb(241,231,194);
   }
 
