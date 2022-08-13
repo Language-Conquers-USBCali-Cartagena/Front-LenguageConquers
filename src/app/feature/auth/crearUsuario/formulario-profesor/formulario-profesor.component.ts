@@ -18,7 +18,7 @@ export class FormularioProfesorComponent implements OnInit {
   generos: Genero[] = [];
   correo: string = '';
   public user$:Observable<any> = this.authService.afauth.user;
-  
+
   constructor(private fb: FormBuilder, private generoService: GeneroService, private loginService: ServiciosLoginService, private authService: AuthService, private router: Router) {
 
     this.form = this.fb.group({
@@ -29,14 +29,14 @@ export class FormularioProfesorComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.user$.subscribe(res => 
+    this.user$.subscribe(res =>
       {this.correo = res.email
       console.log(this.correo)
     });
     this.getGenero();
   }
   crearProfesor(){
-    
+
     const correo = this.correo;
     const nombre = this.form.value.nombre;
     const apellido = this.form.value.apellido;
@@ -45,19 +45,23 @@ export class FormularioProfesorComponent implements OnInit {
     const fechaCreacion = new Date();
     const genero = this.form.value.genero.idGenero;
     let profesor: Profesor = {nombre: nombre, apellido: apellido, correo:correo, foto:foto, usuarioCreador: usuarioCreador, fechaCreacion: fechaCreacion, idGenero: genero}
-    
+
     this.loginService.createProfesor(profesor).subscribe(resp => {
       this.router.navigateByUrl('/profesor/menuProfesor/' + correo);
     }, err => {
         this.router.navigateByUrl('/profesor/menuProfesor/' + correo);
       }
-        
+
     );
-    
+
   }
 
   getGenero(){
       this.generoService.getGenero().subscribe(resp => this.generos = resp);
+  }
+  salir(){
+    this.authService.logout()
+    this.router.navigateByUrl("/auth/login");
   }
 }
 //3046787297

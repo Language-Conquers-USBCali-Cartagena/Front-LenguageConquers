@@ -1,103 +1,136 @@
 .body{
-    background: url(../../../../assets/images/homeestudiante.png);
-    background-size: cover;
-   
+  background: url(../../../../assets/images/fondos/fondoHome.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 480px;
+
+
 }
+.cursos{
+max-width: 180px;
+max-height: 200px;
+line-height: 0.2;
+text-align: left;
+background-color:rgba(255, 255, 255, 0.832);
+
+}
+.titulo{
+color: black;
+}
+
+.vinculos-contra{
+font-family: 'Mouse Memoirs';
+font-size: 20px;
+color: rgb(0, 0, 0);
+top: 20px;
+bottom: 20px;
+margin-left: -7px;
+}
+
+
 .fondoTarjeta {
-    width: 100em;
-    height: 648px;
-    font-family: Pirata One;
-    /*Efecto espejo*/
-    margin-left: 60px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.176);
-  }
-  .fondoTarjeta2 {
-    width: 70em;
-    height: 348px;
-    margin: 10px auto;
-    font-family: Pirata One;
-    /*Efectoespejo*/padding: 1em;
-    border-radius: 10px;
-    background: rgba(38, 38, 38);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+margin-left: 85px;
+  width: 70em;
+  height: 348px;
+  font-family: Pirata One;
+  /*Efecto espejo*/
+  padding: 48px;
+  border-radius: 24px;
+  background: linear-gradient(
+  135deg,
+  rgba(255, 255, 255, 0.1),
+  rgba(255, 255, 255, 0.1)
+);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+}
+.fondoTarjeta2 {
+  width: 70em;
+  height: 348px;
+  margin: 10px auto;
+  font-family: Pirata One;
+  /*Efectoespejo*/padding: 1em;
+  border-radius: 10px;
+  background: rgba(38, 38, 38);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 .estudiante>img{
-    margin-left: 640px;
-   
+  margin-left: 640px;
+
 }
 .estudiante>h2{
-    margin-left: 640px;
+  margin-left: 640px;
 }
 .estudiante>button{
-    margin-left: 640px;
+  margin-left: 640px;
 }
 .boton-cursos{
-    background:url(../../../../assets/images/boton.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 60px;
-    width: 60px;
+  background:url(../../../../assets/images/boton.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
 }
 h2{
-    color: white;
-    margin-left: 22em;
+  color: white;
+  margin-left: 22em;
 }
 @media screen  and (max-width: 600px) {
-    .body{
-        background: url(../../../../assets/images/homeestudiante.png);
-        background-size: cover;
-       
-    }
-    .fondoTarjeta {
-        width: 22em;
-        height: 600px;
-        font-family: Pirata One;
-        /*Efectoespejo*/
-        margin-left: 30px;
-        border-radius: 5px;
-        background: rgba(0, 0, 0, 0.176);
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        -ms-border-radius: 5px;
-        -o-border-radius: 5px;
+  .body{
+      background: url(../../../../assets/images/homeestudiante.png);
+      background-size: cover;
+
+  }
+  .fondoTarjeta {
+      width: 22em;
+      height: 600px;
+      font-family: Pirata One;
+      /*Efectoespejo*/
+      margin-left: 30px;
+      border-radius: 5px;
+      background: rgba(0, 0, 0, 0.176);
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
 }
-      .fondoTarjeta2 {
-        width: 20em;
-        height: 250px;
-        
-        font-family: Pirata One;
-        /*Efectoespejo*/
-        padding: 1em;
-        border-radius: 5px;
-        background: rgba(38, 38, 38);
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        -ms-border-radius: 5px;
-        -o-border-radius: 5px;
+    .fondoTarjeta2 {
+      width: 20em;
+      height: 250px;
+
+      font-family: Pirata One;
+      /*Efectoespejo*/
+      padding: 1em;
+      border-radius: 5px;
+      background: rgba(38, 38, 38);
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
 }
-    .estudiante>img{
-        margin-left: 110px;
-       
-    }
-    .estudiante>h2{
-        margin-left: 110px;
-    }
-    .estudiante>button{
-        margin-left: 110px;
-    }
-    .boton-cursos{
-        background:url(../../../../assets/images/boton.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 30px;
-        width: 30px;
-    }
-    h2{
-        color: white;
-        margin-left: 5em;
-    }
+  .estudiante>img{
+      margin-left: 110px;
+
+  }
+  .estudiante>h2{
+      margin-left: 110px;
+  }
+  .estudiante>button{
+      margin-left: 110px;
+  }
+  .boton-cursos{
+      background:url(../../../../assets/images/boton.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 30px;
+      width: 30px;
+  }
+  h2{
+      color: white;
+      margin-left: 5em;
+  }
 }
