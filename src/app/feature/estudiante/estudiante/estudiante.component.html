@@ -14,21 +14,22 @@
         <br>
         <a>Opcion 6</a>
         <br>
+        <a>Opcion 7</a>
         <button mat-button (click)="salir()" class="salida">salir</button>
         <br>
         </div>
     </mat-sidenav >
     <mat-sidenav-content>
         <!-- Aqui va todo lo que esta por fuera del sidenav -->
-        
+
         <mat-toolbar class="color" >
             <button mat-button (click)="sidenav.toggle()"><div class="center" ><div></div></div></button>
             <div class="colorc">
-                <img src="./assets/images/logo.png" alt="" > 
+                <img src="./assets/images/logo.png" alt="" >
                 <h1 >Perfil  estudiante</h1>
             </div>
           </mat-toolbar>
-          
+
        <router-outlet ></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
