@@ -7,14 +7,36 @@
   width: 40em;
   margin: 10px auto;
   font-family: Mouse Memoirs;
+  text-align: center;
   /*Efecto espejo*/
-  padding: 1em;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.176);
+  padding: 48px;
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  /*
+  background: #ffffff73;
+  opacity: 35%;
+  bottom: 5%;
+  */
+
 }
 
+.titulo{
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  height: 30px;
+}
+
+
 .fondo {
-  background-image: url(../../../../../assets/images/fondocrear.png);
+  background-image: url(../../../../../assets/images/fondos/FondoRegistro.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 750px;
@@ -38,7 +60,7 @@ h1 {
   height: 120px;
   align-items: center;
   padding-left: 45%;
-  background-color: rgba(36, 28, 25, 0.918);
+  background-color: rgba(36, 28, 25, 0);
   opacity: 0.9;
 
 }
@@ -46,6 +68,7 @@ h1 {
 img {
   width: auto;
   height: 100px;
+  align-items: center;
 }
 
 @media screen and (max-width: 600px) {

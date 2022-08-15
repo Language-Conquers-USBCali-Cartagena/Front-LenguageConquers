@@ -1,52 +1,71 @@
-.entradas {  
-     display: grid;
-    margin: 10px auto;
-    grid-template-columns: repeat(2, 18em);
-    justify-content: center; 
-   
+.entradas {
+  display: grid;
+ margin: 10px auto;
+ grid-template-columns: repeat(2, 18em);
+ justify-content: center;
+
+}
+.titulos{
+font-size:20px;
 }
 .campo-entrada{
-    float: right;
-    width: 50%;
-    
-}
-form {
-    height: 350px;
-    width: auto;
+ float: right;
+ width: 50%;
+
 }
 
+form {
+ height: 350px;
+ width: auto;
+}
+.botones{
+color: rgb(201, 131, 69);
+border-radius: 20px;
+background-color: rgb(254,254,231);
+text-align: center !important;
+align-items: center !important;
+margin: 0 10px;
+display: inline-block;
+width:100px;
+height:40px;
+
+
+}
 .boton {
-    margin: 1px;
-    position: relative;
-    left: 40%;
+ margin: 3px;
+ position: center;
+ left: 40%;
+ line-height: 35px;
+ align-items: center;
+
 }
 
 @media screen and (max-width: 600px) {
-    
-        
-    .entradas {
-        margin:10px auto;
-        grid-template-columns: repeat(2, 130px);
-    }
-    .campo-entrada{
-        
-        width: 5px;
-        
-    }
 
-    form {
-        height: auto;
-        width: 350px;
-    }
 
-    .boton {
-        margin: 1px;
-        position: relative;
-        margin-left: -50px;
+ .entradas {
+     margin:10px auto;
+     grid-template-columns: repeat(2, 130px);
+ }
+ .campo-entrada{
 
-    }
+     width: 5px;
 
-  
-    
+ }
+
+ form {
+     height: auto;
+     width: 350px;
+ }
+
+ .boton {
+     margin: 1px;
+     position: relative;
+     margin-left: -50px;
+
+ }
+
+
+
 
 }
