@@ -1,30 +1,31 @@
 <div class="fondo">
-    <mat-toolbar class="color" type="checkbox" id="nav-check">
-        <img src="./assets/images/LogoV1.png" alt="logo" >
+  <mat-toolbar class="color" type="checkbox" id="nav-check">
+      <img src="./assets/images/LogoV1.png" alt="logo" >
 
-      </mat-toolbar>
+    </mat-toolbar>
 <div class="card" *ngIf="user$ | async as user; else loading">
-    <div class = "crearUsuario">
-        <mat-card class="fondoTarjeta">
-            <mat-card-content>
-                <mat-tab-group mat-align-tabs="center">
-                    <mat-tab label="Estudiante">
-                        <app-formulario-estudiante></app-formulario-estudiante>
-                    </mat-tab>
-                    <mat-tab label="Profesor">
-                        <app-formulario-profesor></app-formulario-profesor>
-                    </mat-tab>
-                </mat-tab-group>
-            </mat-card-content>
+  <div class = "crearUsuario">
+      <mat-card class="fondoTarjeta">
+        <mat-card-title class="titulo">Registrar Usuario</mat-card-title>
+          <mat-card-content>
+              <mat-tab-group mat-align-tabs="center">
+                  <mat-tab class="labels" label="Estudiante">
+                      <app-formulario-estudiante></app-formulario-estudiante>
+                  </mat-tab>
+                  <mat-tab label="Profesor">
+                      <app-formulario-profesor></app-formulario-profesor>
+                  </mat-tab>
+              </mat-tab-group>
+          </mat-card-content>
 
-        </mat-card>
-        <a mat-raised-button  color="accent" (click)="salir()">Sign Up</a>
-    </div>
+      </mat-card>
+
+  </div>
 
 </div>
 
 <ng-template #loading>
-    loading...
+  loading...
 </ng-template>
 </div>
 

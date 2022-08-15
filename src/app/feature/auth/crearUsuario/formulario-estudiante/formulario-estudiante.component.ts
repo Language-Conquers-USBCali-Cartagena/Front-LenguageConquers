@@ -28,7 +28,7 @@ export class FormularioEstudianteComponent implements OnInit {
   correo: string = '';
   terminos= true;
   public user$:Observable<any> = this.authService.afauth.user;
-  constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService, 
+  constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService,
               private loginService: ServiciosLoginService, private router:Router, private programaService: ProgramaService,  private authService: AuthService) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
@@ -47,7 +47,7 @@ export class FormularioEstudianteComponent implements OnInit {
       this.getAvatar();
       this.getSemestre();
       this.getPrograma();
-      this.user$.subscribe(res => 
+      this.user$.subscribe(res =>
         {this.correo = res.email
       });
   }
@@ -62,16 +62,16 @@ export class FormularioEstudianteComponent implements OnInit {
     const genero = this.form.value.genero.idGenero;
     const nacimiento: Date = this.form.value.fechaNacimiento;
     const programa = this.form.value.programa.idPrograma
-    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioCreador: 'Admin', 
+    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioCreador: 'Admin',
                                   fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: 1}
     this.loginService.createEstudiante(estudiante).subscribe(resp =>{
       this.router.navigateByUrl('/estudiante/menu/'+ correo);
     }, err =>{
       console.log(err);
-      
+
       this.router.navigateByUrl('/estudiante/menu/'+ correo);
     })
-    
+
   }
   getGenero(){
     this.generoService.getGenero().subscribe(resp => this.generos = resp);
@@ -84,5 +84,9 @@ export class FormularioEstudianteComponent implements OnInit {
   }
   getPrograma(){
     this.programaService.getProgramas().subscribe(resp => this.programas = resp)
+  }
+  salir(){
+    this.authService.logout()
+    this.router.navigateByUrl("/auth/login");
   }
 }

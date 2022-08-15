@@ -1,35 +1,31 @@
+<mat-toolbar>
+  <button mat-icon-button class="center"(click)="sidenav.toggle()">
+  </button>
+  <div class="fondoLogo">
+    <img src="./assets/images/LogoV1.png" alt="" >
+  </div>
+</mat-toolbar>
 <mat-sidenav-container>
-    <mat-sidenav #sidenav mode= "side" >
-        <!-- Aqui va todo lo que esta adentro del sidenav -->
-        <div class="menu">
-        <a>Opcion 1</a>
-        <br>
-        <a>Opcion 2</a>
-        <br>
-        <a>Opcion 3</a>
-        <br>
-        <a>Opcion 4</a>
-        <br>
-        <a>Opcion 5</a>
-        <br>
-        <a>Opcion 6</a>
-        <br>
-        <a>Opcion 7</a>
-        <button mat-button (click)="salir()" class="salida">salir</button>
-        <br>
-        </div>
-    </mat-sidenav >
-    <mat-sidenav-content>
-        <!-- Aqui va todo lo que esta por fuera del sidenav -->
+  <mat-sidenav  #sidenav mode= "over" >
+    <div class="menu">
+      <button mat-button  class="home">Home</button>
+      <br>
+      <button mat-button  class="recompensas">Recompensas</button>
+      <br>
+      <button mat-button  class="ranking">Ranking</button>
+      <br>
+      <button mat-button  class="tienda">Tienda</button>
+      <br>
+      <button mat-button  class="notificaciones">Notificaciones</button>
+      <br>
+      <button mat-button  class="ajustes">Ajuestes</button>
+      <br>
+      <button mat-button (click)="salir()" class="salida">salir</button>
+      <br>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+  <router-outlet ></router-outlet>
 
-        <mat-toolbar class="color" >
-            <button mat-button (click)="sidenav.toggle()"><div class="center" ><div></div></div></button>
-            <div class="colorc">
-                <img src="./assets/images/logo.png" alt="" >
-                <h1 >Perfil  estudiante</h1>
-            </div>
-          </mat-toolbar>
-
-       <router-outlet ></router-outlet>
-    </mat-sidenav-content>
+</mat-sidenav-content>
 </mat-sidenav-container>

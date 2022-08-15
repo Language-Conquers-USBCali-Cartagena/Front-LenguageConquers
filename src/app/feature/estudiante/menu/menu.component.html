@@ -1,26 +1,11 @@
 <div class="body">
-
-    <div class="fondoTarjeta">
-      <div class="estudiante" >
-
-        <img src="assets/images/avatar/avatar1.png" alt="" height="100">
-          <h2>Nombre: {{estudiante.nombre}} </h2>
-          <!-- <h3>Puntos Individuales: {{estudiante.puntaje}}</h3> -->
-          <button mat-button style="background-color: rgb(90, 134, 155); color: rgb(255, 255, 255)"> Cambiar
-            avatar</button>
-          </div>
-            <mat-card class="fondoTarjeta2">
-              <h2>Mis cursos</h2>
-              <div *ngFor="let curso of cursos">
-                <div [routerLink]="['/curso', curso.idCurso]" (click)="correo">
-                  {{curso.nombre}}
-
-                </div>
-                
-                
-                
-              </div>
-              <button class="boton-cursos"></button>
-            </mat-card>
+  <div class="fondoTarjeta">
+    <div class="estudiante">
+      <mat-card class="cursos">
+        <img mat-card-image src="./assets/images/fondos/FondoCurso1.jpg">
+          <mat-card-subtitle class="titulo">Facultad de Ingenieria</mat-card-subtitle>
+          <a class="vinculos-contra" href="/auth/recuperar">Fundamentos de Programación</a>
+      </mat-card>
     </div>
+  </div>
 </div>
