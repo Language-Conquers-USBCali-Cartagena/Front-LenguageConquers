@@ -17,7 +17,11 @@ const routes: Routes = [
     component: AutenticacionComponent,
     // canActivate: [AuthGuardGuard],
     children: [
-      
+      {
+        path:'',
+        redirectTo:'login',
+        pathMatch:'full'
+      },
       {
         path: 'login',
         component: RegistroPageComponent,
