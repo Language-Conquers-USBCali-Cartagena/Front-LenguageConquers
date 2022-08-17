@@ -12,8 +12,12 @@ export class EstudianteComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
   ngOnInit(): void {
   }
+
   salir(){
     this.authService.logout()
     this.router.navigateByUrl("/auth/login");
   }
+
+
+
 }

@@ -3,6 +3,7 @@ import { EstudianteComponent } from './estudiante/estudiante.component';
 import { AuthGuardGuard } from '../../core/guards/authGuard.guard';
 import { MenuComponent } from './menu/menu.component';
 import { NgModule } from '@angular/core';
+import { PerfilEstudianteComponent } from './perfil-estudiante/perfil-estudiante.component';
 
 
 
@@ -18,6 +19,10 @@ const routes:Routes = [
             },
             {
                 path: 'curso/:idCurso'
+            },
+            {
+              path: 'perfil',
+              component: PerfilEstudianteComponent
             }
         ]
     }

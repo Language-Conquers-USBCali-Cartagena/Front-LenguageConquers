@@ -19,27 +19,7 @@ margin-left: 30px;
 color: rgb(169,107,58);
 margin-left: 30px;
 }
-.home{
-font-size: 20px;
-}
-.recompensas{
-font-size: 20px;
-}
-.ranking{
-font-size: 20px;
-}
-.tienda{
-font-size: 20px;
-}
-.notificaciones{
-font-size: 20px;
-}
-.ajustes{
-font-size: 20px;
-}
-.salida {
-font-size: 20px;
-}
+
 .color{
 height: 80px;
 opacity: 0.9;
@@ -60,6 +40,7 @@ mat-toolbar{
   align-content:space-between 10px ;
   background-color: transparent;
 }
+
 
 /**menu burger*/
 .center {

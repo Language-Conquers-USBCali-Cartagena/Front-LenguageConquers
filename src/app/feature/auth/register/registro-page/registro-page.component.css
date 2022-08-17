@@ -9,7 +9,7 @@
   background-color: rgba(36, 28, 25, 0.918);
 }
 .fondo{
-  background-image: url(../../../../../assets/images/FondoPrincipal1.png);
+  background-image: url(../../../../../assets/images/fondos/FondoPrincipal1.png);
   background-size: cover;
 }
 
@@ -50,7 +50,7 @@
   .bg-img {
     width: 100%;
     margin-top: 5px;
-    background-image: url(../../../../../assets/images/FondoPrincipal1.png);
+    background-image: url(../../../../../assets/images/fondos/FondoPrincipal1.png);
     display: inline-table;
   }
   .fondoTarjeta{
@@ -61,7 +61,7 @@
     align-items: center;
     font-family: Mouse Memoirs;
     /*Efectoespejo*/
-   
+
 }
 
 }

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RankingComponent } from './shared/features/ranking/ranking.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo:'menuPrincipal'
+    redirectTo:'auth'
   },
   {
     path: 'auth',
@@ -19,12 +20,16 @@ const routes: Routes = [
     path: 'profesor',
     loadChildren: ()=>import('./feature/profesor/profesor.module').then(m => m.ProfesorModule)
   },
+  {
+    path:'ranking', component: RankingComponent
+  },
+
 
   // {
   //   path: '**',
   //   redirectTo: 'auth'
   // },
-  
+
 ];
 
 @NgModule({

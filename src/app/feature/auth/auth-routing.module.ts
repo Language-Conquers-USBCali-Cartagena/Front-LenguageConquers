@@ -10,14 +10,18 @@ import { AutenticacionComponent } from './autenticacion/autenticacion.component'
 import { RegistroPageComponent } from './register/registro-page/registro-page.component';
 
 const routes: Routes = [
-  
+
 
   {
     path: '',
     component: AutenticacionComponent,
-    // canActivate: [AuthGuardGuard],
     children: [
-      
+
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo:'login'
+      },
       {
         path: 'login',
         component: RegistroPageComponent,

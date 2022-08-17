@@ -7,17 +7,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 // import { PaginaPrincipalModule } from './feature/pagina-principal/pagina-principal.module';
-import { PerfilEstudianteComponent } from './feature/perfil-estudiante/perfil-estudiante.component';
+import { PerfilEstudianteComponent } from './feature/estudiante/perfil-estudiante/perfil-estudiante.component';
 import { MaterialModule } from './shared/material/material.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from "@angular/fire/compat";
+import { RankingComponent } from './shared/features/ranking/ranking.component';
+import { MenuComponent } from './core/features/menu/menu.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PerfilEstudianteComponent,
-    
+    RankingComponent,
+    MenuComponent,
+
 
 
   ],
@@ -30,7 +34,7 @@ import { AngularFireModule } from "@angular/fire/compat";
     // PaginaPrincipalModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
-    
+
 
 
 
