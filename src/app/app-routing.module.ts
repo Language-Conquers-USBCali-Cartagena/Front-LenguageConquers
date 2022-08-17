@@ -5,8 +5,9 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo:'menuPrincipal'
+    redirectTo:'auth'
   },
+  
   {
     path: 'auth',
     loadChildren:() => import('./feature/auth/auth.module').then(m => m.AuthModule)
@@ -19,6 +20,10 @@ const routes: Routes = [
     path: 'profesor',
     loadChildren: ()=>import('./feature/profesor/profesor.module').then(m => m.ProfesorModule)
   },
+  {
+    path: 'curso',
+    loadChildren: ()=>import('./feature/curso/curso.module').then(m => m.CursoModule)
+  }
 
   // {
   //   path: '**',
