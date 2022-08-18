@@ -3,14 +3,14 @@
     <br>
   <div>
       <mat-form-field class="anchoField" appearance="fill">
-          <mat-label>Nombre</mat-label>
+          <mat-label class="titulos">Nombre</mat-label>
           <input type="text" matInput autocomplete="off" formControlName="nombre">
           <mat-icon matSuffix >name</mat-icon>
       </mat-form-field>
   </div>
   <div>
       <mat-form-field class="anchoField" appearance="fill">
-          <mat-label>Apellido</mat-label>
+          <mat-label class="titulos">Apellido</mat-label>
           <input type="text" matInput autocomplete="off" formControlName="apellido">
           <mat-icon matSuffix >lastname</mat-icon>
       </mat-form-field>
@@ -18,7 +18,7 @@
 
   <div>
       <mat-form-field class="anchoField" appearance="fill">
-          <mat-label>Genero</mat-label>
+          <mat-label class="titulos">Genero</mat-label>
 
           <mat-select formControlName="genero">
               <mat-option *ngFor="let genero of generos" [value]="genero">
@@ -30,8 +30,8 @@
   </div>
   </div>
   <div>
-    <button  mat-raised-button class="boton" (click)="salir()">Salir</button>
-    <button class="boton" mat-raised-button color="primary">Crear Usuario</button>
+    <button  mat-raised-button class="botonsalir" (click)="salir()">Salir</button>
+    <button class="boton" mat-raised-button [disabled]="!form.valid">Crear Profesor</button>
   </div>
 
 </form>
