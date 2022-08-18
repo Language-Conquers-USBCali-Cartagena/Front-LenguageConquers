@@ -1,0 +1,21 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':''">
+  <div class="logo-container">
+    <button class="logo" (click)="toggleCollapse()"><mat-icon>menu</mat-icon></button>
+    <div class="logo-text" @fadeInOut *ngIf="collapsed">Language Conquers</div>
+    <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+      <i class="fal fa-times close-icon"><mat-icon>close</mat-icon></i>
+    </button>
+  </div>
+  <ul class="sidenav-nav">
+    <!--Toca colocar un if para saber cuando utiliza el menu estudiante o profesor-->
+    <li class="sidenav-nav-item" *ngFor="let data of menuItemsEst" >
+      <a class="sidenav-nav-link" [routerLink]="[data.redirectTo]"
+        routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+        >
+
+        <i class="sidenav-link-icon" [class]="data.icon"><mat-icon>{{data.icon}}</mat-icon></i>
+        <span class="sidenav-link-text" @fadeInOut  *ngIf="collapsed">{{data.label}}</span>
+      </a>
+    </li>
+  </ul>
+</div>

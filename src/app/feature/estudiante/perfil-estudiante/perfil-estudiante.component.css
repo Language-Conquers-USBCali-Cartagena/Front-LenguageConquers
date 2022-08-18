@@ -1,0 +1,31 @@
+
+.fondo {
+  background-image: url(src\assets\images\fondos\FondoPerfil1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 750px;
+  width: auto;
+}
+.fondoTarjeta {
+  width: 40em;
+  margin: 10px auto;
+  font-family: Mouse Memoirs;
+  text-align: center;
+  /*Efecto espejo*/
+  padding: 48px;
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  /*
+  background: #ffffff73;
+  opacity: 35%;
+  bottom: 5%;
+  */
+
+}

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from './menu/menu.component';
+import { TarjetasCursosComponent } from './tarjetas-cursos/tarjetas-cursos.component';
 import { EstudianteComponent } from './estudiante/estudiante.component';
 import { EstudianteRoutingModule } from './estudiante-routing.module';
 import { CoreModule } from '../../core/core.module';
@@ -11,7 +11,7 @@ import { EstudianteServiceService } from './services/estudiante-service.service'
 
 @NgModule({
   declarations: [
-    MenuComponent,
+    TarjetasCursosComponent,
     EstudianteComponent
   ],
   imports: [
