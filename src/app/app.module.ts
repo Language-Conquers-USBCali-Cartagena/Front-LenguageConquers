@@ -20,9 +20,6 @@ import { MenuComponent } from './core/features/menu/menu.component';
     AppComponent,
     PerfilEstudianteComponent,
     RankingComponent,
-    MenuComponent,
-
-
 
   ],
   imports: [

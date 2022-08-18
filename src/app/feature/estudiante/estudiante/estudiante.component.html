@@ -1,37 +1,11 @@
 <mat-toolbar>
-  <button mat-icon-button class="center"(click)="sidenav.toggle()">
+  <button mat-icon-button class="center">
   </button>
   <div class="fondoLogo">
     <img src="./assets/images/LogoV1.png" alt="" >
   </div>
 </mat-toolbar>
-<mat-sidenav-container>
-  <mat-sidenav  #sidenav mode= "over">
-    <div class="menu">
-      <li class="item-menu"><a href="#">
-        <span class="icon">
-          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-        </span>
-        <span class="text">Home</span>
-      </a></li>
-      <br>
-      <button mat-button  class="recompensas">Recompensas</button>
-      <br>
-      <button mat-button  class="ranking">Ranking</button>
-      <br>
-      <button mat-button  class="tienda">Tienda</button>
-      <br>
-      <button mat-button  class="notificaciones">Notificaciones</button>
-      <br>
-      <button mat-button  class="ajustes">Ajuestes</button>
-      <br>
-      <button mat-button (click)="salir()" class="salida">salir</button>
-      <br>
-    </div>
-  </mat-sidenav>
-  <mat-sidenav-content>
-  <router-outlet ></router-outlet>
 
-</mat-sidenav-content>
-</mat-sidenav-container>
+<app-menu (onToggleSideNav)="onToggleSideNav($event)"></app-menu>
 
+<router-outlet ></router-outlet>

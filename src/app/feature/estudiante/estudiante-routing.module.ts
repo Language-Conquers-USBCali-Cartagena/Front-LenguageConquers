@@ -1,7 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { EstudianteComponent } from './estudiante/estudiante.component';
 import { AuthGuardGuard } from '../../core/guards/authGuard.guard';
-import { MenuComponent } from './menu/menu.component';
+import { TarjetasCursosComponent } from './tarjetas-cursos/tarjetas-cursos.component';
 import { NgModule } from '@angular/core';
 import { PerfilEstudianteComponent } from './perfil-estudiante/perfil-estudiante.component';
 
@@ -15,7 +15,7 @@ const routes:Routes = [
         children: [
             {
                 path: 'menu/:correo',
-                component: MenuComponent
+                component: TarjetasCursosComponent
             },
             {
                 path: 'curso/:idCurso'

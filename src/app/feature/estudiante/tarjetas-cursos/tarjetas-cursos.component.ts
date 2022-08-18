@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
 import { Curso } from '../../../shared/models/curso';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  selector: 'app-tarjetas-cursos',
+  templateUrl: './tarjetas-cursos.component.html',
+  styleUrls: ['./tarjetas-cursos.component.css']
 })
-export class MenuComponent implements OnInit {
+export class TarjetasCursosComponent implements OnInit {
   estudiante: Estudiante = {};
   cursos?: Curso[];
   correo: string = '';
@@ -20,7 +20,7 @@ export class MenuComponent implements OnInit {
     this.correo = this._route.snapshot.params.correo!;
     this.obtenerEstudiante(this.correo);
     this.obtenerCursos(this.correo);
-    
+
   }
 
   async obtenerEstudiante(correo: string) {
@@ -38,5 +38,5 @@ export class MenuComponent implements OnInit {
     })
   }
 
-  
+
 }
