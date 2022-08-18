@@ -8,6 +8,7 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo:'auth'
   },
+  
   {
     path: 'auth',
     loadChildren:() => import('./feature/auth/auth.module').then(m => m.AuthModule)
@@ -21,8 +22,10 @@ const routes: Routes = [
     loadChildren: ()=>import('./feature/profesor/profesor.module').then(m => m.ProfesorModule)
   },
   {
-    path:'ranking', component: RankingComponent
-  },
+
+    path: 'curso',
+    loadChildren: ()=>import('./feature/curso/curso.module').then(m => m.CursoModule)
+  }
 
 
   // {
