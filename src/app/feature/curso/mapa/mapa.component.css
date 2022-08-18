@@ -1,0 +1,10 @@
+.fondo {
+    background: url("../../../../assets/images/FondoEmailVerification.png");
+    background-size: cover;
+    height: 920px ;
+    width: 1880px; ;
+}
+.campana {
+    margin-top: 600px;
+    margin-left: 420px;
+}
