@@ -1,0 +1,47 @@
+.fondo {
+    background: url(../../../../assets/images/fondoMar.png);
+    background-size: cover;
+    height: 920px;
+    width: 1880px;
+}
+.color {
+    height: 120px;
+    align-items: center;
+    padding-left: 45%;
+    background-color: rgba(36, 28, 25, 0);
+    opacity: 0.9;
+  
+  }
+.texto {
+    display: block;
+    background-color: gray;
+    height: 100px;
+    width: 300px;
+    margin-left: 750px ;
+    margin-top: 90px;
+
+}
+.texto>p {
+    font-size: large;
+}
+.botones{
+    color: rgb(201, 131, 69);
+    border-radius: 20px;
+    background-color: rgb(254,254,231);
+    text-align: center !important;
+    align-items: center !important;
+    margin: 0 10px;
+    display: inline-block;
+    width:100px;
+    height:40px;
+    
+    
+    }
+.boton {
+    margin: 3px;
+     position: center;
+     left: 40%;
+     line-height: 35px;
+     align-items: center;
+    
+    }
