@@ -2,7 +2,7 @@
   background: url(../../../../assets/images/fondos/fondoHome.png);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 480px;
+  height: 920px;
 
 
 }
@@ -83,10 +83,11 @@ h2{
   .body{
       background: url(../../../../assets/images/homeestudiante.png);
       background-size: cover;
+      height: 660px;
 
   }
   .fondoTarjeta {
-      width: 22em;
+      width: 260px;
       height: 600px;
       font-family: Pirata One;
       /*Efectoespejo*/
@@ -96,7 +97,7 @@ h2{
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       -ms-border-radius: 5px;
-      -o-border-radius: 5px;
+      -o-border-radius: 5px; 
 }
     .fondoTarjeta2 {
       width: 20em;

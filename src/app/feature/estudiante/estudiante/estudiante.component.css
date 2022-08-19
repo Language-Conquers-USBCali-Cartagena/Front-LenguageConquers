@@ -55,10 +55,13 @@ opacity: 85%;
 height: 85px;
 width: 200px;
 align-items: center;
+
+
 }
 mat-toolbar{
   align-content:space-between 10px ;
   background-color: transparent;
+  background: url(../../../../assets/images/homeestudiante.png);
 }
 
 /**menu burger*/
@@ -115,6 +118,9 @@ mat-toolbar{
     color: white;
     margin-left: 30px;
 
+  }
+  .fondoLogo {
+    margin-left: -60px;
   }
   .colorc {
     margin-left: 80px;
