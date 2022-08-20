@@ -23,11 +23,8 @@ export class EstudianteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  salir(){
-    this.authService.logout()
-    this.router.navigateByUrl("/auth/login");
-  }
-
-
-
+  // salir(){
+  //   this.authService.logout();
+  //   this.router.navigateByUrl("/auth/login");
+  // }
 }

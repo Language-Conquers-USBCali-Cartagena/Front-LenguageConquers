@@ -19,7 +19,6 @@ export class CrearUsuarioComponent implements OnInit {
   ngOnInit(): void {
   }
   salir(){
-    this.authService.logout()
-    this.router.navigateByUrl("/auth/login");
+    this.router.navigateByUrl("/logout");
   }
 }

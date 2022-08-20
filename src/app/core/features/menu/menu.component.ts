@@ -3,6 +3,7 @@ import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/
 import { itemsEst } from './menuItemsEst';
 import { itemsProf } from './menuItemsProf';
 
+
 interface SideNavToggle{
   screenWidth: number;
   collapsed:boolean;
@@ -67,5 +68,7 @@ export class MenuComponent implements OnInit {
     this.collapsed = false;
     this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
   }
+
+
 
 }
