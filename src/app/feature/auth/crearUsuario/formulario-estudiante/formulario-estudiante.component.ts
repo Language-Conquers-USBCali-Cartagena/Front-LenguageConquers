@@ -73,6 +73,7 @@ export class FormularioEstudianteComponent implements OnInit {
     })
 
   }
+ 
   getGenero(){
     this.generoService.getGenero().subscribe(resp => this.generos = resp);
   }

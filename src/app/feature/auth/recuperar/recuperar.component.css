@@ -7,7 +7,7 @@
   line-height: 60px;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(../../../../assets/images/FondoRecuperarContraseña.png);
+  background-image: url(../../../../assets/images/fondos/FondoRecuperarContraseña.png);
 }
 
 .logo{
@@ -104,7 +104,7 @@ img{
   .logo {
     width: 200px;
     height: 80px;
-    margin: -50px; 
+    margin: -50px;
   }
 
   .ancho {

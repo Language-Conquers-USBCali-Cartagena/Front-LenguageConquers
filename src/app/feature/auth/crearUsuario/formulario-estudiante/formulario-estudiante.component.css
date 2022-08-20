@@ -7,7 +7,9 @@
 }
 .titulos{
 font-size:20px;
+color: rgb(255, 255, 255);
 }
+
 .campo-entrada{
  float: right;
  width: 50%;
@@ -19,19 +21,36 @@ form {
  width: auto;
 }
 .botones{
-color: rgb(201, 131, 69);
-border-radius: 20px;
-background-color: rgb(254,254,231);
-text-align: center !important;
-align-items: center !important;
-margin: 0 10px;
-display: inline-block;
-width:100px;
-height:40px;
-
+  color: rgb(254,254,231);
+  border-radius: 20px;
+  background-color: rgb(201, 131, 69);
+  text-align: center !important;
+  align-items: center !important;
+  margin: 0 10px;
+  display: inline-block;
+  width:130px;
+  height:40px;
+  font-size: 20px;
 
 }
-.boton1 {
+
+.botonsalir{
+  color: rgb(201, 131, 69);
+  border-radius: 20px;
+  background-color: rgb(254,254,231);
+  text-align: center !important;
+  align-items: center !important;
+  margin: 0 10px;
+  display: inline-block;
+  width:100px;
+  height:40px;
+  font-size: 20px;
+
+}
+
+
+.boton {
+
  margin: 3px;
  position: center;
  left: 40%;

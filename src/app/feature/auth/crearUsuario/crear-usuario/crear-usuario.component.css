@@ -73,7 +73,7 @@ img {
 
 @media screen and (max-width: 600px) {
   .fondo {
-    background-image: url(../../../../../assets/images/fondocrear.png);
+    background-image: url(../../../../../assets/images/fondos/FondoRegistro.jpg);
     background-repeat: repeat;
 
     height: 900px;

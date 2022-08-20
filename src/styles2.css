@@ -1464,7 +1464,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   background-color: rgba(255, 255, 255, 0.1);
 }
 .mat-table {
-  background: #fff;
+  background: rgb(255, 255, 255);
 }
 .mat-table thead,
 .mat-table tbody,
