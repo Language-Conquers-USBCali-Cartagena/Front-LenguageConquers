@@ -1,0 +1,35 @@
+.car {
+    display: flex;
+    
+    justify-content: center;
+}
+.izq,.der {
+    margin-top: 30px;
+    
+}
+
+.img>img {
+    height: 80px;
+    width: 80px;
+    margin-top: 10px;
+}
+.img {
+    height: 50px;
+    width: 50px;
+}
+
+.cimg {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-right: 20px;
+    padding-left: -10px;
+    display: flex;
+}
+/*Hover*/
+.img:hover {
+    background-color: gray;
+    height: 50px;
+    width: 50px;
+    margin-top: 20px;
+    border-radius: 50px;
+}

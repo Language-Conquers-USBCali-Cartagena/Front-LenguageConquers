@@ -48,7 +48,9 @@ form {
 
 }
 
+
 .boton {
+
  margin: 3px;
  position: center;
  left: 40%;
@@ -61,28 +63,29 @@ form {
 
 
  .entradas {
-     margin:10px auto;
-     grid-template-columns: repeat(2, 130px);
- }
- .campo-entrada{
-
-     width: 5px;
-
+     margin: 30px auto;
+     grid-template-columns: repeat(2 , 100px);
  }
 
- form {
+ .form {
      height: auto;
      width: 350px;
  }
 
- .boton {
+ .boton1 {
      margin: 1px;
      position: relative;
-     margin-left: -50px;
+     margin-left: -300px;
 
  }
+ .titulos{
+    font-size: 15px;
 
-
+ }
+ .campo-entrada{
+    margin-left: -40px;
+    size: 60px;
+ }
 
 
 }

@@ -1,11 +1,15 @@
-mat-toolbar{
-  align-content:space-between 10px ;
-  background:rgb(146, 129, 117);
-  box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
-  position: relative;
-  height: 80px;
-}
+mat-sidenav-container{
+  height: 100%;
 
+}
+mat-sidenav{
+  width: 200px;
+  /* background: linear-gradient(rgba(0, 255, 255, 0.403), rgb(38,38,38)); */
+  background: rgb(241,231,194);
+}
+mat-toolbar{
+height: 100px;
+}
 .menu>a{
 color: rgb(169,107,58);
 margin-left: 30px;
@@ -15,7 +19,27 @@ margin-left: 30px;
 color: rgb(169,107,58);
 margin-left: 30px;
 }
-
+.home{
+font-size: 20px;
+}
+.recompensas{
+font-size: 20px;
+}
+.ranking{
+font-size: 20px;
+}
+.tienda{
+font-size: 20px;
+}
+.notificaciones{
+font-size: 20px;
+}
+.ajustes{
+font-size: 20px;
+}
+.salida {
+font-size: 20px;
+}
 .color{
 height: 80px;
 opacity: 0.9;
@@ -23,21 +47,38 @@ margin-left:80px;
 }
 .fondoLogo {
 align-items: center;
-padding-left: 45px;
-background-color: transparent;
-
+padding-left: 45%;
+background-color: rgba(255, 255, 255, 0.048);
+opacity: 85%;
 }
 .fondoLogo>img{
-  padding-top: 10px;
-  padding-left: 450px;
-  padding-right: 50px;
-  height: 65px;
-  width: 150px;
-  align-items: center;
+height: 85px;
+width: 200px;
+align-items: center;
+
+
+}
+mat-toolbar{
+  align-content:space-between 10px ;
+  background-color: transparent;
+  background: url(../../../../assets/images/homeestudiante.png);
 }
 
+/**menu burger*/
+.center {
+  left: 30px;
+  right: 60%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 40px;
+  width: 50px;
 
-
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
 
 .center:before,
 .center:after{
@@ -77,6 +118,9 @@ background-color: transparent;
     color: white;
     margin-left: 30px;
 
+  }
+  .fondoLogo {
+    margin-left: -60px;
   }
   .colorc {
     margin-left: 80px;
