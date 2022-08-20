@@ -25,7 +25,7 @@ export const itemsEst = [
     label: 'Notificaciones',
   },
   {
-    redirectTo: 'Perfil',
+    redirectTo: '/estudiante/perfil',
     icon: 'account_circle',
     label: 'Perfil',
   },

@@ -6,9 +6,16 @@
   height: 750px;
   width: auto;
 }
+.titulo{
+  color: #fff;
+  font-size:30px;
+
+}
 .fondoTarjeta {
-  width: 40em;
-  margin: 10px auto;
+  width: 1030px;
+  height: 400px;
+  margin-right: 30px;
+  margin-left: 110px;
   font-family: Mouse Memoirs;
   text-align: center;
   /*Efecto espejo*/
@@ -21,11 +28,88 @@
   );
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-  /*
-  background: #ffffff73;
-  opacity: 35%;
-  bottom: 5%;
-  */
+  box-shadow: 0px 2px 1px -1px rgb(201, 131, 69),
+    0px 1px 1px 0px rgb(201, 131, 69), 0px 1px 3px 0px rgb(201, 131, 69);
+}
+.tarjetaFoto{
+  width: 280px;
+  height: 270px;
+  margin-right: 10px;
+  margin-left: -100px;
+  font-family: Mouse Memoirs;
+  text-align: center;
+  padding: 58px;
+  border-radius: 24px;
+  background-color: rgb(30,195,213);
+  color:#fff;
+  font-size:30px;
+}
+.subtituloTarjetaFoto{
+  color:#fff;
+  font-size:40px;
+}
+.tarjetaProgreso{
+  width: 450px;
+  height:65px;
+  margin-right: 10px;
+  margin-left: -20px;
+  font-family: Mouse Memoirs;
+  text-align: center;
+  border-radius: 14px;
+  background-color: rgb(74,155,237);
+  color:#fff;
+  font-size:40px;
 
+}
+.tarjetaDatos{
+  width: 450px;
+  height:250px;
+  margin-right: 10px;
+  margin-left: -20px;
+  font-family: Mouse Memoirs;
+  text-align: center;
+  border-radius: 14px;
+  background-color:rgb(101,127,228) ;
+  color:#fff;
+  font-size:40px;
+}
+.example-full-width {
+  width: 100px;
+}
+.td{
+  padding-right: 18px;
+}
+
+.image{
+  height: 50px;
+  width: 50px;
+}
+.botones{
+  color: rgb(254,254,231);
+  border-radius: 20px;
+  background-color: rgb(85, 183, 232);
+  text-align: center !important;
+  align-items: center !important;
+  margin: 0 10px;
+  display: inline-block;
+  width:130px;
+  height:40px;
+  font-size: 20px;
+
+}
+
+.example-full-width {
+  width: 90%;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  align-items: center;
+}
+
+.mat-card:not([class*='mat-elevation-z']) {
+  box-shadow: 0px 2px 1px -1px rgba(116, 115, 115, 0.466),
+    0px 1px 1px 0px rgba(116, 115, 115, 0.466), 0px 1px 3px 0px rgb(116, 115, 115, 0.466);
+}
+.mat-card.mat-card-flat:not([class*='mat-elevation-z']) {
+  box-shadow: 0px 0px 0px 0px rgb(116, 115, 115, 0.466),
+    0px 0px 0px 0px rgb(116, 115, 115, 0.466), 0px 0px 0px 0px rgb(116, 115, 115, 0.466);
 }

@@ -1,11 +1,77 @@
 <div class="fondo">
   <br>
   <mat-card class="fondoTarjeta">
-
-    <mat-card-title class="titulo">Perfil</mat-card-title>
-      <mat-card-content>
-
-      </mat-card-content>
+    <mat-grid-list cols="2" rowHeight="100px" gutterSize="5px">
+      <mat-grid-tile colspan="1" rowspan="4">
+        <mat-card class="tarjetaFoto">
+          <mat-card-title>Estudiante</mat-card-title>
+          <img src="assets/images/avatar/Avatar-2.png" alt="" height="150">
+          <br><br><br>
+          <mat-card-subtitle class="subtituloTarjetaFoto">NickName</mat-card-subtitle>
+          <br>
+          <mat-card-subtitle>Nombre</mat-card-subtitle>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile rowspan="1">
+        <mat-card class="tarjetaProgreso">
+          <mat-card-content>
+            <p>
+              Progreso del estudiante en el curso de Nombre curso.
+            </p>
+            <!--ACA VA LA BARRA DE PROGRESO-->
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile rowspan="3">
+        <mat-card class="tarjetaDatos">
+          <mat-card-content>
+            <table class="example-full-width" cellspacing="1"><tr>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Nombres</mat-label>
+                <input matInput>
+              </mat-form-field></td>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Apellidos</mat-label>
+                <input matInput>
+              </mat-form-field></td>
+            </tr></table>
+            <table class="example-full-width" cellspacing="0"><tr>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Fecha de Nacimiento</mat-label>
+                <input matInput>
+              </mat-form-field></td>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Correo</mat-label>
+                <input matInput>
+              </mat-form-field></td>
+            </tr></table>
+            <table class="example-full-width" cellspacing="0"><tr>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Genero</mat-label>
+                <input matInput>
+              </mat-form-field></td>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Programa</mat-label>
+                <input matInput>
+              </mat-form-field></td>
+            </tr></table>
+            <table class="example-full-width" cellspacing="0"><tr>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Semestre</mat-label>
+                <input matInput>
+              </mat-form-field></td>
+              <td><mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Avatar</mat-label>
+                <input matInput>
+              </mat-form-field></td>
+            </tr></table>
+            <div>
+              <button class="botones" mat-raised-button >Editar</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
 
   </mat-card>
 
