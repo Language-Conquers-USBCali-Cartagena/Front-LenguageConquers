@@ -28,7 +28,7 @@ export class FormularioEstudianteComponent implements OnInit {
   correo: string = '';
   terminos= true;
   public user$:Observable<any> = this.authService.afauth.user;
-  constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService,
+  constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,
               private loginService: ServiciosLoginService, private router:Router, private programaService: ProgramaService,  private authService: AuthService) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
@@ -44,7 +44,7 @@ export class FormularioEstudianteComponent implements OnInit {
 
   ngOnInit(): void {
       this.getGenero();
-      this.getAvatar();
+      // this.getAvatar();
       this.getSemestre();
       this.getPrograma();
       this.user$.subscribe(res =>
@@ -80,14 +80,13 @@ export class FormularioEstudianteComponent implements OnInit {
   getSemestre(){
     this.semestreService.getSemestre().subscribe(resp => this.semestres = resp);
   }
-  getAvatar(){
-    this.avatarService.getAvatar().subscribe(resp => this.avatares = resp);
-  }
+  // getAvatar(){
+  //   this.avatarService.getAvatar().subscribe(resp => this.avatares = resp);
+  // }
   getPrograma(){
     this.programaService.getProgramas().subscribe(resp => this.programas = resp)
   }
   salir(){
-    this.authService.logout()
-    this.router.navigateByUrl("/auth/login");
+    this.router.navigateByUrl("/logout");
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Avatar } from '../../models/avatar';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -13,5 +13,14 @@ export class AvatarService {
 
   getAvatar(): Observable<Avatar[]>{
     return this.http.get<Avatar[]>(`${environment.endpoint}/avatar`)
+  }
+
+  getAvataresPage(pagina: number): Observable<Avatar[]>{
+    let paramHttp = new HttpParams({
+      fromObject: {
+        page: `${pagina}`
+      }
+    });
+    return this.http.get<Avatar[]>(`${environment.endpoint}/avatar/paginado`, {params: paramHttp})
   }
 }

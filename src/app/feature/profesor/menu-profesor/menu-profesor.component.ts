@@ -27,8 +27,8 @@ export class MenuProfesorComponent implements OnInit {
       this.profesor = response;
     }
     )
-    console.log(this.profesor)
-    console.log(this.correo)
+    // console.log(this.profesor)
+    // console.log(this.correo)
   }
 
 }

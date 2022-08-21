@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,7 +12,7 @@ import { MaterialModule } from './shared/material/material.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from "@angular/fire/compat";
 import { RankingComponent } from './shared/features/ranking/ranking.component';
-import { MenuComponent } from './core/features/menu/menu.component';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -20,6 +20,7 @@ import { MenuComponent } from './core/features/menu/menu.component';
     AppComponent,
     PerfilEstudianteComponent,
     RankingComponent,
+    
 
   ],
   imports: [
@@ -28,13 +29,9 @@ import { MenuComponent } from './core/features/menu/menu.component';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    // PaginaPrincipalModule,
     MaterialModule,
+    CoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
-
-
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]

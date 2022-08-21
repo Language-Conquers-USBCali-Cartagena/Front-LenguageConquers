@@ -61,6 +61,7 @@
           <mat-icon matSuffix class="boton">avatar</mat-icon>
       </mat-form-field>
   </div> -->
+
   <div class="campo-entrada">
       <mat-form-field appearance="fill">
           <mat-label class="titulos">Genero</mat-label>
@@ -98,12 +99,21 @@
           </mat-datepicker>
         </mat-form-field>
   </div>
-  </div>
 
+</div>
+<app-carussel-avatares></app-carussel-avatares>
+  <!-- <div class="campo-entrada">
+    <mat-form-field appearance="fill">
+        <mat-label class="titulos">Avatares</mat-label>
+
+      
+                <app-carussel-avatares></app-carussel-avatares>
+         
+       
+    </mat-form-field>
+</div> -->
   <div  class="boton">
       <button  mat-raised-button class="botonsalir" (click)="salir()">Salir</button>
-      <button  mat-raised-button class="botones" [disabled]="form.valid">Crear Estudiante</button>
-
-  </div>
-
+      <button  mat-raised-button class="botones" [disabled]="!form.valid">Crear Estudiante</button>
+    </div>
 </form>
