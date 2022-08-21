@@ -1,0 +1,64 @@
+mat-toolbar{
+    height: 100px;
+    }
+.fondoLogo {
+        align-items: center;
+        padding-left: 45%;
+        background-color: rgba(255, 255, 255, 0.048);
+        opacity: 85%;
+    }
+    .fondoLogo>img{
+        height: 85px;
+        width: 200px;
+        align-items: center;
+        }
+        mat-toolbar{
+          align-content:space-between 10px ;
+          background-color: transparent;
+          background: url(../../../../assets/images/homeestudiante.png);
+        }
+.fondo {
+    background: url(../../../../assets/images/fondoMar.png);
+    background: cover;  
+}
+.main {
+    
+    height: 420px;
+    width: 1080px;
+    display: flex;
+}
+.titulo {
+    color: white;
+    text-align: center;
+    margin-left: 100px;
+    font-size: 26px;
+}
+.bloques {
+    margin-top: 120px;
+    margin-left: -600px;
+}
+.uno, .dos, .tres, .cuatro, .cinco, .seis, .siete, .ocho, .nueve, .diez, .once {
+    color: rgb(201, 131, 69);
+    border-radius: 20px;
+    background-color: rgb(254,254,231);
+    text-align: center !important;
+    align-items: center !important;
+    margin: 0 10px;
+    display: inline-block;
+    width:100px;
+    height:40px;
+    margin: 10px;
+    margin-left: 600px;
+    margin-top: -150px;
+}
+.colocarb {
+    margin-top: 300px;
+    margin-left: 300px;
+}
+.footer {
+    display: flex;
+}
+.consola {
+    margin-top: 150px;
+    margin-left: 350px;
+}
