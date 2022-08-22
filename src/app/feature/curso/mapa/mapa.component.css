@@ -1,10 +1,36 @@
+mat-toolbar{
+    height: 100px;
+    }
+.fondoLogo {
+        align-items: center;
+        padding-left: 45%;
+        background-color: rgba(255, 255, 255, 0.048);
+        opacity: 85%;
+    }
+    .fondoLogo>img{
+        height: 85px;
+        width: 200px;
+        align-items: center;
+        }
+        mat-toolbar{
+          align-content:space-between 10px ;
+          background-color: transparent;
+
+        }
 .fondo {
-    background: url("../../../../assets/images/FondoEmailVerification.png");
+    background: url("../../../../assets/images/fondop.png");
     background-size: cover;
-    height: 920px ;
-    width: 1880px; ;
+    height: 900px ;
+    width: 1870px; ;
 }
-.campana {
-    margin-top: 600px;
-    margin-left: 420px;
+.tesoro1 {
+    margin-top: 0;
+}
+.tesoro2 {
+    margin-top: 0;
+    margin-left: 0;
+}
+.tesoro3 {
+    margin-top: 0px;
+    margin-left: 0px;
 }
