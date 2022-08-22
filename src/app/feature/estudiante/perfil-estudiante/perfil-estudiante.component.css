@@ -3,17 +3,25 @@
   background-image: url(src\assets\images\fondos\FondoPerfil1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 750px;
+  height: 1250px;
   width: auto;
+}
+.tarjet1{
+  margin: 0;
+  padding: 0;
+}
+.tarjet2{
+  margin: 0;
+  padding: 0;
+  margin-top: 200px;
 }
 .titulo{
   color: #fff;
   font-size:30px;
-
 }
 .fondoTarjeta {
-  width: 1030px;
-  height: 400px;
+  width: auto;
+  height: 1000px;
   margin-right: 30px;
   margin-left: 110px;
   font-family: Mouse Memoirs;
@@ -28,31 +36,60 @@
   );
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0px 2px 1px -1px rgb(201, 131, 69),
-    0px 1px 1px 0px rgb(201, 131, 69), 0px 1px 3px 0px rgb(201, 131, 69);
 }
 .tarjetaFoto{
-  width: 280px;
-  height: 270px;
-  margin-right: 10px;
-  margin-left: -100px;
+  width: 1050px;
+  height: 30px;
+  margin-top: -120px;
+  margin-bottom: 280px;
+  margin-right: 1px;
+  margin-left: 40px;
   font-family: Mouse Memoirs;
   text-align: center;
-  padding: 58px;
+  padding: 48px;
   border-radius: 24px;
   background-color: rgb(30,195,213);
   color:#fff;
   font-size:30px;
 }
+.imagen3d1{
+  position: absolute;
+  left: 75%;
+  top: -18px;
+  transform: translateX(-50%);
+  height: 140px;
+  transform: rotate(10deg);
+}
+.titulo1{
+  font-size: 30px;
+  line-height: 5px;
+}
 .subtituloTarjetaFoto{
   color:#fff;
   font-size:40px;
+  font-family: 'Roboto', sans-serif;
+}
+.titulo2{
+  font-size: 40px;
+  line-height: 0.1px;
+  color: #fff;
+}
+.imagen3d2{
+
+  position: absolute;
+  left: 20%;
+  top: -20px;
+  transform: translateX(-50%);
+  height: 150px;
+
 }
 .tarjetaProgreso{
   width: 450px;
   height:65px;
-  margin-right: 10px;
-  margin-left: -20px;
+  margin-top: -1000px;
+  margin-right: -200px;
+  margin-left: -200px;
+  padding-left: 45px;
   font-family: Mouse Memoirs;
   text-align: center;
   border-radius: 14px;
@@ -62,10 +99,13 @@
 
 }
 .tarjetaDatos{
-  width: 450px;
-  height:250px;
-  margin-right: 10px;
-  margin-left: -20px;
+  width: 430px;
+  height:30px;
+  margin-top: 400px;
+  margin-bottom: 450px;
+  padding-bottom: 400px;
+  margin-right: 1px;
+  margin-left: -500px;
   font-family: Mouse Memoirs;
   text-align: center;
   border-radius: 14px;
@@ -73,17 +113,7 @@
   color:#fff;
   font-size:40px;
 }
-.example-full-width {
-  width: 100px;
-}
-.td{
-  padding-right: 18px;
-}
 
-.image{
-  height: 50px;
-  width: 50px;
-}
 .botones{
   color: rgb(254,254,231);
   border-radius: 20px;
@@ -96,13 +126,6 @@
   height:40px;
   font-size: 20px;
 
-}
-
-.example-full-width {
-  width: 90%;
-  color: rgb(255, 255, 255);
-  font-size: 15px;
-  align-items: center;
 }
 
 .mat-card:not([class*='mat-elevation-z']) {

@@ -1,32 +1,27 @@
 export const itemsProf = [
   {
-    routeLink: 'Home',
-    icon: 'fal, fa-home',
+    routeLink: 'Home/:correo',
+    icon: 'home',
     label: 'Home',
   },
   {
     routeLink: 'Ranking',
-    icon: 'fal, fa-home',
-    label: 'Home',
+    icon: 'poll',
+    label: 'Ranking',
   },
   {
-    routeLink: 'Home',
-    icon: 'fal, fa-home',
-    label: 'Home',
+    redirectTo: 'Notificaciones',
+    icon: 'notifications',
+    label: 'Notificaciones',
   },
   {
-    routeLink: 'Notificaciones',
-    icon: 'fal, fa-home',
-    label: 'Home',
+    redirectTo: '/profesor/perfil',
+    icon: 'account_circle',
+    label: 'Perfil',
   },
   {
-    routeLink: 'Perfil',
-    icon: 'fal, fa-home',
-    label: 'Home',
-  },
-  {
-    routeLink: 'Salir',
-    icon: 'fal, fa-home',
-    label: 'Home',
+    redirectTo: '/auth/login',
+    icon: 'exit_to_app',
+    label: 'Salir',
   }
 ]

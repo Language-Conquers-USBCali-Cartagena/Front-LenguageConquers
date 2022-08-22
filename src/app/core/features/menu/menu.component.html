@@ -1,10 +1,10 @@
+<mat-toolbar class="fondoLogo mat-elevation-z6">
+    <img src="./assets/images/LogoV1.png" alt="" >
+</mat-toolbar>
 <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':''">
   <div class="logo-container">
     <button class="logo" (click)="toggleCollapse()"><mat-icon>menu</mat-icon></button>
     <div class="logo-text" @fadeInOut *ngIf="collapsed">Language Conquers</div>
-    <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
-      <i class="fal fa-times close-icon"></i>
-    </button>
   </div>
   <ul class="sidenav-nav">
     <!--Toca colocar un if para saber cuando utiliza el menu estudiante o profesor-->
