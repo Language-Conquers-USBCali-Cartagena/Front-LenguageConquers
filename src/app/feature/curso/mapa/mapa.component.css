@@ -24,13 +24,14 @@ mat-toolbar{
     width: 1870px; ;
 }
 .tesoro1 {
-    margin-top: 0;
+    position: relative;
+    top: 640px; left: 1420px;
 }
 .tesoro2 {
-    margin-top: 0;
-    margin-left: 0;
+    position: relative;
+    top: 630px; left: 870px;
 }
 .tesoro3 {
-    margin-top: 0px;
-    margin-left: 0px;
+    position: relative;
+    top: 700px; left: 1100px;
 }
