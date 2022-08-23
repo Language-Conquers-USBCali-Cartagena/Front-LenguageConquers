@@ -18,14 +18,15 @@ mat-toolbar{
 
         }
 .fondo {
-    background: url("../../../../assets/images/fondop.png");
+    background: url("../../../../assets/images/mapa.png");
     background-size: cover;
-    height: 900px ;
-    width: 1870px; ;
+    height: 1080px ;
+    width: 1920px; ;
 }
 .tesoro1 {
     position: relative;
     top: 640px; left: 1420px;
+    
 }
 .tesoro2 {
     position: relative;
