@@ -36,3 +36,13 @@ mat-toolbar{
     position: relative;
     top: 700px; left: 1100px;
 }
+
+@media screen and (max-width: 600px) {
+
+    .fondo {
+        background: url("../../../../assets/images/600px\ mapa.png");
+        background-size: cover;
+        height: 1080px ;
+        width: 600px; ;
+    }
+}

@@ -18,8 +18,10 @@ mat-toolbar{
           background: url(../../../../assets/images/homeestudiante.png);
         }
 .fondo {
-    background: url(../../../../assets/images/fondoMar.png);
-    background: cover;  
+    background: url("../../../../assets/images/ofondo.png");
+    background-size: cover;  
+    height: 1000px ;
+        width: 1920px; 
 }
 .main {
     
