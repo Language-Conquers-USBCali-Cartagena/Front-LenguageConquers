@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Genero } from '../../../../shared/models/genero';
 import { Avatar } from '../../../../shared/models/avatar';
 import { Semestre } from '../../../../shared/models/semestre';
@@ -20,7 +20,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./formulario-estudiante.component.css']
 })
 export class FormularioEstudianteComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   generos: Genero[] = [];
   avatares: Avatar[] = [];
   semestres: Semestre[] = [];
@@ -28,7 +28,7 @@ export class FormularioEstudianteComponent implements OnInit {
   correo: string = '';
   terminos= true;
   public user$:Observable<any> = this.authService.afauth.user;
-  constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService,
+  constructor(private fb: UntypedFormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService,
               private loginService: ServiciosLoginService, private router:Router, private programaService: ProgramaService,  private authService: AuthService) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
