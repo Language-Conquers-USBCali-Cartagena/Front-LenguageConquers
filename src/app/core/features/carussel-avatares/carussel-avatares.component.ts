@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AvatarService } from '../../../shared/services/avatar/avatar.service';
 import { Avatar } from '../../../shared/models/avatar';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-carussel-avatares',
@@ -12,8 +12,8 @@ export class CarusselAvataresComponent implements OnInit {
   pagina: number = 0;
   avatares: Avatar[] = [];
   idAvatar: number = 0;
-  form: FormGroup;
-  constructor(private avatarService:AvatarService, private fb: FormBuilder) {
+  form: UntypedFormGroup;
+  constructor(private avatarService:AvatarService, private fb: UntypedFormBuilder) {
     this.form = fb.group({
       id: ['', Validators.required]
     })

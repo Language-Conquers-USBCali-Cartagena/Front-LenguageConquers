@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Genero } from '../../../../shared/models/genero';
 import { GeneroService } from '../../../../shared/services/genero/genero.service';
 import { ServiciosLoginService } from '../../../../shared/services/Login/servicios-login.service';
@@ -14,12 +14,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./formulario-profesor.component.css']
 })
 export class FormularioProfesorComponent implements OnInit {
-  form: FormGroup;
+  form: UntypedFormGroup;
   generos: Genero[] = [];
   correo: string = '';
   public user$:Observable<any> = this.authService.afauth.user;
 
-  constructor(private fb: FormBuilder, private generoService: GeneroService, private loginService: ServiciosLoginService, private authService: AuthService, private router: Router) {
+  constructor(private fb: UntypedFormBuilder, private generoService: GeneroService, private loginService: ServiciosLoginService, private authService: AuthService, private router: Router) {
 
     this.form = this.fb.group({
       nombre:  ['', Validators.required],

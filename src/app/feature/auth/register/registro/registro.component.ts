@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
@@ -12,13 +12,13 @@ import { ServiciosLoginService } from '../../../../shared/services/Login/servici
 })
 export class RegistroComponent implements OnInit {
   public user$:Observable<any> = this.authService.afauth.user;
-  form: FormGroup;
+  form: UntypedFormGroup;
   hide = true;
   loading = false;
   terminos= true;
   profesorExiste: boolean = false;
   estudianteExiste: boolean = false;
-  constructor(private fb: FormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService) { 
+  constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService) { 
     this.form = this.fb.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required],
