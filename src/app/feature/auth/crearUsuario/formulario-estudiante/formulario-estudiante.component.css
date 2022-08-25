@@ -1,6 +1,7 @@
 .entradas {
   display: grid;
- margin: 10px auto;
+ margin-top: 10px;
+ margin-bottom: -100px;
  grid-template-columns: repeat(2, 18em);
  justify-content: center;
 
@@ -8,12 +9,18 @@
 .titulos{
 font-size:20px;
 color: rgb(255, 255, 255);
+
 }
 
 .campo-entrada{
  float: right;
  width: 50%;
 
+}
+.campofecha{
+  align-items: center;
+  width: 300px;
+  padding-left:80px;
 }
 
 form {
@@ -53,10 +60,15 @@ form {
 
  margin: 3px;
  position: center;
- left: 40%;
+ left: 80%;
  line-height: 35px;
  align-items: center;
 
+}
+.carrousel{
+  width:500px;
+  height:100px;
+  margin-bottom: 40px;
 }
 
 @media screen and (max-width: 600px) {

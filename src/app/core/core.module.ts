@@ -5,8 +5,6 @@ import { CarusselAvataresComponent } from './features/carussel-avatares/carussel
 import { MenuComponent } from './features/menu/menu.component';
 import { RouterModule } from '@angular/router';
 
-
-
 @NgModule({
   declarations: [
 
