@@ -14,12 +14,12 @@
   }
 .texto {
     display: block;
-    background-color: gray;
-    height: 100px;
-    width: 300px;
+    background-color: white;
+    height: 200px;
+    width: 600px;
     margin-left: 750px ;
     margin-top: 90px;
-
+    
 }
 .texto>p {
     font-size: large;
@@ -30,7 +30,7 @@
     background-color: rgb(254,254,231);
     text-align: center !important;
     align-items: center !important;
-    margin: 0 10px;
+    margin: 0 70px;
     display: inline-block;
     width:100px;
     height:40px;
