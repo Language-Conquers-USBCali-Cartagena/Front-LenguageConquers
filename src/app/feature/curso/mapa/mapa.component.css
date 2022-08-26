@@ -40,7 +40,7 @@ mat-toolbar{
 @media screen and (max-width: 600px) {
 
     .fondo {
-        background: url("../../../../assets/images/600px\ mapa.png");
+        background: url("../../../../assets/images/600pxmapa.png");
         background-size: cover;
         height: 1080px ;
         width: 600px; ;
