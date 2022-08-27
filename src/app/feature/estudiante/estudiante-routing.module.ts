@@ -18,7 +18,8 @@ const routes:Routes = [
                 component: TarjetasCursosComponent
             },
             {
-                path: 'curso/:idCurso'
+                path: 'curso/:idCurso',
+                component: PerfilEstudianteComponent
             },
             {
               path: 'perfil',

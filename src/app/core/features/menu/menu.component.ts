@@ -45,6 +45,7 @@ export class MenuComponent implements OnInit {
   screenWidth = 0;
   menuItemsEst = itemsEst;
   menuItemsProf = itemsProf;
+  hidden = false;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -67,5 +68,6 @@ export class MenuComponent implements OnInit {
     this.collapsed = false;
     this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
   }
+
 
 }

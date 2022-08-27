@@ -1818,7 +1818,7 @@ td.mat-footer-cell {
   color: rgb(241, 231, 194);
 }
 .mat-form-field.mat-focused .mat-form-field-label {
-  color: rgb(201, 131, 69);
+  color: rgb(255, 255, 255);
 }
 .mat-form-field.mat-focused .mat-form-field-label.mat-accent {
   color: #ff4081;
@@ -1833,7 +1833,7 @@ td.mat-footer-cell {
   background-color: rgb(241, 231, 194);
 }
 .mat-form-field.mat-focused .mat-form-field-ripple {
-  background-color: rgb(201, 131, 69);
+  background-color: rgb(252, 252, 252);
 }
 .mat-form-field.mat-focused .mat-form-field-ripple.mat-accent {
   background-color: #ff4081;
@@ -2098,7 +2098,7 @@ td.mat-footer-cell {
 .mat-progress-spinner circle,
 .mat-spinner circle {
 
-  stroke: rgb(160, 153, 128);
+  stroke: rgb(197,139,91);
 }
 .mat-progress-spinner.mat-accent circle,
 .mat-spinner.mat-accent circle {
