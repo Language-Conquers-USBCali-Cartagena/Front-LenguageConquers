@@ -6,8 +6,6 @@ import { MenuComponent } from './features/menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './features/footer/footer.component';
 
-
-
 @NgModule({
   declarations: [
 

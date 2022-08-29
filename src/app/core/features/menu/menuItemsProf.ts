@@ -1,6 +1,6 @@
 export const itemsProf = [
   {
-    routeLink: 'Home/:correo',
+    routeLink: 'Home',
     icon: 'home',
     label: 'Home',
   },
@@ -23,5 +23,6 @@ export const itemsProf = [
     redirectTo: '/auth/login',
     icon: 'exit_to_app',
     label: 'Salir',
+
   }
 ]

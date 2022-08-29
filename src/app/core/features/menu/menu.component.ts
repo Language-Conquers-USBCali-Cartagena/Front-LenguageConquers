@@ -1,7 +1,12 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
-import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { itemsEst } from './menuItemsEst';
 import { itemsProf } from './menuItemsProf';
+import { AuthService } from '../../service/auth.service';
+import { EstudianteServiceService } from '../../../feature/estudiante/services/estudiante-service.service';
+import { ServiciosLoginService } from '../../../shared/services/Login/servicios-login.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 interface SideNavToggle{
   screenWidth: number;
@@ -41,7 +46,9 @@ interface SideNavToggle{
 export class MenuComponent implements OnInit {
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
+  existeEstu = false;
   collapsed = false;
+  email = '';
   screenWidth = 0;
   menuItemsEst = itemsEst;
   menuItemsProf = itemsProf;
@@ -55,10 +62,15 @@ export class MenuComponent implements OnInit {
       this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
     }
   }
-  constructor() { }
+  constructor(private loginService:ServiciosLoginService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    
+    this.getEmail();
     this.screenWidth = window.innerWidth;
+
+
+    
   }
   toggleCollapse(): void{
     this.collapsed = !this.collapsed;
@@ -68,6 +80,20 @@ export class MenuComponent implements OnInit {
     this.collapsed = false;
     this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
   }
+
+
+  async getEmail(){
+    await this.authService.getUserLogged().subscribe(resp => {
+      this.email = resp?.email!;
+
+      this.loginService.existEstudianteByCorreo(this.email).toPromise().then((resp) => {
+        this.existeEstu = resp;
+        
+      })
+    })
+    
+  }
+
 
 
 }

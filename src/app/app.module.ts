@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,12 +14,16 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { RankingComponent } from './shared/features/ranking/ranking.component';
 import { MenuComponent } from './core/features/menu/menu.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { CoreModule } from './core/core.module';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PerfilEstudianteComponent,
     RankingComponent,
+    
 
   ],
   imports: [
@@ -28,10 +32,9 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    // PaginaPrincipalModule,
     MaterialModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    
+    CoreModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
 
   ],
   providers: [],

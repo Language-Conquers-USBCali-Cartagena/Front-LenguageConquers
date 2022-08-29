@@ -28,8 +28,7 @@ export class TarjetasCursosComponent implements OnInit {
       this.estudiante = response;
     }
     )
-    console.log(this.estudiante)
-    console.log(this.correo)
+ 
   }
 
   async obtenerCursos(correo: string){
