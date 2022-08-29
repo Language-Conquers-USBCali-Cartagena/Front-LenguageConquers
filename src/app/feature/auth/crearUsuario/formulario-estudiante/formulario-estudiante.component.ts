@@ -28,7 +28,9 @@ export class FormularioEstudianteComponent implements OnInit {
   correo: string = '';
   terminos= true;
   public user$:Observable<any> = this.authService.afauth.user;
-  constructor(private fb: UntypedFormBuilder, private generoService: GeneroService, private semestreService: SemestreService,
+
+  constructor(private fb: UntypedFormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService,
+
               private loginService: ServiciosLoginService, private router:Router, private programaService: ProgramaService,  private authService: AuthService) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],

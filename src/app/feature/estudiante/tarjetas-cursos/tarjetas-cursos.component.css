@@ -3,12 +3,87 @@
   background-size: cover;
   background-repeat: no-repeat;
   height: 920px;
+  align-items: center;
+}
+.tarjetaPeq{
+  width: 830px;
+  height: 10px;
+  margin-right: 30px;
+  margin-left: 200px;
+  /*Efecto espejo*/
+  padding: 48px;
+  border-radius: 24px;
+  background: linear-gradient(
+  135deg,
+  rgba(255, 255, 255, 0.514),
+  rgba(255, 255, 255, 0.514)
+);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+font-size: 30px;
+color:rgb(6,43,60);
+text-align: center;
+}
+.imagen3d1{
+  position: absolute;
+  left: 75%;
+  top: -20px;
+  transform: translateX(-50%);
+  height: 130px;
+  transform: rotate(10deg);
+}
+.titulo1{
+  font-size: 40px;
+  line-height: 5px;
+}
+.imagen3d2{
 
+  position: absolute;
+  left: 20%;
+  top: -30px;
+  transform: translateX(-50%);
+  height: 150px;
 
+}
+.tituloTarjetaPeq{
+  font: size 20px;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(6,43,60);
+
+}
+.fondoTarjeta {
+  width: 1030px;
+  height: 400px;
+  margin-right: 80px;
+  margin-left: 110px;
+  /*Efecto espejo*/
+  padding: 48px;
+  border-radius: 24px;
+  background: linear-gradient(
+  135deg,
+  rgba(255, 255, 255, 0.329),
+  rgba(255, 255, 255, 0.329)
+);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+}
+.estudiante>img{
+  margin-left: 640px;
+
+}
+.estudiante>h2{
+  margin-left: 640px;
+
+}
+.estudiante>button{
+  margin-left: 640px;
 }
 .cursos{
 max-width: 180px;
 max-height: 200px;
+
 line-height: 0.2;
 text-align: left;
 background-color:rgba(255, 255, 255, 0.832);
@@ -19,65 +94,20 @@ color: black;
 }
 
 .vinculos-contra{
-font-family: 'Mouse Memoirs';
-font-size: 20px;
+font-family: 'Roboto', sans-serif;
+font-size: 12px;
 color: rgb(0, 0, 0);
 top: 20px;
 bottom: 20px;
 margin-left: -7px;
 }
-
-
-.fondoTarjeta {
-margin-left: 85px;
-  width: 70em;
-  height: 348px;
-  font-family: Pirata One;
-  /*Efecto espejo*/
-  padding: 48px;
-  border-radius: 24px;
-  background: linear-gradient(
-  135deg,
-  rgba(255, 255, 255, 0.1),
-  rgba(255, 255, 255, 0.1)
-);
-backdrop-filter: blur(3px);
--webkit-backdrop-filter: blur(3px);
-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+.mat-card:not([class*='mat-elevation-z']) {
+  box-shadow: 0px 2px 1px -1px rgba(116, 115, 115, 0.466),
+    0px 1px 1px 0px rgba(116, 115, 115, 0.466), 0px 1px 3px 0px rgb(116, 115, 115, 0.466);
 }
-.fondoTarjeta2 {
-  width: 70em;
-  height: 348px;
-  margin: 10px auto;
-  font-family: Pirata One;
-  /*Efectoespejo*/padding: 1em;
-  border-radius: 10px;
-  background: rgba(38, 38, 38);
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-.estudiante>img{
-  margin-left: 640px;
-
-}
-.estudiante>h2{
-  margin-left: 640px;
-}
-.estudiante>button{
-  margin-left: 640px;
-}
-.boton-cursos{
-  background:url(../../../../assets/images/boton.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 60px;
-  width: 60px;
-}
-h2{
-  color: white;
-  margin-left: 22em;
+.mat-card.mat-card-flat:not([class*='mat-elevation-z']) {
+  box-shadow: 0px 0px 0px 0px rgb(116, 115, 115, 0.466),
+    0px 0px 0px 0px rgb(116, 115, 115, 0.466), 0px 0px 0px 0px rgb(116, 115, 115, 0.466);
 }
 @media screen  and (max-width: 600px) {
   .body{
@@ -97,20 +127,6 @@ h2{
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
       -ms-border-radius: 5px;
-      -o-border-radius: 5px; 
-}
-    .fondoTarjeta2 {
-      width: 20em;
-      height: 250px;
-
-      font-family: Pirata One;
-      /*Efectoespejo*/
-      padding: 1em;
-      border-radius: 5px;
-      background: rgba(38, 38, 38);
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      -ms-border-radius: 5px;
       -o-border-radius: 5px;
 }
   .estudiante>img{
@@ -122,16 +138,5 @@ h2{
   }
   .estudiante>button{
       margin-left: 110px;
-  }
-  .boton-cursos{
-      background:url(../../../../assets/images/boton.png);
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 30px;
-      width: 30px;
-  }
-  h2{
-      color: white;
-      margin-left: 5em;
   }
 }

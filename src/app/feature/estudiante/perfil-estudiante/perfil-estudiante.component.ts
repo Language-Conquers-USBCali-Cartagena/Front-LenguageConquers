@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { Estudiante } from 'src/app/shared/models/estudiante';
 
 
 
@@ -9,10 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilEstudianteComponent implements OnInit {
 
+  estudiante: Estudiante = {};
+  mode: ProgressSpinnerMode = 'determinate';
+  value = 70;
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 
 }

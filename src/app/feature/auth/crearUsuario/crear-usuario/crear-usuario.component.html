@@ -1,7 +1,6 @@
 <div class="fondo">
   <mat-toolbar class="color" type="checkbox" id="nav-check">
       <img src="./assets/images/LogoV1.png" alt="logo" >
-
   </mat-toolbar>
 <div class="card" *ngIf="user$ | async as user; else loading">
   <div class = "crearUsuario">
@@ -19,13 +18,10 @@
                   </mat-tab>
               </mat-tab-group>
           </mat-card-content>
-
       </mat-card>
-
   </div>
-
 </div>
-
+<app-footer></app-footer>
 <ng-template #loading>
   loading...
 </ng-template>

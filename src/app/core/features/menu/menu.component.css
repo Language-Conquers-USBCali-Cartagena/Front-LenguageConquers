@@ -115,3 +115,18 @@ body{
   color:rgb(255, 255, 255);
 }
 
+.fondoLogo {
+  align-items: center;
+  padding-left: 45%;
+  background-color: rgb(168, 148, 134);
+  box-shadow: 0.063rem 0 1.25rem 0 #757e8e;
+
+
+  }
+  .fondoLogo>img{
+  height: 60px;
+  width: 170px;
+  align-items: center;
+
+  }
+

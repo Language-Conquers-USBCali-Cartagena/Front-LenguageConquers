@@ -1,23 +1,20 @@
 <div class="body">
-
+  <br> <br>
+  <mat-card class="tarjetaPeq">
+    <img class="imagen3d1" src="./assets/images/cofre.png">
+    <mat-card-title class="titulo1">Hola, Profesor {{profesor.nombre}} {{profesor.apellido}}</mat-card-title>
+    <br>
+    <mat-card-subtitle class="tituloTarjetaPeq">Bienvenido de nuevo a Language Conquers</mat-card-subtitle>
+    <img class="imagen3d2" src="assets/images/avatar/Avatar-2.png">
+  </mat-card>
+  <br><br>
   <div class="fondoTarjeta">
     <div class="estudiante">
-
-      <img src="assets/images/avatar/avatar1.png" alt="" height="100">
-      <div class="orden">
-        <h1>Nombre: {{profesor.nombre}}</h1>
-      <button mat-button style="background-color: rgb(90, 134, 155); color: rgb(255, 255, 255)"> Cambiar
-        avatar</button>
-      </div>
-      
-      <!-- <h3>Puntos Individuales: {{estudiante.puntaje}}</h3> -->
-
-
-
+      <mat-card class="cursos">
+        <img mat-card-image src="./assets/images/fondos/FondoCurso1.jpg">
+          <mat-card-subtitle class="titulo">Facultad de Ingenieria</mat-card-subtitle>
+          <a class="vinculos-contra" href="/auth/recuperar">Fundamentos de Programación</a>
+      </mat-card>
     </div>
-    <mat-card class="fondoTarjeta2">
-      <h2>Mis cursos</h2>
-      <button class="boton-cursos"></button>
-    </mat-card>
   </div>
 </div>

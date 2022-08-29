@@ -4,12 +4,14 @@ import { MaterialModule } from '../shared/material/material.module';
 import { CarusselAvataresComponent } from './features/carussel-avatares/carussel-avatares.component';
 import { MenuComponent } from './features/menu/menu.component';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from './features/footer/footer.component';
 
 @NgModule({
   declarations: [
 
     CarusselAvataresComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports:[
     CarusselAvataresComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent
   ]
 })
 export class CoreModule { }

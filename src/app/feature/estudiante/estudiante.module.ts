@@ -18,7 +18,8 @@ import { EstudianteServiceService } from './services/estudiante-service.service'
     CommonModule,
     EstudianteRoutingModule,
     CoreModule,
-    MaterialModule
+    MaterialModule,
+
   ],
   providers: [
     EstudianteServiceService
