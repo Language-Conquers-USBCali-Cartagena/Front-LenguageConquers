@@ -7,7 +7,7 @@
     <div class="logo-text" @fadeInOut *ngIf="collapsed">Language Conquers</div>
   </div>
   <ul class="sidenav-nav">
-    <!--Toca colocar un if para saber cuando utiliza el menu estudiante o profesor-->
+
 
     <div *ngIf="existeEstu else profesor">
       <li class="sidenav-nav-item" *ngFor="let data of menuItemsEst" >
