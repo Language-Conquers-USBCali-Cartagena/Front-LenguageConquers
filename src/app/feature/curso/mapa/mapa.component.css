@@ -1,10 +1,48 @@
+mat-toolbar{
+    height: 100px;
+    }
+.fondoLogo {
+        align-items: center;
+        padding-left: 45%;
+        background-color: rgba(255, 255, 255, 0.048);
+        opacity: 85%;
+    }
+    .fondoLogo>img{
+        height: 85px;
+        width: 200px;
+        align-items: center;
+        }
+        mat-toolbar{
+          align-content:space-between 10px ;
+          background-color: transparent;
+
+        }
 .fondo {
-    background: url("../../../../assets/images/FondoEmailVerification.png");
+    background: url("../../../../assets/images/mapa.png");
     background-size: cover;
-    height: 920px ;
-    width: 1880px; ;
+    height: 1080px ;
+    width: 1920px; ;
 }
-.campana {
-    margin-top: 600px;
-    margin-left: 420px;
+.tesoro1 {
+    position: relative;
+    top: 640px; left: 1420px;
+    
+}
+.tesoro2 {
+    position: relative;
+    top: 630px; left: 870px;
+}
+.tesoro3 {
+    position: relative;
+    top: 700px; left: 1100px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .fondo {
+        background: url("../../../../assets/images/600pxmapa.png");
+        background-size: cover;
+        height: 1080px ;
+        width: 600px; ;
+    }
 }
