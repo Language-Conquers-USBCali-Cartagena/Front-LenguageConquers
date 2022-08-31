@@ -13,7 +13,6 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from "@angular/fire/compat";
 import { RankingComponent } from './shared/features/ranking/ranking.component';
 import { MenuComponent } from './core/features/menu/menu.component';
-import { NgCircleProgressModule } from 'ng-circle-progress';
 import { CoreModule } from './core/core.module';
 
 

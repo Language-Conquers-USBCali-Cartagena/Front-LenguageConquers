@@ -3,18 +3,9 @@
 <app-menu (onToggleSideNav)="onToggleSideNav($event)"></app-menu>
 
 <div>
-  <mat-toolbar>
-    <button mat-icon-button class="center">
-    </button>
-    <div class="fondoLogo">
-      <img src="./assets/images/LogoV1.png" alt="" >
-    </div>
-  </mat-toolbar>
-  
-  <app-menu (onToggleSideNav)="onToggleSideNav($event)"></app-menu>
+
+  <router-outlet ></router-outlet>
   <div>
-    <router-outlet ></router-outlet>
-  </div>
 </div>
 <app-footer></app-footer>
 
