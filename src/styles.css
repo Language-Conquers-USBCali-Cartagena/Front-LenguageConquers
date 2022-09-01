@@ -30,3 +30,20 @@ a {
   color: white !important;
 }
 
+::-webkit-scrollbar{
+  width: 1vw;
+}
+::-webkit-scrollbar-track{
+  background-color: hsl(0,0,76 / 1);
+  border-radius: 100vw;
+  margin-block: 2em;
+
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgba(187, 153, 136, 0.541);
+  border: .25em solid #eacda3/.5;
+  border-radius: 100vw;
+
+
+}
+

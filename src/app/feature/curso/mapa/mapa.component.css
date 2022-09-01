@@ -1,6 +1,4 @@
-mat-toolbar{
-    height: 100px;
-    }
+
 .fondoLogo {
         align-items: center;
         padding-left: 45%;
@@ -17,30 +15,42 @@ mat-toolbar{
           background-color: transparent;
 
         }
-.fondo {
-    background: url("../../../../assets/images/mapa.png");
-    background-size: cover;
-    height: 1080px ;
-    width: 1920px; ;
+        .fondo {
+          background: url("../../../../assets/images/fondos/FondoPerfil1.jpg");
+          background-size: 100% 100%;
+          height: 1080px ;
+          width: 1920px; ;
+        }
+.imagen{
+  position: relative;
+  top: 640px;
+  left: 1420px;
+  background: url(../../../../assets/images/Recurso36.png);
+  background-size: contain;
 }
 .tesoro1 {
+    display: flex;
     position: relative;
-    top: 640px; left: 1420px;
-    
+    top: 640px;
+    left: 1420px;
+    background-color: transparent;
+
 }
 .tesoro2 {
     position: relative;
     top: 630px; left: 870px;
+    background-color: transparent;
 }
 .tesoro3 {
     position: relative;
     top: 700px; left: 1100px;
+    background-color: transparent;
 }
 
 @media screen and (max-width: 600px) {
 
     .fondo {
-        background: url("../../../../assets/images/600pxmapa.png");
+        background: url("../../../../assets/images/fondos/FondoPerfil1.jpg");
         background-size: cover;
         height: 1080px ;
         width: 600px; ;

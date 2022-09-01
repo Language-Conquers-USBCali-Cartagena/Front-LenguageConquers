@@ -16,6 +16,7 @@ import { FormularioEstudianteComponent } from './crearUsuario/formulario-estudia
 import {MatGridListModule} from '@angular/material/grid-list';
 import { CoreModule } from 'src/app/core/core.module';
 import { RegistroPageComponent } from './register/registro-page/registro-page.component';
+import { TerminoscondicionesComponent } from './terminoscondiciones/terminoscondiciones.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { RegistroPageComponent } from './register/registro-page/registro-page.co
     FormularioProfesorComponent,
     FormularioEstudianteComponent,
     RegistroPageComponent,
+    TerminoscondicionesComponent,
 
   ],
   imports: [

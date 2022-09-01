@@ -87,6 +87,7 @@ max-height: 200px;
 line-height: 0.2;
 text-align: left;
 background-color:rgba(255, 255, 255, 0.832);
+box-shadow: 0 10px 42px 0 rgba(0, 0, 0, 0.452);
 
 }
 .titulo{

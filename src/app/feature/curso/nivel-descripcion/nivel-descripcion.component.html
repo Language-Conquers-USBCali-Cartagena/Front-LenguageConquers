@@ -1,13 +1,35 @@
+<app-menu (onToggleSideNav)="onToggleSideNav($event)"></app-menu>
 <div class="fondo">
+  <br><br>
+  <mat-card class="fondoTarjeta" dynamicHeight>
+    <mat-card-title class="titulo">¿Qué es una variable en programación?</mat-card-title>
+    <br>
+    <mat-card-content>
+      <p>“Una variable en programación es un elemento de datos cuyo valor puede cambiar durante el curso de la ejecución de un programa”. Más aún, los expertos afirman que “el nombre de la variable debe seguir el convenio de denominación de un identificador (carácter alfabético o número y el signo de subrayado).” </p>
+      <p>una variable en programación se puede entender como un nombre que representa un valor y se utiliza de forma periódica para almacenar diversos tipos de datos, los cuales se utilizarán en las operaciones posteriores de codificación.</p>
+      <h2 class="subtitulo">¿Cuáles son las características de una variable en programación?</h2>
+      <h3 class="subtitulo">Asignación de memoria</h3>
+      <p>una variable en programación es un lugar en la memoria del ordenador, ya que, cuando este ejecuta un programa o una aplicación, la variable tendrá acceso a este bloque de memoria. </p>
+      <h3 class="subtitulo">Declaración</h3>
+      <p>Cuando hablamos de cómo declarar una variable en programación, nos referimos a asignarle un nombre y un tipo; de esta manera, el sistema le podrá otorgar una abstracción de la memoria para almacenar los datos y su valor.</p>
+      <p>Asimismo, esto dependerá del tipo de lenguaje de programación que se esté utilizando, ya que la clasificación de la variable antes de usarla es diferente en cada uno. Por ejemplo, en el caso de Javascript y Lenguaje C, sí se necesita declarar; sin embargo, en lenguajes de programación como Python, esto no es necesario. </p>
 
-    <div class="texto">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quis, dolores praesentium, porro consequuntur necessitatibus quia a neque dignissimos molestias harum et provident doloremque eaque nostrum voluptate voluptatem modi! Libero.</p>
-        <div class="boton">
-            <button class="botones">
-                Resolver
-            </button>
-            <button class="botones" >
-                Atrás
-            </button>
-    </div>
+
+      <p>“Una variable en programación es un elemento de datos cuyo valor puede cambiar durante el curso de la ejecución de un programa”. Más aún, los expertos afirman que “el nombre de la variable debe seguir el convenio de denominación de un identificador (carácter alfabético o número y el signo de subrayado).” </p>
+      <p>una variable en programación se puede entender como un nombre que representa un valor y se utiliza de forma periódica para almacenar diversos tipos de datos, los cuales se utilizarán en las operaciones posteriores de codificación.</p>
+      <h2 class="subtitulo">¿Cuáles son las características de una variable en programación?</h2>
+      <h3 class="subtitulo">Asignación de memoria</h3>
+      <p>una variable en programación es un lugar en la memoria del ordenador, ya que, cuando este ejecuta un programa o una aplicación, la variable tendrá acceso a este bloque de memoria. </p>
+      <h3 class="subtitulo">Declaración</h3>
+      <p>Cuando hablamos de cómo declarar una variable en programación, nos referimos a asignarle un nombre y un tipo; de esta manera, el sistema le podrá otorgar una abstracción de la memoria para almacenar los datos y su valor.</p>
+      <p>Asimismo, esto dependerá del tipo de lenguaje de programación que se esté utilizando, ya que la clasificación de la variable antes de usarla es diferente en cada uno. Por ejemplo, en el caso de Javascript y Lenguaje C, sí se necesita declarar; sin embargo, en lenguajes de programación como Python, esto no es necesario. </p>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus odit earum, iste animi cum temporibus aliquid est culpa molestias nihil eveniet, doloribus iure maiores ipsum tempore possimus ratione inventore tempora.</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="atras()" class="boton">Atrás</button>
+      <button mat-button (click)="reto()" class="boton">Practicar!</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
+<app-footer></app-footer>
