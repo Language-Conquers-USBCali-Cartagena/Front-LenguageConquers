@@ -19,18 +19,10 @@
   </mat-form-field>
 
 
-  <a href="#" target="_window" class="vinculos"
-  ><input type="checkbox" [(ngModel)]="terminos" />Terminos y Condicones</a
->
+  <a target="_window" class="vinculos" (click)="openDialog()">Términos y Condiciones</a>
+
 <div *ngIf="terminos === true" style="top: 100px">
-  <button
-    class="ancho1"
-    mat-raised-button
-    
-    (click)="registrarse()"
-  >
-    Crear Cuenta
-  </button>
+  <button class="ancho1" mat-raised-button (click)="registrarse()"> Crear Cuenta </button>
 </div>
 </div>
 <br />

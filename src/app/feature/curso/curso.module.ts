@@ -8,6 +8,8 @@ import { NivelIDEComponent } from './nivel-ide/nivel-ide.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { CoreModule } from 'src/app/core/core.module';
+import { MaterialModule } from 'src/app/shared/material/material.module';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [
     CommonModule,
     CursoRoutingModule,
-    MatCardModule,
-    MatTabsModule,
-    MatToolbarModule
+    CoreModule,
+    MaterialModule,
+
   ],
   providers: [
-    
+
   ]
 })
 export class CursoModule { }

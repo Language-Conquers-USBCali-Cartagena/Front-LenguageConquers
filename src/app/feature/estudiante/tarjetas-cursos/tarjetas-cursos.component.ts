@@ -28,7 +28,7 @@ export class TarjetasCursosComponent implements OnInit {
       this.estudiante = response;
     }
     )
- 
+
   }
 
   async obtenerCursos(correo: string){

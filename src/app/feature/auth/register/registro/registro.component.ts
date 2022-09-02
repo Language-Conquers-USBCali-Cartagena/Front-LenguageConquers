@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { Observable } from 'rxjs';
 import { ServiciosLoginService } from '../../../../shared/services/Login/servicios-login.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { TerminoscondicionesComponent } from '../../terminoscondiciones/terminoscondiciones.component';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -18,7 +20,7 @@ export class RegistroComponent implements OnInit {
   terminos= true;
   profesorExiste: boolean = false;
   estudianteExiste: boolean = false;
-  constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService) { 
+  constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService, private dialog: MatDialog) {
     this.form = this.fb.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required],
@@ -36,7 +38,7 @@ export class RegistroComponent implements OnInit {
 
     console.log('El usuario es: ',usuario, password);
     await this.authService.register(usuario, password).then(res => {
-      
+
       this.authService.emailVerification();
       this.router.navigate(['/auth/verificar-email'])
     }).catch(err => {
@@ -71,7 +73,7 @@ export class RegistroComponent implements OnInit {
   }
 
   async validarExistenciaBD(email: String){
-     
+
     await this.loginService.existEstudianteByCorreo(email).toPromise().then((response) => {
       this.estudianteExiste = response;
       if(response == true){
@@ -84,7 +86,7 @@ export class RegistroComponent implements OnInit {
         this.router.navigateByUrl("/profesor/menuProfesor/" + email)
       }
     })
-  
+
     if(this.estudianteExiste == true || this. profesorExiste == true){
       return true
     }else {
@@ -100,7 +102,7 @@ export class RegistroComponent implements OnInit {
           this.loading = false;
         }
       })
-      let correo= ''; 
+      let correo= '';
       this.user$.subscribe(  res => {
         if(res.emailVerified == false){
           this.router.navigate(['auth/verificar-email'])
@@ -111,11 +113,22 @@ export class RegistroComponent implements OnInit {
             this.router.navigateByUrl("/auth/crearUsuario")
           }
         })
-        
-      }) 
+
+      })
 
     }, 1500)
 
   }
-  
+
+  openDialog(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "30%";
+    this.dialog.open(TerminoscondicionesComponent,dialogConfig);
+
+
+  }
+
+
 }

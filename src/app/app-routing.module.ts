@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RankingComponent } from './shared/features/ranking/ranking.component';
+
 
 const routes: Routes = [
   {
@@ -8,7 +8,7 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo:'auth'
   },
-  
+
   {
     path: 'auth',
     loadChildren:() => import('./feature/auth/auth.module').then(m => m.AuthModule)
@@ -29,6 +29,14 @@ const routes: Routes = [
   {
     path: 'logout',
     loadChildren: ()=>import('./feature/logout/logout.module').then(m => m.LogoutModule)
+  },
+  {
+    path: 'tienda',
+    loadChildren: ()=>import('./feature/tienda/tienda.module').then(m => m.TiendaModule)
+  },
+  {
+    path: 'ranking',
+    loadChildren: ()=>import('./feature/ranking/ranking.module').then(m => m.RankingModule)
   }
 
 
