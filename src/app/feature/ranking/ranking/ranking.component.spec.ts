@@ -11,9 +11,7 @@ describe('RankingComponent', () => {
       declarations: [ RankingComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(RankingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

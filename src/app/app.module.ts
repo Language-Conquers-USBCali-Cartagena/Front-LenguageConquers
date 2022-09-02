@@ -11,9 +11,9 @@ import { PerfilEstudianteComponent } from './feature/estudiante/perfil-estudiant
 import { MaterialModule } from './shared/material/material.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from "@angular/fire/compat";
-import { RankingComponent } from './shared/features/ranking/ranking.component';
-import { MenuComponent } from './core/features/menu/menu.component';
 import { CoreModule } from './core/core.module';
+
+
 
 
 
@@ -21,8 +21,9 @@ import { CoreModule } from './core/core.module';
   declarations: [
     AppComponent,
     PerfilEstudianteComponent,
-    RankingComponent,
-    
+
+
+
 
   ],
   imports: [

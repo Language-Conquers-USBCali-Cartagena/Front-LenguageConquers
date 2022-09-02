@@ -21,9 +21,6 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
   imports: [
     CommonModule,
     CursoRoutingModule,
-    MatCardModule,
-    MatTabsModule,
-    MatToolbarModule,
     CoreModule,
     MaterialModule,
 

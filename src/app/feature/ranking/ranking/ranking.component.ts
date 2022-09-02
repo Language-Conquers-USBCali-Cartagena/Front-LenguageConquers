@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+interface SideNavToggle{
+  screenWidth: number;
+  collapsed:boolean;
+}
 @Component({
   selector: 'app-ranking',
   templateUrl: './ranking.component.html',
@@ -7,6 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RankingComponent implements OnInit {
 
+  isSideNavCollapsed=false;
+  screenWidth = 0;
+  onToggleSideNav(data: SideNavToggle):void{
+    this.screenWidth = data.screenWidth;
+    this.isSideNavCollapsed = data.collapsed;
+  }
   constructor() { }
 
   ngOnInit(): void {

@@ -1,24 +1,25 @@
+
 export const itemsEst = [
   {
-    redirectTo: 'menu/:correo',
+    redirectTo: '/estudiante/menu/:correo',
     icon: 'home',
     label: 'Home',
-  
+
   },
   {
     redirectTo: 'Recompensas',
     icon: 'stars',
     label: 'Recompensas',
- 
+
   },
   {
-    redirectTo: 'Ranking',
+    redirectTo: '/ranking',
     icon: 'poll',
     label: 'Ranking',
 
   },
   {
-    redirectTo: 'Tienda',
+    redirectTo: '/tienda/principal',
     icon: 'store',
     label: 'Tienda',
 
@@ -27,18 +28,18 @@ export const itemsEst = [
     redirectTo: 'Notificaciones',
     icon: 'notifications',
     label: 'Notificaciones',
- 
+
   },
   {
     redirectTo: '/estudiante/perfil',
     icon: 'account_circle',
     label: 'Perfil',
- 
+
   },
   {
     redirectTo: '/logout',
     icon: 'exit_to_app',
     label: 'Salir',
- 
+
   }
 ]
