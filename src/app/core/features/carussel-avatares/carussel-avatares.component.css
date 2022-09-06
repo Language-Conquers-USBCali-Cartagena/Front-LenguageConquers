@@ -29,7 +29,6 @@
 }
 /*Hover*/
 .img:hover {
-    background-color: gray;
     height: 50px;
     width: 50px;
     margin-top: 20px;

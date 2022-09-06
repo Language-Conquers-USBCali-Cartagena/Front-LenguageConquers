@@ -1,32 +1,6 @@
-<mat-toolbar>
-    <div class="fondoLogo">
-      <img src="./assets/images/LogoV1.png" alt="" >
-    </div>
-  </mat-toolbar>
-<div class="fondo">
-    <div class="main">
-        <div class="colocarb"> <textarea name="" id="" cols="50" rows="4"></textarea></div>
-        <h2 class="titulo">Bloques</h2>
-        <div class="bloques">
-            
-            <button class="uno">If</button>
-            <button class="dos">Else</button>
-            <button class="tres">Var</button>
-            <button class="cuatro">Int</button>
-            <button class="cinco">Float</button>
-            <button class="seis">For</button>
-            <button class="siete">While</button>
-            <button class="ocho">Do/While</button>
-            <button class="nueve">Switch</button>
-            <button class="diez">Double</button>
-            <button class="once">Eliminar</button>
-        </div>
-       
-    </div>
-    <div class="footer">
-        <div class="consola">
-            <h2 class="titulo">Consola</h2>
-            <textarea name="" id="" cols="150" rows="13"></textarea>
-        </div>
-    </div>
-</div>    
+<app-menu (onToggleSideNav)="onToggleSideNav($event)"></app-menu>
+<div class="body">
+  <br>
+  <div></div>
+</div>
+<app-footer></app-footer>
