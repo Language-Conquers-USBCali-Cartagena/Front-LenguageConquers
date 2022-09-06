@@ -37,6 +37,10 @@ const routes: Routes = [
   {
     path: 'ranking',
     loadChildren: ()=>import('./feature/ranking/ranking.module').then(m => m.RankingModule)
+  },
+  {
+    path: 'logros',
+    loadChildren: ()=>import('./feature/logros/logros.module').then(m => m.LogrosModule)
   }
 
 

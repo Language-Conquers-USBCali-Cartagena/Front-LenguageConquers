@@ -7,9 +7,9 @@ export const itemsEst = [
 
   },
   {
-    redirectTo: 'Recompensas',
+    redirectTo: '/logros/logros',
     icon: 'stars',
-    label: 'Recompensas',
+    label: 'Logros',
 
   },
   {

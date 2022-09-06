@@ -1,76 +1,109 @@
 .fondo {
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(172, 153, 139, 0.87);
+  background-size: cover;
   background-repeat: no-repeat;
-  height: 750px;
-  width: auto;
-}
-.color {
-  height: 120px;
+  height: auto;
   align-items: center;
-  padding-left: 45%;
-  background-color: rgba(36, 28, 25, 0);
-  opacity: 0.9;
+  padding-left: 1%;
+}
+.banner{
+  background-image: url(../../../../assets/images/bannerRanking.png);
+  background-size: cover;
+  height:270px;
+  width:1255px;
+  padding-left:-10px;
+}
+.titulo{
+  padding-left: 10%;
+  font-size:50px;
+  color: #fff;
+}
+.container{
+  margin-left: -2%;
+  display:flex;
+  flex-direction:row;
+  flex-wrap: wrap;
 
 }
 
-img {
-  width: auto;
+.example-card1 {
+  width: 250px;
   height: 100px;
-  align-items: center;
+  color: #fff;
+  margin: 10px;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  margin-left: 10%;
+  max-width: 300px;
+  background-image: linear-gradient( 135deg, #FFE985 10%, #FA742B 100%);
+
 }
-.ranking{
-  width: 400px;
-  height: 400px;
-  padding-left: 300px;
-  align-items: center;
+.example-card2{
+  width: 250px;
+  height: 100px;
+  color: #fff;
+  margin: 10px;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  margin-left: 10%;
+  max-width: 300px;
+  background-image: linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%);
+
 }
-.row{
-  align-items: center;
-  height: 750px;
-  width: auto;
-  padding-top:300px;
-  padding-bottom:80px;
-}
-#div-1 {
-  background-color: #00F;
-  margin-left: 100px;
-  padding-left: 100px;
-  padding-bottom: 24px;
-  padding-top: 10px;
-  margin-top: 100px;
-  height: 400px;
-  width: 130px;
-  box-shadow: 0 0 10px;
+.example-card3{
+  width: 250px;
+  height: 100px;
+  color: #fff;
+  margin: 10px;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  margin-left: 10%;
+  max-width: 300px;
+  background-image: linear-gradient( 135deg, #CE9FFC 10%, #7367F0 100%);;
 }
 
-#div-2 {
-  background-color: #0F0;
-  margin-left: 258px;
-  padding-left: 100px;
-  padding-bottom: 424.5px;
-  height: 80px;
-  width: 130px;
-  box-shadow: 0 0 10px;
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+  width: 100px;
+  height: 100px;
 }
-
-#div-3 {
-  background-color: #F00;
-  margin-left: 405px;
-  padding-left: 100px;
-  padding-bottom: 83px;
-  padding-top: 1px;
-  height: 320px;
-  width: 130px;
-  box-shadow: 0 0 10px;
+.jugador{
+  text-align: center;
+  padding-left: 10%;
+  font-size: 30px;
+  color: #fff;
 }
+.apodo{
+  text-align: center;
+  padding-left:10%;
+  font-size:20px;
+  line-height:25px;
+  color:#fff
+}
+.puntaje{
+  text-align: center;
+  font-size: 15px;
+  color: #fff;
+}
+.tabla{
+  padding-left:20%;
 
-@media (min-width: 150px) {
-  #div-2 {
-    -webkit-transform: translateX(30%) translateY(-25px);
-    transform: translateX(30%) translateY(-504px);
-  }
-  #div-3 {
-    -webkit-transform: translateX(60%) translateY(-55px);
-    transform: translateX(66%) translateY(-908px);
-  }
+}
+table {
+  width: 80%;
+  border-radius: 30px;
+  background: linear-gradient(
+  135deg,
+  rgb(151, 128, 112),
+  rgb(151, 128, 112)
+);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+
+
+}
+th, td {
+  color: #fff;
 }

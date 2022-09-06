@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-
-
 interface SideNavToggle{
   screenWidth: number;
   collapsed:boolean;
 }
 @Component({
-  selector: 'app-estudiante',
-  templateUrl: './estudiante.component.html',
-  styleUrls: ['./estudiante.component.css']
+  selector: 'app-logros-page',
+  templateUrl: './logros-page.component.html',
+  styleUrls: ['./logros-page.component.css']
 })
-export class EstudianteComponent implements OnInit {
-
+export class LogrosPageComponent implements OnInit {
 
   isSideNavCollapsed=false;
   screenWidth = 0;
@@ -19,14 +16,9 @@ export class EstudianteComponent implements OnInit {
     this.screenWidth = data.screenWidth;
     this.isSideNavCollapsed = data.collapsed;
   }
-  constructor() {
+  constructor() { }
 
-  }
   ngOnInit(): void {
-
-
   }
-
-
 
 }

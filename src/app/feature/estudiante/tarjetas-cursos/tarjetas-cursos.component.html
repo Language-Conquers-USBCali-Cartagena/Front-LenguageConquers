@@ -1,19 +1,19 @@
 <div class="body">
   <br> <br>
-  <mat-card class="tarjetaPeq">
+  <mat-card fxFlex="50" class="tarjetaPeq">
     <img class="imagen3d1" src="./assets/images/cofre.png">
     <mat-card-title class="titulo1">Hola, {{estudiante.nombre}} {{estudiante.apellido}}</mat-card-title>
     <br>
     <mat-card-subtitle class="tituloTarjetaPeq">Bienvenido de nuevo a Language Conquers</mat-card-subtitle>
-    <img class="imagen3d2" src="assets/images/avatar/Avatar-2.png">
+    <div mat-card-avatar class="imagen3d2"></div>
   </mat-card>
   <br><br>
   <div class="fondoTarjeta">
     <div class="estudiante">
-      <mat-card class="cursos">
+      <mat-card class="cursos" *ngFor="let tarjetas of cursosCard ">
         <img mat-card-image src="./assets/images/fondos/FondoCurso1.jpg">
           <mat-card-subtitle class="titulo">Facultad de Ingenieria</mat-card-subtitle>
-          <a class="vinculos-contra" href="/curso/mapa/1">Fundamentos de Programación</a>
+          <a class="vinculos-contra" [routerLink]="tarjetas.redirect">{{tarjetas.nombre}}</a>
       </mat-card>
     </div>
   </div>

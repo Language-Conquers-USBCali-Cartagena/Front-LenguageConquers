@@ -1,0 +1,118 @@
+.body{
+  background-color: rgba(172, 153, 139, 0.87);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  align-items: center;
+  padding-left: 1%;
+}
+.banner{
+  background-image: url(../../../../assets/images/bannerLogros.png);
+  background-size: cover;
+  height:270px;
+  width:1255px;
+  padding-left:-10px;
+}
+
+.container{
+  width: 1030px;
+  height: 800px;
+  margin-right: 80px;
+  margin-left: 110px;
+  padding: 48px;
+}
+.slider{
+  margin-left: -45%;
+  display:flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+}
+.izq{
+  margin-left:450px;
+}
+.der{
+  margin-right: 150px;
+}
+.izq,.der {
+  margin-top: 80px;
+  position: relative;
+  background-color: transparent;
+  color: black;
+
+}
+.categoria-text{
+  margin-left: 5%;
+  font-size:40px;
+  color:white;
+}
+.card{
+  width: 220px;
+  height: 130px;
+  margin: 10px;
+  text-align:left;
+  border-radius: 30px;
+  background: linear-gradient(
+  135deg,
+  rgba(255, 255, 255, 0.349),
+  rgba(255, 255, 255, 0.514)
+);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+}
+.mat-card-content{
+  vertical-align: middle !important;
+}
+.logros{
+
+  transform: translate(10px, -15px);
+  float: left;
+  width:100px;
+  height:100px;
+  margin-left:-8px;
+
+}
+.nombreLogro{
+  font-size:25px;
+  color:rgb(165,101,50);
+  margin-left:55%;
+  margin-top: 20%;
+  line-height: 25px;
+}
+.tarjetasPeq{
+  margin-left:-45%;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+
+}
+.cardPeq{
+  width: 150px;
+  height:180px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 30px;
+  background: linear-gradient(
+  135deg,
+  rgba(255, 255, 255, 0.514),
+  rgba(255, 255, 255, 0.514)
+);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+}
+
+.logros2{
+  transform: translate(18px,25px);
+  width:150px;
+  height:130px;
+  vertical-align: middle;
+}
+.nombreLogro2{
+  font-size:30px;
+  color:rgb(201,131,69);
+  margin-left:-5%;
+  align-items: center;
+  text-align: center;
+  line-height: 25px;
+}
