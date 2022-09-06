@@ -79,6 +79,19 @@ box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
   margin-top: 20%;
   line-height: 25px;
 }
+.izq1{
+  margin-left:450px;
+}
+.der1{
+  margin-right: 150px;
+}
+.izq1,.der1 {
+  margin-top: 100px;
+  position: relative;
+  background-color: transparent;
+  color: black;
+
+}
 .tarjetasPeq{
   margin-left:-45%;
   display: flex;

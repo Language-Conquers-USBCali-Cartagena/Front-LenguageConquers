@@ -27,5 +27,7 @@ export class NivelDescripcionComponent implements OnInit {
   reto(): void {
     this.router.navigate(['../curso/ide/1/1'])
   }
+  pasarIzq(): void {}
+  pasarDer(): void{}
 
 }

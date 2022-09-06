@@ -2,7 +2,7 @@
   background: url(../../../../assets/images/fondos/fondoHome.png);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 920px;
+  height: auto;
   align-items: center;
 }
 .container{

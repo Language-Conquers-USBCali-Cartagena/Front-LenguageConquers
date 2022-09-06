@@ -1,19 +1,44 @@
-.fondo {
-    background: url(../../../../assets/images/fondos/FondoPerfil1.jpg);
-    background-size: cover;
-    height: 920px;
-    align-items: center;
+.body {
+  background: url(../../../../assets/images/fondos/FondoPerfil1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  align-items: center;
+  padding-left: -1%;
 }
-.fondoTarjeta {
+.container{
   width: 1030px;
-  height:400px;
-  display: flex;
-  flex-direction: column;
+  height:800px;
   margin-right: 80px;
   margin-left: 110px;
+  padding: 48px;
+}
+.slider{
+  margin-left: 5%;
+  display:flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+}
+.izq{
+  margin-left:50px;
+}
+.der{
+  margin-right: -150px;
+}
+.izq,.der {
+  margin-top: 250px;
+  position: relative;
+  background-color: transparent;
+  color: black;
+
+}
+.tarjeta {
+  width: 630px;
+  height:400px;
+  margin:10px;
   /*Efecto espejo*/
   padding: 48px;
-  border-radius: 24px;
+  border-radius: 30px;
   background: linear-gradient(
   135deg,
   rgba(255, 255, 255, 0.5),
@@ -22,15 +47,15 @@
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-  overflow: hidden ;
-  overflow-y: scroll;
-
-
 }
 .titulo{
   font-size:30px;
   text-align: center;
   color: rgb(209,150,98);
+}
+.mat-card-content{
+  margin-left: 5%;
+  align-items: center;
 }
 .subtitulo{
   font-size:25px;
@@ -43,7 +68,9 @@ p{
   color:rgb(102,71,57);
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
+.mat-card-actions{
+  margin-left: -25%;
+}
 .boton {
   margin: 3px;
   position: center;
@@ -69,7 +96,20 @@ p{
   margin-left:3.45em;
   color: rgb(253, 253, 253);
 }
-.botones:hover{
-  background-color: rgb(241,231,194);
-  color: rgb(217,161,84);
+.boton1 {
+  max-width: 10em;
+  width: 8em;
+  font-family: 'Mouse Memoirs';
+  border-radius: 10px;
+  margin-top: 600px;
+  background-color: rgb(217,161,84) ;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding-left: 1em;
+  font-size: 1.5em;
+  margin-left:3.45em;
+  color: rgb(253, 253, 253);
 }
+
