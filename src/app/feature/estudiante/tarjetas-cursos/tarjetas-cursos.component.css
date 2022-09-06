@@ -120,7 +120,7 @@ margin-left: -7px;
 }
 @media screen  and (max-width: 600px) {
   .body{
-      background: url(../../../../assets/images/homeestudiante.png);
+      background: url(../../../../assets/images/fondos/fondoHome.png);
       background-size: cover;
       height: 660px;
 

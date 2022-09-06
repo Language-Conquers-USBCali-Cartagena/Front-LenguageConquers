@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Profesor } from '../../../shared/models/profesor';
 import { ServiciosLoginService } from '../../../shared/services/Login/servicios-login.service';
 import { ActivatedRoute } from '@angular/router';
+import { CursosCards } from 'src/app/shared/models/cardCursos';
+import { CursosCardsService } from '../../estudiante/services/cursos-cards.service';
 
 @Component({
   selector: 'app-menu-profesor',
@@ -9,17 +11,24 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./menu-profesor.component.css']
 })
 export class MenuProfesorComponent implements OnInit {
+  cursosCard: CursosCards[] = [];
   profesor: Profesor = {};
   correo: string ='';
-  constructor(private loginService: ServiciosLoginService, private _route: ActivatedRoute) { 
+  constructor(private loginService: ServiciosLoginService, private cardsCursos:CursosCardsService, private _route: ActivatedRoute) {
 
-    
+
   }
   ngOnInit(): void {
+    this.cargarTarjetasCursos();
     this.correo = this._route.snapshot.params.id!;
-    
     this.obtenerProfesor(this.correo);
-   
+
+  }
+  cargarTarjetasCursos(){
+    this.cargarTarjetasCursos();
+    this.cardsCursos.getCursosCards().subscribe(data =>{
+      this.cursosCard = data
+    });
   }
 
   async obtenerProfesor(correo: string) {
@@ -30,5 +39,6 @@ export class MenuProfesorComponent implements OnInit {
     // console.log(this.profesor)
     // console.log(this.correo)
   }
+  
 
 }
