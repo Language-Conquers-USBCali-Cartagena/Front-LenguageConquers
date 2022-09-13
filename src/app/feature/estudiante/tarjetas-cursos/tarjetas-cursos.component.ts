@@ -5,6 +5,8 @@ import { Estudiante } from '../../../shared/models/estudiante';
 import { EstudianteServiceService } from '../services/estudiante-service.service';
 import { Observable } from 'rxjs';
 import { Curso } from '../../../shared/models/curso';
+import { CursosCards } from 'src/app/shared/models/cardCursos';
+import { CursosCardsService } from '../services/cursos-cards.service';
 
 @Component({
   selector: 'app-tarjetas-cursos',
@@ -12,15 +14,23 @@ import { Curso } from '../../../shared/models/curso';
   styleUrls: ['./tarjetas-cursos.component.css']
 })
 export class TarjetasCursosComponent implements OnInit {
+
+  cursosCard: CursosCards[] = [];
   estudiante: Estudiante = {};
   cursos?: Curso[];
   correo: string = '';
-  constructor(private estudianteService: EstudianteServiceService, private _route: ActivatedRoute) { }
+  constructor(private estudianteService: EstudianteServiceService, private cardsCursos:CursosCardsService,private _route: ActivatedRoute) { }
   ngOnInit(): void {
+    this.cargarTarjetasCursos();
     this.correo = this._route.snapshot.params.correo!;
     this.obtenerEstudiante(this.correo);
     this.obtenerCursos(this.correo);
+  }
 
+  cargarTarjetasCursos(){
+    this.cardsCursos.getCursosCards().subscribe(data =>{
+      this.cursosCard = data
+    });
   }
 
   async obtenerEstudiante(correo: string) {

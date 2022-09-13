@@ -19,12 +19,12 @@ export class EstudianteComponent implements OnInit {
     this.screenWidth = data.screenWidth;
     this.isSideNavCollapsed = data.collapsed;
   }
-  constructor() { 
-    
+  constructor() {
+
   }
   ngOnInit(): void {
-  
-    
+
+
   }
 
 

@@ -1,10 +1,9 @@
 <div class="car">
-    <div class="izq"><button (click)="pasarIzq()"><mat-icon>keyboard_arrow_left</mat-icon></button></div>
+    <div class="izq"><a type="submit" (click)="pasarIzq()"><mat-icon>keyboard_arrow_left</mat-icon></a></div>
     <div class="cimg" *ngFor="let avatar of avatares">
       <div class="img">
-        <img src="{{avatar.imgAvatar}}" >
+        <img mat-card-avatar src="{{avatar.imgAvatar}}" >
       </div>
-
     </div>
-    <div class="der"><button (click)="pasarDer()"><mat-icon>keyboard_arrow_right</mat-icon></button></div>
+    <div class="der"><a type="submit" (click)="pasarDer()"><mat-icon>keyboard_arrow_right</mat-icon></a></div>
   </div>

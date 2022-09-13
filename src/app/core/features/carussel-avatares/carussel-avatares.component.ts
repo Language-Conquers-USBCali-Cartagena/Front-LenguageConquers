@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AvatarService } from '../../../shared/services/avatar/avatar.service';
 import { Avatar } from '../../../shared/models/avatar';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
@@ -13,25 +13,24 @@ export class CarusselAvataresComponent implements OnInit {
   avatares: Avatar[] = [];
   idAvatar: number = 0;
   form: UntypedFormGroup;
+
   constructor(private avatarService:AvatarService, private fb: UntypedFormBuilder) {
     this.form = fb.group({
       id: ['', Validators.required]
     })
-
-    console.log(this.form.value.id);  
-    
+    console.log(this.form.value.id);
    }
 
   ngOnInit(): void {
     this.getAvatar(this.pagina);
-    
-   
+
+
   }
 
   async getAvatar(page: number){
     await this.avatarService.getAvataresPage(page).toPromise().then((response) => {
       if(response.length <= 0){
-        this.pagina = this.pagina-1;  
+        this.pagina = this.pagina-1;
       }else{
         this.avatares = response;
       }
@@ -41,9 +40,9 @@ export class CarusselAvataresComponent implements OnInit {
   pasarIzq(){
     if(this.pagina <=0){
       this.pagina = 0;
-      
+
     }else{
-      this.pagina = this.pagina -1;
+      this.pagina = this.avatares.length -1;
       this.getAvatar(this.pagina);
 
     }
@@ -51,12 +50,14 @@ export class CarusselAvataresComponent implements OnInit {
   pasarDer(){
     this.pagina = this.pagina +1;
     this.getAvatar(this.pagina);
-    
+
   }
   obtenerId(id: String){
     console.log(id);
-    
+
 
   }
-  
+
+
+
 }

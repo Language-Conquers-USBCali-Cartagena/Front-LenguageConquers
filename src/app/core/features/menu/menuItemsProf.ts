@@ -5,7 +5,7 @@ export const itemsProf = [
     label: 'Home',
   },
   {
-    routeLink: 'Ranking',
+    routeLink: '/ranking',
     icon: 'poll',
     label: 'Ranking',
   },
