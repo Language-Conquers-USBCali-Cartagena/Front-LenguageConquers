@@ -1,0 +1,131 @@
+.container{
+  padding-left:10%;
+  padding-right:10%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  align-items: center;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5em;
+}
+.dragandDrop{
+  margin-top:-40px;
+  width: 300px;
+  border: 1px solid #1d90ce;
+  border-radius: 8px;
+  text-align: center;
+  color: #1d90ce;
+  display: inline-block;
+  vertical-align: top;
+}
+.listaResp{
+
+  width: 600px;
+  min-height: 500px;
+  margin-left:-60%;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  height: 100%;
+
+}
+#listaR{
+  width:950px;
+  height: 400px;
+  background-color: transparent;
+  border: 2px dashed rgb(1, 0, 57);
+  margin-left: -50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#listaR div{
+  width: 280px;
+  height: 60px;
+  border: 2px solid rgb(209,252,250);
+  justify-content: space-between;
+  box-sizing: border-box;
+  color: #000;
+}
+#tarjetas{
+  width:280px;
+  height:60px;
+  border: 2px solid rgb(209,252,250);
+  margin-left: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  color: #000;
+}
+h1{
+  font-size:  30px;
+}
+p{
+  font-size:  20px;
+  margin-left:5%;
+
+}
+.cards{
+  width:100px;
+  height:50px;
+  background-color: rgb(94,206,253);
+  border: rgb(65, 63, 63) solid 2px;
+  border-color: rgb(209,252,250);
+  --mask: radial-gradient(8px at 8px 8px,#0000 98%,#000) -8px -8px;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+.btn{
+  margin-left: 50%;
+  margin-top: -5%;
+}
+.boton {
+  align-items: center;
+  max-width: 10em;
+  width: 8em;
+  font-family: 'Mouse Memoirs';
+  border-radius: 10px;
+  margin-top: 10px;
+  background-color: rgb(217,161,84) ;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding-left: 1em;
+  font-size: 1.5em;
+  margin-left:3.45em;
+  color: rgb(253, 253, 253);
+}

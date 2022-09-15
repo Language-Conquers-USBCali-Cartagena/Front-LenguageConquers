@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { NgModel } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { CursoComponent } from './curso/curso.component';
+import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 
 import { MapaComponent } from './mapa/mapa.component';
 import { NivelDescripcionComponent } from './nivel-descripcion/nivel-descripcion.component';
@@ -26,6 +27,10 @@ const routes:Routes = [
             {
                 path: 'ide/:curso/:reto',
                 component: NivelIDEComponent
+            },
+            {
+              path: 'drag',
+              component: DragAndDropComponent
             }
         ]
     }
