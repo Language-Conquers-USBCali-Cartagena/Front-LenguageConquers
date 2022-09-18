@@ -5,13 +5,15 @@ import { CarusselAvataresComponent } from './features/carussel-avatares/carussel
 import { MenuComponent } from './features/menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './features/footer/footer.component';
+import { NotificacionesComponent } from './features/notificaciones/notificaciones.component';
 
 @NgModule({
   declarations: [
 
     CarusselAvataresComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    NotificacionesComponent,
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { FooterComponent } from './features/footer/footer.component';
   exports:[
     CarusselAvataresComponent,
     MenuComponent,
-    FooterComponent
+    FooterComponent,
+    NotificacionesComponent
   ]
 })
 export class CoreModule { }
