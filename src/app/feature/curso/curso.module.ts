@@ -10,13 +10,15 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { CoreModule } from 'src/app/core/core.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
+import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 
 @NgModule({
   declarations: [
     CursoComponent,
     MapaComponent,
     NivelDescripcionComponent,
-    NivelIDEComponent
+    NivelIDEComponent,
+    DragAndDropComponent
   ],
   imports: [
     CommonModule,

@@ -25,7 +25,9 @@ a {
 }
 
 .color {
-  background: url(../../../../assets/images/fondos/FondoPrincipal.png);
+
+  background: url(../../../../assets/images/fondos/fondoHome.png);
+
   background-size: cover;
 
 }
