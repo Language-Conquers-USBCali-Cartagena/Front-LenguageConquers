@@ -1,1 +1,24 @@
-<p>notificaciones works!</p>
+<div fxLayout='row' fxLayoutWrap class="cards">
+    <!-- *ngFor="" -->
+    <div fxFlex="20" class="example-card" >
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{"titulo"}}</mat-card-title>
+          <mat-card-subtitle>{{"subtitulo"}}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="../../../../assets/icons/run.png"  alt="Photo of a Shiba Inu" style="height: 30px; width: fit-content;">
+        <mat-card-content>
+          <p>
+            <!-- {{datos}} -->
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>
+            <mat-icon>favorite</mat-icon>
+          </button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>

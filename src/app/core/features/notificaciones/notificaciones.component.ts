@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notificaciones.component.css']
 })
 export class NotificacionesComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {
