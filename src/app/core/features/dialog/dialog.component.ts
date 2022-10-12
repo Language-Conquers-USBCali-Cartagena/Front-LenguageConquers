@@ -11,11 +11,11 @@ export class DialogComponent  {
 
   constructor(public dialog: MatDialog) {}
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  openDialog(): void {
     this.dialog.open(NotificacionesComponent, {
       width: '500px',
-      enterAnimationDuration,
-      exitAnimationDuration,
+      height: '250px',
+      
     });
   }
 }
