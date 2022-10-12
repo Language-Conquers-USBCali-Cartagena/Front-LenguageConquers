@@ -6,6 +6,7 @@ import { MenuComponent } from './features/menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './features/footer/footer.component';
 import { NotificacionesComponent } from './features/notificaciones/notificaciones.component';
+import { DialogComponent } from './features/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { NotificacionesComponent } from './features/notificaciones/notificacione
     MenuComponent,
     FooterComponent,
     NotificacionesComponent,
+    DialogComponent,
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { NotificacionesComponent } from './features/notificaciones/notificacione
     CarusselAvataresComponent,
     MenuComponent,
     FooterComponent,
-    NotificacionesComponent
+    NotificacionesComponent,
+    DialogComponent
   ]
 })
 export class CoreModule { }
