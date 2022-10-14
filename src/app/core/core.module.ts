@@ -8,6 +8,7 @@ import { FooterComponent } from './features/footer/footer.component';
 import { NotificacionesComponent } from './features/notificaciones/notificaciones.component';
 import { DialogComponent } from './features/dialog/dialog.component';
 
+
 @NgModule({
   declarations: [
 
@@ -16,6 +17,7 @@ import { DialogComponent } from './features/dialog/dialog.component';
     FooterComponent,
     NotificacionesComponent,
     DialogComponent,
+    
   ],
   imports: [
     CommonModule,

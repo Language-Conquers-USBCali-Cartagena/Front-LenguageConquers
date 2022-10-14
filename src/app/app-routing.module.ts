@@ -41,8 +41,8 @@ const routes: Routes = [
   {
     path: 'logros',
     loadChildren: ()=>import('./feature/logros/logros.module').then(m => m.LogrosModule)
-  }
-
+  },
+  
 
   // {
   //   path: '**',
