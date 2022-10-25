@@ -7,17 +7,29 @@
     <div class="logo-text" @fadeInOut *ngIf="collapsed">Language Conquers</div>
   </div>
   <ul class="sidenav-nav">
-
-
     <div *ngIf="existeEstu else profesor">
       <li class="sidenav-nav-item" *ngFor="let data of menuItemsEst" >
-        <a class="sidenav-nav-link" [routerLink]="[data.redirectTo]"
-          routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
-          >
+        <div *ngIf="data.label != 'Notificaciones'">
+          <a class="sidenav-nav-link" [routerLink]="[data.redirectTo]"
+              routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+              >
 
-          <i class="sidenav-link-icon" [class]="data.icon"><mat-icon>{{data.icon}}</mat-icon></i>
-          <span class="sidenav-link-text" @fadeInOut  *ngIf="collapsed">{{data.label}}</span>
-        </a>
+              <i class="sidenav-link-icon" [class]="data.icon"><mat-icon>{{data.icon}}</mat-icon></i>
+              <span class="sidenav-link-text" @fadeInOut  *ngIf="collapsed">{{data.label}}</span>
+            </a>
+        </div>
+      </li>
+    </div>
+    <div *ngIf="existeEstu else profesor">
+      <li class="sidenav-nav-item" *ngFor="let data of menuItemsEst" >
+        <div *ngIf="data.label == 'Notificaciones'">
+          <a class="sidenav-nav-link" target="_window" class="vinculos" (click)="openDialog()">
+
+            <i class="sidenav-link-icon" [class]="data.icon"><mat-icon>{{data.icon}}</mat-icon></i>
+            <span class="sidenav-link-text" @fadeInOut  *ngIf="collapsed">{{data.label}}</span>
+          </a>
+
+        </div>
       </li>
     </div>
     <ng-template #profesor>

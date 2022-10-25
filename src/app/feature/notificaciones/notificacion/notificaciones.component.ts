@@ -6,10 +6,13 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./notificaciones.component.css']
 })
 export class NotificacionesComponent implements OnInit {
-  constructor() {}
+  constructor(public dialogRef: MatDialogRef<NotificacionesComponent>) {}
 
   ngOnInit(): void {
-    
+
+  }
+  atras(): void {
+    this.dialogRef.close();
   }
 
 }

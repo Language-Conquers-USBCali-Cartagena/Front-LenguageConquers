@@ -6,6 +6,8 @@ import { AuthService } from '../../service/auth.service';
 import { EstudianteServiceService } from '../../../feature/estudiante/services/estudiante-service.service';
 import { ServiciosLoginService } from '../../../shared/services/Login/servicios-login.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { NotificacionesComponent } from 'src/app/feature/notificaciones/notificacion/notificaciones.component';
 
 
 interface SideNavToggle{
@@ -45,6 +47,8 @@ interface SideNavToggle{
 })
 export class MenuComponent implements OnInit {
 
+
+
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   existeEstu = false;
   collapsed = false;
@@ -62,15 +66,15 @@ export class MenuComponent implements OnInit {
       this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
     }
   }
-  constructor(private loginService:ServiciosLoginService, private authService: AuthService) { }
+  constructor(private loginService:ServiciosLoginService, private authService: AuthService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    
+
     this.getEmail();
     this.screenWidth = window.innerWidth;
 
 
-    
+
   }
   toggleCollapse(): void{
     this.collapsed = !this.collapsed;
@@ -88,12 +92,18 @@ export class MenuComponent implements OnInit {
 
       this.loginService.existEstudianteByCorreo(this.email).toPromise().then((resp) => {
         this.existeEstu = resp;
-        
+
       })
     })
-    
+
   }
+  openDialog(): void {
+    this.dialog.open(NotificacionesComponent, {
+      width: '500px',
+      height: '250px',
+
+    });
 
 
-
+}
 }

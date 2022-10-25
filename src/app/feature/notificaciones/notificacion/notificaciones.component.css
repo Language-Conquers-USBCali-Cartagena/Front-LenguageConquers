@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  background: #fff;
+  border-radius: 40px;
+  padding-top: 0;
+  padding-right: 3px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+.example-card {
+    min-width: 100%;
+    margin: 0px;
+    background-color: white;
+}
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.cards {
+  margin-top:0;
+  margin-left:0px;
+  width: 450px;
+  background-color:darkgray;
+}
+
+.modal-container-header {
+  padding: 16px 32px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.button.is-primary {
+  background-color: #e66465;
+  color: #fff;
+}
+
+.button.is-primary:hover, .button.is-primary:focus {
+  background-color: #db4848;
+}

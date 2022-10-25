@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { NotificacionesComponent } from '../notificaciones/notificaciones.component';
+import { NotificacionesComponent } from '../notificacion/notificaciones.component';
 
 @Component({
   selector: 'app-dialog',
@@ -15,7 +15,13 @@ export class DialogComponent  {
     this.dialog.open(NotificacionesComponent, {
       width: '500px',
       height: '250px',
-      
+      position: {
+        left: '0px',
+        
+      }
+
+
     });
+
   }
 }

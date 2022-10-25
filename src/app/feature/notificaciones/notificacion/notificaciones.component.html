@@ -1,0 +1,21 @@
+<section class="modal-container-body">
+  <div fxLayout='row' fxLayoutWrap class="cards" >
+      <!-- *ngFor="" -->
+      <div fxFlex="20" class="example-card"  >
+        <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{"titulo"}}</mat-card-title>
+            <mat-card-subtitle>{{"subtitulo"}}
+            </mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
+      </div>
+    </div>
+    <br>
+</section>
+
+<footer class="modal-container-footer">
+  <br>
+  <button class="button is-primary" (click)="atras()">Cerrar</button>
+</footer>
