@@ -8,7 +8,7 @@ body{
   position: relative;
 }
 .sidenav{
-  background:rgb(172, 153, 139);
+  background:#84614b;
   transition: all .5s ease;
   position: fixed;
   z-index: 1;
@@ -118,7 +118,7 @@ body{
 .fondoLogo {
   align-items: center;
   padding-left: 45%;
-  background-color: rgb(168, 148, 134);
+  background-color: #84614b;
   box-shadow: 0.063rem 0 1.25rem 0 #757e8e;
 
 
