@@ -10,25 +10,25 @@
     <mat-card class="example-card1">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title class="jugador">1 Jugador {{estudiante.nombre}} {{estudiante.apellido}}</mat-card-title>
-        <mat-card-subtitle class="apodo">Apodo {{estudiante.nickName}}</mat-card-subtitle>
-        <mat-card-subtitle class="puntaje">Puntaje: {{estudiante.puntaje}} </mat-card-subtitle>
+        <mat-card-title class="jugador">1 Sebastian</mat-card-title>
+        <mat-card-subtitle class="apodo">sebas34</mat-card-subtitle>
+        <mat-card-subtitle class="puntaje">Puntaje: 500 </mat-card-subtitle>
       </mat-card-header>
     </mat-card>
     <mat-card class="example-card2">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title class="jugador">2 Jugador {{estudiante.nombre}} {{estudiante.apellido}}</mat-card-title>
-        <mat-card-subtitle class="apodo">Apodo {{estudiante.nickName}}</mat-card-subtitle>
-        <mat-card-subtitle class="puntaje">Puntaje: {{estudiante.puntaje}}</mat-card-subtitle>
+        <mat-card-title class="jugador">2 Carlos</mat-card-title>
+        <mat-card-subtitle class="apodo">charlie90</mat-card-subtitle>
+        <mat-card-subtitle class="puntaje">Puntaje: 485</mat-card-subtitle>
       </mat-card-header>
     </mat-card>
     <mat-card class="example-card3">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title class="jugador">3 Nombre{{estudiante.nombre}} {{estudiante.apellido}}</mat-card-title>
-        <mat-card-subtitle class="apodo">Apodo {{estudiante.nickName}}</mat-card-subtitle>
-        <mat-card-subtitle class="puntaje">Puntaje: {{estudiante.puntaje}} </mat-card-subtitle>
+        <mat-card-title class="jugador">3 Laura</mat-card-title>
+        <mat-card-subtitle class="apodo">lau105</mat-card-subtitle>
+        <mat-card-subtitle class="puntaje">Puntaje: 450 </mat-card-subtitle>
       </mat-card-header>
     </mat-card>
   </div>
@@ -44,25 +44,25 @@
       <!-- Position Column -->
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        <td mat-cell *matCellDef="let element"> <div mat-card-avatar class="example-header-image2"></div> </td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
       </ng-container>
 
       <!-- Weight Column -->
       <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <th mat-header-cell *matHeaderCellDef> Nivel </th>
+        <td mat-cell *matCellDef="let element"> {{element.nivel}} </td>
       </ng-container>
 
       <!-- Symbol Column -->
       <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        <th mat-header-cell *matHeaderCellDef> Puntaje </th>
+        <td mat-cell *matCellDef="let element"> {{element.puntaje}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

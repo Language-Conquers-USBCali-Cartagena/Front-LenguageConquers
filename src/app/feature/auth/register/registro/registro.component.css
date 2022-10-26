@@ -1,29 +1,54 @@
-.body
-{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  line-height: 20px;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.login{
-  width: 40%;
-  max-width: 100%;
-  justify-content: center;
-  align-items: center;
-  display: flex;
+.spinner{
+  margin: 0 auto;
+  color:rgb(241,231,194);
 }
 .fondoTarjeta{
   max-width: 435px;
-  margin-right: 100px;
   font-family: Mouse Memoirs;
+  padding: 1em;
+  width: 80%;
+  border-radius: 15px;
+  background: rgba(151, 116, 116, 0);
 }
+.mat-form-field{
+  size: 12px;
+}
+.entradauc1 {
+  margin-left: 10px;
+  margin-right: 50px;
+  width: 350px;
+  font-family: Mouse Memoirs;
+  font-size: 20px;
+  color:rgb(235, 227, 215);
+}
+.mat-label{
+  color: rgb(241, 231, 194);
+}
+.entradauc2 {
+  margin-left: 10px;
+  margin-right: 50px;
+  width: 350px;
+  font-family: Mouse Memoirs;
+  font-size: 20px;
+  color:rgb(235, 227, 215);
+}
+.boton {
+  padding-right:10px;
+  top: 35px;
+  color: rgb(235, 227, 215);
+}
+.vinculos{
+  color: rgb(241,231,194);
+  text-align: center;
+  font-family: 'Mouse Memoirs' ;
+  margin-top: 20px;
+  margin-left: 110px;
+  font-size: 20px;
+  cursor: pointer;
 
-.ancho{
-  width: 20%;
+}
+.vinculos:hover{
+  color: rgb(217,161,84);
 }
 .ancho1{
   max-width: 10em;
@@ -38,99 +63,22 @@
   -o-border-radius: 10px;
   padding-left: 1em;
   font-size: 1.5em;
-  margin-left: 5.45em;
+  margin-left: 3.45em;
   text-align: center;
   color: rgb(241,231,194);
 }
-
 .ancho1:hover{
   background-color: rgb(241,231,194);
   color: rgb(217,161,84);
 }
-
-.entradauc1 {
-  margin-left: 50px;
-  width: 350px;
-  font-family: Mouse Memoirs;
-  font-size: 20px;
-}
-.entradauc2 {
-  margin-left: 50px;
-  width: 350px;
-  font-family: Mouse Memoirs;
-  font-size: 20px;
-}
-.cambiar-contra{
-  justify-content: center;
-  font-family: Mouse Memoirs;
-  font-size: 15px;
-  color: white;
-}
-.vinculos-contra{
-  font-family: Mouse Memoirs;
-  font-size: 20px;
-  color: rgb(241,231,194);
-  top: 20px;
-  bottom: 20px;
-  margin-left: -7px;
-
-}
-.vinculos-contra:hover{
-
-  color: rgb(117,76,36);
-
-}
-.button{
-  height: 50px;
-  background-color:rgb(115, 112, 121);
-  color: rgb(241,231,194);
-}
-.spinner{
-  margin: 0 auto;
-}
-.centrar{
-  text-align: center;
-  color: black;
-}
-.email {
- color: rgb(241,231,194);
- font-family: Mouse Memoirs;
-}
-.boton {
-  color: rgb(217,161,84);
-}
-.vinculos{
-  font-family: Mouse Memoirs;
-  font-size: 20px;
-  color: rgb(241,231,194);
- margin-top: 100px;
- bottom: 20px;
-  margin-left: 125px;
-}
-.vinculos:hover{
-  color: rgb(217,161,84);
-}
-
 .otrac {
-
   display: flex;
-   margin-top: 5px;
-   margin-bottom: 10px;
-   margin-left: 65px;
-   width: auto;
-   height: auto;
-  }
-
-  .example-section {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    height: 60px;
-  }
-
-  .example-margin {
-    margin: 0 10px;
-  }
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 55px;
+  width: auto;
+  height: auto;
+}
   .google{
     width: 55px;
     height: 55px;
@@ -156,14 +104,56 @@
     background-size: contain;
   }
 
+
+  .centrar{
+    text-align: center;
+    color: black;
+  }
+
+  .cambiar-contra{
+    justify-content: center;
+    font-family: Mouse Memoirs;
+    font-size: 15px;
+    color: white;
+  }
+.vinculos-contra{
+  font-family: Mouse Memoirs;
+  font-size: 20px;
+  color: rgb(241,231,194);
+  top: 20px;
+  bottom: 20px;
+  margin-left: -7px;
+
+}
+.vinculos-contra:hover{
+  color: rgb(117,76,36);
+}
+
+---------------------
+
+.button{
+  height: 50px;
+  background-color:rgb(115, 112, 121);
+  color: rgb(241,231,194);
+}
+
+.email {
+ color: rgb(241,231,194);
+ font-family: Mouse Memoirs;
+}
+
+
+
+
+
 @media screen and (max-width: 600px) {
   .fondoTarjeta{
     width: 20em;
     margin-left: 20px;
     font-family: 'Mouse Memoirs';
-    
+
   }
-  
+
   .botones {
     width: 6em;
     font-family: 'Mouse Memoirs';
@@ -183,7 +173,7 @@
     color: rgb(217,161,84);
 
   }
- 
+
 .entradauc1 {
   margin-left: 0px;
   margin-right: 50px;
@@ -237,7 +227,3 @@
 }
 }
 /*boton de check*/
-
-
-
-

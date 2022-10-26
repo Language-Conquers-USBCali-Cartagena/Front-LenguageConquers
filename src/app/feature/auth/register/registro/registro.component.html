@@ -1,42 +1,39 @@
 <br /><br />
 <mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
 <br /><br />
-<form *ngIf="!loading" [formGroup]="form" (ngsubmit)="registrarse()">
-  <div class="fondoTarjeta">
-  <mat-form-field appearance="fill" class="entradauc1">
-    <mat-label style="color: rgb(241, 231, 194)">Usuario</mat-label>
-    <input type="text" matInput autocomplete="off" formControlName="usuario" class="colorentrada" />
-    <mat-icon matSuffix class="boton" style="font-size: 2em" style="color: rgb(217, 161, 84)">account_box</mat-icon>
-  </mat-form-field>
-  <mat-form-field appearance="fill" class="entradauc2">
-    <mat-label style="color: rgb(241, 231, 194); font-family: 'Mouse Memoirs'">Contraseña</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password"
-      class="colorentrada" />
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide" style="color: rgb(217, 161, 84)">
-      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-    </button>
-  </mat-form-field>
-
-
-  <a target="_window" class="vinculos" (click)="openDialog()">Términos y Condiciones</a>
-
-<div *ngIf="terminos === true" style="top: 100px">
-  <button class="ancho1" mat-raised-button (click)="registrarse()"> Crear Cuenta </button>
-</div>
-</div>
-<br />
-  <div class="otrac">
-    <a type="submit" (click)="IngresarConGoogle()" class="ancho otrac google"></a>
-    <a type="submit" (click)="IngresarConFacebook()" class="ancho otrac facebook"></a>
+<div class="body">
+  <div class="registrar">
+    <form *ngIf="!loading" [formGroup]="form" (ngsubmit)="registrarse()">
+      <div class="fondoTarjeta">
+        <mat-form-field appearance="fill" class="entradauc1">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput autocomplete="off" formControlName="usuario">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="entradauc2">
+          <mat-label>Contraseña</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon class="boton">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      <a target="_window" class="vinculos" (click)="openDialog()">Términos y Condiciones</a>
+    <div *ngIf="terminos === true" style="top: 100px">
+      <button class="ancho1" mat-raised-button (click)="registrarse()"> Crear Cuenta </button>
+    </div>
+    </div>
+    <br />
+      <div class="otrac">
+        <a type="submit" (click)="IngresarConGoogle()" class="ancho otrac google"></a>
+        <a type="submit" (click)="IngresarConFacebook()" class="ancho otrac facebook"></a>
+      </div>
+      <!--<u class="cambiar-contra" ><a href="/auth/registro">Registrarse</a></u>-->
+      <div class="centrar">
+        <u class="cambiar-contra"
+          ><a class="vinculos-contra" style="right: 20px" href="/auth/login"
+            >¿Ya tiene una cuenta?</a
+          ></u
+        >
+      </div>
+    </form>
   </div>
-
-  <!--<u class="cambiar-contra" ><a href="/auth/registro">Registrarse</a></u>-->
-  <div class="centrar">
-    <u class="cambiar-contra"
-      ><a class="vinculos-contra" style="right: 20px" href="/auth/login"
-        >¿Ya tiene una cuenta?</a
-      ></u
-    >
-  </div>
-</form>
+</div>
