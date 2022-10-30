@@ -22,7 +22,8 @@ export class DragAndDropComponent implements OnInit {
     }
   ];
 */
-  palabras = ["llevar cocos", "Bajar cocos", "Subir a la palmera", "Pelar los cocos", "Partir el coco", "beber agua del coco", "hfvd", "jdfjf", "jhsdkj", "jefjvf", "hfvd", "jdfjf", "jhsdkj", "jefjvf"];
+  palabras = ["llevar cocos", "Bajar cocos", "Subir a la palmera", "Pelar los cocos",
+  "Partir el coco", "beber agua del coco"];
   listaRespuesta = ["terminar"];
 
 

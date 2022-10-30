@@ -20,7 +20,7 @@
   background: linear-gradient(
     135deg,
     rgba(168,148,134),
-    rgba(173,141,111)
+    rgba(232, 226, 221, 0.838)
     );
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -41,7 +41,6 @@
   color:#fff;
   font-size:40px;
   line-height: 40px;
-  font-family: 'Roboto', sans-serif;
 }
 .titulo2{
 

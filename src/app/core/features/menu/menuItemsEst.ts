@@ -25,7 +25,7 @@ export const itemsEst = [
 
   },
   {
-    redirectTo: 'Notificaciones',
+    redirectTo: '/notificaciones/notificacionesDialog',
     icon: 'notifications',
     label: 'Notificaciones',
 

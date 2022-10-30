@@ -1,25 +1,39 @@
-<mat-toolbar class="fondoLogo mat-elevation-z6">
-    <img src="./assets/images/LogoV1.png" alt="" >
-</mat-toolbar>
+
 <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed':''">
   <div class="logo-container">
     <button class="logo" (click)="toggleCollapse()"><mat-icon>menu</mat-icon></button>
     <div class="logo-text" @fadeInOut *ngIf="collapsed">Language Conquers</div>
   </div>
   <ul class="sidenav-nav">
-
-
     <div *ngIf="existeEstu else profesor">
       <li class="sidenav-nav-item" *ngFor="let data of menuItemsEst" >
-        <a class="sidenav-nav-link" [routerLink]="[data.redirectTo]"
-          routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
-          >
-
-          <i class="sidenav-link-icon" [class]="data.icon"><mat-icon>{{data.icon}}</mat-icon></i>
-          <span class="sidenav-link-text" @fadeInOut  *ngIf="collapsed">{{data.label}}</span>
-        </a>
+        <div *ngIf="data.label != 'Notificaciones'">
+          <a class="sidenav-nav-link" [routerLink]="[data.redirectTo]"
+              routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <i class="sidenav-link-icon" [class]="data.icon"><mat-icon>{{data.icon}}</mat-icon></i>
+            <span class="sidenav-link-text" @fadeInOut  *ngIf="collapsed">{{data.label}}</span>
+          </a>
+        </div>
+        <div *ngIf="data.label == 'Notificaciones'">
+          <a class="sidenav-nav-link" target="_window" class="vinculos" (click)="openDialog()">
+            <i class="sidenav-link-icon" [class]="data.icon"><mat-icon>{{data.icon}}</mat-icon></i>
+            <span class="sidenav-link-text" @fadeInOut  *ngIf="collapsed">{{data.label}}</span>
+          </a>
+        </div>
       </li>
     </div>
+   <!-- <div *ngIf="existeEstu else profesor">
+      <li class="sidenav-nav-item" *ngFor="let data of menuItemsEst" >
+        <div *ngIf="data.label == 'Notificaciones'">
+          <a class="sidenav-nav-link" target="_window" class="vinculos" (click)="openDialog()">
+
+            <i class="sidenav-link-icon" [class]="data.icon"><mat-icon>{{data.icon}}</mat-icon></i>
+            <span class="sidenav-link-text" @fadeInOut  *ngIf="collapsed">{{data.label}}</span>
+          </a>
+
+        </div>
+      </li>
+    </div>-->
     <ng-template #profesor>
       <li class="sidenav-nav-item" *ngFor="let data of menuItemsProf" >
         <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"

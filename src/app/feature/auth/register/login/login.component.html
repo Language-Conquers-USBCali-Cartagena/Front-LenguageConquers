@@ -1,27 +1,21 @@
-
+<br /><br />
 <mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
 <br /><br />
 <div class="body">
 <div class="login">
-
-
 <form *ngIf="!loading" [formGroup]="form" (ngsubmit)="ingresar()">
   <div class="fondoTarjeta">
-  <mat-form-field appearance="fill" class="entradauc1">
-    <mat-label style="color: rgb(241, 231, 194)">Usuario</mat-label>
-    <input type="text" matInput autocomplete="off" formControlName="usuario" class="colorentrada" />
-    <mat-icon matSuffix class="boton" style="font-size: 2em" style="color: rgb(217, 161, 84)">account_box</mat-icon>
-  </mat-form-field>
-  <mat-form-field appearance="fill" class="entradauc2">
-    <mat-label style="color: rgb(241, 231, 194); font-family: 'Mouse Memoirs'">Contraseña</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password"
-      class="colorentrada" />
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide" style="color: rgb(217, 161, 84)">
-      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-    </button>
-  </mat-form-field>
-
+    <mat-form-field appearance="fill" class="entradauc1">
+      <mat-label>Correo electrónico</mat-label>
+      <input matInput autocomplete="off" formControlName="usuario">
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="entradauc2">
+      <mat-label>Contraseña</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon class="boton">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
   <button mat-raised-button (click)="ingresar()" class="botones">
     Ingresar
   </button>

@@ -5,16 +5,16 @@ interface SideNavToggle{
   collapsed:boolean;
 }
 export interface PeriodicElement {
-  name: string;
-  avatar: number;
-  weight: number;
-  symbol: string;
+  nombre: string;
+  avatar: string;
+  nivel: number;
+  puntaje: number;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {avatar: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {avatar: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {avatar: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+  {avatar: '1', nombre: 'Camila', nivel: 2, puntaje: 400},
+  {avatar: '2', nombre: 'Andres', nivel: 1, puntaje: 380},
+  {avatar: '3', nombre: 'Luis', nivel: 1, puntaje: 375},
 
 
 ];
