@@ -1,8 +1,10 @@
 .body{
   background : url(../../../../assets/images/fondos/fondoHome.png);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 920px;
+  height: auto;
   align-items: center;
 }
 .tarjetaPeq{
@@ -59,17 +61,8 @@ text-align: center;
   height: 400px;
   margin-right: 80px;
   margin-left: 110px;
-  /*Efecto espejo*/
   padding: 48px;
-  border-radius: 24px;
-  background: linear-gradient(
-  135deg,
-  rgba(255, 255, 255, 0.329),
-  rgba(255, 255, 255, 0.329)
-);
-backdrop-filter: blur(3px);
--webkit-backdrop-filter: blur(3px);
-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+
 }
 .estudiante{
   display:flex;
