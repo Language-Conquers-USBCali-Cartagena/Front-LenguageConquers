@@ -20,7 +20,7 @@ export class MenuProfesorComponent implements OnInit {
   }
   ngOnInit(): void {
     this.cargarTarjetasCursos();
-    this.correo = this._route.snapshot.params.id!;
+    this.correo = localStorage.getItem("correo")!;
     this.obtenerProfesor(this.correo);
 
   }

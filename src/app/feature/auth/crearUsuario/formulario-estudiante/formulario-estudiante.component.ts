@@ -67,11 +67,12 @@ export class FormularioEstudianteComponent implements OnInit {
     let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioCreador: 'Admin',
                                   fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: 1}
     this.loginService.createEstudiante(estudiante).subscribe(resp =>{
-      this.router.navigateByUrl('/estudiante/menu/'+ correo);
+      localStorage.setItem("correo", correo);
+      this.router.navigateByUrl('/estudiante/menu');
     }, err =>{
       console.log(err);
-
-      this.router.navigateByUrl('/estudiante/menu/'+ correo);
+      localStorage.setItem("correo", correo);
+      this.router.navigateByUrl('/estudiante/menu');
     })
 
   }

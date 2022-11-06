@@ -72,18 +72,20 @@ export class RegistroComponent implements OnInit {
     })
   }
 
-  async validarExistenciaBD(email: String){
+  async validarExistenciaBD(email: string){
 
     await this.loginService.existEstudianteByCorreo(email).toPromise().then((response) => {
       this.estudianteExiste = response;
       if(response == true){
-        this.router.navigateByUrl("/estudiante/menu/" + email)
+        localStorage.setItem("correo", email);
+        this.router.navigateByUrl("/estudiante/menu")
       }
     })
     await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
       this.profesorExiste = response;
       if(response == true){
-        this.router.navigateByUrl("/profesor/menuProfesor/" + email)
+        localStorage.setItem("correo", email);
+        this.router.navigateByUrl("/profesor/menuProfesor")
       }
     })
 

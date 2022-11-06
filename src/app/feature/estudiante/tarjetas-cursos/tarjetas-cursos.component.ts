@@ -19,13 +19,17 @@ export class TarjetasCursosComponent implements OnInit {
   estudiante: Estudiante = {};
   cursos?: Curso[];
   correo: string = '';
-  constructor(private estudianteService: EstudianteServiceService, private cardsCursos:CursosCardsService,private _route: ActivatedRoute) { }
+  constructor(private estudianteService: EstudianteServiceService, private cardsCursos:CursosCardsService,private _route: ActivatedRoute) {
+   
+
+   }
   ngOnInit(): void {
     this.cargarTarjetasCursos();
-    this.correo = this._route.snapshot.params.correo!;
+    this.correo = localStorage.getItem("correo")!;
     this.obtenerEstudiante(this.correo);
     this.obtenerCursos(this.correo);
   }
+
 
   cargarTarjetasCursos(){
     this.cardsCursos.getCursosCards().subscribe(data =>{
@@ -35,6 +39,7 @@ export class TarjetasCursosComponent implements OnInit {
 
   async obtenerEstudiante(correo: string) {
     await this.estudianteService.getEstudiante(correo).toPromise().then((response) => {
+      
       this.estudiante = response;
     }
     )
@@ -46,6 +51,7 @@ export class TarjetasCursosComponent implements OnInit {
       this.cursos = response;
     })
   }
+
 
 
 }

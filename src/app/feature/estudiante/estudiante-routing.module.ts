@@ -14,7 +14,7 @@ const routes:Routes = [
         // canActivate: [AuthGuardGuard],
         children: [
             {
-                path: 'menu/:correo',
+                path: 'menu',
                 component: TarjetasCursosComponent
             },
             {

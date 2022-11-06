@@ -1,7 +1,7 @@
 
 export const itemsEst = [
   {
-    redirectTo: '/estudiante/menu/:correo',
+    redirectTo: '/estudiante/menu',
     icon: 'home',
     label: 'Home',
 
