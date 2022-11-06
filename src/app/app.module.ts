@@ -12,6 +12,8 @@ import { MaterialModule } from './shared/material/material.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from "@angular/fire/compat";
 import { CoreModule } from './core/core.module';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 
 
@@ -34,7 +36,9 @@ import { CoreModule } from './core/core.module';
     ReactiveFormsModule,
     MaterialModule,
     CoreModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth())
 
   ],
   providers: [],

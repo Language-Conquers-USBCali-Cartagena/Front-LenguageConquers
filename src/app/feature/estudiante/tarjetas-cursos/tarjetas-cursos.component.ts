@@ -39,7 +39,7 @@ export class TarjetasCursosComponent implements OnInit {
 
   async obtenerEstudiante(correo: string) {
     await this.estudianteService.getEstudiante(correo).toPromise().then((response) => {
-      
+      localStorage.setItem("usuario", JSON.stringify(response));
       this.estudiante = response;
     }
     )
