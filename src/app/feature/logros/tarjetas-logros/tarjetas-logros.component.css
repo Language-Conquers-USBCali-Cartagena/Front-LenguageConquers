@@ -21,8 +21,9 @@
   margin-left: 110px;
   padding: 48px;
 }
+
 .slider{
-  margin-left: -45%;
+  margin-left: -50%;
   display:flex;
   flex-direction:row;
   flex-wrap: wrap;
@@ -93,39 +94,106 @@ box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 
 }
 .tarjetasPeq{
-  margin-left:-45%;
+  margin-left:35%;
   display: flex;
   flex-direction:row;
   flex-wrap: wrap;
 
+
 }
 .cardPeq{
   width: 150px;
-  height:180px;
+  height:220px;
   margin: 10px;
   text-align: center;
+  align-items: center;
   border-radius: 30px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
   background: linear-gradient(
-  135deg,
-  rgba(255, 255, 255, 0.514),
-  rgba(255, 255, 255, 0.514)
-);
-backdrop-filter: blur(3px);
--webkit-backdrop-filter: blur(3px);
-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    135deg,
+    rgba(255, 255, 255, 0.437),
+    rgba(255, 255, 255, 0.437)
+  );
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 6px 28px 0 rgba(0, 0, 0, 0.36);
+  transition:0.5s ease-in-out;
+}
+.cardPeq:hover{
+  cursor: pointer;
 }
 
+.cardPeq:hover mat-card-content{
+  height:120px;
+  bottom:-5px;
+  background:rgba(27, 27, 27, 0.734);
+}
+.cardPeq:hover p{
+  text-align: center;
+  opacity: 1;
+  visibility: visible;
+
+}
+.cardPeq:hover img{
+  margin-bottom: 30px;
+  margin-left:5%;
+  transform: rotate(-10deg);
+}
+
+.mat-card-image{
+  margin-bottom: 60px;
+  margin-left:-12px;
+  align-items: center;
+}
 .logros2{
   transform: translate(18px,25px);
-  width:150px;
-  height:130px;
+  width:140px;
+  height:180px;
   vertical-align: middle;
+  transition: 0.5s;
 }
+
 .nombreLogro2{
   font-size:30px;
-  color:rgb(201,131,69);
-  margin-left:-5%;
+  color:rgb(255, 255, 255);
+  margin-left:-25%;
   align-items: center;
   text-align: center;
   line-height: 25px;
+}
+h1{
+  margin: 15px;
+  font-size:15px;
+}
+p{
+  font-size:15px;
+  visibility: hidden;
+  opacity: 0;
+  text-align: flex-end;
+  align-items: flex-end;
+  position: relative;
+
+}
+.mat-card-content{
+  height:50px;
+  width:250px;
+  position: absolute;
+  bottom: 0px;
+  right: 0.1px;
+  left: 0.2px;
+  padding: 16px;
+  box-sizing: border-box;
+  position: absolute;
+  background:rgba(27, 27, 27, 0.734);
+  color:white;
+  transition: 0.5s;
+}
+.mat-card-content p{
+  align-items: center;
+  text-align: center;
+
+  margin-right: 30%;
 }
