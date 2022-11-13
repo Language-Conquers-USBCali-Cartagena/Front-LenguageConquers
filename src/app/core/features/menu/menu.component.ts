@@ -7,7 +7,8 @@ import { EstudianteServiceService } from '../../../feature/estudiante/services/e
 import { ServiciosLoginService } from '../../../shared/services/Login/servicios-login.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { NotificacionesComponent } from 'src/app/feature/notificaciones/notificacion/notificaciones.component';
+import { NotificacionesComponent } from '../notificacion/notificaciones.component';
+
 
 
 interface SideNavToggle{
