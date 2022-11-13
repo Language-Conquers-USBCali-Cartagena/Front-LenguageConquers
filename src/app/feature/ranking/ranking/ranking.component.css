@@ -60,15 +60,28 @@
   margin-left: 10%;
   max-width: 300px;
   background-image: linear-gradient( 135deg, #CE9FFC 10%, #7367F0 100%);;
+  align-items: center;
 }
 
-.example-header-image {
-  background-image: url('../../../../assets/images/avatar/av1.png');
+.example-header-image1{
+  background-image: url('../../../../assets/images/Trofeo.png');
   background-size: cover;
   width: 100px;
   height: 100px;
 }
-.example-header-image2 {
+.example-header-image2{
+  background-image: url('../../../../assets/images/Trofeo2.png');
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+}
+.example-header-image3 {
+  background-image: url('../../../../assets/images/Trofeo3.png');
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+}
+.example-header-image4 {
   background-image: url('../../../../assets/images/avatar/av1.png');
   background-size: cover;
   width: 40px;
@@ -76,6 +89,7 @@
 }
 .jugador{
   text-align: center;
+  padding-top: 10%;
   padding-left: 10%;
   font-size: 30px;
   line-height:25px;
