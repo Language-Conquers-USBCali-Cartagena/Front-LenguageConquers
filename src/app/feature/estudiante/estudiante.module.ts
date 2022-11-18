@@ -9,10 +9,12 @@ import { EstudianteServiceService } from './services/estudiante-service.service'
 
 
 
+
 @NgModule({
   declarations: [
     TarjetasCursosComponent,
-    EstudianteComponent
+    EstudianteComponent,
+
   ],
   imports: [
     CommonModule,

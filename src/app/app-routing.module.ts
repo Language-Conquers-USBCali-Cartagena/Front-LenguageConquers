@@ -29,22 +29,6 @@ const routes: Routes = [
   {
     path: 'logout',
     loadChildren: ()=>import('./feature/logout/logout.module').then(m => m.LogoutModule)
-  },
-  {
-    path: 'tienda',
-    loadChildren: ()=>import('./feature/tienda/tienda.module').then(m => m.TiendaModule)
-  },
-  {
-    path: 'ranking',
-    loadChildren: ()=>import('./feature/ranking/ranking.module').then(m => m.RankingModule)
-  },
-  {
-    path: 'logros',
-    loadChildren: ()=>import('./feature/logros/logros.module').then(m => m.LogrosModule)
-  },
-  {
-    path: 'notificaciones',
-    loadChildren: ()=>import('./feature/notificaciones/notificaciones.module').then(m => m.NotificacionesModule)
   }
 
 
