@@ -11,7 +11,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill" class="entradauc2">
       <mat-label>Contraseña</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password">
+      <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password" required>
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
         <mat-icon class="boton">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>

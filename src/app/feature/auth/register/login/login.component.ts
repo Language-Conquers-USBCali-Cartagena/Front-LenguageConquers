@@ -6,6 +6,8 @@ import { AuthService } from 'src/app/core/service/auth.service';
 import { ServiciosLoginService } from '../../../../shared/services/Login/servicios-login.service';
 import { Observable } from 'rxjs';
 
+
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -71,16 +73,27 @@ export class LoginComponent implements OnInit {
   }
   // muestra el mensaje de error
   error() {
-    this._snackbar.open('El usuario o contraseña son invalidos', '', {
-      duration: 5000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 5000,
+      timerProgressBar: false,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
     })
+
+    Toast.fire({
+      icon: 'info',
+      title: 'El usuario o contraseña son inválidos'
+    })
+
   }
-
-
+  
   async validarExistenciaBD(email: string){
-     
+
     await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
       this.profesorExiste = response;
       if(response == true){
@@ -95,7 +108,7 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl("/estudiante/menu")
       }
     })
-  
+
     if(this.estudianteExiste == true || this. profesorExiste == true){
       return true
     }else {
@@ -111,7 +124,7 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         }
       })
-      let correo= ''; 
+      let correo= '';
       this.user$.subscribe(  res => {
         if(res.emailVerified == false){
           this.router.navigate(['auth/verificar-email'])
@@ -122,8 +135,8 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl("/auth/crearUsuario")
           }
         })
-        
-      }) 
+
+      })
 
     }, 1500)
 

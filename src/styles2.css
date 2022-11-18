@@ -1086,7 +1086,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-button.mat-primary,
 .mat-icon-button.mat-primary,
 .mat-stroked-button.mat-primary {
-  color: #3f51b5;
+  color:  #33b5e5;
 }
 .mat-button.mat-accent,
 .mat-icon-button.mat-accent,
@@ -1115,7 +1115,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-button.mat-primary .mat-button-focus-overlay,
 .mat-icon-button.mat-primary .mat-button-focus-overlay,
 .mat-stroked-button.mat-primary .mat-button-focus-overlay {
-  background-color: #3f51b5;
+  background-color:  #33b5e5;
 }
 .mat-button.mat-accent .mat-button-focus-overlay,
 .mat-icon-button.mat-accent .mat-button-focus-overlay,
@@ -1191,7 +1191,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-raised-button.mat-primary,
 .mat-fab.mat-primary,
 .mat-mini-fab.mat-primary {
-  background-color: #3f51b5;
+  background-color:  #33b5e5;
 }
 .mat-flat-button.mat-accent,
 .mat-raised-button.mat-accent,
@@ -1397,7 +1397,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   .mat-ripple-element,
 .mat-checkbox:active:not(.mat-checkbox-disabled).mat-primary
   .mat-ripple-element {
-  background: #3f51b5;
+  background:   #33b5e5;
 }
 .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent
   .mat-ripple-element,
@@ -1860,7 +1860,7 @@ td.mat-footer-cell {
 .mat-form-field.mat-form-field-invalid
   .mat-form-field-label
   .mat-form-field-required-marker {
-  color: #f44336;
+  color: #f55e53;
 }
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
@@ -2112,7 +2112,7 @@ td.mat-footer-cell {
   border-color: rgba(0, 0, 0, 0.54);
 }
 .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
-  border-color: #3f51b5;
+  border-color:  #33b5e5;
 }
 .mat-radio-button.mat-primary .mat-radio-inner-circle,
 .mat-radio-button.mat-primary
@@ -2120,7 +2120,7 @@ td.mat-footer-cell {
   .mat-ripple-element:not(.mat-radio-persistent-ripple),
 .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-persistent-ripple,
 .mat-radio-button.mat-primary:active .mat-radio-persistent-ripple {
-  background-color: #3f51b5;
+  background-color:  #33b5e5;
 }
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
   border-color: #ff4081;
@@ -2418,18 +2418,18 @@ td.mat-footer-cell {
 .mat-step-header.mat-warn .mat-step-icon-selected,
 .mat-step-header.mat-warn .mat-step-icon-state-done,
 .mat-step-header.mat-warn .mat-step-icon-state-edit {
-  background-color: #f44336;
+  background-color: #f55e53;
   color: #fff;
 }
 .mat-step-header .mat-step-icon-state-error {
   background-color: transparent;
-  color: #f44336;
+  color: #f55e53;
 }
 .mat-step-header .mat-step-label.mat-step-label-active {
   color: rgba(0, 0, 0, 0.87);
 }
 .mat-step-header .mat-step-label.mat-step-label-error {
-  color: #f44336;
+  color: #f55e53;
 }
 .mat-stepper-horizontal,
 .mat-stepper-vertical {
