@@ -116,6 +116,7 @@ display: flex;
 }
 .vinculos-contra:hover{
   color: rgb(117,76,36);
+  cursor: pointer;
 }
 
 /***************************/

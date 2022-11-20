@@ -1,5 +1,5 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
@@ -11,7 +11,8 @@ import Swal from 'sweetalert2'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [AuthService],
 })
 export class LoginComponent implements OnInit {
   public user$:Observable<any> = this.authService.afauth.user;
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
   fail = true;
   profesorExiste: boolean = false;
   estudianteExiste: boolean = false;
+  userEmail = new UntypedFormControl('');
 
   constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService) {
     this.form = this.fb.group({
@@ -91,7 +93,7 @@ export class LoginComponent implements OnInit {
     })
 
   }
-  
+
   async validarExistenciaBD(email: string){
 
     await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
@@ -142,6 +144,38 @@ export class LoginComponent implements OnInit {
 
   }
 
+  async recuperarPassword(){
+    const email = this.userEmail.value;
+    console.log(this.userEmail.value);
+    try{
+      Swal.fire({
+        title: 'Recuperar Contraseña',
+        text: 'Ingrese el correo electronico asociado a la cuenta.',
+        input: 'email',
+        confirmButtonColor: '#33b5e5',
+        inputPlaceholder: 'Email'
+      })
+      await this.authService.recuperarContraseña(email);
+      window.alert('Correo enviado, revise su inbox')
+      this.router.navigateByUrl('/auth/login');
+    }catch(error){
+      console.log(error);
+    }
 
+
+
+
+
+    /*
+    try{
+      await this.authService.recuperarContraseña(email);
+
+
+
+      this.router.navigateByUrl('/auth/login');
+    }catch(error){
+      console.log(error);
+    }*/
+  }
 
 }
