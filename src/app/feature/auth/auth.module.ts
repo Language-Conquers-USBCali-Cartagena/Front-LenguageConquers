@@ -41,7 +41,7 @@ import { TerminoscondicionesComponent } from './terminoscondiciones/terminoscond
     FormsModule,
     MatRadioModule,
     MatGridListModule,
-    CoreModule
+    CoreModule,
 
   ],
   providers: [

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Genero } from '../../../../shared/models/genero';
 import { Avatar } from '../../../../shared/models/avatar';
@@ -13,6 +13,7 @@ import { ProgramaService } from '../../../../shared/services/programa/programa.s
 import { Programa } from '../../../../shared/models/programa';
 import { AuthService } from '../../../../core/service/auth.service';
 import { Observable } from 'rxjs';
+import { CarusselAvataresComponent } from 'src/app/core/features/carussel-avatares/carussel-avatares.component';
 
 @Component({
   selector: 'app-formulario-estudiante',
@@ -20,6 +21,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./formulario-estudiante.component.css']
 })
 export class FormularioEstudianteComponent implements OnInit {
+
+
   form: UntypedFormGroup;
   generos: Genero[] = [];
   avatares: Avatar[] = [];
@@ -27,6 +30,10 @@ export class FormularioEstudianteComponent implements OnInit {
   programas: Programa[] = [];
   correo: string = '';
   terminos= true;
+
+  pagina: number = 0;
+  idAvatar: number = 0;
+
   public user$:Observable<any> = this.authService.afauth.user;
 
   constructor(private fb: UntypedFormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService,
@@ -46,7 +53,7 @@ export class FormularioEstudianteComponent implements OnInit {
 
   ngOnInit(): void {
       this.getGenero();
-      // this.getAvatar();
+      this.getAvatar(this.pagina);
       this.getSemestre();
       this.getPrograma();
       this.user$.subscribe(res =>
@@ -60,7 +67,7 @@ export class FormularioEstudianteComponent implements OnInit {
     const apellido = this.form.value.apellido;
     const nickName = this.form.value.nickName;
     const semestre = this.form.value.semestre.idSemestre;
-    const avatar = this.form.value.avatar.idAvatar;
+    const avatar = this.idAvatar;
     const genero = this.form.value.genero.idGenero;
     const nacimiento: Date = this.form.value.fechaNacimiento;
     const programa = this.form.value.programa.idPrograma
@@ -76,16 +83,56 @@ export class FormularioEstudianteComponent implements OnInit {
     })
 
   }
- 
+
   getGenero(){
     this.generoService.getGenero().subscribe(resp => this.generos = resp);
   }
   getSemestre(){
     this.semestreService.getSemestre().subscribe(resp => this.semestres = resp);
   }
-  // getAvatar(){
-  //   this.avatarService.getAvatar().subscribe(resp => this.avatares = resp);
-  // }
+
+  async getAvatar(page: number){
+    await this.avatarService.getAvataresPage(page).toPromise().then((response) => {
+      if(response.length <= 0){
+        this.pagina = this.pagina-1;
+      }else{
+        this.avatares = response;
+      }
+    })
+  }
+
+  pasarIzq(){
+    if(this.pagina <=0){
+      this.pagina = 0;
+
+    }else{
+      this.pagina = this.avatares.length -1;
+      this.getAvatar(this.pagina);
+
+    }
+  }
+  pasarDer(){
+    this.pagina = this.pagina +1;
+    this.getAvatar(this.pagina);
+
+  }
+
+  seleccionarAvatar(id:any){
+    this.idAvatar = id.idAvatar;
+
+    const images = document.querySelectorAll('img');
+    let seleccionado = document.getElementById(id.idAvatar);
+    images.forEach(imagen => {
+    imagen.addEventListener('click', function(){
+      const active = <HTMLImageElement>document.querySelector('img');
+      seleccionado?.classList.remove('active');
+      /*console.log(typeof seleccionado?.id);*/
+      this.classList.add('active');
+    });
+   });
+
+  }
+
   getPrograma(){
     this.programaService.getProgramas().subscribe(resp => this.programas = resp)
   }

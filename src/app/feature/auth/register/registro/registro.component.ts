@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { ServiciosLoginService } from '../../../../shared/services/Login/servicios-login.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { TerminoscondicionesComponent } from '../../terminoscondiciones/terminoscondiciones.component';
+import Swal from 'sweetalert2'
+import { contains } from '@firebase/util';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -17,7 +19,7 @@ export class RegistroComponent implements OnInit {
   form: UntypedFormGroup;
   hide = true;
   loading = false;
-  terminos= true;
+  terminos= false;
   profesorExiste: boolean = false;
   estudianteExiste: boolean = false;
   constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService, private dialog: MatDialog) {
@@ -27,25 +29,24 @@ export class RegistroComponent implements OnInit {
     })
   }
 
-
-
   ngOnInit(): void {
   }
   async registrarse() {
     const usuario = this.form.value.usuario;
     const password = this.form.value.password;
-
-
-    console.log('El usuario es: ',usuario, password);
     await this.authService.register(usuario, password).then(res => {
-
       this.authService.emailVerification();
       this.router.navigate(['/auth/verificar-email'])
     }).catch(err => {
-      this.error();
+      if(this.terminos == false){
+        this.errorTerminos();
+      }else if(password.length<6){
+        this.passwordInvalid();
+      }else{
+        this.error();
+      }
       this.form.reset();
     });
-
 
   }
   IngresarConGoogle() {
@@ -53,7 +54,11 @@ export class RegistroComponent implements OnInit {
       console.log("Ingreso: ", res);
       this.validaciones();
     }).catch(err => {
-      this.error();
+      if(this.terminos == false){
+        this.errorTerminos();
+      }else{
+        this.error();
+      }
     });
   }
   IngresarConFacebook(){
@@ -61,14 +66,48 @@ export class RegistroComponent implements OnInit {
       console.log("Ingreso: ", res);
       this.validaciones();
     }).catch(err => {
-      this.error();
+      if(this.terminos == false){
+        this.errorTerminos();
+      }else{
+        this.error();
+      }
     })
   }
   error() {
-    this._snackbar.open('El usuario o contraseña son invalidos', '', {
-      duration: 5000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 5000,
+      timerProgressBar: false,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+
+    Toast.fire({
+      icon: 'info',
+      title: 'El usuario o contraseña son inválidos'
+    })
+  }
+
+  errorTerminos() {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 5000,
+      timerProgressBar: false,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+
+    Toast.fire({
+      icon: 'info',
+      title: 'Debe aceptar los términos y condiciones.'
     })
   }
 
@@ -88,13 +127,11 @@ export class RegistroComponent implements OnInit {
         this.router.navigateByUrl("/profesor/menuProfesor")
       }
     })
-
     if(this.estudianteExiste == true || this. profesorExiste == true){
       return true
     }else {
       return false
     }
-
   }
   validaciones(){
     this.loading = true;
@@ -117,20 +154,49 @@ export class RegistroComponent implements OnInit {
         })
 
       })
-
     }, 1500)
 
   }
 
-  openDialog(){
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "30%";
-    this.dialog.open(TerminoscondicionesComponent,dialogConfig);
+  terminosCondiciones() {
+    Swal.fire({
+      title: 'Términos y Condiciones',
+      text: 'Al visitar nuestro sitio, usted interactúa con nuestro "Servicio" y reconoce como vinculantes los siguientes términos y condiciones (denominados en lo sucesivo "Términos del servicio", "Términos"), incluidos aquellos términos y condiciones adicionales y las políticas que se mencionan aquí y/o disponibles por medio de hipervínculo. Estos Términos del servicio se aplican a todos los usuarios del sitio, incluyendo de manera enunciativa mas no limitativa los usuarios que son navegadores, proveedores, clientes, comerciantes y/o que aporten contenido. Lea estos Términos del servicio detenidamente antes de acceder o utilizar nuestra página web. Al acceder o utilizar cualquier parte del sitio, usted acepta estos Términos del servicio. Si no acepta la totalidad de los términos y condiciones de este acuerdo, no podrá acceder al sitio web ni utilizar ningún servicio. Si estos Términos del servicio se considerasen una oferta, la aceptación se limita expresamente a los presentes Términos del servicio.',
+      input: 'checkbox',
+      confirmButtonColor: '#33b5e5',
+      inputPlaceholder: 'Acepto términos y condiciones.'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        if (result.value) {
+          Swal.fire({ icon: 'success', text: 'Has aceptado los términos y condiciones.' ,confirmButtonColor: '#33b5e5',});
+          this.terminos = true;
+        } else {
+          Swal.fire({ icon: 'error', text: "Es necesario aceptar los términos y condiciones para registrase.", confirmButtonColor: '#33b5e5',});
+          this.terminos = false;
+        }
 
-
+      } else {
+        console.log(`modal was dismissed by ${result.dismiss}`)
+      }
+    })
   }
 
+  passwordInvalid() {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 5000,
+      timerProgressBar: false,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
 
+    Toast.fire({
+      icon: 'info',
+      title: 'La contraseña debe contener minimo 6 caracteres.'
+    })
+  }
 }

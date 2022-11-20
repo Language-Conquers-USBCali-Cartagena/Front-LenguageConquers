@@ -1,9 +1,9 @@
 <div class="car">
     <div class="izq"><a type="submit" (click)="pasarIzq()"><mat-icon>keyboard_arrow_left</mat-icon></a></div>
     <div class="cimg" *ngFor="let avatar of avatares">
-      <div class="img">
-        <img mat-card-avatar src="{{avatar.imgAvatar}}" >
+      <div class="imgAvatar">
+        <img mat-card-avatar src="{{avatar.imgAvatar}}" id="{{avatar.idAvatar}}" class="avatares"  data-id="{{avatar.idAvatar}}"  (click)="seleccionarAvatar(this.avatar)">
       </div>
     </div>
     <div class="der"><a type="submit" (click)="pasarDer()"><mat-icon>keyboard_arrow_right</mat-icon></a></div>
-  </div>
+</div>
