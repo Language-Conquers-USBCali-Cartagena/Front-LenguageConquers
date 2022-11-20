@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './register/login/login.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { RegistroComponent } from './register/registro/registro.component';
-import { RecuperarComponent } from './recuperar/recuperar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { EmailVerificationComponent } from 'src/app/feature/auth/email-verification/email-verification.component';
@@ -24,7 +23,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   declarations: [
     LoginComponent,
     RegistroComponent,
-    RecuperarComponent,
     EmailVerificationComponent,
     CrearUsuarioComponent,
     AutenticacionComponent,

@@ -145,37 +145,15 @@ export class LoginComponent implements OnInit {
   }
 
   async recuperarPassword(){
-    const email = this.userEmail.value;
-    console.log(this.userEmail.value);
-    try{
-      Swal.fire({
-        title: 'Recuperar Contraseña',
-        text: 'Ingrese el correo electronico asociado a la cuenta.',
-        input: 'email',
-        confirmButtonColor: '#33b5e5',
-        inputPlaceholder: 'Email'
-      })
+    const {value: email} = await Swal.fire({
+      title: 'Input email address',
+      input: 'email',
+      inputLabel: 'Your email address',
+      inputPlaceholder: 'Enter your email address'
+    })
+    if (email){
+      Swal.fire(`Se envio el correo: ${email}, revisa tu bandeja`)
       await this.authService.recuperarContraseña(email);
-      window.alert('Correo enviado, revise su inbox')
-      this.router.navigateByUrl('/auth/login');
-    }catch(error){
-      console.log(error);
     }
-
-
-
-
-
-    /*
-    try{
-      await this.authService.recuperarContraseña(email);
-
-
-
-      this.router.navigateByUrl('/auth/login');
-    }catch(error){
-      console.log(error);
-    }*/
-  }
-
+    }
 }
