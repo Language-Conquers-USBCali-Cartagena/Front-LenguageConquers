@@ -71,6 +71,65 @@ form {
   margin-bottom: 40px;
 }
 
+
+
+
+
+
+.car {
+  display: flex;
+  justify-content: center;
+}
+.izq,.der {
+  margin-top: 40px;
+  position: relative;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+
+}
+.cimg {
+margin-left: 20px;
+margin-right: 20px;
+padding-right: 20px;
+padding-left: -10px;
+display: flex;
+}
+.cimg .imgAvatar {
+height: 50px;
+width: 50px;
+display: flex;
+
+}
+/*
+.cimg .imgAvatar>img {
+  height: 80px;
+  width: 80px;
+  margin-top: 10px;
+}
+*/
+
+.cimg .imgAvatar .avatares{
+height: 80px;
+width: 80px;
+margin-top: 10px;
+cursor: pointer;
+object-fit: cover;
+opacity: .8;
+transition: .3s;
+}
+.cimg .imgAvatar .avatares:hover {
+opacity: 1;
+}
+.active{
+opacity: 1 !important;
+box-shadow: 0 5px rgba(1,23,46,0.6);
+}
+
+
+
+
+
 @media screen and (max-width: 600px) {
 
 

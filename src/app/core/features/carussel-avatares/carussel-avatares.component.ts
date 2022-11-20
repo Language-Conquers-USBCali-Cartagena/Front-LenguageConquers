@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { AvatarService } from '../../../shared/services/avatar/avatar.service';
 import { Avatar } from '../../../shared/models/avatar';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { style } from '@angular/animations';
+
 
 @Component({
   selector: 'app-carussel-avatares',
@@ -9,10 +11,15 @@ import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms
   styleUrls: ['./carussel-avatares.component.css']
 })
 export class CarusselAvataresComponent implements OnInit {
+
+
   pagina: number = 0;
   avatares: Avatar[] = [];
-  idAvatar: number = 0;
+  avatar: number = 0;
+  idSeleccionado: number = 0;
   form: UntypedFormGroup;
+
+
 
   constructor(private avatarService:AvatarService, private fb: UntypedFormBuilder) {
     this.form = fb.group({
@@ -23,8 +30,6 @@ export class CarusselAvataresComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAvatar(this.pagina);
-
-
   }
 
   async getAvatar(page: number){
@@ -54,7 +59,31 @@ export class CarusselAvataresComponent implements OnInit {
   }
   obtenerId(id: String){
     console.log(id);
+  }
 
+
+  seleccionarAvatar(id:any):number{
+   
+    var l = "";
+    const images = document.querySelectorAll('img');
+    this.idSeleccionado = id;
+
+    let seleccionado = document.getElementById(id.idAvatar);
+    l = (seleccionado?.id)?.toString()!;
+    console.log(typeof l);
+    let n: number = +l;
+    this.idSeleccionado = n;
+    console.log('id seleccionado: '+ n);
+    images.forEach(imagen => {
+    imagen.addEventListener('click', function(){
+      const active = <HTMLImageElement>document.querySelector('img');
+      seleccionado?.classList.remove('active');
+      /*console.log(typeof seleccionado?.id);*/
+      this.classList.add('active');
+    });
+
+   });
+   return this.idSeleccionado;
 
   }
 

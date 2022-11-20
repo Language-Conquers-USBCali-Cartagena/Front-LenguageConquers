@@ -1,15 +1,18 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { ServiciosLoginService } from '../../../../shared/services/Login/servicios-login.service';
 import { Observable } from 'rxjs';
 
+
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [AuthService],
 })
 export class LoginComponent implements OnInit {
   public user$:Observable<any> = this.authService.afauth.user;
@@ -19,6 +22,7 @@ export class LoginComponent implements OnInit {
   fail = true;
   profesorExiste: boolean = false;
   estudianteExiste: boolean = false;
+  userEmail = new UntypedFormControl('');
 
   constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService) {
     this.form = this.fb.group({
@@ -71,29 +75,42 @@ export class LoginComponent implements OnInit {
   }
   // muestra el mensaje de error
   error() {
-    this._snackbar.open('El usuario o contraseña son invalidos', '', {
-      duration: 5000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top',
+      showConfirmButton: false,
+      timer: 5000,
+      timerProgressBar: false,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
     })
+
+    Toast.fire({
+      icon: 'info',
+      title: 'El usuario o contraseña son inválidos'
+    })
+
   }
 
+  async validarExistenciaBD(email: string){
 
-  async validarExistenciaBD(email: String){
-     
     await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
       this.profesorExiste = response;
       if(response == true){
-        this.router.navigateByUrl("/profesor/menuProfesor/" + email)
+        localStorage.setItem("correo", email);
+        this.router.navigateByUrl("/profesor/menuProfesor");
       }
     })
     await this.loginService.existEstudianteByCorreo(email).toPromise().then((response) => {
       this.estudianteExiste = response;
       if(response == true){
-        this.router.navigateByUrl("/estudiante/menu/" + email)
+        localStorage.setItem("correo", email);
+        this.router.navigateByUrl("/estudiante/menu")
       }
     })
-  
+
     if(this.estudianteExiste == true || this. profesorExiste == true){
       return true
     }else {
@@ -109,7 +126,7 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         }
       })
-      let correo= ''; 
+      let correo= '';
       this.user$.subscribe(  res => {
         if(res.emailVerified == false){
           this.router.navigate(['auth/verificar-email'])
@@ -120,13 +137,45 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl("/auth/crearUsuario")
           }
         })
-        
-      }) 
+
+      })
 
     }, 1500)
 
   }
 
+  async recuperarPassword(){
+    const email = this.userEmail.value;
+    console.log(this.userEmail.value);
+    try{
+      Swal.fire({
+        title: 'Recuperar Contraseña',
+        text: 'Ingrese el correo electronico asociado a la cuenta.',
+        input: 'email',
+        confirmButtonColor: '#33b5e5',
+        inputPlaceholder: 'Email'
+      })
+      await this.authService.recuperarContraseña(email);
+      window.alert('Correo enviado, revise su inbox')
+      this.router.navigateByUrl('/auth/login');
+    }catch(error){
+      console.log(error);
+    }
 
+
+
+
+
+    /*
+    try{
+      await this.authService.recuperarContraseña(email);
+
+
+
+      this.router.navigateByUrl('/auth/login');
+    }catch(error){
+      console.log(error);
+    }*/
+  }
 
 }

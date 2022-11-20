@@ -1,31 +1,31 @@
 
 export const itemsEst = [
   {
-    redirectTo: '/estudiante/menu/:correo',
+    redirectTo: '/estudiante/menu',
     icon: 'home',
     label: 'Home',
 
   },
   {
-    redirectTo: '/logros/logros',
+    redirectTo: '/estudiante/logros',
     icon: 'stars',
     label: 'Logros',
 
   },
   {
-    redirectTo: '/ranking',
+    redirectTo: '/estudiante/ranking',
     icon: 'poll',
     label: 'Ranking',
 
   },
   {
-    redirectTo: '/tienda/principal',
+    redirectTo: '/estudiante/tienda',
     icon: 'store',
     label: 'Tienda',
 
   },
   {
-    redirectTo: '/notificaciones/notificacionesDialog',
+    redirectTo: '/estudiante/notificaciones',
     icon: 'notifications',
     label: 'Notificaciones',
 

@@ -16,9 +16,12 @@
             <mat-icon class="boton">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
-      <a target="_window" class="vinculos" (click)="openDialog()">Términos y Condiciones</a>
+      <a target="_window" class="vinculos" (click)="terminosCondiciones()">Términos y Condiciones</a>
     <div *ngIf="terminos === true" style="top: 100px">
       <button class="ancho1" mat-raised-button (click)="registrarse()"> Crear Cuenta </button>
+    </div>
+    <div *ngIf="terminos === false" style="top: 100px">
+      <button class="ancho1" mat-raised-button (click)="errorTerminos()"> Crear Cuenta </button>
     </div>
     </div>
     <br />
