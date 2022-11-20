@@ -17,6 +17,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { CoreModule } from 'src/app/core/core.module';
 import { RegistroPageComponent } from './register/registro-page/registro-page.component';
 import { TerminoscondicionesComponent } from './terminoscondiciones/terminoscondiciones.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -41,8 +42,8 @@ import { TerminoscondicionesComponent } from './terminoscondiciones/terminoscond
     FormsModule,
     MatRadioModule,
     MatGridListModule,
-    CoreModule
-
+    CoreModule,
+    FlexLayoutModule
   ],
   providers: [
     ServiciosLoginService
