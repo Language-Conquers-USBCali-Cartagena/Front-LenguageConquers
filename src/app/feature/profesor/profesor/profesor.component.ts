@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
 import { AuthService } from '../../../core/service/auth.service';
-interface SideNavToggle{
-  screenWidth: number;
-  collapsed:boolean;
-}
+
 @Component({
   selector: 'app-profesor',
   templateUrl: './profesor.component.html',

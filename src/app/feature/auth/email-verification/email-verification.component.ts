@@ -11,19 +11,15 @@ import { AuthService } from 'src/app/core/service/auth.service';
 })
 export class EmailVerificationComponent implements OnInit {
   public user$:Observable<any> = this.authService.afauth.user;
-  constructor(private authService: AuthService, private router: Router) {
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   onSendEmail():void{
-    this.authService.emailVerification(); 
+    this.authService.emailVerification();
     console.log(
-      this.authService.afauth.user  
+      this.authService.afauth.user
     );
-     
   }
 
   async verificationEmail(){

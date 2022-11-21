@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-interface SideNavToggle{
-  screenWidth: number;
-  collapsed:boolean;
-}
+import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
+
 @Component({
   selector: 'app-nivel-ide',
   templateUrl: './nivel-ide.component.html',

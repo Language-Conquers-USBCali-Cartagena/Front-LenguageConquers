@@ -146,13 +146,16 @@ export class LoginComponent implements OnInit {
 
   async recuperarPassword(){
     const {value: email} = await Swal.fire({
-      title: 'Input email address',
+      title: 'Restablecer Contraseña',
       input: 'email',
-      inputLabel: 'Your email address',
-      inputPlaceholder: 'Enter your email address'
+      inputLabel: 'Ingrese la dirección de correo electronico asociado a la cuenta de Language Conquers',
+      inputPlaceholder: 'Email',
+      confirmButtonColor: '#33b5e5',
     })
+
+
     if (email){
-      Swal.fire(`Se envio el correo: ${email}, revisa tu bandeja`)
+      Swal.fire({ icon: 'success', text:'Se envio el correo a ${email}, revisa tú bandeja'});
       await this.authService.recuperarContraseña(email);
     }
     }

@@ -6,7 +6,6 @@ import { AuthService } from 'src/app/core/service/auth.service';
 import { Observable } from 'rxjs';
 import { ServiciosLoginService } from '../../../../shared/services/Login/servicios-login.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { TerminoscondicionesComponent } from '../../terminoscondiciones/terminoscondiciones.component';
 import Swal from 'sweetalert2'
 import { contains } from '@firebase/util';
 @Component({

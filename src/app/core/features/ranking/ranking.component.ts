@@ -1,18 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Estudiante } from 'src/app/shared/models/estudiante';
+import { RankingTable } from 'src/app/shared/models/tablaRanking';
 
-export interface PeriodicElement {
-  nombre: string;
-  avatar: string;
-  nivel: number;
-  puntaje: number;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {avatar: '1', nombre: 'Camila', nivel: 2, puntaje: 400},
-  {avatar: '2', nombre: 'Andres', nivel: 1, puntaje: 380},
-  {avatar: '3', nombre: 'Luis', nivel: 1, puntaje: 375},
-
+const ELEMENT_DATA: RankingTable [] = [
+  {avatar: '1', nickname: 'Camila', nivel: 2, puntaje: 400},
+  {avatar: '2', nickname: 'Andres', nivel: 1, puntaje: 380},
+  {avatar: '3', nickname: 'Luis', nivel: 1, puntaje: 375},
 
 ];
 @Component({
@@ -23,10 +17,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class RankingComponent implements OnInit {
 
   estudiante: Estudiante = {};
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['Avatar', 'NickName', 'Nivel', 'Puntaje'];
   dataSource = ELEMENT_DATA;
 
- 
+
   constructor() { }
 
   ngOnInit(): void {

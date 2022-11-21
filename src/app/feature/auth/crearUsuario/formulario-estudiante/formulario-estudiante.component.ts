@@ -12,8 +12,11 @@ import { Router } from '@angular/router';
 import { ProgramaService } from '../../../../shared/services/programa/programa.service';
 import { Programa } from '../../../../shared/models/programa';
 import { AuthService } from '../../../../core/service/auth.service';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { CarusselAvataresComponent } from 'src/app/core/features/carussel-avatares/carussel-avatares.component';
+import { prodErrorMap } from 'firebase/auth';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-formulario-estudiante',
@@ -77,9 +80,10 @@ export class FormularioEstudianteComponent implements OnInit {
       localStorage.setItem("correo", correo);
       this.router.navigateByUrl('/estudiante/menu');
     }, err =>{
-      console.log(err);
+      console.log(err['error']);
+      Swal.fire({ icon: 'error', text: err['error'], confirmButtonColor: '#33b5e5',});
       localStorage.setItem("correo", correo);
-      this.router.navigateByUrl('/estudiante/menu');
+      this.router.navigateByUrl('/auth/crearUsuario');
     })
 
   }

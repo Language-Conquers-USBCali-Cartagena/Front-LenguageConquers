@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
 
-
-interface SideNavToggle{
-  screenWidth: number;
-  collapsed:boolean;
-}
 @Component({
   selector: 'app-estudiante',
   templateUrl: './estudiante.component.html',

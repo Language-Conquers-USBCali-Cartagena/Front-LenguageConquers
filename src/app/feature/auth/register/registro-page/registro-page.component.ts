@@ -9,13 +9,9 @@ import { Observable } from 'rxjs';
 export class RegistroPageComponent implements OnInit {
   @Input() loading: boolean = false;
 
-  constructor() {
+  constructor() {}
 
-  }
-
-  ngOnInit(): void {
- 
-  }
+  ngOnInit(): void {}
 
 
 

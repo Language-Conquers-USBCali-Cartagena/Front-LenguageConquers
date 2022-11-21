@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-interface SideNavToggle{
-  screenWidth: number;
-  collapsed:boolean;
-}
+import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
+
 @Component({
   selector: 'app-nivel-descripcion',
   templateUrl: './nivel-descripcion.component.html',
