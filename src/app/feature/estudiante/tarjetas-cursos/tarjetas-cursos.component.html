@@ -11,7 +11,7 @@
   <br><br>
   <div class="fondoTarjeta">
     <div class="estudiante">
-      <mat-card class="cursos" *ngFor="let tarjetas of cursosCard ">
+      <mat-card class="cursos" *ngFor="let tarjetas of cursosCard" [routerLink]="tarjetas.redirect">
         <img mat-card-image src="./assets/images/fondos/FondoCurso1.jpg">
           <mat-card-subtitle class="titulo">Facultad de Ingenieria</mat-card-subtitle>
           <a class="vinculos-contra" [routerLink]="tarjetas.redirect">{{tarjetas.nombre}}</a>

@@ -7,6 +7,7 @@ import { Profesor } from '../../../../shared/models/profesor';
 import { Observable } from 'rxjs';
 import { AuthService } from '../../../../core/service/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-formulario-profesor',
@@ -50,7 +51,9 @@ export class FormularioProfesorComponent implements OnInit {
       localStorage.setItem("correo", correo);
       this.router.navigateByUrl('/profesor/menuProfesor');
     }, err => {
-        this.router.navigateByUrl('/profesor/menuProfesor');
+      console.log(err['error']);
+      Swal.fire({ icon: 'error', text: err['error'], confirmButtonColor: '#33b5e5',});
+      this.router.navigateByUrl('/auth/crearUsuario');
       }
 
     );
