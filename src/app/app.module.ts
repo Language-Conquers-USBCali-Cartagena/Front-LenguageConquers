@@ -14,7 +14,7 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { CoreModule } from './core/core.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
-import { AdministradorComponent } from './feature/administrador/administrador.component';
+
 
 
 
@@ -24,7 +24,7 @@ import { AdministradorComponent } from './feature/administrador/administrador.co
   declarations: [
     AppComponent,
     PerfilEstudianteComponent,
-    AdministradorComponent,
+    
 
 
 
