@@ -22,6 +22,10 @@ const routes: Routes = [
     loadChildren: ()=>import('./feature/profesor/profesor.module').then(m => m.ProfesorModule)
   },
   {
+    path: 'admin',
+    loadChildren: ()=>import('./feature/administrador/administrador.module').then(m => m.AdministradorModule)
+  },
+  {
 
     path: 'curso',
     loadChildren: ()=>import('./feature/curso/curso.module').then(m => m.CursoModule)

@@ -4,7 +4,7 @@
     <button class="logo" (click)="toggleCollapse()"><mat-icon>menu</mat-icon></button>
     <div class="logo-text" @fadeInOut *ngIf="collapsed">Language Conquers</div>
   </div>
-  <ul class="sidenav-nav">
+    <ul class="sidenav-nav">
     <div *ngIf="existeEstu else profesor">
       <li class="sidenav-nav-item" *ngFor="let data of menuItemsEst" >
         <div *ngIf="data.label != 'Notificaciones'">

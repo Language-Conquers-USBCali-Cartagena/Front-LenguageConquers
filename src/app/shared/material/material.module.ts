@@ -21,6 +21,7 @@ import {MatNativeDateModule} from '@angular/material/core'
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatNativeDateModule,
     DragDropModule,
     MatSidenavModule,
-    MatDialogModule
+    MatDialogModule,
+    MatMenuModule
 
   ]
 })
