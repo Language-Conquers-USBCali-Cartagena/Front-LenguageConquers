@@ -14,6 +14,7 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { CoreModule } from './core/core.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { AdminModule } from './feature/admin/admin.module';
 
 
 
@@ -24,14 +25,10 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
   declarations: [
     AppComponent,
     PerfilEstudianteComponent,
-    
-
-
-
-
   ],
   imports: [
     BrowserModule,
+    AdminModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
