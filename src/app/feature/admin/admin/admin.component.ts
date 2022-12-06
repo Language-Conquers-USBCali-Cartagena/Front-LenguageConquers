@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
   ngOnInit(): void {
+
+  }
+  irUsuarios(){
+    this.router.navigateByUrl('/usuarios')
+  }
+  irReto(){
+
+  }
+  irMisiones(){
+
+  }
+  irNivelMision(){
+
+  }
+  irTipoMision(){
+
+  }
+  irLogros(){
+
+  }
+  irArticulos(){
+    this.router.navigateByUrl('/articulos/lista-articulos')
+
+  }
+  irCategorias(){
+
+  }
+  irAvatares(){
+
+  }
+  irRoles(){
+
+  }
+  irMonedas(){
+
+  }
+  irEstados(){
+
+  }
+  irPrograma(){
+
+  }
+  irCursos(){
+
   }
 
 }

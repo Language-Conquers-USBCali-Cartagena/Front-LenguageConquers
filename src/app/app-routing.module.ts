@@ -29,6 +29,10 @@ const routes: Routes = [
   {
     path: 'logout',
     loadChildren: ()=>import('./feature/logout/logout.module').then(m => m.LogoutModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: ()=>import('./feature/admin/admin.module').then(m => m.AdminModule)
   }
 
 

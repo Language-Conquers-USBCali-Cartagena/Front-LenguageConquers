@@ -16,6 +16,7 @@ import { TipoMisionComponent } from './tipo-mision/tipo-mision.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
+import { MaterialModule } from '../../shared/material/material.module';
 
 
 
@@ -35,11 +36,12 @@ import { AdminRoutingModule } from './admin-routing.module';
     RetoComponent,
     TipoMisionComponent,
     UsuariosComponent,
-    AdminComponent
+    AdminComponent,
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    MaterialModule
   ]
 })
 export class AdminModule { }

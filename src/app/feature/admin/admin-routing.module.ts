@@ -20,9 +20,14 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 const routes: Routes = [
 
     {
-        path: '',
+        path: 'admin',
         component: AdminComponent,
         children: [
+            {
+                path:'',
+                redirectTo:'home',
+                pathMatch:'full'
+            },
             {
                 path: 'articulos',
                 component: ArticulosComponent
