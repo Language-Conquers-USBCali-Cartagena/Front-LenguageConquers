@@ -140,8 +140,8 @@ export class EstudianteComponent implements OnInit {
   }
 
 
-  salir(){
-    this.router.navigateByUrl("/logout");
+  atras(){
+    this.router.navigateByUrl('/admin/usuarios/listar-usuarios');
   }
 
 }

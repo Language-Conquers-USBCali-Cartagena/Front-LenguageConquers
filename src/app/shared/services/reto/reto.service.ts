@@ -2,15 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Usuarios } from '../../models/usuarios';
+import { Reto } from '../../models/reto';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosService {
+export class RetoService {
 
   constructor(private http:HttpClient) { }
-  getUsuario():Observable<Usuarios[]>{
-    return this.http.get<Usuarios[]>(`${environment.endpoint}/usuarios`)
+  getReto():Observable<Reto[]>{
+    return this.http.get<Reto[]>(`${environment.endpoint}/reto`)
   }
 }

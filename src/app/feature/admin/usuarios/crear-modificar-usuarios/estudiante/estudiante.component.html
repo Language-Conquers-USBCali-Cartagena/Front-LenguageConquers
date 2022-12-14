@@ -71,7 +71,7 @@
           </mat-datepicker>
         </mat-form-field>
         </div>
-        <br><br>
+        <br><br><br><br><br><br><br><br>
         <div class="carrousel">
           <div class="car">
             <div class="izq"><a type="submit" (click)="pasarIzq()"><mat-icon>keyboard_arrow_left</mat-icon></a></div>
@@ -84,7 +84,8 @@
         </div>
         <br><br><br>
         <div  class="boton">
-          <button mat-raised-button class="botones" routerLink="/usuarios/listar-usuarios">Crear Estudiante</button>
+          <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+          <button mat-raised-button class="botones" (click)="crearEstudiante()">Crear Estudiante</button>
         </div>
         </div>
       </div>

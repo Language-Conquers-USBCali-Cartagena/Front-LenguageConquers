@@ -49,8 +49,10 @@ crearProfesor(){
     showConfirmButton: false,
     timer: 1500
   })
+}
 
-
+atras(){
+  this.router.navigateByUrl('/admin/usuarios/listar-usuarios');
 }
 
 }

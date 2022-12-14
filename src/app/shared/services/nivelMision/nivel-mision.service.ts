@@ -2,15 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Usuarios } from '../../models/usuarios';
+import { NivelMision } from '../../models/nivelMision';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosService {
+export class NivelMisionService {
 
   constructor(private http:HttpClient) { }
-  getUsuario():Observable<Usuarios[]>{
-    return this.http.get<Usuarios[]>(`${environment.endpoint}/usuarios`)
+  getNivelMision():Observable<NivelMision[]>{
+    return this.http.get<NivelMision[]>(`${environment.endpoint}/nivelMision`)
   }
 }

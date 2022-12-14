@@ -12,6 +12,7 @@ import { MisionesComponent } from './misiones/misiones.component';
 import { MonedasComponent } from './monedas/monedas.component';
 import { NivelMisionComponent } from './nivel-mision/nivel-mision.component';
 import { ProgramaComponent } from './programa/programa.component';
+import { CrearRegistrarComponent } from './reto/crear-registrar/crear-registrar.component';
 import { RetoComponent } from './reto/reto.component';
 import { TipoMisionComponent } from './tipo-mision/tipo-mision.component';
 import { DocenteComponent } from './usuarios/crear-modificar-usuarios/docente/docente.component';
@@ -77,6 +78,10 @@ const routes: Routes = [
             {
                 path: 'reto/listar-retos',
                 component: RetoComponent
+            },
+            {
+                path: 'reto/crearReto',
+                component:CrearRegistrarComponent,
             },
             {
                 path: 'tipo-mision/listar',

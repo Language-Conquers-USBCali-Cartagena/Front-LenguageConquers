@@ -2,15 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Usuarios } from '../../models/usuarios';
+import { TipoMision } from '../../models/tipoMision';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsuariosService {
+export class TipoMisionService {
 
   constructor(private http:HttpClient) { }
-  getUsuario():Observable<Usuarios[]>{
-    return this.http.get<Usuarios[]>(`${environment.endpoint}/usuarios`)
+  getTipoMision():Observable<TipoMision[]>{
+    return this.http.get<TipoMision[]>(`${environment.endpoint}/tipoMision`)
   }
 }

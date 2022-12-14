@@ -1,0 +1,99 @@
+<mat-card class="tarjetaPrincipal">
+    <mat-card-content>
+        <mat-card-title>Crear Reto</mat-card-title>
+        <br><br>
+        <form [formGroup]="form" (ngSubmit)="crearReto()">
+            <div class="entradas">
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Nombre</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="nombre">
+                        <mat-icon matSuffix class="boton">nombre</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Descripción</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="descripcion">
+                        <mat-icon matSuffix class="boton">descripcion</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Intentos</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="intentos">
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Misión</mat-label>
+                        <mat-select formControlName="mision">
+                            <mat-option *ngFor="let mision of misiones" [value]="misiones">
+                                {{mision.nombre}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix class="boton">mision</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Curso</mat-label>
+                        <mat-select formControlName="curso">
+                            <mat-option *ngFor="let curso of cursos" [value]="curso">
+                                {{curso.nombre}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix class="boton">curso</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Estado</mat-label>
+                        <mat-select formControlName="estado">
+                            <mat-option *ngFor="let estado of estados" [value]="estado">
+                                {{estado.estado}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label class="titulos">Fecha de Inicio</mat-label>
+                        <input matInput [matDatepicker]="datepicker" formControlName="fechaInicio">
+                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker>
+                            <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Cancel</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label class="titulos">Fecha Limite</mat-label>
+                        <input matInput [matDatepicker]="datepicker" formControlName="fechaLimite">
+                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker>
+                            <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Cancel</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Creador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="intentos">
+                    </mat-form-field>
+                </div>
+                    <div class="boton">
+                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" (click)="crearReto()">Crear Reto</button>
+                    </div>
+                </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>
