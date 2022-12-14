@@ -11,14 +11,17 @@ import { LogrosComponent } from './logros/logros.component';
 import { CrearModificarMisionComponent } from './misiones/crear-modificar-mision/crear-modificar-mision.component';
 import { MisionesComponent } from './misiones/misiones.component';
 import { MonedasComponent } from './monedas/monedas.component';
+import { CrearModificarNivelMisionComponent } from './nivel-mision/crear-modificar-nivel-mision/crear-modificar-nivel-mision.component';
 import { NivelMisionComponent } from './nivel-mision/nivel-mision.component';
 import { ProgramaComponent } from './programa/programa.component';
 import { CrearRegistrarComponent } from './reto/crear-registrar/crear-registrar.component';
 import { RetoComponent } from './reto/reto.component';
+import { CrearModificarTipoMisionComponent } from './tipo-mision/crear-modificar-tipo-mision/crear-modificar-tipo-mision.component';
 import { TipoMisionComponent } from './tipo-mision/tipo-mision.component';
 import { DocenteComponent } from './usuarios/crear-modificar-usuarios/docente/docente.component';
 import { EstudianteComponent } from './usuarios/crear-modificar-usuarios/estudiante/estudiante.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { CrearModificarLogrosComponent } from './logros/crear-modificar-logros/crear-modificar-logros.component';
 
 
 const routes: Routes = [
@@ -61,6 +64,10 @@ const routes: Routes = [
                 component: LogrosComponent
             },
             {
+                path: 'logros/Crearlogros',
+                component: CrearModificarLogrosComponent,
+            },
+            {
                 path: 'misiones/listar-misiones',
                 component: MisionesComponent
             },
@@ -77,6 +84,10 @@ const routes: Routes = [
                 component: NivelMisionComponent
             },
             {
+                path: 'nivel-mision/crearNivelMision',
+                component: CrearModificarNivelMisionComponent,
+            },
+            {
                 path: 'programa/listar-programa',
                 component: ProgramaComponent
             },
@@ -91,6 +102,10 @@ const routes: Routes = [
             {
                 path: 'tipo-mision/listar',
                 component: TipoMisionComponent
+            },
+            {
+                path: 'tipo-mision/crearTipoMision',
+                component: CrearModificarTipoMisionComponent,
             },
             {
                 path: 'usuarios/listar-usuarios',

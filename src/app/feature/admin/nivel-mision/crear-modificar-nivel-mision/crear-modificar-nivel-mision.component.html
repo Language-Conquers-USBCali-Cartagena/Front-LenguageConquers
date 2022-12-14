@@ -1,0 +1,43 @@
+<mat-card class="tarjetaPrincipal">
+    <mat-card-content>
+        <mat-card-title>Crear Nivel Misión</mat-card-title>
+        <br><br>
+        <form [formGroup]="form" (ngSubmit)="crearNivelMision()">
+            <div class="entradas">
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Nombre</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="nombre">
+                        <mat-icon matSuffix class="boton">nombre</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Puntaje Minimo</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="puntajeMinimo">
+                        <mat-icon matSuffix class="boton">puntaje</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Imagen Nivel Misión</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="imgNivelMision">
+                        <mat-icon matSuffix class="boton">img</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Creador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="intentos">
+                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+                    </mat-form-field>
+                </div>
+                    <div class="boton">
+                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" (click)="crearNivelMision()">Crear NivelMisión</button>
+                    </div>
+                </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

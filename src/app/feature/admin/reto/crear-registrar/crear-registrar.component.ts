@@ -75,7 +75,7 @@ export class CrearRegistrarComponent implements OnInit {
 
     Swal.fire({
       icon: 'success',
-      title: 'El Estudiante se ha creado Exitosamente',
+      title: 'El Reto se ha creado Exitosamente',
       showConfirmButton: false,
       timer: 1500
     })

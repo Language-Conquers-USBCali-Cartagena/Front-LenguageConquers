@@ -22,6 +22,9 @@ import { DocenteComponent } from './usuarios/crear-modificar-usuarios/docente/do
 import { EstudianteComponent } from './usuarios/crear-modificar-usuarios/estudiante/estudiante.component';
 import { CrearRegistrarComponent } from './reto/crear-registrar/crear-registrar.component';
 import { CrearModificarMisionComponent } from './misiones/crear-modificar-mision/crear-modificar-mision.component';
+import { CrearModificarNivelMisionComponent } from './nivel-mision/crear-modificar-nivel-mision/crear-modificar-nivel-mision.component';
+import { CrearModificarTipoMisionComponent } from './tipo-mision/crear-modificar-tipo-mision/crear-modificar-tipo-mision.component';
+import { CrearModificarLogrosComponent } from './logros/crear-modificar-logros/crear-modificar-logros.component';
 
 
 
@@ -46,6 +49,9 @@ import { CrearModificarMisionComponent } from './misiones/crear-modificar-mision
         EstudianteComponent,
         CrearRegistrarComponent,
         CrearModificarMisionComponent,
+        CrearModificarNivelMisionComponent,
+        CrearModificarTipoMisionComponent,
+        CrearModificarLogrosComponent,
 
     ],
     imports: [
