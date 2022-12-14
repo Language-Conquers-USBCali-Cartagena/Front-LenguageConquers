@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
     this.router.navigateByUrl('/admin/reto/listar-retos')
   }
   irMisiones(){
-
+    this.router.navigateByUrl('/admin/misiones/listar-misiones')
   }
   irNivelMision(){
 

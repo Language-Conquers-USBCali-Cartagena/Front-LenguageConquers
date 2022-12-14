@@ -21,6 +21,7 @@ import { CoreModule } from "../../core/core.module";
 import { DocenteComponent } from './usuarios/crear-modificar-usuarios/docente/docente.component';
 import { EstudianteComponent } from './usuarios/crear-modificar-usuarios/estudiante/estudiante.component';
 import { CrearRegistrarComponent } from './reto/crear-registrar/crear-registrar.component';
+import { CrearModificarMisionComponent } from './misiones/crear-modificar-mision/crear-modificar-mision.component';
 
 
 
@@ -44,6 +45,7 @@ import { CrearRegistrarComponent } from './reto/crear-registrar/crear-registrar.
         DocenteComponent,
         EstudianteComponent,
         CrearRegistrarComponent,
+        CrearModificarMisionComponent,
 
     ],
     imports: [

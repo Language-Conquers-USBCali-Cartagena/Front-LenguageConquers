@@ -25,7 +25,6 @@ export class CrearRegistrarComponent implements OnInit {
 
   form!: UntypedFormGroup;
   misiones: Mision[] = [];
-  monedas: Monedas[] = [];
   cursos: Curso[] = [];
   estados:Estado[] = [];
 
@@ -80,7 +79,6 @@ export class CrearRegistrarComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     })
-    //this.router.navigate(['/usuarios/listar-usuarios']);
 
   }
 

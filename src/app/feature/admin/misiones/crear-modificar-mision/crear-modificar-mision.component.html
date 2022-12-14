@@ -1,0 +1,73 @@
+<mat-card class="tarjetaPrincipal">
+    <mat-card-content>
+        <mat-card-title>Crear Misión</mat-card-title>
+        <br><br>
+        <form [formGroup]="form" (ngSubmit)="crearMision()">
+            <div class="entradas">
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Nombre</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="nombre">
+                        <mat-icon matSuffix class="boton">nombre</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Id NivelMisión</mat-label>
+                        <mat-select formControlName="nivelMision">
+                            <mat-option *ngFor="let nivelMision of nivelMisiones" [value]="nivelMisiones">
+                                {{nivelMision.nombre}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix class="boton">nivelMisión</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Id TipoMisión</mat-label>
+                        <mat-select formControlName="tipoMision">
+                            <mat-option *ngFor="let tipoMision of tipoMisiones" [value]="tipoMisiones">
+                                {{tipoMision.descripcion}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix class="boton">tipoMisión</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Curso</mat-label>
+                        <mat-select formControlName="curso">
+                            <mat-option *ngFor="let curso of cursos" [value]="curso">
+                                {{curso.nombre}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix class="boton">curso</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Monedas</mat-label>
+                        <mat-select formControlName="monedas">
+                            <mat-option *ngFor="let moneda of monedas" [value]="moneda">
+                                {{moneda.cantidad}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix class="boton">monedas</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Creador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="intentos">
+                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+                    </mat-form-field>
+                </div>
+                    <div class="boton">
+                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" (click)="crearMision()">Crear Misión</button>
+                    </div>
+                </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

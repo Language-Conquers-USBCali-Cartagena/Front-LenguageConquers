@@ -8,6 +8,7 @@ import { CursoComponent } from './curso/curso.component';
 import { EstadoComponent } from './estado/estado.component';
 import { HomeComponent } from './home/home.component';
 import { LogrosComponent } from './logros/logros.component';
+import { CrearModificarMisionComponent } from './misiones/crear-modificar-mision/crear-modificar-mision.component';
 import { MisionesComponent } from './misiones/misiones.component';
 import { MonedasComponent } from './monedas/monedas.component';
 import { NivelMisionComponent } from './nivel-mision/nivel-mision.component';
@@ -62,6 +63,10 @@ const routes: Routes = [
             {
                 path: 'misiones/listar-misiones',
                 component: MisionesComponent
+            },
+            {
+                path: 'misiones/creaMisiones',
+                component: CrearModificarMisionComponent,
             },
             {
                 path: 'monedas/listar-monedas',
