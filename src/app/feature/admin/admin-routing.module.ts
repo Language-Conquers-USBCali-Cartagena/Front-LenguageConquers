@@ -14,6 +14,8 @@ import { NivelMisionComponent } from './nivel-mision/nivel-mision.component';
 import { ProgramaComponent } from './programa/programa.component';
 import { RetoComponent } from './reto/reto.component';
 import { TipoMisionComponent } from './tipo-mision/tipo-mision.component';
+import { DocenteComponent } from './usuarios/crear-modificar-usuarios/docente/docente.component';
+import { EstudianteComponent } from './usuarios/crear-modificar-usuarios/estudiante/estudiante.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 
 
@@ -29,23 +31,23 @@ const routes: Routes = [
                 pathMatch:'full'
             },
             {
-                path: 'articulos',
+                path: 'articulos/listar-articulos',
                 component: ArticulosComponent
             },
             {
-                path: 'avatar',
+                path: 'avatar/listar-avatar',
                 component: AvatarComponent
             },
             {
-                path: 'categoria-articulos',
+                path: 'categoria-articulos/listar',
                 component: CategoriaArticulosComponent
             },
             {
-                path: 'curos',
+                path: 'curos/listar-cursos',
                 component: CursoComponent
             },
             {
-                path: 'estado',
+                path: 'estado/listar-estados',
                 component: EstadoComponent
             },
             {
@@ -53,37 +55,46 @@ const routes: Routes = [
                 component: HomeComponent
             },
             {
-                path: 'logros',
+                path: 'logros/listar-logros',
                 component: LogrosComponent
             },
             {
-                path: 'misiones',
+                path: 'misiones/listar-misiones',
                 component: MisionesComponent
             },
             {
-                path: 'monedas',
+                path: 'monedas/listar-monedas',
                 component: MonedasComponent
             },
             {
-                path: 'nivel-mision',
+                path: 'nivel-mision/listar',
                 component: NivelMisionComponent
             },
             {
-                path: 'programa',
+                path: 'programa/listar-programa',
                 component: ProgramaComponent
             },
             {
-                path: 'reto',
+                path: 'reto/listar-retos',
                 component: RetoComponent
             },
             {
-                path: 'tipo-mision',
+                path: 'tipo-mision/listar',
                 component: TipoMisionComponent
             },
             {
-                path: 'usuario',
-                component: UsuariosComponent
+                path: 'usuarios/listar-usuarios',
+                component: UsuariosComponent,
             },
+            {
+              path: 'usuarios/crearDocente',
+              component: DocenteComponent
+            },
+            {
+              path: 'usuarios/crearEstudiante',
+              component: EstudianteComponent
+            },
+
         ]
     }
 ];
@@ -92,4 +103,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
   })
-export class AdminRoutingModule { } 
+export class AdminRoutingModule { }

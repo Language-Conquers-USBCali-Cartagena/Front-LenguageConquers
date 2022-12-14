@@ -17,31 +17,38 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { MaterialModule } from '../../shared/material/material.module';
+import { CoreModule } from "../../core/core.module";
+import { DocenteComponent } from './usuarios/crear-modificar-usuarios/docente/docente.component';
+import { EstudianteComponent } from './usuarios/crear-modificar-usuarios/estudiante/estudiante.component';
 
 
 
 @NgModule({
-  declarations: [
-    ArticulosComponent,
-    AvatarComponent,
-    CategoriaArticulosComponent,
-    CursoComponent,
-    EstadoComponent,
-    HomeComponent,
-    LogrosComponent,
-    MisionesComponent,
-    MonedasComponent,
-    NivelMisionComponent,
-    ProgramaComponent,
-    RetoComponent,
-    TipoMisionComponent,
-    UsuariosComponent,
-    AdminComponent,
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    MaterialModule
-  ]
+    declarations: [
+        ArticulosComponent,
+        AvatarComponent,
+        CategoriaArticulosComponent,
+        CursoComponent,
+        EstadoComponent,
+        HomeComponent,
+        LogrosComponent,
+        MisionesComponent,
+        MonedasComponent,
+        NivelMisionComponent,
+        ProgramaComponent,
+        RetoComponent,
+        TipoMisionComponent,
+        UsuariosComponent,
+        AdminComponent,
+        DocenteComponent,
+        EstudianteComponent,
+
+    ],
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        MaterialModule,
+        CoreModule
+    ]
 })
 export class AdminModule { }

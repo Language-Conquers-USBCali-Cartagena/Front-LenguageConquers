@@ -13,10 +13,10 @@ export class AdminComponent implements OnInit {
 
   }
   irUsuarios(){
-    this.router.navigateByUrl('/usuarios')
+    this.router.navigateByUrl('/admin/usuarios/listar-usuarios')
   }
   irReto(){
-
+    this.router.navigateByUrl('/admin/reto/listar-retos')
   }
   irMisiones(){
 

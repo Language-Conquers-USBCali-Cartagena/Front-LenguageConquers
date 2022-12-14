@@ -1812,13 +1812,13 @@ td.mat-footer-cell {
   height: 64px;
 }
 .mat-form-field-label {
-  color: rgb(241, 231, 194);
+  color: rgb(197,139,91);
 }
 .mat-hint {
   color: rgb(241, 231, 194);
 }
 .mat-form-field.mat-focused .mat-form-field-label {
-  color: rgb(255, 255, 255);
+  color: rgb(100, 89, 82);
 }
 .mat-form-field.mat-focused .mat-form-field-label.mat-accent {
   color: #ff4081;
@@ -1870,13 +1870,14 @@ td.mat-footer-cell {
   color: rgb(241, 231, 194);
 }
 .mat-form-field-appearance-legacy .mat-form-field-label {
-  color: rgb(241, 231, 194);
+  font-size:15px;
+  color: rgb(100, 89, 82);
 }
 .mat-form-field-appearance-legacy .mat-hint {
   color: rgba(0, 0, 0, 0.54);
 }
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: rgb(241, 231, 194);
+  background-color: rgb(100, 89, 82);
 }
 .mat-form-field-appearance-legacy.mat-form-field-disabled
   .mat-form-field-underline {

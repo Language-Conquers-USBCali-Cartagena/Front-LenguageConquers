@@ -1,0 +1,93 @@
+<mat-card class="tarjetaPrincipal">
+  <mat-card-content>
+    <mat-card-title>Registrar Estudiante</mat-card-title>
+    <br><br>
+    <form [formGroup]="form" (ngSubmit)="crearEstudiante()">
+      <div class="entradas">
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Nombre</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="nombre" class="ancho">
+             <mat-icon matSuffix class="boton">name</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+        <mat-form-field appearance="fill">
+          <mat-label class="titulos">Apellidos</mat-label>
+          <input type="text" matInput autocomplete="off" formControlName="apellido">
+          <mat-icon matSuffix class="boton">lastname</mat-icon>
+        </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+        <mat-form-field appearance="fill">
+          <mat-label class="titulos">NickName</mat-label>
+          <input type="text" matInput autocomplete="off" formControlName="nickName">
+          <mat-icon matSuffix class="boton">nickname</mat-icon>
+        </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+        <mat-form-field appearance="fill">
+          <mat-label class="titulos">Semestre</mat-label>
+          <mat-select formControlName="semestre" >
+            <mat-option *ngFor="let semestre of semestres" [value]="semestre">
+              {{semestre.nombre}}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix class="boton">semester</mat-icon>
+        </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+        <mat-form-field appearance="fill">
+          <mat-label class="titulos">Genero</mat-label>
+          <mat-select formControlName="genero">
+            <mat-option *ngFor="let genero of generos" [value]="genero">
+              {{genero.genero}}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix class="boton">gender</mat-icon>
+        </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+        <mat-form-field appearance="fill">
+          <mat-label class="titulos">Programa</mat-label>
+          <mat-select formControlName="programa">
+            <mat-option *ngFor="let programa of programas" [value]="programa">
+              {{programa.nombre}}
+            </mat-option>
+          </mat-select>
+          <mat-icon matSuffix class="boton">gender</mat-icon>
+        </mat-form-field>
+        </div>
+        <div class="campofecha">
+        <mat-form-field appearance="fill" class="example-form-field">
+          <mat-label class="titulos">Fecha de Nacimiento</mat-label>
+          <input matInput [matDatepicker]="datepicker" formControlName="fechaNacimiento">
+          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #datepicker>
+            <mat-datepicker-actions>
+              <button mat-button matDatepickerCancel>Cancel</button>
+              <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+            </mat-datepicker-actions>
+          </mat-datepicker>
+        </mat-form-field>
+        </div>
+        <br><br>
+        <div class="carrousel">
+          <div class="car">
+            <div class="izq"><a type="submit" (click)="pasarIzq()"><mat-icon>keyboard_arrow_left</mat-icon></a></div>
+            <div class="cimg" *ngFor="let avatar of avatares">
+              <div class="imgAvatar">
+                <img mat-card-avatar src="{{avatar.imgAvatar}}" id="{{avatar.idAvatar}}" class="avatares"  data-id="{{avatar.idAvatar}}"  (click)="seleccionarAvatar(this.avatar)">
+              </div>
+            </div>
+            <div class="der"><a type="submit" (click)="pasarDer()"><mat-icon>keyboard_arrow_right</mat-icon></a></div>
+        </div>
+        <br><br><br>
+        <div  class="boton">
+          <button mat-raised-button class="botones" routerLink="/usuarios/listar-usuarios">Crear Estudiante</button>
+        </div>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
