@@ -26,6 +26,9 @@ import { CrearModificarArticulosComponent } from './articulos/crear-modificar-ar
 import { CrearModificarCategoriaComponent } from './categoria-articulos/crear-modificar-categoria/crear-modificar-categoria.component';
 import { CrearModificarAvatarComponent } from './avatar/crear-modificar-avatar/crear-modificar-avatar.component';
 import { CreaModificarMonedasComponent } from './monedas/crea-modificar-monedas/crea-modificar-monedas.component';
+import { CrearModificarEstadoComponent } from './estado/crear-modificar-estado/crear-modificar-estado.component';
+import { CrearModificarProgramaComponent } from './programa/crear-modificar-programa/crear-modificar-programa.component';
+import { CrearModificarCursoComponent } from './curso/crear-modificar-curso/crear-modificar-curso.component';
 
 
 const routes: Routes = [
@@ -64,12 +67,20 @@ const routes: Routes = [
                 component:CrearModificarCategoriaComponent,
             },
             {
-                path: 'curos/listar-cursos',
+                path: 'cursos/listar-cursos',
                 component: CursoComponent
+            },
+            {
+                path: 'cursos/crearCurso',
+                component: CrearModificarCursoComponent,
             },
             {
                 path: 'estado/listar-estados',
                 component: EstadoComponent
+            },
+            {
+                path: 'estado/crearEstado',
+                component: CrearModificarEstadoComponent,
             },
             {
                 path: 'home',
@@ -110,6 +121,10 @@ const routes: Routes = [
             {
                 path: 'programa/listar-programa',
                 component: ProgramaComponent
+            },
+            {
+                path: 'programa/crearPrograma',
+                component:CrearModificarProgramaComponent,
             },
             {
                 path: 'reto/listar-retos',

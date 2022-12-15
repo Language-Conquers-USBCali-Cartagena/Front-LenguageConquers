@@ -1,1 +1,103 @@
-<p>curso works!</p>
+<mat-card class="tarjetaPrincipal">
+    <mat-card-content>
+      <mat-card-title>lista de Cursos</mat-card-title>
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del curso" #input>
+      </mat-form-field>
+      <div class="demo-button-container">
+        <button mat-raised-button (click)="registrarCurso()" class="demo-button">
+          Registrar Curso
+        </button>
+      </div>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+            <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="password">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Password </th>
+            <td mat-cell *matCellDef="let row"> {{row.password}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="cantidadEstudiantes">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. Estudiantes</th>
+            <td mat-cell *matCellDef="let row"> {{row.cantidadEstudiantes}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechaInicio">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha inicio</th>
+            <td mat-cell *matCellDef="let row"> {{row.fechaInicio}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechaFin">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha fin</th>
+            <td mat-cell *matCellDef="let row"> {{row.fechaFin}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="progreso">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Progreso</th>
+            <td mat-cell *matCellDef="let row"> {{row.progreso}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="idEstado">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id Estado</th>
+            <td mat-cell *matCellDef="let row"> {{row.idEstado}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="idProfesor">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id Profesor</th>
+            <td mat-cell *matCellDef="let row"> {{row.idProfesor}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="usuarioCreador">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Creador</th>
+            <td mat-cell *matCellDef="let row"> {{row.usuarioCreador}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechaCreacion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Creación</th>
+            <td mat-cell *matCellDef="let row"> {{row.fechaCreacion}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="usuarioModificador">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Modificador</th>
+            <td mat-cell *matCellDef="let row"> {{row.usuarioModificador}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="fechaModificacion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Modificación</th>
+            <td mat-cell *matCellDef="let row"> {{row.fechaModificacion}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Acciones">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
+              <a  class="botones" [routerLink]="['/curso/editarCurso/',element.numero_identificacion]" style="color:rgb(19, 12, 59)" matTooltip="Editar Curso">
+                <mat-icon>edit</mat-icon>
+              </a>
+              <a  class="botones" (click)="eliminarCurso(i)" style="color:rgb(224, 26, 26)" matTooltip="Eliminar Curso">
+                <mat-icon>delete</mat-icon>
+              </a>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No Existe un Curso con el Nombre "{{input.value}}"</td>
+          </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[7]" aria-label="Seleccione la pagina de cursos"></mat-paginator>
+      </div>
+    </mat-card-content>
+</mat-card>

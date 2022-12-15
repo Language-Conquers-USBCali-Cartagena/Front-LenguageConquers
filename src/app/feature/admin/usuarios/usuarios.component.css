@@ -1,8 +1,8 @@
 .tarjetaPrincipal{
-  width: 85%;
-  height: 510px;
-  margin-right: 10px;
-  margin-left: 50px;
+  width: 80%;
+  height: 500px;
+  margin-right: 20px;
+  margin-left: 70px;
   /*Efecto espejo*/
   padding: 55px;
   background: linear-gradient(

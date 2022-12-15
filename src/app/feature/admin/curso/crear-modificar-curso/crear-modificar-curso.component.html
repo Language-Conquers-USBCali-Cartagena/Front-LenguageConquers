@@ -1,0 +1,92 @@
+<mat-card class="tarjetaPrincipal">
+    <mat-card-content>
+        <mat-card-title>Crear Curso</mat-card-title>
+        <br><br>
+        <form [formGroup]="form" (ngSubmit)="crearCurso()">
+            <div class="entradas">
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Nombre</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="nombre">
+                        <mat-icon matSuffix class="boton">nombre</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Password</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="password">
+                        <mat-icon matSuffix class="boton">descripcion</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Cantidad Estudiantes</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="cantidadEstudiantes">
+                        <mat-icon matSuffix class="boton">cantidadEstudiantes</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label class="titulos">Fecha de Inicio</mat-label>
+                        <input matInput [matDatepicker]="datepicker" formControlName="fechaInicio">
+                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker>
+                            <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Cancel</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label class="titulos">Fecha Fin</mat-label>
+                        <input matInput [matDatepicker]="datepicker" formControlName="fechaFin">
+                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker>
+                            <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Cancel</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Estado</mat-label>
+                        <mat-select formControlName="estado">
+                            <mat-option *ngFor="let estado of estados" [value]="estado">
+                                {{estado.estado}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix class="boton">estado</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Profesor</mat-label>
+                        <mat-select formControlName="profesor">
+                            <mat-option *ngFor="let profesor of profesores" [value]="profesor">
+                                {{profesor.nombre}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix class="boton">curso</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Creador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+                    </mat-form-field>
+                </div>
+                    <div class="boton">
+                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" (click)="crearCurso()">Crear Curso</button>
+                    </div>
+                </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

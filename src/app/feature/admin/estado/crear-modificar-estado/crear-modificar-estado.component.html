@@ -1,0 +1,29 @@
+<mat-card class="tarjetaPrincipal">
+    <mat-card-content>
+        <mat-card-title>Crear Estado</mat-card-title>
+        <br><br>
+        <form [formGroup]="form" (ngSubmit)="crearEstado()">
+            <div class="entradas">
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Estado</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="estado">
+                        <mat-icon matSuffix class="boton">estado</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Creador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+                    </mat-form-field>
+                </div>
+                    <div class="boton">
+                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" (click)="crearEstado()">Crear Estado</button>
+                    </div>
+                </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

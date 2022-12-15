@@ -52,7 +52,7 @@ export class AdminComponent implements OnInit {
     this.router.navigateByUrl('/admin/programa/listar-programa')
   }
   irCursos(){
-    this.router.navigateByUrl('/admin/curos/listar-cursos')
+    this.router.navigateByUrl('/admin/cursos/listar-cursos')
   }
 
 }
