@@ -24,6 +24,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { CrearModificarLogrosComponent } from './logros/crear-modificar-logros/crear-modificar-logros.component';
 import { CrearModificarArticulosComponent } from './articulos/crear-modificar-articulos/crear-modificar-articulos.component';
 import { CrearModificarCategoriaComponent } from './categoria-articulos/crear-modificar-categoria/crear-modificar-categoria.component';
+import { CrearModificarAvatarComponent } from './avatar/crear-modificar-avatar/crear-modificar-avatar.component';
+import { CreaModificarMonedasComponent } from './monedas/crea-modificar-monedas/crea-modificar-monedas.component';
 
 
 const routes: Routes = [
@@ -48,6 +50,10 @@ const routes: Routes = [
             {
                 path: 'avatar/listar-avatar',
                 component: AvatarComponent
+            },
+            {
+                path: 'avatar/crearAvatar',
+                component: CrearModificarAvatarComponent,
             },
             {
                 path: 'categoria-articulos/listar',
@@ -88,6 +94,10 @@ const routes: Routes = [
             {
                 path: 'monedas/listar-monedas',
                 component: MonedasComponent
+            },
+            {
+                path: 'monedas/crearMoneda',
+                component:CreaModificarMonedasComponent,
             },
             {
                 path: 'nivel-mision/listar',

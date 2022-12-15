@@ -1,0 +1,36 @@
+<mat-card class="tarjetaPrincipal">
+    <mat-card-content>
+        <mat-card-title>Crear Moneda</mat-card-title>
+        <br><br>
+        <form [formGroup]="form" (ngSubmit)="crearMoneda()">
+            <div class="entradas">
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">cantidad</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="cantidad">
+                        <mat-icon matSuffix class="boton">dollar</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Imagen Moneda</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="imagenMoneda">
+                        <mat-icon matSuffix class="boton">imagenMoneda</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Creador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+                    </mat-form-field>
+                </div>
+                    <div class="boton">
+                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" (click)="crearMoneda()">Crear Moneda</button>
+                    </div>
+                </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

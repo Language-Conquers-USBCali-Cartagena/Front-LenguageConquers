@@ -67,7 +67,7 @@ export class RetoComponent implements OnInit {
 
     Toast.fire({
       icon: 'success',
-      title: 'El Reto fue eliminado  exitosamente'
+      title: 'El Reto fue eliminado exitosamente'
     })
 
   }

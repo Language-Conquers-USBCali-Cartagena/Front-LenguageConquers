@@ -1,5 +1,5 @@
 export interface Monedas{
-    idMonedas: number;
+    idMonedas?: number;
     cantidad?: number;
     imgMoneda?: string;
     usuarioCreador?:     string;

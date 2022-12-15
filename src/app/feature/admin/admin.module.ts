@@ -27,6 +27,8 @@ import { CrearModificarTipoMisionComponent } from './tipo-mision/crear-modificar
 import { CrearModificarLogrosComponent } from './logros/crear-modificar-logros/crear-modificar-logros.component';
 import { CrearModificarArticulosComponent } from './articulos/crear-modificar-articulos/crear-modificar-articulos.component';
 import { CrearModificarCategoriaComponent } from './categoria-articulos/crear-modificar-categoria/crear-modificar-categoria.component';
+import { CrearModificarAvatarComponent } from './avatar/crear-modificar-avatar/crear-modificar-avatar.component';
+import { CreaModificarMonedasComponent } from './monedas/crea-modificar-monedas/crea-modificar-monedas.component';
 
 
 
@@ -56,6 +58,8 @@ import { CrearModificarCategoriaComponent } from './categoria-articulos/crear-mo
         CrearModificarLogrosComponent,
         CrearModificarArticulosComponent,
         CrearModificarCategoriaComponent,
+        CrearModificarAvatarComponent,
+        CreaModificarMonedasComponent,
 
     ],
     imports: [
