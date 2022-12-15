@@ -12,12 +12,16 @@
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Imagen Moneda</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="imagenMoneda">
-                        <mat-icon matSuffix class="boton">imagenMoneda</mat-icon>
-                    </mat-form-field>
+                    <!-- <mat-form-field appearance="fill">>-->
+                        <!-- <mat-label class="titulos">Imagen Moneda</mat-label>-->
+                        <input type="file" (change)="capturarFile($event)" formControlName="imagenMoneda">
+                       <!-- <mat-icon matSuffix class="boton">imagenMoneda</mat-icon>-->
+                    <!-- </mat-form-field>-->
                 </div>
+                <div class="previsualizacionImg" *ngIf="previsualizacion">
+                  <img [src]="previsualizacion" alt="" width="200px">
+                </div>
+                <br>
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Usuario Creador</mat-label>
