@@ -31,7 +31,7 @@ export class AdminComponent implements OnInit {
     this.router.navigateByUrl('/admin/logros/listar-logros')
   }
   irArticulos(){
-    this.router.navigateByUrl('/admin/articulos/lista-articulos')
+    this.router.navigateByUrl('/admin/articulos/listar-articulos')
   }
   irCategorias(){
     this.router.navigateByUrl('/admin/categoria-articulos/listar')

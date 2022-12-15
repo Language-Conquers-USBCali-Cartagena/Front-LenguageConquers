@@ -1,0 +1,55 @@
+<mat-card class="tarjetaPrincipal">
+    <mat-card-content>
+        <mat-card-title>Crear Articulo</mat-card-title>
+        <br><br>
+        <form [formGroup]="form" (ngSubmit)="crearArticulo()">
+            <div class="entradas">
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Nombre</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="nombre">
+                        <mat-icon matSuffix class="boton">nombre</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Descripción</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="descripcion">
+                        <mat-icon matSuffix class="boton">descripcion</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Precio</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="precio">
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Nivel Valido</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="nivelValido">
+                        <mat-icon matSuffix class="boton">nivelValido</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Imagen Articulo</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="imagenArticulo">
+                        <mat-icon matSuffix class="boton">imagen</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Creador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+                    </mat-form-field>
+                </div>
+                    <div class="boton">
+                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" (click)="crearArticulo()">Crear Articulo</button>
+                    </div>
+                </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,47 @@
+<mat-card class="tarjetaPrincipal">
+    <mat-card-content>
+        <mat-card-title>Crear Categoria de Articulos</mat-card-title>
+        <br><br>
+        <form [formGroup]="form" (ngSubmit)="crearCategoria()">
+            <div class="entradas">
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Nombre</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="nombre">
+                        <mat-icon matSuffix class="boton">nombre</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Descripción</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="descripcion">
+                        <mat-icon matSuffix class="boton">descripcion</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Estado</mat-label>
+                        <mat-select formControlName="estado">
+                            <mat-option *ngFor="let estado of estados" [value]="estado">
+                                {{estado.estado}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix class="boton">estados</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Creador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+                    </mat-form-field>
+                </div>
+                    <div class="boton">
+                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" (click)="crearCategoria()">Crear Articulo</button>
+                    </div>
+                </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

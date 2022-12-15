@@ -22,6 +22,8 @@ import { DocenteComponent } from './usuarios/crear-modificar-usuarios/docente/do
 import { EstudianteComponent } from './usuarios/crear-modificar-usuarios/estudiante/estudiante.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { CrearModificarLogrosComponent } from './logros/crear-modificar-logros/crear-modificar-logros.component';
+import { CrearModificarArticulosComponent } from './articulos/crear-modificar-articulos/crear-modificar-articulos.component';
+import { CrearModificarCategoriaComponent } from './categoria-articulos/crear-modificar-categoria/crear-modificar-categoria.component';
 
 
 const routes: Routes = [
@@ -40,12 +42,20 @@ const routes: Routes = [
                 component: ArticulosComponent
             },
             {
+                path: 'articulos/crearArticulo',
+                component:CrearModificarArticulosComponent,
+            },
+            {
                 path: 'avatar/listar-avatar',
                 component: AvatarComponent
             },
             {
                 path: 'categoria-articulos/listar',
                 component: CategoriaArticulosComponent
+            },
+            {
+                path: 'categoria-articulos/crearCategoria',
+                component:CrearModificarCategoriaComponent,
             },
             {
                 path: 'curos/listar-cursos',

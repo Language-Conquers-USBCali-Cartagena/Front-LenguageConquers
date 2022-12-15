@@ -25,6 +25,8 @@ import { CrearModificarMisionComponent } from './misiones/crear-modificar-mision
 import { CrearModificarNivelMisionComponent } from './nivel-mision/crear-modificar-nivel-mision/crear-modificar-nivel-mision.component';
 import { CrearModificarTipoMisionComponent } from './tipo-mision/crear-modificar-tipo-mision/crear-modificar-tipo-mision.component';
 import { CrearModificarLogrosComponent } from './logros/crear-modificar-logros/crear-modificar-logros.component';
+import { CrearModificarArticulosComponent } from './articulos/crear-modificar-articulos/crear-modificar-articulos.component';
+import { CrearModificarCategoriaComponent } from './categoria-articulos/crear-modificar-categoria/crear-modificar-categoria.component';
 
 
 
@@ -52,6 +54,8 @@ import { CrearModificarLogrosComponent } from './logros/crear-modificar-logros/c
         CrearModificarNivelMisionComponent,
         CrearModificarTipoMisionComponent,
         CrearModificarLogrosComponent,
+        CrearModificarArticulosComponent,
+        CrearModificarCategoriaComponent,
 
     ],
     imports: [
