@@ -1,9 +1,17 @@
 .body{
-  background: url(../../../../assets/images/fondos/fondoHome.png);
+  background-color:rgba(172, 153, 139, 0.87) ;
   background-size: cover;
   background-repeat: no-repeat;
   height: auto;
   align-items: center;
+  padding-left: 1%;
+}
+.banner{
+  background-image: url(../../../../assets/images/fondos/bannerLogros.png);
+  background-size: cover;
+  height:270px;
+  width:1255px;
+  padding-left:-10px;
 }
 .container{
   width: 1030px;
@@ -13,77 +21,124 @@
   padding: 48px;
 
 }
-.categoria-text{
-  margin-left: 5%;
-  font-size:40px;
-  color:white;
-}
 .slider{
-  margin-left: -45%;
+  margin-left: -50%;
   display:flex;
   flex-direction:row;
   flex-wrap: wrap;
 }
-.izq{
-  margin-left:450px;
+.tarjetasPeq{
+  margin-left:35%;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
 }
-.der{
-  margin-right: -550px;
-}
-.izq,.der {
-  margin-top: 135px;
-  position: relative;
-  background-color: transparent;
-  color: black;
-
-}
-
-.example-card {
-  width: 190px;
-  max-height: 250px;
-  margin:10px;
-  text-align: left;
+.cardPeq{
+  width: 150px;
+  height:220px;
+  margin: 10px;
+  text-align: center;
+  align-items: center;
+  border-radius: 30px;
   border-radius: 24px;
-  background: linear-gradient(rgba(18, 23, 29, 0.808),rgb(18,23,29,0.808));
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.437),
+    rgba(255, 255, 255, 0.437)
+  );
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-
+  box-shadow: 0 6px 28px 0 rgba(0, 0, 0, 0.36);
+  transition:0.5s ease-in-out;
 }
-mat-card-content img{
-  float: left;
-  margin-top: -14%;
-  margin-left: 80%;
-  margin-right: 4%;
+.cardPeq:hover{
+  cursor: pointer;
 }
-.producto-img{
-
-  transform: translateX(65px);
-  width:80px;
+.cardPeq:hover mat-card-content{
   height:100px;
+  bottom:-5px;
+  background:rgba(146,129,117, 0.734);
+}
+.cardPeq:hover p{
+  text-align: center;
+  opacity: 1;
+  visibility: visible;
+}
+.cardPeq:hover .imagenArticulo{
+  margin-bottom: 30px;
+  margin-left:5%;
+  transform: rotate(-10deg);
+}
+.imagenArticulo{
+  transform: translate(18px,25px);
+  width:120px;
+  height:115px;
+  vertical-align: middle;
+  transition: 0.5s;
+  margin-bottom: 40px;
+  margin-left:-12px;
   align-items: center;
+}
+.card{
+  width: 220px;
+  height: 130px;
+  margin: 10px;
+  text-align:left;
+  border-radius: 30px;
+  background: linear-gradient(
+  135deg,
+  rgba(255, 255, 255, 0.349),
+  rgba(255, 255, 255, 0.514)
+);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+}
+.mat-card-content{
+  height:50px;
+  width:250px;
+  position: absolute;
+  bottom: 0px;
+  right: 0.1px;
+  left: 0.01px;
+  padding: 16px;
+  box-sizing: border-box;
+  position: absolute;
+  background:rgba(146,129,117, 0.734);
+  color:white;
+  transition: 0.5s;
+  vertical-align: middle !important;
+}
+.mat-card-content p{
+  align-items: center;
+  line-height: 12px;
+  margin-top: 5px;
+  text-align: center;
+  margin-right: 50%;
+  font-size:35px;
+  font-family: Mouse Memoirs;
+}
+.precio{
+  color:white;
+  margin-left:15%;
+  margin-top: -20px;
+
 }
 .precio-img{
   vertical-align: middle !important;
-  transform: translate(-50px, -5px);
+  transform: translate(2px, 5px);
   float: right;
   width:30px;
   height:30px;
-  margin-left: -48%;
-
-}
-.precio{
-  font-size:40px;
-  color:white;
-  margin-left:30%;
-  margin-top: 5px;
-}
-.mat-card-actions{
-  margin-left:15%;
 }
 .botones{
-  width:140px;
-  height:40px;
+  margin-bottom: -265px;
+  width:120px;
+  height:30px;
+  margin-left: 15px;
   color: rgb(254,254,231);
   border-radius: 20px;
   background-color: rgb(85, 183, 232);

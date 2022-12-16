@@ -1,29 +1,37 @@
 <div class="fondo">
   <mat-toolbar class="color" type="checkbox" id="nav-check">
-      <img src="./assets/images/LogoV1.png" alt="logo" >
+    <img src="./assets/images/LogoV1.png" alt="logo">
   </mat-toolbar>
-<div class="card" *ngIf="user$ | async as user; else loading">
-  <div class = "crearUsuario">
+  <div class="card" *ngIf="user$ | async as user; else loading">
+    <div class="crearUsuario">
       <mat-card class="fondoTarjeta">
-        <mat-card-title class="titulo">Registrar Usuario</mat-card-title>
-          <mat-card-content>
+        <mat-grid-list cols="2" rowHeight="695px" rowWidth="900px">
+          <mat-grid-tile class="imagenizq">
+            <div>
+              <img src="../../../../../assets/images/fondos/FondoRegistro.jpg" class="imagenLado">
+            </div>
+          </mat-grid-tile>
+          <mat-card-title class="titulo">Registrar Usuario</mat-card-title>
+          <br>
+          <mat-grid-tile>
+            <mat-card-content>
               <mat-tab-group mat-align-tabs="center">
-                  <mat-tab class="titulos" label="Estudiante">
-                      <app-formulario-estudiante></app-formulario-estudiante>
-                      <br><br><br><br><br><br><br><br><br><br>
-                  </mat-tab>
-                  <mat-tab class="titulos" label="Profesor">
-                      <app-formulario-profesor></app-formulario-profesor>
-                      <br><br><br><br><br><br><br><br><br><br>
-                  </mat-tab>
+                <mat-tab class="titulos" label="Estudiante">
+                  <app-formulario-estudiante></app-formulario-estudiante>
+                  <br><br><br><br><br><br><br><br><br><br>
+                </mat-tab>
+                <mat-tab class="titulos" label="Profesor">
+                  <app-formulario-profesor></app-formulario-profesor>
+                  <br><br><br><br><br><br><br><br><br><br>
+                </mat-tab>
               </mat-tab-group>
-          </mat-card-content>
+            </mat-card-content>
+          </mat-grid-tile>
+        </mat-grid-list>
       </mat-card>
+    </div>
   </div>
+  <ng-template #loading>
+    loading...
+  </ng-template>
 </div>
-<ng-template #loading>
-  loading...
-</ng-template>
-</div>
-
-

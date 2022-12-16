@@ -16,7 +16,7 @@ export class ProgramaComponent implements OnInit {
 
   listaProgramas: Programa[] = [];
   displayedColumns: string[] = ['id', 'nombre', 'usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<Programa>;
+  dataSource= new MatTableDataSource<Programa>(this.listaProgramas);
   id: string | null | undefined;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -34,7 +34,10 @@ export class ProgramaComponent implements OnInit {
     this.router.navigateByUrl('admin/programa/crearPrograma');
   }
   cargarProgramas() {
-    this.dataSource = new MatTableDataSource(this.listaProgramas);
+    this.programaService.getProgramas().subscribe(data =>{
+      this.listaProgramas = data;
+      this.dataSource.data = this.listaProgramas;
+    });
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

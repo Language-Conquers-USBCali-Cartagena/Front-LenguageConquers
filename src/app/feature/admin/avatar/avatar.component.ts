@@ -16,7 +16,7 @@ export class AvatarComponent implements OnInit {
 
   listaAvatares: Avatar[] = [];
   displayedColumns: string[] = ['id', 'nombre', 'imagenAvatar','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<Avatar>;
+  dataSource= new MatTableDataSource<Avatar>(this.listaAvatares);
   id: string | null | undefined;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -30,7 +30,10 @@ export class AvatarComponent implements OnInit {
     this.cargarAvatares();
   }
   cargarAvatares() {
-    this.dataSource = new MatTableDataSource(this.listaAvatares);
+    this.avatarService.getAvatar().subscribe(resp=>{
+      this.listaAvatares = resp;
+      this.dataSource.data = this.listaAvatares;
+    });
   }
   registrarAvatar(){
     this.router.navigateByUrl('admin/avatar/crearAvatar');

@@ -4,7 +4,7 @@
 }
 
 .fondoTarjeta {
-  width: 40em;
+  width: 70em;
   height: 600px;
   margin: 10px auto;
   margin-bottom: -40px;
@@ -34,11 +34,12 @@
   color: rgb(255, 255, 255);
   text-align: center;
   height: 30px;
+  margin-left: 510px;
 }
 
 
 .fondo {
-  background-image: url(../../../../../assets/images/fondos/FondoRegistro.jpg);
+  background-color: rgba(36, 28, 25, 0.918);
   background-repeat: no-repeat;
   background-size: cover;
   height: 920px;
@@ -61,7 +62,7 @@ h1 {
 .color {
   height: 120px;
   align-items: center;
-  padding-left: 45%;
+  padding-left: 40%;
   background-color: rgba(36, 28, 25, 0);
   opacity: 0.9;
 
@@ -72,51 +73,14 @@ img {
   height: 100px;
   align-items: center;
 }
-
-@media screen and (max-width: 600px) {
-  .fondo {
-    background-image: url(../../../../../assets/images/fondos/FondoRegistro.jpg);
-    background-repeat: repeat;
-
-    height: 900px;
-    width: 400px;
-  }
-
-  .fondoTarjeta {
-    width: 20em;
-    height: 40em;
-    margin: 10px auto;
-    font-family: Mouse Memoirs;
-    /*Efectoespejo*/
-    padding: 1em;
-    border-radius: 5px;
-    background: rgba(0, 0, 0, 0.176);
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+.imagenizq{
+  margin-top:-43px;
+  margin-bottom:250px;
+  margin-left:-50px;
+  width:800px;
+  height:715px;
 }
-
-  a {
-    margin-left: 140px;
-    margin-top: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-  }
-
-  h1 {
-    font-size: 45px;
-    margin: 0 10px;
-  }
-
-  .color {
-    height: 50px;
-
-  }
-
-  img {
-    width: auto;
-    height: 50px;
-  }
+.imagenLado{
+  width: 800px;
+  height: 735px;
 }

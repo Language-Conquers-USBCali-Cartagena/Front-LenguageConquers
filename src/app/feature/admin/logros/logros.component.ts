@@ -15,8 +15,8 @@ import Swal from 'sweetalert2';
 export class LogrosComponent implements OnInit {
 
   listaLogros: Logros[] = [];
-  displayedColumns: string[] = ['id', 'nombre', 'descripción', 'imagenLogro', 'usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<Logros>;
+  displayedColumns: string[] = ['id', 'imagenLogro', 'nombre','descripción',  'usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
+  dataSource= new MatTableDataSource<Logros>(this.listaLogros);
   id!: string | null;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -29,8 +29,12 @@ export class LogrosComponent implements OnInit {
   ngOnInit(): void {
     this.cargarLogros();
   }
+
   cargarLogros() {
-    this.dataSource = new MatTableDataSource(this.listaLogros);
+    this.logrosService.getLogros().subscribe(result =>{
+      this.listaLogros = result;
+      this.dataSource.data = this.listaLogros;
+    });
   }
   registrarLogros(){
     this.router.navigateByUrl('admin/logros/Crearlogros')

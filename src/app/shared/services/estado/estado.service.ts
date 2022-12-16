@@ -12,6 +12,6 @@ export class EstadoService {
   constructor(private http: HttpClient) { }
 
   getEstados(): Observable<Estado[]>{
-    return this.http.get<Estado[]>(`${environment.endpoint}/estado`)
+    return this.http.get<Estado[]>(`${environment.endpoint}/estados`)
   }
 }

@@ -16,7 +16,7 @@ export class EstadoComponent implements OnInit {
 
   listaEstados: Estado[] = [];
   displayedColumns: string[] = ['id', 'estado','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<Estado>;
+  dataSource= new MatTableDataSource<Estado>(this.listaEstados);
   id!: string | null;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -34,7 +34,10 @@ export class EstadoComponent implements OnInit {
     this.router.navigateByUrl('admin/estado/crearEstado');
   }
   cargarEstados() {
-    this.dataSource = new MatTableDataSource(this.listaEstados);
+    this.estadoService.getEstados().subscribe(resp =>{
+      this.listaEstados = resp;
+      this.dataSource.data = this.listaEstados;
+    });
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
