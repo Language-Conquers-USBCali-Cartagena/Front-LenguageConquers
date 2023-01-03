@@ -89,3 +89,15 @@
     font-size: 20px;
 
   }
+  .subir{
+    padding: 5px 10px;
+    background: #f55d3e;
+    color:#fff;
+    border:0px solid #fff;
+    cursor: pointer;
+}
+
+.subir:hover{
+    color:#fff;
+    background: rgb(201,131,69);
+}

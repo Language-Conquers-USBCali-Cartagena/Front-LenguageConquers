@@ -15,4 +15,8 @@ export class ProgramaService {
     return this.http.get<Programa[]>(`${environment.endpoint}/programa`)
   }
 
+  public consultarPorId(id: string): Observable<any>{
+    return this.http.get<Programa>(`${URL}/Id/${id}`);
+  }
+
 }

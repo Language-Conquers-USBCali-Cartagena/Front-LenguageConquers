@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Programa } from 'src/app/shared/models/programa';
+import { ProgramaService } from 'src/app/shared/services/programa/programa.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,11 +13,13 @@ import Swal from 'sweetalert2';
 export class CrearModificarProgramaComponent implements OnInit {
 
   form!: UntypedFormGroup;
-  constructor(private fb: UntypedFormBuilder,private router:Router) {
+  programa!: Programa;
+  constructor(private fb: UntypedFormBuilder,private router:Router,  private activatedRoute: ActivatedRoute, private programaService:ProgramaService) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
+      usuarioModificador: ['', Validators.required]
     })
    }
 
@@ -36,6 +39,28 @@ export class CrearModificarProgramaComponent implements OnInit {
       timer: 1500
     })
 
+  }
+
+  setPrograma(programa: Programa){
+    this.form.setValue({
+      nombre: programa.nombre,
+      usuarioCreador: programa.usuarioCreador,
+      usuarioModificador: programa.usuarioModificador
+    });
+  }
+
+  cargarPrograma(){
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        const id = params['id'];
+        if ( id ) {
+          this.programaService.consultarPorId(id).subscribe((data) => {
+            this.programa = data;
+            this.setPrograma(this.programa);
+          });
+        }
+      }
+    );
   }
 
   atras(){

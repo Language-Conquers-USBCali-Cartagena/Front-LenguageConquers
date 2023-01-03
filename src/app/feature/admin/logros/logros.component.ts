@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class LogrosComponent implements OnInit {
 
+
   listaLogros: Logros[] = [];
   displayedColumns: string[] = ['id', 'imagenLogro', 'nombre','descripción',  'usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
   dataSource= new MatTableDataSource<Logros>(this.listaLogros);
@@ -52,6 +53,7 @@ export class LogrosComponent implements OnInit {
     }
   }
 
+  
   eliminarLogro(index:number){
     this.cargarLogros();
 

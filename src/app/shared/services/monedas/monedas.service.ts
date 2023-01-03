@@ -13,4 +13,8 @@ export class MonedasService {
   getMoneda(): Observable<Monedas[]> {
     return this.http.get<Monedas[]>(`${environment.endpoint}/moneda`)
   }
+
+  public consultarPorId(id: string): Observable<any>{
+    return this.http.get<Monedas>(`${URL}/Id/${id}`);
+  }
 }

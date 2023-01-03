@@ -50,32 +50,6 @@ form {
   font-size: 20px;
 
 }
-@media screen and (max-width: 600px) {
-  .entradas {
-      margin-left: 0;
-      grid-template-columns: repeat(2, 10em);
-      justify-content: start;
-
-  }
-
-  form {
-      height: 350px;
-      width: auto;
-  }
-
-  .boton {
-      margin: 1px;
-      position: relative;
-      margin-left: -50px;
-
-  }
-
-  .mat-form-field-infix {
-      display: block;
-      position: relative;
-      flex: auto;
-      min-width: 0;
-      width: 104px;
-  }
-
+input{
+  font-size: 20px;
 }

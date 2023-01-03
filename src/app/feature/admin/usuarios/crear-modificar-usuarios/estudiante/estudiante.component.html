@@ -1,7 +1,7 @@
 <mat-card class="tarjetaPrincipal">
   <mat-card-content>
     <mat-card-title>Registrar Estudiante</mat-card-title>
-    <br><br>
+    <br>
     <form [formGroup]="form" (ngSubmit)="crearEstudiante()">
       <div class="entradas">
         <div class="campo-entrada">
@@ -71,7 +71,14 @@
           </mat-datepicker>
         </mat-form-field>
         </div>
-        <br><br><br><br><br><br><br><br>
+        <div class="campo-entrada" *ngIf="esActualizar">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Usuario Modificador</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="modificador" class="ancho">
+            <mat-icon matSuffix class="boton">name</mat-icon>
+          </mat-form-field>
+        </div>
+        <br><br><br><br>
         <div class="carrousel">
           <div class="car">
             <div class="izq"><a type="submit" (click)="pasarIzq()"><mat-icon>keyboard_arrow_left</mat-icon></a></div>
@@ -85,7 +92,10 @@
         <br><br><br>
         <div  class="boton">
           <button mat-raised-button class="botones" (click)="atras()">Atras</button>
-          <button mat-raised-button class="botones" (click)="crearEstudiante()">Crear Estudiante</button>
+          <button mat-raised-button class="botones" (click)="crearEstudiante()" *ngIf="!estudiante else botonEditar">Crear Estudiante</button>
+          <ng-template #botonEditar>
+            <button mat-raised-button class="botones2" (click)="crearEstudiante()">Actualizar</button>
+          </ng-template>
         </div>
         </div>
       </div>

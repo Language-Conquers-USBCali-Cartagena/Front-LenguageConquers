@@ -86,8 +86,16 @@
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Usuario Creador</mat-label>
                         <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
                     </mat-form-field>
                 </div>
+                <div class="campo-entrada">
+                  <mat-form-field appearance="fill">
+                      <mat-label class="titulos">Usuario Modificador</mat-label>
+                      <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
+                      <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+                  </mat-form-field>
+              </div>
                     <div class="boton">
                         <button mat-raised-button class="botones" (click)="atras()">Atras</button>
                         <button mat-raised-button class="botones" (click)="crearReto()">Crear Reto</button>

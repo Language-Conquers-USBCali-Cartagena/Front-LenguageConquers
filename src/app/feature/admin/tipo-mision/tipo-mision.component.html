@@ -46,7 +46,7 @@
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-              <a  class="botones" [routerLink]="['/tipo-mision/editarTipoMision/',element.numero_identificacion]" style="color:rgb(19, 12, 59)" matTooltip="Editar TipoMision">
+              <a  class="botones" [routerLink]="['/tipo-mision/editarTipoMision/',element.idTipoMision]" style="color:rgb(19, 12, 59)" matTooltip="Editar TipoMision">
                 <mat-icon>edit</mat-icon>
               </a>
               <a  class="botones" (click)="eliminarTipoMision(i)" style="color:rgb(224, 26, 26)" matTooltip="Eliminar TipoMision">

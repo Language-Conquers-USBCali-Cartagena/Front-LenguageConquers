@@ -12,9 +12,26 @@
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada">
+                  <mat-form-field appearance="fill">
+                      <mat-label class="titulos">Usuario Creador</mat-label>
+                      <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+                      <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+                  </mat-form-field>
+              </div>
+              <div class="campo-entrada">
+                <mat-form-field appearance="fill">
+                    <mat-label class="titulos">Usuario Modificador</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
+                    <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+                </mat-form-field>
+            </div>
+                <div class="campo-entrada">
                     <!-- <mat-form-field appearance="fill">>-->
-                        <!-- <mat-label class="titulos">Imagen Moneda</mat-label>-->
-                        <input type="file" (change)="capturarFile($event)" formControlName="imagenMoneda">
+                      <input type="file" class="botoCarga" (change)="capturarFile($event)" id="archivo" formControlName="imagenMoneda" style='display: none;'>
+                      <mat-label class="subir" id="archivo">
+                        <i class="fas fa-cloud-upload-alt"></i> Subir archivo
+                      </mat-label>
+
                        <!-- <mat-icon matSuffix class="boton">imagenMoneda</mat-icon>-->
                     <!-- </mat-form-field>-->
                 </div>
@@ -22,13 +39,7 @@
                   <img [src]="previsualizacion" alt="" width="200px">
                 </div>
                 <br>
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Usuario Creador</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
-                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
-                    </mat-form-field>
-                </div>
+
                     <div class="boton">
                         <button mat-raised-button class="botones" (click)="atras()">Atras</button>
                         <button mat-raised-button class="botones" (click)="crearMoneda()">Crear Moneda</button>

@@ -14,4 +14,9 @@ export class LogrosService {
   getLogros():Observable<Logros[]>{
     return this.http.get<Logros[]>(`${environment.endpoint}/logro`)
   }
+
+  public consultarPorId(id: string): Observable<any>{
+    return this.http.get<Logros>(`${URL}/Id/${id}`);
+  }
+
 }

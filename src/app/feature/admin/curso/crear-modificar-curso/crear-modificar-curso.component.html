@@ -14,8 +14,10 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Password</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="password">
-                        <mat-icon matSuffix class="boton">descripcion</mat-icon>
+                        <input [type]="hide ? 'password' : 'text'" matInput autocomplete="off" formControlName="password">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada">
@@ -51,6 +53,13 @@
                         </mat-datepicker>
                     </mat-form-field>
                 </div>
+                <div class="campo-entrada">
+                  <mat-form-field appearance="fill">
+                      <mat-label class="titulos">Progreso</mat-label>
+                      <input type="number" matInput autocomplete="off" formControlName="progreso" placeholder="Ingrese el valor en porcentaje">
+                      <mat-icon matSuffix class="boton">progreso</mat-icon>
+                  </mat-form-field>
+              </div>
 
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
@@ -81,6 +90,13 @@
                         <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
                     </mat-form-field>
                 </div>
+                <div class="campo-entrada">
+                  <mat-form-field appearance="fill">
+                      <mat-label class="titulos">Usuario Modificador</mat-label>
+                      <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
+                      <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+                  </mat-form-field>
+              </div>
                     <div class="boton">
                         <button mat-raised-button class="botones" (click)="atras()">Atras</button>
                         <button mat-raised-button class="botones" (click)="crearCurso()">Crear Curso</button>

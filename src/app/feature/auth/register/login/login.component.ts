@@ -150,7 +150,7 @@ export class LoginComponent implements OnInit {
       input: 'email',
       inputLabel: 'Ingrese la dirección de correo electronico asociado a la cuenta de Language Conquers',
       inputPlaceholder: 'Email',
-      confirmButtonColor: '#33b5e5',
+      confirmButtonColor: '#c98345',
     })
 
 

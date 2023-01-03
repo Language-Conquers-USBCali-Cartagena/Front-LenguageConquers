@@ -14,4 +14,11 @@ export class EstadoService {
   getEstados(): Observable<Estado[]>{
     return this.http.get<Estado[]>(`${environment.endpoint}/estados`)
   }
+
+
+  public consultarPorId(id: string): Observable<any>{
+    return this.http.get<Estado>(`${URL}/Id/${id}`);
+  }
+
+
 }

@@ -13,4 +13,8 @@ export class RetoService {
   getReto():Observable<Reto[]>{
     return this.http.get<Reto[]>(`${environment.endpoint}/reto`)
   }
+
+  public consultarPorId(id: string): Observable<any>{
+    return this.http.get<Reto>(`${URL}/Id/${id}`);
+  }
 }

@@ -73,4 +73,8 @@ export class AvatarComponent implements OnInit {
 
   }
 
+  actualizarAvatar(idAvatar:number){
+    this.router.navigate(['/admin/avatar/editarAvatar/',idAvatar]);
+  }
+
 }

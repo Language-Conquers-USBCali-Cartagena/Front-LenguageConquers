@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Monedas } from 'src/app/shared/models/monedas';
 import Swal from 'sweetalert2';
+import { MonedasService } from '../../../../shared/services/monedas/monedas.service';
 
 @Component({
   selector: 'app-crea-modificar-monedas',
@@ -15,12 +16,14 @@ export class CreaModificarMonedasComponent implements OnInit {
   form!: UntypedFormGroup;
   archivos!: any[];
   previsualizacion!: string;
-  constructor(private fb: UntypedFormBuilder,private router:Router, private sanitizer: DomSanitizer) {
+  moneda!: Monedas;
+  constructor(private fb: UntypedFormBuilder,private router:Router, private sanitizer: DomSanitizer,  private activatedRoute: ActivatedRoute, private monedaService: MonedasService) {
     this.form = this.fb.group({
       cantidad: ['', Validators.required],
       imagenMoneda: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
+      usuarioModificador: ['', Validators.required]
     })
   }
 
@@ -52,6 +55,10 @@ export class CreaModificarMonedasComponent implements OnInit {
     this.archivos = archivoCapturado;
     console.log(this.archivos)
     //this.archivos.push(archivoCapturado);
+    /**
+     * var pdrs = document.getElementById('file-upload').files[0].name;
+    document.getElementById('info').innerHTML = pdrs;
+     */
 
   }
   extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
@@ -76,6 +83,31 @@ export class CreaModificarMonedasComponent implements OnInit {
       return null;
     }
   })
+
+
+  setMoneda(moneda: Monedas) {
+    this.form.setValue({
+      cantidad: moneda.cantidad,
+      imagen: moneda.imgMoneda,
+      usuarioCreador: moneda.usuarioCreador,
+      usuarioModificador: moneda.usuarioModificador
+    });
+  }
+
+  cargarMoneda(){
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        const id = params['id'];
+        if ( id ) {
+          this.monedaService.consultarPorId(id).subscribe((data) => {
+            this.moneda = data;
+            this.setMoneda(this.moneda);
+          });
+        }
+      }
+    );
+  }
+
 
   atras(){
     this.router.navigateByUrl('/admin/moneda/listar-monedas');

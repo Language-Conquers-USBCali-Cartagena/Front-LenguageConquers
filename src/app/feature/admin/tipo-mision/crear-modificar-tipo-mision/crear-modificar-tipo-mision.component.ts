@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TipoMision } from 'src/app/shared/models/tipoMision';
 import Swal from 'sweetalert2';
+import { TipoMisionService } from '../../../../shared/services/tipoMision/tipo-mision.service';
 
 @Component({
   selector: 'app-crear-modificar-tipo-mision',
@@ -12,11 +13,13 @@ import Swal from 'sweetalert2';
 export class CrearModificarTipoMisionComponent implements OnInit {
 
   form!: UntypedFormGroup;
-  constructor(private fb: UntypedFormBuilder,private router:Router) {
+  tipoMision!: TipoMision;
+  constructor(private fb: UntypedFormBuilder,private router:Router,  private activatedRoute: ActivatedRoute, private tipoMisionService: TipoMisionService) {
     this.form = this.fb.group({
       descripcion: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
+      usuarioModificador: ['', Validators.required]
     })
    }
 
@@ -35,6 +38,28 @@ export class CrearModificarTipoMisionComponent implements OnInit {
       timer: 1500
     })
 
+  }
+
+  setTipoMision(tipoMision: TipoMision) {
+    this.form.setValue({
+      descripcion: tipoMision.descripcion,
+      usuarioCreador: tipoMision.usuarioCreador,
+      usuarioModificador: tipoMision.usuarioModificador
+    });
+  }
+
+  cargarLogro(){
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        const id = params['id'];
+        if ( id ) {
+          this.tipoMisionService.consultarPorId(id).subscribe((data) => {
+            this.tipoMision = data;
+            this.setTipoMision(this.tipoMision);
+          });
+        }
+      }
+    );
   }
 
 

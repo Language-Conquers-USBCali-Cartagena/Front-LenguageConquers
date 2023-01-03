@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Curso } from 'src/app/shared/models/curso';
 import { Estado } from 'src/app/shared/models/estado';
 import { Mision } from 'src/app/shared/models/mision';
@@ -15,6 +15,7 @@ import { MonedasService } from 'src/app/shared/services/monedas/monedas.service'
 import { NivelMisionService } from 'src/app/shared/services/nivelMision/nivel-mision.service';
 import { TipoMisionService } from 'src/app/shared/services/tipoMision/tipo-mision.service';
 import Swal from 'sweetalert2';
+import { RetoService } from '../../../../shared/services/reto/reto.service';
 
 @Component({
   selector: 'app-crear-registrar',
@@ -24,11 +25,12 @@ import Swal from 'sweetalert2';
 export class CrearRegistrarComponent implements OnInit {
 
   form!: UntypedFormGroup;
+  reto!: Reto;
   misiones: Mision[] = [];
   cursos: Curso[] = [];
   estados:Estado[] = [];
 
-  constructor(private fb: UntypedFormBuilder, private misionService: MisionService , private cursoService: CursoService,private estadoService: EstadoService,private router:Router) {
+  constructor(private fb: UntypedFormBuilder, private misionService: MisionService , private cursoService: CursoService,private estadoService: EstadoService,private router:Router, private activatedRoute: ActivatedRoute, private retoService: RetoService) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
       descripcion: ['', Validators.required],
@@ -40,6 +42,7 @@ export class CrearRegistrarComponent implements OnInit {
       estado: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
+      usuarioModificador: ['', Validators.required]
     })
    }
 
@@ -82,6 +85,34 @@ export class CrearRegistrarComponent implements OnInit {
 
   }
 
+  setReto(reto: Reto) {
+    this.form.setValue({
+      nombre: reto.nombre,
+      descripcion: reto.descripcion,
+      intentos: reto.intentos,
+      fechaInicio: reto.fechaInicio,
+      fechaLimite: reto.fechaLimite,
+      mision: reto.idReto,
+      estado: reto.idEstado,
+      curso: reto.idCurso,
+      usuarioCreador: reto.usuarioCreador,
+      usuarioModificador: reto.usuarioModificador
+    });
+  }
+
+  cargarReto(){
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        const id = params['id'];
+        if ( id ) {
+          this.retoService.consultarPorId(id).subscribe((data) => {
+            this.reto = data;
+            this.setReto(this.reto);
+          });
+        }
+      }
+    );
+  }
 
   atras(){
     this.router.navigateByUrl('/admin/reto/listar-retos');

@@ -81,7 +81,7 @@
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-              <a  class="botones" [routerLink]="['/reto/editarReto/',element.numero_identificacion]" style="color:rgb(19, 12, 59)" matTooltip="Editar Reto">
+              <a  class="botones" [routerLink]="['/reto/editarReto/',element.idReto]" style="color:rgb(19, 12, 59)" matTooltip="Editar Reto">
                 <mat-icon>edit</mat-icon>
               </a>
               <a  class="botones" (click)="eliminarReto(i)" style="color:rgb(224, 26, 26)" matTooltip="Eliminar Reto">

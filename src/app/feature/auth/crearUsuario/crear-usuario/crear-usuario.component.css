@@ -79,8 +79,10 @@ img {
   margin-left:-50px;
   width:800px;
   height:715px;
+  border-radius: 24px;
 }
 .imagenLado{
   width: 800px;
   height: 735px;
+
 }

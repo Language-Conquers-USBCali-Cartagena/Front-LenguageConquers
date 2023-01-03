@@ -13,4 +13,9 @@ export class MisionService {
   getMision():Observable<Mision[]>{
     return this.http.get<Mision[]>(`${environment.endpoint}/mision`)
   }
+
+  public consultarPorId(id: string): Observable<any>{
+    return this.http.get<Mision>(`${URL}/Id/${id}`);
+  }
+
 }

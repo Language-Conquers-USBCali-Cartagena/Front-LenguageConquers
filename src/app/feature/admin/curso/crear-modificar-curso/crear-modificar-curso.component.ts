@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Curso } from 'src/app/shared/models/curso';
 import { Estado } from 'src/app/shared/models/estado';
 import { Profesor } from 'src/app/shared/models/profesor';
 import { EstadoService } from 'src/app/shared/services/estado/estado.service';
 import Swal from 'sweetalert2';
 import { ProfesorService } from '../../../../shared/services/profesor/profesor.service';
+import { CursoService } from 'src/app/shared/services/curso/curso.service';
 
 @Component({
   selector: 'app-crear-modificar-curso',
@@ -16,10 +17,12 @@ import { ProfesorService } from '../../../../shared/services/profesor/profesor.s
 export class CrearModificarCursoComponent implements OnInit {
 
   form!: UntypedFormGroup;
+  hide = true;
+  curso!: Curso;
   profesores :Profesor[] = [];
   estados:Estado[] = [];
 
-  constructor(private fb: UntypedFormBuilder, private estadoService: EstadoService,private profesorService: ProfesorService, private router:Router) {
+  constructor(private fb: UntypedFormBuilder, private estadoService: EstadoService,private profesorService: ProfesorService, private router:Router, private cursoService: CursoService,  private activatedRoute: ActivatedRoute) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
       password: ['', Validators.required],
@@ -31,6 +34,7 @@ export class CrearModificarCursoComponent implements OnInit {
       estado: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
+      usuarioModificador: ['', Validators.required]
     })
    }
 
@@ -66,6 +70,35 @@ export class CrearModificarCursoComponent implements OnInit {
       timer: 1500
     })
 
+  }
+
+  setCurso(curso: Curso) {
+    this.form.setValue({
+      nombre: curso.nombre,
+      password: curso.password,
+      cantidadEstudiantes: curso.cantidadEstudiantes,
+      fechaInicio: curso.inicioCurso,
+      fechaFin: curso.finCurso,
+      progreso: curso.progreso,
+      estado: curso.idEstado,
+      profesor: curso.idProfesor,
+      usuarioCreador: curso.usuarioCreador,
+      usuarioModificador: curso.usuarioModificador
+    });
+  }
+
+  cargarCurso(){
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        const id = params['id'];
+        if ( id ) {
+          this.cursoService.consultarPorId(id).subscribe((data) => {
+            this.curso = data;
+            this.setCurso(this.curso);
+          });
+        }
+      }
+    );
   }
 
 

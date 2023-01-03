@@ -13,15 +13,18 @@ import Swal from 'sweetalert2';
 })
 export class DocenteComponent implements OnInit {
 
+  profesor!: Profesor;
   form!: UntypedFormGroup;
   generos: Genero[] = [];
   correo: string = '';
+  esActualizar:boolean=true;
 
   constructor(private fb: UntypedFormBuilder, private generoService: GeneroService, private router: Router) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
       apellido: ['', Validators.required],
       genero: ['', Validators.required],
+      
     })
    }
 
@@ -49,6 +52,9 @@ crearProfesor(){
     showConfirmButton: false,
     timer: 1500
   })
+}
+actualizar(){
+
 }
 
 atras(){

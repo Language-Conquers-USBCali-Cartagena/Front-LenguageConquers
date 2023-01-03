@@ -1,42 +1,54 @@
 <mat-card class="tarjetaPrincipal">
   <mat-card-content>
     <mat-card-title>Registrar Docente</mat-card-title>
-    <br><br>
+    <br>
     <form [formGroup]="form" (ngSubmit)="crearProfesor()">
       <div class="entradas">
-        <br>
-      <div>
-          <mat-form-field class="anchoField" appearance="fill">
-              <mat-label class="titulos">Nombre</mat-label>
-              <input type="text" matInput autocomplete="off" formControlName="nombre">
-              <mat-icon matSuffix >name</mat-icon>
-          </mat-form-field>
-      </div>
-      <div>
-          <mat-form-field class="anchoField" appearance="fill">
-              <mat-label class="titulos">Apellido</mat-label>
-              <input type="text" matInput autocomplete="off" formControlName="apellido">
-              <mat-icon matSuffix >lastname</mat-icon>
-          </mat-form-field>
-      </div>
+        <div>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Nombre del profesor</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="nombre" class="ancho">
+              <mat-icon matSuffix class="boton">name</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Apellidos</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="apellidos" class="ancho">
+              <mat-icon matSuffix class="boton">name</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div>
+          <mat-form-field class="campo-entrada" appearance="fill">
+            <mat-label class="titulos">Genero</mat-label>
 
-      <div>
-          <mat-form-field class="anchoField" appearance="fill">
-              <mat-label class="titulos">Genero</mat-label>
-
-              <mat-select formControlName="genero">
-                  <mat-option *ngFor="let genero of generos" [value]="genero">
-                      {{genero.genero}}
-                  </mat-option>
-              </mat-select>
-              <mat-icon matSuffix >gender</mat-icon>
+            <mat-select formControlName="genero">
+              <mat-option *ngFor="let genero of generos" [value]="genero">
+                {{genero.genero}}
+              </mat-option>
+            </mat-select>
+            <mat-icon matSuffix>gender</mat-icon>
           </mat-form-field>
+        </div>
+        <div class="campo-entrada" *ngIf="esActualizar">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Usuario Modificador</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="modificador" class="ancho">
+            <mat-icon matSuffix class="boton">name</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="boton">
+          <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+          <button mat-raised-button class="botones" *ngIf="!profesor else botonEditar">Crear Profesor</button>
+          <ng-template #botonEditar>
+            <button mat-raised-button class="botones2" (click)="actualizar()">Actualizar</button>
+          </ng-template>
+        </div>
       </div>
-      <div class="boton">
-        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
-        <button mat-raised-button  class="botones">Crear Profesor</button>
-      </div>
-    </div>
 
     </form>
 

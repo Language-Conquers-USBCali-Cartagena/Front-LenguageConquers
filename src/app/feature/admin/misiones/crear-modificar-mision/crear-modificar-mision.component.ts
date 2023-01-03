@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Curso } from 'src/app/shared/models/curso';
 import { Estado } from 'src/app/shared/models/estado';
 import { Mision } from 'src/app/shared/models/mision';
@@ -12,6 +12,7 @@ import { MonedasService } from 'src/app/shared/services/monedas/monedas.service'
 import { NivelMisionService } from 'src/app/shared/services/nivelMision/nivel-mision.service';
 import { TipoMisionService } from 'src/app/shared/services/tipoMision/tipo-mision.service';
 import Swal from 'sweetalert2';
+import { MisionService } from '../../../../shared/services/mision/mision.service';
 
 @Component({
   selector: 'app-crear-modificar-mision',
@@ -21,13 +22,14 @@ import Swal from 'sweetalert2';
 export class CrearModificarMisionComponent implements OnInit {
 
   form!: UntypedFormGroup;
+  mision!:Mision;
   tipoMisiones: TipoMision[] = [];
   nivelMisiones: NivelMision[] = [];
   monedas: Monedas[] = [];
   cursos: Curso[] = [];
   estados:Estado[] = [];
 
-  constructor(private fb: UntypedFormBuilder, private tipoMisionService: TipoMisionService, private nivelMisionService: NivelMisionService, private monedasService: MonedasService,private cursoService: CursoService, private router:Router) {
+  constructor(private fb: UntypedFormBuilder, private tipoMisionService: TipoMisionService, private nivelMisionService: NivelMisionService, private monedasService: MonedasService,private cursoService: CursoService, private router:Router,  private activatedRoute: ActivatedRoute, private misionService: MisionService) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
       nivelMision: ['', Validators.required],
@@ -36,6 +38,7 @@ export class CrearModificarMisionComponent implements OnInit {
       monedas: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
+      usuarioModificador: ['', Validators.required]
     })
    }
 
@@ -75,6 +78,32 @@ export class CrearModificarMisionComponent implements OnInit {
       timer: 1500
     })
 
+  }
+
+  setMision(mision: Mision) {
+    this.form.setValue({
+      nombre: mision.nombre,
+      nivelMision: mision.idNivelMision,
+      tipoMision: mision.idTipoMision,
+      curso: mision.idCurso,
+      monedas: mision.idMonedas,
+      usuarioCreador: mision.usuarioCreador,
+      usuarioModificador: mision.usuarioModificador
+    });
+  }
+
+  cargarMision(){
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        const id = params['id'];
+        if ( id ) {
+          this.misionService.consultarPorId(id).subscribe((data) => {
+            this.mision = data;
+            this.setMision(this.mision);
+          });
+        }
+      }
+    );
   }
 
 

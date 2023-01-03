@@ -76,7 +76,7 @@
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-              <a  class="botones" [routerLink]="['/articulos/editarArticulo/',element.numero_identificacion]" style="color:rgb(19, 12, 59)" matTooltip="Editar Articulo">
+              <a  class="botones" [routerLink]="['/articulos/editarArticulo/',element.idArticulo]" style="color:rgb(19, 12, 59)" matTooltip="Editar Articulo">
                 <mat-icon>edit</mat-icon>
               </a>
               <a  class="botones" (click)="eliminarArticulo(i)" style="color:rgb(224, 26, 26)" matTooltip="Eliminar Articulo">

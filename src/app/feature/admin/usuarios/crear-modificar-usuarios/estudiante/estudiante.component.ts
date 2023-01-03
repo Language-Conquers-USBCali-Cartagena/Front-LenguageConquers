@@ -21,6 +21,7 @@ import Swal from 'sweetalert2';
 })
 export class EstudianteComponent implements OnInit {
 
+  estudiante!: Estudiante;
   form!: UntypedFormGroup;
   generos: Genero[] = [];
   avatares: Avatar[] = [];
@@ -30,6 +31,7 @@ export class EstudianteComponent implements OnInit {
   correo: string = '';
   pagina: number = 0;
   idAvatar: number = 0;
+  esActualizar: boolean = true;
 
   constructor(private fb: UntypedFormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService,
 

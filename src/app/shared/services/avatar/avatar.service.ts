@@ -23,4 +23,16 @@ export class AvatarService {
     });
     return this.http.get<Avatar[]>(`${environment.endpoint}/avatar/paginado`, {params: paramHttp})
   }
+
+  crearAvatar(avatar: Avatar){
+    return this.http.post<Avatar>(`${environment.endpoint}/avatar/guardarAvatar`, avatar);
+  }
+
+  consultarPorId(idAvatar: number){
+    return this.http.get<Avatar>(`${environment.endpoint}/avatar/porId/${idAvatar}`);
+  }
+
+  actualizarAvatar(avatar: Avatar): Observable<Avatar>{
+    return this.http.put<Avatar>(`${environment.endpoint}/actualizarAvatar/${avatar.idAvatar}`,avatar);
+  }
 }

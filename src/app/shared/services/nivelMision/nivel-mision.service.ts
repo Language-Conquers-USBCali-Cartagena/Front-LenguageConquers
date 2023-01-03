@@ -13,4 +13,8 @@ export class NivelMisionService {
   getNivelMision():Observable<NivelMision[]>{
     return this.http.get<NivelMision[]>(`${environment.endpoint}/nivelMision`)
   }
+
+  public consultarPorId(id: string): Observable<any>{
+    return this.http.get<NivelMision>(`${URL}/Id/${id}`);
+  }
 }

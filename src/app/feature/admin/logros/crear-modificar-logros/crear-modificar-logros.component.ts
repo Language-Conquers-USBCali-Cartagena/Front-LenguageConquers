@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Logros } from 'src/app/shared/models/logros';
 import Swal from 'sweetalert2';
+import { LogrosService } from '../../../../shared/services/logros/logros.service';
 
 @Component({
   selector: 'app-crear-modificar-logros',
@@ -12,13 +13,15 @@ import Swal from 'sweetalert2';
 export class CrearModificarLogrosComponent implements OnInit {
 
   form!: UntypedFormGroup;
-  constructor(private fb: UntypedFormBuilder,private router:Router) {
+  logro!: Logros;
+  constructor(private fb: UntypedFormBuilder,private router:Router, private activatedRoute: ActivatedRoute, private logroService: LogrosService) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
       descripcion: ['', Validators.required],
       imagenLogro: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
+      usuarioModificador: ['', Validators.required]
     })
   }
 
@@ -39,6 +42,30 @@ export class CrearModificarLogrosComponent implements OnInit {
       timer: 1500
     })
 
+  }
+
+  setLogros(logro:Logros) {
+    this.form.setValue({
+      nombre: logro.nombre,
+      descripcion: logro.descripcion,
+      imagenLogro: logro.imagen,
+      usuarioCreador: logro.usuarioCreador,
+      usuarioModificador: logro.usuarioModificador
+    });
+  }
+
+  cargarLogro(){
+    this.activatedRoute.params.subscribe(
+      (params) => {
+        const id = params['id'];
+        if ( id ) {
+          this.logroService.consultarPorId(id).subscribe((data) => {
+            this.logro = data;
+            this.setLogros(this.logro);
+          });
+        }
+      }
+    );
   }
 
 

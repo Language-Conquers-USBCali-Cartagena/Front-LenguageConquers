@@ -46,7 +46,7 @@
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-              <a  class="botones" [routerLink]="['/programa/editarPrograma/',element.numero_identificacion]" style="color:rgb(19, 12, 59)" matTooltip="Editar Programa">
+              <a  class="botones" [routerLink]="['/programa/editarPrograma/',element.idPrograma]" style="color:rgb(19, 12, 59)" matTooltip="Editar Programa">
                 <mat-icon>edit</mat-icon>
               </a>
               <a  class="botones" (click)="eliminarPrograma(i)" style="color:rgb(224, 26, 26)" matTooltip="Eliminar Programa">

@@ -62,6 +62,18 @@ form {
   font-size: 20px;
 
 }
+.botones2{
+  color: rgb(254,254,231);
+  border-radius: 20px;
+  background-color: rgb(201, 131, 69);
+  text-align: center !important;
+  align-items: center !important;
+  margin: 0 10px;
+  display: inline-block;
+  width:130px;
+  height:40px;
+  font-size: 20px;
+}
 
 .botonsalir{
   color: rgb(201, 131, 69);

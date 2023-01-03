@@ -13,4 +13,8 @@ export class TipoMisionService {
   getTipoMision():Observable<TipoMision[]>{
     return this.http.get<TipoMision[]>(`${environment.endpoint}/tipoMision`)
   }
+
+  public consultarPorId(id: string): Observable<any>{
+    return this.http.get<TipoMision>(`${URL}/Id/${id}`);
+  }
 }

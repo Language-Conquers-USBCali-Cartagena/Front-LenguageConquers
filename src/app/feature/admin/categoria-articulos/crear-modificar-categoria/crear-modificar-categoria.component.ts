@@ -23,6 +23,7 @@ export class CrearModificarCategoriaComponent implements OnInit {
       estado: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
+      usuarioModificador: ['', Validators.required]
     })
    }
 

@@ -24,4 +24,8 @@ export class ArticuloService {
     return this.http.get<Articulo[]>(`${environment.endpoint}/articulo/paginado`, {params: paramHttp})
   }
 
+  public consultarPorId(id: string): Observable<any>{
+    return this.http.get<Articulo>(`${URL}/Id/${id}`);
+  }
+
 }

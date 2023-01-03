@@ -51,12 +51,20 @@ const routes: Routes = [
                 component:CrearModificarArticulosComponent,
             },
             {
+              path: 'articulos/editarArticulo/:id',
+              component:CrearModificarArticulosComponent,
+            },
+            {
                 path: 'avatar/listar-avatar',
                 component: AvatarComponent
             },
             {
                 path: 'avatar/crearAvatar',
                 component: CrearModificarAvatarComponent,
+            },
+            {
+              path: 'avatar/editarAvatar/:id',
+              component: CrearModificarAvatarComponent,
             },
             {
                 path: 'categoria-articulos/listar',
@@ -75,12 +83,20 @@ const routes: Routes = [
                 component: CrearModificarCursoComponent,
             },
             {
+              path: 'cursos/editarCurso/:id',
+               component: CrearModificarCursoComponent,
+            },
+            {
                 path: 'estado/listar-estados',
                 component: EstadoComponent
             },
             {
                 path: 'estado/crearEstado',
                 component: CrearModificarEstadoComponent,
+            },
+            {
+              path: 'estado/editarEstado/:id',
+              component: CrearModificarEstadoComponent,
             },
             {
                 path: 'home',
@@ -95,6 +111,10 @@ const routes: Routes = [
                 component: CrearModificarLogrosComponent,
             },
             {
+              path: 'logros/editarLogro/:id',
+              component: CrearModificarLogrosComponent,
+            },
+            {
                 path: 'misiones/listar-misiones',
                 component: MisionesComponent
             },
@@ -102,6 +122,10 @@ const routes: Routes = [
                 path: 'misiones/creaMisiones',
                 component: CrearModificarMisionComponent,
             },
+            {
+              path: 'misiones/editarMision/:id',
+              component: CrearModificarMisionComponent,
+          },
             {
                 path: 'monedas/listar-monedas',
                 component: MonedasComponent
@@ -111,6 +135,10 @@ const routes: Routes = [
                 component:CreaModificarMonedasComponent,
             },
             {
+              path: 'monedas/editarMoneda/:id',
+              component:CreaModificarMonedasComponent,
+          },
+            {
                 path: 'nivel-mision/listar',
                 component: NivelMisionComponent
             },
@@ -119,12 +147,20 @@ const routes: Routes = [
                 component: CrearModificarNivelMisionComponent,
             },
             {
+              path: 'nivel-mision/editarNivelMision/:id',
+              component: CrearModificarNivelMisionComponent,
+          },
+            {
                 path: 'programa/listar-programa',
                 component: ProgramaComponent
             },
             {
                 path: 'programa/crearPrograma',
                 component:CrearModificarProgramaComponent,
+            },
+            {
+              path: 'programa/editarPrograma/:id',
+              component:CrearModificarProgramaComponent,
             },
             {
                 path: 'reto/listar-retos',
@@ -135,6 +171,10 @@ const routes: Routes = [
                 component:CrearRegistrarComponent,
             },
             {
+              path: 'reto/editarReto/:id',
+              component:CrearRegistrarComponent,
+          },
+            {
                 path: 'tipo-mision/listar',
                 component: TipoMisionComponent
             },
@@ -142,6 +182,10 @@ const routes: Routes = [
                 path: 'tipo-mision/crearTipoMision',
                 component: CrearModificarTipoMisionComponent,
             },
+            {
+              path: 'tipo-mision/editarTipoMision/:id',
+              component: CrearModificarTipoMisionComponent,
+          },
             {
                 path: 'usuarios/listar-usuarios',
                 component: UsuariosComponent,
@@ -151,7 +195,15 @@ const routes: Routes = [
               component: DocenteComponent
             },
             {
+              path: 'usuarios/ActualizarDocente/:id',
+              component: DocenteComponent
+            },
+            {
               path: 'usuarios/crearEstudiante',
+              component: EstudianteComponent
+            },
+            {
+              path: 'usuarios/ActualizarEstudiante/:id',
               component: EstudianteComponent
             },
 

@@ -13,4 +13,8 @@ export class CursoService {
   getCurso():Observable<Curso[]>{
     return this.http.get<Curso[]>(`${environment.endpoint}/curso`)
   }
+
+  public consultarPorId(id: string): Observable<any>{
+    return this.http.get<Curso>(`${URL}/Id/${id}`);
+  }
 }
