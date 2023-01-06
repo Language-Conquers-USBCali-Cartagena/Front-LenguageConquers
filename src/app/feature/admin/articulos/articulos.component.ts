@@ -70,4 +70,8 @@ export class ArticulosComponent implements OnInit {
 
   }
 
+  actualizarArticulo(idArticulo:number){
+    this.router.navigate(['/admin/articulo/editarArticulo/',idArticulo]);
+  }
+
 }

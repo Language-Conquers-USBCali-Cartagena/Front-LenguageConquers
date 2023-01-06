@@ -14,7 +14,19 @@ export class RetoService {
     return this.http.get<Reto[]>(`${environment.endpoint}/reto`)
   }
 
-  public consultarPorId(id: string): Observable<any>{
-    return this.http.get<Reto>(`${URL}/Id/${id}`);
+  crearReto(reto: Reto){
+    return this.http.post<Reto>(`${environment.endpoint}/reto/guardarReto`, reto);
+  }
+
+  consultarPorId(idReto: number){
+    return this.http.get<Reto>(`${environment.endpoint}/reto/porId/${idReto}`);
+  }
+
+  actualizarReto(reto: Reto): Observable<Reto>{
+    return this.http.put<Reto>(`${environment.endpoint}/reto/actualizarReto/${reto.idReto}`,reto);
+  }
+
+  eliminarReto(reto: Reto): Observable<Reto>{
+    return this.http.delete<Reto>(`${environment.endpoint}/reto/eliminarReto/${reto.idReto}`);
   }
 }

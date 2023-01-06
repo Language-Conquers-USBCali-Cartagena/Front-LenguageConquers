@@ -14,8 +14,20 @@ export class MisionService {
     return this.http.get<Mision[]>(`${environment.endpoint}/mision`)
   }
 
-  public consultarPorId(id: string): Observable<any>{
-    return this.http.get<Mision>(`${URL}/Id/${id}`);
+  crearMision(mision: Mision){
+    return this.http.post<Mision>(`${environment.endpoint}/mision/guardarMision`, mision);
+  }
+
+  consultarPorId(idMision: number){
+    return this.http.get<Mision>(`${environment.endpoint}/mision/porId/${idMision}`);
+  }
+
+  actualizarMision(mision: Mision): Observable<Mision>{
+    return this.http.put<Mision>(`${environment.endpoint}/mision/actualizarMision/${mision.idMision}`,mision);
+  }
+
+  eliminarMision(mision: Mision): Observable<Mision>{
+    return this.http.delete<Mision>(`${environment.endpoint}/mision/eliminarMision/${mision.idMision}`);
   }
 
 }

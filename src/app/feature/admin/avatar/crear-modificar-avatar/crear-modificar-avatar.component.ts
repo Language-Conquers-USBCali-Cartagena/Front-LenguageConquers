@@ -110,7 +110,7 @@ export class CrearModificarAvatarComponent implements OnInit {
     })
   }
 
-  atras(){
+   atras(){
     this.router.navigateByUrl('/admin/avatar/listar-avatar');
   }
 

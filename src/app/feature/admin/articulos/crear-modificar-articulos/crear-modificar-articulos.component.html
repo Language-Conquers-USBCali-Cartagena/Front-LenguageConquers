@@ -38,18 +38,29 @@
                         <mat-icon matSuffix class="boton">imagen</mat-icon>
                     </mat-form-field>
                 </div>
-                <div class="campo-entrada">
+                <div class="campo-entrada" *ngIf="!articulo else editar">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Usuario Creador</mat-label>
                         <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
                     </mat-form-field>
                 </div>
+                <ng-template #editar>
+                  <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Modificador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="usuarioModificador" id="usuarioModificador">
+                        <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </ng-template>
                     <div class="boton">
                         <button mat-raised-button class="botones" (click)="atras()">Atras</button>
-                        <button mat-raised-button class="botones" (click)="crearArticulo()">Crear Articulo</button>
+                        <button mat-raised-button class="botones" type="button" id="guardarArticulo" (click)="guardarArticulo()" *ngIf="!articulo else botonEditar">Crear Articulo</button>
+                        <ng-template #botonEditar>
+                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Guardar Articulo</button>
+                        </ng-template>
                     </div>
                 </div>
-
         </form>
     </mat-card-content>
 </mat-card>

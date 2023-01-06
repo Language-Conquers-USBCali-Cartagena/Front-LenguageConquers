@@ -14,7 +14,20 @@ export class NivelMisionService {
     return this.http.get<NivelMision[]>(`${environment.endpoint}/nivelMision`)
   }
 
-  public consultarPorId(id: string): Observable<any>{
-    return this.http.get<NivelMision>(`${URL}/Id/${id}`);
+
+  crearNivelMision(nivelMision: NivelMision){
+    return this.http.post<NivelMision>(`${environment.endpoint}/nivelMision/guardarNivelMision`, nivelMision);
+  }
+
+  consultarPorId(idNivelMision: number){
+    return this.http.get<NivelMision>(`${environment.endpoint}/nivelMision/porId/${idNivelMision}`);
+  }
+
+  actualizarNivelMision(nivelMision: NivelMision): Observable<NivelMision>{
+    return this.http.put<NivelMision>(`${environment.endpoint}/nivelMision/actualizarNivelMision/${nivelMision.idNivelMision}`,nivelMision);
+  }
+
+  eliminarNivelMision(nivelMision: NivelMision): Observable<NivelMision>{
+    return this.http.delete<NivelMision>(`${environment.endpoint}/nivelMision/eliminarNivelMision/${nivelMision.idNivelMision}`);
   }
 }

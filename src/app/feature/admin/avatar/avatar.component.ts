@@ -51,7 +51,10 @@ export class AvatarComponent implements OnInit {
     }
   }
 
-  eliminarAvatar(index:number){
+  eliminarAvatar(idAvatar:Avatar){
+    this.avatarService.eliminarAvatar(idAvatar).subscribe( data => {
+      this.listaAvatares = this.listaAvatares.filter(c=> c!== idAvatar);
+    });
     this.cargarAvatares();
 
     const Toast = Swal.mixin({

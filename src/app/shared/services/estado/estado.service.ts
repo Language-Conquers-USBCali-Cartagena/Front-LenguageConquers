@@ -16,8 +16,20 @@ export class EstadoService {
   }
 
 
-  public consultarPorId(id: string): Observable<any>{
-    return this.http.get<Estado>(`${URL}/Id/${id}`);
+  crearEstado(estado: Estado){
+    return this.http.post<Estado>(`${environment.endpoint}/estado/guardarEstado`, estado);
+  }
+
+  consultarPorId(idEstado: number){
+    return this.http.get<Estado>(`${environment.endpoint}/estado/porId/${idEstado}`);
+  }
+
+  actualizarEstado(estado: Estado): Observable<Estado>{
+    return this.http.put<Estado>(`${environment.endpoint}/estado/actualizarEstado/${estado.idEstado}`,estado);
+  }
+
+  eliminarEstado(estado: Estado): Observable<Estado>{
+    return this.http.delete<Estado>(`${environment.endpoint}/estado/eliminarEstado/${estado.idEstado}`);
   }
 
 

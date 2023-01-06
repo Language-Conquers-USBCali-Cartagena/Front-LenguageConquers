@@ -33,6 +33,10 @@ export class AvatarService {
   }
 
   actualizarAvatar(avatar: Avatar): Observable<Avatar>{
-    return this.http.put<Avatar>(`${environment.endpoint}/actualizarAvatar/${avatar.idAvatar}`,avatar);
+    return this.http.put<Avatar>(`${environment.endpoint}/avatar/actualizarAvatar/${avatar.idAvatar}`,avatar);
+  }
+
+  eliminarAvatar(avatar: Avatar): Observable<Avatar>{
+    return this.http.delete<Avatar>(`${environment.endpoint}/avatar/eliminarAvatar/${avatar.idAvatar}`);
   }
 }

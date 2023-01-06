@@ -24,8 +24,20 @@ export class ArticuloService {
     return this.http.get<Articulo[]>(`${environment.endpoint}/articulo/paginado`, {params: paramHttp})
   }
 
-  public consultarPorId(id: string): Observable<any>{
-    return this.http.get<Articulo>(`${URL}/Id/${id}`);
+
+  crearArticulo(articulo: Articulo){
+    return this.http.post<Articulo>(`${environment.endpoint}/articulo/guardarArticulo`, articulo);
   }
 
+  consultarPorId(idArticulo: number){
+    return this.http.get<Articulo>(`${environment.endpoint}/articulo/porId/${idArticulo}`);
+  }
+
+  actualizarArticulo(articulo: Articulo): Observable<Articulo>{
+    return this.http.put<Articulo>(`${environment.endpoint}/articulo/actualizarArticulo/${articulo.idArticulo}`, articulo);
+  }
+
+  eliminarArticulo(articulo: Articulo): Observable<Articulo>{
+    return this.http.delete<Articulo>(`${environment.endpoint}/articulo/eliminarArticulo/${articulo.idArticulo}`);
+  }
 }

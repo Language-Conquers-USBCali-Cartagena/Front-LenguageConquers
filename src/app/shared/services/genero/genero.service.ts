@@ -14,4 +14,20 @@ export class GeneroService {
   getGenero(): Observable<Genero[]>{
     return this.http.get<Genero[]>(`${environment.endpoint}/genero`)
   }
+
+  crearGenero(genero: Genero){
+    return this.http.post<Genero>(`${environment.endpoint}/genero/guardarGenero`, genero);
+  }
+
+  consultarPorId(idGenero: number){
+    return this.http.get<Genero>(`${environment.endpoint}/genero/porId/${idGenero}`);
+  }
+
+  actualizarGenero(genero: Genero): Observable<Genero>{
+    return this.http.put<Genero>(`${environment.endpoint}/genero/actualizarGenero/${genero.idGenero}`,genero);
+  }
+
+  eliminarGenero(genero: Genero): Observable<Genero>{
+    return this.http.delete<Genero>(`${environment.endpoint}/genero/eliminarGenero/${genero.idGenero}`);
+  }
 }

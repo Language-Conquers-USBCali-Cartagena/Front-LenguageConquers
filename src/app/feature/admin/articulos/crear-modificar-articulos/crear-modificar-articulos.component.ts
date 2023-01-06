@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Articulo } from 'src/app/shared/models/articulos';
 import { Categorias } from 'src/app/shared/models/categoria';
@@ -16,12 +16,18 @@ import { ArticuloService } from '../../../../shared/services/articulo/articulo.s
 })
 export class CrearModificarArticulosComponent implements OnInit {
 
-  form!: UntypedFormGroup;
+  form!: FormGroup;
   categorias: Categorias[] = [];
   estados:Estado[] = [];
   articulo!:Articulo;
+  hayErrores: boolean = false;
+  mensajeError: any;
 
-  constructor(private fb: UntypedFormBuilder, private categoriaService: CategoriaService, private estadoService: EstadoService,private router:Router,  private activatedRoute: ActivatedRoute, private ArticuloService: ArticuloService) {
+  constructor(private fb: FormBuilder, private categoriaService: CategoriaService, private estadoService: EstadoService,private router:Router,  private activatedRoute: ActivatedRoute, private articuloService: ArticuloService) {
+    this.crearArticulo();
+   }
+
+   crearArticulo(){
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
       descripcion: ['', Validators.required],
@@ -33,7 +39,7 @@ export class CrearModificarArticulosComponent implements OnInit {
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
       usuarioModificador: ['', Validators.required]
-    })
+    });
    }
 
   ngOnInit(): void {
@@ -46,7 +52,7 @@ export class CrearModificarArticulosComponent implements OnInit {
   getCategoria(){
     this.categoriaService.getCategoria().subscribe(resp => this.categorias = resp)
   }
-  crearArticulo(){
+  guardarArticulo(){
     const nombre = this.form.value.nombre;
     const descripcion = this.form.value.descripcion;
     const precio = this.form.value.precio;
@@ -57,13 +63,27 @@ export class CrearModificarArticulosComponent implements OnInit {
     const usuarioCreador = this.form.value.usuarioCreador;
     let articulo: Articulo = {nombre: nombre, descripcion: descripcion, precio: precio,  nivelValido: nivelValido, imagen: imagen, idEstado: estado, idCategoria: categoria, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
+    this.articuloService.crearArticulo(articulo).subscribe(data => {
+      if(data){
+        Swal.fire({
+          icon: 'success',
+          title: 'El Articulo se ha creado Exitosamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.router.navigate(['/admin/articulo/listar-articulo']);
+      }
+    },(e) =>{
+      this.hayErrores = true;
+      this.mensajeError = e.error;
 
-    Swal.fire({
-      icon: 'success',
-      title: 'El Articulo se ha creado Exitosamente',
-      showConfirmButton: false,
-      timer: 1500
-    })
+      Swal.fire({
+        icon: 'error',
+        title: e.error,
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
 
   }
 
@@ -77,7 +97,9 @@ export class CrearModificarArticulosComponent implements OnInit {
       estado: articulo.idEstado,
       categoria: articulo.idCategoria,
       usuarioCreador: articulo.usuarioCreador,
-      usuarioModificador: articulo.usuarioModificador
+      fechaCreacion: articulo.fechaCreacion,
+      usuarioModificador: articulo.usuarioModificador,
+      fechaModificacion: articulo.fechaModificacion
     });
   }
 
@@ -86,7 +108,7 @@ export class CrearModificarArticulosComponent implements OnInit {
       (params) => {
         const id = params['id'];
         if ( id ) {
-          this.ArticuloService.consultarPorId(id).subscribe((data) => {
+          this.articuloService.consultarPorId(id).subscribe((data) => {
             this.articulo = data;
             this.setArticulo(this.articulo);
           });
@@ -95,6 +117,23 @@ export class CrearModificarArticulosComponent implements OnInit {
     );
   }
 
+  actualizar():void{
+    const nombre = this.form.value.nombre;
+    const descripcion = this.form.value.descripcion;
+    const precio = this.form.value.precio;
+    const nivelValido = this.form.value.nivelValido;
+    const imagenArticulo = this.form.value.imagenArticulo;
+    const estado = this.form.value.estado;
+    const categoria = this.form.value.categoria;
+    const usuarioModificador = this.form.value.usuarioModificador;
+    let articulo: Articulo = {nombre: nombre, descripcion: descripcion, precio: precio, nivelValido: nivelValido, imagen: imagenArticulo, idEstado: estado, idCategoria: categoria, usuarioModificador: usuarioModificador,
+                                 fechaModificacion: new Date()}
+
+    this.articulo.idArticulo = this.form.value.idArticulo;
+    this.articuloService.actualizarArticulo(this.articulo).subscribe(()=>{
+      this.router.navigate(['/admin/articulo/listar-articulo']);
+    })
+  }
 
   atras(){
     this.router.navigateByUrl('/admin/articulos/listar-articulos');

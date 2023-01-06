@@ -14,7 +14,19 @@ export class MonedasService {
     return this.http.get<Monedas[]>(`${environment.endpoint}/moneda`)
   }
 
-  public consultarPorId(id: string): Observable<any>{
-    return this.http.get<Monedas>(`${URL}/Id/${id}`);
+  crearMoneda(moneda: Monedas){
+    return this.http.post<Monedas>(`${environment.endpoint}/moneda/guardarMoneda`, moneda);
+  }
+
+  consultarPorId(idMoneda: number){
+    return this.http.get<Monedas>(`${environment.endpoint}/moneda/porId/${idMoneda}`);
+  }
+
+  actualizarMoneda(moneda: Monedas): Observable<Monedas>{
+    return this.http.put<Monedas>(`${environment.endpoint}/moneda/actualizarMoneda/${moneda.idMonedas}`,moneda);
+  }
+
+  eliminarMonedas(moneda: Monedas): Observable<Monedas>{
+    return this.http.delete<Monedas>(`${environment.endpoint}/moneda/eliminarMoneda/${moneda.idMonedas}`);
   }
 }

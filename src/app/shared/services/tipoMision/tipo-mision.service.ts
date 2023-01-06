@@ -14,7 +14,19 @@ export class TipoMisionService {
     return this.http.get<TipoMision[]>(`${environment.endpoint}/tipoMision`)
   }
 
-  public consultarPorId(id: string): Observable<any>{
-    return this.http.get<TipoMision>(`${URL}/Id/${id}`);
+  crearTipoMision(tipoMision: TipoMision){
+    return this.http.post<TipoMision>(`${environment.endpoint}/tipoMision/guardarTipoMision`, tipoMision);
+  }
+
+  consultarPorId(idTipoMision: number){
+    return this.http.get<TipoMision>(`${environment.endpoint}/tipoMision/porId/${idTipoMision}`);
+  }
+
+  actualizarTipoMision(tipoMision: TipoMision): Observable<TipoMision>{
+    return this.http.put<TipoMision>(`${environment.endpoint}/tipoMision/actualizarTipoMision/${tipoMision.idTipoMision}`,tipoMision);
+  }
+
+  eliminarTipoMision(tipoMision: TipoMision): Observable<TipoMision>{
+    return this.http.delete<TipoMision>(`${environment.endpoint}/tipoMision/eliminarTipoMision/${tipoMision.idTipoMision}`);
   }
 }
