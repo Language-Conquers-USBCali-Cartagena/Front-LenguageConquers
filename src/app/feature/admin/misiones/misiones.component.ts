@@ -11,6 +11,7 @@ import { NivelMisionService } from 'src/app/shared/services/nivelMision/nivel-mi
 import { RetoService } from 'src/app/shared/services/reto/reto.service';
 import { TipoMisionService } from 'src/app/shared/services/tipoMision/tipo-mision.service';
 import Swal from 'sweetalert2';
+import { MisionService } from '../../../shared/services/mision/mision.service';
 
 @Component({
   selector: 'app-misiones',
@@ -21,14 +22,14 @@ export class MisionesComponent implements OnInit {
 
   listaMisiones: Mision[] = [];
   displayedColumns: string[] = ['id', 'nombre', 'idNivelMisión', 'idTipoMisión', 'idCurso', 'idMonedas', 'usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<Reto>;
-  id!: string | null;
+  dataSource= new MatTableDataSource<Mision>(this.listaMisiones);
+  id: string | null;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private retoService: RetoService, private nivelMisionService: NivelMisionService, private tipoMisionService: TipoMisionService, private cursoService: CursoService, private monedasService: MonedasService, private router: Router, private routerAct: ActivatedRoute) {
+  constructor(private retoService: RetoService, private misionService: MisionService,private nivelMisionService: NivelMisionService, private tipoMisionService: TipoMisionService, private cursoService: CursoService, private monedasService: MonedasService, private router: Router, private routerAct: ActivatedRoute) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
   }
 
@@ -39,7 +40,10 @@ export class MisionesComponent implements OnInit {
     this.router.navigateByUrl('admin/misiones/creaMisiones');
   }
   cargarMisiones(){
-    this.dataSource = new MatTableDataSource(this.listaMisiones);
+    this.misionService.getMision().subscribe(result => {
+      this.listaMisiones = result;
+      this.dataSource.data = this.listaMisiones;
+    });
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -53,8 +57,10 @@ export class MisionesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  eliminarMision(index:number){
-    //this.usuarioService.eliminarUsuario(index);
+  eliminarMision(idMision: Mision){
+    this.misionService.eliminarMision(idMision).subscribe(data =>{
+      this.listaMisiones = this.listaMisiones.filter( c => c!== idMision );
+    });
     this.cargarMisiones();
 
     const Toast = Swal.mixin({
@@ -67,14 +73,16 @@ export class MisionesComponent implements OnInit {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-    })
+    });
 
     Toast.fire({
       icon: 'success',
       title: 'La Misión fue eliminada exitosamente'
-    })
-
+    });
   }
 
+  actualizarMision(idMision: number){
+    this.router.navigate(['/admin/misiones/editarMision/', idMision]);
+  }
 
 }

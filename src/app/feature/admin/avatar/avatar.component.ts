@@ -67,7 +67,7 @@ export class AvatarComponent implements OnInit {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-    })
+    });
 
     Toast.fire({
       icon: 'success',

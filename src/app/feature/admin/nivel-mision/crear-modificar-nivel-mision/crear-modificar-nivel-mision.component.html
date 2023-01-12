@@ -1,8 +1,11 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-        <mat-card-title>Crear Nivel Misión</mat-card-title>
+        <mat-card-title *ngIf="!nivelMision else editarT">Registrar Nivel Misión</mat-card-title>
+        <ng-template #editarT>
+          <mat-card-title >Actualizar Nivel Misión</mat-card-title>
+        </ng-template>
         <br><br>
-        <form [formGroup]="form" (ngSubmit)="crearNivelMision()">
+        <form [formGroup]="form" (ngSubmit)="guardarNivelMision()">
             <div class="entradas">
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
@@ -25,13 +28,14 @@
                         <mat-icon matSuffix class="boton">img</mat-icon>
                     </mat-form-field>
                 </div>
-                <div class="campo-entrada">
+                <div class="campo-entrada" *ngIf="!nivelMision else editar">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Usuario Creador</mat-label>
                         <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
                         <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
                     </mat-form-field>
                 </div>
+                <ng-template #editar>
                 <div class="campo-entrada">
                   <mat-form-field appearance="fill">
                       <mat-label class="titulos">Usuario Modificador</mat-label>
@@ -39,9 +43,13 @@
                       <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
                   </mat-form-field>
               </div>
+            </ng-template>
                     <div class="boton">
-                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
-                        <button mat-raised-button class="botones" (click)="crearNivelMision()">Crear NivelMisión</button>
+                        <button mat-raised-button class="botones" (click)="atras()" id="atras">Atras</button>
+                        <button mat-raised-button class="botones" (click)="guardarNivelMision()" id="guardarNivelMision" *ngIf="!nivelMision else botonEditar">Crear NivelMisión</button>
+                        <ng-template #botonEditar>
+                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Actualizar</button>
+                        </ng-template>
                     </div>
                 </div>
 

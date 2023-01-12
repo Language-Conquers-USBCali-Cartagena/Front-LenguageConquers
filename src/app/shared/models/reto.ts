@@ -1,8 +1,8 @@
 export interface Reto{
-    idReto?:          string;
-    nombre?:      string;
+    idReto?:      number;
+    nombreReto?:      string;
     descripcion?: string;
-    intentos?:    number;
+    intentosPermitidos?:    number;
     fechaInicio?: Date;
     fechaLimite?: Date;
     idMision?:    number;
@@ -12,4 +12,6 @@ export interface Reto{
     fechaCreacion?: Date;
     usuarioModificador?: string;
     fechaModificacion?: Date;
+    esGrupal?: boolean;
+    cantidadEstudiantes?: number;
 }

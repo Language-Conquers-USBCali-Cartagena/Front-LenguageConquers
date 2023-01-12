@@ -15,7 +15,7 @@ export class TipoMisionService {
   }
 
   crearTipoMision(tipoMision: TipoMision){
-    return this.http.post<TipoMision>(`${environment.endpoint}/tipoMision/guardarTipoMision`, tipoMision);
+    return this.http.post<TipoMision>(`${environment.endpoint}/tipoMision`, tipoMision);
   }
 
   consultarPorId(idTipoMision: number){
@@ -23,7 +23,7 @@ export class TipoMisionService {
   }
 
   actualizarTipoMision(tipoMision: TipoMision): Observable<TipoMision>{
-    return this.http.put<TipoMision>(`${environment.endpoint}/tipoMision/actualizarTipoMision/${tipoMision.idTipoMision}`,tipoMision);
+    return this.http.put<TipoMision>(`${environment.endpoint}/tipoMision/actualizarTipoMision`,tipoMision);
   }
 
   eliminarTipoMision(tipoMision: TipoMision): Observable<TipoMision>{

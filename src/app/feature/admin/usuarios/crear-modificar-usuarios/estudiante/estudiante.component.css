@@ -13,7 +13,7 @@
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
   font-size: 30px;
-  color:rgb(6,43,60);
+  color:rgb(255, 255, 255);
   text-align: center;
 }
 .entradas {
@@ -28,13 +28,14 @@ form {
  width: auto;
 }
 .titulos{
-font-size:20px;
+font-size:22px;
 color: rgb(255, 255, 255);
 
 }
 .campo-entrada{
  float: right;
  width: 50%;
+ height: 60px;
 }
 .campofecha{
   align-items: center;
@@ -139,4 +140,10 @@ opacity: 1;
 opacity: 1 !important;
 box-shadow: 0 5px rgba(1,23,46,0.6);
 }
+.mat-input-element{
+  color: rgb(136,103,82) !important;
+}
 
+mat-card-title{
+  font-size:30px;
+}

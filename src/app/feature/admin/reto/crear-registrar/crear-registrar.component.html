@@ -1,33 +1,37 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-        <mat-card-title>Crear Reto</mat-card-title>
-        <br><br>
-        <form [formGroup]="form" (ngSubmit)="crearReto()">
+        <mat-card-title *ngIf="!reto else editarT">Registrar Reto</mat-card-title>
+        <ng-template #editarT>
+          <mat-card-title>Actualizar Reto</mat-card-title>
+        </ng-template>
+        <br>
+        <form [formGroup]="form" (ngSubmit)="guardarReto()">
             <div class="entradas">
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Nombre</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="nombre">
+                        <input type="text" matInput autocomplete="off" formControlName="nombreReto">
                         <mat-icon matSuffix class="boton">nombre</mat-icon>
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Descripción</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="descripcion">
+                        <textarea matInput type="textArea" matInput autocomplete="off" formControlName="descripcion"></textarea>
                         <mat-icon matSuffix class="boton">descripcion</mat-icon>
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Intentos</mat-label>
-                        <input type="number" matInput autocomplete="off" formControlName="intentos">
-                    </mat-form-field>
+                        <input type="number" matInput autocomplete="off" formControlName="intentosPermitidos">
+                        <mat-icon matSuffix class="boton">intentos</mat-icon>
+                      </mat-form-field>
                 </div>
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Misión</mat-label>
-                        <mat-select formControlName="mision">
+                        <mat-select formControlName="idMision">
                             <mat-option *ngFor="let mision of misiones" [value]="misiones">
                                 {{mision.nombre}}
                             </mat-option>
@@ -38,7 +42,7 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Curso</mat-label>
-                        <mat-select formControlName="curso">
+                        <mat-select formControlName="idCurso" >
                             <mat-option *ngFor="let curso of cursos" [value]="curso">
                                 {{curso.nombre}}
                             </mat-option>
@@ -49,11 +53,12 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Estado</mat-label>
-                        <mat-select formControlName="estado">
+                        <mat-select formControlName="idEstado">
                             <mat-option *ngFor="let estado of estados" [value]="estado">
                                 {{estado.estado}}
                             </mat-option>
                         </mat-select>
+                        <mat-icon matSuffix class="boton">estado</mat-icon>
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada">
@@ -72,9 +77,9 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill" class="example-form-field">
                         <mat-label class="titulos">Fecha Limite</mat-label>
-                        <input matInput [matDatepicker]="datepicker" formControlName="fechaLimite">
-                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-                        <mat-datepicker #datepicker>
+                        <input matInput [matDatepicker]="datepicker1" formControlName="fechaLimite">
+                        <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker1>
                             <mat-datepicker-actions>
                                 <button mat-button matDatepickerCancel>Cancel</button>
                                 <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
@@ -82,13 +87,14 @@
                         </mat-datepicker>
                     </mat-form-field>
                 </div>
-                <div class="campo-entrada">
+                <div class="campo-entrada" *ngIf="!reto else editar">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Usuario Creador</mat-label>
                         <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
                         <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
                     </mat-form-field>
                 </div>
+                <ng-template #editar>
                 <div class="campo-entrada">
                   <mat-form-field appearance="fill">
                       <mat-label class="titulos">Usuario Modificador</mat-label>
@@ -96,10 +102,14 @@
                       <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
                   </mat-form-field>
               </div>
+            </ng-template>
                     <div class="boton">
-                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
-                        <button mat-raised-button class="botones" (click)="crearReto()">Crear Reto</button>
-                    </div>
+                        <button mat-raised-button class="botones" id="atras" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" id="guardarReto" (click)="guardarReto()" *ngIf="!reto else botonEditar">Crear Reto</button>
+                        <ng-template #botonEditar>
+                          <button mat-raised-button type="button" id="editar" (click)="Editar(reto)"  class="botones">Actualizar Reto</button>
+                        </ng-template>
+                      </div>
                 </div>
 
         </form>

@@ -1,6 +1,6 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-      <mat-card-title>Tipo Mision</mat-card-title>
+      <mat-card-title>Lista de Tipo Misiones Registradas</mat-card-title>
       <mat-form-field>
         <mat-label>Filter</mat-label>
         <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del tipo de mision" #input>
@@ -15,7 +15,7 @@
 
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.idTipoMision}} </td>
           </ng-container>
 
           <ng-container matColumnDef="descripción">
@@ -46,10 +46,10 @@
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-              <a  class="botones" [routerLink]="['/tipo-mision/editarTipoMision/',element.idTipoMision]" style="color:rgb(19, 12, 59)" matTooltip="Editar TipoMision">
+              <a  class="botones" [routerLink]="['/tipo-mision/editarTipoMision/',element.idTipoMision]" style="color:rgb(19, 12, 59)" (click)="actualizarTipoMision(element.idTipoMision)" matTooltip="Editar TipoMision">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarTipoMision(i)" style="color:rgb(224, 26, 26)" matTooltip="Eliminar TipoMision">
+              <a  class="botones" (click)="eliminarTipoMision(element)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar TipoMision">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

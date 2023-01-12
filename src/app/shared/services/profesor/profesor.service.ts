@@ -15,7 +15,7 @@ export class ProfesorService {
   }
 
   crearProfesor(profesor: Profesor){
-    return this.http.post<Profesor>(`${environment.endpoint}/profesor/guardarProfesor`, profesor);
+    return this.http.post<Profesor>(`${environment.endpoint}/profesor/registrarProfesor`, profesor);
   }
 
   consultarPorId(idProfesor: number){

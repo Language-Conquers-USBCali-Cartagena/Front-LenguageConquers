@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Curso } from 'src/app/shared/models/curso';
 import { Estado } from 'src/app/shared/models/estado';
@@ -21,28 +21,37 @@ import { MisionService } from '../../../../shared/services/mision/mision.service
 })
 export class CrearModificarMisionComponent implements OnInit {
 
-  form!: UntypedFormGroup;
+  form!: FormGroup;
   mision!:Mision;
   tipoMisiones: TipoMision[] = [];
   nivelMisiones: NivelMision[] = [];
   monedas: Monedas[] = [];
   cursos: Curso[] = [];
   estados:Estado[] = [];
+  hayErrores = false;
+  mensajeError: string="";
 
-  constructor(private fb: UntypedFormBuilder, private tipoMisionService: TipoMisionService, private nivelMisionService: NivelMisionService, private monedasService: MonedasService,private cursoService: CursoService, private router:Router,  private activatedRoute: ActivatedRoute, private misionService: MisionService) {
-    this.form = this.fb.group({
-      nombre:  ['', Validators.required],
-      nivelMision: ['', Validators.required],
-      tipoMision: ['', Validators.required],
-      curso: ['', Validators.required],
-      monedas: ['', Validators.required],
-      usuarioCreador: ['', Validators.required],
-      fechaCreacion: ['', Validators.required],
-      usuarioModificador: ['', Validators.required]
-    })
+  constructor(private fb: FormBuilder, private tipoMisionService: TipoMisionService, private nivelMisionService: NivelMisionService, private monedasService: MonedasService,private cursoService: CursoService, private router:Router,  private activatedRoute: ActivatedRoute, private misionService: MisionService) {
+    this.crearMision();
    }
 
+   crearMision(){
+    this.form = this.fb.group({
+      nombre:  ['', Validators.required],
+      imagenMision: ['', Validators.required],
+      idNivelMision: ['', Validators.required],
+      idTipoMision: ['', Validators.required],
+      idCurso: ['', Validators.required],
+      idMonedas: ['', Validators.required],
+      usuarioCreador: ['', Validators.required],
+      fechaCreacion: ['', Validators.required],
+      usuarioModificador: ['', Validators.required],
+      fechaModificacion: ['', Validators.required]
+    });
+   }
   ngOnInit(): void {
+    this.crearMision();
+    this.cargarMision();
     this.getTipoMision();
     this.getNivelMision();
     this.getCurso();
@@ -61,34 +70,53 @@ export class CrearModificarMisionComponent implements OnInit {
     this.monedasService.getMoneda().subscribe(resp => this.monedas = resp)
   }
 
-  crearMision(){
+  guardarMision(){
+    this.hayErrores = false;
     const nombre = this.form.value.nombre;
-    const nivelMision = this.form.value.nivelMision;
-    const tipoMision = this.form.value.tipoMision;
-    const curso = this.form.value.curso.idCurso;
-    const monedas = this.form.value.monedas.idMonedas;
+    const imagenMision = this.form.value.imagenMision;
+    const nivelMision = this.form.value.idNivelMision;
+    const tipoMision = this.form.value.idTipoMision;
+    const curso = this.form.value.idCurso;
+    const monedas = this.form.value.idMonedas;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let mision: Mision = {nombre: nombre, idNivelMision: nivelMision, idTipoMision: tipoMision, idCurso:curso, idMonedas: monedas, usuarioCreador: usuarioCreador,
+    let mision: Mision = {nombre: nombre, imagenMision: imagenMision, idNivelMision: nivelMision, idTipoMision: tipoMision, idCurso:curso, idMonedas: monedas, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
-
-    Swal.fire({
-      icon: 'success',
-      title: 'La Misión se ha creado Exitosamente',
-      showConfirmButton: false,
-      timer: 1500
-    })
+    this.misionService.crearMision(mision).subscribe(data =>{
+      if(data){
+        Swal.fire({
+          icon: 'success',
+          title: 'La Misión se ha creado Exitosamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.router.navigate(['/admin/misiones/listar-misiones']);
+      }
+    }, (e) => {
+      this.hayErrores = true;
+      this.mensajeError = e.error;
+      console.log(e['error']);
+      Swal.fire({
+        icon: 'error',
+        title: e['error'],
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
 
   }
 
   setMision(mision: Mision) {
-    this.form.setValue({
+    this.form.patchValue({
       nombre: mision.nombre,
-      nivelMision: mision.idNivelMision,
-      tipoMision: mision.idTipoMision,
-      curso: mision.idCurso,
-      monedas: mision.idMonedas,
+      imagenMision: mision.imagenMision,
+      idNivelMision: mision.idNivelMision,
+      idTipoMision: mision.idTipoMision,
+      idCurso: mision.idCurso,
+      idMonedas: mision.idMonedas,
       usuarioCreador: mision.usuarioCreador,
-      usuarioModificador: mision.usuarioModificador
+      fechaCreación : mision.fechaCreacion,
+      usuarioModificador: mision.usuarioModificador,
+      fechaModificacion: mision.fechaModificacion
     });
   }
 
@@ -106,6 +134,21 @@ export class CrearModificarMisionComponent implements OnInit {
     );
   }
 
+  actualizar():void{
+    const nombre = this.form.value.nombre;
+    const imagenMision = this.form.value.imagenMision;
+    const nivelMision = this.form.value.nivelMision;
+    const tipoMision = this.form.value.tipoMision;
+    const curso = this.form.value.idCurso;
+    const monedas = this.form.value.idMonedas;
+    const usuarioModificador = this.form.value.usuarioModificador;
+    let mision: Mision = {nombre: nombre, imagenMision: imagenMision,idNivelMision: nivelMision, idTipoMision: tipoMision, idCurso:curso, idMonedas: monedas, usuarioModificador: usuarioModificador,
+                                  fechaModificacion: new Date()}
+    mision.idMision = this.form.value.idMision;
+    this.misionService.actualizarMision(mision).subscribe(()=>{
+      this.router.navigate(['/admin/misiones/listar-misiones']);
+    });
+  }
 
   atras(){
     this.router.navigateByUrl('/admin/misiones/listar-misiones');

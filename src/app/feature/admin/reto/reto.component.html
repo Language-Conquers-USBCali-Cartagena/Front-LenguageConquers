@@ -1,6 +1,6 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-      <mat-card-title>lista de Retos</mat-card-title>
+      <mat-card-title>Lista de Retos Registrados</mat-card-title>
       <mat-form-field>
         <mat-label>Filter</mat-label>
         <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del reto" #input>
@@ -14,77 +14,70 @@
         <table mat-table [dataSource]="dataSource" matSort>
 
           <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+            <td mat-cell *matCellDef="let row">{{row.idReto}}</td>
           </ng-container>
-
           <ng-container matColumnDef="nombre">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-            <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+            <td mat-cell *matCellDef="let row">{{row.nombreReto}}</td>
           </ng-container>
-
-          <ng-container matColumnDef="descripción">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Descripción </th>
-            <td mat-cell *matCellDef="let row"> {{row.descripcion}} </td>
+          <ng-container matColumnDef="descripcion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</th>
+            <td mat-cell *matCellDef="let row">{{row.descripcion}}</td>
           </ng-container>
-
           <ng-container matColumnDef="intentos">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. Intentos</th>
-            <td mat-cell *matCellDef="let row"> {{row.intentos}} </td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>No. Intentos</th>
+            <td mat-cell *matCellDef="let row">{{row.intentosPermitidos}}</td>
           </ng-container>
-
           <ng-container matColumnDef="fechaInicio">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha inicio</th>
-            <td mat-cell *matCellDef="let row"> {{row.fechaInicio}} </td>
+            <td mat-cell *matCellDef="let row">{{row.fechaInicio}}</td>
           </ng-container>
-
           <ng-container matColumnDef="fechaLimite">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha limite</th>
-            <td mat-cell *matCellDef="let row"> {{row.fechaLimite}} </td>
+            <td mat-cell *matCellDef="let row">{{row.fechaLimite}}</td>
           </ng-container>
-
           <ng-container matColumnDef="idMision">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id Misión</th>
-            <td mat-cell *matCellDef="let row"> {{row.idMision}} </td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Id Misión</th>
+            <td mat-cell *matCellDef="let row">{{row.idMision}}</td>
           </ng-container>
-
           <ng-container matColumnDef="idEstado">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Id Estado</th>
-            <td mat-cell *matCellDef="let row"> {{row.idEstado}} </td>
+            <td mat-cell *matCellDef="let row">{{row.idEstado}}</td>
           </ng-container>
 
           <ng-container matColumnDef="idCurso">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Id Curso</th>
-            <td mat-cell *matCellDef="let row"> {{row.idCurso}} </td>
+            <td mat-cell *matCellDef="let row">{{row.idCurso}}</td>
           </ng-container>
 
           <ng-container matColumnDef="usuarioCreador">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Creador</th>
-            <td mat-cell *matCellDef="let row"> {{row.usuarioCreador}} </td>
+            <td mat-cell *matCellDef="let row">{{row.usuarioCreador}}</td>
           </ng-container>
 
           <ng-container matColumnDef="fechaCreacion">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Creación</th>
-            <td mat-cell *matCellDef="let row"> {{row.fechaCreacion}} </td>
+            <td mat-cell *matCellDef="let row">{{row.fechaCreacion}}</td>
           </ng-container>
 
           <ng-container matColumnDef="usuarioModificador">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Modificador</th>
-            <td mat-cell *matCellDef="let row"> {{row.usuarioModificador}} </td>
+            <td mat-cell *matCellDef="let row">{{row.usuarioModificador}}</td>
           </ng-container>
 
           <ng-container matColumnDef="fechaModificacion">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Modificación</th>
-            <td mat-cell *matCellDef="let row"> {{row.fechaModificacion}} </td>
+            <td mat-cell *matCellDef="let row">{{row.fechaModificacion}}</td>
           </ng-container>
 
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-              <a  class="botones" [routerLink]="['/reto/editarReto/',element.idReto]" style="color:rgb(19, 12, 59)" matTooltip="Editar Reto">
+              <a  class="botones" [routerLink]="['/admin/reto/editarReto/',element.idReto]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarReto(element.idReto)" matTooltip="Editar Reto">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarReto(i)" style="color:rgb(224, 26, 26)" matTooltip="Eliminar Reto">
+              <a  class="botones" (click)="eliminarReto(element)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Reto">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>
@@ -97,7 +90,7 @@
             <td class="mat-cell" colspan="4">No Existe un Reto con el Nombre "{{input.value}}"</td>
           </tr>
         </table>
-        <mat-paginator [pageSizeOptions]="[7]" aria-label="Seleccione la pagina de retos"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[5]" aria-label="Seleccione la pagina de retos"></mat-paginator>
       </div>
     </mat-card-content>
 </mat-card>

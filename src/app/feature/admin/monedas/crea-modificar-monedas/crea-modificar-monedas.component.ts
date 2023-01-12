@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Monedas } from 'src/app/shared/models/monedas';
@@ -13,24 +13,33 @@ import { MonedasService } from '../../../../shared/services/monedas/monedas.serv
 })
 export class CreaModificarMonedasComponent implements OnInit {
 
-  form!: UntypedFormGroup;
+  form!: FormGroup;
   archivos!: any[];
   previsualizacion!: string;
   moneda!: Monedas;
+  hayErrores = false;
+  mensajeError: string="";
   constructor(private fb: UntypedFormBuilder,private router:Router, private sanitizer: DomSanitizer,  private activatedRoute: ActivatedRoute, private monedaService: MonedasService) {
+    this.crearMoneda();
+  }
+  crearMoneda(){
     this.form = this.fb.group({
       cantidad: ['', Validators.required],
       imagenMoneda: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
-      usuarioModificador: ['', Validators.required]
-    })
+      usuarioModificador: ['', Validators.required],
+      fechaModificacion: ['', Validators.required]
+    });
   }
 
   ngOnInit(): void {
+    this.crearMoneda();
+    this.cargarMoneda();
   }
 
-  crearMoneda(){
+  guardarMoneda(){
+    this.hayErrores = false;
     const cantidad = this.form.value.cantidad;
     const imagenMoneda = this.form.value.imagenMoneda;
     const usuarioCreador = this.form.value.usuarioCreador;
@@ -38,13 +47,29 @@ export class CreaModificarMonedasComponent implements OnInit {
       cantidad: cantidad, imgMoneda: imagenMoneda, usuarioCreador: usuarioCreador,
       fechaCreacion: new Date(),
     }
+    this.monedaService.crearMoneda(moneda).subscribe(data => {
+      if(data){
+        Swal.fire({
+          icon: 'success',
+          title: 'La moneda se ha creado Exitosamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.router.navigate(['/admin/monedas/listar-monedas'])
+      }
+    }, (e) => {
+      this.hayErrores = true;
+      this.mensajeError = e.error;
 
-    Swal.fire({
-      icon: 'success',
-      title: 'La moneda se ha creado Exitosamente',
-      showConfirmButton: false,
-      timer: 1500
-    })
+      Swal.fire({
+        icon: 'error',
+        title: e.error,
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
+
+
 
   }
 
@@ -90,7 +115,9 @@ export class CreaModificarMonedasComponent implements OnInit {
       cantidad: moneda.cantidad,
       imagen: moneda.imgMoneda,
       usuarioCreador: moneda.usuarioCreador,
-      usuarioModificador: moneda.usuarioModificador
+      fechaCreacion: moneda.fechaCreacion,
+      usuarioModificador: moneda.usuarioModificador,
+      fechaModificacion: moneda.fechaModificacion
     });
   }
 
@@ -108,9 +135,23 @@ export class CreaModificarMonedasComponent implements OnInit {
     );
   }
 
+  actualizar():void{
+    const cantidad = this.form.value.cantidad;
+    const imagenMoneda = this.form.value.imagenMoneda;
+    const usuarioModificador = this.form.value.usuarioModificador;
+    let moneda: Monedas = {
+      cantidad: cantidad, imgMoneda: imagenMoneda, usuarioModificador: usuarioModificador,
+      fechaModificacion: new Date(),
+    }
+    this.moneda.idMonedas = this.form.value.idMoneda;
+    this.monedaService.actualizarMoneda(moneda).subscribe(()=>{
+      this.router.navigateByUrl('/admin/moneda/listar-monedas');
+    })
+  }
+
 
   atras(){
-    this.router.navigateByUrl('/admin/moneda/listar-monedas');
+    this.router.navigateByUrl('/admin/monedas/listar-monedas');
   }
 
 

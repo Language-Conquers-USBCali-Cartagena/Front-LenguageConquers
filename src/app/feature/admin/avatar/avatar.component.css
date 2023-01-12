@@ -48,6 +48,9 @@
     text-align: center;
     align-items: center;
     word-wrap: break-word;
+    font-size:10px;
+    line-height: 10px;
+    font-family: 'Roboto';
   }
   .imagenMiniatura{
     width: 40px;

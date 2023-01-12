@@ -16,8 +16,8 @@ export class ArticulosComponent implements OnInit {
 
   listaArticulos: Articulo[] = [];
   displayedColumns: string[] = ['id', 'nombre', 'descripción', 'precio', 'nivelValido','imagenArticulo', 'idCategoria', 'idEstado', 'usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<Articulo>;
-  id!: string | null;
+  dataSource= new MatTableDataSource<Articulo>(this.listaArticulos);
+  id: string | null;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
@@ -33,7 +33,10 @@ export class ArticulosComponent implements OnInit {
     this.router.navigateByUrl('admin/articulos/crearArticulo');
   }
   cargarArticulos() {
-    this.dataSource = new MatTableDataSource(this.listaArticulos);
+    this.articulosService.getArticulo().subscribe(resp =>{
+      this.listaArticulos = resp;
+      this.dataSource.data = this.listaArticulos;
+    });
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -48,9 +51,11 @@ export class ArticulosComponent implements OnInit {
     }
   }
 
-  eliminarArticulo(index:number){
+  eliminarArticulo(idArticulo : Articulo){
+    this.articulosService.eliminarArticulo(idArticulo).subscribe(data =>{
+      this.listaArticulos = this.listaArticulos.filter(c => c!== idArticulo);
+    });
     this.cargarArticulos();
-
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -61,17 +66,15 @@ export class ArticulosComponent implements OnInit {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-    })
-
+    });
     Toast.fire({
       icon: 'success',
       title: 'El Articulo fue eliminado exitosamente'
-    })
-
+    });
   }
 
   actualizarArticulo(idArticulo:number){
-    this.router.navigate(['/admin/articulo/editarArticulo/',idArticulo]);
+    this.router.navigate(['/admin/articulos/editarArticulo/',idArticulo]);
   }
 
 }

@@ -16,7 +16,7 @@ export class MonedasComponent implements OnInit {
 
   listaMonedas: Monedas[] = [];
   displayedColumns: string[] = ['id', 'cantidad', 'imagenMoneda', 'usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<Monedas>;
+  dataSource = new MatTableDataSource<Monedas>(this.listaMonedas);
   id!: string | null;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -34,7 +34,10 @@ export class MonedasComponent implements OnInit {
     this.router.navigateByUrl('admin/monedas/crearMoneda');
   }
   cargarMonedas() {
-    this.dataSource = new MatTableDataSource(this.listaMonedas);
+    this.monedaService.getMoneda().subscribe(result =>{
+      this.listaMonedas = result;
+      this.dataSource.data = this.listaMonedas;
+    })
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -51,7 +54,6 @@ export class MonedasComponent implements OnInit {
 
   eliminarMoneda(index:number){
     this.cargarMonedas();
-
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -62,15 +64,18 @@ export class MonedasComponent implements OnInit {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-    })
+    });
 
     Toast.fire({
       icon: 'success',
       title: 'La Moneda fue eliminada exitosamente'
-    })
+    });
 
   }
 
+  actualizarMoneda(idMoneda:number){
+    this.router.navigate(['/admin/monedas/editarMoneda/',idMoneda]);
+  }
 
 
 }

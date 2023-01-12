@@ -61,10 +61,9 @@ export class CrearModificarAvatarComponent implements OnInit {
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e.error;
-
       Swal.fire({
         icon: 'error',
-        title: e.error,
+        title: e['error'],
         showConfirmButton: false,
         timer: 1500
       });
@@ -103,11 +102,10 @@ export class CrearModificarAvatarComponent implements OnInit {
     const usuarioModificador = this.form.value.usuarioModificador;
     let avatar: Avatar = {nombreAvatar: nombre, imgAvatar: imagenAvatar, usuarioModificador: usuarioModificador,
                                  fechaModificacion: new Date()}
-
     this.avatar.idAvatar = this.form.value.idAvatar;
-    this.avatarService.actualizarAvatar(this.avatar).subscribe(()=>{
+    this.avatarService.actualizarAvatar(avatar).subscribe(()=>{
       this.router.navigate(['/admin/avatar/listar-avatar']);
-    })
+    });
   }
 
    atras(){

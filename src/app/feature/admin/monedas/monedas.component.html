@@ -15,7 +15,7 @@
 
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.idMoneda}} </td>
           </ng-container>
 
           <ng-container matColumnDef="cantidad">
@@ -26,7 +26,7 @@
 
           <ng-container matColumnDef="imagenMoneda">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Imagen Moneda</th>
-            <td mat-cell *matCellDef="let row"> {{row.imagenMoneda}} </td>
+            <td mat-cell *matCellDef="let row"><div mat-card-avatar class="imagenMiniatura" style="background-image: url({{row.imgMoneda}});"></div></td>
           </ng-container>
 
           <ng-container matColumnDef="usuarioCreador">
@@ -52,10 +52,10 @@
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-              <a  class="botones" [routerLink]="['/monedas/editarMoneda/',element.idMoneda]" style="color:rgb(19, 12, 59)" matTooltip="Editar Moneda">
+              <a  class="botones" [routerLink]="['/admin/monedas/editarMoneda/',element.idMoneda]" style="color:rgb(19, 12, 59)" (click)="actualizarMoneda(element.idMoneda)" matTooltip="Editar Moneda">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarMoneda(i)" style="color:rgb(224, 26, 26)" matTooltip="Eliminar Moneda">
+              <a  class="botones" id="eliminarMoneda" (click)="eliminarMoneda(element)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Moneda">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

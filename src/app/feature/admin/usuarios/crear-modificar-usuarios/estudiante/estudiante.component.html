@@ -1,8 +1,11 @@
 <mat-card class="tarjetaPrincipal">
   <mat-card-content>
-    <mat-card-title>Registrar Estudiante</mat-card-title>
+    <mat-card-title *ngIf="!estudiante else editarT">Registrar Estudiante</mat-card-title>
+    <ng-template #editarT>
+      <mat-card-title >Actualizar Estudiante</mat-card-title>
+    </ng-template>
     <br>
-    <form [formGroup]="form" (ngSubmit)="crearEstudiante()">
+    <form [formGroup]="form" (ngSubmit)="guardarEstudiante()">
       <div class="entradas">
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
@@ -25,6 +28,13 @@
           <mat-icon matSuffix class="boton">nickname</mat-icon>
         </mat-form-field>
         </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Correo</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="correo">
+            <mat-icon matSuffix class="boton">correo</mat-icon>
+          </mat-form-field>
+          </div>
         <div class="campo-entrada">
         <mat-form-field appearance="fill">
           <mat-label class="titulos">Semestre</mat-label>
@@ -58,27 +68,47 @@
           <mat-icon matSuffix class="boton">gender</mat-icon>
         </mat-form-field>
         </div>
-        <div class="campofecha">
-        <mat-form-field appearance="fill" class="example-form-field">
-          <mat-label class="titulos">Fecha de Nacimiento</mat-label>
-          <input matInput [matDatepicker]="datepicker" formControlName="fechaNacimiento">
-          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-          <mat-datepicker #datepicker>
-            <mat-datepicker-actions>
-              <button mat-button matDatepickerCancel>Cancel</button>
-              <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-            </mat-datepicker-actions>
-          </mat-datepicker>
-        </mat-form-field>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Estado</mat-label>
+            <mat-select formControlName="estado" >
+              <mat-option *ngFor="let estado of estados" [value]="estado">
+                {{estado.estado}}
+              </mat-option>
+            </mat-select>
+            <mat-icon matSuffix class="boton">estado</mat-icon>
+          </mat-form-field>
+          </div>
+          <div class="campofecha">
+            <mat-form-field appearance="fill" class="example-form-field">
+              <mat-label class="titulos">Fecha de Nacimiento</mat-label>
+              <input matInput [matDatepicker]="datepicker" formControlName="fechaNacimiento">
+              <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+              <mat-datepicker #datepicker>
+                <mat-datepicker-actions>
+                  <button mat-button matDatepickerCancel>Cancel</button>
+                  <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                </mat-datepicker-actions>
+              </mat-datepicker>
+            </mat-form-field>
+            </div>
+        <div class="campo-entrada" *ngIf="!estudiante else editar">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Usuario Creador</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="usuarioCreador" id="usuarioCreador">
+            <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+          </mat-form-field>
         </div>
-        <div class="campo-entrada" *ngIf="esActualizar">
+        <ng-template #editar>
+        <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Usuario Modificador</mat-label>
             <input type="text" matInput autocomplete="off" formControlName="modificador" class="ancho">
             <mat-icon matSuffix class="boton">name</mat-icon>
           </mat-form-field>
         </div>
-        <br><br><br><br>
+      </ng-template>
+      <br>
         <div class="carrousel">
           <div class="car">
             <div class="izq"><a type="submit" (click)="pasarIzq()"><mat-icon>keyboard_arrow_left</mat-icon></a></div>
@@ -89,10 +119,10 @@
             </div>
             <div class="der"><a type="submit" (click)="pasarDer()"><mat-icon>keyboard_arrow_right</mat-icon></a></div>
         </div>
-        <br><br><br>
+        <br><br>
         <div  class="boton">
           <button mat-raised-button class="botones" (click)="atras()">Atras</button>
-          <button mat-raised-button class="botones" (click)="crearEstudiante()" *ngIf="!estudiante else botonEditar">Crear Estudiante</button>
+          <button mat-raised-button class="botones" (click)="guardarEstudiante()" *ngIf="!estudiante else botonEditar">Crear Estudiante</button>
           <ng-template #botonEditar>
             <button mat-raised-button class="botones2" (click)="crearEstudiante()">Actualizar</button>
           </ng-template>

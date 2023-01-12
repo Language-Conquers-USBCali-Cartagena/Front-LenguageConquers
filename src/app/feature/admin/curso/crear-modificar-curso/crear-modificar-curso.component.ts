@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Curso } from 'src/app/shared/models/curso';
 import { Estado } from 'src/app/shared/models/estado';
@@ -16,13 +16,19 @@ import { CursoService } from 'src/app/shared/services/curso/curso.service';
 })
 export class CrearModificarCursoComponent implements OnInit {
 
-  form!: UntypedFormGroup;
+  form!: FormGroup;
   hide = true;
   curso!: Curso;
   profesores :Profesor[] = [];
   estados:Estado[] = [];
+  hayErrores = false;
+  mensajeError: string="";
 
-  constructor(private fb: UntypedFormBuilder, private estadoService: EstadoService,private profesorService: ProfesorService, private router:Router, private cursoService: CursoService,  private activatedRoute: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private estadoService: EstadoService,private profesorService: ProfesorService, private router:Router, private cursoService: CursoService,  private activatedRoute: ActivatedRoute) {
+    this.crearCurso();
+   }
+
+   crearCurso(){
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
       password: ['', Validators.required],
@@ -34,11 +40,14 @@ export class CrearModificarCursoComponent implements OnInit {
       estado: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
-      usuarioModificador: ['', Validators.required]
-    })
+      usuarioModificador: ['', Validators.required],
+      fechaModificacion: ['', Validators.required]
+    });
    }
 
   ngOnInit(): void {
+    this.crearCurso();
+    this.cargarCurso();
     this.getProfesor();
     this.getEstado();
   }
@@ -50,7 +59,8 @@ export class CrearModificarCursoComponent implements OnInit {
     this.estadoService.getEstados().subscribe(resp => this.estados = resp)
   }
 
-  crearCurso(){
+  guardarCurso(){
+    this.hayErrores = false;
     const nombre = this.form.value.nombre;
     const password = this.form.value.password;
     const cantidadEstudiantes = this.form.value.cantidadEstudiantes;
@@ -62,14 +72,26 @@ export class CrearModificarCursoComponent implements OnInit {
     const usuarioCreador = this.form.value.usuarioCreador;
     let curso: Curso = {nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: progreso, idEstado: estado, idProfesor: profesor, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
+    this.cursoService.crearCurso(curso).subscribe(data => {
+      if(data){
+        Swal.fire({
+          icon: 'success',
+          title: 'El Curso se ha creado Exitosamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    }, (e) => {
+      this.hayErrores = true;
+      this.mensajeError = e.error;
 
-    Swal.fire({
-      icon: 'success',
-      title: 'El Curso se ha creado Exitosamente',
-      showConfirmButton: false,
-      timer: 1500
-    })
-
+      Swal.fire({
+        icon: 'error',
+        title: e.error,
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
   }
 
   setCurso(curso: Curso) {
@@ -83,7 +105,9 @@ export class CrearModificarCursoComponent implements OnInit {
       estado: curso.idEstado,
       profesor: curso.idProfesor,
       usuarioCreador: curso.usuarioCreador,
-      usuarioModificador: curso.usuarioModificador
+      fechaCreacion: curso.fechaCreacion,
+      usuarioModificador: curso.usuarioModificador,
+      fechaModificacion: curso.fechaModificacion
     });
   }
 
@@ -99,6 +123,24 @@ export class CrearModificarCursoComponent implements OnInit {
         }
       }
     );
+  }
+
+  actualizar():void{
+    const nombre = this.form.value.nombre;
+    const password = this.form.value.password;
+    const cantidadEstudiantes = this.form.value.cantidadEstudiantes;
+    const fechaInicio: Date = this.form.value.fechaInicio;
+    const fechaFin: Date = this.form.value.fechaFin;
+    const progreso = this.form.value.progreso;
+    const estado= this.form.value.estado.idEstado;
+    const profesor = this.form.value.profesor.idProfesor;
+    const usuarioModificador = this.form.value.usuarioModificador;
+    let curso: Curso = {nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: progreso, idEstado: estado, idProfesor: profesor, usuarioModificador: usuarioModificador,
+                                  fechaModificacion: new Date()}
+    this.curso.idCurso = this.form.value.idCurso;
+    this.cursoService.actualizarCurso(curso).subscribe(()=>{
+      this.router.navigate(['/admin/cursos/listar-cursos']);
+    });
   }
 
 

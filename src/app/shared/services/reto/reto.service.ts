@@ -11,22 +11,22 @@ export class RetoService {
 
   constructor(private http:HttpClient) { }
   getReto():Observable<Reto[]>{
-    return this.http.get<Reto[]>(`${environment.endpoint}/reto`)
+    return this.http.get<Reto[]>(`${environment.endpoint}/retos`)
   }
 
   crearReto(reto: Reto){
-    return this.http.post<Reto>(`${environment.endpoint}/reto/guardarReto`, reto);
+    return this.http.post<Reto>(`${environment.endpoint}/retos`, reto);
   }
 
   consultarPorId(idReto: number){
-    return this.http.get<Reto>(`${environment.endpoint}/reto/porId/${idReto}`);
+    return this.http.get<Reto>(`${environment.endpoint}/retos/porId/${idReto}`);
   }
 
   actualizarReto(reto: Reto): Observable<Reto>{
-    return this.http.put<Reto>(`${environment.endpoint}/reto/actualizarReto/${reto.idReto}`,reto);
+    return this.http.put<Reto>(`${environment.endpoint}/retos/actualizarReto`,reto);
   }
 
   eliminarReto(reto: Reto): Observable<Reto>{
-    return this.http.delete<Reto>(`${environment.endpoint}/reto/eliminarReto/${reto.idReto}`);
+    return this.http.delete<Reto>(`${environment.endpoint}/retos/eliminarReto/${reto.idReto}`);
   }
 }

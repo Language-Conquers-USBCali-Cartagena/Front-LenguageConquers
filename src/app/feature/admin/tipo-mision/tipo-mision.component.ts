@@ -16,8 +16,8 @@ export class TipoMisionComponent implements OnInit {
 
   listaTipoMision: TipoMision[] = [];
   displayedColumns: string[] = ['id','descripción','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<TipoMision>;
-  id!: string | null;
+  dataSource = new MatTableDataSource<TipoMision>(this.listaTipoMision);
+  id: string | null;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
@@ -34,7 +34,10 @@ export class TipoMisionComponent implements OnInit {
     this.router.navigateByUrl('admin/tipo-mision/crearTipoMision');
   }
   cargarTipoMision(){
-    this.dataSource = new MatTableDataSource(this.listaTipoMision);
+    this.tipoMisionService.getTipoMision().subscribe(resp =>{
+      this.listaTipoMision = resp;
+      this.dataSource.data = this.listaTipoMision;
+    });
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -49,7 +52,10 @@ export class TipoMisionComponent implements OnInit {
     }
   }
 
-  eliminarTipoMision(index:number){
+  eliminarTipoMision(idTipoMision: TipoMision){
+    this.tipoMisionService.eliminarTipoMision(idTipoMision).subscribe(data =>{
+      this.listaTipoMision = this.listaTipoMision.filter(c => c!== idTipoMision);
+    });
     this.cargarTipoMision();
 
     const Toast = Swal.mixin({
@@ -62,13 +68,16 @@ export class TipoMisionComponent implements OnInit {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-    })
-
+    });
     Toast.fire({
       icon: 'success',
       title: 'El Tipo Misión fue eliminado exitosamente'
     })
 
+  }
+
+  actualizarTipoMision(idTipoMision: number){
+    this.router.navigate(['/admin/tipo-mision/editarTipoMision/', idTipoMision]);
   }
 
 

@@ -16,7 +16,7 @@ export class NivelMisionService {
 
 
   crearNivelMision(nivelMision: NivelMision){
-    return this.http.post<NivelMision>(`${environment.endpoint}/nivelMision/guardarNivelMision`, nivelMision);
+    return this.http.post<NivelMision>(`${environment.endpoint}/nivelMision`, nivelMision);
   }
 
   consultarPorId(idNivelMision: number){
@@ -24,7 +24,7 @@ export class NivelMisionService {
   }
 
   actualizarNivelMision(nivelMision: NivelMision): Observable<NivelMision>{
-    return this.http.put<NivelMision>(`${environment.endpoint}/nivelMision/actualizarNivelMision/${nivelMision.idNivelMision}`,nivelMision);
+    return this.http.put<NivelMision>(`${environment.endpoint}/nivelMision/actualizarNivelMision`,nivelMision);
   }
 
   eliminarNivelMision(nivelMision: NivelMision): Observable<NivelMision>{

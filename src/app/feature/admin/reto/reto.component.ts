@@ -15,9 +15,9 @@ import Swal from 'sweetalert2';
 export class RetoComponent implements OnInit {
 
   listaRetos: Reto[] = []
-  displayedColumns: string[] = ['id', 'nombre', 'descripción', 'intentos', 'fechaInicio', 'fechaLimite', 'idMision', 'idEstado', 'idCurso','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<Reto>;
-  id: string | null;
+  displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'intentos', 'fechaInicio', 'fechaLimite', 'idMision', 'idEstado', 'idCurso','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
+  dataSource = new MatTableDataSource<Reto>(this.listaRetos);
+  id: string | null |undefined;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
@@ -30,11 +30,15 @@ export class RetoComponent implements OnInit {
   ngOnInit(): void {
     this.cargarRetos();
   }
+
+  cargarRetos(){
+    this.retoService.getReto().subscribe(resp =>{
+      this.listaRetos = resp;
+      this.dataSource.data = this.listaRetos;
+    });
+  }
   registrarReto(){
     this.router.navigateByUrl('admin/reto/crearReto');
-  }
-  cargarRetos(){
-    this.dataSource = new MatTableDataSource(this.listaRetos);
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -49,10 +53,11 @@ export class RetoComponent implements OnInit {
     }
   }
 
-  eliminarReto(index:number){
-    //this.usuarioService.eliminarUsuario(index);
+  eliminarReto(idReto:Reto){
+    this.retoService.eliminarReto(idReto).subscribe(data =>{
+      this.listaRetos = this.listaRetos.filter(c => c!== idReto);
+    });
     this.cargarRetos();
-
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -63,13 +68,15 @@ export class RetoComponent implements OnInit {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-    })
-
+    });
     Toast.fire({
       icon: 'success',
       title: 'El Reto fue eliminado exitosamente'
-    })
+    });
+  }
 
+  actualizarReto(idReto:number){
+    this.router.navigate(['/admin/reto/editarReto/',idReto]);
   }
 
 

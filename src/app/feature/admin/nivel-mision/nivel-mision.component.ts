@@ -16,8 +16,8 @@ export class NivelMisionComponent implements OnInit {
 
   listaNivelMisiones: NivelMision[] = [];
   displayedColumns: string[] = ['id', 'nombre', 'puntajeMinimo', 'imgNivelMision','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<NivelMision>;
-  id!: string | null;
+  dataSource= new MatTableDataSource<NivelMision>(this.listaNivelMisiones);
+  id: string | null;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
@@ -34,7 +34,10 @@ export class NivelMisionComponent implements OnInit {
     this.router.navigateByUrl('admin/nivel-mision/crearNivelMision')
   }
   cargarNivelMision(){
-    this.dataSource = new MatTableDataSource(this.listaNivelMisiones);
+    this.nivelMisionService.getNivelMision().subscribe(resp =>{
+      this.listaNivelMisiones = resp;
+      this.dataSource.data = this.listaNivelMisiones;
+    });
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -49,7 +52,10 @@ export class NivelMisionComponent implements OnInit {
     }
   }
 
-  eliminarNivelMision(index:number){
+  eliminarNivelMision(idNivelMision:NivelMision){
+    this.nivelMisionService.eliminarNivelMision(idNivelMision).subscribe(data =>{
+      this.listaNivelMisiones = this.listaNivelMisiones.filter(c => c!== idNivelMision);
+    })
     this.cargarNivelMision();
     const Toast = Swal.mixin({
       toast: true,
@@ -61,13 +67,15 @@ export class NivelMisionComponent implements OnInit {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-    })
-
+    });
     Toast.fire({
       icon: 'success',
       title: 'El NivelMisión fue eliminado  exitosamente'
-    })
+    });
+  }
 
+  actualizarNivelMision(idNivelMision: number) {
+    this.router.navigate(['/admin/nivel-mision/editarNivelMision/', idNivelMision]);
   }
 
 

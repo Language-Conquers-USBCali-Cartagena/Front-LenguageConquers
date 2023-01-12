@@ -16,8 +16,8 @@ export class CursoComponent implements OnInit {
 
   listaCursos: Curso[] = [];
   displayedColumns: string[] = ['id', 'nombre', 'password', 'cantidadEstudiantes', 'fechaInicio', 'fechaFin', 'progreso', 'idEstado', 'idProfesor','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<Curso>;
-  id!: string | null;
+  dataSource = new MatTableDataSource<Curso>(this.listaCursos);
+  id: string | null;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
@@ -34,7 +34,10 @@ export class CursoComponent implements OnInit {
     this.router.navigateByUrl('admin/cursos/crearCurso');
   }
   cargarCursos() {
-    this.dataSource = new MatTableDataSource(this.listaCursos);
+    this.cursoService.getCurso().subscribe(resp =>{
+      this.listaCursos = resp;
+      this.dataSource.data = this.listaCursos;
+    })
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -49,9 +52,11 @@ export class CursoComponent implements OnInit {
     }
   }
 
-  eliminarCurso(index:number){
+  eliminarCurso(idCurso: Curso){
+    this.cursoService.eliminarCurso(idCurso).subscribe( data =>{
+      this.listaCursos = this.listaCursos.filter(c => c!== idCurso);
+    })
     this.cargarCursos();
-
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -62,14 +67,15 @@ export class CursoComponent implements OnInit {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-    })
-
+    });
     Toast.fire({
       icon: 'success',
       title: 'El Curso fue eliminado exitosamente'
-    })
-
+    });
   }
 
+  actualizarCurso(idCurso: number){
+    this.router.navigate(['/admin/cursos/editarCurso/', idCurso]);
+  }
 
 }

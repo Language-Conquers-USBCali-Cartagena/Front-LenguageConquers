@@ -1,6 +1,6 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-      <mat-card-title>lista de Misiones</mat-card-title>
+      <mat-card-title>lista de Misiones Registradas</mat-card-title>
       <mat-form-field>
         <mat-label>Filter</mat-label>
         <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre de la Misión" #input>
@@ -15,7 +15,7 @@
 
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            <td mat-cell *matCellDef="let row"> {{row.idMision}} </td>
           </ng-container>
 
           <ng-container matColumnDef="nombre">
@@ -66,10 +66,10 @@
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-              <a  class="botones" [routerLink]="['/misiones/editarMision/',element.idMision]" style="color:rgb(19, 12, 59)" matTooltip="Editar Misión">
+              <a  class="botones" [routerLink]="['/misiones/editarMision/',element.idMision]" style="color:rgb(19, 12, 59)" (click)="actualizarMision(element.idMision)" matTooltip="Editar Misión">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarMision(i)" style="color:rgb(224, 26, 26)" matTooltip="Eliminar Reto">
+              <a  class="botones" (click)="eliminarMision(element)" id="eliminarMision" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Reto">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>
