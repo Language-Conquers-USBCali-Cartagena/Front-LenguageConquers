@@ -75,6 +75,10 @@ const routes: Routes = [
                 component:CrearModificarCategoriaComponent,
             },
             {
+              path: 'categoria-articulos/actualizarCategoria/:id',
+              component:CrearModificarCategoriaComponent,
+          },
+            {
                 path: 'cursos/listar-cursos',
                 component: CursoComponent
             },

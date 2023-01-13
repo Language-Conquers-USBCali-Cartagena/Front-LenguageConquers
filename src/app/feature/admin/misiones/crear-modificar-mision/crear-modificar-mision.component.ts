@@ -37,6 +37,7 @@ export class CrearModificarMisionComponent implements OnInit {
 
    crearMision(){
     this.form = this.fb.group({
+      idMision: ['', Validators.required],
       nombre:  ['', Validators.required],
       imagenMision: ['', Validators.required],
       idNivelMision: ['', Validators.required],
@@ -107,6 +108,7 @@ export class CrearModificarMisionComponent implements OnInit {
 
   setMision(mision: Mision) {
     this.form.patchValue({
+      idMision: mision.idMision,
       nombre: mision.nombre,
       imagenMision: mision.imagenMision,
       idNivelMision: mision.idNivelMision,
@@ -142,11 +144,26 @@ export class CrearModificarMisionComponent implements OnInit {
     const curso = this.form.value.idCurso;
     const monedas = this.form.value.idMonedas;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let mision: Mision = {nombre: nombre, imagenMision: imagenMision,idNivelMision: nivelMision, idTipoMision: tipoMision, idCurso:curso, idMonedas: monedas, usuarioModificador: usuarioModificador,
+    let mision: Mision = {idMision: this.form.value.idMision,nombre: nombre, imagenMision: imagenMision,idNivelMision: nivelMision, idTipoMision: tipoMision, idCurso:curso, idMonedas: monedas, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date()}
-    mision.idMision = this.form.value.idMision;
     this.misionService.actualizarMision(mision).subscribe(()=>{
+      Swal.fire({
+        icon: 'success',
+        title: 'La Misión se ha actualizado Exitosamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.router.navigate(['/admin/misiones/listar-misiones']);
+    }, (e) => {
+      this.hayErrores = true;
+      this.mensajeError = e.error;
+      console.log(e['error']);
+      Swal.fire({
+        icon: 'error',
+        title: e['error'],
+        showConfirmButton: false,
+        timer: 1500
+      });
     });
   }
 

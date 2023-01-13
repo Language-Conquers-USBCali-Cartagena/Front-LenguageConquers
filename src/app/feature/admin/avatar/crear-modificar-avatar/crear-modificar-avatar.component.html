@@ -1,7 +1,10 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-        <mat-card-title>Crear Avatar</mat-card-title>
-        <br><br>
+        <mat-card-title *ngIf="!avatar else editarT">Registrar Avatar</mat-card-title>
+        <ng-template #editarT>
+          <mat-card-title >Actualizar Avatar</mat-card-title>
+        </ng-template>
+        <br>
         <form [formGroup]="form" (ngSubmit)="guardarAvatar()">
             <div class="entradas">
                 <div class="campo-entrada">
@@ -39,7 +42,7 @@
                         <button mat-raised-button class="botones"  type="button" id="atras"(click)="atras()">Atras</button>
                         <button mat-raised-button class="botones" type="button" id="guardarAvatar" (click)="guardarAvatar()" *ngIf="!avatar else botonEditar">Crear Avatar</button>
                         <ng-template #botonEditar>
-                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Guardar Avatar</button>
+                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Actualizar Avatar</button>
                         </ng-template>
                     </div>
                 </div>

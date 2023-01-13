@@ -1,6 +1,6 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-      <mat-card-title>lista de Programas</mat-card-title>
+      <mat-card-title>Lista de Programas Registrados</mat-card-title>
       <mat-form-field>
         <mat-label>Filter</mat-label>
         <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del programa" #input>
@@ -46,10 +46,10 @@
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-              <a  class="botones" [routerLink]="['/programa/editarPrograma/',element.idPrograma]" style="color:rgb(19, 12, 59)" matTooltip="Editar Programa">
+              <a  class="botones" [routerLink]="['/programa/editarPrograma/',element.idPrograma]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarPrograma(element.idPrograma)" matTooltip="Editar Programa">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarPrograma(i)" style="color:rgb(224, 26, 26)" matTooltip="Eliminar Programa">
+              <a  class="botones" (click)="eliminarPrograma(element)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Programa">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

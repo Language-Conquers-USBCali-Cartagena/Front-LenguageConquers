@@ -24,7 +24,7 @@ export class ProgramaService {
   }
 
   actualizarPrograma(programa: Programa): Observable<Programa>{
-    return this.http.put<Programa>(`${environment.endpoint}/programa/actualizarPrograma/${programa.idPrograma}`,programa);
+    return this.http.put<Programa>(`${environment.endpoint}/programa/actualizarPrograma`,programa);
   }
 
   eliminarPrograma(programa: Programa): Observable<Programa>{

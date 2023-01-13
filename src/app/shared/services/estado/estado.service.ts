@@ -17,19 +17,19 @@ export class EstadoService {
 
 
   crearEstado(estado: Estado){
-    return this.http.post<Estado>(`${environment.endpoint}/estado/guardarEstado`, estado);
+    return this.http.post<Estado>(`${environment.endpoint}/estados/guardarEstado`, estado);
   }
 
   consultarPorId(idEstado: number){
-    return this.http.get<Estado>(`${environment.endpoint}/estado/porId/${idEstado}`);
+    return this.http.get<Estado>(`${environment.endpoint}/estados/porId/${idEstado}`);
   }
 
   actualizarEstado(estado: Estado): Observable<Estado>{
-    return this.http.put<Estado>(`${environment.endpoint}/estado/actualizarEstado/${estado.idEstado}`,estado);
+    return this.http.put<Estado>(`${environment.endpoint}/estados/actualizarEstado`,estado);
   }
 
   eliminarEstado(estado: Estado): Observable<Estado>{
-    return this.http.delete<Estado>(`${environment.endpoint}/estado/eliminarEstado/${estado.idEstado}`);
+    return this.http.delete<Estado>(`${environment.endpoint}/estados/eliminarEstado/${estado.idEstado}`);
   }
 
 

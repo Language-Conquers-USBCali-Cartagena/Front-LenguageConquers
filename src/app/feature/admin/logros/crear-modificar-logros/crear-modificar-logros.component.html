@@ -1,8 +1,11 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-        <mat-card-title>Crear Logro</mat-card-title>
+        <mat-card-title *ngIf="!logro else editarT">Registrar Logro</mat-card-title>
+        <ng-template #editarT>
+          <mat-card-title >Actualizar Logro</mat-card-title>
+        </ng-template>
         <br><br>
-        <form [formGroup]="form" (ngSubmit)="crearLogro()">
+        <form [formGroup]="form" (ngSubmit)="guardarLogro()">
             <div class="entradas">
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
@@ -19,30 +22,42 @@
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada">
+                  <mat-form-field appearance="fill">
+                      <mat-label class="titulos">Categoria</mat-label>
+                      <input type="text" matInput autocomplete="off" formControlName="categoria">
+                      <mat-icon matSuffix class="boton">categoria</mat-icon>
+                  </mat-form-field>
+              </div>
+                <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">ImagenLogro</mat-label>
-                        <input type="number" matInput autocomplete="off" formControlName="imagenLogro">
+                        <input type="text" matInput autocomplete="off" formControlName="imagenLogro">
                         <mat-icon matSuffix class="boton">imagen</mat-icon>
                     </mat-form-field>
                 </div>
-                <div class="campo-entrada">
+                <div class="campo-entrada" *ngIf="!logro else editar">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Usuario Creador</mat-label>
                         <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
                         <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
                     </mat-form-field>
-                </div>
+                  </div>
+                  <ng-template #editar>
                 <div class="campo-entrada">
                   <mat-form-field appearance="fill">
-                      <mat-label class="titulos">Usuario Modificador</mat-label>
-                      <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
-                      <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+                    <mat-label class="titulos">Usuario Modificador</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
+                    <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
                   </mat-form-field>
-              </div>
+                </div>
+              </ng-template>
                     <div class="boton">
                         <button mat-raised-button class="botones" (click)="atras()">Atras</button>
-                        <button mat-raised-button class="botones" (click)="crearLogro()">Crear Logro</button>
-                    </div>
+                        <button mat-raised-button class="botones" (click)="guardarLogro()" *ngIf="!logro else botonEditar">Crear Logro</button>
+                        <ng-template #botonEditar>
+                          <button mat-raised-button class="botones" (click)="actualizar()">Actualizar Logro</button>
+                        </ng-template>
+                      </div>
                 </div>
 
         </form>

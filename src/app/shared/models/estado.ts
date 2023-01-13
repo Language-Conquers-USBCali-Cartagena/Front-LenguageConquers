@@ -1,6 +1,6 @@
 export interface Estado{
   idEstado?: number;
-  estado?: string;
+  nombre?: string;
   usuarioCreador?: string;
   fechaCreacion?: Date;
   usuarioModificador?: string;

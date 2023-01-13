@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Monedas } from 'src/app/shared/models/monedas';
@@ -19,11 +19,12 @@ export class CreaModificarMonedasComponent implements OnInit {
   moneda!: Monedas;
   hayErrores = false;
   mensajeError: string="";
-  constructor(private fb: UntypedFormBuilder,private router:Router, private sanitizer: DomSanitizer,  private activatedRoute: ActivatedRoute, private monedaService: MonedasService) {
+  constructor(private fb: FormBuilder,private router:Router, private sanitizer: DomSanitizer,  private activatedRoute: ActivatedRoute, private monedaService: MonedasService) {
     this.crearMoneda();
   }
   crearMoneda(){
     this.form = this.fb.group({
+      idMonedas: ['', Validators.required],
       cantidad: ['', Validators.required],
       imagenMoneda: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
@@ -44,9 +45,8 @@ export class CreaModificarMonedasComponent implements OnInit {
     const imagenMoneda = this.form.value.imagenMoneda;
     const usuarioCreador = this.form.value.usuarioCreador;
     let moneda: Monedas = {
-      cantidad: cantidad, imgMoneda: imagenMoneda, usuarioCreador: usuarioCreador,
-      fechaCreacion: new Date(),
-    }
+      cantidad: cantidad, imagenMoneda: imagenMoneda, usuarioCreador: usuarioCreador,
+      fechaCreacion: new Date()}
     this.monedaService.crearMoneda(moneda).subscribe(data => {
       if(data){
         Swal.fire({
@@ -60,10 +60,10 @@ export class CreaModificarMonedasComponent implements OnInit {
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e.error;
-
+      console.log(e['error']);
       Swal.fire({
         icon: 'error',
-        title: e.error,
+        title: e['error'],
         showConfirmButton: false,
         timer: 1500
       });
@@ -111,9 +111,10 @@ export class CreaModificarMonedasComponent implements OnInit {
 
 
   setMoneda(moneda: Monedas) {
-    this.form.setValue({
+    this.form.patchValue({
+      idMonedas: moneda.idMonedas,
       cantidad: moneda.cantidad,
-      imagen: moneda.imgMoneda,
+      imagenMoneda: moneda.imagenMoneda,
       usuarioCreador: moneda.usuarioCreador,
       fechaCreacion: moneda.fechaCreacion,
       usuarioModificador: moneda.usuarioModificador,
@@ -140,13 +141,27 @@ export class CreaModificarMonedasComponent implements OnInit {
     const imagenMoneda = this.form.value.imagenMoneda;
     const usuarioModificador = this.form.value.usuarioModificador;
     let moneda: Monedas = {
-      cantidad: cantidad, imgMoneda: imagenMoneda, usuarioModificador: usuarioModificador,
-      fechaModificacion: new Date(),
-    }
-    this.moneda.idMonedas = this.form.value.idMoneda;
+      idMonedas: this.form.value.idMonedas,cantidad: cantidad, imagenMoneda: imagenMoneda, usuarioModificador: usuarioModificador,
+      fechaModificacion: new Date()}
     this.monedaService.actualizarMoneda(moneda).subscribe(()=>{
-      this.router.navigateByUrl('/admin/moneda/listar-monedas');
-    })
+      Swal.fire({
+        icon: 'success',
+        title: 'La moneda se ha actualizado Exitosamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      this.router.navigate(['/admin/monedas/listar-monedas']);
+    },  (e) => {
+      this.hayErrores = true;
+      this.mensajeError = e.error;
+      console.log(e['error']);
+      Swal.fire({
+        icon: 'error',
+        title: e['error'],
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
   }
 
 

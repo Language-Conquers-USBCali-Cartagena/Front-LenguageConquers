@@ -141,6 +141,7 @@ export class CrearRegistrarComponent implements OnInit {
     );
   }
 
+  /*TODO: REVISAR ESTE METODO*/
   actualizar():void{
     let id = localStorage.getItem('id');
     this.retoService.consultarPorId(+id!).subscribe((data) => {
@@ -168,7 +169,7 @@ export class CrearRegistrarComponent implements OnInit {
       this.reto = data;
       Swal.fire({
         icon: 'success',
-        title: 'El Reto se ha creado Exitosamente',
+        title: 'El Reto se ha actualizado Exitosamente',
         showConfirmButton: false,
         timer: 1500
       });

@@ -1,6 +1,9 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-        <mat-card-title>Crear Articulo</mat-card-title>
+        <mat-card-title *ngIf="!articulo else editarT">Registrar Articulo</mat-card-title>
+        <ng-template #editarT>
+          <mat-card-title >Actualizar Articulo</mat-card-title>
+        </ng-template>
         <br><br>
         <form [formGroup]="form" (ngSubmit)="guardarArticulo()">
             <div class="entradas">

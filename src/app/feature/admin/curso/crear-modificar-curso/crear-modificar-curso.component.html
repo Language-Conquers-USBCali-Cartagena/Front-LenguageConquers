@@ -46,9 +46,9 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill" class="example-form-field">
                         <mat-label class="titulos">Fecha Fin</mat-label>
-                        <input matInput [matDatepicker]="datepicker" formControlName="fechaFin">
-                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-                        <mat-datepicker #datepicker>
+                        <input matInput [matDatepicker]="datepicker1" formControlName="fechaFin">
+                        <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker1>
                             <mat-datepicker-actions>
                                 <button mat-button matDatepickerCancel>Cancel</button>
                                 <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
@@ -69,7 +69,7 @@
                         <mat-label class="titulos">Estado</mat-label>
                         <mat-select formControlName="estado">
                             <mat-option *ngFor="let estado of estados" [value]="estado">
-                                {{estado.estado}}
+                                {{estado.nombre}}
                             </mat-option>
                         </mat-select>
                         <mat-icon matSuffix class="boton">estado</mat-icon>
@@ -104,7 +104,7 @@
             </ng-template>
                     <div class="boton">
                         <button mat-raised-button class="botones" id="atras" (click)="atras()">Atras</button>
-                        <button mat-raised-button class="botones" id="guardarCurso" (click)="crearCurso()" *ngIf="!curso else botonEditar" >Crear Curso</button>
+                        <button mat-raised-button class="botones" id="guardarCurso" (click)="guardarCurso()" *ngIf="!curso else botonEditar" >Crear Curso</button>
                         <ng-template #botonEditar>
                           <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Actualizar Curso</button>
                         </ng-template>

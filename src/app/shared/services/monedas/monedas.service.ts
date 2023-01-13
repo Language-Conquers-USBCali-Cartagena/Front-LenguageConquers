@@ -15,7 +15,7 @@ export class MonedasService {
   }
 
   crearMoneda(moneda: Monedas){
-    return this.http.post<Monedas>(`${environment.endpoint}/monedas/guardarMoneda`, moneda);
+    return this.http.post<Monedas>(`${environment.endpoint}/monedas`, moneda);
   }
 
   consultarPorId(idMoneda: number){
@@ -23,7 +23,7 @@ export class MonedasService {
   }
 
   actualizarMoneda(moneda: Monedas): Observable<Monedas>{
-    return this.http.put<Monedas>(`${environment.endpoint}/monedas/actualizarMoneda/${moneda.idMonedas}`,moneda);
+    return this.http.put<Monedas>(`${environment.endpoint}/monedas/actualizarMoneda`,moneda);
   }
 
   eliminarMonedas(moneda: Monedas): Observable<Monedas>{

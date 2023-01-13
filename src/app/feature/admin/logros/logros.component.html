@@ -1,6 +1,6 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-      <mat-card-title>lista de Logros</mat-card-title>
+      <mat-card-title>Lista de Logros Registrados</mat-card-title>
       <mat-form-field>
         <mat-label>Filter</mat-label>
         <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del logro" #input>
@@ -55,10 +55,10 @@
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-              <a  class="botones" [routerLink]="['/logros/editarLogro/',element.id]" style="color:rgb(19, 12, 59)" matTooltip="Editar Logro">
+              <a  class="botones" [routerLink]="['/logros/editarLogro/',element.id]" style="color:rgb(19, 12, 59); cursor: pointer" (click)="actualizarLogro(element.idLogro)" matTooltip="Editar Logro">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarLogro(i)" style="color:rgb(224, 26, 26)" matTooltip="Eliminar Logro">
+              <a  class="botones" (click)="eliminarLogro(element.idLogro)" style="color:rgb(224, 26, 26); cursor: pointer" matTooltip="Eliminar Logro">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

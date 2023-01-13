@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Estado } from 'src/app/shared/models/estado';
 import { EstadoService } from 'src/app/shared/services/estado/estado.service';
@@ -12,40 +12,66 @@ import Swal from 'sweetalert2';
 })
 export class CrearModificarEstadoComponent implements OnInit {
 
-  form!: UntypedFormGroup;
+  form!: FormGroup;
   estado!:Estado;
-  constructor(private fb: UntypedFormBuilder,private router: Router,  private activatedRoute: ActivatedRoute, private estadoService: EstadoService) {
-    this.form = this.fb.group({
-      estado:  ['', Validators.required],
-      usuarioCreador: ['', Validators.required],
-      fechaCreacion: ['', Validators.required],
-      usuarioModificador: ['', Validators.required]
-    })
+  hayErrores = false;
+  mensajeError: string="";
+
+  constructor(private fb: FormBuilder,private router: Router,  private activatedRoute: ActivatedRoute, private estadoService: EstadoService) {
+    this.crearEstado();
    }
 
+  crearEstado() {
+    this.form = this.fb.group({
+      idEstado: ['', Validators.required],
+      nombreEstado:  ['', Validators.required],
+      usuarioCreador: ['', Validators.required],
+      fechaCreacion: ['', Validators.required],
+      usuarioModificador: ['', Validators.required],
+      fechaModificacion: ['', Validators.required]
+    });
+  }
   ngOnInit(): void {
+    this.crearEstado();
+    this.cargarEstado();
   }
 
-  crearEstado(){
-    const nombreEstado = this.form.value.estado;
+  guardarEstado(){
+    const nombreEstado = this.form.value.nombreEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let estado: Estado = {estado: nombreEstado, usuarioCreador: usuarioCreador,
+    let estado: Estado = {nombre: nombreEstado, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
-
-    Swal.fire({
-      icon: 'success',
-      title: 'El Estado se ha creado Exitosamente',
-      showConfirmButton: false,
-      timer: 1500
-    })
-
+      this.estadoService.crearEstado(estado).subscribe(data => {
+        if(data){
+          Swal.fire({
+            icon: 'success',
+            title: 'El Estado se ha creado Exitosamente',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.router.navigate(['/admin/estado/listar-estados']);
+        }
+      }, (e) => {
+        this.hayErrores = true;
+        this.mensajeError = e['error'];
+        console.log(e['error']);
+        Swal.fire({
+          icon: 'error',
+          title: e['error'],
+          showConfirmButton: false,
+          timer: 1500
+        });
+      });
   }
 
   setEstado(estado: Estado){
-    this.form.setValue({
-      nombreEstado: estado.estado,
+    this.form.patchValue({
+      idEstado: estado.idEstado,
+      nombreEstado: estado.nombre,
       usuarioCreador: estado.usuarioCreador,
-      usuarioModificador: estado.usuarioModificador
+      fechaCreacion: estado.fechaCreacion,
+      usuarioModificador: estado.usuarioModificador,
+      fechaModificacion: estado.fechaModificacion
     });
   }
 
@@ -61,6 +87,31 @@ export class CrearModificarEstadoComponent implements OnInit {
         }
       }
     )
+  }
+  actualizar():void{
+    const nombreEstado = this.form.value.nombreEstado;
+    const usuarioModificador = this.form.value.usuarioModificador;
+    let estado: Estado = {idEstado: this.form.value.idEstado, nombre: nombreEstado, usuarioModificador: usuarioModificador,
+                                  fechaModificacion: new Date()}
+    this.estadoService.actualizarEstado(estado).subscribe(()=>{
+      Swal.fire({
+        icon: 'success',
+        title: 'El Estado se ha actualizado Exitosamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      this.router.navigate(['/admin/estado/listar-estados']);
+    }, (e) => {
+      this.hayErrores = true;
+      this.mensajeError = e['error'];
+      console.log(e['error']);
+      Swal.fire({
+        icon: 'error',
+        title: e['error'],
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
   }
 
   atras(){

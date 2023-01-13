@@ -73,7 +73,7 @@
             <mat-label class="titulos">Estado</mat-label>
             <mat-select formControlName="estado" >
               <mat-option *ngFor="let estado of estados" [value]="estado">
-                {{estado.estado}}
+                {{estado.nombre}}
               </mat-option>
             </mat-select>
             <mat-icon matSuffix class="boton">estado</mat-icon>

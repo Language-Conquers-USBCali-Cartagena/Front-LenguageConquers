@@ -34,7 +34,7 @@ export class ArticuloService {
   }
 
   actualizarArticulo(articulo: Articulo): Observable<Articulo>{
-    return this.http.put<Articulo>(`${environment.endpoint}/articulos/actualizarArticulo/${articulo.idArticulo}`, articulo);
+    return this.http.put<Articulo>(`${environment.endpoint}/articulos`, articulo);
   }
 
   eliminarArticulo(articulo: Articulo): Observable<Articulo>{

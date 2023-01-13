@@ -53,8 +53,10 @@ export class LogrosComponent implements OnInit {
     }
   }
 
-  
-  eliminarLogro(index:number){
+  eliminarLogro(idLogro: Logros){
+    this.logrosService.eliminarLogro(idLogro).subscribe(data =>{
+      this.listaLogros = this.listaLogros.filter(c => c!== idLogro);
+    })
     this.cargarLogros();
 
     const Toast = Swal.mixin({
@@ -67,13 +69,15 @@ export class LogrosComponent implements OnInit {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-    })
-
+    });
     Toast.fire({
       icon: 'success',
       title: 'El Logro fue eliminado  exitosamente'
-    })
+    });
+  }
 
+  actualizarLogro(idLogro: number){
+    this.router.navigate(['/admin/logros/editarLogro/', idLogro]);
   }
 
 

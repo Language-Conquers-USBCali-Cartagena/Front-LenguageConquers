@@ -25,7 +25,7 @@ export class DocenteComponent implements OnInit {
   constructor(private fb: FormBuilder, private generoService: GeneroService, private router: Router, private activatedRoute: ActivatedRoute, private profesorService: ProfesorService) {
     this.crearDocente();
   }
-
+/*TODO: REVISAR SI AL FIN VA A QUEDAR LISTADO EN UNA TABLA TANTO PROFESOR COMO ESTUDIANTE*/
   crearDocente() {
     this.form = this.fb.group({
       nombre: ['', Validators.required],

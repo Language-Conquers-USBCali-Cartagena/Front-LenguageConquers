@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Logros } from 'src/app/shared/models/logros';
 import Swal from 'sweetalert2';
@@ -12,45 +12,78 @@ import { LogrosService } from '../../../../shared/services/logros/logros.service
 })
 export class CrearModificarLogrosComponent implements OnInit {
 
-  form!: UntypedFormGroup;
+  form!: FormGroup;
   logro!: Logros;
-  constructor(private fb: UntypedFormBuilder,private router:Router, private activatedRoute: ActivatedRoute, private logroService: LogrosService) {
+  hayErrores= false;
+  mensajeError: string="";
+  constructor(private fb: FormBuilder,private router:Router, private activatedRoute: ActivatedRoute, private logroService: LogrosService) {
+    this,this.crearLogro();
+  }
+
+  crearLogro(){
     this.form = this.fb.group({
+      idLogro:['', Validators.required],
       nombre:  ['', Validators.required],
       descripcion: ['', Validators.required],
+      categoria: ['', Validators.required],
       imagenLogro: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
-      usuarioModificador: ['', Validators.required]
-    })
+      usuarioModificador: ['', Validators.required],
+      fechaModificacion: ['', Validators.required]
+    });
   }
 
   ngOnInit(): void {
+    this.crearLogro();
+    this.cargarLogro();
   }
-  crearLogro(){
+  guardarLogro(){
+    this.hayErrores = false;
     const nombre = this.form.value.nombre;
     const descripcion = this.form.value.descripcion;
+    const categoria = this.form.value.categoria;
     const imagenLogro = this.form.value.imagenLogro;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let logro: Logros = {nombre: nombre, descripcion: descripcion, imagen: imagenLogro, usuarioCreador: usuarioCreador,
+    let logro: Logros = {nombre: nombre, descripcion: descripcion, categoria: categoria,  imagen: imagenLogro, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
+    this.logroService.crearLogro(logro).subscribe(data => {
+      if(data){
+        Swal.fire({
+          icon: 'success',
+          title: 'El Logro se ha creado Exitosamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.router.navigate(['/admin/logros/listar-logros']);
+      }
+    }, (e) => {
+      this.hayErrores = true;
+      this.mensajeError = e.error;
+      console.log(e['error']);
+      Swal.fire({
+        icon: 'error',
+        title: e['error'],
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
 
-    Swal.fire({
-      icon: 'success',
-      title: 'El Logro se ha creado Exitosamente',
-      showConfirmButton: false,
-      timer: 1500
-    })
 
   }
 
   setLogros(logro:Logros) {
     this.form.setValue({
+      idLogro: logro.idLogro,
       nombre: logro.nombre,
       descripcion: logro.descripcion,
+      categoria: logro.categoria,
       imagenLogro: logro.imagen,
       usuarioCreador: logro.usuarioCreador,
-      usuarioModificador: logro.usuarioModificador
+      fechaCreacion: logro.fechaCreacion,
+      usuarioModificador: logro.usuarioModificador,
+      fechaModificacion: logro.fechaModificacion
+
     });
   }
 
@@ -68,6 +101,34 @@ export class CrearModificarLogrosComponent implements OnInit {
     );
   }
 
+  actualizar():void{
+    const nombre = this.form.value.nombre;
+    const descripcion = this.form.value.descripcion;
+    const categoria = this.form.value.categoria;
+    const imagenLogro = this.form.value.imagenLogro;
+    const usuarioModificador = this.form.value.usuarioModificador;
+    let logro: Logros = {idLogro:this.form.value.idLogro ,nombre: nombre, descripcion: descripcion,categoria: categoria, imagen: imagenLogro, usuarioModificador: usuarioModificador,
+                                  fechaModificacion: new Date()}
+    this.logroService.actualizarLogro(logro).subscribe(()=>{
+      Swal.fire({
+        icon: 'success',
+        title: 'El Logro se ha actualizado Exitosamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      this.router.navigate(['/admin/logros/listar-logros']);
+  }, (e) => {
+    this.hayErrores = true;
+    this.mensajeError = e.error;
+    console.log(e['error']);
+    Swal.fire({
+      icon: 'error',
+      title: e['error'],
+      showConfirmButton: false,
+      timer: 1500
+    });
+  });
+  }
 
   atras(){
     this.router.navigateByUrl('/admin/logros/listar-logros');

@@ -1,6 +1,6 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-      <mat-card-title>lista de Cursos</mat-card-title>
+      <mat-card-title>Lista de Cursos Registrados</mat-card-title>
       <mat-form-field>
         <mat-label>Filter</mat-label>
         <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del curso" #input>
@@ -81,10 +81,10 @@
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-              <a  class="botones" [routerLink]="['/curso/editarCurso/',element.idCurso]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarCurso(element.idCurso)" id="actualizarCurso" matTooltip="Editar Curso">
+              <a  class="botones" [routerLink]="['/admin/cursos/editarCurso/',element.idCurso]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarCurso(element.idCurso)" id="actualizarCurso" matTooltip="Editar Curso">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarCurso(i)" id="eliminarCurso" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Curso">
+              <a  class="botones" (click)="eliminarCurso(element)" id="eliminarCurso" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Curso">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

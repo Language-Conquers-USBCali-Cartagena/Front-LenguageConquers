@@ -99,7 +99,7 @@ export class CrearModificarTipoMisionComponent implements OnInit {
     this.tipoMisionService.actualizarTipoMision(tipoMision).subscribe(() =>{
       Swal.fire({
         icon: 'success',
-        title: 'El Tipo Misión se ha creado Exitosamente',
+        title: 'El Tipo Misión se ha actualizado Exitosamente',
         showConfirmButton: false,
         timer: 1500
       });

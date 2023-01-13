@@ -52,9 +52,11 @@ export class EstadoComponent implements OnInit {
     }
   }
 
-  eliminarEstado(index:number){
+  eliminarEstado(idEstado: Estado){
+    this.estadoService.eliminarEstado(idEstado).subscribe(()=>{
+      this.listaEstados = this.listaEstados.filter(c => c!== idEstado);
+    });
     this.cargarEstados();
-
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -65,13 +67,15 @@ export class EstadoComponent implements OnInit {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-    })
-
+    });
     Toast.fire({
       icon: 'success',
       title: 'El estado fue eliminado exitosamente'
-    })
+    });
+  }
 
+  actualizarEstado(idEstado: number){
+    this.router.navigate(['/admin/estado/editarEstado/', idEstado]);
   }
 
 

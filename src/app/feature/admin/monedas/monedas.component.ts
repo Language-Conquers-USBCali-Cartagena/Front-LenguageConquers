@@ -52,7 +52,10 @@ export class MonedasComponent implements OnInit {
     }
   }
 
-  eliminarMoneda(index:number){
+  eliminarMoneda(idMoneda: Monedas){
+    this.monedaService.eliminarMonedas(idMoneda).subscribe(result =>{
+      this.listaMonedas = this.listaMonedas.filter(c => c!== idMoneda);
+    });
     this.cargarMonedas();
     const Toast = Swal.mixin({
       toast: true,
@@ -65,7 +68,6 @@ export class MonedasComponent implements OnInit {
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
     });
-
     Toast.fire({
       icon: 'success',
       title: 'La Moneda fue eliminada exitosamente'

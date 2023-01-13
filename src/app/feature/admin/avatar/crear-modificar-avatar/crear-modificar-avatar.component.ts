@@ -26,6 +26,7 @@ export class CrearModificarAvatarComponent implements OnInit {
   }
   crearAvatar(){
     this.form = this.fb.group({
+      idAvatar: ['', Validators.required],
       nombre:  ['', Validators.required],
       imagenAvatar: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
@@ -60,7 +61,8 @@ export class CrearModificarAvatarComponent implements OnInit {
       }
     }, (e) => {
       this.hayErrores = true;
-      this.mensajeError = e.error;
+      this.mensajeError = e['error'];
+      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],
@@ -73,6 +75,7 @@ export class CrearModificarAvatarComponent implements OnInit {
 
   setAvatar(avatar:Avatar){
     this.form.setValue({
+      idAvatar: avatar.idAvatar,
       nombre: avatar.nombreAvatar,
       imagenAvatar: avatar.imgAvatar,
       usuarioCreador: avatar.usuarioCreador,
@@ -100,12 +103,28 @@ export class CrearModificarAvatarComponent implements OnInit {
     const nombre = this.form.value.nombre;
     const imagenAvatar = this.form.value.imagenAvatar;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let avatar: Avatar = {nombreAvatar: nombre, imgAvatar: imagenAvatar, usuarioModificador: usuarioModificador,
+    let avatar: Avatar = {idAvatar: this.form.value.idAvatar,nombreAvatar: nombre, imgAvatar: imagenAvatar, usuarioModificador: usuarioModificador,
                                  fechaModificacion: new Date()}
-    this.avatar.idAvatar = this.form.value.idAvatar;
     this.avatarService.actualizarAvatar(avatar).subscribe(()=>{
+      Swal.fire({
+        icon: 'success',
+        title: 'El Avatar se ha actualizado Exitosamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.router.navigate(['/admin/avatar/listar-avatar']);
+  }, (e) => {
+    this.hayErrores = true;
+    this.mensajeError = e['error'];
+    console.log(e['error']);
+    Swal.fire({
+      icon: 'error',
+      title: e['error'],
+      showConfirmButton: false,
+      timer: 1500
     });
+  }
+  );
   }
 
    atras(){

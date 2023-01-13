@@ -29,6 +29,7 @@ export class CrearModificarArticulosComponent implements OnInit {
 
    crearArticulo(){
     this.form = this.fb.group({
+      idArticulo:['', Validators.required],
       nombre:  ['', Validators.required],
       descripcion: ['', Validators.required],
       precio: ['', Validators.required],
@@ -43,6 +44,8 @@ export class CrearModificarArticulosComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.crearArticulo();
+    this.cargarArticulo();
     this.getCategoria();
     this.getEstado();
   }
@@ -89,6 +92,7 @@ export class CrearModificarArticulosComponent implements OnInit {
 
   setArticulo(articulo: Articulo) {
     this.form.setValue({
+      idArticulo: articulo.idArticulo,
       nombre: articulo.nombre,
       descripcion: articulo.descripcion,
       precio: articulo.precio,
@@ -126,13 +130,27 @@ export class CrearModificarArticulosComponent implements OnInit {
     const estado = this.form.value.estado;
     const categoria = this.form.value.categoria;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let articulo: Articulo = {nombre: nombre, descripcion: descripcion, precio: precio, nivelValido: nivelValido, imagen: imagenArticulo, idEstado: estado, idCategoria: categoria, usuarioModificador: usuarioModificador,
+    let articulo: Articulo = {idArticulo:this.form.value.idArticulo,nombre: nombre, descripcion: descripcion, precio: precio, nivelValido: nivelValido, imagen: imagenArticulo, idEstado: estado, idCategoria: categoria, usuarioModificador: usuarioModificador,
                                  fechaModificacion: new Date()}
-
-    this.articulo.idArticulo = this.form.value.idArticulo;
-    this.articuloService.actualizarArticulo(this.articulo).subscribe(()=>{
+    this.articuloService.actualizarArticulo(articulo).subscribe(()=>{
+      Swal.fire({
+        icon: 'success',
+        title: 'El Articulo se ha actualizado Exitosamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.router.navigate(['/admin/articulo/listar-articulo']);
-    })
+    },(e) =>{
+      this.hayErrores = true;
+      this.mensajeError = e.error;
+
+      Swal.fire({
+        icon: 'error',
+        title: e.error,
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
   }
 
   atras(){

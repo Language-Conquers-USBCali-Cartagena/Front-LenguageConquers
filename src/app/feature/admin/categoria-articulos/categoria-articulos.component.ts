@@ -16,7 +16,7 @@ export class CategoriaArticulosComponent implements OnInit {
 
   listaCategoria: Categorias[] = [];
   displayedColumns: string[] = ['id', 'nombre', 'descripción',  'idEstado', 'usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
-  dataSource!: MatTableDataSource<Categorias>;
+  dataSource = new MatTableDataSource<Categorias>(this.listaCategoria);
   id!: string | null;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -31,7 +31,10 @@ export class CategoriaArticulosComponent implements OnInit {
     this.cargarCategoria();
   }
   cargarCategoria() {
-    this.dataSource = new MatTableDataSource(this.listaCategoria);
+    this.categoriaService.getCategoria().subscribe(resp =>{
+      this.listaCategoria = resp;
+      this.dataSource.data = this.listaCategoria;
+    });
   }
   registrarCategoria(){
     this.router.navigateByUrl('admin/categoria-articulos/crearCategoria');
@@ -50,9 +53,11 @@ export class CategoriaArticulosComponent implements OnInit {
     }
   }
 
-  eliminarCategoria(index:number){
+  eliminarCategoria(idCategoria: Categorias){
+    this.categoriaService.eliminarCategorias(idCategoria).subscribe(data =>{
+      this.listaCategoria = this.listaCategoria.filter(c => c!== idCategoria);
+    })
     this.cargarCategoria();
-
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -63,13 +68,15 @@ export class CategoriaArticulosComponent implements OnInit {
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
-    })
-
+    });
     Toast.fire({
       icon: 'success',
       title: 'La categoria fue eliminada exitosamente'
-    })
+    });
+  }
 
+  actualizarCategoria(idCategoria: number){
+    this.router.navigate(['admin/categoria-articulos/actualizarCategoria/', idCategoria]);
   }
 
 
