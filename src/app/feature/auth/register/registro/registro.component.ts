@@ -87,7 +87,7 @@ export class RegistroComponent implements OnInit {
 
     Toast.fire({
       icon: 'info',
-      title: 'El usuario o contraseña son inválidos'
+      title: 'El usuario o contraseña son inválidos.'
     })
   }
 
@@ -195,7 +195,7 @@ export class RegistroComponent implements OnInit {
 
     Toast.fire({
       icon: 'info',
-      title: 'La contraseña debe contener minimo 6 caracteres.'
+      title: 'La contraseña debe contener mínimo 6 caracteres.'
     })
   }
 }

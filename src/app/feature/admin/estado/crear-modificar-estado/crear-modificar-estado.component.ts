@@ -37,15 +37,15 @@ export class CrearModificarEstadoComponent implements OnInit {
   }
 
   guardarEstado(){
-    const nombreEstado = this.form.value.nombreEstado;
+    const nombreEstado = this.form.value.estado;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let estado: Estado = {nombre: nombreEstado, usuarioCreador: usuarioCreador,
+    let estado: Estado = {estado: nombreEstado, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
       this.estadoService.crearEstado(estado).subscribe(data => {
         if(data){
           Swal.fire({
             icon: 'success',
-            title: 'El Estado se ha creado Exitosamente',
+            title: 'El estado se ha creado exitosamente.',
             showConfirmButton: false,
             timer: 1500
           });
@@ -67,7 +67,7 @@ export class CrearModificarEstadoComponent implements OnInit {
   setEstado(estado: Estado){
     this.form.patchValue({
       idEstado: estado.idEstado,
-      nombreEstado: estado.nombre,
+      nombreEstado: estado.estado,
       usuarioCreador: estado.usuarioCreador,
       fechaCreacion: estado.fechaCreacion,
       usuarioModificador: estado.usuarioModificador,
@@ -89,14 +89,14 @@ export class CrearModificarEstadoComponent implements OnInit {
     )
   }
   actualizar():void{
-    const nombreEstado = this.form.value.nombreEstado;
+    const nombreEstado = this.form.value.estado;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let estado: Estado = {idEstado: this.form.value.idEstado, nombre: nombreEstado, usuarioModificador: usuarioModificador,
+    let estado: Estado = {idEstado: this.form.value.idEstado, estado: nombreEstado, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date()}
     this.estadoService.actualizarEstado(estado).subscribe(()=>{
       Swal.fire({
         icon: 'success',
-        title: 'El Estado se ha actualizado Exitosamente',
+        title: 'El estado se ha actualizado exitosamente.',
         showConfirmButton: false,
         timer: 1500
       });

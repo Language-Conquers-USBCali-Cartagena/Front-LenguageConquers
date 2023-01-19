@@ -1,7 +1,7 @@
 export interface Monedas{
-    idMonedas?: number;
+    idMoneda?: number;
     cantidad?: number;
-    imagenMoneda?: string;
+    imgMonedas?: string;
     usuarioCreador?:     string;
     usuarioModificador?: string;
     fechaCreacion?:      Date;

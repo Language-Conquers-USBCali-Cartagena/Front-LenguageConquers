@@ -24,7 +24,7 @@ export class EstudianteService {
   }
 
   actualizarEstudiante(estudiante: Estudiante): Observable<Estudiante>{
-    return this.http.put<Estudiante>(`${environment.endpoint}/estudiante/actualizarEstudiante/${estudiante.idEstudiante}`,estudiante);
+    return this.http.put<Estudiante>(`${environment.endpoint}/estudiante/actualizarEstudiante`,estudiante);
   }
 
   eliminarEstudiante(estudiante: Estudiante): Observable<Estudiante>{

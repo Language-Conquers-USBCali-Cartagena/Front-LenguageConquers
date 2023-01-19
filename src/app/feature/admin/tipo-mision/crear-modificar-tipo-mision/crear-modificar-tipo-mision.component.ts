@@ -47,7 +47,7 @@ export class CrearModificarTipoMisionComponent implements OnInit {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'El Tipo Misión se ha creado Exitosamente',
+          title: 'El tipo misión se ha creado exitosamente.',
           showConfirmButton: false,
           timer: 1500
         });
@@ -99,7 +99,7 @@ export class CrearModificarTipoMisionComponent implements OnInit {
     this.tipoMisionService.actualizarTipoMision(tipoMision).subscribe(() =>{
       Swal.fire({
         icon: 'success',
-        title: 'El Tipo Misión se ha actualizado Exitosamente',
+        title: 'El tipo misión se ha actualizado exitosamente.',
         showConfirmButton: false,
         timer: 1500
       });

@@ -27,6 +27,6 @@ export class MonedasService {
   }
 
   eliminarMonedas(moneda: Monedas): Observable<Monedas>{
-    return this.http.delete<Monedas>(`${environment.endpoint}/monedas/eliminarMoneda/${moneda.idMonedas}`);
+    return this.http.delete<Monedas>(`${environment.endpoint}/monedas/eliminarMoneda/${moneda.idMoneda}`);
   }
 }

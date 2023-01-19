@@ -77,7 +77,7 @@ export class MisionesComponent implements OnInit {
 
     Toast.fire({
       icon: 'success',
-      title: 'La Misión fue eliminada exitosamente'
+      title: 'La misión fue eliminada exitosamente.'
     });
   }
 

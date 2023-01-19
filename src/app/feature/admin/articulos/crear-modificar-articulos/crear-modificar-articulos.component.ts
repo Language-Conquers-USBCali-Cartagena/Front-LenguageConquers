@@ -34,7 +34,7 @@ export class CrearModificarArticulosComponent implements OnInit {
       descripcion: ['', Validators.required],
       precio: ['', Validators.required],
       nivelValido: ['', Validators.required],
-      imagenArticulo: ['', Validators.required],
+      imagen: ['', Validators.required],
       categoria: ['', Validators.required],
       estado: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
@@ -61,7 +61,7 @@ export class CrearModificarArticulosComponent implements OnInit {
     const precio = this.form.value.precio;
     const nivelValido = this.form.value.nivelValido;
     const imagen = this.form.value.imagen;
-    const estado= this.form.value.estado.idEstado;
+    const estado= this.form.value.idEstado;
     const categoria = this.form.value.categoria.idCategoria;
     const usuarioCreador = this.form.value.usuarioCreador;
     let articulo: Articulo = {nombre: nombre, descripcion: descripcion, precio: precio,  nivelValido: nivelValido, imagen: imagen, idEstado: estado, idCategoria: categoria, usuarioCreador: usuarioCreador,
@@ -70,7 +70,7 @@ export class CrearModificarArticulosComponent implements OnInit {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'El Articulo se ha creado Exitosamente',
+          title: 'El artículo se ha creado exitosamente.',
           showConfirmButton: false,
           timer: 1500
         });
@@ -97,7 +97,7 @@ export class CrearModificarArticulosComponent implements OnInit {
       descripcion: articulo.descripcion,
       precio: articulo.precio,
       nivelValido: articulo.nivelValido,
-      imagenArticulo: articulo.imagen,
+      imagen: articulo.imagen,
       estado: articulo.idEstado,
       categoria: articulo.idCategoria,
       usuarioCreador: articulo.usuarioCreador,
@@ -126,8 +126,8 @@ export class CrearModificarArticulosComponent implements OnInit {
     const descripcion = this.form.value.descripcion;
     const precio = this.form.value.precio;
     const nivelValido = this.form.value.nivelValido;
-    const imagenArticulo = this.form.value.imagenArticulo;
-    const estado = this.form.value.estado;
+    const imagenArticulo = this.form.value.imagen;
+    const estado = this.form.value.idEstado;
     const categoria = this.form.value.categoria;
     const usuarioModificador = this.form.value.usuarioModificador;
     let articulo: Articulo = {idArticulo:this.form.value.idArticulo,nombre: nombre, descripcion: descripcion, precio: precio, nivelValido: nivelValido, imagen: imagenArticulo, idEstado: estado, idCategoria: categoria, usuarioModificador: usuarioModificador,
@@ -135,7 +135,7 @@ export class CrearModificarArticulosComponent implements OnInit {
     this.articuloService.actualizarArticulo(articulo).subscribe(()=>{
       Swal.fire({
         icon: 'success',
-        title: 'El Articulo se ha actualizado Exitosamente',
+        title: 'El artículo se ha actualizado exitosamente.',
         showConfirmButton: false,
         timer: 1500
       });

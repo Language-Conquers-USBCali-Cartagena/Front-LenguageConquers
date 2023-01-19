@@ -70,7 +70,7 @@ export class CursoComponent implements OnInit {
     });
     Toast.fire({
       icon: 'success',
-      title: 'El Curso fue eliminado exitosamente'
+      title: 'El curso fue eliminado exitosamente.'
     });
   }
 

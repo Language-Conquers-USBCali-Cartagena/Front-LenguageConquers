@@ -1,6 +1,6 @@
 <mat-card class="tarjetaPrincipal">
     <mat-card-content>
-        <mat-card-title *ngIf="!articulo else editarT">Registrar Articulo</mat-card-title>
+        <mat-card-title *ngIf="!articulo else editarT">Registrar Artículo</mat-card-title>
         <ng-template #editarT>
           <mat-card-title >Actualizar Articulo</mat-card-title>
         </ng-template>
@@ -25,26 +25,50 @@
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Precio</mat-label>
                         <input type="number" matInput autocomplete="off" formControlName="precio">
+                        <mat-icon matSuffix class="boton">precio</mat-icon>
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Nivel Valido</mat-label>
+                        <mat-label class="titulos">Nivel Válido</mat-label>
                         <input type="number" matInput autocomplete="off" formControlName="nivelValido">
                         <mat-icon matSuffix class="boton">nivelValido</mat-icon>
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Imagen Articulo</mat-label>
+                        <mat-label class="titulos">Imagen Artículo</mat-label>
                         <input type="text" matInput autocomplete="off" formControlName="imagen">
                         <mat-icon matSuffix class="boton">imagen</mat-icon>
                     </mat-form-field>
                 </div>
+                <div class="campo-entrada">
+                  <mat-form-field appearance="fill">
+                      <mat-label class="titulos">Estado</mat-label>
+                      <mat-select formControlName="idEstado">
+                          <mat-option *ngFor="let estado of estados" [value]="estado">
+                              {{estado.estado}}
+                          </mat-option>
+                      </mat-select>
+                      <mat-icon matSuffix class="boton">estado</mat-icon>
+                  </mat-form-field>
+              </div>
+              <div class="campo-entrada">
+                <mat-form-field appearance="fill">
+                    <mat-label class="titulos">Categoría</mat-label>
+                    <mat-select formControlName="categoria">
+                        <mat-option *ngFor="let categoria of categorias" [value]="categoria">
+                            {{categoria.nombre}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-icon matSuffix class="boton">estado</mat-icon>
+                </mat-form-field>
+            </div>
                 <div class="campo-entrada" *ngIf="!articulo else editar">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Usuario Creador</mat-label>
                         <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
                     </mat-form-field>
                 </div>
                 <ng-template #editar>
@@ -58,9 +82,9 @@
                 </ng-template>
                     <div class="boton">
                         <button mat-raised-button class="botones" (click)="atras()">Atras</button>
-                        <button mat-raised-button class="botones" type="button" id="guardarArticulo" (click)="guardarArticulo()" *ngIf="!articulo else botonEditar">Crear Articulo</button>
+                        <button mat-raised-button class="botones" type="button" id="guardarArticulo" (click)="guardarArticulo()" *ngIf="!articulo else botonEditar">Crear Artículo</button>
                         <ng-template #botonEditar>
-                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Guardar Articulo</button>
+                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Guardar Artículo</button>
                         </ng-template>
                     </div>
                 </div>

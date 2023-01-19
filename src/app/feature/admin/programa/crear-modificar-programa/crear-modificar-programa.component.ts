@@ -45,7 +45,7 @@ export class CrearModificarProgramaComponent implements OnInit {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'El Programa se ha creado Exitosamente',
+          title: 'El programa se ha creado exitosamente.',
           showConfirmButton: false,
           timer: 1500
         });
@@ -99,7 +99,7 @@ export class CrearModificarProgramaComponent implements OnInit {
     this.programaService.actualizarPrograma(programa).subscribe(() =>{
       Swal.fire({
         icon: 'success',
-        title: 'El Programa se ha actualizado Exitosamente',
+        title: 'El programa se ha actualizado exitosamente.',
         showConfirmButton: false,
         timer: 1500
       });

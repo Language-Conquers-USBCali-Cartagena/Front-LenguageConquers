@@ -18,14 +18,14 @@ export class CategoriaService {
   }
 
   consultarPorId(idCategorias: number){
-    return this.http.get<Categorias>(`${environment.endpoint}/categorias/porId/${idCategorias}`);
+    return this.http.get<Categorias>(`${environment.endpoint}/categoria/porId/${idCategorias}`);
   }
 
   actualizarCategorias(categorias: Categorias): Observable<Categorias>{
-    return this.http.put<Categorias>(`${environment.endpoint}/categoria/actualizarCategorias/${categorias.idCategoria}`,categorias);
+    return this.http.put<Categorias>(`${environment.endpoint}/categoria/actualizarCategoria`,categorias);
   }
 
   eliminarCategorias(categorias: Categorias): Observable<Categorias>{
-    return this.http.delete<Categorias>(`${environment.endpoint}/categorias/eliminarCategorias/${categorias.idCategoria}`);
+    return this.http.delete<Categorias>(`${environment.endpoint}/categoria/eliminarCategoria/${categorias.idCategoria}`);
   }
 }

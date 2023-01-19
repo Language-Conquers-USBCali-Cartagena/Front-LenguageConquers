@@ -38,7 +38,7 @@ export class CrearModificarCursoComponent implements OnInit {
       fechaFin: ['', Validators.required],
       progreso: ['', Validators.required],
       profesor: ['', Validators.required],
-      estado: ['', Validators.required],
+      idEstado: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
       usuarioModificador: ['', Validators.required],
@@ -77,7 +77,7 @@ export class CrearModificarCursoComponent implements OnInit {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'El Curso se ha creado Exitosamente',
+          title: 'El curso se ha creado exitosamente.',
           showConfirmButton: false,
           timer: 1500
         });
@@ -104,7 +104,7 @@ export class CrearModificarCursoComponent implements OnInit {
       fechaInicio: curso.inicioCurso,
       fechaFin: curso.finCurso,
       progreso: curso.progreso,
-      estado: curso.idEstado,
+      idEstado: curso.idEstado,
       profesor: curso.idProfesor,
       usuarioCreador: curso.usuarioCreador,
       fechaCreacion: curso.fechaCreacion,
@@ -142,7 +142,7 @@ export class CrearModificarCursoComponent implements OnInit {
     this.cursoService.actualizarCurso(curso).subscribe(()=>{
       Swal.fire({
         icon: 'success',
-        title: 'El Curso se ha actualizado Exitosamente',
+        title: 'El curso se ha actualizado exitosamente.',
         showConfirmButton: false,
         timer: 1500
       });

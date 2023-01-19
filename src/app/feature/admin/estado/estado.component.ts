@@ -70,7 +70,7 @@ export class EstadoComponent implements OnInit {
     });
     Toast.fire({
       icon: 'success',
-      title: 'El estado fue eliminado exitosamente'
+      title: 'El estado fue eliminado exitosamente.'
     });
   }
 

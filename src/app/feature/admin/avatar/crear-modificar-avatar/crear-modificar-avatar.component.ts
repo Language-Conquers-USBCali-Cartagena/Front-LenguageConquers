@@ -53,7 +53,7 @@ export class CrearModificarAvatarComponent implements OnInit {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'El Avatar se ha creado Exitosamente',
+          title: 'El avatar se ha creado exitosamente.',
           showConfirmButton: false,
           timer: 1500
         });
@@ -108,7 +108,7 @@ export class CrearModificarAvatarComponent implements OnInit {
     this.avatarService.actualizarAvatar(avatar).subscribe(()=>{
       Swal.fire({
         icon: 'success',
-        title: 'El Avatar se ha actualizado Exitosamente',
+        title: 'El avatar se ha actualizado exitosamente.',
         showConfirmButton: false,
         timer: 1500
       });

@@ -86,7 +86,7 @@ export class CrearModificarMisionComponent implements OnInit {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'La Misión se ha creado Exitosamente',
+          title: 'La misión se ha creado exitosamente.',
           showConfirmButton: false,
           timer: 1500
         });
@@ -149,7 +149,7 @@ export class CrearModificarMisionComponent implements OnInit {
     this.misionService.actualizarMision(mision).subscribe(()=>{
       Swal.fire({
         icon: 'success',
-        title: 'La Misión se ha actualizado Exitosamente',
+        title: 'La misión se ha actualizado exitosamente.',
         showConfirmButton: false,
         timer: 1500
       });

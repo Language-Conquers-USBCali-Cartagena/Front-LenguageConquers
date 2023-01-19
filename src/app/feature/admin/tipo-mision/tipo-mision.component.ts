@@ -71,7 +71,7 @@ export class TipoMisionComponent implements OnInit {
     });
     Toast.fire({
       icon: 'success',
-      title: 'El Tipo Misión fue eliminado exitosamente'
+      title: 'El tipo misión fue eliminado exitosamente.'
     })
 
   }

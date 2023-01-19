@@ -42,10 +42,12 @@ export class EstudianteComponent implements OnInit {
 
   crearEstudiante(){
     this.form = this.fb.group({
+      idEstudiante: ['', Validators.required],
       nombre:  ['', Validators.required],
       apellido: ['', Validators.required],
       nickName: ['', Validators.required],
-      semestre: ['', Validators.required],
+      puntaje: ['', Validators.required],
+      idSemestre: ['', Validators.required],
       fechaNacimiento: ['', Validators.required],
       correo: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
@@ -53,9 +55,9 @@ export class EstudianteComponent implements OnInit {
       usuarioModificador: ['', Validators.required],
       fechaModificacion: ['', Validators.required],
       avatar: ['', Validators.required],
-      genero: ['', Validators.required],
-      programa: ['', Validators.required],
-      estado: ['', Validators.required],
+      idGenero: ['', Validators.required],
+      idPrograma: ['', Validators.required],
+      idEstado: ['', Validators.required],
     });
   }
   ngOnInit(): void {
@@ -132,19 +134,19 @@ export class EstudianteComponent implements OnInit {
     const nickName = this.form.value.nickName;
     const nacimiento: Date  = this.form.value.fechaNacimiento;
     const correo = this.form.value.correo;
-    const programa = this.form.value.programa.idPrograma
-    const semestre = this.form.value.semestre.idSemestre;
+    const programa = this.form.value.idPrograma
+    const semestre = this.form.value.idSemestre;
     const avatar = this.idAvatar;
-    const genero = this.form.value.genero.idGenero;
-    const estado = this.form.value.estado.idEstado;
+    const genero = this.form.value.idGenero;
+    const estado = this.form.value.idEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: estado, puntaje: 0}
+    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, puntaje: 0, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioCreador: usuarioCreador,
+                                  fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: estado}
       this.estudianteService.crearEstudiante(estudiante).subscribe(data =>{
         if(data){
           Swal.fire({
             icon: 'success',
-            title: 'El Estudiante se ha creado Exitosamente',
+            title: 'El estudiante se ha creado exitosamente.',
             showConfirmButton: false,
             timer: 1500
           });
@@ -165,9 +167,11 @@ export class EstudianteComponent implements OnInit {
 
   setEstudiante(estudiante: Estudiante){
     this.form.setValue({
+      idEstudiante: estudiante.idEstudiante,
       nombre: estudiante.nombre,
       apellido: estudiante.apellido,
       nickName: estudiante.nickName,
+      puntaje: estudiante.puntaje,
       idSemestre: estudiante.idSemestre,
       idAvatar: estudiante.idAvatar,
       idGenero: estudiante.idGenero,
@@ -201,17 +205,33 @@ export class EstudianteComponent implements OnInit {
     const nickName = this.form.value.nickName;
     const nacimiento: Date = this.form.value.fechaNacimiento;
     const correo = this.form.value.correo;
-    const programa = this.form.value.programa.idPrograma
-    const semestre = this.form.value.semestre.idSemestre;
-    const avatar = this.idAvatar;
-    const genero = this.form.value.genero.idGenero;
-    const estado = this.form.value.estado.idEstado;
+    const programa = this.form.value.idPrograma
+    const semestre = this.form.value.idSemestre;
+    const avatar = this.form.value.idAvatar;
+    const puntaje = this.form.value.puntaje;
+    const genero = this.form.value.idGenero;
+    const estado = this.form.value.idEstado;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioModificador: usuarioModificador,
+    let estudiante: Estudiante = {idEstudiante: this.form.value.idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: estado}
-    this.estudiante.idEstudiante = this.form.value.idEstudiante;
     this.estadoService.actualizarEstado(estudiante).subscribe(()=>{
+      Swal.fire({
+        icon: 'success',
+        title: 'El estudiante se ha actualizado exitosamente.',
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.router.navigate(['/admin/usuarios/listar-usuarios']);
+    }, (e) => {
+      this.hayErrores = true;
+      this.mensajeError = e['error'];
+      console.log(e['error']);
+      Swal.fire({
+        icon: 'error',
+        title: e['error'],
+        showConfirmButton: false,
+        timer: 1500
+      });
     });
   }
 

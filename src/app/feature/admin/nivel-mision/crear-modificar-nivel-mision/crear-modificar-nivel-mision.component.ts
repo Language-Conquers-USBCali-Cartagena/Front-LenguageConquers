@@ -51,7 +51,7 @@ export class CrearModificarNivelMisionComponent implements OnInit {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'El Nivel Misión se ha creado Exitosamente',
+          title: 'El nivel misión se ha creado exitosamente.',
           showConfirmButton: false,
           timer: 1500
         });
@@ -103,12 +103,12 @@ export class CrearModificarNivelMisionComponent implements OnInit {
     const imgNivelMision = this.form.value.imgNivelMision;
     const puntajeMinimo = this.form.value.puntajeMinimo;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let nivelMision: NivelMision = { idNivelMision: this.form.value.idNivelMision, nombre: nombre, puntajeMinimo: puntajeMinimo, imgNivelMision: imgNivelMision, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date()}
+    let nivelMision: NivelMision = {idNivelMision: this.form.value.idNivelMision, nombre: nombre, puntajeMinimo: puntajeMinimo, imgNivelMision: imgNivelMision, usuarioModificador: usuarioModificador,
+    fechaModificacion: new Date()}
     this.nivelMisionService.actualizarNivelMision(nivelMision).subscribe(()=>{
       Swal.fire({
         icon: 'success',
-        title: 'El Nivel Misión se ha actualizado Exitosamente',
+        title: 'El nivel misión se ha actualizado exitosamente.',
         showConfirmButton: false,
         timer: 1500
       });

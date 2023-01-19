@@ -24,7 +24,7 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Intentos</mat-label>
-                        <input type="number" matInput autocomplete="off" formControlName="intentosPermitidos">
+                        <input type="number" matInput autocomplete="off" formControlName="maximoIntentos">
                         <mat-icon matSuffix class="boton">intentos</mat-icon>
                       </mat-form-field>
                 </div>
@@ -43,7 +43,7 @@
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Curso</mat-label>
                         <mat-select formControlName="idCurso" >
-                            <mat-option *ngFor="let curso of cursos" [value]="curso">
+                            <mat-option *ngFor="let curso of cursos" [value]="cursos">
                                 {{curso.nombre}}
                             </mat-option>
                         </mat-select>
@@ -51,16 +51,16 @@
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Estado</mat-label>
-                        <mat-select formControlName="idEstado">
-                            <mat-option *ngFor="let estado of estados" [value]="estado">
-                                {{estado.nombreEstado}
-                            </mat-option>
-                        </mat-select>
-                        <mat-icon matSuffix class="boton">estado</mat-icon>
-                    </mat-form-field>
-                </div>
+                  <mat-form-field appearance="fill">
+                      <mat-label class="titulos">Estado</mat-label>
+                      <mat-select formControlName="idEstado">
+                          <mat-option *ngFor="let estado of estados" [value]="estados">
+                              {{estado.estado}}
+                          </mat-option>
+                      </mat-select>
+                      <mat-icon matSuffix class="boton">estado</mat-icon>
+                  </mat-form-field>
+              </div>
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill" class="example-form-field">
                         <mat-label class="titulos">Fecha de Inicio</mat-label>
@@ -104,10 +104,10 @@
               </div>
             </ng-template>
                     <div class="boton">
-                        <button mat-raised-button class="botones" id="atras" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" id="atras" (click)="atras()">Atrás</button>
                         <button mat-raised-button class="botones" id="guardarReto" (click)="guardarReto()" *ngIf="!reto else botonEditar">Crear Reto</button>
                         <ng-template #botonEditar>
-                          <button mat-raised-button type="button" id="editar" (click)="Editar(reto)"  class="botones">Actualizar Reto</button>
+                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Actualizar Reto</button>
                         </ng-template>
                       </div>
                 </div>

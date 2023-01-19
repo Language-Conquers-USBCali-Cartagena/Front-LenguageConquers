@@ -28,7 +28,7 @@
           </ng-container>
 
           <ng-container matColumnDef="imagenLogro">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Imagen logro</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Imagen Logro</th>
             <td mat-cell *matCellDef="let row"><div class="imagenMiniatura" style="background-image: url({{row.imagen}});"></div></td>
           </ng-container>
 
@@ -68,7 +68,7 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
           <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No Existe un logro con el Nombre "{{input.value}}"</td>
+            <td class="mat-cell" colspan="4">No existe un logro con el nombre "{{input.value}}"</td>
           </tr>
         </table>
         <mat-paginator [pageSizeOptions]="[4]" aria-label="Seleccione la pagina de logros"></mat-paginator>

@@ -71,7 +71,7 @@ export class AvatarComponent implements OnInit {
 
     Toast.fire({
       icon: 'success',
-      title: 'El Avatar fue eliminado exitosamente'
+      title: 'El avatar fue eliminado exitosamente.'
     })
 
   }

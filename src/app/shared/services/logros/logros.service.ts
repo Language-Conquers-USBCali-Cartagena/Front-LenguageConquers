@@ -16,7 +16,7 @@ export class LogrosService {
   }
 
   crearLogro(logro: Logros){
-    return this.http.post<Logros>(`${environment.endpoint}/logro`, logro);
+    return this.http.post<Logros>(`${environment.endpoint}/logro/guardarLogro`, logro);
   }
 
   consultarPorId(idLogro: number){
@@ -24,7 +24,7 @@ export class LogrosService {
   }
 
   actualizarLogro(logro: Logros): Observable<Logros>{
-    return this.http.put<Logros>(`${environment.endpoint}/logro`,logro);
+    return this.http.put<Logros>(`${environment.endpoint}/logro/actualizarLogro`,logro);
   }
 
   eliminarLogro(logro: Logros): Observable<Logros>{

@@ -38,7 +38,7 @@
         <div class="campo-entrada">
         <mat-form-field appearance="fill">
           <mat-label class="titulos">Semestre</mat-label>
-          <mat-select formControlName="semestre" >
+          <mat-select formControlName="idSemestre" >
             <mat-option *ngFor="let semestre of semestres" [value]="semestre">
               {{semestre.nombre}}
             </mat-option>
@@ -49,7 +49,7 @@
         <div class="campo-entrada">
         <mat-form-field appearance="fill">
           <mat-label class="titulos">Genero</mat-label>
-          <mat-select formControlName="genero">
+          <mat-select formControlName="idGenero">
             <mat-option *ngFor="let genero of generos" [value]="genero">
               {{genero.genero}}
             </mat-option>
@@ -60,7 +60,7 @@
         <div class="campo-entrada">
         <mat-form-field appearance="fill">
           <mat-label class="titulos">Programa</mat-label>
-          <mat-select formControlName="programa">
+          <mat-select formControlName="idPrograma">
             <mat-option *ngFor="let programa of programas" [value]="programa">
               {{programa.nombre}}
             </mat-option>
@@ -71,9 +71,9 @@
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Estado</mat-label>
-            <mat-select formControlName="estado" >
+            <mat-select formControlName="idEstado" >
               <mat-option *ngFor="let estado of estados" [value]="estado">
-                {{estado.nombre}}
+                {{estado.estado}}
               </mat-option>
             </mat-select>
             <mat-icon matSuffix class="boton">estado</mat-icon>
@@ -100,6 +100,13 @@
           </mat-form-field>
         </div>
         <ng-template #editar>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+                <mat-label class="titulos">Puntaje</mat-label>
+                <input type="number" matInput autocomplete="off" formControlName="puntaje">
+                <mat-icon matSuffix class="boton">puntaje</mat-icon>
+              </mat-form-field>
+        </div>
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Usuario Modificador</mat-label>
@@ -121,10 +128,10 @@
         </div>
         <br><br>
         <div  class="boton">
-          <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+          <button mat-raised-button class="botones" (click)="atras()">Atrás</button>
           <button mat-raised-button class="botones" (click)="guardarEstudiante()" *ngIf="!estudiante else botonEditar">Crear Estudiante</button>
           <ng-template #botonEditar>
-            <button mat-raised-button class="botones2" (click)="crearEstudiante()">Actualizar</button>
+            <button mat-raised-button class="botones2" (click)="actualizar()">Actualizar</button>
           </ng-template>
         </div>
         </div>

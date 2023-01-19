@@ -70,7 +70,7 @@ export class ProgramaComponent implements OnInit {
     });
     Toast.fire({
       icon: 'success',
-      title: 'El Programa fue eliminado exitosamente'
+      title: 'El programa fue eliminado exitosamente.'
     });
   }
 

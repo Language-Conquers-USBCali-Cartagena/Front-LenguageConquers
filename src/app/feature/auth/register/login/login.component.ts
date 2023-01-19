@@ -89,7 +89,7 @@ export class LoginComponent implements OnInit {
 
     Toast.fire({
       icon: 'info',
-      title: 'El usuario o contraseña son inválidos'
+      title: 'El usuario o contraseña son inválidos.'
     })
 
   }
@@ -148,14 +148,14 @@ export class LoginComponent implements OnInit {
     const {value: email} = await Swal.fire({
       title: 'Restablecer Contraseña',
       input: 'email',
-      inputLabel: 'Ingrese la dirección de correo electronico asociado a la cuenta de Language Conquers',
+      inputLabel: 'Ingrese la dirección de correo electrónico asociado a la cuenta de Language Conquers.',
       inputPlaceholder: 'Email',
       confirmButtonColor: '#c98345',
     })
 
 
     if (email){
-      Swal.fire({ icon: 'success', text:'Se envio el correo a ${email}, revisa tú bandeja'});
+      Swal.fire({ icon: 'success', text:'Se envío el correo a ${email}, revisa la bandeja de tú correo.'});
       await this.authService.recuperarContraseña(email);
     }
     }

@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Monedas } from 'src/app/shared/models/monedas';
 import Swal from 'sweetalert2';
 import { MonedasService } from '../../../../shared/services/monedas/monedas.service';
+import {Storage, ref, uploadBytes, list, getDownloadURL} from '@angular/fire/storage';
+import {finalize} from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
+import { uploadBytesResumable } from 'firebase/storage';
 
 @Component({
   selector: 'app-crea-modificar-monedas',
@@ -13,20 +17,23 @@ import { MonedasService } from '../../../../shared/services/monedas/monedas.serv
 })
 export class CreaModificarMonedasComponent implements OnInit {
 
+
   form!: FormGroup;
   archivos!: any[];
   previsualizacion!: string;
   moneda!: Monedas;
   hayErrores = false;
   mensajeError: string="";
-  constructor(private fb: FormBuilder,private router:Router, private sanitizer: DomSanitizer,  private activatedRoute: ActivatedRoute, private monedaService: MonedasService) {
+  imagenUrl: string = "";
+
+  constructor(private storage: Storage, private fb: FormBuilder,private router:Router, private sanitizer: DomSanitizer,  private activatedRoute: ActivatedRoute, private monedaService: MonedasService) {
     this.crearMoneda();
   }
   crearMoneda(){
     this.form = this.fb.group({
-      idMonedas: ['', Validators.required],
+      idMoneda: ['', Validators.required],
       cantidad: ['', Validators.required],
-      imagenMoneda: ['', Validators.required],
+      imgMonedas: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
       usuarioModificador: ['', Validators.required],
@@ -37,21 +44,23 @@ export class CreaModificarMonedasComponent implements OnInit {
   ngOnInit(): void {
     this.crearMoneda();
     this.cargarMoneda();
+    //this.getImagenStorage();
   }
+
 
   guardarMoneda(){
     this.hayErrores = false;
     const cantidad = this.form.value.cantidad;
-    const imagenMoneda = this.form.value.imagenMoneda;
+    const imagenMoneda = this.imagenUrl;
     const usuarioCreador = this.form.value.usuarioCreador;
     let moneda: Monedas = {
-      cantidad: cantidad, imagenMoneda: imagenMoneda, usuarioCreador: usuarioCreador,
+      cantidad: cantidad, imgMonedas: this.imagenUrl, usuarioCreador: usuarioCreador,
       fechaCreacion: new Date()}
     this.monedaService.crearMoneda(moneda).subscribe(data => {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'La moneda se ha creado Exitosamente',
+          title: 'La moneda se ha creado exitosamente.',
           showConfirmButton: false,
           timer: 1500
         });
@@ -68,53 +77,13 @@ export class CreaModificarMonedasComponent implements OnInit {
         timer: 1500
       });
     });
-
-
-
   }
-
-  capturarFile(event: any): any {
-    //console.log(event.target.files[0]);
-    const archivoCapturado = event.target.files[0];
-    this.extraerBase64(archivoCapturado);
-    this.archivos = archivoCapturado;
-    console.log(this.archivos)
-    //this.archivos.push(archivoCapturado);
-    /**
-     * var pdrs = document.getElementById('file-upload').files[0].name;
-    document.getElementById('info').innerHTML = pdrs;
-     */
-
-  }
-  extraerBase64 = async ($event: any) => new Promise((resolve, reject) => {
-    try{
-      const unsafeImg = window.URL.createObjectURL($event);
-      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
-      const reader = new FileReader();
-      reader.readAsDataURL($event);
-      reader.onload = () => {
-        resolve({
-          base: reader.result
-        });
-      };
-      reader.onerror =error =>{
-        resolve({
-          base: null
-
-        });
-      };
-
-    }catch(e){
-      return null;
-    }
-  })
-
 
   setMoneda(moneda: Monedas) {
     this.form.patchValue({
-      idMonedas: moneda.idMonedas,
+      idMoneda: moneda.idMoneda,
       cantidad: moneda.cantidad,
-      imagenMoneda: moneda.imagenMoneda,
+      imgMonedas: moneda.imgMonedas,
       usuarioCreador: moneda.usuarioCreador,
       fechaCreacion: moneda.fechaCreacion,
       usuarioModificador: moneda.usuarioModificador,
@@ -138,15 +107,15 @@ export class CreaModificarMonedasComponent implements OnInit {
 
   actualizar():void{
     const cantidad = this.form.value.cantidad;
-    const imagenMoneda = this.form.value.imagenMoneda;
+    const imgMonedas = this.form.value.imgMonedas;
     const usuarioModificador = this.form.value.usuarioModificador;
     let moneda: Monedas = {
-      idMonedas: this.form.value.idMonedas,cantidad: cantidad, imagenMoneda: imagenMoneda, usuarioModificador: usuarioModificador,
+      idMoneda: this.form.value.idMoneda,cantidad: cantidad, imgMonedas: imgMonedas, usuarioModificador: usuarioModificador,
       fechaModificacion: new Date()}
     this.monedaService.actualizarMoneda(moneda).subscribe(()=>{
       Swal.fire({
         icon: 'success',
-        title: 'La moneda se ha actualizado Exitosamente',
+        title: 'La moneda se ha actualizado exitosamente.',
         showConfirmButton: false,
         timer: 1500
       });
@@ -167,6 +136,52 @@ export class CreaModificarMonedasComponent implements OnInit {
 
   atras(){
     this.router.navigateByUrl('/admin/monedas/listar-monedas');
+  }
+
+  uploadImage($event: any) {
+    const file = $event.target.files[0];
+    console.log(file);
+    const imagenReferencia = ref(this.storage, `monedas/${file.name}`);
+    const uploadTask = uploadBytesResumable(imagenReferencia, file.name);
+    var urlImagen = "";
+    uploadTask.on('state_changed',
+    (snapshot) => {
+      const progress =
+      (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+       // console.log('El porcentaje de subida es de ' + progress + '%');
+       switch (snapshot.state) {
+        case 'paused':
+          // console.log('La carga se ha pausado');
+          break;
+        case 'running':
+          // console.log('La carga esta activa');
+          break;
+      }
+    },
+    (error) => {
+      Swal.fire('Error', 'No se pudo cargar la foto', 'error');
+    },() => {
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+        // console.log('File available at', downloadURL);
+        this.imagenUrl = downloadURL;
+      });
+    }
+   );
+
+  }
+
+  getImagenStorage(){
+    const imagenReferencia = ref(this.storage, 'monedas');
+    list(imagenReferencia)
+      .then(async response => {
+        //console.log(response);
+          const urlImagen = await getDownloadURL(response.items[0]);
+          console.log(urlImagen);
+          //this.imagenUrl = urlImagen;
+
+      })
+      .catch(error => console.log(error));
+
   }
 
 

@@ -70,7 +70,7 @@ export class NivelMisionComponent implements OnInit {
     });
     Toast.fire({
       icon: 'success',
-      title: 'El NivelMisión fue eliminado  exitosamente'
+      title: 'El nivel-misión fue eliminado exitosamente.'
     });
   }
 

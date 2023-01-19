@@ -71,7 +71,7 @@ export class CategoriaArticulosComponent implements OnInit {
     });
     Toast.fire({
       icon: 'success',
-      title: 'La categoria fue eliminada exitosamente'
+      title: 'La categoría fue eliminada exitosamente.'
     });
   }
 

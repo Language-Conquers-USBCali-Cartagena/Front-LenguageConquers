@@ -75,7 +75,7 @@ export class UsuariosComponent implements OnInit {
 
     Toast.fire({
       icon: 'success',
-      title: 'El cliente fue eliminado  exitosamente'
+      title: 'El usuario fue eliminado  exitosamente.'
     })
 
   }

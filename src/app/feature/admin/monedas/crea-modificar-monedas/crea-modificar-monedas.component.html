@@ -1,66 +1,76 @@
 <mat-card class="tarjetaPrincipal">
-    <mat-card-content>
-        <mat-card-title *ngIf="!moneda else editarT">Registrar Moneda</mat-card-title>
-        <ng-template #editarT>
-          <mat-card-title >Actualizar Moneda</mat-card-title>
-        </ng-template>
-        <br>
-        <form [formGroup]="form" (ngSubmit)="guardarMoneda()">
-            <div class="entradas">
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">cantidad</mat-label>
-                        <input type="number" matInput autocomplete="off" formControlName="cantidad" id="cantidad">
-                        <mat-icon matSuffix class="boton">dollar</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div class="campo-entrada">
-                  <mat-form-field appearance="fill">
-                      <mat-label class="titulos"> Img Moneda</mat-label>
-                      <input type="text" matInput autocomplete="off" formControlName="imagenMoneda" id="imagenMoneda">
-                      <mat-icon matSuffix class="boton">image</mat-icon>
-                  </mat-form-field>
-              </div>
-                <div class="campo-entrada" *ngIf="!moneda else editar">
-                  <mat-form-field appearance="fill">
-                      <mat-label class="titulos">Usuario Creador</mat-label>
-                      <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
-                      <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
-                  </mat-form-field>
-              </div>
-              <ng-template #editar>
+  <mat-card-content>
+    <mat-card-title *ngIf="!moneda else editarT">Registrar Moneda</mat-card-title>
+    <ng-template #editarT>
+      <mat-card-title>Actualizar Moneda</mat-card-title>
+    </ng-template>
+    <br>
+    <form [formGroup]="form" (ngSubmit)="guardarMoneda()">
+      <div class="entradas">
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">cantidad</mat-label>
+            <input type="number" matInput autocomplete="off" formControlName="cantidad" id="cantidad">
+            <mat-icon matSuffix class="boton">dollar</mat-icon>
+          </mat-form-field>
+        </div>
 
-                <div class="campo-entrada">
-                  <mat-form-field appearance="fill">
-                    <mat-label class="titulos">Usuario Modificador</mat-label>
-                    <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
-                    <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
-                  </mat-form-field>
-                </div>
-              </ng-template>
-               <!-- <div class="campo-entrada">
+        <div class="campo-entrada" *ngIf="!moneda else editar">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Usuario Creador</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+            <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+          </mat-form-field>
+        </div>
+        <ng-template #editar>
+         <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Img Moneda</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="imgMonedas" id="imgMonedas" >
+            <mat-icon matSuffix class="boton">image</mat-icon>
+          </mat-form-field>
+        </div>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Usuario Modificador</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
+              <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+            </mat-form-field>
+          </div>
+        </ng-template>
+
+        <div class="campo-entrada">
+          <h5>Seleccionar Imagen de la Moneda</h5>
+            <input type="file" #fileInput (change)="uploadImage($event)" id="file">
+        </div>
+
+
+
+        <!-- <div class="campo-entrada">
                      <mat-form-field appearance="fill">>-->
-                     <!-- <input type="file" class="botoCarga" (change)="capturarFile($event)" id="archivo" formControlName="imagenMoneda" style='display: none;'>
+        <!-- <input type="file" class="botoCarga" (change)="capturarFile($event)" id="archivo" formControlName="imagenMoneda" style='display: none;'>
                       <mat-label class="subir" id="archivo">
                         <i class="fas fa-cloud-upload-alt"></i> Subir archivo
                       </mat-label>-->
 
-                       <!-- <mat-icon matSuffix class="boton">imagenMoneda</mat-icon>-->
-                    <!-- </mat-form-field>-->
-                  <!--</div>
+        <!-- <mat-icon matSuffix class="boton">imagenMoneda</mat-icon>-->
+        <!-- </mat-form-field>-->
+        <!--</div>
                 <div class="previsualizacionImg" *ngIf="previsualizacion">
                   <img [src]="previsualizacion" alt="" width="200px">
                 </div>-->
-                <br>
-                    <div class="boton">
-                        <button mat-raised-button class="botones" type="button" (click)="atras()" id="atras">Atras</button>
-                        <button mat-raised-button class="botones" type="button" (click)="guardarMoneda()" id="crearMoneda" *ngIf="!moneda else botonEditar">Crear Moneda</button>
-                        <ng-template #botonEditar>
-                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Actualizar Moneda</button>
-                        </ng-template>
-                    </div>
-                </div>
+        <br>
+        <div class="boton">
+          <button mat-raised-button class="botones" type="button" (click)="atras()" id="atras">Atrás</button>
+          <button mat-raised-button class="botones" type="button" (click)="guardarMoneda()" id="crearMoneda"
+            *ngIf="!moneda else botonEditar">Crear Moneda</button>
+          <ng-template #botonEditar>
+            <button mat-raised-button type="button" id="editar" (click)="actualizar()" class="botones">Actualizar
+              Moneda</button>
+          </ng-template>
+        </div>
+      </div>
 
-        </form>
-    </mat-card-content>
+    </form>
+  </mat-card-content>
 </mat-card>

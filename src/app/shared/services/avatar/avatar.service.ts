@@ -14,7 +14,7 @@ export class AvatarService {
   getAvatar(): Observable<Avatar[]>{
     return this.http.get<Avatar[]>(`${environment.endpoint}/avatar`)
   }
-
+  
   getAvataresPage(pagina: number): Observable<Avatar[]>{
     let paramHttp = new HttpParams({
       fromObject: {

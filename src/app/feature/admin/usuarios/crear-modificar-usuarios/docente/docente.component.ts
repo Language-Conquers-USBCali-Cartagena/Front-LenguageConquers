@@ -28,6 +28,7 @@ export class DocenteComponent implements OnInit {
 /*TODO: REVISAR SI AL FIN VA A QUEDAR LISTADO EN UNA TABLA TANTO PROFESOR COMO ESTUDIANTE*/
   crearDocente() {
     this.form = this.fb.group({
+      idProfesor: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       foto:['', Validators.required],
@@ -63,7 +64,7 @@ export class DocenteComponent implements OnInit {
       if (data) {
         Swal.fire({
           icon: 'success',
-          title: 'El Docente se ha creado Exitosamente',
+          title: 'El docente se ha creado exitosamente.',
           showConfirmButton: false,
           timer: 1500
         });
@@ -84,6 +85,7 @@ export class DocenteComponent implements OnInit {
 
   setDocente(profesor: Profesor) {
     this.form.setValue({
+      idProfesor: profesor.idProfesor,
       nombre: profesor.nombre,
       apellido: profesor.apellido,
       correo: profesor.correo,
@@ -118,9 +120,10 @@ export class DocenteComponent implements OnInit {
     const foto = this.form.value.foto;
     const usuarioModificador =  this.form.value.usuarioModificador;
     const genero = this.form.value.genero.idGenero;
-    let profesor: Profesor = { nombre: nombre, apellido: apellido, correo: correo, foto: foto, usuarioModificador: usuarioModificador, fechaModificacion: new Date(), idGenero: genero }
+    let profesor: Profesor = { idProfesor: this.form.value.idProfesor, nombre: nombre, apellido: apellido, correo: correo, foto: foto, usuarioModificador: usuarioModificador, fechaModificacion: new Date(), idGenero: genero }
     this.profesor.idProfesor = this.form.value.idProfesor;
     this.profesorService.actualizarProfesor(profesor).subscribe(() =>{
+      //TODO:FALTA AGREGAR MENSAJE
       this.router.navigateByUrl('/admin/usuarios/listar-usuarios');
     });
   }

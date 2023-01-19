@@ -69,7 +69,7 @@ export class ArticulosComponent implements OnInit {
     });
     Toast.fire({
       icon: 'success',
-      title: 'El Articulo fue eliminado exitosamente'
+      title: 'El artículo fue eliminado exitosamente.'
     });
   }
 

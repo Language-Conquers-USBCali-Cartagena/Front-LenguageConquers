@@ -72,7 +72,7 @@ export class LogrosComponent implements OnInit {
     });
     Toast.fire({
       icon: 'success',
-      title: 'El Logro fue eliminado  exitosamente'
+      title: 'El logro fue eliminado exitosamente.'
     });
   }
 

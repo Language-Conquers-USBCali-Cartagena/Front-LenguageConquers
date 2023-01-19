@@ -2,7 +2,7 @@ export interface Reto{
     idReto?:      number;
     nombreReto?:      string;
     descripcion?: string;
-    intentosPermitidos?:    number;
+    maximoIntentos?:   number;
     fechaInicio?: Date;
     fechaLimite?: Date;
     idMision?:    number;

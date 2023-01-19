@@ -38,9 +38,10 @@ export class CrearRegistrarComponent implements OnInit {
 
    crearReto(){
     this.form = this.fb.group({
+      idReto: ['', Validators.required],
       nombreReto:  ['', Validators.required],
       descripcion: ['', Validators.required],
-      intentosPermitidos: ['', Validators.required],
+      maximoIntentos: ['', Validators.required],
       fechaInicio: ['', Validators.required],
       fechaLimite: ['', Validators.required],
       idMision: ['', Validators.required],
@@ -54,29 +55,29 @@ export class CrearRegistrarComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.crearReto();
-    this.cargarReto();
+    this.getEstado();
     this.getMision();
     this.getCurso();
-    this.getEstado();
-    this.actualizar();
+    this.crearReto();
+    this.cargarReto();
   }
   getMision(){
-    this.misionService.getMision().subscribe(resp => this.misiones = resp)
+    this.misionService.getMision().subscribe(resp => this.misiones = resp);
   }
 
   getCurso(){
-    this.cursoService.getCurso().subscribe(resp => this.cursos = resp)
+    this.cursoService.getCurso().subscribe(resp => this.cursos = resp);
   }
 
   getEstado(){
-    this.estadoService.getEstados().subscribe(resp => this.estados = resp)
+    this.estadoService.getEstados().subscribe(resp => this.estados = resp);
   }
 
   guardarReto(){
+    this.hayErrores = false;
     const nombre = this.form.value.nombreReto;
     const descripcion = this.form.value.descripcion;
-    const intentos = this.form.value.intentosPermitidos;
+    const intentos = this.form.value.maximoIntentos;
     const fechaInicio: Date  = this.form.value.fechaInicio;
     const fechaLimite: Date  = this.form.value.fechaLimite;
     const mision = this.form.value.idMision;
@@ -85,13 +86,13 @@ export class CrearRegistrarComponent implements OnInit {
     const usuarioCreador = this.form.value.usuarioCreador;
     const esGrupal = false;
     const cantidadEstudiantes = 0;
-    let reto: Reto = {nombreReto: nombre, descripcion: descripcion, intentosPermitidos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite,idMision: mision, idEstado: estado, idCurso: curso, usuarioCreador: usuarioCreador,
+    let reto: Reto = {nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite,idMision: mision, idEstado: estado, idCurso: curso, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date(), esGrupal: false, cantidadEstudiantes: 0}
     this.retoService.crearReto(reto).subscribe(data => {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'El Reto se ha creado Exitosamente',
+          title: 'El reto se ha creado exitosamente.',
           showConfirmButton: false,
           timer: 1500
         });
@@ -111,10 +112,11 @@ export class CrearRegistrarComponent implements OnInit {
   }
 
   setReto(reto: Reto) {
-    this.form.patchValue({
+    this.form.setValue({
+      idReto: reto.idReto,
       nombreReto: reto.nombreReto,
       descripcion: reto.descripcion,
-      intentosPermitidos: reto.intentosPermitidos,
+      maximoIntentos: reto.maximoIntentos,
       fechaInicio: reto.fechaInicio,
       fechaLimite: reto.fechaLimite,
       idMision: reto.idMision,
@@ -141,42 +143,29 @@ export class CrearRegistrarComponent implements OnInit {
     );
   }
 
-  /*TODO: REVISAR ESTE METODO*/
+
   actualizar():void{
-    let id = localStorage.getItem('id');
-    this.retoService.consultarPorId(+id!).subscribe((data) => {
-      this.reto = data;
-    });
-    /*
     const nombre = this.form.value.nombreReto;
     const descripcion = this.form.value.descripcion;
-    const intentos = this.form.value.intentosPermitidos;
+    const intentos = this.form.value.maximoIntentos;
     const fechaInicio: Date = this.form.value.fechaInicio;
     const fechaLimite: Date = this.form.value.fechaLimite;
     const mision = this.form.value.idMision;
     const estado= this.form.value.idEstado;
     const curso = this.form.value.idCurso;
     const usuarioModificador = this.form.value.usuarioModificador;
-    this.reto = new Reto(this.form.value.idReto,nombre,descripcion,intentos, fechaInicio,  fechaLimite, mision,  estado, curso,  usuarioModificador,
-                                   new Date(),false,0)
-    this.retoService.actualizarReto(this.reto).subscribe(()=>{
-      this.router.navigate(['/admin/reto/listar-retos']);
-    });*/
-  }
-
-  Editar(reto: Reto) {
-    this.retoService.actualizarReto(reto).subscribe(data =>{
-      this.reto = data;
+    let reto: Reto = {idReto: this.form.value.idReto, nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite, idEstado: estado, idMision: mision, idCurso: curso, usuarioModificador: usuarioModificador,
+                                  fechaModificacion: new Date(), esGrupal: false, cantidadEstudiantes: 0}
+    this.retoService.actualizarReto(reto).subscribe(()=>{
       Swal.fire({
         icon: 'success',
-        title: 'El Reto se ha actualizado Exitosamente',
+        title: 'El reto se ha actualizado exitosamente.',
         showConfirmButton: false,
         timer: 1500
       });
-      this.router.navigateByUrl('/admin/reto/listar-retos');
+      this.router.navigate(['/admin/reto/listar-retos']);
     }, (e) => {
       this.hayErrores = true;
-      this.mensajeError = e.error;
       console.log(e['error']);
       Swal.fire({
         icon: 'error',
@@ -184,9 +173,9 @@ export class CrearRegistrarComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       });
-    }
-    );
+    });
   }
+
 
   atras(){
     this.router.navigateByUrl('/admin/reto/listar-retos');

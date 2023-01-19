@@ -16,22 +16,22 @@
                 </div>
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Puntaje Minimo</mat-label>
-                        <input type="number" matInput autocomplete="off" formControlName="puntajeMinimo">
+                        <mat-label class="titulos">Puntaje Mínimo</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="puntajeMinimo" id="puntajeMinimo">
                         <mat-icon matSuffix class="boton">puntaje</mat-icon>
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Imagen Nivel Misión</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="imgNivelMision">
+                        <input type="text" matInput autocomplete="off" formControlName="imgNivelMision" id="imgNivelMision">
                         <mat-icon matSuffix class="boton">img</mat-icon>
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada" *ngIf="!nivelMision else editar">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Usuario Creador</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador" id="usuarioCreador">
                         <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
                     </mat-form-field>
                 </div>
@@ -39,13 +39,13 @@
                 <div class="campo-entrada">
                   <mat-form-field appearance="fill">
                       <mat-label class="titulos">Usuario Modificador</mat-label>
-                      <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
+                      <input type="text" matInput autocomplete="off" formControlName="usuarioModificador" id="usuarioModificador">
                       <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
                   </mat-form-field>
               </div>
             </ng-template>
                     <div class="boton">
-                        <button mat-raised-button class="botones" (click)="atras()" id="atras">Atras</button>
+                        <button mat-raised-button class="botones" (click)="atras()" id="atras">Atrás</button>
                         <button mat-raised-button class="botones" (click)="guardarNivelMision()" id="guardarNivelMision" *ngIf="!nivelMision else botonEditar">Crear NivelMisión</button>
                         <ng-template #botonEditar>
                           <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Actualizar</button>

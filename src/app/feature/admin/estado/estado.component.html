@@ -59,7 +59,7 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
           <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No Existe un estado con el Nombre "{{input.value}}"</td>
+            <td class="mat-cell" colspan="4">No existe un estado con el nombre "{{input.value}}"</td>
           </tr>
         </table>
         <mat-paginator [pageSizeOptions]="[7]" aria-label="Seleccione la pagina de estados"></mat-paginator>

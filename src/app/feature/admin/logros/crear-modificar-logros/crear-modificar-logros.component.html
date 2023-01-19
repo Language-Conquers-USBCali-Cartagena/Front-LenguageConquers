@@ -23,14 +23,14 @@
                 </div>
                 <div class="campo-entrada">
                   <mat-form-field appearance="fill">
-                      <mat-label class="titulos">Categoria</mat-label>
+                      <mat-label class="titulos">Categoría</mat-label>
                       <input type="text" matInput autocomplete="off" formControlName="categoria">
                       <mat-icon matSuffix class="boton">categoria</mat-icon>
                   </mat-form-field>
               </div>
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
-                        <mat-label class="titulos">ImagenLogro</mat-label>
+                        <mat-label class="titulos">Imagen Logro</mat-label>
                         <input type="text" matInput autocomplete="off" formControlName="imagenLogro">
                         <mat-icon matSuffix class="boton">imagen</mat-icon>
                     </mat-form-field>
@@ -52,7 +52,7 @@
                 </div>
               </ng-template>
                     <div class="boton">
-                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" (click)="atras()">Atrás</button>
                         <button mat-raised-button class="botones" (click)="guardarLogro()" *ngIf="!logro else botonEditar">Crear Logro</button>
                         <ng-template #botonEditar>
                           <button mat-raised-button class="botones" (click)="actualizar()">Actualizar Logro</button>

@@ -70,7 +70,7 @@ export class MonedasComponent implements OnInit {
     });
     Toast.fire({
       icon: 'success',
-      title: 'La Moneda fue eliminada exitosamente'
+      title: 'La moneda fue eliminada exitosamente.'
     });
 
   }

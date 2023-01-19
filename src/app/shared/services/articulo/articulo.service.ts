@@ -12,7 +12,7 @@ export class ArticuloService {
   constructor(private http: HttpClient) { }
 
   getArticulo(): Observable<Articulo[]>{
-    return this.http.get<Articulo[]>(`${environment.endpoint}/articulos`)
+    return this.http.get<Articulo[]>(`${environment.endpoint}/articulo`)
   }
 
   getArticuloPage(pagina: number): Observable<Articulo[]>{
@@ -21,20 +21,20 @@ export class ArticuloService {
         page: `${pagina}`
       }
     });
-    return this.http.get<Articulo[]>(`${environment.endpoint}/articulos/paginado`, {params: paramHttp})
+    return this.http.get<Articulo[]>(`${environment.endpoint}/articulo/paginado`, {params: paramHttp})
   }
 
 
   crearArticulo(articulo: Articulo){
-    return this.http.post<Articulo>(`${environment.endpoint}/articulos`, articulo);
+    return this.http.post<Articulo>(`${environment.endpoint}/articulo/guardarArticulo`, articulo);
   }
 
   consultarPorId(idArticulo: number){
-    return this.http.get<Articulo>(`${environment.endpoint}/articulos/porId/${idArticulo}`);
+    return this.http.get<Articulo>(`${environment.endpoint}/articulo/porId/${idArticulo}`);
   }
 
   actualizarArticulo(articulo: Articulo): Observable<Articulo>{
-    return this.http.put<Articulo>(`${environment.endpoint}/articulos`, articulo);
+    return this.http.put<Articulo>(`${environment.endpoint}/articulos/actualizarArticulo`, articulo);
   }
 
   eliminarArticulo(articulo: Articulo): Observable<Articulo>{
