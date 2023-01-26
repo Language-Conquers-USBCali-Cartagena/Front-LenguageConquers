@@ -15,6 +15,7 @@ import { CoreModule } from './core/core.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AdminModule } from './feature/admin/admin.module';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 
 
@@ -37,7 +38,9 @@ import { AdminModule } from './feature/admin/admin.module';
     CoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),
+    
 
   ],
   providers: [],

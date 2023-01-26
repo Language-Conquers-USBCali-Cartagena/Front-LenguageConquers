@@ -1,21 +1,18 @@
-<div class="body" *ngIf="user$ | async as user; else loading">
+<div class="body" *ngIf="user$ | async as user;">
   <div class="tarjeta">
     <mat-card class="fondoTarjeta">
       <mat-card-content>
         <img src="./assets/images/LogoV1.png" class="logo">
           <h3 class="align">¡Gracias por registrarse!</h3>
           <div class="texto">
-              <p>Se envió un correo de verificación a:<strong>{{user?.email}}</strong> Por favor revise su email y de click en el link de verificación</p>
+              <p>Se envió un correo de verificación a<strong> {{user?.email}} </strong><br> Por favor revise su email y de click en el link de verificación.</p>
           </div>
           <div class="botones">
-              <button class="boton" (click)="onSendEmail()">Reenviar verificación</button>
-              <button class="boton" (click)="salir()">Salir</button>
+              <button class="boton" mat-raised-button (click)="onSendEmail()">Reenviar verificación</button>
+              <button class="boton" mat-raised-button (click)="salir()">Salir</button>
           </div>
       </mat-card-content>
     </mat-card>
   </div>
 </div>
-<app-footer></app-footer>
-<ng-template #loading>
-    loading...
-</ng-template>
+

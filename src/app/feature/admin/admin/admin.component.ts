@@ -13,47 +13,46 @@ export class AdminComponent implements OnInit {
 
   }
   irUsuarios(){
-    this.router.navigateByUrl('/usuarios')
+    this.router.navigateByUrl('/admin/usuarios/listar-usuarios')
   }
   irReto(){
-
+    this.router.navigateByUrl('/admin/reto/listar-retos')
   }
   irMisiones(){
-
+    this.router.navigateByUrl('/admin/misiones/listar-misiones')
   }
   irNivelMision(){
-
+    this.router.navigateByUrl('/admin/nivel-mision/listar')
   }
   irTipoMision(){
-
+    this.router.navigateByUrl('/admin/tipo-mision/listar')
   }
   irLogros(){
-
+    this.router.navigateByUrl('/admin/logros/listar-logros')
   }
   irArticulos(){
-    this.router.navigateByUrl('/articulos/lista-articulos')
-
+    this.router.navigateByUrl('/admin/articulos/listar-articulos')
   }
   irCategorias(){
-
+    this.router.navigateByUrl('/admin/categoria-articulos/listar')
   }
   irAvatares(){
-
+    this.router.navigateByUrl('/admin/avatar/listar-avatar')
   }
   irRoles(){
 
   }
   irMonedas(){
-
+    this.router.navigateByUrl('/admin/monedas/listar-monedas')
   }
   irEstados(){
-
+    this.router.navigateByUrl('/admin/estado/listar-estados')
   }
   irPrograma(){
-
+    this.router.navigateByUrl('/admin/programa/listar-programa')
   }
   irCursos(){
-
+    this.router.navigateByUrl('/admin/cursos/listar-cursos')
   }
 
 }

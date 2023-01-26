@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { Logros } from 'src/app/shared/models/logros';
+import { LogrosService } from 'src/app/shared/services/logros/logros.service';
 
 @Component({
   selector: 'app-tarjetas-logros',
@@ -8,20 +12,24 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 })
 export class TarjetasLogrosComponent implements OnInit {
 
-  pagina: number = 0;
-  //logros: Logros[]=[];
+
+  listaLogros: Logros[]=[];
   idLogros: number = 0;
-  form: UntypedFormGroup;
-  constructor(private fb: UntypedFormBuilder) {
-    this.form = fb.group({
-      id: ['', Validators.required]
-    })
+  constructor( private logrosService: LogrosService, private sanitizer: DomSanitizer) {
+
   }
+
 
   ngOnInit(): void {
+    this.cargarLogros();
+  }
+  cargarLogros(){
+    this.logrosService.getLogros().subscribe(result => {this.listaLogros = result});
   }
 
-  pasarIzq(): void {}
-  pasarDer(): void{}
+  public getSantizeUrl(url : string) {
+    return this.sanitizer.bypassSecurityTrustUrl('data:image/jpg;base64,'+ url);
+}
+
 }
 

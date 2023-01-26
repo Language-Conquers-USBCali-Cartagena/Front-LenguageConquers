@@ -1,0 +1,76 @@
+<mat-card class="tarjetaPrincipal">
+  <mat-card-content>
+    <mat-card-title *ngIf="!profesor else editarT">Registrar Docente</mat-card-title>
+    <ng-template #editarT>
+      <mat-card-title >Actualizar Docente</mat-card-title>
+    </ng-template>
+    <br>
+    <form [formGroup]="form">
+      <div class="entradas">
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Nombre del profesor</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="nombre" class="ancho">
+              <mat-icon matSuffix class="boton">name</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Apellidos</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="apellido" class="ancho">
+              <mat-icon matSuffix class="boton">apellido</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Correo</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="correo" class="ancho">
+              <mat-icon matSuffix class="boton">email</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Foto de Perfil</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="foto" class="ancho">
+              <mat-icon matSuffix class="boton">image</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Genero</mat-label>
+            <mat-select formControlName="idGenero">
+              <mat-option *ngFor="let genero of generos" [value]="genero">
+                {{genero.genero}}
+              </mat-option>
+            </mat-select>
+            <mat-icon matSuffix>gender</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada" *ngIf="!profesor else editar">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Usuario Creador</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="usuarioCreador" id="usuarioCreador">
+            <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+          </mat-form-field>
+        </div>
+        <ng-template #editar>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+                <mat-label class="titulos">Usuario Modificador</mat-label>
+                <input type="text" matInput autocomplete="off" formControlName="usuarioModificador" id="usuarioModificador">
+                <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+            </mat-form-field>
+          </div>
+        </ng-template>
+        <div class="boton">
+          <button mat-raised-button class="botones" (click)="atras()">Atrás</button>
+          <button mat-raised-button class="botones" (click)="guardarProfesor()" *ngIf="!profesor else botonEditar">Crear Profesor</button>
+          <ng-template #botonEditar>
+            <button mat-raised-button class="botones" (click)="actualizar()">Actualizar Profesor</button>
+          </ng-template>
+        </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+

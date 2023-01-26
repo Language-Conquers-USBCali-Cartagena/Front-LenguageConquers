@@ -1,0 +1,62 @@
+.tarjetaPrincipal{
+    width: 80%;
+    height: 500px;
+    margin-right: 20px;
+    margin-left: 70px;
+    /*Efecto espejo*/
+    padding: 55px;
+    background: linear-gradient(
+    135deg,
+    rgba(172,153,139, 0.514),
+    rgba(172,153,139, 0.514));
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
+    font-size: 30px;
+    color:rgb(6,43,60);
+    text-align: center;
+  }
+  .demo-button-container {
+    padding-bottom: 16px;
+    align-items: center;
+
+  }
+
+  .demo-button + .demo-button {
+    margin-left: 58px;
+  }
+  mat-form-field {
+    font-size: 14px;
+    width: 50%;
+    color: rgb(197,139,91);
+    font-size: 18px;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  td, th {
+    width: 20%;
+    text-align: center;
+    align-items: center;
+    word-wrap: break-word;
+    font-size:10px;
+    line-height: 10px;
+    font-family: 'Roboto';
+  }
+  .imagenMiniatura{
+    width: 40px;
+    height: 40px;
+    margin-left: 30px;
+    margin-top: -5px;
+    background-size: cover;
+  }
+

@@ -23,4 +23,20 @@ export class AvatarService {
     });
     return this.http.get<Avatar[]>(`${environment.endpoint}/avatar/paginado`, {params: paramHttp})
   }
+
+  crearAvatar(avatar: Avatar): Observable<string>{
+    return this.http.post(`${environment.endpoint}/avatar/guardarAvatar`, avatar,{ responseType: 'text'});
+  }
+
+  consultarPorId(idAvatar: number){
+    return this.http.get<Avatar>(`${environment.endpoint}/avatar/porId/${idAvatar}`);
+  }
+
+  actualizarAvatar(avatar: Avatar): Observable<string>{
+    return this.http.put(`${environment.endpoint}/avatar/actualizarAvatar`,avatar,{ responseType: 'text'});
+  }
+
+  eliminarAvatar(idAvatar: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/avatar/eliminarAvatar/${idAvatar}`,{ responseType: 'text'});
+  }
 }

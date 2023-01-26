@@ -1,4 +1,5 @@
 export interface Articulo{
+  idArticulo?:         number;
   nombre?:             string;
   precio?:             number;
   nivelValido?:        number;

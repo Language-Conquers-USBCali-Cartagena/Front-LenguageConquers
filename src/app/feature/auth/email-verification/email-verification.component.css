@@ -3,24 +3,16 @@
     max-width: 10em;
     width: 10em;
     font-family: 'Mouse Memoirs';
-    border-radius: 10px;
+    border-radius: 24px;
     margin-top: 10px;
     background-color: rgb(217,161,84) ;
-    border-color: rgb(217,161,84);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
     font-size: 25px;
-    text-align: center;
+    text-align: center !important;
+    align-items: center !important;
     color: rgb(241,231,194);
 
 }
-.boton:hover{
-  background-color: rgb(241,231,194);
-  border-color: rgb(241,231,194);
-  color: rgb(217,161,84);
-}
+
 .tarjeta{
   width: 50%;
   max-width: 100%;
@@ -37,15 +29,15 @@
     line-height: 60px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url(../../../../assets/images/fondos/FondoEmailVerification.png);
+    background-color: rgba(36, 28, 25, 0.918);
   }
 .botones{
   text-align: center;
 }
 .logo{
   height: 120px;
-  padding-left: 20px;
-  padding-right: 20px;
+  margin-left: 50px;
+  margin-right: 25px;
   width: 350px;
 }
 
@@ -60,7 +52,7 @@
     width: 70%;
     position: relative;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.516);
 }
 .align{
     justify-content:center ;
@@ -71,45 +63,10 @@
 .texto{
     display: flex;
     flex-wrap: wrap;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     color: rgb(117,76,36);
-    line-height: 20px;
-}
-
-@media screen and (max-width: 600px) {
-    .fondoTarjeta {
-        max-width: 473px;
-        top: -56px;
-        bottom: 97px;
-        padding: 4em;
-        width: 60%;
-        /*Efecto espejo*/
-        position: relative;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.3);
-      }
-      .botones{
-        text-align: center;
-      }
-      .boton {
-        width: 8em;
-        font-family: 'Mouse Memoirs';
-        border-radius: 10px;
-        background-color: rgb(217,161,84);
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
-        align-content: center;
-        margin-left: 5px;
-        color: rgb(241,231,194);
-      }
-
-      .boton:hover {
-        background-color: rgb(241,231,194);
-        color: rgb(217,161,84);
-      }
-
+    line-height: 25px;
+    font-family: 'Roboto';
 
 }

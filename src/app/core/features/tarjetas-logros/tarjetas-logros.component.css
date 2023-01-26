@@ -28,24 +28,7 @@
   flex-direction:row;
   flex-wrap: wrap;
 }
-.izq{
-  margin-left:450px;
-}
-.der{
-  margin-right: 150px;
-}
-.izq,.der {
-  margin-top: 80px;
-  position: relative;
-  background-color: transparent;
-  color: black;
 
-}
-.categoria-text{
-  margin-left: 5%;
-  font-size:40px;
-  color:white;
-}
 .card{
   width: 220px;
   height: 130px;
@@ -129,7 +112,7 @@ box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 .cardPeq:hover mat-card-content{
   height:120px;
   bottom:-5px;
-  background:rgba(27, 27, 27, 0.734);
+  background:rgba(146,129,117, 0.734);
 }
 .cardPeq:hover p{
   text-align: center;
@@ -165,7 +148,7 @@ box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
   line-height: 25px;
 }
 h1{
-  margin: 15px;
+  margin: 20px;
   font-size:15px;
 }
 p{
@@ -183,17 +166,20 @@ p{
   position: absolute;
   bottom: 0px;
   right: 0.1px;
-  left: 0.2px;
+  left: 0.01px;
   padding: 16px;
   box-sizing: border-box;
   position: absolute;
-  background:rgba(27, 27, 27, 0.734);
+  background:rgba(146,129,117, 0.734);
   color:white;
   transition: 0.5s;
 }
 .mat-card-content p{
   align-items: center;
+  line-height: 12px;
+  margin-top: -8px;
   text-align: center;
-
   margin-right: 30%;
+  font-size:12px;
+  font-family: 'Roboto';
 }

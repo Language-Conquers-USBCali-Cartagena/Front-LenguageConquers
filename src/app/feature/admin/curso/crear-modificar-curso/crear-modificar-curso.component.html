@@ -1,0 +1,115 @@
+<mat-card class="tarjetaPrincipal">
+    <mat-card-content>
+        <mat-card-title *ngIf="!curso else editarT">Registrar Curso</mat-card-title>
+        <ng-template #editarT>
+          <mat-card-title >Actualizar Curso</mat-card-title>
+        </ng-template>
+        <br><br>
+        <form [formGroup]="form">
+            <div class="entradas">
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Nombre</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="nombre">
+                        <mat-icon matSuffix class="boton">nombre</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Password</mat-label>
+                        <input [type]="hide ? 'password' : 'text'" matInput autocomplete="off" formControlName="password">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Cantidad Estudiantes</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="cantidadEstudiantes">
+                        <mat-icon matSuffix class="boton">cantidadEstudiantes</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label class="titulos">Fecha de Inicio</mat-label>
+                        <input matInput [matDatepicker]="datepicker" formControlName="inicioCurso">
+                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker>
+                            <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Cancel</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill" class="example-form-field">
+                        <mat-label class="titulos">Fecha Fin</mat-label>
+                        <input matInput [matDatepicker]="datepicker1" formControlName="finCurso">
+                        <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker1>
+                            <mat-datepicker-actions>
+                                <button mat-button matDatepickerCancel>Cancel</button>
+                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                            </mat-datepicker-actions>
+                        </mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Estado</mat-label>
+                        <mat-select formControlName="idEstado">
+                            <mat-option *ngFor="let estado of estados" [value]="estado">
+                                {{estado.estado}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix class="boton">estado</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Profesor</mat-label>
+                        <mat-select formControlName="idProfesor">
+                            <mat-option *ngFor="let profesor of profesores" [value]="profesor">
+                                {{profesor.nombre}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix class="boton">curso</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada" *ngIf="!curso else editar">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Creador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+                    </mat-form-field>
+                </div>
+                <ng-template #editar>
+                  <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Progreso</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="progreso" placeholder="Ingrese el valor en porcentaje">
+                        <mat-icon matSuffix class="boton">progreso</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                  <mat-form-field appearance="fill">
+                      <mat-label class="titulos">Usuario Modificador</mat-label>
+                      <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
+                      <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+                  </mat-form-field>
+              </div>
+            </ng-template>
+                    <div class="boton">
+                        <button mat-raised-button class="botones" id="atras" (click)="atras()">Atrás</button>
+                        <button mat-raised-button class="botones" id="guardarCurso" (click)="guardarCurso()" *ngIf="!curso else botonEditar" >Crear Curso</button>
+                        <ng-template #botonEditar>
+                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Actualizar Curso</button>
+                        </ng-template>
+                    </div>
+                </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

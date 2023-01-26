@@ -1,0 +1,72 @@
+.tarjetaPrincipal{
+  width: 80%;
+  height: 500px;
+  margin-right: 20px;
+  margin-left: 70px;
+  /*Efecto espejo*/
+  padding: 55px;
+  background: linear-gradient(
+  135deg,
+  rgba(172,153,139, 0.514),
+  rgba(172,153,139, 0.514));
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
+  font-size: 30px;
+  color:rgb(255, 255, 255);
+  text-align: center;
+}
+
+.entradas {
+  display: grid;
+  margin-top: 10px;
+  margin-bottom: -100px;
+  grid-template-columns: repeat(2, 18em);
+  justify-content: center;
+
+}
+.campo-entrada {
+  float: right;
+  width: 100%;
+  padding-right: 8px;
+
+}
+mat-form-field{
+  width: 220px;
+}
+.titulos{
+  font-size:20px;
+  color: rgb(255, 255, 255);
+  }
+
+.boton {
+  margin: 3px;
+  position: center;
+  margin-left: 5px;
+  margin-right: -90%;
+  line-height: 35px;
+  align-items: center;
+}
+
+.botones {
+  color: rgb(254, 254, 231);
+  border-radius: 20px;
+  background-color: rgb(201, 131, 69);
+  text-align: center !important;
+  align-items: center !important;
+  margin: 0 10px;
+  display: inline-block;
+  width: 130px;
+  height: 40px;
+  font-size: 20px;
+
+}
+.mat-input-element{
+  color: rgb(136,103,82) !important;
+}
+mat-icon{
+  color: rgb(0, 0, 0);
+}
+mat-card-title{
+  font-size:30px;
+}

@@ -1,0 +1,93 @@
+<mat-card class="tarjetaPrincipal">
+    <mat-card-content>
+        <mat-card-title *ngIf="!articulo else editarT">Registrar Artículo</mat-card-title>
+        <ng-template #editarT>
+          <mat-card-title >Actualizar Articulo</mat-card-title>
+        </ng-template>
+        <br><br>
+        <form [formGroup]="form">
+            <div class="entradas">
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Nombre</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="nombre">
+                        <mat-icon matSuffix class="boton">nombre</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Descripción</mat-label>
+                        <textarea matInput type="textArea" matInput autocomplete="off" formControlName="descripcion"></textarea>
+                        <mat-icon matSuffix class="boton">descripcion</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Precio</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="precio">
+                        <mat-icon matSuffix class="boton">precio</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Nivel Válido</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="nivelValido">
+                        <mat-icon matSuffix class="boton">nivelValido</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Imagen Artículo</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="imagen">
+                        <mat-icon matSuffix class="boton">imagen</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="campo-entrada">
+                  <mat-form-field appearance="fill">
+                      <mat-label class="titulos">Estado</mat-label>
+                      <mat-select formControlName="idEstado">
+                          <mat-option *ngFor="let estado of estados" [value]="estado">
+                              {{estado.estado}}
+                          </mat-option>
+                      </mat-select>
+                      <mat-icon matSuffix class="boton">estado</mat-icon>
+                  </mat-form-field>
+              </div>
+              <div class="campo-entrada">
+                <mat-form-field appearance="fill">
+                    <mat-label class="titulos">Categoría</mat-label>
+                    <mat-select formControlName="idCategoria">
+                        <mat-option *ngFor="let categoria of categorias" [value]="categoria">
+                            {{categoria.nombre}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-icon matSuffix class="boton">estado</mat-icon>
+                </mat-form-field>
+            </div>
+                <div class="campo-entrada" *ngIf="!articulo else editar">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Creador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+                    </mat-form-field>
+                </div>
+                <ng-template #editar>
+                  <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Usuario Modificador</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="usuarioModificador" id="usuarioModificador">
+                        <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+                    </mat-form-field>
+                  </div>
+                </ng-template>
+                    <div class="boton">
+                        <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+                        <button mat-raised-button class="botones" type="button" id="guardarArticulo" (click)="guardarArticulo()" *ngIf="!articulo else botonEditar">Crear Artículo</button>
+                        <ng-template #botonEditar>
+                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Guardar Artículo</button>
+                        </ng-template>
+                    </div>
+                </div>
+        </form>
+    </mat-card-content>
+</mat-card>

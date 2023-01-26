@@ -1,0 +1,149 @@
+.tarjetaPrincipal{
+  width: 80%;
+  height: 500px;
+  margin-right: 20px;
+  margin-left: 70px;
+  /*Efecto espejo*/
+  padding: 55px;
+  background: linear-gradient(
+  135deg,
+  rgba(172,153,139, 0.514),
+  rgba(172,153,139, 0.514));
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
+  font-size: 30px;
+  color:rgb(255, 255, 255);
+  text-align: center;
+}
+.entradas {
+  display: grid;
+ margin-top: 10px;
+ margin-bottom: -100px;
+ grid-template-columns: repeat(2, 18em);
+ justify-content: center;
+}
+form {
+ height: 350px;
+ width: auto;
+}
+.titulos{
+font-size:22px;
+color: rgb(255, 255, 255);
+
+}
+.campo-entrada{
+ float: right;
+ width: 50%;
+ height: 60px;
+}
+.campofecha{
+  align-items: center;
+  width: 300px;
+  margin-left:-30px;
+}
+
+.boton {
+
+ margin: 2px;
+ position: center;
+ left: 80px;
+ line-height: 35px;
+ align-items: center;
+ grid-template-columns: repeat(3, 18em);
+}
+.botones{
+  color: rgb(254,254,231);
+  border-radius: 20px;
+  background-color: rgb(201, 131, 69);
+  text-align: center !important;
+  align-items: center !important;
+  margin: 0 20px;
+  display: inline-block;
+  width:130px;
+  height:40px;
+  font-size: 20px;
+
+}
+
+.botonsalir{
+  color: rgb(201, 131, 69);
+  border-radius: 20px;
+  background-color: rgb(254,254,231);
+  text-align: center !important;
+  align-items: center !important;
+  margin: 0 10px;
+  display: inline-block;
+  width:100px;
+  height:40px;
+  font-size: 20px;
+
+}
+.botones2{
+  color: rgb(254,254,231);
+  border-radius: 20px;
+  background-color: rgb(201, 131, 69);
+  text-align: center !important;
+  align-items: center !important;
+  margin: 0 10px;
+  display: inline-block;
+  width:130px;
+  height:40px;
+  font-size: 20px;
+}
+.carrousel{
+  width:500px;
+  height:100px;
+  margin-bottom: 40px;
+  margin-left: -250px;
+}
+
+.car {
+  display: flex;
+  justify-content: center;
+}
+.izq,.der {
+  margin-top: 40px;
+  position: relative;
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+
+}
+.cimg {
+margin-left: 20px;
+margin-right: 20px;
+padding-right: 20px;
+padding-left: -10px;
+display: flex;
+}
+.cimg .imgAvatar {
+height: 50px;
+width: 50px;
+display: flex;
+
+}
+
+.cimg .imgAvatar .avatares{
+height: 80px;
+width: 80px;
+margin-top: 10px;
+cursor: pointer;
+object-fit: cover;
+opacity: .8;
+transition: .3s;
+}
+.cimg .imgAvatar .avatares:hover {
+opacity: 1;
+}
+.active{
+opacity: 1 !important;
+box-shadow: 0 5px rgba(1,23,46,0.6);
+}
+.mat-input-element{
+  color: rgb(136,103,82) !important;
+}
+
+mat-card-title{
+  font-size:30px;
+}
