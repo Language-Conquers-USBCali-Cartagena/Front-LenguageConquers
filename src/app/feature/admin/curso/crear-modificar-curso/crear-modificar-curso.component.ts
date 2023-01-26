@@ -34,10 +34,10 @@ export class CrearModificarCursoComponent implements OnInit {
       nombre:  ['', Validators.required],
       password: ['', Validators.required],
       cantidadEstudiantes: ['', Validators.required],
-      fechaInicio: ['', Validators.required],
-      fechaFin: ['', Validators.required],
+      inicioCurso: ['', Validators.required],
+      finCurso: ['', Validators.required],
       progreso: ['', Validators.required],
-      profesor: ['', Validators.required],
+      idProfesor: ['', Validators.required],
       idEstado: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
@@ -47,10 +47,10 @@ export class CrearModificarCursoComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.crearCurso();
-    this.cargarCurso();
     this.getProfesor();
     this.getEstado();
+    this.crearCurso();
+    this.cargarCurso();
   }
   getProfesor() {
     this.profesorService.getProfesor().subscribe(resp =>this.profesores = resp);
@@ -65,30 +65,31 @@ export class CrearModificarCursoComponent implements OnInit {
     const nombre = this.form.value.nombre;
     const password = this.form.value.password;
     const cantidadEstudiantes = this.form.value.cantidadEstudiantes;
-    const fechaInicio: Date = this.form.value.fechaInicio;
-    const fechaFin: Date = this.form.value.fechaFin;
-    const progreso = this.form.value.progreso;
-    const estado= this.form.value.idEstado;
+    const fechaInicio: Date = this.form.value.inicioCurso;
+    const fechaFin: Date = this.form.value.finCurso;
+    const estado = this.form.value.idEstado;
     const profesor = this.form.value.idProfesor;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let curso: Curso = {nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: progreso, idEstado: estado, idProfesor: profesor, usuarioCreador: usuarioCreador,
+    let curso: Curso = {nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: 0, idEstado: estado.idEstado, idProfesor: profesor.idProfesor, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
     this.cursoService.crearCurso(curso).subscribe(data => {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'El curso se ha creado exitosamente.',
+          title: data,
           showConfirmButton: false,
           timer: 1500
         });
+        this.router.navigate(['/admin/cursos/listar-cursos']);
       }
     }, (e) => {
       this.hayErrores = true;
-      this.mensajeError = e.error;
+      this.mensajeError = e['error'];
+      console.log(this.mensajeError);
 
       Swal.fire({
         icon: 'error',
-        title: e.error,
+        title: e['error'],
         showConfirmButton: false,
         timer: 1500
       });
@@ -101,11 +102,11 @@ export class CrearModificarCursoComponent implements OnInit {
       nombre: curso.nombre,
       password: curso.password,
       cantidadEstudiantes: curso.cantidadEstudiantes,
-      fechaInicio: curso.inicioCurso,
-      fechaFin: curso.finCurso,
+      inicioCurso: curso.inicioCurso,
+      finCurso: curso.finCurso,
       progreso: curso.progreso,
       idEstado: curso.idEstado,
-      profesor: curso.idProfesor,
+      idProfesor: curso.idProfesor,
       usuarioCreador: curso.usuarioCreador,
       fechaCreacion: curso.fechaCreacion,
       usuarioModificador: curso.usuarioModificador,
@@ -131,25 +132,24 @@ export class CrearModificarCursoComponent implements OnInit {
     const nombre = this.form.value.nombre;
     const password = this.form.value.password;
     const cantidadEstudiantes = this.form.value.cantidadEstudiantes;
-    const fechaInicio: Date = this.form.value.fechaInicio;
-    const fechaFin: Date = this.form.value.fechaFin;
+    const fechaInicio: Date = this.form.value.inicioCurso;
+    const fechaFin: Date = this.form.value.finCurso;
     const progreso = this.form.value.progreso;
     const estado= this.form.value.idEstado;
     const profesor = this.form.value.idProfesor;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let curso: Curso = {idCurso:this.form.value.idCurso ,nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: progreso, idEstado: estado, idProfesor: profesor, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date()}
-    this.cursoService.actualizarCurso(curso).subscribe(()=>{
+    let curso: Curso = {idCurso:this.curso.idCurso,nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: progreso, idEstado: estado.idEstado, idProfesor: profesor.idProfesor, usuarioModificador: usuarioModificador,
+                                  fechaModificacion: new Date(), fechaCreacion: this.curso.fechaCreacion, usuarioCreador: this.curso.usuarioCreador}
+    this.cursoService.actualizarCurso(curso).subscribe(data=>{
       Swal.fire({
         icon: 'success',
-        title: 'El curso se ha actualizado exitosamente.',
+        title: data,
         showConfirmButton: false,
         timer: 1500
       });
       this.router.navigate(['/admin/cursos/listar-cursos']);
     }, (e) => {
       this.hayErrores = true;
-      this.mensajeError = e['error'];
       console.log(e['error']);
       Swal.fire({
         icon: 'error',

@@ -5,7 +5,7 @@
           <mat-card-title>Actualizar Reto</mat-card-title>
         </ng-template>
         <br>
-        <form [formGroup]="form" (ngSubmit)="guardarReto()">
+        <form [formGroup]="form">
             <div class="entradas">
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
@@ -32,7 +32,7 @@
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Misión</mat-label>
                         <mat-select formControlName="idMision">
-                            <mat-option *ngFor="let mision of misiones" [value]="misiones">
+                            <mat-option *ngFor="let mision of misiones" [value]="mision">
                                 {{mision.nombre}}
                             </mat-option>
                         </mat-select>
@@ -43,7 +43,7 @@
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Curso</mat-label>
                         <mat-select formControlName="idCurso" >
-                            <mat-option *ngFor="let curso of cursos" [value]="cursos">
+                            <mat-option *ngFor="let curso of cursos" [value]="curso">
                                 {{curso.nombre}}
                             </mat-option>
                         </mat-select>
@@ -54,7 +54,7 @@
                   <mat-form-field appearance="fill">
                       <mat-label class="titulos">Estado</mat-label>
                       <mat-select formControlName="idEstado">
-                          <mat-option *ngFor="let estado of estados" [value]="estados">
+                          <mat-option *ngFor="let estado of estados" [value]="estado">
                               {{estado.estado}}
                           </mat-option>
                       </mat-select>

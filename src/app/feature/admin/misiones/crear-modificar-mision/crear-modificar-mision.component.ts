@@ -80,13 +80,13 @@ export class CrearModificarMisionComponent implements OnInit {
     const curso = this.form.value.idCurso;
     const monedas = this.form.value.idMonedas;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let mision: Mision = {nombre: nombre, imagenMision: imagenMision, idNivelMision: nivelMision, idTipoMision: tipoMision, idCurso:curso, idMonedas: monedas, usuarioCreador: usuarioCreador,
+    let mision: Mision = {nombre: nombre, imagen: imagenMision, idNivelMision: nivelMision.idNivelMision, idTipoMision: tipoMision.idTipoMision, idCurso:curso.idCurso, idMonedas: monedas.idMoneda, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
     this.misionService.crearMision(mision).subscribe(data =>{
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'La misión se ha creado exitosamente.',
+          title: data,
           showConfirmButton: false,
           timer: 1500
         });
@@ -107,16 +107,16 @@ export class CrearModificarMisionComponent implements OnInit {
   }
 
   setMision(mision: Mision) {
-    this.form.patchValue({
+    this.form.setValue({
       idMision: mision.idMision,
       nombre: mision.nombre,
-      imagenMision: mision.imagenMision,
+      imagenMision: mision.imagen,
       idNivelMision: mision.idNivelMision,
       idTipoMision: mision.idTipoMision,
       idCurso: mision.idCurso,
       idMonedas: mision.idMonedas,
       usuarioCreador: mision.usuarioCreador,
-      fechaCreación : mision.fechaCreacion,
+      fechaCreacion : mision.fechaCreacion,
       usuarioModificador: mision.usuarioModificador,
       fechaModificacion: mision.fechaModificacion
     });
@@ -127,7 +127,7 @@ export class CrearModificarMisionComponent implements OnInit {
       (params) => {
         const id = params['id'];
         if ( id ) {
-          this.misionService.consultarPorId(id).subscribe((data) => {
+          this.misionService.consultarPorId(id).subscribe(data => {
             this.mision = data;
             this.setMision(this.mision);
           });
@@ -139,17 +139,17 @@ export class CrearModificarMisionComponent implements OnInit {
   actualizar():void{
     const nombre = this.form.value.nombre;
     const imagenMision = this.form.value.imagenMision;
-    const nivelMision = this.form.value.nivelMision;
-    const tipoMision = this.form.value.tipoMision;
+    const nivelMision = this.form.value.idNivelMision;
+    const tipoMision = this.form.value.idTipoMision;
     const curso = this.form.value.idCurso;
     const monedas = this.form.value.idMonedas;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let mision: Mision = {idMision: this.form.value.idMision,nombre: nombre, imagenMision: imagenMision,idNivelMision: nivelMision, idTipoMision: tipoMision, idCurso:curso, idMonedas: monedas, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date()}
-    this.misionService.actualizarMision(mision).subscribe(()=>{
+    let mision: Mision = {idMision: this.form.value.idMision, nombre: nombre, imagen: imagenMision, idNivelMision: nivelMision.idNivelMision, idTipoMision: tipoMision.idTipoMision, idCurso:curso.idCurso, idMonedas: monedas.idMoneda, usuarioModificador: usuarioModificador,
+                                  fechaModificacion: new Date(), fechaCreacion: this.mision.fechaCreacion, usuarioCreador: this.mision.usuarioCreador}
+    this.misionService.actualizarMision(mision).subscribe(data=>{
       Swal.fire({
         icon: 'success',
-        title: 'La misión se ha actualizado exitosamente.',
+        title: data,
         showConfirmButton: false,
         timer: 1500
       });

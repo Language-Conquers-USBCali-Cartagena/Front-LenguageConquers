@@ -14,19 +14,19 @@ export class TipoMisionService {
     return this.http.get<TipoMision[]>(`${environment.endpoint}/tipoMision`)
   }
 
-  crearTipoMision(tipoMision: TipoMision){
-    return this.http.post<TipoMision>(`${environment.endpoint}/tipoMision`, tipoMision);
+  crearTipoMision(tipoMision: TipoMision): Observable<string>{
+    return this.http.post(`${environment.endpoint}/tipoMision`, tipoMision,{ responseType: 'text'});
   }
 
   consultarPorId(idTipoMision: number){
     return this.http.get<TipoMision>(`${environment.endpoint}/tipoMision/porId/${idTipoMision}`);
   }
 
-  actualizarTipoMision(tipoMision: TipoMision): Observable<TipoMision>{
-    return this.http.put<TipoMision>(`${environment.endpoint}/tipoMision/actualizarTipoMision`,tipoMision);
+  actualizarTipoMision(tipoMision: TipoMision): Observable<string>{
+    return this.http.put(`${environment.endpoint}/tipoMision/actualizarTipoMision`,tipoMision,{ responseType: 'text'});
   }
 
-  eliminarTipoMision(tipoMision: TipoMision): Observable<TipoMision>{
-    return this.http.delete<TipoMision>(`${environment.endpoint}/tipoMision/eliminarTipoMision/${tipoMision.idTipoMision}`);
+  eliminarTipoMision(idTipoMision: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/tipoMision/eliminarTipoMision/${idTipoMision}`,{ responseType: 'text'});
   }
 }

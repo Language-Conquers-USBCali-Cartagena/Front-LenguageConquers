@@ -45,7 +45,7 @@ export class CrearModificarProgramaComponent implements OnInit {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'El programa se ha creado exitosamente.',
+          title: data,
           showConfirmButton: false,
           timer: 1500
         });
@@ -96,17 +96,16 @@ export class CrearModificarProgramaComponent implements OnInit {
     const usuarioModificador = this.form.value.usuarioModificador;
     let programa: Programa = {idPrograma: this.form.value.idPrograma,nombre: nombre, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date()}
-    this.programaService.actualizarPrograma(programa).subscribe(() =>{
+    this.programaService.actualizarPrograma(programa).subscribe(data =>{
       Swal.fire({
         icon: 'success',
-        title: 'El programa se ha actualizado exitosamente.',
+        title: data,
         showConfirmButton: false,
         timer: 1500
       });
       this.router.navigate(['/admin/programa/listar-programa']);
     }, (e) => {
       this.hayErrores = true;
-      this.mensajeError = e['error'];
       console.log(e['error']);
       Swal.fire({
         icon: 'error',

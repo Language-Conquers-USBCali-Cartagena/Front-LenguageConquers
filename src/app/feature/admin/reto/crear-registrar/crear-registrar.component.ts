@@ -84,18 +84,17 @@ export class CrearRegistrarComponent implements OnInit {
     const estado= this.form.value.idEstado;
     const curso = this.form.value.idCurso;
     const usuarioCreador = this.form.value.usuarioCreador;
-    const esGrupal = false;
-    const cantidadEstudiantes = 0;
-    let reto: Reto = {nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite,idMision: mision, idEstado: estado, idCurso: curso, usuarioCreador: usuarioCreador,
+    let reto: Reto = {nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite,idMision: mision.idMision, idEstado: estado.idEstado, idCurso: curso.idCurso, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date(), esGrupal: false, cantidadEstudiantes: 0}
     this.retoService.crearReto(reto).subscribe(data => {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'El reto se ha creado exitosamente.',
+          title: data,
           showConfirmButton: false,
           timer: 1500
         });
+        this.router.navigate(['/admin/reto/listar-retos']);
       }
     }, (e) => {
       this.hayErrores = true;
@@ -148,18 +147,18 @@ export class CrearRegistrarComponent implements OnInit {
     const nombre = this.form.value.nombreReto;
     const descripcion = this.form.value.descripcion;
     const intentos = this.form.value.maximoIntentos;
-    const fechaInicio: Date = this.form.value.fechaInicio;
-    const fechaLimite: Date = this.form.value.fechaLimite;
+    const fechaInicio: Date  = this.form.value.fechaInicio;
+    const fechaLimite: Date  = this.form.value.fechaLimite;
     const mision = this.form.value.idMision;
     const estado= this.form.value.idEstado;
     const curso = this.form.value.idCurso;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let reto: Reto = {idReto: this.form.value.idReto, nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite, idEstado: estado, idMision: mision, idCurso: curso, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date(), esGrupal: false, cantidadEstudiantes: 0}
-    this.retoService.actualizarReto(reto).subscribe(()=>{
+    let reto: Reto = {idReto: this.form.value.idReto, nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite, idMision: mision.idMision,idEstado: estado.idEstado, idCurso: curso.idCurso, usuarioModificador: usuarioModificador,
+      fechaModificacion: new Date(), esGrupal: false, cantidadEstudiantes: 0, fechaCreacion: this.reto.fechaCreacion, usuarioCreador: this.reto.usuarioCreador}
+    this.retoService.actualizarReto(reto).subscribe(data =>{
       Swal.fire({
         icon: 'success',
-        title: 'El reto se ha actualizado exitosamente.',
+        title: data,
         showConfirmButton: false,
         timer: 1500
       });

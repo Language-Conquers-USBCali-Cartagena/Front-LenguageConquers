@@ -49,7 +49,7 @@
               <a  class="botones" [routerLink]="['/programa/editarPrograma/',element.idPrograma]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarPrograma(element.idPrograma)" matTooltip="Editar Programa">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarPrograma(element)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Programa">
+              <a  class="botones" (click)="eliminarPrograma(element.idPrograma)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Programa">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>
@@ -62,7 +62,7 @@
             <td class="mat-cell" colspan="4">No existe un programa con el nombre "{{input.value}}"</td>
           </tr>
         </table>
-        <mat-paginator [pageSizeOptions]="[7]" aria-label="Seleccione la pagina de los programas"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[4]" aria-label="Seleccione la pagina de los programas"></mat-paginator>
       </div>
     </mat-card-content>
 </mat-card>

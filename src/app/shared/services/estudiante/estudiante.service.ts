@@ -15,19 +15,19 @@ export class EstudianteService {
     return this.http.get<Estudiante[]>(`${environment.endpoint}/estudiante`)
   }
 
-  crearEstudiante(estudiante: Estudiante){
-    return this.http.post<Estudiante>(`${environment.endpoint}/estudiante/crearEstudiante`, estudiante);
+  crearEstudiante(estudiante: Estudiante): Observable<string>{
+    return this.http.post(`${environment.endpoint}/estudiante/crearEstudiante`, estudiante,{ responseType: 'text'});
   }
 
   consultarPorId(idEstudiante: number){
     return this.http.get<Estudiante>(`${environment.endpoint}/estudiante/porId/${idEstudiante}`);
   }
 
-  actualizarEstudiante(estudiante: Estudiante): Observable<Estudiante>{
-    return this.http.put<Estudiante>(`${environment.endpoint}/estudiante/actualizarEstudiante`,estudiante);
+  actualizarEstudiante(estudiante: Estudiante): Observable<string>{
+    return this.http.put(`${environment.endpoint}/estudiante/actualizarEstudiante`,estudiante,{ responseType: 'text'});
   }
 
-  eliminarEstudiante(estudiante: Estudiante): Observable<Estudiante>{
-    return this.http.delete<Estudiante>(`${environment.endpoint}/estudiante/eliminarEstudiante/${estudiante.idEstudiante}`);
+  eliminarEstudiante(idEstudiante: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/estudiante/eliminarEstudiante/${idEstudiante}`,{ responseType: 'text'});
   }
 }

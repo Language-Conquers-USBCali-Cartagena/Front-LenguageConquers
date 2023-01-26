@@ -69,7 +69,7 @@
               <a  class="botones" [routerLink]="['/misiones/editarMision/',element.idMision]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarMision(element.idMision)" matTooltip="Editar Misión">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarMision(element)" id="eliminarMision" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Reto">
+              <a  class="botones" (click)="eliminarMision(element.idMision)" id="eliminarMision" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Reto">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

@@ -14,19 +14,19 @@ export class MonedasService {
     return this.http.get<Monedas[]>(`${environment.endpoint}/monedas`)
   }
 
-  crearMoneda(moneda: Monedas){
-    return this.http.post<Monedas>(`${environment.endpoint}/monedas`, moneda);
+  crearMoneda(moneda: Monedas): Observable<string>{
+    return this.http.post(`${environment.endpoint}/monedas`, moneda,{ responseType: 'text'});
   }
 
   consultarPorId(idMoneda: number){
     return this.http.get<Monedas>(`${environment.endpoint}/monedas/porId/${idMoneda}`);
   }
 
-  actualizarMoneda(moneda: Monedas): Observable<Monedas>{
-    return this.http.put<Monedas>(`${environment.endpoint}/monedas/actualizarMoneda`,moneda);
+  actualizarMoneda(moneda: Monedas): Observable<string>{
+    return this.http.put(`${environment.endpoint}/monedas/actualizarMoneda`,moneda,{ responseType: 'text'});
   }
 
-  eliminarMonedas(moneda: Monedas): Observable<Monedas>{
-    return this.http.delete<Monedas>(`${environment.endpoint}/monedas/eliminarMoneda/${moneda.idMoneda}`);
+  eliminarMonedas(idMoneda: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/monedas/eliminarMoneda/${idMoneda}`,{ responseType: 'text'});
   }
 }

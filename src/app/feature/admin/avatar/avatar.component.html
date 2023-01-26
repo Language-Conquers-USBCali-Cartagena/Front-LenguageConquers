@@ -54,7 +54,7 @@
               <a  class="botones" [routerLink]="['/admin/avatar/editarAvatar/',element.idAvatar]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarAvatar(element.idAvatar)" matTooltip="Editar Avatar">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" id="eliminarAvatar" (click)="eliminarAvatar(element)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Avatar">
+              <a  class="botones" id="eliminarAvatar" (click)="eliminarAvatar(element.idAvatar)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Avatar">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

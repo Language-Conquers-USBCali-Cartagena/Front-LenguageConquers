@@ -2,7 +2,7 @@
   <mat-toolbar class="color" type="checkbox" id="nav-check">
     <img src="./assets/images/LogoV1.png" alt="logo">
   </mat-toolbar>
-  <div class="card" *ngIf="user$ | async as user; else loading">
+  <div class="card" *ngIf="user$ | async as user;">
     <div class="crearUsuario">
       <mat-card class="fondoTarjeta">
         <mat-grid-list cols="2" rowHeight="695px" rowWidth="900px">
@@ -31,8 +31,5 @@
       </mat-card>
     </div>
   </div>
-  //TODO: CAMBIAR FORMA DE LOANDING
-  <ng-template #loading>
-    loading...
-  </ng-template>
+
 </div>

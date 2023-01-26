@@ -33,190 +33,190 @@ import { CrearModificarCursoComponent } from './curso/crear-modificar-curso/crea
 
 const routes: Routes = [
 
-    {
-        path: 'admin',
-        component: AdminComponent,
-        children: [
-            {
-                path:'',
-                redirectTo:'home',
-                pathMatch:'full'
-            },
-            {
-                path: 'articulos/listar-articulos',
-                component: ArticulosComponent
-            },
-            {
-                path: 'articulos/crearArticulo',
-                component:CrearModificarArticulosComponent,
-            },
-            {
-              path: 'articulos/editarArticulo/:id',
-              component:CrearModificarArticulosComponent,
-            },
-            {
-                path: 'avatar/listar-avatar',
-                component: AvatarComponent
-            },
-            {
-                path: 'avatar/crearAvatar',
-                component: CrearModificarAvatarComponent,
-            },
-            {
-              path: 'avatar/editarAvatar/:id',
-              component: CrearModificarAvatarComponent,
-            },
-            {
-                path: 'categoria-articulos/listar',
-                component: CategoriaArticulosComponent
-            },
-            {
-                path: 'categoria-articulos/crearCategoria',
-                component:CrearModificarCategoriaComponent,
-            },
-            {
-              path: 'categoria-articulos/actualizarCategoria/:id',
-              component:CrearModificarCategoriaComponent,
-          },
-            {
-                path: 'cursos/listar-cursos',
-                component: CursoComponent
-            },
-            {
-                path: 'cursos/crearCurso',
-                component: CrearModificarCursoComponent,
-            },
-            {
-              path: 'cursos/editarCurso/:id',
-               component: CrearModificarCursoComponent,
-            },
-            {
-                path: 'estado/listar-estados',
-                component: EstadoComponent
-            },
-            {
-                path: 'estado/crearEstado',
-                component: CrearModificarEstadoComponent,
-            },
-            {
-              path: 'estado/editarEstado/:id',
-              component: CrearModificarEstadoComponent,
-            },
-            {
-                path: 'home',
-                component: HomeComponent
-            },
-            {
-                path: 'logros/listar-logros',
-                component: LogrosComponent
-            },
-            {
-                path: 'logros/Crearlogros',
-                component: CrearModificarLogrosComponent,
-            },
-            {
-              path: 'logros/editarLogro/:id',
-              component: CrearModificarLogrosComponent,
-            },
-            {
-                path: 'misiones/listar-misiones',
-                component: MisionesComponent
-            },
-            {
-                path: 'misiones/creaMisiones',
-                component: CrearModificarMisionComponent,
-            },
-            {
-              path: 'misiones/editarMision/:id',
-              component: CrearModificarMisionComponent,
-          },
-            {
-                path: 'monedas/listar-monedas',
-                component: MonedasComponent
-            },
-            {
-                path: 'monedas/crearMoneda',
-                component:CreaModificarMonedasComponent,
-            },
-            {
-              path: 'monedas/editarMoneda/:id',
-              component:CreaModificarMonedasComponent,
-          },
-            {
-                path: 'nivel-mision/listar',
-                component: NivelMisionComponent
-            },
-            {
-                path: 'nivel-mision/crearNivelMision',
-                component: CrearModificarNivelMisionComponent,
-            },
-            {
-              path: 'nivel-mision/editarNivelMision/:id',
-              component: CrearModificarNivelMisionComponent,
-          },
-            {
-                path: 'programa/listar-programa',
-                component: ProgramaComponent
-            },
-            {
-                path: 'programa/crearPrograma',
-                component:CrearModificarProgramaComponent,
-            },
-            {
-              path: 'programa/editarPrograma/:id',
-              component:CrearModificarProgramaComponent,
-            },
-            {
-                path: 'reto/listar-retos',
-                component: RetoComponent
-            },
-            {
-                path: 'reto/crearReto',
-                component:CrearRegistrarComponent,
-            },
-            {
-              path: 'reto/editarReto/:id',
-              component:CrearRegistrarComponent,
-          },
-            {
-                path: 'tipo-mision/listar',
-                component: TipoMisionComponent
-            },
-            {
-                path: 'tipo-mision/crearTipoMision',
-                component: CrearModificarTipoMisionComponent,
-            },
-            {
-              path: 'tipo-mision/editarTipoMision/:id',
-              component: CrearModificarTipoMisionComponent,
-          },
-            {
-                path: 'usuarios/listar-usuarios',
-                component: UsuariosComponent,
-            },
-            {
-              path: 'usuarios/crearDocente',
-              component: DocenteComponent
-            },
-            {
-              path: 'usuarios/ActualizarDocente/:id',
-              component: DocenteComponent
-            },
-            {
-              path: 'usuarios/crearEstudiante',
-              component: EstudianteComponent
-            },
-            {
-              path: 'usuarios/ActualizarEstudiante/:id',
-              component: EstudianteComponent
-            },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'articulos/listar-articulos',
+        component: ArticulosComponent
+      },
+      {
+        path: 'articulos/crearArticulo',
+        component: CrearModificarArticulosComponent,
+      },
+      {
+        path: 'articulos/editarArticulo/:id',
+        component: CrearModificarArticulosComponent,
+      },
+      {
+        path: 'avatar/listar-avatar',
+        component: AvatarComponent
+      },
+      {
+        path: 'avatar/crearAvatar',
+        component: CrearModificarAvatarComponent,
+      },
+      {
+        path: 'avatar/editarAvatar/:id',
+        component: CrearModificarAvatarComponent,
+      },
+      {
+        path: 'categoria-articulos/listar',
+        component: CategoriaArticulosComponent
+      },
+      {
+        path: 'categoria-articulos/crearCategoria',
+        component: CrearModificarCategoriaComponent,
+      },
+      {
+        path: 'categoria-articulos/actualizarCategoria/:id',
+        component: CrearModificarCategoriaComponent,
+      },
+      {
+        path: 'cursos/listar-cursos',
+        component: CursoComponent
+      },
+      {
+        path: 'cursos/crearCurso',
+        component: CrearModificarCursoComponent
+      },
+      {
+        path: 'cursos/editarCurso/:id',
+        component: CrearModificarCursoComponent
+      },
+      {
+        path: 'estado/listar-estados',
+        component: EstadoComponent
+      },
+      {
+        path: 'estado/crearEstado',
+        component: CrearModificarEstadoComponent,
+      },
+      {
+        path: 'estado/editarEstado/:id',
+        component: CrearModificarEstadoComponent,
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'logros/listar-logros',
+        component: LogrosComponent
+      },
+      {
+        path: 'logros/Crearlogros',
+        component: CrearModificarLogrosComponent,
+      },
+      {
+        path: 'logros/editarLogro/:id',
+        component: CrearModificarLogrosComponent,
+      },
+      {
+        path: 'misiones/listar-misiones',
+        component: MisionesComponent
+      },
+      {
+        path: 'misiones/creaMisiones',
+        component: CrearModificarMisionComponent,
+      },
+      {
+        path: 'misiones/editarMision/:id',
+        component: CrearModificarMisionComponent,
+      },
+      {
+        path: 'monedas/listar-monedas',
+        component: MonedasComponent
+      },
+      {
+        path: 'monedas/crearMoneda',
+        component: CreaModificarMonedasComponent,
+      },
+      {
+        path: 'monedas/editarMoneda/:id',
+        component: CreaModificarMonedasComponent,
+      },
+      {
+        path: 'nivel-mision/listar',
+        component: NivelMisionComponent
+      },
+      {
+        path: 'nivel-mision/crearNivelMision',
+        component: CrearModificarNivelMisionComponent,
+      },
+      {
+        path: 'nivel-mision/editarNivelMision/:id',
+        component: CrearModificarNivelMisionComponent,
+      },
+      {
+        path: 'programa/listar-programa',
+        component: ProgramaComponent
+      },
+      {
+        path: 'programa/crearPrograma',
+        component: CrearModificarProgramaComponent,
+      },
+      {
+        path: 'programa/editarPrograma/:id',
+        component: CrearModificarProgramaComponent,
+      },
+      {
+        path: 'reto/listar-retos',
+        component: RetoComponent
+      },
+      {
+        path: 'reto/crearReto',
+        component: CrearRegistrarComponent,
+      },
+      {
+        path: 'reto/editarReto/:id',
+        component: CrearRegistrarComponent,
+      },
+      {
+        path: 'tipo-mision/listar',
+        component: TipoMisionComponent
+      },
+      {
+        path: 'tipo-mision/crearTipoMision',
+        component: CrearModificarTipoMisionComponent,
+      },
+      {
+        path: 'tipo-mision/editarTipoMision/:id',
+        component: CrearModificarTipoMisionComponent,
+      },
+      {
+        path: 'usuarios/listar-usuarios',
+        component: UsuariosComponent,
+      },
+      {
+        path: 'usuarios/crearDocente',
+        component: DocenteComponent
+      },
+      {
+        path: 'usuarios/ActualizarDocente/:id',
+        component: DocenteComponent
+      },
+      {
+        path: 'usuarios/crearEstudiante',
+        component: EstudianteComponent
+      },
+      {
+        path: 'usuarios/ActualizarEstudiante/:id',
+        component: EstudianteComponent
+      },
 
-        ]
-    }
+    ]
+  }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
-  })
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
 export class AdminRoutingModule { }

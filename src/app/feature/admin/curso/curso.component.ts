@@ -52,26 +52,26 @@ export class CursoComponent implements OnInit {
     }
   }
 
-  eliminarCurso(idCurso: Curso){
+  eliminarCurso(idCurso: number){
     this.cursoService.eliminarCurso(idCurso).subscribe( data =>{
       this.listaCursos = this.listaCursos.filter(c => c!== idCurso);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+      Toast.fire({
+        icon: 'success',
+        title: data
+      });
+      this.cargarCursos();
     })
-    this.cargarCursos();
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'El curso fue eliminado exitosamente.'
-    });
   }
 
   actualizarCurso(idCurso: number){

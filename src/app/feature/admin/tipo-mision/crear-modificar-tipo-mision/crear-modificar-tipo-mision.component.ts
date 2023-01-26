@@ -95,7 +95,8 @@ export class CrearModificarTipoMisionComponent implements OnInit {
   actualizar():void{
     const descripcion = this.form.value.descripcion;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let tipoMision: TipoMision = {idTipoMision: this.form.value.idTipoMision, descripcion: descripcion, usuarioModificador: usuarioModificador,fechaModificacion: new Date()}
+    let tipoMision: TipoMision = {idTipoMision: this.form.value.idTipoMision, descripcion: descripcion, usuarioModificador: usuarioModificador,fechaModificacion: new Date(),
+     fechaCreacion: this.tipoMision.fechaCreacion, usuarioCreador: this.tipoMision.usuarioCreador}
     this.tipoMisionService.actualizarTipoMision(tipoMision).subscribe(() =>{
       Swal.fire({
         icon: 'success',

@@ -53,27 +53,27 @@ export class LogrosComponent implements OnInit {
     }
   }
 
-  eliminarLogro(idLogro: Logros){
+  eliminarLogro(idLogro: number){
     this.logrosService.eliminarLogro(idLogro).subscribe(data =>{
       this.listaLogros = this.listaLogros.filter(c => c!== idLogro);
-    })
-    this.cargarLogros();
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+      Toast.fire({
+        icon: 'success',
+        title: data
+      });
+      this.cargarLogros();
+    });
 
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'El logro fue eliminado exitosamente.'
-    });
   }
 
   actualizarLogro(idLogro: number){

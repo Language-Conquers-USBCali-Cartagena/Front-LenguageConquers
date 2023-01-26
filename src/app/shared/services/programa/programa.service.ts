@@ -15,20 +15,20 @@ export class ProgramaService {
     return this.http.get<Programa[]>(`${environment.endpoint}/programa`)
   }
 
-  crearPrograma(programa: Programa){
-    return this.http.post<Programa>(`${environment.endpoint}/programa/guardarPrograma`, programa);
+  crearPrograma(programa: Programa): Observable<string>{
+    return this.http.post(`${environment.endpoint}/programa/guardarPrograma`, programa,{ responseType: 'text'});
   }
 
   consultarPorId(idPrograma: number){
     return this.http.get<Programa>(`${environment.endpoint}/programa/porId/${idPrograma}`);
   }
 
-  actualizarPrograma(programa: Programa): Observable<Programa>{
-    return this.http.put<Programa>(`${environment.endpoint}/programa/actualizarPrograma`,programa);
+  actualizarPrograma(programa: Programa): Observable<string>{
+    return this.http.put(`${environment.endpoint}/programa/actualizarPrograma`,programa,{ responseType: 'text'});
   }
 
-  eliminarPrograma(programa: Programa): Observable<Programa>{
-    return this.http.delete<Programa>(`${environment.endpoint}/programa/eliminarPrograma/${programa.idPrograma}`);
+  eliminarPrograma(idPrograma: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/programa/eliminarPrograma/${idPrograma}`,{ responseType: 'text'});
   }
 
 }

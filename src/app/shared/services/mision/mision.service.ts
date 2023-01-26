@@ -14,20 +14,20 @@ export class MisionService {
     return this.http.get<Mision[]>(`${environment.endpoint}/misiones`)
   }
 
-  crearMision(mision: Mision){
-    return this.http.post<Mision>(`${environment.endpoint}/misiones`, mision);
+  crearMision(mision: Mision): Observable<string>{
+    return this.http.post(`${environment.endpoint}/misiones`, mision,{ responseType: 'text'});
   }
 
   consultarPorId(idMision: number){
     return this.http.get<Mision>(`${environment.endpoint}/misiones/porId/${idMision}`);
   }
 
-  actualizarMision(mision: Mision): Observable<Mision>{
-    return this.http.put<Mision>(`${environment.endpoint}/misiones/actualizarMision`,mision);
+  actualizarMision(mision: Mision): Observable<string>{
+    return this.http.put(`${environment.endpoint}/misiones/actualizarMision`,mision,{ responseType: 'text'});
   }
 
-  eliminarMision(mision: Mision): Observable<Mision>{
-    return this.http.delete<Mision>(`${environment.endpoint}/misiones/eliminarMision/${mision.idMision}`);
+  eliminarMision(idMision: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/misiones/eliminarMision/${idMision}`,{ responseType: 'text'});
   }
 
 }

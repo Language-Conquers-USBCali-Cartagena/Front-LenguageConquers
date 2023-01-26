@@ -33,7 +33,7 @@ export class DocenteComponent implements OnInit {
       apellido: ['', Validators.required],
       foto:['', Validators.required],
       correo: ['', Validators.required],
-      genero: ['', Validators.required],
+      idGenero: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
       usuarioModificador: ['', Validators.required],
@@ -57,18 +57,17 @@ export class DocenteComponent implements OnInit {
     const foto = this.form.value.foto;
     const usuarioCreador = this.form.value.usuarioCreador;
     const fechaCreacion = new Date();
-    const genero = this.form.value.genero.idGenero;
-    let profesor: Profesor = { nombre: nombre, apellido: apellido, correo: correo, foto: foto, usuarioCreador: usuarioCreador, fechaCreacion: fechaCreacion, idGenero: genero }
-
+    const genero = this.form.value.idGenero;
+    let profesor: Profesor = { nombre: nombre, apellido: apellido, correo: correo, foto: foto, usuarioCreador: usuarioCreador, fechaCreacion: fechaCreacion, idGenero: genero.idGenero }
     this.profesorService.crearProfesor(profesor).subscribe(data => {
       if (data) {
         Swal.fire({
           icon: 'success',
-          title: 'El docente se ha creado exitosamente.',
+          title: data,
           showConfirmButton: false,
           timer: 1500
         });
-        this.router.navigate(['/admin/usuarios/listar-usuario']);
+        this.router.navigate(['/admin/usuarios/listar-usuarios']);
       }
     }, (e) => {
       this.hayErrores = true;
@@ -119,12 +118,26 @@ export class DocenteComponent implements OnInit {
     const apellido = this.form.value.apellido;
     const foto = this.form.value.foto;
     const usuarioModificador =  this.form.value.usuarioModificador;
-    const genero = this.form.value.genero.idGenero;
-    let profesor: Profesor = { idProfesor: this.form.value.idProfesor, nombre: nombre, apellido: apellido, correo: correo, foto: foto, usuarioModificador: usuarioModificador, fechaModificacion: new Date(), idGenero: genero }
-    this.profesor.idProfesor = this.form.value.idProfesor;
-    this.profesorService.actualizarProfesor(profesor).subscribe(() =>{
-      //TODO:FALTA AGREGAR MENSAJE
+    const genero = this.form.value.idGenero;
+    let profesor: Profesor = { idProfesor: this.form.value.idProfesor, nombre: nombre, apellido: apellido, correo: correo, foto: foto, usuarioModificador: usuarioModificador, fechaModificacion: new Date(), idGenero: genero.idGenero, usuarioCreador: this.profesor.usuarioCreador, fechaCreacion: this.profesor.fechaCreacion }
+    this.profesorService.actualizarProfesor(profesor).subscribe(data =>{
+      Swal.fire({
+        icon: 'success',
+        title: data,
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.router.navigateByUrl('/admin/usuarios/listar-usuarios');
+    }, (e) => {
+      this.hayErrores = true;
+      this.mensajeError = e.error;
+      console.log(e['error']);
+      Swal.fire({
+        icon: 'error',
+        title: e['error'],
+        showConfirmButton: false,
+        timer: 1500
+      });
     });
   }
 

@@ -16,20 +16,20 @@ export class EstadoService {
   }
 
 
-  crearEstado(estado: Estado){
-    return this.http.post<Estado>(`${environment.endpoint}/estados/guardarEstado`, estado);
+  crearEstado(estado: Estado): Observable<string>{
+    return this.http.post(`${environment.endpoint}/estados/guardarEstado`, estado,{ responseType: 'text'});
   }
 
   consultarPorId(idEstado: number){
     return this.http.get<Estado>(`${environment.endpoint}/estados/porId/${idEstado}`);
   }
 
-  actualizarEstado(estado: Estado): Observable<Estado>{
-    return this.http.put<Estado>(`${environment.endpoint}/estados/actualizarEstado`,estado);
+  actualizarEstado(estado: Estado): Observable<string>{
+    return this.http.put(`${environment.endpoint}/estados/actualizarEstado`,estado,{ responseType: 'text'});
   }
 
-  eliminarEstado(estado: Estado): Observable<Estado>{
-    return this.http.delete<Estado>(`${environment.endpoint}/estados/eliminarEstado/${estado.idEstado}`);
+  eliminarEstado(idEstado: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/estados/eliminarEstado/${idEstado}`,{ responseType: 'text'});
   }
 
 

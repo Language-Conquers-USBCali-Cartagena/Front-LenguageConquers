@@ -10,24 +10,25 @@ import { Curso } from '../../models/curso';
 export class CursoService {
 
   constructor(private http:HttpClient) { }
+
   getCurso():Observable<Curso[]>{
     return this.http.get<Curso[]>(`${environment.endpoint}/curso`)
   }
 
-  crearCurso(curso: Curso){
-    return this.http.post<Curso>(`${environment.endpoint}/curso/guardarCurso`, curso);
+  crearCurso(curso: Curso): Observable<string>{
+    return this.http.post(`${environment.endpoint}/curso/registrarCurso`, curso,{ responseType: 'text'});
   }
 
   consultarPorId(idCurso: number){
     return this.http.get<Curso>(`${environment.endpoint}/curso/porId/${idCurso}`);
   }
 
-  actualizarCurso(curso: Curso): Observable<Curso>{
-    return this.http.put<Curso>(`${environment.endpoint}/curso/actualizarCurso/${curso.idCurso}`,curso);
+  actualizarCurso(curso: Curso): Observable<string>{
+    return this.http.put(`${environment.endpoint}/curso/actualizarCurso`,curso,{ responseType: 'text'});
   }
 
-  eliminarCurso(curso: Curso): Observable<Curso>{
-    return this.http.delete<Curso>(`${environment.endpoint}/curso/eliminarCurso/${curso.idCurso}`);
+  eliminarCurso(idCurso: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/curso/eliminarCurso/${idCurso}`,{ responseType: 'text'});
   }
 
 

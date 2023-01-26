@@ -5,7 +5,7 @@
       <mat-card-title >Actualizar Docente</mat-card-title>
     </ng-template>
     <br>
-    <form [formGroup]="form" (ngSubmit)="guardarProfesor()">
+    <form [formGroup]="form">
       <div class="entradas">
           <div class="campo-entrada">
             <mat-form-field appearance="fill">
@@ -38,7 +38,7 @@
           <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Genero</mat-label>
-            <mat-select formControlName="genero">
+            <mat-select formControlName="idGenero">
               <mat-option *ngFor="let genero of generos" [value]="genero">
                 {{genero.genero}}
               </mat-option>
@@ -64,7 +64,7 @@
         </ng-template>
         <div class="boton">
           <button mat-raised-button class="botones" (click)="atras()">Atrás</button>
-          <button mat-raised-button class="botones" *ngIf="!profesor else botonEditar">Crear Profesor</button>
+          <button mat-raised-button class="botones" (click)="guardarProfesor()" *ngIf="!profesor else botonEditar">Crear Profesor</button>
           <ng-template #botonEditar>
             <button mat-raised-button class="botones" (click)="actualizar()">Actualizar Profesor</button>
           </ng-template>

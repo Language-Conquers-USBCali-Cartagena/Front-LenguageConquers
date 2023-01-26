@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { NivelMision } from '../../models/nivelMision';
+import { Text } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -15,19 +16,19 @@ export class NivelMisionService {
   }
 
 
-  crearNivelMision(nivelMision: NivelMision){
-    return this.http.post<NivelMision>(`${environment.endpoint}/nivelMision`, nivelMision);
+  crearNivelMision(nivelMision: NivelMision): Observable<string>{
+    return this.http.post(`${environment.endpoint}/nivelMision`, nivelMision,{ responseType: 'text'});
   }
 
   consultarPorId(idNivelMision: number){
     return this.http.get<NivelMision>(`${environment.endpoint}/nivelMision/porId/${idNivelMision}`);
   }
 
-  actualizarNivelMision(nivelMision: NivelMision): Observable<NivelMision>{
-    return this.http.put<NivelMision>(`${environment.endpoint}/nivelMision/actualizarNivelMision`,nivelMision);
+  actualizarNivelMision(nivelMision: NivelMision): Observable<string>{
+     return this.http.put(`${environment.endpoint}/nivelMision/actualizarNivelMision`, nivelMision,{ responseType: 'text'});
   }
 
-  eliminarNivelMision(nivelMision: NivelMision): Observable<NivelMision>{
-    return this.http.delete<NivelMision>(`${environment.endpoint}/nivelMision/eliminarNivelMision/${nivelMision.idNivelMision}`);
+  eliminarNivelMision(idNivelMision: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/nivelMision/eliminarNivelMision/${idNivelMision}`,{ responseType: 'text'});
   }
 }

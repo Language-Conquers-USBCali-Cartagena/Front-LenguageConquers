@@ -49,7 +49,7 @@
               <a  class="botones" [routerLink]="['/estados/editarEstado/',element.idEstado]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarEstado(element.idEstado)" matTooltip="Editar Estado">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarEstado(element)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Estado">
+              <a  class="botones" (click)="eliminarEstado(element.idEstado)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Estado">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

@@ -13,19 +13,19 @@ export class CategoriaService {
   getCategoria(): Observable<Categorias[]>{
     return this.http.get<Categorias[]>(`${environment.endpoint}/categoria`)
   }
-  crearCategoria(categorias: Categorias){
-    return this.http.post<Categorias>(`${environment.endpoint}/categoria/guardarCategoria`, categorias);
+  crearCategoria(categorias: Categorias): Observable<string>{
+    return this.http.post(`${environment.endpoint}/categoria/guardarCategoria`, categorias,{ responseType: 'text'});
   }
 
   consultarPorId(idCategorias: number){
     return this.http.get<Categorias>(`${environment.endpoint}/categoria/porId/${idCategorias}`);
   }
 
-  actualizarCategorias(categorias: Categorias): Observable<Categorias>{
-    return this.http.put<Categorias>(`${environment.endpoint}/categoria/actualizarCategoria`,categorias);
+  actualizarCategorias(categorias: Categorias): Observable<string>{
+    return this.http.put(`${environment.endpoint}/categoria/actualizarCategoria`,categorias,{ responseType: 'text'});
   }
 
-  eliminarCategorias(categorias: Categorias): Observable<Categorias>{
-    return this.http.delete<Categorias>(`${environment.endpoint}/categoria/eliminarCategoria/${categorias.idCategoria}`);
+  eliminarCategorias(idCategoria: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/categoria/eliminarCategoria/${idCategoria}`,{ responseType: 'text'});
   }
 }

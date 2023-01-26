@@ -37,7 +37,7 @@ export class CrearModificarEstadoComponent implements OnInit {
   }
 
   guardarEstado(){
-    const nombreEstado = this.form.value.estado;
+    const nombreEstado = this.form.value.nombreEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
     let estado: Estado = {estado: nombreEstado, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
@@ -45,7 +45,7 @@ export class CrearModificarEstadoComponent implements OnInit {
         if(data){
           Swal.fire({
             icon: 'success',
-            title: 'El estado se ha creado exitosamente.',
+            title: data,
             showConfirmButton: false,
             timer: 1500
           });
@@ -53,7 +53,6 @@ export class CrearModificarEstadoComponent implements OnInit {
         }
       }, (e) => {
         this.hayErrores = true;
-        this.mensajeError = e['error'];
         console.log(e['error']);
         Swal.fire({
           icon: 'error',
@@ -89,21 +88,20 @@ export class CrearModificarEstadoComponent implements OnInit {
     )
   }
   actualizar():void{
-    const nombreEstado = this.form.value.estado;
+    const nombreEstado = this.form.value.nombreEstado;
     const usuarioModificador = this.form.value.usuarioModificador;
     let estado: Estado = {idEstado: this.form.value.idEstado, estado: nombreEstado, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date()}
-    this.estadoService.actualizarEstado(estado).subscribe(()=>{
+                                  fechaModificacion: new Date(),fechaCreacion: this.estado.fechaCreacion, usuarioCreador: this.estado.usuarioCreador}
+    this.estadoService.actualizarEstado(estado).subscribe(data=>{
       Swal.fire({
         icon: 'success',
-        title: 'El estado se ha actualizado exitosamente.',
+        title: data,
         showConfirmButton: false,
         timer: 1500
       });
       this.router.navigate(['/admin/estado/listar-estados']);
     }, (e) => {
       this.hayErrores = true;
-      this.mensajeError = e['error'];
       console.log(e['error']);
       Swal.fire({
         icon: 'error',

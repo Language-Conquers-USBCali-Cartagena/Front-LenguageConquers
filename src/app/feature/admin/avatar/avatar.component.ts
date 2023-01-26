@@ -51,28 +51,28 @@ export class AvatarComponent implements OnInit {
     }
   }
 
-  eliminarAvatar(idAvatar:Avatar){
+  eliminarAvatar(idAvatar:number){
     this.avatarService.eliminarAvatar(idAvatar).subscribe( data => {
       this.listaAvatares = this.listaAvatares.filter(c=> c!== idAvatar);
-    });
-    this.cargarAvatares();
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
 
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
+      Toast.fire({
+        icon: 'success',
+        title: data
+      });
+      this.cargarAvatares();
     });
 
-    Toast.fire({
-      icon: 'success',
-      title: 'El avatar fue eliminado exitosamente.'
-    })
 
   }
 

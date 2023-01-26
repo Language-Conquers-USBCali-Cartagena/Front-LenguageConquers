@@ -25,19 +25,19 @@ export class ArticuloService {
   }
 
 
-  crearArticulo(articulo: Articulo){
-    return this.http.post<Articulo>(`${environment.endpoint}/articulo/guardarArticulo`, articulo);
+  crearArticulo(articulo: Articulo): Observable<string>{
+    return this.http.post(`${environment.endpoint}/articulo/guardarArticulo`, articulo,{ responseType: 'text'});
   }
 
   consultarPorId(idArticulo: number){
     return this.http.get<Articulo>(`${environment.endpoint}/articulo/porId/${idArticulo}`);
   }
 
-  actualizarArticulo(articulo: Articulo): Observable<Articulo>{
-    return this.http.put<Articulo>(`${environment.endpoint}/articulos/actualizarArticulo`, articulo);
+  actualizarArticulo(articulo: Articulo): Observable<string>{
+    return this.http.put(`${environment.endpoint}/articulo/actualizarArticulo`, articulo,{ responseType: 'text'});
   }
 
-  eliminarArticulo(articulo: Articulo): Observable<Articulo>{
-    return this.http.delete<Articulo>(`${environment.endpoint}/articulos/eliminarArticulo/${articulo.idArticulo}`);
+  eliminarArticulo(idArticulo: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/articulo/eliminarArticulo/${idArticulo}`,{ responseType: 'text'});
   }
 }

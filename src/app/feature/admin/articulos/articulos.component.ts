@@ -51,25 +51,25 @@ export class ArticulosComponent implements OnInit {
     }
   }
 
-  eliminarArticulo(idArticulo : Articulo){
+  eliminarArticulo(idArticulo : number){
     this.articulosService.eliminarArticulo(idArticulo).subscribe(data =>{
       this.listaArticulos = this.listaArticulos.filter(c => c!== idArticulo);
-    });
-    this.cargarArticulos();
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'El artículo fue eliminado exitosamente.'
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+      Toast.fire({
+        icon: 'success',
+        title: data
+      });
+      this.cargarArticulos();
     });
   }
 

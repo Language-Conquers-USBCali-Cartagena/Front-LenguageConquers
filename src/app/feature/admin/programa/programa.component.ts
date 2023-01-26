@@ -52,25 +52,25 @@ export class ProgramaComponent implements OnInit {
     }
   }
 
-  eliminarPrograma(idPrograma: Programa){
-    this.programaService.eliminarPrograma(idPrograma).subscribe(()=>{
+  eliminarPrograma(idPrograma: number){
+    this.programaService.eliminarPrograma(idPrograma).subscribe(data=>{
       this.listaProgramas = this.listaProgramas.filter(c => c!== idPrograma);
-    });
-    this.cargarProgramas();
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'El programa fue eliminado exitosamente.'
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+      Toast.fire({
+        icon: 'success',
+        title: data
+      });
+      this.cargarProgramas();
     });
   }
 

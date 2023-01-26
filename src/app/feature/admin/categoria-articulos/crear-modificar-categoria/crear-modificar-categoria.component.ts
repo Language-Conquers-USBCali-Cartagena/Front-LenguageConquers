@@ -26,6 +26,7 @@ export class CrearModificarCategoriaComponent implements OnInit {
    }
    crearCategoria(){
     this.form = this.fb.group({
+      idCategoria: ['', Validators.required],
       nombre:  ['', Validators.required],
       descripcion: ['', Validators.required],
       idEstado: ['', Validators.required],
@@ -51,13 +52,13 @@ export class CrearModificarCategoriaComponent implements OnInit {
     const descripcion = this.form.value.descripcion;
     const estado= this.form.value.idEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let categoria: Categorias = {nombre: nombre, descripcion: descripcion, idEstado: estado, usuarioCreador: usuarioCreador,
+    let categoria: Categorias = {nombre: nombre, descripcion: descripcion, idEstado: estado.idEstado, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
     this.categoriaService.crearCategoria(categoria).subscribe(data =>{
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'La aategoría se ha creado exitosamente.',
+          title: data,
           showConfirmButton: false,
           timer: 1500
         });
@@ -65,7 +66,6 @@ export class CrearModificarCategoriaComponent implements OnInit {
       }
     }, (e) => {
       this.hayErrores = true;
-      this.mensajeError = e['error'];
       console.log(e['error']);
       Swal.fire({
         icon: 'error',
@@ -77,7 +77,7 @@ export class CrearModificarCategoriaComponent implements OnInit {
   }
 
   setCategoria(categoria:Categorias){
-    this.form.patchValue({
+    this.form.setValue({
       idCategoria: categoria.idCategoria,
       nombre: categoria.nombre,
       descripcion: categoria.descripcion,
@@ -108,19 +108,18 @@ export class CrearModificarCategoriaComponent implements OnInit {
     const descripcion = this.form.value.descripcion;
     const estado= this.form.value.idEstado;
     const usuarioModificador = this.form.value.usuarioCreador;
-    let categoria: Categorias = {nombre: nombre, descripcion: descripcion, idEstado: estado, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date()}
-    this.categoriaService.actualizarCategorias(categoria).subscribe(()=>{
+    let categoria: Categorias = {idCategoria: this.categoria.idCategoria,nombre: nombre, descripcion: descripcion, idEstado: estado.idEstado, usuarioModificador: usuarioModificador,
+                                  fechaModificacion: new Date(), fechaCreacion: this.categoria.fechaCreacion, usuarioCreador: this.categoria.usuarioCreador}
+    this.categoriaService.actualizarCategorias(categoria).subscribe(data=>{
       Swal.fire({
         icon: 'success',
-        title: 'La categoría se ha actualizado exitosamente.',
+        title: data,
         showConfirmButton: false,
         timer: 1500
       });
       this.router.navigate(['/admin/categoria-articulos/listar']);
     }, (e) => {
       this.hayErrores = true;
-      this.mensajeError = e['error'];
       console.log(e['error']);
       Swal.fire({
         icon: 'error',

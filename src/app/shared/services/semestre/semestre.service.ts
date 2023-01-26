@@ -15,19 +15,19 @@ export class SemestreService {
     return this.http.get<Semestre[]>(`${environment.endpoint}/semestre`)
   }
 
-  crearSemestre(semestre: Semestre){
-    return this.http.post<Semestre>(`${environment.endpoint}/semestre/guardarSemestre`, semestre);
+  crearSemestre(semestre: Semestre): Observable<string>{
+    return this.http.post(`${environment.endpoint}/semestre/guardarSemestre`, semestre,{ responseType: 'text'});
   }
 
   consultarPorId(idSemestre: number){
     return this.http.get<Semestre>(`${environment.endpoint}/semestre/porId/${idSemestre}`);
   }
 
-  actualizarSemestre(semestre: Semestre): Observable<Semestre>{
-    return this.http.put<Semestre>(`${environment.endpoint}/semestre/actualizarSemestre/${semestre.idSemestre}`,semestre);
+  actualizarSemestre(semestre: Semestre): Observable<string>{
+    return this.http.put(`${environment.endpoint}/semestre/actualizarSemestre/${semestre.idSemestre}`,semestre,{ responseType: 'text'});
   }
 
-  eliminarSemestre(semestre: Semestre): Observable<Semestre>{
-    return this.http.delete<Semestre>(`${environment.endpoint}/semestre/eliminarSemestre/${semestre.idSemestre}`);
+  eliminarSemestre(idSemestre: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/semestre/eliminarSemestre/${idSemestre}`,{ responseType: 'text'});
   }
 }

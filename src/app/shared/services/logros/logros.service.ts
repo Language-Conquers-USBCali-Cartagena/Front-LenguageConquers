@@ -15,20 +15,20 @@ export class LogrosService {
     return this.http.get<Logros[]>(`${environment.endpoint}/logro`)
   }
 
-  crearLogro(logro: Logros){
-    return this.http.post<Logros>(`${environment.endpoint}/logro/guardarLogro`, logro);
+  crearLogro(logro: Logros): Observable<string>{
+    return this.http.post(`${environment.endpoint}/logro/guardarLogro`, logro,{ responseType: 'text'});
   }
 
   consultarPorId(idLogro: number){
     return this.http.get<Logros>(`${environment.endpoint}/logro/porId/${idLogro}`);
   }
 
-  actualizarLogro(logro: Logros): Observable<Logros>{
-    return this.http.put<Logros>(`${environment.endpoint}/logro/actualizarLogro`,logro);
+  actualizarLogro(logro: Logros): Observable<string>{
+    return this.http.put(`${environment.endpoint}/logro/actualizarLogro`,logro,{ responseType: 'text'});
   }
 
-  eliminarLogro(logro: Logros): Observable<Logros>{
-    return this.http.delete<Logros>(`${environment.endpoint}/logro/eliminarLogro/${logro.idLogro}`);
+  eliminarLogro(idLogro: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/logro/eliminarLogro/${idLogro}`,{ responseType: 'text'});
   }
 
 }

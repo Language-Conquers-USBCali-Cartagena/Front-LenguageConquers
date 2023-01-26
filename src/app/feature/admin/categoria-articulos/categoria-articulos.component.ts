@@ -53,26 +53,26 @@ export class CategoriaArticulosComponent implements OnInit {
     }
   }
 
-  eliminarCategoria(idCategoria: Categorias){
+  eliminarCategoria(idCategoria: number) {
     this.categoriaService.eliminarCategorias(idCategoria).subscribe(data =>{
       this.listaCategoria = this.listaCategoria.filter(c => c!== idCategoria);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+      Toast.fire({
+        icon: 'success',
+        title: data
+      });
+      this.cargarCategoria();
     })
-    this.cargarCategoria();
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'La categoría fue eliminada exitosamente.'
-    });
   }
 
   actualizarCategoria(idCategoria: number){

@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 export class NivelMisionComponent implements OnInit {
 
   listaNivelMisiones: NivelMision[] = [];
-  displayedColumns: string[] = ['id', 'nombre', 'puntajeMinimo', 'imgNivelMision','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
+  displayedColumns: string[] = ['id', 'nombre', 'puntajeMinimo','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
   dataSource= new MatTableDataSource<NivelMision>(this.listaNivelMisiones);
   id: string | null;
   @ViewChild(MatPaginator)
@@ -52,26 +52,26 @@ export class NivelMisionComponent implements OnInit {
     }
   }
 
-  eliminarNivelMision(idNivelMision:NivelMision){
+  eliminarNivelMision(idNivelMision:number){
     this.nivelMisionService.eliminarNivelMision(idNivelMision).subscribe(data =>{
       this.listaNivelMisiones = this.listaNivelMisiones.filter(c => c!== idNivelMision);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+      Toast.fire({
+        icon: 'success',
+        title: data
+      });
+      this.cargarNivelMision();
     })
-    this.cargarNivelMision();
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'El nivel-misión fue eliminado exitosamente.'
-    });
   }
 
   actualizarNivelMision(idNivelMision: number) {

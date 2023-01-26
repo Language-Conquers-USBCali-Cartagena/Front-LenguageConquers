@@ -52,25 +52,25 @@ export class EstadoComponent implements OnInit {
     }
   }
 
-  eliminarEstado(idEstado: Estado){
-    this.estadoService.eliminarEstado(idEstado).subscribe(()=>{
+  eliminarEstado(idEstado: number){
+    this.estadoService.eliminarEstado(idEstado).subscribe(data=>{
       this.listaEstados = this.listaEstados.filter(c => c!== idEstado);
-    });
-    this.cargarEstados();
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'El estado fue eliminado exitosamente.'
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+      Toast.fire({
+        icon: 'success',
+        title: data
+      });
+      this.cargarEstados();
     });
   }
 

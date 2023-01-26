@@ -10,15 +10,15 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./crear-usuario.component.css']
 })
 export class CrearUsuarioComponent implements OnInit {
- 
+
   public user$:Observable<any> = this.authService.afauth.user;
   constructor(private router:Router, private authService: AuthService) {
 
-   }
+  }
 
   ngOnInit(): void {
   }
   salir(){
-    this.router.navigateByUrl("/logout");
+    this.router.navigateByUrl("/auth/login");
   }
 }

@@ -49,7 +49,7 @@
               <a  class="botones" [routerLink]="['/tipo-mision/editarTipoMision/',element.idTipoMision]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarTipoMision(element.idTipoMision)" matTooltip="Editar TipoMision">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarTipoMision(element)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar TipoMision">
+              <a  class="botones" (click)="eliminarTipoMision(element.idTipoMision)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar TipoMision">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

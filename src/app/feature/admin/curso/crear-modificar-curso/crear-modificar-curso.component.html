@@ -5,7 +5,7 @@
           <mat-card-title >Actualizar Curso</mat-card-title>
         </ng-template>
         <br><br>
-        <form [formGroup]="form" (ngSubmit)="guardarCurso()">
+        <form [formGroup]="form">
             <div class="entradas">
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
@@ -33,7 +33,7 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill" class="example-form-field">
                         <mat-label class="titulos">Fecha de Inicio</mat-label>
-                        <input matInput [matDatepicker]="datepicker" formControlName="fechaInicio">
+                        <input matInput [matDatepicker]="datepicker" formControlName="inicioCurso">
                         <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
                         <mat-datepicker #datepicker>
                             <mat-datepicker-actions>
@@ -46,7 +46,7 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill" class="example-form-field">
                         <mat-label class="titulos">Fecha Fin</mat-label>
-                        <input matInput [matDatepicker]="datepicker1" formControlName="fechaFin">
+                        <input matInput [matDatepicker]="datepicker1" formControlName="finCurso">
                         <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
                         <mat-datepicker #datepicker1>
                             <mat-datepicker-actions>
@@ -56,14 +56,6 @@
                         </mat-datepicker>
                     </mat-form-field>
                 </div>
-                <div class="campo-entrada">
-                  <mat-form-field appearance="fill">
-                      <mat-label class="titulos">Progreso</mat-label>
-                      <input type="number" matInput autocomplete="off" formControlName="progreso" placeholder="Ingrese el valor en porcentaje">
-                      <mat-icon matSuffix class="boton">progreso</mat-icon>
-                  </mat-form-field>
-              </div>
-
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Estado</mat-label>
@@ -78,7 +70,7 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Profesor</mat-label>
-                        <mat-select formControlName="profesor">
+                        <mat-select formControlName="idProfesor">
                             <mat-option *ngFor="let profesor of profesores" [value]="profesor">
                                 {{profesor.nombre}}
                             </mat-option>
@@ -94,6 +86,13 @@
                     </mat-form-field>
                 </div>
                 <ng-template #editar>
+                  <div class="campo-entrada">
+                    <mat-form-field appearance="fill">
+                        <mat-label class="titulos">Progreso</mat-label>
+                        <input type="number" matInput autocomplete="off" formControlName="progreso" placeholder="Ingrese el valor en porcentaje">
+                        <mat-icon matSuffix class="boton">progreso</mat-icon>
+                    </mat-form-field>
+                </div>
                 <div class="campo-entrada">
                   <mat-form-field appearance="fill">
                       <mat-label class="titulos">Usuario Modificador</mat-label>

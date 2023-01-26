@@ -25,7 +25,6 @@ export class CrearModificarNivelMisionComponent implements OnInit {
     this.form = this.fb.group({
       idNivelMision: ['', Validators.required],
       nombre:  ['', Validators.required],
-      imgNivelMision: ['', Validators.required],
       puntajeMinimo: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
@@ -42,10 +41,9 @@ export class CrearModificarNivelMisionComponent implements OnInit {
   guardarNivelMision(){
     this.hayErrores = false;
     const nombre = this.form.value.nombre;
-    const imgNivelMision = this.form.value.imgNivelMision;
     const puntajeMinimo = this.form.value.puntajeMinimo;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let nivelMision: NivelMision = {nombre: nombre, puntajeMinimo: puntajeMinimo, imgNivelMision: imgNivelMision, usuarioCreador: usuarioCreador,
+    let nivelMision: NivelMision = {nombre: nombre, puntajeMinimo: puntajeMinimo,usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
     this.nivelMisionService.crearNivelMision(nivelMision).subscribe(data =>{
       if(data){
@@ -72,10 +70,9 @@ export class CrearModificarNivelMisionComponent implements OnInit {
   }
 
   setNivelMision(nivelMision: NivelMision){
-    this.form.setValue({
+    this.form.patchValue({
       idNivelMision: nivelMision.idNivelMision,
       nombre: nivelMision.nombre,
-      imgNivelMision: nivelMision.imgNivelMision,
       puntajeMinimo: nivelMision.puntajeMinimo,
       usuarioCreador:nivelMision.usuarioCreador,
       fechaCreacion: nivelMision.fechaCreacion,
@@ -100,15 +97,14 @@ export class CrearModificarNivelMisionComponent implements OnInit {
 
   actualizar():void{
     const nombre = this.form.value.nombre;
-    const imgNivelMision = this.form.value.imgNivelMision;
     const puntajeMinimo = this.form.value.puntajeMinimo;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let nivelMision: NivelMision = {idNivelMision: this.form.value.idNivelMision, nombre: nombre, puntajeMinimo: puntajeMinimo, imgNivelMision: imgNivelMision, usuarioModificador: usuarioModificador,
-    fechaModificacion: new Date()}
-    this.nivelMisionService.actualizarNivelMision(nivelMision).subscribe(()=>{
+    let nivelMision: NivelMision = {idNivelMision: this.form.value.idNivelMision, nombre: nombre, puntajeMinimo: puntajeMinimo, usuarioModificador: usuarioModificador,
+    fechaModificacion: new Date(), fechaCreacion: this.nivelMision.fechaCreacion, usuarioCreador: this.nivelMision.usuarioCreador}
+    this.nivelMisionService.actualizarNivelMision(nivelMision).subscribe(data=>{
       Swal.fire({
         icon: 'success',
-        title: 'El nivel misión se ha actualizado exitosamente.',
+        title: data,
         showConfirmButton: false,
         timer: 1500
       });

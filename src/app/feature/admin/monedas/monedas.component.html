@@ -55,7 +55,7 @@
               <a  class="botones" [routerLink]="['/admin/monedas/editarMoneda/',element.idMoneda]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarMoneda(element.idMoneda)" matTooltip="Editar Moneda">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" id="eliminarMoneda" (click)="eliminarMoneda(element)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Moneda">
+              <a  class="botones" id="eliminarMoneda" (click)="eliminarMoneda(element.idMoneda)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Moneda">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

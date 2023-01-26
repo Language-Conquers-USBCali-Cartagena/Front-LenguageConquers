@@ -28,11 +28,6 @@
             <td mat-cell *matCellDef="let row"> {{row.puntajeMinimo}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="imgNivelMision">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Imagen NivelMisión</th>
-            <td mat-cell *matCellDef="let row"> <div mat-card-avatar class="imagenMiniatura" style="background-image: url({{row.imgNivelMision}});"></div></td>
-          </ng-container>
-
           <ng-container matColumnDef="usuarioCreador">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Creador</th>
             <td mat-cell *matCellDef="let row"> {{row.usuarioCreador}} </td>
@@ -59,7 +54,7 @@
               <a  class="botones" [routerLink]="['/nivel-mision/editarNivelMision/',element.idNivelMision]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarNivelMision(element.idNivelMision)" matTooltip="Editar NivelMisión">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarNivelMision(element)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar NivelMisión">
+              <a  class="botones" (click)="eliminarNivelMision(element.idNivelMision)" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar NivelMisión">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

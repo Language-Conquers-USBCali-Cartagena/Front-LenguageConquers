@@ -5,7 +5,7 @@
           <mat-card-title >Actualizar Nivel Misión</mat-card-title>
         </ng-template>
         <br><br>
-        <form [formGroup]="form" (ngSubmit)="guardarNivelMision()">
+        <form [formGroup]="form">
             <div class="entradas">
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
@@ -19,13 +19,6 @@
                         <mat-label class="titulos">Puntaje Mínimo</mat-label>
                         <input type="number" matInput autocomplete="off" formControlName="puntajeMinimo" id="puntajeMinimo">
                         <mat-icon matSuffix class="boton">puntaje</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Imagen Nivel Misión</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="imgNivelMision" id="imgNivelMision">
-                        <mat-icon matSuffix class="boton">img</mat-icon>
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada" *ngIf="!nivelMision else editar">

@@ -14,19 +14,19 @@ export class ProfesorService {
     return this.http.get<Profesor[]>(`${environment.endpoint}/profesor`)
   }
 
-  crearProfesor(profesor: Profesor){
-    return this.http.post<Profesor>(`${environment.endpoint}/profesor/registrarProfesor`, profesor);
+  crearProfesor(profesor: Profesor): Observable<string>{
+    return this.http.post(`${environment.endpoint}/profesor/registrarProfesor`, profesor,{ responseType: 'text'});
   }
 
   consultarPorId(idProfesor: number){
     return this.http.get<Profesor>(`${environment.endpoint}/profesor/porId/${idProfesor}`);
   }
 
-  actualizarProfesor(profesor: Profesor): Observable<Profesor>{
-    return this.http.put<Profesor>(`${environment.endpoint}/profesor/actualizarProfesor/${profesor.idProfesor}`,profesor);
+  actualizarProfesor(profesor: Profesor): Observable<string>{
+    return this.http.put(`${environment.endpoint}/profesor/actualizarProfesor/${profesor.idProfesor}`,profesor,{ responseType: 'text'});
   }
 
-  eliminarProfesor(profesor: Profesor): Observable<Profesor>{
-    return this.http.delete<Profesor>(`${environment.endpoint}/profesor/eliminarProfesor/${profesor.idProfesor}`);
+  eliminarProfesor(idProfesor: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/profesor/eliminarProfesor/${idProfesor}`,{ responseType: 'text'});
   }
 }

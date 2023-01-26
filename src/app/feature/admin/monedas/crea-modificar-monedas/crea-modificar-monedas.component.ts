@@ -60,7 +60,7 @@ export class CreaModificarMonedasComponent implements OnInit {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'La moneda se ha creado exitosamente.',
+          title: data,
           showConfirmButton: false,
           timer: 1500
         });
@@ -111,11 +111,11 @@ export class CreaModificarMonedasComponent implements OnInit {
     const usuarioModificador = this.form.value.usuarioModificador;
     let moneda: Monedas = {
       idMoneda: this.form.value.idMoneda,cantidad: cantidad, imgMonedas: imgMonedas, usuarioModificador: usuarioModificador,
-      fechaModificacion: new Date()}
-    this.monedaService.actualizarMoneda(moneda).subscribe(()=>{
+      fechaModificacion: new Date(), fechaCreacion: this.moneda.fechaCreacion, usuarioCreador: this.moneda.usuarioCreador}
+    this.monedaService.actualizarMoneda(moneda).subscribe(data=>{
       Swal.fire({
         icon: 'success',
-        title: 'La moneda se ha actualizado exitosamente.',
+        title: data,
         showConfirmButton: false,
         timer: 1500
       });

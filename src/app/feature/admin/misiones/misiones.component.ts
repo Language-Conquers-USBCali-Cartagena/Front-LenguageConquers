@@ -57,28 +57,28 @@ export class MisionesComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  eliminarMision(idMision: Mision){
+  eliminarMision(idMision: number){
     this.misionService.eliminarMision(idMision).subscribe(data =>{
       this.listaMisiones = this.listaMisiones.filter( c => c!== idMision );
-    });
-    this.cargarMisiones();
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
 
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
+      Toast.fire({
+        icon: 'success',
+        title: data
+      });
+      this.cargarMisiones();
     });
 
-    Toast.fire({
-      icon: 'success',
-      title: 'La misión fue eliminada exitosamente.'
-    });
   }
 
   actualizarMision(idMision: number){

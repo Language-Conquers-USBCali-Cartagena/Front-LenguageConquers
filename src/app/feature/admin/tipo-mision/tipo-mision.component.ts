@@ -52,27 +52,27 @@ export class TipoMisionComponent implements OnInit {
     }
   }
 
-  eliminarTipoMision(idTipoMision: TipoMision){
+  eliminarTipoMision(idTipoMision: number){
     this.tipoMisionService.eliminarTipoMision(idTipoMision).subscribe(data =>{
       this.listaTipoMision = this.listaTipoMision.filter(c => c!== idTipoMision);
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+      Toast.fire({
+        icon: 'success',
+        title: data
+      })
+      this.cargarTipoMision();
     });
-    this.cargarTipoMision();
 
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'El tipo misión fue eliminado exitosamente.'
-    })
 
   }
 

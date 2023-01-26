@@ -52,25 +52,25 @@ export class MonedasComponent implements OnInit {
     }
   }
 
-  eliminarMoneda(idMoneda: Monedas){
-    this.monedaService.eliminarMonedas(idMoneda).subscribe(result =>{
+  eliminarMoneda(idMoneda: number){
+    this.monedaService.eliminarMonedas(idMoneda).subscribe(data =>{
       this.listaMonedas = this.listaMonedas.filter(c => c!== idMoneda);
-    });
-    this.cargarMonedas();
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    });
-    Toast.fire({
-      icon: 'success',
-      title: 'La moneda fue eliminada exitosamente.'
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      });
+      Toast.fire({
+        icon: 'success',
+        title: data
+      });
+      this.cargarMonedas();
     });
 
   }

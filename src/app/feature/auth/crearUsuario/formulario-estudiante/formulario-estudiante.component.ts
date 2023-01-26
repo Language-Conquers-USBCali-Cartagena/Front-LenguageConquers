@@ -83,7 +83,7 @@ export class FormularioEstudianteComponent implements OnInit {
       console.log(err['error']);
       Swal.fire({ icon: 'error', text: err['error'], confirmButtonColor: '#33b5e5',});
       localStorage.setItem("correo", correo);
-      this.router.navigateByUrl('/auth/crearUsuario');
+      this.router.navigateByUrl('/auth/login');
     })
 
   }

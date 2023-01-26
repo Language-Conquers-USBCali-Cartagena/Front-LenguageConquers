@@ -108,7 +108,7 @@ export class CrearModificarLogrosComponent implements OnInit {
     const imagenLogro = this.form.value.imagenLogro;
     const usuarioModificador = this.form.value.usuarioModificador;
     let logro: Logros = {idLogro:this.form.value.idLogro ,nombre: nombre, descripcion: descripcion,categoria: categoria, imagen: imagenLogro, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date()}
+                                  fechaModificacion: new Date(), fechaCreacion: this.logro.fechaCreacion, usuarioCreador: this.logro.usuarioCreador}
     this.logroService.actualizarLogro(logro).subscribe(()=>{
       Swal.fire({
         icon: 'success',

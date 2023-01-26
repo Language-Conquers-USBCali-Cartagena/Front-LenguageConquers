@@ -35,11 +35,12 @@ export class CrearModificarArticulosComponent implements OnInit {
       precio: ['', Validators.required],
       nivelValido: ['', Validators.required],
       imagen: ['', Validators.required],
-      categoria: ['', Validators.required],
-      estado: ['', Validators.required],
+      idCategoria: ['', Validators.required],
+      idEstado: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
-      usuarioModificador: ['', Validators.required]
+      usuarioModificador: ['', Validators.required],
+      fechaModificacion: ['', Validators.required]
     });
    }
 
@@ -62,27 +63,25 @@ export class CrearModificarArticulosComponent implements OnInit {
     const nivelValido = this.form.value.nivelValido;
     const imagen = this.form.value.imagen;
     const estado= this.form.value.idEstado;
-    const categoria = this.form.value.categoria.idCategoria;
+    const categoria = this.form.value.idCategoria;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let articulo: Articulo = {nombre: nombre, descripcion: descripcion, precio: precio,  nivelValido: nivelValido, imagen: imagen, idEstado: estado, idCategoria: categoria, usuarioCreador: usuarioCreador,
+    let articulo: Articulo = {nombre: nombre, descripcion: descripcion, precio: precio,  nivelValido: nivelValido, imagen: imagen, idEstado: estado.idEstado, idCategoria: categoria.idCategoria, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
     this.articuloService.crearArticulo(articulo).subscribe(data => {
       if(data){
         Swal.fire({
           icon: 'success',
-          title: 'El artículo se ha creado exitosamente.',
+          title: data,
           showConfirmButton: false,
           timer: 1500
         });
-        this.router.navigate(['/admin/articulo/listar-articulo']);
+        this.router.navigate(['/admin/articulos/listar-articulos']);
       }
     },(e) =>{
       this.hayErrores = true;
-      this.mensajeError = e.error;
-
       Swal.fire({
         icon: 'error',
-        title: e.error,
+        title: e['error'],
         showConfirmButton: false,
         timer: 1500
       });
@@ -98,8 +97,8 @@ export class CrearModificarArticulosComponent implements OnInit {
       precio: articulo.precio,
       nivelValido: articulo.nivelValido,
       imagen: articulo.imagen,
-      estado: articulo.idEstado,
-      categoria: articulo.idCategoria,
+      idEstado: articulo.idEstado,
+      idCategoria: articulo.idCategoria,
       usuarioCreador: articulo.usuarioCreador,
       fechaCreacion: articulo.fechaCreacion,
       usuarioModificador: articulo.usuarioModificador,
@@ -128,25 +127,24 @@ export class CrearModificarArticulosComponent implements OnInit {
     const nivelValido = this.form.value.nivelValido;
     const imagenArticulo = this.form.value.imagen;
     const estado = this.form.value.idEstado;
-    const categoria = this.form.value.categoria;
+    const categoria = this.form.value.idCategoria;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let articulo: Articulo = {idArticulo:this.form.value.idArticulo,nombre: nombre, descripcion: descripcion, precio: precio, nivelValido: nivelValido, imagen: imagenArticulo, idEstado: estado, idCategoria: categoria, usuarioModificador: usuarioModificador,
-                                 fechaModificacion: new Date()}
-    this.articuloService.actualizarArticulo(articulo).subscribe(()=>{
+    let articulo: Articulo = {idArticulo:this.form.value.idArticulo,nombre: nombre, descripcion: descripcion, precio: precio, nivelValido: nivelValido, imagen: imagenArticulo, idEstado: estado.idEstado, idCategoria: categoria.idCategoria, usuarioModificador: usuarioModificador,
+                                 fechaModificacion: new Date(), usuarioCreador: this.articulo.usuarioCreador, fechaCreacion: this.articulo.fechaCreacion}
+    this.articuloService.actualizarArticulo(articulo).subscribe(data=>{
       Swal.fire({
         icon: 'success',
-        title: 'El artículo se ha actualizado exitosamente.',
+        title: data,
         showConfirmButton: false,
         timer: 1500
       });
-      this.router.navigate(['/admin/articulo/listar-articulo']);
+      this.router.navigate(['/admin/articulos/listar-articulos']);
     },(e) =>{
       this.hayErrores = true;
       this.mensajeError = e.error;
-
       Swal.fire({
         icon: 'error',
-        title: e.error,
+        title: e['error'],
         showConfirmButton: false,
         timer: 1500
       });

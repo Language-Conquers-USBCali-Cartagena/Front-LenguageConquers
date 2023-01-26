@@ -1,7 +1,7 @@
 export interface Mision{
     idMision?: number;
     nombre?: string;
-    imagenMision?: string;
+    imagen?: string;
     idNivelMision?: number;
     idTipoMision?: number;
     idCurso?: number;

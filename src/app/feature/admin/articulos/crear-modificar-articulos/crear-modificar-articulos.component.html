@@ -5,7 +5,7 @@
           <mat-card-title >Actualizar Articulo</mat-card-title>
         </ng-template>
         <br><br>
-        <form [formGroup]="form" (ngSubmit)="guardarArticulo()">
+        <form [formGroup]="form">
             <div class="entradas">
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
@@ -17,7 +17,7 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Descripción</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="descripcion">
+                        <textarea matInput type="textArea" matInput autocomplete="off" formControlName="descripcion"></textarea>
                         <mat-icon matSuffix class="boton">descripcion</mat-icon>
                     </mat-form-field>
                 </div>
@@ -56,7 +56,7 @@
               <div class="campo-entrada">
                 <mat-form-field appearance="fill">
                     <mat-label class="titulos">Categoría</mat-label>
-                    <mat-select formControlName="categoria">
+                    <mat-select formControlName="idCategoria">
                         <mat-option *ngFor="let categoria of categorias" [value]="categoria">
                             {{categoria.nombre}}
                         </mat-option>

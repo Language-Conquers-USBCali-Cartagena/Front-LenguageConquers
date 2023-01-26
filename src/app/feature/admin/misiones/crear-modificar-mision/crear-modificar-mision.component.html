@@ -5,7 +5,7 @@
           <mat-card-title>Actualizar Misión</mat-card-title>
         </ng-template>
         <br>
-        <form [formGroup]="form" (ngSubmit)="guardarMision()">
+        <form [formGroup]="form">
             <div class="entradas">
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
@@ -23,9 +23,9 @@
               </div>
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Id NivelMisión</mat-label>
+                        <mat-label class="titulos">NivelMisión</mat-label>
                         <mat-select formControlName="idNivelMision">
-                            <mat-option *ngFor="let nivelMision of nivelMisiones" [value]="nivelMisiones">
+                            <mat-option *ngFor="let nivelMision of nivelMisiones" [value]="nivelMision">
                                 {{nivelMision.nombre}}
                             </mat-option>
                         </mat-select>
@@ -36,7 +36,7 @@
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Tipo-Misión</mat-label>
                         <mat-select formControlName="idTipoMision">
-                            <mat-option *ngFor="let tipoMision of tipoMisiones" [value]="tipoMisiones">
+                            <mat-option *ngFor="let tipoMision of tipoMisiones" [value]="tipoMision">
                                 {{tipoMision.descripcion}}
                             </mat-option>
                         </mat-select>
@@ -58,7 +58,7 @@
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Monedas</mat-label>
                         <mat-select formControlName="idMonedas">
-                            <mat-option *ngFor="let moneda of monedas" [value]="moneda.cantidad">
+                            <mat-option *ngFor="let moneda of monedas" [value]="moneda">
                                 {{moneda.cantidad}}
                             </mat-option>
                         </mat-select>

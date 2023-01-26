@@ -14,7 +14,7 @@ export class AvatarService {
   getAvatar(): Observable<Avatar[]>{
     return this.http.get<Avatar[]>(`${environment.endpoint}/avatar`)
   }
-  
+
   getAvataresPage(pagina: number): Observable<Avatar[]>{
     let paramHttp = new HttpParams({
       fromObject: {
@@ -24,19 +24,19 @@ export class AvatarService {
     return this.http.get<Avatar[]>(`${environment.endpoint}/avatar/paginado`, {params: paramHttp})
   }
 
-  crearAvatar(avatar: Avatar){
-    return this.http.post<Avatar>(`${environment.endpoint}/avatar/guardarAvatar`, avatar);
+  crearAvatar(avatar: Avatar): Observable<string>{
+    return this.http.post(`${environment.endpoint}/avatar/guardarAvatar`, avatar,{ responseType: 'text'});
   }
 
   consultarPorId(idAvatar: number){
     return this.http.get<Avatar>(`${environment.endpoint}/avatar/porId/${idAvatar}`);
   }
 
-  actualizarAvatar(avatar: Avatar): Observable<Avatar>{
-    return this.http.put<Avatar>(`${environment.endpoint}/avatar/actualizarAvatar`,avatar);
+  actualizarAvatar(avatar: Avatar): Observable<string>{
+    return this.http.put(`${environment.endpoint}/avatar/actualizarAvatar`,avatar,{ responseType: 'text'});
   }
 
-  eliminarAvatar(avatar: Avatar): Observable<Avatar>{
-    return this.http.delete<Avatar>(`${environment.endpoint}/avatar/eliminarAvatar/${avatar.idAvatar}`);
+  eliminarAvatar(idAvatar: number): Observable<string>{
+    return this.http.delete(`${environment.endpoint}/avatar/eliminarAvatar/${idAvatar}`,{ responseType: 'text'});
   }
 }

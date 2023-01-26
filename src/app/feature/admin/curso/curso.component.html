@@ -84,7 +84,7 @@
               <a  class="botones" [routerLink]="['/admin/cursos/editarCurso/',element.idCurso]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarCurso(element.idCurso)" id="actualizarCurso" matTooltip="Editar Curso">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarCurso(element)" id="eliminarCurso" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Curso">
+              <a  class="botones" (click)="eliminarCurso(element.idCurso)" id="eliminarCurso" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Curso">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>

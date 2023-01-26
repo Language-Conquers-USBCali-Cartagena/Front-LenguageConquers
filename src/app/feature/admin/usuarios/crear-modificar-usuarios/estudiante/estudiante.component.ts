@@ -140,13 +140,13 @@ export class EstudianteComponent implements OnInit {
     const genero = this.form.value.idGenero;
     const estado = this.form.value.idEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, puntaje: 0, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: estado}
+    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, puntaje: 0, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioCreador: usuarioCreador,
+                                  fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado}
       this.estudianteService.crearEstudiante(estudiante).subscribe(data =>{
         if(data){
           Swal.fire({
             icon: 'success',
-            title: 'El estudiante se ha creado exitosamente.',
+            title: data,
             showConfirmButton: false,
             timer: 1500
           });
@@ -155,7 +155,7 @@ export class EstudianteComponent implements OnInit {
       }, (e) => {
         this.hayErrores = true;
         this.mensajeError = e.error;
-        console.log(e);
+        console.log(e['error']);
         Swal.fire({
           icon: 'error',
           title: e['error'],
@@ -207,17 +207,17 @@ export class EstudianteComponent implements OnInit {
     const correo = this.form.value.correo;
     const programa = this.form.value.idPrograma
     const semestre = this.form.value.idSemestre;
-    const avatar = this.form.value.idAvatar;
+    const avatar = this.idAvatar;
     const puntaje = this.form.value.puntaje;
     const genero = this.form.value.idGenero;
     const estado = this.form.value.idEstado;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let estudiante: Estudiante = {idEstudiante: this.form.value.idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: estado}
-    this.estadoService.actualizarEstado(estudiante).subscribe(()=>{
+    let estudiante: Estudiante = {idEstudiante: this.form.value.idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioModificador: usuarioModificador,
+                                  fechaModificacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado, fechaCreacion: this.estudiante.fechaCreacion, usuarioCreador: this.estudiante.usuarioCreador}
+    this.estadoService.actualizarEstado(estudiante).subscribe(data=>{
       Swal.fire({
         icon: 'success',
-        title: 'El estudiante se ha actualizado exitosamente.',
+        title: data,
         showConfirmButton: false,
         timer: 1500
       });
