@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Estudiante } from 'src/app/shared/models/estudiante';
 import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
 import { EstudianteServiceService } from '../../estudiante/services/estudiante-service.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -41,4 +42,13 @@ export class MapaComponent implements OnInit {
     this.router.navigateByUrl('/descripcion/1/1');
   }
 
+  verTutorial(){
+    Swal.fire({
+      html:
+        '<iframe width="440" height="315" src="https://www.youtube.com/embed/HD_zesxhkC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false
+    })
+  }
 }

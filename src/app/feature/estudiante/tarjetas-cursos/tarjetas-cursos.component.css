@@ -1,24 +1,24 @@
 .body{
-  background : url(../../../../assets/images/fondos/fondoHome.png);
+  background-image: url(../../../../assets/images/fondos/FondoEmailVerification.png);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   background-size: cover;
   background-repeat: no-repeat;
   height: auto;
+  width: auto;
   align-items: center;
 }
 .tarjetaPeq{
-  width: 830px;
+  width: 1030px;
   height: 10px;
   margin-right: 30px;
-  margin-left: 200px;
+  margin-left: 215px;
   /*Efecto espejo*/
   padding: 48px;
-  border-radius: 24px;
   background: linear-gradient(
   135deg,
-  rgba(255, 255, 255, 0.514),
-  rgba(255, 255, 255, 0.514)
+  rgb(172,153,139,  0.432),
+  rgba(172, 153, 139, 0.432)
 );
 backdrop-filter: blur(3px);
 -webkit-backdrop-filter: blur(3px);
@@ -60,7 +60,7 @@ text-align: center;
   width: 1030px;
   height: 400px;
   margin-right: 80px;
-  margin-left: 110px;
+  margin-left: 180px;
   padding: 48px;
 
 }

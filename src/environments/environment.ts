@@ -23,7 +23,7 @@ export const environment = {
     appId: "1:373075886736:web:b77a7df1224f79b4504e15",
     measurementId: "G-R8EJ8PT8KQ"
   },
-  endpoint:'http://localhost:8086'
+  endpoint:'https://languageconquers.herokuapp.com'
   //'https://languageconquers.herokuapp.com'
   // endpoint: 'http://localhost:8086'
 };
