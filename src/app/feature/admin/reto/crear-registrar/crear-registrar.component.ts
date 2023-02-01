@@ -5,15 +5,11 @@ import { Curso } from 'src/app/shared/models/curso';
 import { Estado } from 'src/app/shared/models/estado';
 import { Mision } from 'src/app/shared/models/mision';
 import { Monedas } from 'src/app/shared/models/monedas';
-import { NivelMision } from 'src/app/shared/models/nivelMision';
 import { Reto } from 'src/app/shared/models/reto';
-import { TipoMision } from 'src/app/shared/models/tipoMision';
 import { CursoService } from 'src/app/shared/services/curso/curso.service';
 import { EstadoService } from 'src/app/shared/services/estado/estado.service';
 import { MisionService } from 'src/app/shared/services/mision/mision.service';
 import { MonedasService } from 'src/app/shared/services/monedas/monedas.service';
-import { NivelMisionService } from 'src/app/shared/services/nivelMision/nivel-mision.service';
-import { TipoMisionService } from 'src/app/shared/services/tipoMision/tipo-mision.service';
 import Swal from 'sweetalert2';
 import { RetoService } from '../../../../shared/services/reto/reto.service';
 

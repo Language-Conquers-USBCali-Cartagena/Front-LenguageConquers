@@ -7,9 +7,7 @@ import { Mision } from 'src/app/shared/models/mision';
 import { Reto } from 'src/app/shared/models/reto';
 import { CursoService } from 'src/app/shared/services/curso/curso.service';
 import { MonedasService } from 'src/app/shared/services/monedas/monedas.service';
-import { NivelMisionService } from 'src/app/shared/services/nivelMision/nivel-mision.service';
 import { RetoService } from 'src/app/shared/services/reto/reto.service';
-import { TipoMisionService } from 'src/app/shared/services/tipoMision/tipo-mision.service';
 import Swal from 'sweetalert2';
 import { MisionService } from '../../../shared/services/mision/mision.service';
 
@@ -29,7 +27,7 @@ export class MisionesComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private retoService: RetoService, private misionService: MisionService,private nivelMisionService: NivelMisionService, private tipoMisionService: TipoMisionService, private cursoService: CursoService, private monedasService: MonedasService, private router: Router, private routerAct: ActivatedRoute) {
+  constructor(private retoService: RetoService, private misionService: MisionService, private cursoService: CursoService, private monedasService: MonedasService, private router: Router, private routerAct: ActivatedRoute) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
   }
 

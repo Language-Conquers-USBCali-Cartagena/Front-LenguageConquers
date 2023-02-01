@@ -5,12 +5,8 @@ import { Curso } from 'src/app/shared/models/curso';
 import { Estado } from 'src/app/shared/models/estado';
 import { Mision } from 'src/app/shared/models/mision';
 import { Monedas } from 'src/app/shared/models/monedas';
-import { NivelMision } from 'src/app/shared/models/nivelMision';
-import { TipoMision } from 'src/app/shared/models/tipoMision';
 import { CursoService } from 'src/app/shared/services/curso/curso.service';
 import { MonedasService } from 'src/app/shared/services/monedas/monedas.service';
-import { NivelMisionService } from 'src/app/shared/services/nivelMision/nivel-mision.service';
-import { TipoMisionService } from 'src/app/shared/services/tipoMision/tipo-mision.service';
 import Swal from 'sweetalert2';
 import { MisionService } from '../../../../shared/services/mision/mision.service';
 
@@ -23,15 +19,13 @@ export class CrearModificarMisionComponent implements OnInit {
 
   form!: FormGroup;
   mision!:Mision;
-  tipoMisiones: TipoMision[] = [];
-  nivelMisiones: NivelMision[] = [];
   monedas: Monedas[] = [];
   cursos: Curso[] = [];
   estados:Estado[] = [];
   hayErrores = false;
   mensajeError: string="";
 
-  constructor(private fb: FormBuilder, private tipoMisionService: TipoMisionService, private nivelMisionService: NivelMisionService, private monedasService: MonedasService,private cursoService: CursoService, private router:Router,  private activatedRoute: ActivatedRoute, private misionService: MisionService) {
+  constructor(private fb: FormBuilder, private monedasService: MonedasService,private cursoService: CursoService, private router:Router,  private activatedRoute: ActivatedRoute, private misionService: MisionService) {
     this.crearMision();
    }
 
@@ -53,17 +47,10 @@ export class CrearModificarMisionComponent implements OnInit {
   ngOnInit(): void {
     this.crearMision();
     this.cargarMision();
-    this.getTipoMision();
-    this.getNivelMision();
     this.getCurso();
-    this.getMonedas();
+
   }
-  getTipoMision(){
-    this.tipoMisionService.getTipoMision().subscribe(resp => this.tipoMisiones = resp)
-  }
-  getNivelMision(){
-    this.nivelMisionService.getNivelMision().subscribe(resp => this.nivelMisiones = resp)
-  }
+  
   getCurso(){
     this.cursoService.getCurso().subscribe(resp => this.cursos = resp)
   }
@@ -75,12 +62,9 @@ export class CrearModificarMisionComponent implements OnInit {
     this.hayErrores = false;
     const nombre = this.form.value.nombre;
     const imagenMision = this.form.value.imagenMision;
-    const nivelMision = this.form.value.idNivelMision;
-    const tipoMision = this.form.value.idTipoMision;
     const curso = this.form.value.idCurso;
-    const monedas = this.form.value.idMonedas;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let mision: Mision = {nombre: nombre, imagen: imagenMision, idNivelMision: nivelMision.idNivelMision, idTipoMision: tipoMision.idTipoMision, idCurso:curso.idCurso, idMonedas: monedas.idMoneda, usuarioCreador: usuarioCreador,
+    let mision: Mision = {nombre: nombre, imagen: imagenMision, idCurso:curso.idCurso, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
     this.misionService.crearMision(mision).subscribe(data =>{
       if(data){
@@ -111,10 +95,7 @@ export class CrearModificarMisionComponent implements OnInit {
       idMision: mision.idMision,
       nombre: mision.nombre,
       imagenMision: mision.imagen,
-      idNivelMision: mision.idNivelMision,
-      idTipoMision: mision.idTipoMision,
       idCurso: mision.idCurso,
-      idMonedas: mision.idMonedas,
       usuarioCreador: mision.usuarioCreador,
       fechaCreacion : mision.fechaCreacion,
       usuarioModificador: mision.usuarioModificador,
@@ -139,12 +120,9 @@ export class CrearModificarMisionComponent implements OnInit {
   actualizar():void{
     const nombre = this.form.value.nombre;
     const imagenMision = this.form.value.imagenMision;
-    const nivelMision = this.form.value.idNivelMision;
-    const tipoMision = this.form.value.idTipoMision;
     const curso = this.form.value.idCurso;
-    const monedas = this.form.value.idMonedas;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let mision: Mision = {idMision: this.form.value.idMision, nombre: nombre, imagen: imagenMision, idNivelMision: nivelMision.idNivelMision, idTipoMision: tipoMision.idTipoMision, idCurso:curso.idCurso, idMonedas: monedas.idMoneda, usuarioModificador: usuarioModificador,
+    let mision: Mision = {idMision: this.form.value.idMision, nombre: nombre, imagen: imagenMision,  idCurso:curso.idCurso, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date(), fechaCreacion: this.mision.fechaCreacion, usuarioCreador: this.mision.usuarioCreador}
     this.misionService.actualizarMision(mision).subscribe(data=>{
       Swal.fire({
