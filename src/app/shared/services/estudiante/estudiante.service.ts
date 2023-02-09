@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Estudiante } from '../../models/estudiante';
@@ -30,4 +30,22 @@ export class EstudianteService {
   eliminarEstudiante(idEstudiante: number): Observable<string>{
     return this.http.delete(`${environment.endpoint}/estudiante/eliminarEstudiante/${idEstudiante}`,{ responseType: 'text'});
   }
+  existEstudianteByCorreo(email: String): Observable<boolean>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        correo: `${email}`
+      }
+    });
+
+    return this.http.get<boolean>(`${environment.endpoint}/estudiante/existePorCorreo`, {params: paramsHttp});
+  }
+  getEstudiantePorCorreo(correo: string): Observable<Estudiante>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        correo: `${correo}`
+      }
+    });
+    return this.http.get<Estudiante>(`${environment.endpoint}/estudiante/porCorrero`, {params: paramsHttp});
+  }
+
 }

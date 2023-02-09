@@ -17,32 +17,10 @@
                 <div class="campo-entrada">
                   <mat-form-field appearance="fill">
                       <mat-label class="titulos">Imagen Misión</mat-label>
-                      <input type="text" matInput autocomplete="off" formControlName="imagenMision" id="imagenMision">
+                      <input type="text" matInput autocomplete="off" formControlName="imagen" id="imagen">
                       <mat-icon matSuffix class="boton">image</mat-icon>
                   </mat-form-field>
               </div>
-                <!-- <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">NivelMisión</mat-label>
-                        <mat-select formControlName="idNivelMision">
-                            <mat-option *ngFor="let nivelMision of nivelMisiones" [value]="nivelMision">
-                                {{nivelMision.nombre}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-icon matSuffix class="boton">nivelMisión</mat-icon>
-                    </mat-form-field>
-                </div> -->
-                <!-- <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Tipo-Misión</mat-label>
-                        <mat-select formControlName="idTipoMision">
-                            <mat-option *ngFor="let tipoMision of tipoMisiones" [value]="tipoMision">
-                                {{tipoMision.descripcion}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-icon matSuffix class="boton">tipoMisión</mat-icon>
-                    </mat-form-field>
-                </div> -->
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Curso</mat-label>
@@ -52,17 +30,6 @@
                             </mat-option>
                         </mat-select>
                         <mat-icon matSuffix class="boton">curso</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Monedas</mat-label>
-                        <mat-select formControlName="idMonedas">
-                            <mat-option *ngFor="let moneda of monedas" [value]="moneda">
-                                {{moneda.cantidad}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-icon matSuffix class="boton">monedas</mat-icon>
                     </mat-form-field>
                 </div>
                 <div class="campo-entrada" *ngIf="!mision else editar">
@@ -81,12 +48,11 @@
                   </mat-form-field>
               </div>
             </ng-template>
-
                     <div class="boton">
-                        <button mat-raised-button class="botones" (click)="atras()">Atrás</button>
-                        <button mat-raised-button class="botones" (click)="guardarMision()" *ngIf="!mision else botonEditar">Crear Misión</button>
+                        <button mat-raised-button class="botones"  id="atras" (click)="atras()">Atrás</button>
+                        <button mat-raised-button class="botones" id="guardarMision" (click)="guardarMision()" *ngIf="!mision else botonEditar">Crear Misión</button>
                         <ng-template #botonEditar>
-                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Actualizar Misión</button>
+                          <button mat-raised-button type="button" id="editar" (click)="actualizar()" class="botones">Actualizar Misión</button>
                         </ng-template>
                       </div>
                 </div>

@@ -51,4 +51,8 @@ export class MapaComponent implements OnInit {
       showConfirmButton: false
     })
   }
+
+  articulosAdquiridos(){
+    this.router.navigate(['/curso/articulosAdquiridos']);
+  }
 }

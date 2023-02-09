@@ -78,6 +78,12 @@ export class FormularioEstudianteComponent implements OnInit {
                                   fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: 1}
     this.loginService.createEstudiante(estudiante).subscribe(resp =>{
       localStorage.setItem("correo", correo);
+      Swal.fire({
+        icon: 'success',
+        title: resp,
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.router.navigateByUrl('/estudiante/menu');
     }, err =>{
       console.log(err['error']);

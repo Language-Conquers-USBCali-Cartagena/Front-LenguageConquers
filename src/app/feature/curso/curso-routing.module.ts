@@ -7,6 +7,7 @@ import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { NivelDescripcionComponent } from './nivel-descripcion/nivel-descripcion.component';
 import { NivelIDEComponent } from './nivel-ide/nivel-ide.component';
+import { ArticulosAdquiridosComponent } from './articulos-adquiridos/articulos-adquiridos.component';
 
 
 
@@ -31,6 +32,10 @@ const routes:Routes = [
             {
               path: 'drag',
               component: DragAndDropComponent
+            },
+            {
+              path: 'articulosAdquiridos',
+              component: ArticulosAdquiridosComponent
             }
         ]
     }

@@ -19,7 +19,7 @@ import { MisionService } from '../../../shared/services/mision/mision.service';
 export class MisionesComponent implements OnInit {
 
   listaMisiones: Mision[] = [];
-  displayedColumns: string[] = ['id', 'nombre', 'idNivelMisión', 'idTipoMisión', 'idCurso', 'idMonedas', 'usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
+  displayedColumns: string[] = ['id', 'nombre',  'idCurso', 'usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
   dataSource= new MatTableDataSource<Mision>(this.listaMisiones);
   id: string | null;
   @ViewChild(MatPaginator)

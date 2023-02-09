@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { CoreModule } from 'src/app/core/core.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
+import { ArticulosAdquiridosComponent } from './articulos-adquiridos/articulos-adquiridos.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
     MapaComponent,
     NivelDescripcionComponent,
     NivelIDEComponent,
-    DragAndDropComponent
+    DragAndDropComponent,
+    ArticulosAdquiridosComponent
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,7 @@ import { Curso } from '../../../shared/models/curso';
 import { CursosCards } from 'src/app/shared/models/cardCursos';
 import { CursosCardsService } from '../services/cursos-cards.service';
 import { CursoService } from 'src/app/shared/services/curso/curso.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tarjetas-cursos',
@@ -18,6 +19,7 @@ export class TarjetasCursosComponent implements OnInit {
   estudiante: Estudiante = {};
   cursos?: Curso[];
   correo: string = '';
+  curso?:Curso;
   constructor(private estudianteService: EstudianteServiceService, private cardsCursos:CursosCardsService, private cursoService: CursoService,  private activateRouter: ActivatedRoute) {
 
 
@@ -50,6 +52,8 @@ export class TarjetasCursosComponent implements OnInit {
       this.cursos = response;
     })
   }
+
+  
 
 
 

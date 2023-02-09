@@ -33,11 +33,8 @@ export class CrearModificarMisionComponent implements OnInit {
     this.form = this.fb.group({
       idMision: ['', Validators.required],
       nombre:  ['', Validators.required],
-      imagenMision: ['', Validators.required],
-      idNivelMision: ['', Validators.required],
-      idTipoMision: ['', Validators.required],
+      imagen: ['', Validators.required],
       idCurso: ['', Validators.required],
-      idMonedas: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
       usuarioModificador: ['', Validators.required],
@@ -50,7 +47,7 @@ export class CrearModificarMisionComponent implements OnInit {
     this.getCurso();
 
   }
-  
+
   getCurso(){
     this.cursoService.getCurso().subscribe(resp => this.cursos = resp)
   }
@@ -61,7 +58,7 @@ export class CrearModificarMisionComponent implements OnInit {
   guardarMision(){
     this.hayErrores = false;
     const nombre = this.form.value.nombre;
-    const imagenMision = this.form.value.imagenMision;
+    const imagenMision = this.form.value.imagen;
     const curso = this.form.value.idCurso;
     const usuarioCreador = this.form.value.usuarioCreador;
     let mision: Mision = {nombre: nombre, imagen: imagenMision, idCurso:curso.idCurso, usuarioCreador: usuarioCreador,
@@ -94,7 +91,7 @@ export class CrearModificarMisionComponent implements OnInit {
     this.form.setValue({
       idMision: mision.idMision,
       nombre: mision.nombre,
-      imagenMision: mision.imagen,
+      imagen: mision.imagen,
       idCurso: mision.idCurso,
       usuarioCreador: mision.usuarioCreador,
       fechaCreacion : mision.fechaCreacion,
@@ -119,7 +116,7 @@ export class CrearModificarMisionComponent implements OnInit {
 
   actualizar():void{
     const nombre = this.form.value.nombre;
-    const imagenMision = this.form.value.imagenMision;
+    const imagenMision = this.form.value.imagen;
     const curso = this.form.value.idCurso;
     const usuarioModificador = this.form.value.usuarioModificador;
     let mision: Mision = {idMision: this.form.value.idMision, nombre: nombre, imagen: imagenMision,  idCurso:curso.idCurso, usuarioModificador: usuarioModificador,

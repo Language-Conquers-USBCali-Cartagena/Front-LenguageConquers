@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class ServiciosLoginService {
 
-  
+
 
   constructor(private http: HttpClient) { }
   baseUrl: string = environment.endpoint;
@@ -36,11 +36,11 @@ export class ServiciosLoginService {
   }
 
   createEstudiante(estudiante: Estudiante): Observable<string>{
-    return this.http.post<string>(`${this.baseUrl}/estudiante/crearEstudiante`, estudiante);
+    return this.http.post(`${this.baseUrl}/estudiante/crearEstudiante`, estudiante,{ responseType: 'text'});
   }
 
   createProfesor(profesor: Profesor): Observable<string>{
-    return this.http.post<string>(`${this.baseUrl}/profesor/registrarProfesor`, profesor);
+    return this.http.post(`${this.baseUrl}/profesor/registrarProfesor`, profesor,{ responseType: 'text'});
   }
   getEstudiante(email: string): Observable<Estudiante>{
     let paramsHttp = new HttpParams({

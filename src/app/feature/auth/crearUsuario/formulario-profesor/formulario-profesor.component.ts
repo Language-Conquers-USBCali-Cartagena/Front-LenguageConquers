@@ -49,6 +49,12 @@ export class FormularioProfesorComponent implements OnInit {
 
     this.loginService.createProfesor(profesor).subscribe(resp => {
       localStorage.setItem("correo", correo);
+      Swal.fire({
+        icon: 'success',
+        title: resp,
+        showConfirmButton: false,
+        timer: 1500
+      });
       this.router.navigateByUrl('/profesor/menuProfesor');
     }, err => {
       console.log(err['error']);
