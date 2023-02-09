@@ -6,7 +6,7 @@ import { MenuProfesorComponent } from './menu-profesor/menu-profesor.component';
 import { CursoComponent } from './curso/curso.component';
 import { MapaComponent } from '../curso/mapa/mapa.component';
 import { NivelDescripcionComponent } from '../curso/nivel-descripcion/nivel-descripcion.component';
-import { NivelIDEComponent } from '../curso/nivel-ide/nivel-ide.component';
+import { NivelIDEComponent } from '../curso/reto/nivel-ide/nivel-ide.component';
 
 
 

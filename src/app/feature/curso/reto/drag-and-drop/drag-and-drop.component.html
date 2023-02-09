@@ -1,0 +1,67 @@
+<div>
+  <div cdkDropListGroup>
+      <div class="example-container1">
+        <div
+          cdkDropList
+          [cdkDropListData]="pal"
+          class="example-list1"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box1" *ngFor="let item of pal" cdkDrag>{{item}}</div>
+        </div>
+      </div>
+
+      <div class ="cuadro-respuesta">
+
+        <div class="example-container" >
+          <div
+            cdkDropList
+            [cdkDropListData]="a"
+            class="example-list"
+            (cdkDropListDropped)="drop($event)">
+            <div class="example-box" *ngFor="let item of a" cdkDrag>{{item}}</div>
+          </div> 
+        </div> 
+       
+       <div class="example-container">
+         <div
+           cdkDropList
+           [cdkDropListData]="b"
+           class="example-list"
+           (cdkDropListDropped)="drop($event)">
+           <div class="example-box" *ngFor="let item of b" cdkDrag>{{item}}</div>
+         </div>
+       </div>
+       <div class="example-container">
+         <div
+           cdkDropList
+           [cdkDropListData]="c"
+           class="example-list"
+           (cdkDropListDropped)="drop($event)">
+           <div class="example-box" *ngFor="let item of c" cdkDrag>{{item}}</div>
+         </div>
+       </div>
+       <div class="example-container">
+         <div
+           cdkDropList
+           [cdkDropListData]="d"
+           class="example-list"
+           (cdkDropListDropped)="drop($event)">
+           <div class="example-box" *ngFor="let item of d" cdkDrag>{{item}}</div>
+         </div>
+       </div>
+   
+       <div class="example-container">
+         <div
+           cdkDropList
+           [cdkDropListData]="e"
+           class="example-list"
+           (cdkDropListDropped)="drop($event)">
+           <div class="example-box" *ngFor="let item of e" cdkDrag>{{item}}</div>
+         </div>
+   
+       </div>
+     </div>
+      </div>
+
+  
+</div>
