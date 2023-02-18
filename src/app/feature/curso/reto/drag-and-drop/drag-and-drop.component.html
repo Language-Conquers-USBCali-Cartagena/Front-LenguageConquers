@@ -1,4 +1,4 @@
-<div>
+<div class="body">
   <div cdkDropListGroup>
       <div class="example-container1">
         <div
@@ -9,9 +9,7 @@
           <div class="example-box1" *ngFor="let item of pal" cdkDrag>{{item}}</div>
         </div>
       </div>
-
       <div class ="cuadro-respuesta">
-
         <div class="example-container" >
           <div
             cdkDropList
@@ -19,9 +17,9 @@
             class="example-list"
             (cdkDropListDropped)="drop($event)">
             <div class="example-box" *ngFor="let item of a" cdkDrag>{{item}}</div>
-          </div> 
-        </div> 
-       
+          </div>
+        </div>
+
        <div class="example-container">
          <div
            cdkDropList
@@ -49,7 +47,7 @@
            <div class="example-box" *ngFor="let item of d" cdkDrag>{{item}}</div>
          </div>
        </div>
-   
+
        <div class="example-container">
          <div
            cdkDropList
@@ -58,10 +56,10 @@
            (cdkDropListDropped)="drop($event)">
            <div class="example-box" *ngFor="let item of e" cdkDrag>{{item}}</div>
          </div>
-   
+
        </div>
      </div>
       </div>
 
-  
+
 </div>

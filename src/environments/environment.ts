@@ -25,7 +25,8 @@ export const environment = {
   },
   //endpoint:'https://languageconquers.herokuapp.com'
   //'https://languageconquers.herokuapp.com'
-   endpoint: 'http://localhost:8086'
+  //'http://localhost:8086
+   endpoint: 'https://languageconquers.herokuapp.com'
 };
 
 /*

@@ -1,62 +1,88 @@
 <mat-card class="tarjetaPrincipal">
-    <mat-card-content>
-        <mat-card-title *ngIf="!mision else editarT">Registrar Misión</mat-card-title>
-        <ng-template #editarT>
-          <mat-card-title>Actualizar Misión</mat-card-title>
-        </ng-template>
-        <br>
-        <form [formGroup]="form">
-            <div class="entradas">
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Nombre</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="nombre">
-                        <mat-icon matSuffix class="boton">name</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div class="campo-entrada">
-                  <mat-form-field appearance="fill">
-                      <mat-label class="titulos">Imagen Misión</mat-label>
-                      <input type="text" matInput autocomplete="off" formControlName="imagen" id="imagen">
-                      <mat-icon matSuffix class="boton">image</mat-icon>
-                  </mat-form-field>
-              </div>
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Curso</mat-label>
-                        <mat-select formControlName="idCurso">
-                            <mat-option *ngFor="let curso of cursos" [value]="curso">
-                                {{curso.nombre}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-icon matSuffix class="boton">curso</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div class="campo-entrada" *ngIf="!mision else editar">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Usuario Creador</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
-                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
-                    </mat-form-field>
-                </div>
-                <ng-template #editar>
-                <div class="campo-entrada">
-                  <mat-form-field appearance="fill">
-                      <mat-label class="titulos">Usuario Modificador</mat-label>
-                      <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
-                      <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
-                  </mat-form-field>
-              </div>
-            </ng-template>
-                    <div class="boton">
-                        <button mat-raised-button class="botones"  id="atras" (click)="atras()">Atrás</button>
-                        <button mat-raised-button class="botones" id="guardarMision" (click)="guardarMision()" *ngIf="!mision else botonEditar">Crear Misión</button>
-                        <ng-template #botonEditar>
-                          <button mat-raised-button type="button" id="editar" (click)="actualizar()" class="botones">Actualizar Misión</button>
-                        </ng-template>
-                      </div>
-                </div>
+  <mat-card-content>
+    <mat-card-title *ngIf="!mision else editarT">Registrar Misión</mat-card-title>
+    <ng-template #editarT>
+      <mat-card-title>Actualizar Misión</mat-card-title>
+    </ng-template>
 
-        </form>
-    </mat-card-content>
+    <form [formGroup]="form">
+      <div class="entradas">
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Nombre</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="nombre">
+            <mat-icon matSuffix class="boton">name</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Curso</mat-label>
+            <mat-select formControlName="idCurso">
+              <mat-option *ngFor="let curso of cursos" [value]="curso">
+                {{curso.nombre}}
+              </mat-option>
+            </mat-select>
+            <mat-icon matSuffix class="boton">curso</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada" *ngIf="!mision else editar">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Usuario Creador</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+            <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+          </mat-form-field>
+        </div>
+        <ng-template #editar>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Usuario Modificador</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
+              <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+            </mat-form-field>
+          </div>
+        </ng-template>
+
+        <div class="campo-entrada">
+          <mat-label class="tituloImagen"> Cargar Imagen</mat-label>
+          <br>
+          <section class="example-section">
+            <mat-radio-group>
+              <mat-checkbox class="titulosCheckbox" (change)="archivo($event)">Seleccionar Archivo</mat-checkbox>
+              <mat-checkbox class="titulosCheckbox" (change)="url($event)">Ingresar URL</mat-checkbox>
+            </mat-radio-group>
+          </section>
+        </div>
+        <br>
+
+        <div class="campo-entrada1" *ngIf="isFile">
+          <br>
+          <mat-label class="tituloImagen1"> Seleccionar Imagen para la misión </mat-label>
+          <br><br>
+          <input class="inputFile" type="file" #fileInput
+            (change)="uploadImage($event)" id="imagen">
+          <label for="imagen" name="imagen1" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
+          <br><br><br>
+        </div>
+
+        <div class="campo-entrada" *ngIf="isURL">
+          <mat-form-field appearance="fill" class="inputUrl">
+            <mat-label class="titulos">Imagen Misión</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="imagen" id="imagen">
+            <mat-icon matSuffix>image</mat-icon>
+          </mat-form-field>
+        </div>
+        <br><br>
+        <div class="boton">
+          <button mat-raised-button class="botones" id="atras" (click)="atras()">Atrás</button>
+          <button mat-raised-button class="botones" id="guardarMision" (click)="guardarMision()"
+            *ngIf="!mision else botonEditar">Crear Misión</button>
+          <ng-template #botonEditar>
+            <button mat-raised-button type="button" id="editar" (click)="actualizar()" class="botones">Actualizar
+              Misión</button>
+          </ng-template>
+        </div>
+      </div>
+
+    </form>
+  </mat-card-content>
 </mat-card>

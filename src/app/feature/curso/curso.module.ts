@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { CursoComponent } from './curso/curso.component';
 import { CursoRoutingModule } from './curso-routing.module';
 import { MapaComponent } from './mapa/mapa.component';
-import { NivelDescripcionComponent } from './nivel-descripcion/nivel-descripcion.component';
 import { NivelIDEComponent } from './reto/nivel-ide/nivel-ide.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -17,7 +16,6 @@ import { ArticulosAdquiridosComponent } from './articulos-adquiridos/articulos-a
   declarations: [
     CursoComponent,
     MapaComponent,
-    NivelDescripcionComponent,
     NivelIDEComponent,
     DragAndDropComponent,
     ArticulosAdquiridosComponent

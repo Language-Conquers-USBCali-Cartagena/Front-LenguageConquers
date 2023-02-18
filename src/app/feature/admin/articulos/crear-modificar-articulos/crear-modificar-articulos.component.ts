@@ -8,6 +8,8 @@ import { CategoriaService } from 'src/app/shared/services/categoria/categoria.se
 import { EstadoService } from 'src/app/shared/services/estado/estado.service';
 import Swal from 'sweetalert2';
 import { ArticuloService } from '../../../../shared/services/articulo/articulo.service';
+import { ref, uploadBytesResumable, Storage, getDownloadURL, list } from '@angular/fire/storage';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-crear-modificar-articulos',
@@ -22,8 +24,14 @@ export class CrearModificarArticulosComponent implements OnInit {
   articulo!:Articulo;
   hayErrores: boolean = false;
   mensajeError: any;
+  imagenUrl: string = "";
 
-  constructor(private fb: FormBuilder, private categoriaService: CategoriaService, private estadoService: EstadoService,private router:Router,  private activatedRoute: ActivatedRoute, private articuloService: ArticuloService) {
+  isFile: boolean = false;
+  isURL: boolean = false;
+  porcentajeSubida!:number;
+
+
+  constructor(private storage: Storage, private fb: FormBuilder, private categoriaService: CategoriaService, private estadoService: EstadoService,private router:Router,  private activatedRoute: ActivatedRoute, private articuloService: ArticuloService) {
     this.crearArticulo();
    }
 
@@ -61,7 +69,7 @@ export class CrearModificarArticulosComponent implements OnInit {
     const descripcion = this.form.value.descripcion;
     const precio = this.form.value.precio;
     const nivelValido = this.form.value.nivelValido;
-    const imagen = this.form.value.imagen;
+    const imagen = this.imagenUrl;
     const estado= this.form.value.idEstado;
     const categoria = this.form.value.idCategoria;
     const usuarioCreador = this.form.value.usuarioCreador;
@@ -125,7 +133,7 @@ export class CrearModificarArticulosComponent implements OnInit {
     const descripcion = this.form.value.descripcion;
     const precio = this.form.value.precio;
     const nivelValido = this.form.value.nivelValido;
-    const imagenArticulo = this.form.value.imagen;
+    const imagenArticulo = this.imagenUrl;
     const estado = this.form.value.idEstado;
     const categoria = this.form.value.idCategoria;
     const usuarioModificador = this.form.value.usuarioModificador;
@@ -151,6 +159,72 @@ export class CrearModificarArticulosComponent implements OnInit {
     });
   }
 
+  uploadImage($event: any) {
+    const file = $event.target.files[0];
+    const imagenReferencia = ref(this.storage, `articulos/${file.name}`);
+    const uploadTask = uploadBytesResumable(imagenReferencia, file.name);
+
+    uploadTask.on('state_changed',
+    (snapshot) => {
+     this.porcentajeSubida = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          // console.log('El porcentaje de subida es de ' + progress + '%');
+          switch (snapshot.state) {
+            case 'paused':
+              // console.log('La carga se ha pausado');
+              break;
+            case 'running':
+              // console.log('La carga esta activa');
+              break;
+          }
+    },
+    (error) => {
+      Swal.fire('Error', 'No se pudo cargar la foto', 'error');
+    },() => {
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+
+        this.imagenUrl = downloadURL;
+      });
+    }
+   );
+
+  }
+
+  getImagenStorage(){
+    const imagenReferencia = ref(this.storage, 'articulos');
+    list(imagenReferencia)
+      .then(async response => {
+        //console.log(response);
+          const urlImagen = await getDownloadURL(response.items[0]);
+          console.log(urlImagen);
+          //this.imagenUrl = urlImagen;
+
+      })
+      .catch(error => console.log(error));
+
+  }
+
+  archivo(event: MatCheckboxChange){
+    if(!event.checked){
+      this.isFile = false;
+      this.isURL = false;
+    }else if(event.checked){
+      this.isFile = true;
+    }
+    else{
+      this.isFile = false;
+    }
+
+  }
+  url(event: MatCheckboxChange){
+    if(!event.checked){
+      this.isFile = false;
+      this.isURL = false;
+    }else if(event.checked){
+      this.isURL = true;
+    }else{
+      this.isURL = false;
+    }
+  }
   atras(){
     this.router.navigateByUrl('/admin/articulos/listar-articulos');
   }

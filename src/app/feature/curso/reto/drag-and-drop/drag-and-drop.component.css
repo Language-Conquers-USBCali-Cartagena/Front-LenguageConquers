@@ -1,15 +1,19 @@
+.body{
+  margin-left:10px;
+}
 .example-container1 {
-  width: 400px;
+  width: 200px;
   max-width: 100%;
-  margin: 0 25px 25px 0;
+  margin: 0 755px -25px 0;
   display: inline-block;
+
   /* vertical-align: top; */
 }
 
 .example-list1 {
-  border: solid 1px #ccc;
+  border: solid 1px #6f6e6e00;
   min-height: 60px;
-  background: white;
+  background: rgba(255, 255, 255, 0);
   border-radius: 4px;
   overflow: hidden;
   display: block;
@@ -17,44 +21,46 @@
 
 .example-box1 {
   padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
+  border-bottom: solid 1px #6b696972;
+  color: rgba(255, 255, 255, 0.87);
   display: flex;
   flex-direction: row;
   /* align-items: center; */
   /* justify-content: space-between; */
   box-sizing: border-box;
   cursor: move;
-  background: white;
+  background: rgb(55, 58, 58);
   font-size: 14px;
 }
 
 /* Las de abjo son para las horizontales */
-
+.example-container{
+  margin-left: -170px;
+}
 .example-list {
   width: 1000px;
   max-width: 100%;
-  border: solid 1px #ccc;
+  border: solid 1px #cccccc00;
   min-height: 60px;
   display: flex;
   /* flex-direction: row; */
-  background: white;
+  background: rgba(255, 255, 255, 0);
   border-radius: 4px;
   overflow: hidden;
-  
+
 }
 
 .example-box {
   padding: 20px 10px;
-  border-right: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
+  border-right: solid 1px #cccccc00;
+  color: rgba(255, 255, 255, 0.87);
   display: flex;
   flex-direction: row;
   /* align-items: center; */
   /* justify-content: space-between; */
   box-sizing: border-box;
   cursor: move;
-  background: white;
+  background: rgba(255, 255, 255, 0);
   font-size: 14px;
   flex-grow: 1;
   flex-basis: 0;
