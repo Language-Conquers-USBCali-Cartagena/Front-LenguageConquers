@@ -34,17 +34,13 @@ export class DragAndDropComponent implements OnInit {
   //-----------------------------------------
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex
-      );
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
-        event.currentIndex
+        event.currentIndex,
       );
     }
   }
@@ -52,5 +48,15 @@ export class DragAndDropComponent implements OnInit {
     this.router.navigate(['../curso/ide/1/1'])
   }
 
+  //-------------------------
+  a = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+  b = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+  c = ['Hola'];
+  d = ['B'];
+  e = ['g'];
+  f = ['o'];
+  g = ['o'];
+  h = ['o'];
+  pal = ['cortar', 'escalar']
 
 }

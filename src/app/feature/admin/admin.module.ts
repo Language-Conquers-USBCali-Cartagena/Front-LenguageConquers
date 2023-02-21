@@ -9,10 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { LogrosComponent } from './logros/logros.component';
 import { MisionesComponent } from './misiones/misiones.component';
 import { MonedasComponent } from './monedas/monedas.component';
-import { NivelMisionComponent } from './nivel-mision/nivel-mision.component';
 import { ProgramaComponent } from './programa/programa.component';
 import { RetoComponent } from './reto/reto.component';
-import { TipoMisionComponent } from './tipo-mision/tipo-mision.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
@@ -22,8 +20,6 @@ import { DocenteComponent } from './usuarios/crear-modificar-usuarios/docente/do
 import { EstudianteComponent } from './usuarios/crear-modificar-usuarios/estudiante/estudiante.component';
 import { CrearRegistrarComponent } from './reto/crear-registrar/crear-registrar.component';
 import { CrearModificarMisionComponent } from './misiones/crear-modificar-mision/crear-modificar-mision.component';
-import { CrearModificarNivelMisionComponent } from './nivel-mision/crear-modificar-nivel-mision/crear-modificar-nivel-mision.component';
-import { CrearModificarTipoMisionComponent } from './tipo-mision/crear-modificar-tipo-mision/crear-modificar-tipo-mision.component';
 import { CrearModificarLogrosComponent } from './logros/crear-modificar-logros/crear-modificar-logros.component';
 import { CrearModificarArticulosComponent } from './articulos/crear-modificar-articulos/crear-modificar-articulos.component';
 import { CrearModificarCategoriaComponent } from './categoria-articulos/crear-modificar-categoria/crear-modificar-categoria.component';
@@ -46,18 +42,14 @@ import { CrearModificarCursoComponent } from './curso/crear-modificar-curso/crea
         LogrosComponent,
         MisionesComponent,
         MonedasComponent,
-        NivelMisionComponent,
         ProgramaComponent,
         RetoComponent,
-        TipoMisionComponent,
         UsuariosComponent,
         AdminComponent,
         DocenteComponent,
         EstudianteComponent,
         CrearRegistrarComponent,
         CrearModificarMisionComponent,
-        CrearModificarNivelMisionComponent,
-        CrearModificarTipoMisionComponent,
         CrearModificarLogrosComponent,
         CrearModificarArticulosComponent,
         CrearModificarCategoriaComponent,

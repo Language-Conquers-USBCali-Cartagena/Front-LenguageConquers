@@ -45,7 +45,6 @@ export class CarusselAvataresComponent implements OnInit {
   pasarIzq(){
     if(this.pagina <=0){
       this.pagina = 0;
-
     }else{
       this.pagina = this.avatares.length -1;
       this.getAvatar(this.pagina);
@@ -63,7 +62,7 @@ export class CarusselAvataresComponent implements OnInit {
 
 
   seleccionarAvatar(id:any):number{
-   
+
     var l = "";
     const images = document.querySelectorAll('img');
     this.idSeleccionado = id;

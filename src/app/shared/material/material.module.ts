@@ -21,7 +21,10 @@ import {MatNativeDateModule} from '@angular/material/core'
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import {MatListModule} from '@angular/material/list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [],
@@ -48,7 +51,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatNativeDateModule,
     DragDropModule,
     MatSidenavModule,
-    MatDialogModule
+    MatDialogModule,
+    MatListModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatProgressBarModule
 
   ]
 })

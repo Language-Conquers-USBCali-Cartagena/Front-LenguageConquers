@@ -1,114 +1,126 @@
-
 .fondoLogo {
-        align-items: center;
-        padding-left: 45%;
-        background-color: rgba(255, 255, 255, 0.048);
-        opacity: 85%;
-    }
-    .fondoLogo>img{
-        height: 85px;
-        width: 200px;
-        align-items: center;
-        }
-        mat-toolbar{
-          align-content:space-between 10px ;
-          background-color: transparent;
+  align-items: center;
+  padding-left: 45%;
+  background-color: rgba(255, 255, 255, 0.048);
+  opacity: 85%;
+}
 
-        }
-        .fondo {
-          background: url("../../../../assets/images/600pxmapa.png");
-          background-size: 100% 100%;
-          height: 100% ;
-          width: 100%;
-        }
-.imagen{
+.fondoLogo>img {
+  height: 85px;
+  width: 200px;
+  align-items: center;
+}
+
+mat-toolbar {
+  align-content: space-between 10px;
+  background-color: transparent;
+
+}
+
+.fondo {
+  background: url("../../../../assets/images/600pxmapa.png");
+  background-size: 100% 100%;
+  height: 100%;
+  width: 100%;
+}
+
+.imagen {
   position: relative;
   top: 640px;
   left: 1420px;
   background: url(../../../../assets/images/Recurso36.png);
   background-size: contain;
 }
+
 .tesoro1 {
-    display: flex;
-    position: relative;
-    top: 640px;
-    left: 1420px;
-    background-color: transparent;
+  display: flex;
+  position: relative;
+  top: 640px;
+  left: 1420px;
+  background-color: transparent;
 
 }
+
 .tesoro2 {
-    position: relative;
-    top: 630px; left: 870px;
-    background-color: transparent;
+  position: relative;
+  top: 630px;
+  left: 870px;
+  background-color: transparent;
 }
+
 .tesoro3 {
-    position: relative;
-    top: 700px; left: 1100px;
-    background-color: transparent;
+  position: relative;
+  top: 700px;
+  left: 1100px;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 600px) {
 
-    .fondo {
-        background: url("../../../../assets/images/fondos/FondoPerfil1.jpg");
-        background-size: cover;
-        height: 1080px ;
-        width: 600px; ;
-    }
+  .fondo {
+    background: url("../../../../assets/images/fondos/FondoPerfil1.jpg");
+    background-size: cover;
+    height: 1080px;
+    width: 600px;
+    ;
+  }
 }
 
 
-.menuIzq{
+.menuIzq {
   position: absolute;
-  min-width:180px ;
+  min-width: 180px;
   width: auto;
-  height:200px;
-  margin-left:150px;
+  height: 200px;
+  margin-left: 150px;
   margin-top: 80px;
 }
-.iconoMenu{
+
+.iconoMenu {
   width: 10px;
   height: 10px;
   cursor: pointer;
 }
-.iconoMenu:hover{
+
+.iconoMenu:hover {
   width: 40px;
   height: 40px;
 }
 
-.menu{
+.menu {
   display: flex;
   flex-flow: column;
 }
 
 
-.button{
+.button {
   width: 200px;
-  background-color:  rgba(222, 240, 247, 0.685);
-  color:   rgba(11, 96, 128, 0.934);
+  height: 60px;
+  background-color: rgba(222, 240, 247, 0.685);
+  color: rgba(11, 96, 128, 0.934);
   border-radius: 10px;
   border: -15px;
   border-color: rgba(222, 240, 247, 0.685);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color:   rgb(118,92,84);
+  color: rgb(118, 92, 84);
   padding: 1%;
   font-family: Mouse Memoirs;
-  height: 42px;
   padding: 0px 11px;
   font-size: 20px;
   margin-top: 5%;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 }
-.button>img{
+
+.button>img {
   height: 30px;
   width: 30px;
 }
 
-.button:hover:enabled{
-  background-color:  rgb(172,153,139, 0.934);
-  cursor:pointer;
+.button:hover:enabled {
+  background-color: rgb(172, 153, 139, 0.934);
+  cursor: pointer;
   border: none;
   border-radius: 8px;
   color: rgba(222, 240, 247, 1);
@@ -116,16 +128,18 @@
   padding: 0px 11px;
   font-size: 15px;
 }
-.button:disabled{
+
+.button:disabled {
   cursor: not-allowed;
-  background-color:  rgba(222, 240, 247, 0.685);
-  border-color:   rgba(222, 240, 247, 0.685);
-  color:  rgba(222, 240, 247, 0.685);
+  background-color: rgba(222, 240, 247, 0.685);
+  border-color: rgba(222, 240, 247, 0.685);
+  color: rgba(222, 240, 247, 0.685);
 }
-.contentPerfilStudent{
+
+.contentPerfilStudent {
   width: 100px;
-  height:130px;
-  bottom: 30%;
+  height: 130px;
+  bottom: 80px;
   position: absolute;
   display: flex;
   margin-left: 150px;
@@ -135,33 +149,19 @@
   border: -14px;
   border-style: solid;
   border-color: rgba(189, 184, 184, 0.486);
-  background: linear-gradient(
-  135deg,
-  rgba(255, 255, 255, 0.5),
-  rgba(255, 255, 255, 0.5)
-);
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5));
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 }
-.imgAvatar{
+
+.imgAvatar {
   margin-top: -35px;
   align-items: center;
   margin-left: 10px;
-  max-width:80px;
+  max-width: 80px;
   height: auto;
 }
 
-/*
-position: absolute;
-  bottom: 13%;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 8px;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2%;
-  min-width: 300px;
-  width: 20%;
-*/

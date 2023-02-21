@@ -12,6 +12,9 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  irDasboard(){
+    this.router.navigateByUrl('/admin/home')
+  }
   irUsuarios(){
     this.router.navigateByUrl('/admin/usuarios/listar-usuarios')
   }

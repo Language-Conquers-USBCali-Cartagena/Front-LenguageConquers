@@ -1,0 +1,35 @@
+<app-menu (onToggleSideNav)="onToggleSideNav($event)"></app-menu>
+<div class="body">
+  <div class="fondoPantalla">
+    <app-drag-and-drop></app-drag-and-drop>
+    <div class="botonEncendido"></div>
+  </div>
+  <div class="fondoTorre">
+    <button type="button" class="botonTutorial" (click)="mostrarTutorial()">
+      <label class="tituloTutorial"> Como Practicar</label>
+      <img src="../../../../assets/icons/video.png" alt="Tutorial" class="imgTutorial">
+    </button>
+    <div class="botonEncendidoTutorial"></div>
+    <br>
+    <button type="button" class="botonTema" (click)="mostrarPistas()">
+      <label class="tituloPista">Pistas</label>
+      <img src="../../../../assets/icons/pista.png" alt="pista" class="imgPista">
+    </button>
+    <div class="botonEncendidoPista"></div>
+    <div class="botones"></div>
+    <div class="botones1"></div>
+    <div class="botones2"></div>
+    <div class="botonCD">
+      <div class="cd"></div>
+    </div>
+    <div class="botones3"></div>
+    <button type="button" class="botonAtras" (click)="atras()">
+      <label class="tituloAtras"> Atrás</label>
+      <img src="../../../../assets/icons/atras.png" alt="Tutorial" class="imgAtras">
+    </button>
+    <button type="button" class="botonEjecutar" (click)="realizarReto()">
+      <img src="../../../../assets/icons/run2.png" alt="Tutorial" class="imgEjecutar" matTooltip="Ejecutar">
+    </button>
+  </div>
+  <br>
+</div>
