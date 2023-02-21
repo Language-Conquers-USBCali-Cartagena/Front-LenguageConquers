@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/service/auth.service';
 import { Router } from '@angular/router';
+import { log } from 'console';
 
 @Component({
   selector: 'app-logout',
@@ -12,8 +13,8 @@ export class LogoutComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.salir();
     this.eliminarCache();
+    this.salir();
   }
   salir(){
     this.authService.logout();
@@ -22,4 +23,7 @@ export class LogoutComponent implements OnInit {
   eliminarCache(){
     localStorage.clear();
   }
+
+
+
 }
