@@ -24,11 +24,10 @@ export class TarjetasCursosComponent implements OnInit {
 
 
    }
-  ngOnInit(): void {
-    this.cargarTarjetasCursos();
-    this.correo = localStorage.getItem("correo")!;
-    this.obtenerEstudiante(this.correo);
-    this.obtenerCursos(this.correo);
+  async ngOnInit() {
+    await this.cargarTarjetasCursos();
+    await this.obtenerEstudiante();
+    await this.obtenerCursos();
   }
 
 
@@ -38,7 +37,8 @@ export class TarjetasCursosComponent implements OnInit {
     });
   }
 
-  async obtenerEstudiante(correo: string) {
+  async obtenerEstudiante() {
+    let correo = localStorage.getItem("correo")!;
     await this.estudianteService.getEstudiante(correo).toPromise().then((response) => {
       localStorage.setItem("usuario", JSON.stringify(response));
       this.estudiante = response;
@@ -47,7 +47,8 @@ export class TarjetasCursosComponent implements OnInit {
 
   }
 
-  async obtenerCursos(correo: string){
+  async obtenerCursos(){
+    let correo= localStorage.getItem("correo")!;
     await this.estudianteService.getCursos(correo).toPromise().then((response) => {
       this.cursos = response;
     })

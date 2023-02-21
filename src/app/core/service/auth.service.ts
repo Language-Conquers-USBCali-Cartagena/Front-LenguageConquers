@@ -11,7 +11,7 @@ export class AuthService {
   constructor(public afauth: AngularFireAuth) { 
     this.userData$ = afauth.authState;
   }
-
+  
 
   async login(email: string, password: string){
  
@@ -48,5 +48,6 @@ export class AuthService {
   async emailVerification(): Promise<void>{
     return (await this.afauth.currentUser)?.sendEmailVerification();
   }
+
 
 }

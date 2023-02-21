@@ -1,13 +1,13 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { ServiciosLoginService } from '../../../../shared/services/Login/servicios-login.service';
 import { Observable } from 'rxjs';
-
-
 import Swal from 'sweetalert2'
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -24,27 +24,38 @@ export class LoginComponent implements OnInit {
   estudianteExiste: boolean = false;
   userEmail = new UntypedFormControl('');
 
-  constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService) {
+  constructor(private fb: UntypedFormBuilder, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService,private auth: AngularFireAuth) {
     this.form = this.fb.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
-
+  token: string | null = '';
   ngOnInit(): void {
     this.validaciones()
   }
+  async obtenerToken(){
+    await this.auth.idToken.subscribe(resp => {
+      localStorage.setItem('Token', `${resp}`);
 
+      this.token = resp;
+      console.log(resp);
+      
+    })
+   
+  }
 
-  ingresar() {
+  async ingresar() {
     const usuario = this.form.value.usuario;
     const password = this.form.value.password;
 
 
-    this.authService.login(usuario, password).then(res => {
+    this.authService.login(usuario, password).then(async res => {
       if(res?.user?.emailVerified == true){
         this.fail = false;
         console.log(res);
+        await this.obtenerToken();
+        
         this.validaciones();
       }else if(res?.user?.emailVerified == false){
         this.router.navigate(['/auth/verificar-email']);
@@ -56,9 +67,8 @@ export class LoginComponent implements OnInit {
   }
 
   IngresarConGoogle() {
-    // this.validarExistenciaBD('wefohef@wge.com')
-    this.authService.loginWithGoogle().then(res => {
-      console.log("Ingreso: ", res);
+    this.authService.loginWithGoogle().then(async res => {
+      await this.obtenerToken();
       this.validaciones();
     }).catch(err => {
       this.error();
@@ -67,7 +77,6 @@ export class LoginComponent implements OnInit {
 
   IngresarConFacebook(){
     this.authService.loginWithFacebook().then(res => {
-      console.log("Ingreso: ", res);
       this.validaciones();
     }).catch(err => {
       this.error();
@@ -99,18 +108,17 @@ export class LoginComponent implements OnInit {
     await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
       this.profesorExiste = response;
       if(response == true){
-        localStorage.setItem("correo", email);
         this.router.navigateByUrl("/profesor/menuProfesor");
       }
     })
+    this.router.navigateByUrl("/estudiante/menu")
     await this.loginService.existEstudianteByCorreo(email).toPromise().then((response) => {
       this.estudianteExiste = response;
       if(response == true){
-        localStorage.setItem("correo", email);
-        this.router.navigateByUrl("/estudiante/menu")
+        
       }
     })
-
+    this.estudianteExiste = true
     if(this.estudianteExiste == true || this. profesorExiste == true){
       return true
     }else {
@@ -132,6 +140,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['auth/verificar-email'])
         }
         correo = res.email;
+        localStorage.setItem("correo", correo);
         this.validarExistenciaBD(correo).then(resp => {
           if(resp == false){
             this.router.navigateByUrl("/auth/crearUsuario")

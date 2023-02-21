@@ -47,8 +47,8 @@ export class PerfilEstudianteComponent implements OnInit {
   progreso2=document.querySelector('#grafica2 #progreso2') as HTMLElement;
   progressValue = document.querySelector('.progress-value');
   progressValue2 = document.getElementById("progressValue2")
-  progressStartValue = 0;
-  progressStartValue2 = 0;
+  progressStartValue = 10;
+  progressStartValue2 = 10;
   //aqui va el valor de la grafica que se debe poner desde el servicio
   progressEndValue = 20;
   progressEndValue2 = 30;
@@ -56,7 +56,7 @@ export class PerfilEstudianteComponent implements OnInit {
   progress = setInterval(() => {
     this.progressStartValue++;
     document.querySelector('.progress-value')!.textContent = `${this.progressStartValue}%`;
-   document.getElementById("progreso")!.style.background= `conic-gradient(#cd9e76 ${this.progressStartValue * 3.6}deg, #ededed 0deg)` ;
+    document.getElementById("progreso")!.style.background= `conic-gradient(#cd9e76 ${this.progressStartValue * 3.6}deg, #ededed 0deg)` ;
     if (this.progressStartValue == this.progressEndValue) {
       clearInterval(this.progress);
     }

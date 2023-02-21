@@ -24,7 +24,10 @@ export class ServiciosLoginService {
     });
 
     return this.http.get<boolean>(`${this.baseUrl}/estudiante/existePorCorreo`, {params: paramsHttp});
+
   }
+
+  
   existProfesorByCorreo(email: String): Observable<boolean>{
     let paramsHttp = new HttpParams({
       fromObject: {
@@ -32,7 +35,7 @@ export class ServiciosLoginService {
       }
     });
 
-    return this.http.get<boolean>(`${this.baseUrl}/profesor/existePorCorreo`, {params: paramsHttp}).pipe(map(response => response));
+    return this.http.get<boolean>(`${this.baseUrl}/profesor/existePorCorreo`, {params: paramsHttp});
   }
 
   createEstudiante(estudiante: Estudiante): Observable<string>{
