@@ -31,7 +31,53 @@
     color: rgb(255, 255, 255);
 
   }
-  input{
+
+  .tituloImagen, .tituloImagen1{
+    font-size: 25px;
+    margin-bottom: 5px;
+    color: rgb(255, 255, 255);
+  }
+  .tituloImagen1{
+    margin-top: -15px;
+    margin-left: -10px;
+
+  }
+
+  .titulosCheckbox{
+    margin-left: 40px;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 40px;
+
+  }
+  .inputFile{
+    margin-left:-10px
+  }
+
+
+  #imagen1{
+    display: none;
+  }
+
+  .botonSeleccionarArchivo{
+    margin-left: -148px;
+    margin-top: -30px;
+    width: 128px;
+    height:20px;
+    background-color: rgb(205, 159, 118);
+    border-radius: 20px;
+    position: absolute;
+    padding: 10px;
+    font-size: 20px;
+    box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
+    cursor: pointer;
+  }
+
+
+  matInput{
       width: 30px !;
   }
   .campo-entrada {

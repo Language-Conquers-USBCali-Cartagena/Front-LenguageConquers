@@ -20,10 +20,8 @@
     display: grid;
     margin-top: 10px;
     margin-bottom: -100px;
-    grid-template-columns: repeat(2, 18em);
+    grid-template-columns: repeat(4, 18em);
     justify-content: center;
-
-
   }
 
   .titulos {
@@ -31,9 +29,56 @@
     color: rgb(255, 255, 255);
 
   }
-  input{
-      width: 30px !;
+
+  .tituloImagen, .tituloImagen1{
+    font-size: 25px;
+    margin-bottom: 5px;
+    color: rgb(255, 255, 255);
   }
+  .tituloImagen1{
+    margin-top: -25px;
+    margin-left: 5px;
+
+  }
+
+  .titulosCheckbox{
+    margin-left: 40px;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 40px;
+
+  }
+  .inputFile{
+    margin-top: 20px;
+    margin-left:20px
+  }
+  .inputUrl{
+
+    width:200px;
+  }
+
+  #imagen1{
+    display: none;
+  }
+
+  .botonSeleccionarArchivo{
+    margin-left: -119px;
+    margin-top: -31px;
+    width: 128px;
+    height:20px;
+    background-color: rgb(205, 159, 118);
+    border-radius: 20px;
+    position: absolute;
+    padding: 10px;
+    font-size: 20px;
+    box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
+    cursor: pointer;
+  }
+
+
   .campo-entrada {
     float: right;
     width: 100%;
@@ -54,10 +99,9 @@
   }
 
   .boton {
-    margin: 3px;
     position: center;
-    margin-left: -10px;
-    margin-right: -100%;
+    margin-left: -180px;
+    margin-right: -815px;
     line-height: 35px;
     align-items: center;
   }
@@ -68,7 +112,7 @@
     background-color: rgb(201, 131, 69);
     text-align: center !important;
     align-items: center !important;
-    margin: 0 10px;
+   margin-top: 50px;
     display: inline-block;
     width: 130px;
     height: 40px;

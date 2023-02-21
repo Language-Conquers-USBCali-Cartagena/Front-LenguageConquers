@@ -14,17 +14,10 @@
                         <mat-icon matSuffix class="boton">nombre</mat-icon>
                     </mat-form-field>
                 </div>
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Imagen Avatar</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="imagenAvatar" id="imagenAvatar">
-                        <mat-icon matSuffix class="boton">img</mat-icon>
-                    </mat-form-field>
-                </div>
-                  <div class="campo-entrada" *ngIf="!avatar else editar">
-                    <mat-form-field appearance="fill">
-                      <mat-label class="titulos">Usuario Creador</mat-label>
-                      <input type="text" matInput autocomplete="off" formControlName="usuarioCreador" id="usuarioCreador">
+                <div class="campo-entrada" *ngIf="!avatar else editar">
+                  <mat-form-field appearance="fill">
+                    <mat-label class="titulos">Usuario Creador</mat-label>
+                    <input type="text" matInput autocomplete="off" formControlName="usuarioCreador" id="usuarioCreador">
                       <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
                     </mat-form-field>
                     </div>
@@ -34,10 +27,35 @@
                           <mat-label class="titulos">Usuario Modificador</mat-label>
                           <input type="text" matInput autocomplete="off" formControlName="usuarioModificador" id="usuarioModificador">
                           <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+                        </mat-form-field>
+                      </div>
+                    </ng-template>
+                    <div class="campo-entrada">
+                      <mat-label class="tituloImagen"> Cargar Imagen</mat-label>
+                      <br>
+                      <section class="example-section">
+                        <mat-radio-group>
+                          <mat-checkbox class="titulosCheckbox" (change)="archivo($event)">Seleccionar Archivo</mat-checkbox>
+                          <mat-checkbox class="titulosCheckbox" (change)="url($event)">Ingresar URL</mat-checkbox>
+                        </mat-radio-group>
+                      </section>
+                    </div>
+                    <div class="campo-entrada1" *ngIf="isFile">
+                      <br>
+                      <mat-label class="tituloImagen1"> Seleccionar Imagen de Avatar </mat-label>
+                      <br><br>
+                      <input class="inputFile" type="file" #fileInput
+                        (change)="uploadImage($event)" id="imagenAvatar">
+                      <label for="imagenAvatar" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
+                      <br>
+                    </div>
+                    <div class="campo-entrada" *ngIf="isURL">
+                      <mat-form-field appearance="fill" class="inputUrl">
+                        <mat-label class="titulos">Imagen  Avatar</mat-label>
+                        <input type="text" matInput autocomplete="off" formControlName="imagen" id="imagenAvatar">
+                        <mat-icon matSuffix>image</mat-icon>
                       </mat-form-field>
                     </div>
-                  </ng-template>
-
                     <div class="boton">
                         <button mat-raised-button class="botones"  type="button" id="atras"(click)="atras()">Atrás</button>
                         <button mat-raised-button class="botones" type="button" id="guardarAvatar" (click)="guardarAvatar()" *ngIf="!avatar else botonEditar">Crear Avatar</button>

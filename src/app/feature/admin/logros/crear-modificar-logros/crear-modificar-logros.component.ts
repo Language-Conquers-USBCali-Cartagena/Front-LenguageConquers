@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Logros } from 'src/app/shared/models/logros';
 import Swal from 'sweetalert2';
 import { LogrosService } from '../../../../shared/services/logros/logros.service';
+import { getDownloadURL, list, ref, uploadBytesResumable, Storage } from '@angular/fire/storage';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-crear-modificar-logros',
@@ -16,7 +18,13 @@ export class CrearModificarLogrosComponent implements OnInit {
   logro!: Logros;
   hayErrores= false;
   mensajeError: string="";
-  constructor(private fb: FormBuilder,private router:Router, private activatedRoute: ActivatedRoute, private logroService: LogrosService) {
+  imagenUrl: string = "";
+
+  isFile: boolean = false;
+  isURL: boolean = false;
+  porcentajeSubida!:number;
+
+  constructor(private storage: Storage, private fb: FormBuilder,private router:Router, private activatedRoute: ActivatedRoute, private logroService: LogrosService) {
     this,this.crearLogro();
   }
 
@@ -25,7 +33,6 @@ export class CrearModificarLogrosComponent implements OnInit {
       idLogro:['', Validators.required],
       nombre:  ['', Validators.required],
       descripcion: ['', Validators.required],
-      categoria: ['', Validators.required],
       imagenLogro: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
@@ -42,10 +49,9 @@ export class CrearModificarLogrosComponent implements OnInit {
     this.hayErrores = false;
     const nombre = this.form.value.nombre;
     const descripcion = this.form.value.descripcion;
-    const categoria = this.form.value.categoria;
-    const imagenLogro = this.form.value.imagenLogro;
+    const imagenLogro = this.imagenUrl;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let logro: Logros = {nombre: nombre, descripcion: descripcion, categoria: categoria,  imagen: imagenLogro, usuarioCreador: usuarioCreador,
+    let logro: Logros = {nombre: nombre, descripcion: descripcion,  imagen: imagenLogro, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date()}
     this.logroService.crearLogro(logro).subscribe(data => {
       if(data){
@@ -77,7 +83,6 @@ export class CrearModificarLogrosComponent implements OnInit {
       idLogro: logro.idLogro,
       nombre: logro.nombre,
       descripcion: logro.descripcion,
-      categoria: logro.categoria,
       imagenLogro: logro.imagen,
       usuarioCreador: logro.usuarioCreador,
       fechaCreacion: logro.fechaCreacion,
@@ -104,10 +109,9 @@ export class CrearModificarLogrosComponent implements OnInit {
   actualizar():void{
     const nombre = this.form.value.nombre;
     const descripcion = this.form.value.descripcion;
-    const categoria = this.form.value.categoria;
     const imagenLogro = this.form.value.imagenLogro;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let logro: Logros = {idLogro:this.form.value.idLogro ,nombre: nombre, descripcion: descripcion,categoria: categoria, imagen: imagenLogro, usuarioModificador: usuarioModificador,
+    let logro: Logros = {idLogro:this.form.value.idLogro ,nombre: nombre, descripcion: descripcion, imagen: imagenLogro, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date(), fechaCreacion: this.logro.fechaCreacion, usuarioCreador: this.logro.usuarioCreador}
     this.logroService.actualizarLogro(logro).subscribe(()=>{
       Swal.fire({
@@ -128,6 +132,73 @@ export class CrearModificarLogrosComponent implements OnInit {
       timer: 1500
     });
   });
+  }
+
+  uploadImage($event: any) {
+    const file = $event.target.files[0];
+    const imagenReferencia = ref(this.storage, `logros/${file.name}`);
+    const uploadTask = uploadBytesResumable(imagenReferencia, file.name);
+
+    uploadTask.on('state_changed',
+    (snapshot) => {
+     this.porcentajeSubida = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          // console.log('El porcentaje de subida es de ' + progress + '%');
+          switch (snapshot.state) {
+            case 'paused':
+              // console.log('La carga se ha pausado');
+              break;
+            case 'running':
+              // console.log('La carga esta activa');
+              break;
+          }
+    },
+    (error) => {
+      Swal.fire('Error', 'No se pudo cargar la foto', 'error');
+    },() => {
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+
+        this.imagenUrl = downloadURL;
+      });
+    }
+   );
+
+  }
+
+  getImagenStorage(){
+    const imagenReferencia = ref(this.storage, 'logros');
+    list(imagenReferencia)
+      .then(async response => {
+        //console.log(response);
+          const urlImagen = await getDownloadURL(response.items[0]);
+          console.log(urlImagen);
+          //this.imagenUrl = urlImagen;
+
+      })
+      .catch(error => console.log(error));
+
+  }
+
+  archivo(event: MatCheckboxChange){
+    if(!event.checked){
+      this.isFile = false;
+      this.isURL = false;
+    }else if(event.checked){
+      this.isFile = true;
+    }
+    else{
+      this.isFile = false;
+    }
+
+  }
+  url(event: MatCheckboxChange){
+    if(!event.checked){
+      this.isFile = false;
+      this.isURL = false;
+    }else if(event.checked){
+      this.isURL = true;
+    }else{
+      this.isURL = false;
+    }
   }
 
   atras(){

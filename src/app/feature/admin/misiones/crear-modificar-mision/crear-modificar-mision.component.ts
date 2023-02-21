@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Curso } from 'src/app/shared/models/curso';
@@ -9,6 +9,11 @@ import { CursoService } from 'src/app/shared/services/curso/curso.service';
 import { MonedasService } from 'src/app/shared/services/monedas/monedas.service';
 import Swal from 'sweetalert2';
 import { MisionService } from '../../../../shared/services/mision/mision.service';
+import { DomSanitizer } from '@angular/platform-browser';
+import { getDownloadURL, list, ref, uploadBytesResumable, Storage } from '@angular/fire/storage';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatRadioChange } from '@angular/material/radio';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-crear-modificar-mision',
@@ -24,8 +29,15 @@ export class CrearModificarMisionComponent implements OnInit {
   estados:Estado[] = [];
   hayErrores = false;
   mensajeError: string="";
+  imagenUrl: string = "";
 
-  constructor(private fb: FormBuilder, private monedasService: MonedasService,private cursoService: CursoService, private router:Router,  private activatedRoute: ActivatedRoute, private misionService: MisionService) {
+  isFile: boolean = false;
+  isURL: boolean = false;
+
+  porcentajeSubida!:number;
+
+
+  constructor(private storage: Storage, private sanitizer: DomSanitizer, private fb: FormBuilder, private monedasService: MonedasService,private cursoService: CursoService, private router:Router,  private activatedRoute: ActivatedRoute, private misionService: MisionService) {
     this.crearMision();
    }
 
@@ -57,8 +69,10 @@ export class CrearModificarMisionComponent implements OnInit {
 
   guardarMision(){
     this.hayErrores = false;
+   // this.fileInput.nativeElement.dispatchEvent(new Event('change'));
+
     const nombre = this.form.value.nombre;
-    const imagenMision = this.form.value.imagen;
+    const imagenMision = this.imagenUrl;
     const curso = this.form.value.idCurso;
     const usuarioCreador = this.form.value.usuarioCreador;
     let mision: Mision = {nombre: nombre, imagen: imagenMision, idCurso:curso.idCurso, usuarioCreador: usuarioCreador,
@@ -87,6 +101,50 @@ export class CrearModificarMisionComponent implements OnInit {
 
   }
 
+  uploadImage($event: any) {
+    const file = $event.target.files[0];
+    const imagenReferencia = ref(this.storage, `misiones/${file.name}`);
+    const uploadTask = uploadBytesResumable(imagenReferencia, file.name);
+
+    uploadTask.on('state_changed',
+    (snapshot) => {
+     this.porcentajeSubida = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          // console.log('El porcentaje de subida es de ' + progress + '%');
+          switch (snapshot.state) {
+            case 'paused':
+              // console.log('La carga se ha pausado');
+              break;
+            case 'running':
+              // console.log('La carga esta activa');
+              break;
+          }
+    },
+    (error) => {
+      Swal.fire('Error', 'No se pudo cargar la foto', 'error');
+    },() => {
+      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+
+        this.imagenUrl = downloadURL;
+      });
+    }
+   );
+
+  }
+
+  getImagenStorage(){
+    const imagenReferencia = ref(this.storage, 'misiones');
+    list(imagenReferencia)
+      .then(async response => {
+        //console.log(response);
+          const urlImagen = await getDownloadURL(response.items[0]);
+          console.log(urlImagen);
+          //this.imagenUrl = urlImagen;
+
+      })
+      .catch(error => console.log(error));
+
+  }
+
   setMision(mision: Mision) {
     this.form.setValue({
       idMision: mision.idMision,
@@ -100,6 +158,28 @@ export class CrearModificarMisionComponent implements OnInit {
     });
   }
 
+  archivo(event: MatCheckboxChange){
+    if(!event.checked){
+      this.isFile = false;
+      this.isURL = false;
+    }else if(event.checked){
+      this.isFile = true;
+    }
+    else{
+      this.isFile = false;
+    }
+
+  }
+  url(event: MatCheckboxChange){
+    if(!event.checked){
+      this.isFile = false;
+      this.isURL = false;
+    }else if(event.checked){
+      this.isURL = true;
+    }else{
+      this.isURL = false;
+    }
+  }
   cargarMision(){
     this.activatedRoute.params.subscribe(
       (params) => {

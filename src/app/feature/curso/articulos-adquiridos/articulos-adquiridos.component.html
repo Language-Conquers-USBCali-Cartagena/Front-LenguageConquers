@@ -1,19 +1,24 @@
 <app-menu (onToggleSideNav)="onToggleSideNav($event)"></app-menu>
 <div class="container">
   <div class="ladoIzq">
-    <mat-card class="tarjeta">
-      <mat-card-header>
-        <mat-card-title>Artículos Adquiridos</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div class="elementos">
-          <br>
-          <img src="../../assets/images/tienda/gorra.png">
-          <h2>Nombre Articulo</h2>
-          <button mat-raised-button>Ver</button>
-        </div>
-      </mat-card-content>
-    </mat-card>
+    <div class="tarjeta">
+      <h2 class="tituloLadoIzq">Artículos Adquiridos</h2>
+      <mat-card class="tarjetaArticulo">
+        <img src="../../assets/images/tienda/gorra.png" class="imagenArticulo">
+        <mat-card-title class="tituloArticulo">Nombre Articulo</mat-card-title>
+        <button mat-raised-button class="botonArticulo">Ver</button>
+      </mat-card>
+      <mat-card class="tarjetaArticulo">
+        <img src="../../assets/images/tienda/gorra.png" class="imagenArticulo">
+        <mat-card-title class="tituloArticulo">Nombre Articulo</mat-card-title>
+        <button mat-raised-button class="botonArticulo">Ver</button>
+      </mat-card>
+      <mat-card class="tarjetaArticulo">
+        <img src="../../assets/images/tienda/gorra.png" class="imagenArticulo">
+        <mat-card-title class="tituloArticulo">Nombre Articulo</mat-card-title>
+        <button mat-raised-button class="botonArticulo">Ver</button>
+      </mat-card>
+    </div>
   </div>
   <div class="centro">
     <mat-card class="tarjetaCentro">
@@ -30,8 +35,8 @@
     </mat-card>
   </div>
   <div class="boton">
+    <button mat-raised-button class="botones">Volver al Mapa</button>
     <button mat-raised-button class="botones">Eliminar Arículo</button>
   </div>
 </div>
 <br>
-

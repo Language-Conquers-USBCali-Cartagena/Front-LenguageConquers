@@ -6,3 +6,204 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
+.fondoPantalla{
+  width: 60%;
+  height: 400px;
+  margin-right: 20px;
+  margin-left: -20px;
+  /*Efecto espejo*/
+  padding: 55px;
+  background: linear-gradient(135deg,
+      rgba(24, 27, 28, 0.867),
+      rgba(24, 27, 28, 0.867));
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.615);
+  font-size: 30px;
+  border: 60px solid;
+  border-color: rgb(45, 48, 48, 0.883);
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+.botonEncendido{
+  margin-top:188px;
+  margin-left: 880px ;
+  background: lightblue;
+  border-radius: 20%;
+  width: 40px;
+  height: 18px;
+}
+.fondoTorre{
+  width: 12%;
+  height: 470px;
+  margin-right: 10px;
+  margin-top: -620px;
+  margin-left: 1100px;
+  /*Efecto espejo*/
+  padding: 55px;
+  background: linear-gradient(135deg,
+      rgba(24, 27, 28, 0.867),
+      rgba(24, 27, 28, 0.867));
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
+  font-size: 30px;
+  border: 20px solid;
+  border-radius: 10px;
+  border-color: rgba(45, 48, 48, 0.883);
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.botonTutorial, .botonTema{
+  margin-top:38px;
+  margin-left: -28px ;
+  background: rgb(97, 100, 101);
+  border-radius: 20%;
+  border: #fff;
+  width: 230px;
+  height: 70px;
+  font-family: Mouse Memoirs;
+  font-size:38px;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  cursor: pointer;
+  padding: 1%;
+}
+.botonTutorial{
+  font-size:27px;
+}
+
+.tituloTutorial{
+  margin-top:15px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+.botonEncendidoTutorial, .botonEncendidoPista{
+  margin-top:-46px;
+  margin-left: -10px ;
+  background: rgb(173, 230, 201);
+  border-radius: 20%;
+  width: 18px;
+  height: 20px;
+}
+.botonEncendidoPista{
+  width: 40px;
+  height: 20px;
+}
+.tituloPista{
+  margin-top:10px;
+  margin-left: 40px;
+  cursor: pointer;
+}
+.imgTutorial, .imgPista{
+  margin-left: -35px;
+  margin-top: 10px;
+  width: 40px;
+  height: 40px;
+
+}
+.button:hover:enabled {
+  background-color: rgb(172, 153, 139, 0.934);
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  color: rgba(222, 240, 247, 1);
+  border: none;
+  padding: 0px 11px;
+  font-size: 15px;
+}
+.botones, .botones1, .botones2{
+  margin-top:46px;
+  margin-left: 5px ;
+  background: rgb(103, 106, 104);
+  border-radius: 20%;
+  width: 40px;
+  height: 20px;
+}
+.botones1{
+  margin-top:-20px;
+  margin-left: 65px ;
+}
+.botones2{
+  margin-top:-20px;
+  margin-left: 130px ;
+}
+.botonCD{
+  margin-top:36px;
+  margin-left: -28px ;
+  padding: 2px;
+  background: rgb(103, 106, 104);
+  border-radius: 20%;
+  width: 230px;
+  height: 60px;
+}
+.cd{
+  margin-top:15px;
+  margin-left: 12px ;
+  background: rgba(255, 255, 255, 0);
+  width: 200px;
+  height: 30px;
+  border-radius: 20%;
+  border: 2px solid black;
+}
+.botones3{
+  margin-top:-36px;
+  margin-left: 5px ;
+  height: 15px;
+  width: 30px;
+  background: rgb(60, 61, 60);
+  border-radius: 20%;
+}
+.botonAtras{
+  margin-top:46px;
+  margin-left: 35px ;
+  background: rgb(152, 156, 153);
+  border-radius: 20%;
+  border-color: #ffffff00;
+  width: 100px;
+  height: 40px;
+  font-family: Mouse Memoirs;
+  font-size:25px;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+
+
+}
+.botonAtras{
+  cursor: pointer;
+}
+.tituloAtras{
+  margin-top:5px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+.imgAtras{
+  margin-left: 5px;
+  margin-top: 2px;
+  width: 30px;
+  height: 30px;
+}
+.botonEjecutar{
+  cursor: pointer;
+  margin-top:24px;
+  margin-left: 50px ;
+  background: rgb(152, 156, 153);
+  border-radius: 50%;
+  border-color: #ffffff00;
+  width: 70px;
+  height: 70px;
+  font-family: Mouse Memoirs;
+  font-size:25px;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+}
+.imgEjecutar{
+  margin-left: 2px;
+  margin-top: 10px;
+  width: 45px;
+  height: 45px;
+}

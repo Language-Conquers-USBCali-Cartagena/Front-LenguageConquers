@@ -55,4 +55,7 @@ export class MapaComponent implements OnInit {
   articulosAdquiridos(){
     this.router.navigate(['/curso/articulosAdquiridos']);
   }
+  home(){
+    this.router.navigate(['/estudiante/menu']);
+  }
 }
