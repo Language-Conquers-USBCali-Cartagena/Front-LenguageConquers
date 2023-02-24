@@ -6,6 +6,8 @@
   max-width: 100%;
   margin: 0 755px -25px 0;
   display: inline-block;
+  max-height: 400px;
+  overflow-y: auto;
 
   /* vertical-align: top; */
 }

@@ -14,19 +14,18 @@ export const environment = {
     measurementId: 'G-R8EJ8PT8KQ',
   },
   production: false,
-  firebaseConfig: {
-    apiKey: "AIzaSyCIzdgQ0ZYcy4kERBtiP7fXZh1itvZAdcI",
-    authDomain: "languageconquers-740dc.firebaseapp.com",
-    projectId: "languageconquers-740dc",
-    storageBucket: "languageconquers-740dc.appspot.com",
-    messagingSenderId: "373075886736",
-    appId: "1:373075886736:web:b77a7df1224f79b4504e15",
-    measurementId: "G-R8EJ8PT8KQ"
-  },
+  // firebaseConfig: {
+  //   apiKey: "AIzaSyCIzdgQ0ZYcy4kERBtiP7fXZh1itvZAdcI",
+  //   authDomain: "languageconquers-740dc.firebaseapp.com",
+  //   projectId: "languageconquers-740dc",
+  //   storageBucket: "languageconquers-740dc.appspot.com",
+  //   messagingSenderId: "373075886736",
+  //   appId: "1:373075886736:web:b77a7df1224f79b4504e15",
+  //   measurementId: "G-R8EJ8PT8KQ"
+  // },
   endpoint:'https://languageconquers.herokuapp.com'
   //'https://languageconquers.herokuapp.com'
   //'http://localhost:8086
-   endpoint: 'https://languageconquers.herokuapp.com'
 };
 
 /*

@@ -3,6 +3,8 @@ import { CdkDragDrop, copyArrayItem,  moveItemInArray,
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Respuestas } from 'src/app/shared/models/opciones';
+import { PalabraReservadaService } from '../../../../shared/services/palabraReservada/palabraReservada.service';
+import { PalabrasReservadas } from '../../../../shared/models/palabrasReservadas';
 
 @Component({
   selector: 'app-drag-and-drop',
@@ -10,29 +12,32 @@ import { Respuestas } from 'src/app/shared/models/opciones';
   styleUrls: ['./drag-and-drop.component.css']
 })
 export class DragAndDropComponent implements OnInit {
-  /*
-  palabras: Respuestas[] = [
-    {name: "Llevar cocos"},
-    {name: "Bajar Cocos"},
-    {name:"Treparse en la palmera"}
-  ];
-  listaRespuesta:Respuestas[] = [
-    {
-      name:"otra"
-    }
-  ];
-*/
-  palabras = ["llevar cocos", "Bajar cocos", "Subir a la palmera", "Pelar los cocos",
-  "Partir el coco", "beber agua del coco"];
-  listaRespuesta = ["terminar"];
 
+  palabras: PalabrasReservadas[] = [];
+  a: PalabrasReservadas[] = [];
+  b: PalabrasReservadas[] = [];
+  c: PalabrasReservadas[] = [];
+  d: PalabrasReservadas[] = [];
+  e: PalabrasReservadas[] = [];
+  f: PalabrasReservadas[] = [];
+  g: PalabrasReservadas[] = [];
+  h: PalabrasReservadas[] = [];
+  i: PalabrasReservadas[] = [];
+  j: PalabrasReservadas[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private palabraService: PalabraReservadaService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    await this.ObtenetPalabras();
   }
+  ObtenetPalabras(){
+    this.palabraService.getPalabrasReservadas().subscribe(data => {
+      this.palabras = data;
+    });
+  }
+
   //-----------------------------------------
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<PalabrasReservadas[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -49,14 +54,36 @@ export class DragAndDropComponent implements OnInit {
   }
 
   //-------------------------
-  a = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-  b = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
-  c = ['Hola'];
-  d = ['B'];
-  e = ['g'];
-  f = ['o'];
-  g = ['o'];
-  h = ['o'];
-  pal = ['cortar', 'escalar']
+  ejecutar(){
+    this.organizar(this.a, 1);
+    this.organizar(this.b, 2);
+    this.organizar(this.c, 3)
+    this.organizar(this.d, 4);
+    this.organizar(this.e, 5);
+    this.organizar(this.f, 6);
+    this.organizar(this.g, 7);
+    this.organizar(this.h, 8);
+    this.organizar(this.i, 9);
+    this.organizar(this.j, 10);
 
+    let resp: PalabrasReservadas[] = this.a.concat(this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
+    resp.forEach(resp => { console.log(resp);
+    })
+    // this.palabraService.procesarPalabras(resp).subscribe(resp =>{
+    //   console.log(resp);
+      
+    // });
+    
+  }
+
+  organizar(lista: PalabrasReservadas[], numeroLista: number){
+    for(let i = 0; i < lista.length; i ++){
+
+      lista[i].orden = i +1;
+      lista[i].lista = numeroLista;
+      console.log(lista[i].nombre + ' ' + lista[i].orden + ' ' + lista[i].lista);
+      
+    }
+  }
+  
 }
