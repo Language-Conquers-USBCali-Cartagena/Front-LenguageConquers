@@ -1,14 +1,11 @@
-<app-slider-principal></app-slider-principal>
 <div class="body">
   <br> <br>
   <mat-card fxFlex="50" class="tarjetaPeq">
-    <img class="imagen3d1" src="./assets/images/cofre.png">
     <mat-card-title class="titulo1">Hola {{estudiante.nombre}} {{estudiante.apellido}}</mat-card-title>
     <br>
     <mat-card-subtitle class="tituloTarjetaPeq">Bienvenido de nuevo a Language Conquers</mat-card-subtitle>
-    <div mat-card-avatar class="imagen3d2"></div>
   </mat-card>
-
+  <app-slider-principal></app-slider-principal>
   <div class="fondoTarjeta">
     <div class="estudiante">
       <mat-card class="cursos" *ngFor="let tarjetas of cursosCard" [routerLink]="['/curso/mapa/1']">
@@ -18,4 +15,5 @@
       </mat-card>
     </div>
   </div>
+
 </div>

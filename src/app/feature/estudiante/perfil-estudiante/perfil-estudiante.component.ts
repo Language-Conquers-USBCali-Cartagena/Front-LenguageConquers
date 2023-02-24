@@ -19,6 +19,7 @@ import { Estado } from 'src/app/shared/models/estado';
 import Swal from 'sweetalert2';
 import { log } from 'console';
 import { style } from '@angular/animations';
+import { EstudianteServiceService } from '../services/estudiante-service.service';
 
 @Component({
   selector: 'app-perfil-estudiante',
@@ -27,7 +28,7 @@ import { style } from '@angular/animations';
 })
 export class PerfilEstudianteComponent implements OnInit {
 
-  estudiante!: Estudiante;
+  estudiante: Estudiante = {};
   generos: Genero[] = [];
   avatares: Avatar[] = [];
   semestres: Semestre[] = [];
@@ -38,6 +39,17 @@ export class PerfilEstudianteComponent implements OnInit {
   idAvatar: number = 0;
   hayErrores = false;
   mensajeError: string="";
+  correo: string = '';
+  idSemestre: number | undefined = 0;
+  idGenero: number | undefined = 0;
+  idProgramas: number | undefined = 0;
+  idEstado: number | undefined = 0;
+  nombreSemestre!: string;
+  nombreProgramas!: string;
+  estado!: Estado;
+  nombreGenero!: string;
+
+  nombreEstado: any;
 
 
 
@@ -74,12 +86,13 @@ export class PerfilEstudianteComponent implements OnInit {
   }, this.speed);
 
 
-  constructor(private estudianteService: EstudianteService,private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
+  constructor(private estudianteService: EstudianteServiceService,private  estudianteServiceNormal: EstudianteService, private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
     private router:Router, private programaService: ProgramaService, private estadoService: EstadoService) {
       this.crearEstudiante();
      }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.obtenerEstudiante();
     this.crearEstudiante();
     //this.cargarEstudiante();
     this.getAvatar(this.pagina);
@@ -87,6 +100,28 @@ export class PerfilEstudianteComponent implements OnInit {
     this.getPrograma();
     this.getGenero();
     this.getSemestre();
+    this.setEstado();
+  }
+
+  async obtenerEstudiante() {
+    let correo = localStorage.getItem("correo")!;
+    await this.estudianteService.getEstudiante(correo).toPromise().then((response) => {
+      localStorage.setItem("usuario", JSON.stringify(response));
+      this.estudiante = response;
+    }
+
+    )
+    let idEstudiante: any;
+    idEstudiante = this.estudiante.idEstudiante;
+    this.estudianteServiceNormal.consultarPorId(idEstudiante).subscribe((data) => {
+      this.estudiante= data;
+      this.setEstudiante(this.estudiante);
+      console.log(typeof this.estudiante.idEstado);
+      this.idEstado = this.estudiante.idEstado;
+      this.idGenero = this.estudiante.idGenero;
+      this.idProgramas = this.estudiante.idPrograma;
+      this.idSemestre = this.estudiante.idSemestre;
+    });
   }
 
   crearEstudiante(){
@@ -110,16 +145,13 @@ export class PerfilEstudianteComponent implements OnInit {
     });
   }
 
-  cargarEstudiante(email: string){
-    this.activatedRoute.params.subscribe(
-      async (params) => {
-          await this.estudianteService.getEstudiantePorCorreo(email).subscribe((data) => {
-            this.estudiante= data;
-            this.setEstudiante(this.estudiante);
-          });
-      }
-    );
+  setEstado(){
+    this.estadoService.consultarPorId(this.estudiante.idEstado!).subscribe(data => {
+      this.estado = data;
+      this.nombreEstado = this.estado.estado;
+    })
   }
+
   setEstudiante(estudiante: Estudiante){
     this.form = this.fb.group({
       idEstudiante: estudiante.idEstudiante,
@@ -141,11 +173,12 @@ export class PerfilEstudianteComponent implements OnInit {
     });
   }
 
+  /*
   getEstudiantePorCorreo(email:string){
     if(this.estudianteService.existEstudianteByCorreo(email)){
       this.estudianteService.getEstudiantePorCorreo(email)
     }
-  }
+  }*/
 
   async getAvatar(page: number){
     await this.avatarService.getAvataresPage(page).toPromise().then((response) => {
@@ -170,7 +203,7 @@ export class PerfilEstudianteComponent implements OnInit {
   pasarDer(){
 
     this.pagina = this.pagina +1;
-    
+
     console.log(this.pagina);
     console.log(this.avatares.length);
     this.getAvatar(this.pagina);
@@ -221,7 +254,7 @@ export class PerfilEstudianteComponent implements OnInit {
     const genero = this.form.value.idGenero;
     const estado = this.form.value.idEstado;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let estudiante: Estudiante = {idEstudiante: this.form.value.idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioModificador: usuarioModificador,
+    let estudiante: Estudiante = {idEstudiante: this.estudiante.idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName,puntaje: puntaje, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado, fechaCreacion: this.estudiante.fechaCreacion, usuarioCreador: this.estudiante.usuarioCreador}
     this.estadoService.actualizarEstado(estudiante).subscribe(data=>{
       Swal.fire({

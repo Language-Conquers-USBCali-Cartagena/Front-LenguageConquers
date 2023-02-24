@@ -1,3 +1,8 @@
+*{
+  background-color: rgb(219,211,205);
+  height: auto;
+  width: auto;
+}
 .menu>a{
 color: rgb(169,107,58);
 margin-left: 30px;

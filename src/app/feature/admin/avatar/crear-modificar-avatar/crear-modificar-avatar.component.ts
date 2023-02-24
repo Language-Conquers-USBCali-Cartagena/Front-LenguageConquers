@@ -8,6 +8,7 @@ import { uploadBytes } from 'firebase/storage';
 import { Avatar } from 'src/app/shared/models/avatar';
 import { AvatarService } from 'src/app/shared/services/avatar/avatar.service';
 import Swal from 'sweetalert2';
+import { MatRadioChange } from '@angular/material/radio';
 
 @Component({
   selector: 'app-crear-modificar-avatar',
@@ -36,7 +37,7 @@ export class CrearModificarAvatarComponent implements OnInit {
     this.form = this.fb.group({
       idAvatar: ['', Validators.required],
       nombre:  ['', Validators.required],
-      imagenAvatar: ['', Validators.required],
+      imagenAvatar: ['',Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
       usuarioModificador: ['', Validators.required],
@@ -139,72 +140,31 @@ export class CrearModificarAvatarComponent implements OnInit {
     const file = $event.target.files[0];
     console.log(file);
     const imagenReferencia = ref(this.storage, `avatares/${file.name}`);
-    console.log(imagenReferencia)
-    const uploadTask = uploadBytesResumable(imagenReferencia, file.name);
-    uploadTask.on('state_changed',
-    (snapshot) => {
-      const progress =
-      (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-       // console.log('El porcentaje de subida es de ' + progress + '%');
-       switch (snapshot.state) {
-        case 'paused':
-          // console.log('La carga se ha pausado');
-          break;
-        case 'running':
-          // console.log('La carga esta activa');
-          break;
-      }
-    },
-    (error) => {
-      Swal.fire('Error', 'No se pudo cargar la foto', 'error');
-    },() => {
-      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        // console.log('File available at', downloadURL);
-        this.imagenUrl = downloadURL;
+    uploadBytes(imagenReferencia,file,{contentType:'image/png'}).then(
+      response =>{
+        getDownloadURL(imagenReferencia).then(downloadURL =>{
+          this.imagenUrl = downloadURL;
+        });
+      }).catch(error =>{
+        Swal.fire({
+          icon:'error',
+          title: 'Oops...',
+          text: error
+        });
       });
-    }
-   );
-
-
-
   }
 
-  getImagenStorage(){
-    const imagenReferencia = ref(this.storage, 'avatares');
-    list(imagenReferencia)
-      .then(async response => {
-        //console.log(response);
-          const urlImagen = await getDownloadURL(response.items[0]);
-          console.log(urlImagen);
-          this.imagenUrl = urlImagen;
 
-      })
-      .catch(error => console.log(error));
-
-  }
-
-  archivo(event: MatCheckboxChange){
-    if(!event.checked){
-      this.isFile = false;
-      this.isURL = false;
-    }else if(event.checked){
+  archivoOrURL(event: MatRadioChange){
+    if(event.value ==1){
       this.isFile = true;
-    }
-    else{
+      this.isURL = false;
+    }else if(event.value ==2){
+      this.isURL =true;
       this.isFile = false;
     }
+  }
 
-  }
-  url(event: MatCheckboxChange){
-    if(!event.checked){
-      this.isFile = false;
-      this.isURL = false;
-    }else if(event.checked){
-      this.isURL = true;
-    }else{
-      this.isURL = false;
-    }
-  }
 
    atras(){
     this.router.navigateByUrl('/admin/avatar/listar-avatar');

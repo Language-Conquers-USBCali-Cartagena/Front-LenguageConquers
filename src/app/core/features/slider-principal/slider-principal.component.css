@@ -1,18 +1,19 @@
 *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  height: auto;
+  width: auto;
+
+background-color: rgb(219,211,205);
 }
 .slider{
-  width: 90%;
+  width: 80%;
   height: 300px;
   overflow: hidden;
-  padding-top: 40px;
-  padding-left: 120px;
-
+  padding-top: 10px;
+  padding-left: 100px;
+  background-color: transparent;
   align-items: center;
-
   margin-left: 100px;
+
 }
 
 .slider ul{
@@ -20,10 +21,11 @@
   padding: 0;
   animation: cambio 20s infinite alternate linear;
   width: 400%;
-  
+
+
 }
 .slider li{
-  width: 100%;
+  width: 80%;
   list-style: none;
 }
 .slider img{

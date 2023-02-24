@@ -82,7 +82,7 @@
           <div class="campo-entrada">
             <mat-form-field appearance="fill">
               <mat-label class="titulos">Estado</mat-label>
-              <mat-select formControlName="idEstado">
+              <mat-select formControlName="idEstado" [(value)]="nombreEstado">
                 <mat-option *ngFor="let estado of estados" [value]="estado">
                   {{estado.estado}}
                 </mat-option>
@@ -131,3 +131,4 @@
     </mat-card-content>
   </mat-card>
 </div>
+<br>
