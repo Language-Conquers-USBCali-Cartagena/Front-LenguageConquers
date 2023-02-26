@@ -4,30 +4,22 @@
   box-sizing: border-box;
 }
 .slider{
-  width: 90%;
-  height: 300px;
+  width: 100%;
+  height: 450px;
   overflow: hidden;
-  padding-top: 40px;
-  padding-left: 120px;
-
-  align-items: center;
-
-  margin-left: 100px;
 }
-
 .slider ul{
   display: flex;
   padding: 0;
   animation: cambio 20s infinite alternate linear;
   width: 400%;
-  
 }
 .slider li{
   width: 100%;
   list-style: none;
 }
 .slider img{
-  width: 90%;
+  width: 100%;
   height: 100%;
 }
 @Keyframes cambio{
@@ -43,4 +35,13 @@
   75%{margin-left:-300%;}
   100%{margin-left:-300%;}
 
+}
+@media screen and (max-width:700px) {
+  .slider{
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    margin-left: 10px;
+  }
+  
 }
