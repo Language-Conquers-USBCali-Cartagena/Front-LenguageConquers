@@ -37,7 +37,7 @@ import { HttpInterceptorService } from './core/service/HttpInterceptor.service';
     ReactiveFormsModule,
     MaterialModule,
     CoreModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
