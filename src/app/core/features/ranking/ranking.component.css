@@ -9,8 +9,8 @@
 .banner{
   background-image: url(../../../../assets/images/fondos/bannerRanking.png);
   background-size: cover;
-  height:270px;
-  width:1255px;
+  height:500px;
+  width:1879px;
   padding-left:-10px;
 }
 .titulo{
@@ -23,41 +23,41 @@
   display:flex;
   flex-direction:row;
   flex-wrap: wrap;
-
+  margin-left: 300px;
 }
 
 .example-card1 {
   width: 250px;
   height: 100px;
   color: #fff;
-  margin: 10px;
+  margin: 5px;
   border-radius: 24px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-  margin-left: 10%;
+  margin-left: 5%;
   max-width: 300px;
   background-image: linear-gradient( 135deg, #FFE985 10%, #FA742B 100%);
-
+  margin-right: 70px;
 }
 .example-card2{
   width: 250px;
   height: 100px;
   color: #fff;
-  margin: 10px;
+  margin: 5px;
   border-radius: 24px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-  margin-left: 10%;
+  margin-left: 5%;
   max-width: 300px;
   background-image: linear-gradient( 135deg, #3C8CE7 10%, #00EAFF 100%);
-
+  margin-right: 70px;
 }
 .example-card3{
   width: 250px;
   height: 100px;
   color: #fff;
-  margin: 10px;
+  margin: 5px;
   border-radius: 24px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-  margin-left: 10%;
+  margin-left: 5%;
   max-width: 300px;
   background-image: linear-gradient( 135deg, #CE9FFC 10%, #7367F0 100%);;
   align-items: center;
@@ -133,4 +133,28 @@ td{
   width:150px;
   height:50px;
   align-items: center;
+}
+@media screen and (max-width: 700px) {
+  .banner{
+    background-image: url(../../../../assets/images/fondos/bannerRanking.png);
+    background-size: cover;
+    height:100px;
+    width:410px;
+    padding-left:-10px;
+  }
+  .container{
+    margin-left: -2%;
+  display:flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  margin-left: 72px;
+  }
+  .titulo{
+    padding-left: 22%;
+  font-size:50px;
+  color: #fff;
+  }
+  .tabla{
+    padding-left: 23%;
+  }
 }
