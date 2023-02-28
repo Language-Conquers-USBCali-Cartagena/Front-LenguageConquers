@@ -4,8 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Logros } from 'src/app/shared/models/logros';
 import Swal from 'sweetalert2';
 import { LogrosService } from '../../../../shared/services/logros/logros.service';
-import { getDownloadURL, list, ref, uploadBytesResumable, Storage } from '@angular/fire/storage';
+import { getDownloadURL, list, ref, uploadBytesResumable, Storage, uploadBytes } from '@angular/fire/storage';
 import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatRadioChange } from '@angular/material/radio';
 
 @Component({
   selector: 'app-crear-modificar-logros',
@@ -33,7 +34,7 @@ export class CrearModificarLogrosComponent implements OnInit {
       idLogro:['', Validators.required],
       nombre:  ['', Validators.required],
       descripcion: ['', Validators.required],
-      imagenLogro: ['', Validators.required],
+      imagenL: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
       usuarioModificador: ['', Validators.required],
@@ -83,12 +84,11 @@ export class CrearModificarLogrosComponent implements OnInit {
       idLogro: logro.idLogro,
       nombre: logro.nombre,
       descripcion: logro.descripcion,
-      imagenLogro: logro.imagen,
+      imagenL: logro.imagen,
       usuarioCreador: logro.usuarioCreador,
       fechaCreacion: logro.fechaCreacion,
       usuarioModificador: logro.usuarioModificador,
       fechaModificacion: logro.fechaModificacion
-
     });
   }
 
@@ -109,7 +109,7 @@ export class CrearModificarLogrosComponent implements OnInit {
   actualizar():void{
     const nombre = this.form.value.nombre;
     const descripcion = this.form.value.descripcion;
-    const imagenLogro = this.form.value.imagenLogro;
+    const imagenLogro = this.imagenUrl;
     const usuarioModificador = this.form.value.usuarioModificador;
     let logro: Logros = {idLogro:this.form.value.idLogro ,nombre: nombre, descripcion: descripcion, imagen: imagenLogro, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date(), fechaCreacion: this.logro.fechaCreacion, usuarioCreador: this.logro.usuarioCreador}
@@ -136,68 +136,29 @@ export class CrearModificarLogrosComponent implements OnInit {
 
   uploadImage($event: any) {
     const file = $event.target.files[0];
+    console.log(file);
     const imagenReferencia = ref(this.storage, `logros/${file.name}`);
-    const uploadTask = uploadBytesResumable(imagenReferencia, file.name);
-
-    uploadTask.on('state_changed',
-    (snapshot) => {
-     this.porcentajeSubida = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          // console.log('El porcentaje de subida es de ' + progress + '%');
-          switch (snapshot.state) {
-            case 'paused':
-              // console.log('La carga se ha pausado');
-              break;
-            case 'running':
-              // console.log('La carga esta activa');
-              break;
-          }
-    },
-    (error) => {
-      Swal.fire('Error', 'No se pudo cargar la foto', 'error');
-    },() => {
-      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-
-        this.imagenUrl = downloadURL;
+    uploadBytes(imagenReferencia,file,{contentType:'image/png'}).then(
+      response =>{
+        getDownloadURL(imagenReferencia).then(downloadURL =>{
+          this.imagenUrl = downloadURL;
+        });
+      }).catch(error =>{
+        Swal.fire({
+          icon:'error',
+          title: 'Oops...',
+          text: error
+        });
       });
-    }
-   );
-
   }
 
-  getImagenStorage(){
-    const imagenReferencia = ref(this.storage, 'logros');
-    list(imagenReferencia)
-      .then(async response => {
-        //console.log(response);
-          const urlImagen = await getDownloadURL(response.items[0]);
-          console.log(urlImagen);
-          //this.imagenUrl = urlImagen;
-
-      })
-      .catch(error => console.log(error));
-
-  }
-
-  archivo(event: MatCheckboxChange){
-    if(!event.checked){
-      this.isFile = false;
-      this.isURL = false;
-    }else if(event.checked){
+  archivoOrURL(event: MatRadioChange){
+    if(event.value ==1){
       this.isFile = true;
-    }
-    else{
-      this.isFile = false;
-    }
-
-  }
-  url(event: MatCheckboxChange){
-    if(!event.checked){
-      this.isFile = false;
       this.isURL = false;
-    }else if(event.checked){
-      this.isURL = true;
-    }else{
-      this.isURL = false;
+    }else if(event.value ==2){
+      this.isURL =true;
+      this.isFile = false;
     }
   }
 

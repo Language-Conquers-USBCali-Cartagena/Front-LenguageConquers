@@ -1862,7 +1862,7 @@ td.mat-footer-cell {
 }
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
-  background-color: rgb(241, 231, 194);
+  background-color: rgb(201,131,69);
 }
 .mat-error {
   color: rgb(241, 231, 194);
@@ -1889,7 +1889,7 @@ td.mat-footer-cell {
   background-repeat: repeat-x;
 }
 .mat-form-field-appearance-standard .mat-form-field-underline {
-  background-color: rgb(241, 231, 194);
+  background-color: rgb(201,131,69);
 }
 .mat-form-field-appearance-standard.mat-form-field-disabled
   .mat-form-field-underline {
@@ -1909,7 +1909,7 @@ td.mat-footer-cell {
   background-color: rgba(0, 0, 0, 0.02);
 }
 .mat-form-field-appearance-fill .mat-form-field-underline::before {
-  background-color: rgb(241, 231, 194);
+  background-color: rgb(201,131,69);
 }
 .mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-label {
   color: rgba(0, 0, 0, 0.38);
@@ -2108,7 +2108,7 @@ td.mat-footer-cell {
   stroke: #f44336;
 }
 .mat-radio-outer-circle {
-  border-color: rgba(0, 0, 0, 0.54);
+  border-color: rgb(188,119,61);
 }
 .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
   border-color:  rgb(201,131,69);
@@ -2122,7 +2122,7 @@ td.mat-footer-cell {
   background-color:  rgb(201,131,69);
 }
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: #ff4081;
+  border-color: rgb(201,131,69);
 }
 .mat-radio-button.mat-accent .mat-radio-inner-circle,
 .mat-radio-button.mat-accent
@@ -2130,7 +2130,7 @@ td.mat-footer-cell {
   .mat-ripple-element:not(.mat-radio-persistent-ripple),
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
 .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
-  background-color: #ff4081;
+  background-color: rgb(201,131,69);
 }
 .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
   border-color: #f44336;

@@ -47,26 +47,25 @@
           <br>
           <section class="example-section">
             <mat-radio-group>
-              <mat-checkbox class="titulosCheckbox" (change)="archivo($event)">Seleccionar Archivo</mat-checkbox>
-              <mat-checkbox class="titulosCheckbox" (change)="url($event)">Ingresar URL</mat-checkbox>
+              <!--<mat-checkbox class="titulosCheckbox" (change)="archivo($event, $event)">Seleccionar Archivo</mat-checkbox>
+              <mat-checkbox class="titulosCheckbox" (change)="archivo($event, $event)">Ingresar URL</mat-checkbox>-->
+              <mat-radio-button  class="titulosCheckbox" (change)="archivoOrURL($event)" value="1">Seleccionar Archivo</mat-radio-button>
+              <mat-radio-button  class="titulosCheckbox" (change)="archivoOrURL($event)" value="2">Ingresar URL</mat-radio-button>
             </mat-radio-group>
           </section>
         </div>
-        <br>
-
         <div class="campo-entrada1" *ngIf="isFile">
           <br>
-          <mat-label class="tituloImagen1"> Seleccionar Imagen para la misión </mat-label>
+          <mat-label class="tituloImagen1"> Seleccionar Imagen de Avatar </mat-label>
           <br><br>
           <input class="inputFile" type="file" #fileInput
-            (change)="uploadImage($event)" id="imagen">
-          <label for="imagen" name="imagen1" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
-          <br><br><br>
+            (change)="uploadImage($event)" id="imagenAvatar">
+          <label for="imagenAvatar" class="botonSeleccionarArchivo" formControlName="imagen"> Seleccionar Imagen</label>
+          <br>
         </div>
-
         <div class="campo-entrada" *ngIf="isURL">
           <mat-form-field appearance="fill" class="inputUrl">
-            <mat-label class="titulos">Imagen Misión</mat-label>
+            <mat-label class="titulos">Imagen  Avatar</mat-label>
             <input type="text" matInput autocomplete="off" formControlName="imagen" id="imagen">
             <mat-icon matSuffix>image</mat-icon>
           </mat-form-field>

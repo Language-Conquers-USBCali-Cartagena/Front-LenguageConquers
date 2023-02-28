@@ -10,10 +10,11 @@ import { MonedasService } from 'src/app/shared/services/monedas/monedas.service'
 import Swal from 'sweetalert2';
 import { MisionService } from '../../../../shared/services/mision/mision.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { getDownloadURL, list, ref, uploadBytesResumable, Storage } from '@angular/fire/storage';
+import { getDownloadURL, list, ref,  Storage, uploadBytes } from '@angular/fire/storage';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { MatRadioChange } from '@angular/material/radio';
-import { Observable } from 'rxjs/internal/Observable';
+
+
 
 @Component({
   selector: 'app-crear-modificar-mision',
@@ -103,46 +104,20 @@ export class CrearModificarMisionComponent implements OnInit {
 
   uploadImage($event: any) {
     const file = $event.target.files[0];
+    console.log(file);
     const imagenReferencia = ref(this.storage, `misiones/${file.name}`);
-    const uploadTask = uploadBytesResumable(imagenReferencia, file.name);
-
-    uploadTask.on('state_changed',
-    (snapshot) => {
-     this.porcentajeSubida = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          // console.log('El porcentaje de subida es de ' + progress + '%');
-          switch (snapshot.state) {
-            case 'paused':
-              // console.log('La carga se ha pausado');
-              break;
-            case 'running':
-              // console.log('La carga esta activa');
-              break;
-          }
-    },
-    (error) => {
-      Swal.fire('Error', 'No se pudo cargar la foto', 'error');
-    },() => {
-      getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-
-        this.imagenUrl = downloadURL;
+    uploadBytes(imagenReferencia,file,{contentType:'image/png'}).then(
+      response =>{
+        getDownloadURL(imagenReferencia).then(downloadURL =>{
+          this.imagenUrl = downloadURL;
+        });
+      }).catch(error =>{
+        Swal.fire({
+          icon:'error',
+          title: 'Oops...',
+          text: error
+        });
       });
-    }
-   );
-
-  }
-
-  getImagenStorage(){
-    const imagenReferencia = ref(this.storage, 'misiones');
-    list(imagenReferencia)
-      .then(async response => {
-        //console.log(response);
-          const urlImagen = await getDownloadURL(response.items[0]);
-          console.log(urlImagen);
-          //this.imagenUrl = urlImagen;
-
-      })
-      .catch(error => console.log(error));
-
   }
 
   setMision(mision: Mision) {
@@ -158,26 +133,13 @@ export class CrearModificarMisionComponent implements OnInit {
     });
   }
 
-  archivo(event: MatCheckboxChange){
-    if(!event.checked){
-      this.isFile = false;
-      this.isURL = false;
-    }else if(event.checked){
+  archivoOrURL(event: MatRadioChange){
+    if(event.value ==1){
       this.isFile = true;
-    }
-    else{
-      this.isFile = false;
-    }
-
-  }
-  url(event: MatCheckboxChange){
-    if(!event.checked){
-      this.isFile = false;
       this.isURL = false;
-    }else if(event.checked){
-      this.isURL = true;
-    }else{
-      this.isURL = false;
+    }else if(event.value ==2){
+      this.isURL =true;
+      this.isFile = false;
     }
   }
   cargarMision(){

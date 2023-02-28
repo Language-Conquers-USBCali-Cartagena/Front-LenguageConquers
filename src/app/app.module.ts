@@ -12,14 +12,11 @@ import { MaterialModule } from './shared/material/material.module';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from "@angular/fire/compat";
 import { CoreModule } from './core/core.module';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { FirebaseApp, initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AdminModule } from './feature/admin/admin.module';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { HttpInterceptorService } from './core/service/HttpInterceptor.service';
-
-
-
 
 
 
@@ -41,12 +38,12 @@ import { HttpInterceptorService } from './core/service/HttpInterceptor.service';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
-    
+
 
   ],
   providers: [
     {
-      provide: HTTP_INTERCEPTORS, 
+      provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true
     }
@@ -54,4 +51,7 @@ import { HttpInterceptorService } from './core/service/HttpInterceptor.service';
   bootstrap: [AppComponent]
 
 })
-export class AppModule { }
+export class AppModule {
+
+
+ }

@@ -1,12 +1,14 @@
 *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  height: auto;
+  width: auto;
+
+background-color: rgb(219,211,205);
 }
 .slider{
   width: 100%;
   height: 450px;
   overflow: hidden;
+
 }
 .slider ul{
   display: flex;
@@ -15,7 +17,7 @@
   width: 400%;
 }
 .slider li{
-  width: 100%;
+  width: 80%;
   list-style: none;
 }
 .slider img{
