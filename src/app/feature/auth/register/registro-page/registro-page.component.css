@@ -3,18 +3,18 @@
   display: flex;
   justify-content: left;
   width: auto;
-  height: 100%;
+  height: 79%;
   background-repeat: no-repeat;
   background-size: auto;
   background-color: rgba(36, 28, 25, 0.918);
 }
-.fondo{
+/* .fondo{
   background-image: url(../../../../../assets/images/fondos/FondoPrincipal1.png);
   background-size: cover;
-}
+} */
 
 .login{
-  height: 30%;
+  height: 10%;
   bottom: 50%;
   width: auto;
   height: 100%;
@@ -38,7 +38,9 @@
   border-radius: 15px;
   background: rgba(151, 116, 116, 0);
 }
-
+.imagen{
+  width: 1450px;
+}
 .logo{
   height: 120px;
   padding-left: 40px;

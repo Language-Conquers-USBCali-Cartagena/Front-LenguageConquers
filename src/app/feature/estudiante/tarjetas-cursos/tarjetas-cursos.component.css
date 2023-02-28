@@ -1,24 +1,27 @@
 .body{
+
   background-color:rgb(219,211,205);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   background-size: cover;
   background-repeat: no-repeat;
   height: auto;
-  width: auto;
   align-items: center;
 }
 .tarjetaPeq{
-  width: 1040px;
+  width: 830px;
   height: 10px;
   margin-right: 30px;
-  margin-left: 202px;
+  margin-left: 200px;
+
   /*Efecto espejo*/
   padding: 48px;
+  border-radius: 24px;
   background: linear-gradient(
   135deg,
-  rgba(173, 170, 168, 0.432),
-  rgba(166, 161, 158, 0.432)
+  rgba(255, 255, 255, 0.514),
+  rgba(255, 255, 255, 0.514)
+
 );
 backdrop-filter: blur(3px);
 -webkit-backdrop-filter: blur(3px);
@@ -65,7 +68,7 @@ border-radius: 20px;
   width: 1030px;
   height: 200px;
   margin-right: 80px;
-  margin-left: 180px;
+  margin-left: 110px;
   padding: 48px;
   margin-top: -20px;
 
@@ -118,7 +121,7 @@ margin-left: -7px;
   box-shadow: 0px 0px 0px 0px rgb(116, 115, 115, 0.466),
     0px 0px 0px 0px rgb(116, 115, 115, 0.466), 0px 0px 0px 0px rgb(116, 115, 115, 0.466);
 }
-@media screen  and (max-width: 600px) {
+@media screen  and (max-width: 700px) {
   .body{
       background: url(../../../../assets/images/fondos/fondoHome.png);
       background-size: cover;
@@ -127,7 +130,7 @@ margin-left: -7px;
   }
   .fondoTarjeta {
       width: 260px;
-      height: 600px;
+      height: 570px;
       font-family: Pirata One;
       /*Efectoespejo*/
       margin-left: 30px;
@@ -148,4 +151,58 @@ margin-left: -7px;
   .estudiante>button{
       margin-left: 110px;
   }
+  
+  
+  
+  
+  .tarjetaPeq{
+    width: 306px;
+    height: 40px;
+    margin-right: 0px;
+    margin-left: 67px;
+    /*Efecto espejo*/
+    padding: 0px;
+    border-radius: 24px;
+    background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.514),
+    rgba(255, 255, 255, 0.514)
+  );
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  font-size: 30px;
+  color:rgb(6,43,60);
+  text-align: center;
+  }
+  .imagen3d1{
+    position: absolute;
+    left: 0%;
+    top: 0px;
+    transform: translateX(-50%);
+    height: 0px;
+    transform: rotate(10deg);
+  }
+  .titulo1{
+    font-size: 40px;
+    line-height: 5px;
+  }
+  .imagen3d2{
+    background-image: url(../../../../assets/images/avatar/Avatar-2.png);
+    background-size:cover;
+    position: absolute;
+    left: 0%;
+    top: 0px;
+    transform: translateX(-50%);
+    height: 0px;
+    width: 0px;
+  
+  }
+  .tituloTarjetaPeq{
+    font: size 20px;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(6,43,60);
+  
+  }
 }
+
