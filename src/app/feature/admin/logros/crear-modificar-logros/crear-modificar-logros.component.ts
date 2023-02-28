@@ -34,7 +34,7 @@ export class CrearModificarLogrosComponent implements OnInit {
       idLogro:['', Validators.required],
       nombre:  ['', Validators.required],
       descripcion: ['', Validators.required],
-      imagenLogro: ['', Validators.required],
+      imagenL: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
       usuarioModificador: ['', Validators.required],
@@ -84,12 +84,11 @@ export class CrearModificarLogrosComponent implements OnInit {
       idLogro: logro.idLogro,
       nombre: logro.nombre,
       descripcion: logro.descripcion,
-      imagenLogro: logro.imagen,
+      imagenL: logro.imagen,
       usuarioCreador: logro.usuarioCreador,
       fechaCreacion: logro.fechaCreacion,
       usuarioModificador: logro.usuarioModificador,
       fechaModificacion: logro.fechaModificacion
-
     });
   }
 
@@ -110,7 +109,7 @@ export class CrearModificarLogrosComponent implements OnInit {
   actualizar():void{
     const nombre = this.form.value.nombre;
     const descripcion = this.form.value.descripcion;
-    const imagenLogro = this.form.value.imagenLogro;
+    const imagenLogro = this.imagenUrl;
     const usuarioModificador = this.form.value.usuarioModificador;
     let logro: Logros = {idLogro:this.form.value.idLogro ,nombre: nombre, descripcion: descripcion, imagen: imagenLogro, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date(), fechaCreacion: this.logro.fechaCreacion, usuarioCreador: this.logro.usuarioCreador}

@@ -46,9 +46,9 @@ export class PerfilEstudianteComponent implements OnInit {
   idEstado: number | undefined = 0;
   nombreSemestre!: string;
   nombreProgramas!: string;
-  estado!: Estado;
+  estado!: string;
   nombreGenero!: string;
-
+  usuario!: Estudiante;
   nombreEstado: any;
 
 
@@ -104,24 +104,16 @@ export class PerfilEstudianteComponent implements OnInit {
   }
 
   async obtenerEstudiante() {
-    let correo = localStorage.getItem("correo")!;
-    await this.estudianteService.getEstudiante(correo).toPromise().then((response) => {
-      localStorage.setItem("usuario", JSON.stringify(response));
-      this.estudiante = response;
-    }
+    let usuarioResp = localStorage.getItem("usuario");
+    this.usuario = JSON.parse(String(usuarioResp));
+    console.log(this.usuario.apellido);
+    this.setEstudiante(this.usuario);
 
-    )
-    let idEstudiante: any;
-    idEstudiante = this.estudiante.idEstudiante;
-    this.estudianteServiceNormal.consultarPorId(idEstudiante).subscribe((data) => {
-      this.estudiante= data;
-      this.setEstudiante(this.estudiante);
-      console.log(typeof this.estudiante.idEstado);
-      this.idEstado = this.estudiante.idEstado;
-      this.idGenero = this.estudiante.idGenero;
-      this.idProgramas = this.estudiante.idPrograma;
-      this.idSemestre = this.estudiante.idSemestre;
-    });
+    this.idEstado = this.usuario.idEstado;
+    this.idGenero = this.usuario.idGenero;
+    this.idProgramas = this.usuario.idPrograma;
+    this.idSemestre = this.usuario.idSemestre;
+
   }
 
   crearEstudiante(){
@@ -146,9 +138,9 @@ export class PerfilEstudianteComponent implements OnInit {
   }
 
   setEstado(){
-    this.estadoService.consultarPorId(this.estudiante.idEstado!).subscribe(data => {
-      this.estado = data;
-      this.nombreEstado = this.estado.estado;
+    this.estadoService.consultarPorId(this.idEstado!).subscribe(data => {
+      this.nombreEstado = data.estado;
+
     })
   }
 
@@ -173,12 +165,6 @@ export class PerfilEstudianteComponent implements OnInit {
     });
   }
 
-  /*
-  getEstudiantePorCorreo(email:string){
-    if(this.estudianteService.existEstudianteByCorreo(email)){
-      this.estudianteService.getEstudiantePorCorreo(email)
-    }
-  }*/
 
   async getAvatar(page: number){
     await this.avatarService.getAvataresPage(page).toPromise().then((response) => {
@@ -253,17 +239,17 @@ export class PerfilEstudianteComponent implements OnInit {
     const puntaje = this.form.value.puntaje;
     const genero = this.form.value.idGenero;
     const estado = this.form.value.idEstado;
-    const usuarioModificador = this.form.value.usuarioModificador;
+    const usuarioModificador = this.estudiante.nombre;
     let estudiante: Estudiante = {idEstudiante: this.estudiante.idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName,puntaje: puntaje, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado, fechaCreacion: this.estudiante.fechaCreacion, usuarioCreador: this.estudiante.usuarioCreador}
-    this.estadoService.actualizarEstado(estudiante).subscribe(data=>{
+    this.estudianteServiceNormal.actualizarEstudiante(estudiante).subscribe(data=>{
       Swal.fire({
         icon: 'success',
         title: data,
         showConfirmButton: false,
         timer: 1500
       });
-      this.router.navigate(['/admin/usuarios/listar-usuarios']);
+      this.router.navigate(['/estudiante/menu']);
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e['error'];
