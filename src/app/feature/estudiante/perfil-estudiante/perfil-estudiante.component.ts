@@ -49,7 +49,7 @@ export class PerfilEstudianteComponent implements OnInit {
   estado!: string;
   nombreGenero!: string;
   usuario!: Estudiante;
-  nombreEstado: any;
+  nombreEstado!: string | undefined;
 
 
 
@@ -91,8 +91,7 @@ export class PerfilEstudianteComponent implements OnInit {
       this.crearEstudiante();
      }
 
-  async ngOnInit(): Promise<void> {
-    await this.obtenerEstudiante();
+  ngOnInit() {
     this.crearEstudiante();
     //this.cargarEstudiante();
     this.getAvatar(this.pagina);
@@ -100,19 +99,18 @@ export class PerfilEstudianteComponent implements OnInit {
     this.getPrograma();
     this.getGenero();
     this.getSemestre();
+    this.obtenerEstudiante();
     this.setEstado();
   }
 
-  async obtenerEstudiante() {
-    let usuarioResp = localStorage.getItem("usuario");
-    this.usuario = JSON.parse(String(usuarioResp));
-    console.log(this.usuario.apellido);
-    this.setEstudiante(this.usuario);
-
-    this.idEstado = this.usuario.idEstado;
-    this.idGenero = this.usuario.idGenero;
-    this.idProgramas = this.usuario.idPrograma;
-    this.idSemestre = this.usuario.idSemestre;
+  obtenerEstudiante() {
+    let usuarioResp: Estudiante = JSON.parse(String(localStorage.getItem("usuario")));
+    console.log(usuarioResp.apellido);
+    this.setEstudiante(usuarioResp);
+    this.idEstado = usuarioResp.idEstado;
+    this.idGenero = usuarioResp.idGenero;
+    this.idProgramas = usuarioResp.idPrograma;
+    this.idSemestre = usuarioResp.idSemestre;
 
   }
 
