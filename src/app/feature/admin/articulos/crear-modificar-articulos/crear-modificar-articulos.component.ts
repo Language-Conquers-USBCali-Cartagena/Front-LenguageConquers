@@ -98,6 +98,24 @@ export class CrearModificarArticulosComponent implements OnInit {
 
   }
 
+  uploadImage($event: any) {
+    const file = $event.target.files[0];
+    console.log(file);
+    const imagenReferencia = ref(this.storage, `articulos/${file.name}`);
+    uploadBytes(imagenReferencia,file,{contentType:'image/png'}).then(
+      response =>{
+        getDownloadURL(imagenReferencia).then(downloadURL =>{
+          this.imagenUrl = downloadURL;
+        });
+      }).catch(error =>{
+        Swal.fire({
+          icon:'error',
+          title: 'Oops...',
+          text: error
+        });
+      });
+  }
+
   setArticulo(articulo: Articulo) {
     this.form.setValue({
       idArticulo: articulo.idArticulo,
@@ -151,6 +169,7 @@ export class CrearModificarArticulosComponent implements OnInit {
     },(e) =>{
       this.hayErrores = true;
       this.mensajeError = e.error;
+      console.log(this.mensajeError);
       Swal.fire({
         icon: 'error',
         title: e['error'],
@@ -160,33 +179,6 @@ export class CrearModificarArticulosComponent implements OnInit {
     });
   }
 
-  uploadImage($event: any) {
-    const file = $event.target.files[0];
-    console.log(file);
-    const imagenReferencia = ref(this.storage, `articulos/${file.name}`);
-    uploadBytes(imagenReferencia,file,{contentType:'image/png'}).then(
-      response =>{
-        getDownloadURL(imagenReferencia).then(downloadURL =>{
-          this.imagenUrl = downloadURL;
-        });
-      }).catch(error =>{
-        Swal.fire({
-          icon:'error',
-          title: 'Oops...',
-          text: error
-        });
-      });
-  }
-
-  archivoOrURL(event: MatRadioChange){
-    if(event.value ==1){
-      this.isFile = true;
-      this.isURL = false;
-    }else if(event.value ==2){
-      this.isURL =true;
-      this.isFile = false;
-    }
-  }
   atras(){
     this.router.navigateByUrl('/admin/articulos/listar-articulos');
   }

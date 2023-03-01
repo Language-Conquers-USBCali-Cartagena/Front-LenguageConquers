@@ -21,7 +21,7 @@
   display: grid;
   margin-top: 10px;
   margin-bottom: -100px;
-  grid-template-columns: repeat(2, 18em);
+  grid-template-columns: repeat(3, 20em);
   justify-content: center;
 
 }
@@ -38,6 +38,25 @@ mat-form-field{
   font-size:20px;
   color: rgb(255, 255, 255);
   }
+  .tituloImagen1{
+    font-size: 25px;
+    margin-bottom: 5px;
+    color: rgb(255, 255, 255);
+  }
+  .botonSeleccionarArchivo{
+    margin-left: -150px;
+    margin-top: -36px;
+    width: 128px;
+    height:20px;
+    background-color: rgb(205, 159, 118);
+    border-radius: 20px;
+    position: absolute;
+    padding: 10px;
+    font-size: 20px;
+    box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
+    cursor: pointer;
+  }
+
 
 .boton {
   margin: 3px;
@@ -59,6 +78,7 @@ mat-form-field{
   width: 130px;
   height: 40px;
   font-size: 20px;
+  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
 
 }
 .mat-input-element{

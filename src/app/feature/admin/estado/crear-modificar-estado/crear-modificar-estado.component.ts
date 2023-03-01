@@ -16,6 +16,7 @@ export class CrearModificarEstadoComponent implements OnInit {
   estado!:Estado;
   hayErrores = false;
   mensajeError: string="";
+ 
 
   constructor(private fb: FormBuilder,private router: Router,  private activatedRoute: ActivatedRoute, private estadoService: EstadoService) {
     this.crearEstado();
@@ -34,6 +35,7 @@ export class CrearModificarEstadoComponent implements OnInit {
   ngOnInit(): void {
     this.crearEstado();
     this.cargarEstado();
+
   }
 
   guardarEstado(){

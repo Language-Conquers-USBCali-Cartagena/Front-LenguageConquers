@@ -29,13 +29,6 @@
             </mat-form-field>
           </div>
           <div class="campo-entrada">
-            <mat-form-field appearance="fill">
-              <mat-label class="titulos">Foto de Perfil</mat-label>
-              <input type="text" matInput autocomplete="off" formControlName="foto" class="ancho">
-              <mat-icon matSuffix class="boton">image</mat-icon>
-            </mat-form-field>
-          </div>
-          <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Genero</mat-label>
             <mat-select formControlName="idGenero">
@@ -62,6 +55,14 @@
             </mat-form-field>
           </div>
         </ng-template>
+        <div class="campo-entrada">
+          <mat-label class="tituloImagen1"> Seleccionar Foto </mat-label>
+          <br><br>
+          <input class="inputFile" type="file" #fileInput
+            (change)="uploadImage($event)" id="foto">
+          <label for="foto" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
+          <br><br>
+        </div>
         <div class="boton">
           <button mat-raised-button class="botones" (click)="atras()">Atrás</button>
           <button mat-raised-button class="botones" (click)="guardarProfesor()" *ngIf="!profesor else botonEditar">Crear Profesor</button>

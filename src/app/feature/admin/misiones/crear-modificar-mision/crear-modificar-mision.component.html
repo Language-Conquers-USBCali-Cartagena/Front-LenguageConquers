@@ -4,7 +4,7 @@
     <ng-template #editarT>
       <mat-card-title>Actualizar Misión</mat-card-title>
     </ng-template>
-
+<br>
     <form [formGroup]="form">
       <div class="entradas">
         <div class="campo-entrada">
@@ -43,12 +43,12 @@
         </ng-template>
         <br>
         <div class="campo-entrada">
-          <mat-label class="tituloImagen1"> Seleccionar Imagen de Avatar </mat-label>
+          <mat-label class="tituloImagen1"> Seleccionar Imagen Para la Misión </mat-label>
           <br><br>
           <input class="inputFile" type="file" #fileInput
             (change)="uploadImage($event)" id="imagenMision">
-          <label for="imagenMision" class="botonSeleccionarArchivo" formControlName="imagen"> Seleccionar Imagen</label>
-          <br>
+          <label for="imagenMision" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
+          <br><br>
         </div>
         <div class="boton">
           <button mat-raised-button class="botones" id="atras" (click)="atras()">Atrás</button>
