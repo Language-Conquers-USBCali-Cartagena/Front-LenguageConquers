@@ -1,6 +1,8 @@
 export interface RankingTable {
   nickname: string;
   avatar: string;
-  nivel: number;
+  nombre: string;
+  apellidos: string;
   puntaje: number;
+  monedasAdquiridas:number;
 }

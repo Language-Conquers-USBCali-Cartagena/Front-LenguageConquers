@@ -100,8 +100,8 @@ body{
 }
 .sidenav-link-text{
   margin-left: 1.5rem;
-  font-size:15px;
-  font-family: 'Roboto', sans-serif;
+  font-size:25px;
+  font-family: Mouse Memoirs;
 }
 .sidenav-nav-link:hover{
  background-color:rgb(146, 129, 117);
@@ -140,18 +140,18 @@ body{
       width: 5rem;
       height: 70vh;
       box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
-  
+
     }
-  
+
     .logo-container {
       display: flex;
       align-items: center;
       padding: 0.938rem 0.938rem 0 0.938rem;
       width: 50%;
     }
-  
+
     .logo {
-  
+
       background: #ece8e3;
       text-align: center;
       width: 3rem;
@@ -163,10 +163,10 @@ body{
       cursor: pointer;
       border: none;
     }
-  
-  
+
+
     .logo-text {
-  
+
       margin-left: 0.5rem;
       font-size: 22px;
       font-weight: 450;
@@ -175,9 +175,9 @@ body{
       color: rgb(255, 255, 255);
       text-align: left;
     }
-  
+
     .btn-close {
-  
+
       margin-left: auto;
       cursor: pointer;
       width: 2rem;
@@ -187,18 +187,18 @@ body{
       border: none;
       color: #fff;
     }
-  
+
     .fa-times {
       color: #fff;
       font-size: 30px;
     }
-  
+
     .sidenav-collapsed {
       width: 8.5625rem;
     }
-  
+
     .sidenav-nav {
-  
+
       list-style: none;
       padding: 0.438rem;
       margin: 0;
@@ -208,12 +208,12 @@ body{
       height: calc(100% - 3.65rem);
       cursor: pointer;
     }
-  
+
     .sidenav-nav-item {
       width: 100%;
       margin-bottom: 0.625rem;
     }
-  
+
     .sidenav-nav-link {
       display: flex;
       align-items: center;
@@ -223,7 +223,7 @@ body{
       border-radius: 0.625rem;
       transition: all .3s ease;
     }
-  
+
     .sidenav-link-icon {
       font-size: 21px;
       width: 2rem;
@@ -231,41 +231,41 @@ body{
       margin: 0 0.5rem;
       text-align: center;
     }
-  
+
     .sidenav-link-text {
       margin-left: 0.35rem;
       font-size: 10px;
       font-family: 'Roboto', sans-serif;
     }
-  
+
     .sidenav-nav-link:hover {
       background-color: rgb(146, 129, 117);
       color: #000;
     }
-  
+
     .active {
-  
+
       background-color: rgb(146, 129, 117);
     }
-  
+
     .sidenav-link-icon,
     .sidenav-link-text {
       color: rgb(255, 255, 255);
     }
-  
+
     .fondoLogo {
       align-items: center;
       padding-left: 45%;
       background-color: #84614b;
       box-shadow: 0.063rem 0 1.25rem 0 #757e8e;
-  
-  
+
+
     }
-  
+
     .fondoLogo>img {
       height: 60px;
       width: 170px;
       align-items: center;
-  
+
     }
   }

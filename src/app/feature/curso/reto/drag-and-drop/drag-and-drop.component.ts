@@ -71,9 +71,9 @@ export class DragAndDropComponent implements OnInit {
     })
     // this.palabraService.procesarPalabras(resp).subscribe(resp =>{
     //   console.log(resp);
-      
+
     // });
-    
+
   }
 
   organizar(lista: PalabrasReservadas[], numeroLista: number){
@@ -82,8 +82,8 @@ export class DragAndDropComponent implements OnInit {
       lista[i].orden = i +1;
       lista[i].lista = numeroLista;
       console.log(lista[i].nombre + ' ' + lista[i].orden + ' ' + lista[i].lista);
-      
+
     }
   }
-  
+
 }

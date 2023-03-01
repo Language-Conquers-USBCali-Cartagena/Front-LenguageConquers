@@ -38,7 +38,7 @@ export class CrearModificarMisionComponent implements OnInit {
   porcentajeSubida!:number;
 
 
-  constructor(private storage: Storage, private sanitizer: DomSanitizer, private fb: FormBuilder, private monedasService: MonedasService,private cursoService: CursoService, private router:Router,  private activatedRoute: ActivatedRoute, private misionService: MisionService) {
+  constructor(private storage: Storage, private fb: FormBuilder, private monedasService: MonedasService,private cursoService: CursoService, private router:Router,  private activatedRoute: ActivatedRoute, private misionService: MisionService) {
     this.crearMision();
    }
 

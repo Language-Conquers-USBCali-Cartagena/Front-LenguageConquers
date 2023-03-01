@@ -19,6 +19,7 @@ export class NivelIDEComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.mostrarPistas();
   }
   atras(){
     this.router.navigateByUrl('curso/mapa/1');

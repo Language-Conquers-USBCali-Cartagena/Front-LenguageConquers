@@ -75,36 +75,16 @@
           </div>
         </ng-template>
         <div class="campo-entrada">
-          <mat-label class="tituloImagen"> Cargar Imagen</mat-label>
-          <br>
-          <section class="example-section">
-            <mat-radio-group>
-              <!--<mat-checkbox class="titulosCheckbox" (change)="archivo($event, $event)">Seleccionar Archivo</mat-checkbox>
-              <mat-checkbox class="titulosCheckbox" (change)="archivo($event, $event)">Ingresar URL</mat-checkbox>-->
-              <mat-radio-button  class="titulosCheckbox" (change)="archivoOrURL($event)" value="1">Seleccionar Archivo</mat-radio-button>
-              <mat-radio-button  class="titulosCheckbox" (change)="archivoOrURL($event)" value="2">Ingresar URL</mat-radio-button>
-            </mat-radio-group>
-          </section>
-        </div>
-        <div class="campo-entrada1" *ngIf="isFile">
-          <br>
           <mat-label class="tituloImagen1"> Seleccionar Imagen de Avatar </mat-label>
-          <br><br>
-          <input class="inputFile" type="file" #fileInput
-            (change)="uploadImage($event)" formControlName="imagen">
-          <label for="imagenAvatar" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
           <br>
-        </div>
-        <div class="campo-entrada" *ngIf="isURL">
-          <mat-form-field appearance="fill" class="inputUrl">
-            <mat-label class="titulos">Imagen  Avatar</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="imagen">
-            <mat-icon matSuffix>image</mat-icon>
-          </mat-form-field>
+          <input class="inputFile" type="file" #fileInput
+            (change)="uploadImage($event)" formControlName="imagen" id="imagenArticulo">
+          <label for="imagenArticulo" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
+        <br><br>
         </div>
         <div class="boton">
           <button mat-raised-button class="botones" (click)="atras()">Atras</button>
-          <button mat-raised-button class="botones" type="button" id="guardarArticulo" (click)="guardarArticulo()"
+          <button mat-raised-button class="botones"  id="guardarArticulo" (click)="guardarArticulo()"
             *ngIf="!articulo else botonEditar">Crear Artículo</button>
           <ng-template #botonEditar>
             <button mat-raised-button type="button" id="editar" (click)="actualizar()" class="botones">Guardar

@@ -19,12 +19,12 @@ export class MapaComponent implements OnInit {
 
 
   estudiante: Estudiante = {};
-  correo: string = '';
+  usuario: string = '';
   isSideNavCollapsed=false;
   screenWidth = 0;
   form!: FormGroup;
   nickname: string | undefined ="";
-  nivel: number | undefined= 0;
+  nombre: string | undefined = "";
   puntuacion: number | undefined= 0;
   monedas:number| undefined =0;
   avatar!: Avatar;
@@ -40,8 +40,8 @@ export class MapaComponent implements OnInit {
   constructor(private router: Router, private estudianteService: EstudianteServiceService,private  estudianteServiceNormal: EstudianteService,private fb: FormBuilder, private avatarService: AvatarService) { }
 
   ngOnInit(): void {
-    this.correo = localStorage.getItem("correo")!;
-    this.obtenerEstudiante(this.correo);
+    this.obtenerEstudiante();
+    this.getAvatarPorid();
   }
 
   setEstudiante(estudiante: Estudiante){
@@ -50,37 +50,17 @@ export class MapaComponent implements OnInit {
       nombre: estudiante.nombre,
       apellido: estudiante.apellido,
       nickName: estudiante.nickName,
-      puntaje: estudiante.puntaje,
-      idSemestre: estudiante.idSemestre,
-      idAvatar: estudiante.idAvatar,
-      idGenero: estudiante.idGenero,
-      usuarioCreador: estudiante.usuarioModificador,
-      fechaCreacion: estudiante.fechaCreacion,
-      fechaNacimiento: estudiante.fechaNacimiento,
-      idPrograma: estudiante.idPrograma,
-      correo: estudiante.correo,
-      idEstado: estudiante.idEstado,
-      usuarioModificador: estudiante.usuarioModificador,
-      fechaModificacion: estudiante.fechaModificacion
+      puntaje: estudiante.puntaje
     });
   }
-  async obtenerEstudiante(correo: string) {
-    await this.estudianteService.getEstudiante(correo).toPromise().then((response) => {
-      localStorage.setItem("usuario", JSON.stringify(response));
-      this.estudiante = response;
-    }
-    )
-    let idEstudiante: any;
-    idEstudiante = this.estudiante.idEstudiante;
-    this.estudianteServiceNormal.consultarPorId(idEstudiante).subscribe((data) => {
-      this.estudiante= data;
-      this.setEstudiante(this.estudiante);
-      this.idAvatar = Number(this.estudiante.idAvatar);
-      this.nickname = this.estudiante.nickName;
-      this.nivel = 1; //revisar este dato
-      this.puntuacion = this.estudiante.puntaje;
-      this.monedas = 0; //revisar este dato
-  });
+ obtenerEstudiante() {
+  let usuarioResp: Estudiante = JSON.parse(String(localStorage.getItem("usuario")));
+  this.setEstudiante(usuarioResp);
+  this.idAvatar = Number(usuarioResp.idAvatar);
+  this.monedas = usuarioResp.monedasObtenidas;
+  this.nickname = usuarioResp.nickName;
+  this.puntuacion = usuarioResp.puntaje;
+  this.nombre = usuarioResp.nombre;
 }
 
 getAvatarPorid(){

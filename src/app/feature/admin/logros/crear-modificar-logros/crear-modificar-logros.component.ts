@@ -26,7 +26,7 @@ export class CrearModificarLogrosComponent implements OnInit {
   porcentajeSubida!:number;
 
   constructor(private storage: Storage, private fb: FormBuilder,private router:Router, private activatedRoute: ActivatedRoute, private logroService: LogrosService) {
-    this,this.crearLogro();
+    this.crearLogro();
   }
 
   crearLogro(){
@@ -113,10 +113,10 @@ export class CrearModificarLogrosComponent implements OnInit {
     const usuarioModificador = this.form.value.usuarioModificador;
     let logro: Logros = {idLogro:this.form.value.idLogro ,nombre: nombre, descripcion: descripcion, imagen: imagenLogro, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date(), fechaCreacion: this.logro.fechaCreacion, usuarioCreador: this.logro.usuarioCreador}
-    this.logroService.actualizarLogro(logro).subscribe(()=>{
+    this.logroService.actualizarLogro(logro).subscribe(data=>{
       Swal.fire({
         icon: 'success',
-        title: 'El logro se ha actualizado exitosamente.',
+        title: data,
         showConfirmButton: false,
         timer: 1500
       });
@@ -124,7 +124,6 @@ export class CrearModificarLogrosComponent implements OnInit {
   }, (e) => {
     this.hayErrores = true;
     this.mensajeError = e.error;
-    console.log(e['error']);
     Swal.fire({
       icon: 'error',
       title: e['error'],

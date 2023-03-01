@@ -20,7 +20,7 @@
     display: grid;
     margin-top: 10px;
     margin-bottom: -100px;
-    grid-template-columns: repeat(4, 18em);
+    grid-template-columns: repeat(2, 18em);
     justify-content: center;
   }
 
@@ -99,9 +99,11 @@
   }
 
   .boton {
+
+    margin: 3px;
     position: center;
-    margin-left: -180px;
-    margin-right: -815px;
+    margin-left: 5px;
+    margin-right: -90%;
     line-height: 35px;
     align-items: center;
   }
@@ -112,7 +114,7 @@
     background-color: rgb(201, 131, 69);
     text-align: center !important;
     align-items: center !important;
-   margin-top: 50px;
+    margin: 0 10px;
     display: inline-block;
     width: 130px;
     height: 40px;
