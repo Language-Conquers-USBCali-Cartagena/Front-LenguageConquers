@@ -115,7 +115,7 @@ color:  rgba(222, 240, 247, 0.685);
 .contentPerfilStudent{
 width: 100px;
 height:130px;
-bottom: 30%;
+bottom: 20%;
 position: absolute;
 display: flex;
 margin-left: 150px;
@@ -135,26 +135,21 @@ backdrop-filter: blur(3px);
 box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 }
 .imgAvatar{
-margin-top: -35px;
-align-items: center;
-margin-left: 10px;
-max-width:80px;
-height: auto;
-}
+  margin-top: -25px;
+  align-items: center;
+  margin-left: 10px;
+  max-width:80px;
+  height: 80px;
+  width: 110px;
+  border-radius: 50%;
+  }
 
-/*
-position: absolute;
-bottom: 13%;
-background-color: rgba(255, 255, 255, 0.6);
-border-radius: 8px;
-display: flex;
-flex-flow: column;
-justify-content: center;
-align-items: center;
-padding: 2%;
-min-width: 300px;
-width: 20%;
-*/
+  .tituloInfoEstudiante{
+    margin-left: -20px;
+    font-size: 25px;
+    line-height: 25px;
+    color: #fff;
+  }
 
 @media screen and (max-width: 1400px){
 .tesoro1 {
@@ -179,7 +174,7 @@ background-color: transparent;
     width: 100px;
     height:130px;
     bottom: 40%;
-    
+
     position: absolute;
     display: flex;
     margin-left: 150px;

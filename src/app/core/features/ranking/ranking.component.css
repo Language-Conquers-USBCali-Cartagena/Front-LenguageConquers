@@ -1,3 +1,19 @@
+:root{
+  --primary-color:white;
+  --secondary-color:rgb(61,68,73);
+  --highlight-color:rgb(143, 145, 146);
+
+  --dt-background-container:#2a3338;
+  --dt-border-color:var(--secondary-color);
+  --dt-bg-color:(var(--highlight-color));
+  --dt-text-color:var(--primary-color);
+  --dt-input-background-color:var(--secondary-color);
+  --dt-input-color:var(--primary-color);
+
+
+
+
+}
 .fondo {
   background-color: rgb(219,211,205);
   background-size: cover;
@@ -82,7 +98,7 @@
   height: 100px;
 }
 .example-header-image4 {
-  background-image: url('../../../../assets/images/avatar/av1.png');
+  /*background-image: url('../../../../assets/images/avatar/av1.png');*/
   background-size: cover;
   width: 40px;
   height: 40px;
@@ -112,27 +128,33 @@
 
 }
 table {
-  width: 80%;
-  border-radius: 30px;
+  width: 70%;
   background: linear-gradient(
   135deg,
-  rgb(151, 128, 112),
-  rgb(151, 128, 112)
+  rgb(61,68,73),
+  rgb(61,68,73)
 );
 backdrop-filter: blur(3px);
 -webkit-backdrop-filter: blur(3px);
 box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 
 
+
+
 }
 th, td {
   color: #fff;
-  align-items: center;
+  font-size: 25px;
+  width: 5px;
+  text-align: left;
+  border-color: #fff;
 }
 td{
   width:150px;
   height:50px;
   align-items: center;
+  color:rgb(214, 208, 208);
+  font-size: 20px;
 }
 @media screen and (max-width: 700px) {
   .banner{

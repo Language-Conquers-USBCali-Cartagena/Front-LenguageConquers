@@ -42,12 +42,6 @@ export class AdminComponent implements OnInit {
   irAvatares(){
     this.router.navigateByUrl('/admin/avatar/listar-avatar')
   }
-  irRoles(){
-
-  }
-  irMonedas(){
-    this.router.navigateByUrl('/admin/monedas/listar-monedas')
-  }
   irEstados(){
     this.router.navigateByUrl('/admin/estado/listar-estados')
   }

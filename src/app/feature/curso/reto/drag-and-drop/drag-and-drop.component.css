@@ -42,7 +42,7 @@
 .example-list {
   width: 1000px;
   max-width: 100%;
-  border: solid 1px #cccccc00;
+  border: solid 1px #cccccc;
   min-height: 60px;
   display: flex;
   /* flex-direction: row; */
@@ -94,5 +94,5 @@
 
 .cuadro-respuesta{
   margin-left: 500px;
-  margin-top: -150px;
+  margin-top: -450px;
 }

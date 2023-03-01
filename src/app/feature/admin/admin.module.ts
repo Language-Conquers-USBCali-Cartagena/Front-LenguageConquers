@@ -8,7 +8,6 @@ import { EstadoComponent } from './estado/estado.component';
 import { HomeComponent } from './home/home.component';
 import { LogrosComponent } from './logros/logros.component';
 import { MisionesComponent } from './misiones/misiones.component';
-import { MonedasComponent } from './monedas/monedas.component';
 import { ProgramaComponent } from './programa/programa.component';
 import { RetoComponent } from './reto/reto.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -24,7 +23,6 @@ import { CrearModificarLogrosComponent } from './logros/crear-modificar-logros/c
 import { CrearModificarArticulosComponent } from './articulos/crear-modificar-articulos/crear-modificar-articulos.component';
 import { CrearModificarCategoriaComponent } from './categoria-articulos/crear-modificar-categoria/crear-modificar-categoria.component';
 import { CrearModificarAvatarComponent } from './avatar/crear-modificar-avatar/crear-modificar-avatar.component';
-import { CreaModificarMonedasComponent } from './monedas/crea-modificar-monedas/crea-modificar-monedas.component';
 import { CrearModificarEstadoComponent } from './estado/crear-modificar-estado/crear-modificar-estado.component';
 import { CrearModificarProgramaComponent } from './programa/crear-modificar-programa/crear-modificar-programa.component';
 import { CrearModificarCursoComponent } from './curso/crear-modificar-curso/crear-modificar-curso.component';
@@ -41,7 +39,6 @@ import { CrearModificarCursoComponent } from './curso/crear-modificar-curso/crea
         HomeComponent,
         LogrosComponent,
         MisionesComponent,
-        MonedasComponent,
         ProgramaComponent,
         RetoComponent,
         UsuariosComponent,
@@ -54,7 +51,6 @@ import { CrearModificarCursoComponent } from './curso/crear-modificar-curso/crea
         CrearModificarArticulosComponent,
         CrearModificarCategoriaComponent,
         CrearModificarAvatarComponent,
-        CreaModificarMonedasComponent,
         CrearModificarEstadoComponent,
         CrearModificarProgramaComponent,
         CrearModificarCursoComponent,

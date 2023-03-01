@@ -13,10 +13,7 @@
     margin: 0px;
     background-color: white;
 }
-.example-header-image {
-  background-image: url('../../../../assets/images/avatar/avatar2.png');
-  background-size: cover;
-}
+
 .cards {
   margin-top:0;
   margin-left:0px;

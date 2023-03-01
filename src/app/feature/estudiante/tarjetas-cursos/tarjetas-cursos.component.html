@@ -9,11 +9,12 @@
   <div class="fondoTarjeta">
     <div class="estudiante">
       <mat-card class="cursos" *ngFor="let tarjetas of cursosCard" [routerLink]="['/curso/mapa/1']">
-        <img mat-card-image src="./assets/images/fondos/FondoCurso1.jpg">
+       <img mat-card-image src="./assets/images/fondos/portadaCurso.png">
           <mat-card-subtitle class="titulo">Facultad de Ingenieria</mat-card-subtitle>
           <a class="vinculos-contra" [routerLink]="['/curso/mapa/1']">{{tarjetas.nombre}}</a>
       </mat-card>
     </div>
   </div>
+  <br>
 
 </div>

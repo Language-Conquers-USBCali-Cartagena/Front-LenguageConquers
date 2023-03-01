@@ -10,7 +10,6 @@ import { HomeComponent } from './home/home.component';
 import { LogrosComponent } from './logros/logros.component';
 import { CrearModificarMisionComponent } from './misiones/crear-modificar-mision/crear-modificar-mision.component';
 import { MisionesComponent } from './misiones/misiones.component';
-import { MonedasComponent } from './monedas/monedas.component';
 import { ProgramaComponent } from './programa/programa.component';
 import { CrearRegistrarComponent } from './reto/crear-registrar/crear-registrar.component';
 import { RetoComponent } from './reto/reto.component';
@@ -21,7 +20,6 @@ import { CrearModificarLogrosComponent } from './logros/crear-modificar-logros/c
 import { CrearModificarArticulosComponent } from './articulos/crear-modificar-articulos/crear-modificar-articulos.component';
 import { CrearModificarCategoriaComponent } from './categoria-articulos/crear-modificar-categoria/crear-modificar-categoria.component';
 import { CrearModificarAvatarComponent } from './avatar/crear-modificar-avatar/crear-modificar-avatar.component';
-import { CreaModificarMonedasComponent } from './monedas/crea-modificar-monedas/crea-modificar-monedas.component';
 import { CrearModificarEstadoComponent } from './estado/crear-modificar-estado/crear-modificar-estado.component';
 import { CrearModificarProgramaComponent } from './programa/crear-modificar-programa/crear-modificar-programa.component';
 import { CrearModificarCursoComponent } from './curso/crear-modificar-curso/crear-modificar-curso.component';
@@ -126,19 +124,6 @@ const routes: Routes = [
         path: 'misiones/editarMision/:id',
         component: CrearModificarMisionComponent,
       },
-      {
-        path: 'monedas/listar-monedas',
-        component: MonedasComponent
-      },
-      {
-        path: 'monedas/crearMoneda',
-        component: CreaModificarMonedasComponent,
-      },
-      {
-        path: 'monedas/editarMoneda/:id',
-        component: CreaModificarMonedasComponent,
-      },
-   
       {
         path: 'programa/listar-programa',
         component: ProgramaComponent
