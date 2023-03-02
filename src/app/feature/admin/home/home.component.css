@@ -1,4 +1,6 @@
-
+.graf{
+  margin-left: 100px;
+}
 mat-grid-tile{
     margin: -10px 50px 10px -5px;
   }
@@ -65,7 +67,7 @@ mat-grid-tile{
     color:rgb(6,43,60);
     text-align: center;
   }
-  
+
   mat-card-title{
     font-size: 30px;
     font-weight: bold;
@@ -73,5 +75,4 @@ mat-grid-tile{
     align-items: center;
     text-align: center;
   }
-  
-  
+

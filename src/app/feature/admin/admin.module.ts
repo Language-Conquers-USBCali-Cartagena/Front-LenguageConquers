@@ -26,7 +26,7 @@ import { CrearModificarAvatarComponent } from './avatar/crear-modificar-avatar/c
 import { CrearModificarEstadoComponent } from './estado/crear-modificar-estado/crear-modificar-estado.component';
 import { CrearModificarProgramaComponent } from './programa/crear-modificar-programa/crear-modificar-programa.component';
 import { CrearModificarCursoComponent } from './curso/crear-modificar-curso/crear-modificar-curso.component';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -60,7 +60,8 @@ import { CrearModificarCursoComponent } from './curso/crear-modificar-curso/crea
         CommonModule,
         AdminRoutingModule,
         MaterialModule,
-        CoreModule
+        CoreModule,
+        NgxChartsModule
     ]
 })
 export class AdminModule { }
