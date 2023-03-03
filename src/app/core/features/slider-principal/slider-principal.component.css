@@ -5,9 +5,10 @@
 background-color: rgb(219,211,205);
 }
 .slider{
-  width: 100%;
+  width: 1750px;
   height: 450px;
   overflow: hidden;
+  margin-left: 95px;
 
 }
 .slider ul{
