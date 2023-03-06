@@ -15,8 +15,11 @@ export class AdminComponent implements OnInit {
   irDasboard(){
     this.router.navigateByUrl('/admin/home')
   }
-  irUsuarios(){
-    this.router.navigateByUrl('/admin/usuarios/listar-usuarios')
+  irEstudiante(){
+    this.router.navigateByUrl('/admin/estudiante/listar-estudiantes')
+  }
+  irProfesor(){
+    this.router.navigateByUrl('/admin/profesor/listar-profesores')
   }
   irReto(){
     this.router.navigateByUrl('/admin/reto/listar-retos')

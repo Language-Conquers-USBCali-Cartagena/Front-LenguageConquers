@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Articulo } from 'src/app/shared/models/articulos';
 import { ArticuloService } from 'src/app/shared/services/articulo/articulo.service';
+import { Estudiante } from '../../../shared/models/estudiante';
 
 @Component({
   selector: 'app-tienda-principal',
@@ -13,6 +14,7 @@ export class TiendaPrincipalComponent implements OnInit {
   pagina: number = 0;
   productos: Articulo[] = [];
   idArticulos: number = 0;
+  monedasEstudiante :number | undefined = 0;
   form: UntypedFormGroup;
   constructor(private articuloService: ArticuloService ,private fb: UntypedFormBuilder) {
     this.form = fb.group({
@@ -21,6 +23,8 @@ export class TiendaPrincipalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let estudianteResp: Estudiante = JSON.parse(String(localStorage.getItem('usuario')));
+    this.monedasEstudiante = estudianteResp.monedasObtenidas;
   }
   async getArticulo(page: number){
     await this.articuloService.getArticuloPage(page).toPromise().then((response) => {

@@ -23,9 +23,7 @@ export class CrearModificarMisionComponent implements OnInit {
 
   form!: FormGroup;
   mision!:Mision;
-  monedas: Monedas[] = [];
   cursos: Curso[] = [];
-  estados:Estado[] = [];
   hayErrores = false;
   mensajeError: string="";
   imagenUrl: string = "";
@@ -58,9 +56,7 @@ export class CrearModificarMisionComponent implements OnInit {
   getCurso(){
     this.cursoService.getCurso().subscribe(resp => this.cursos = resp)
   }
-  getMonedas(){
-    this.monedasService.getMoneda().subscribe(resp => this.monedas = resp)
-  }
+
 
   guardarMision(){
     this.hayErrores = false;

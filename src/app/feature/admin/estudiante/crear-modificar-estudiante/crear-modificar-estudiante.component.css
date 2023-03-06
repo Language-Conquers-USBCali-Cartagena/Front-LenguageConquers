@@ -20,7 +20,7 @@
   display: grid;
  margin-top: 10px;
  margin-bottom: -100px;
- grid-template-columns: repeat(2, 18em);
+ grid-template-columns: repeat(3, 18em);
  justify-content: center;
 }
 form {
@@ -95,7 +95,7 @@ color: rgb(255, 255, 255);
   width:500px;
   height:100px;
   margin-bottom: 40px;
-  margin-left: -250px;
+  margin-left: -150px;
 }
 
 .car {
