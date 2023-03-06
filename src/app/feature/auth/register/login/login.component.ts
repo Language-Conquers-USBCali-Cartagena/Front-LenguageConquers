@@ -160,8 +160,12 @@ export class LoginComponent implements OnInit {
       inputLabel: 'Ingrese la dirección de correo electrónico asociado a la cuenta de Language Conquers.',
       inputPlaceholder: 'Email',
       confirmButtonColor: '#c98345',
+      position:'center',
+      backdrop: '',
+      
     })
-
+ 
+  responsive: true
 
     if (email){
       Swal.fire({ icon: 'success', text:'Se envío el correo a ${email}, revisa la bandeja de tú correo.'});
