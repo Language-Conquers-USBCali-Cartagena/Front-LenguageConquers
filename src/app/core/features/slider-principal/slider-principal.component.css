@@ -5,10 +5,10 @@
 background-color: rgb(219,211,205);
 }
 .slider{
-  width: 100%;
+  width: 1790px;
   height: 450px;
   overflow: hidden;
-
+  margin-left: 90px;
 }
 .slider ul{
   display: flex;
