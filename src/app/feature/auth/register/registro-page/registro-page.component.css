@@ -57,6 +57,7 @@
   left: 470px;
   top: 1px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: 0px;
 }
 
 .logo {

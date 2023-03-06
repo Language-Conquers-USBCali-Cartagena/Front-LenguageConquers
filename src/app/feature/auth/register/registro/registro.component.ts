@@ -163,7 +163,8 @@ export class RegistroComponent implements OnInit {
       text: 'Al visitar nuestro sitio, usted interactúa con nuestro "Servicio" y reconoce como vinculantes los siguientes términos y condiciones (denominados en lo sucesivo "Términos del servicio", "Términos"), incluidos aquellos términos y condiciones adicionales y las políticas que se mencionan aquí y/o disponibles por medio de hipervínculo. Estos Términos del servicio se aplican a todos los usuarios del sitio, incluyendo de manera enunciativa mas no limitativa los usuarios que son navegadores, proveedores, clientes, comerciantes y/o que aporten contenido. Lea estos Términos del servicio detenidamente antes de acceder o utilizar nuestra página web. Al acceder o utilizar cualquier parte del sitio, usted acepta estos Términos del servicio. Si no acepta la totalidad de los términos y condiciones de este acuerdo, no podrá acceder al sitio web ni utilizar ningún servicio. Si estos Términos del servicio se considerasen una oferta, la aceptación se limita expresamente a los presentes Términos del servicio.',
       input: 'checkbox',
       confirmButtonColor: '#c98345',
-      inputPlaceholder: 'Acepto términos y condiciones.'
+      inputPlaceholder: 'Acepto términos y condiciones.',
+      backdrop: '',
     }).then((result) => {
       if (result.isConfirmed) {
         if (result.value) {

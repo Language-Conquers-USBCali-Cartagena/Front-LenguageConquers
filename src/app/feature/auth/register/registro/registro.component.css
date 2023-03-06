@@ -1,6 +1,6 @@
 .spinner{
   margin: 0 auto;
-  color:rgb(241,231,194);
+  color:#31B2C2;
   
 }
 .fondoTarjeta{
@@ -49,7 +49,7 @@
 
 }
 .vinculos:hover{
-  color: rgb(217,161,84);
+  color: #31B2C2;
 }
 .ancho1{
   max-width: 10em;
@@ -57,7 +57,7 @@
   font-family: Mouse Memoirs;
   border-radius: 10px;
   margin-top: 30px;
-  background-color: rgb(217,161,84);
+  background-color: #31B2C2;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -70,7 +70,7 @@
 }
 .ancho1:hover{
   background-color: rgb(241,231,194);
-  color: rgb(217,161,84);
+  color: #31B2C2;
 }
 .otrac {
   display: flex;
@@ -127,7 +127,7 @@
 
 }
 .vinculos-contra:hover{
-  color: rgb(117,76,36);
+  color: #31B2C2;
 }
 
 ---------------------
@@ -159,7 +159,7 @@
     width: 6em;
     font-family: 'Mouse Memoirs';
     border-radius: 10px;
-    background-color: rgb(217,161,84);
+    background-color: #31B2C2;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
@@ -171,7 +171,7 @@
 }
   .botones:hover{
     background-color: rgb(241,231,194);
-    color: rgb(217,161,84);
+    color: #31B2C2;
 
   }
 
@@ -211,7 +211,7 @@
   font-family: Mouse Memoirs;
   border-radius: 10px;
   margin-top: 30px;
-  background-color: rgb(217,161,84);
+  background-color: #31B2C2;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
