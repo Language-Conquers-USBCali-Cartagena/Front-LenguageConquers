@@ -45,7 +45,7 @@
   font-family: 'Mouse Memoirs';
   border-radius: 10px;
   margin-top: 10px;
-  background-color: rgb(217,161,84) ;
+  background-color: #31B2C2 ;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
@@ -57,7 +57,7 @@
 }
 .botones:hover{
   background-color: rgb(241,231,194);
-  color: rgb(217,161,84);
+  color: #31B2C2;
 }
 
 /**lineas*/
@@ -159,7 +159,7 @@ display: flex;
     width: 6em;
     font-family: 'Mouse Memoirs';
     border-radius: 10px;
-    background-color: rgb(217,161,84);
+    background-color: #31B2C2;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
@@ -171,7 +171,7 @@ display: flex;
 }
   .botones:hover{
     background-color: rgb(241,231,194);
-    color: rgb(217,161,84);
+    color: #31B2C2;
 
   }
 

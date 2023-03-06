@@ -1340,19 +1340,19 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 .mat-card {
   background: #fff;
-  color: rgb(201, 131, 69);
+  color: #31B2C2;
 }
 
 .mat-card:not([class*='mat-elevation-z']) {
-  box-shadow: 0px 2px 1px -1px rgb(201, 131, 69),
-    0px 1px 1px 0px rgb(201, 131, 69), 0px 1px 3px 0px rgb(201, 131, 69);
+  box-shadow: 0px 2px 1px -1px #31B2C2,
+    0px 1px 1px 0px #31B2C2, 0px 1px 3px 0px #31B2C2;
 }
 .mat-card.mat-card-flat:not([class*='mat-elevation-z']) {
-  box-shadow: 0px 0px 0px 0px rgb(201, 131, 69),
-    0px 0px 0px 0px rgb(201, 131, 69), 0px 0px 0px 0px rgb(201, 131, 69);
+  box-shadow: 0px 0px 0px 0px #31B2C2,
+    0px 0px 0px 0px #31B2C2, 0px 0px 0px 0px #31B2C2;
 }
 .mat-card-subtitle {
-  color: rgb(201, 131, 69);
+  color: #31B2C2;
 }
 .mat-checkbox-frame {
   border-color: rgb(255, 255, 255);
@@ -1810,7 +1810,7 @@ td.mat-footer-cell {
   height: 64px;
 }
 .mat-form-field-label {
-  color: rgb(197,139,91);
+  color: rgb(255, 255, 255);
 }
 .mat-hint {
   color: rgb(241, 231, 194);
@@ -1831,7 +1831,7 @@ td.mat-footer-cell {
   background-color: rgb(241, 231, 194);
 }
 .mat-form-field.mat-focused .mat-form-field-ripple {
-  background-color: rgb(201,131,69);
+  background-color: #31B2C2;
 }
 .mat-form-field.mat-focused .mat-form-field-ripple.mat-accent {
   background-color: #ff4081;
@@ -1841,7 +1841,7 @@ td.mat-footer-cell {
 }
 .mat-form-field-type-mat-native-select.mat-focused:not(.mat-form-field-invalid)
   .mat-form-field-infix::after {
-  color: rgb(201, 131, 69);
+  color: #31B2C2;
 }
 .mat-form-field-type-mat-native-select.mat-focused:not(.mat-form-field-invalid).mat-accent
   .mat-form-field-infix::after {
@@ -1862,7 +1862,7 @@ td.mat-footer-cell {
 }
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
-  background-color: rgb(201,131,69);
+  background-color: #31B2C2;
 }
 .mat-error {
   color: rgb(241, 231, 194);
@@ -1875,7 +1875,7 @@ td.mat-footer-cell {
   color: rgba(0, 0, 0, 0.54);
 }
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-  background-color: rgb(100, 89, 82);
+  background-color: #31B2C2;
 }
 .mat-form-field-appearance-legacy.mat-form-field-disabled
   .mat-form-field-underline {
@@ -1889,7 +1889,7 @@ td.mat-footer-cell {
   background-repeat: repeat-x;
 }
 .mat-form-field-appearance-standard .mat-form-field-underline {
-  background-color: rgb(201,131,69);
+  background-color: #31B2C2;
 }
 .mat-form-field-appearance-standard.mat-form-field-disabled
   .mat-form-field-underline {
@@ -1909,7 +1909,7 @@ td.mat-footer-cell {
   background-color: rgba(0, 0, 0, 0.02);
 }
 .mat-form-field-appearance-fill .mat-form-field-underline::before {
-  background-color: rgb(201,131,69);
+  background-color: #31B2C2;
 }
 .mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-label {
   color: rgba(0, 0, 0, 0.38);
@@ -2512,7 +2512,7 @@ td.mat-footer-cell {
 }
 .mat-tab-group.mat-primary .mat-ink-bar,
 .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-  background-color: rgb(201, 131, 69);
+  background-color: #31B2C2;
 }
 .mat-tab-group.mat-primary.mat-background-primary
   > .mat-tab-header
