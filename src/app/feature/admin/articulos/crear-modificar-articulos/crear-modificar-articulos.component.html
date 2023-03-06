@@ -2,7 +2,7 @@
   <mat-card-content>
     <mat-card-title *ngIf="!articulo else editarT">Registrar Artículo</mat-card-title>
     <ng-template #editarT>
-      <mat-card-title>Actualizar Articulo</mat-card-title>
+      <mat-card-title>Actualizar Artículo</mat-card-title>
     </ng-template>
     <br>
     <form [formGroup]="form">
@@ -75,10 +75,10 @@
           </div>
         </ng-template>
         <div class="campo-entrada">
-          <mat-label class="tituloImagen1"> Seleccionar Imagen de Avatar </mat-label>
+          <mat-label class="tituloImagen1"> Seleccionar Imagen del Artículo </mat-label>
           <br>
           <input class="inputFile" type="file" #fileInput
-            (change)="uploadImage($event)" formControlName="imagen" id="imagenArticulo">
+            (change)="uploadImage($event)"  id="imagenArticulo">
           <label for="imagenArticulo" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
         <br><br>
         </div>

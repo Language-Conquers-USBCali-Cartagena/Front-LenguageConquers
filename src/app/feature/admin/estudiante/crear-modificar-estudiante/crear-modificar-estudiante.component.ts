@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Avatar } from 'src/app/shared/models/avatar';
 import { Estado } from 'src/app/shared/models/estado';
@@ -16,11 +16,11 @@ import { SemestreService } from 'src/app/shared/services/semestre/semestre.servi
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-estudiante',
-  templateUrl: './estudiante.component.html',
-  styleUrls: ['./estudiante.component.css']
+  selector: 'app-crear-modificar-estudiante',
+  templateUrl: './crear-modificar-estudiante.component.html',
+  styleUrls: ['./crear-modificar-estudiante.component.css']
 })
-export class EstudianteComponent implements OnInit {
+export class CrearModificarEstudianteComponent implements OnInit {
 
   estudiante!: Estudiante;
   form!: FormGroup;
@@ -58,6 +58,7 @@ export class EstudianteComponent implements OnInit {
       idGenero: ['', Validators.required],
       idPrograma: ['', Validators.required],
       idEstado: ['', Validators.required],
+      monedasObtenidas: [''],
     });
   }
   ngOnInit(): void {
@@ -105,14 +106,12 @@ export class EstudianteComponent implements OnInit {
 
   seleccionarAvatar(id:any){
     this.idAvatar = id.idAvatar;
-
     const images = document.querySelectorAll('img');
     let seleccionado = document.getElementById(id.idAvatar);
     images.forEach(imagen => {
     imagen.addEventListener('click', function(){
       const active = <HTMLImageElement>document.querySelector('img');
       seleccionado?.classList.remove('active');
-      /*console.log(typeof seleccionado?.id);*/
       this.classList.add('active');
     });
    });
@@ -140,7 +139,7 @@ export class EstudianteComponent implements OnInit {
     const genero = this.form.value.idGenero;
     const estado = this.form.value.idEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, puntaje: 0, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioCreador: usuarioCreador,
+    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, puntaje: 0, monedasObtenidas: 0 ,idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioCreador: usuarioCreador,
                                   fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado}
       this.estudianteService.crearEstudiante(estudiante).subscribe(data =>{
         if(data){
@@ -150,12 +149,11 @@ export class EstudianteComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           });
-          this.router.navigate(['/admin/usuarios/listar-usuarios']);
+          this.router.navigate(['/admin/estudiante/listar-estudiantes']);
         }
       }, (e) => {
         this.hayErrores = true;
         this.mensajeError = e.error;
-        console.log(e['error']);
         Swal.fire({
           icon: 'error',
           title: e['error'],
@@ -173,7 +171,7 @@ export class EstudianteComponent implements OnInit {
       nickName: estudiante.nickName,
       puntaje: estudiante.puntaje,
       idSemestre: estudiante.idSemestre,
-      idAvatar: estudiante.idAvatar,
+      avatar: estudiante.idAvatar,
       idGenero: estudiante.idGenero,
       usuarioCreador: estudiante.usuarioModificador,
       fechaCreacion: estudiante.fechaCreacion,
@@ -182,7 +180,8 @@ export class EstudianteComponent implements OnInit {
       correo: estudiante.correo,
       idEstado: estudiante.idEstado,
       usuarioModificador: estudiante.usuarioModificador,
-      fechaModificacion: estudiante.fechaModificacion
+      fechaModificacion: estudiante.fechaModificacion,
+      monedasObtenidas: estudiante.monedasObtenidas,
     });
   }
   cargarEstudiante(){
@@ -205,27 +204,27 @@ export class EstudianteComponent implements OnInit {
     const nickName = this.form.value.nickName;
     const nacimiento: Date = this.form.value.fechaNacimiento;
     const correo = this.form.value.correo;
-    const programa = this.form.value.idPrograma
+    const programa = this.form.value.idPrograma;
     const semestre = this.form.value.idSemestre;
     const avatar = this.idAvatar;
     const puntaje = this.form.value.puntaje;
     const genero = this.form.value.idGenero;
     const estado = this.form.value.idEstado;
+    const monedas = this.form.value.monedasObtenidas;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let estudiante: Estudiante = {idEstudiante: this.form.value.idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado, fechaCreacion: this.estudiante.fechaCreacion, usuarioCreador: this.estudiante.usuarioCreador}
-    this.estadoService.actualizarEstado(estudiante).subscribe(data=>{
+    let estudiante: Estudiante = {idEstudiante: this.form.value.idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName, puntaje: puntaje,fechaNacimiento: nacimiento, correo: correo, usuarioCreador: this.estudiante.usuarioCreador, usuarioModificador: usuarioModificador, fechaCreacion: this.estudiante.fechaCreacion,
+                                  fechaModificacion: new Date(), idPrograma: programa.idPrograma, idEstado: estado.idEstado, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero,  monedasObtenidas: monedas}
+    this.estudianteService.actualizarEstudiante(estudiante).subscribe(data=>{
       Swal.fire({
         icon: 'success',
         title: data,
         showConfirmButton: false,
         timer: 1500
       });
-      this.router.navigate(['/admin/usuarios/listar-usuarios']);
+      this.router.navigate(['/admin/estudiante/listar-estudiantes']);
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e['error'];
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],
@@ -236,7 +235,7 @@ export class EstudianteComponent implements OnInit {
   }
 
   atras(){
-    this.router.navigateByUrl('/admin/usuarios/listar-usuarios');
+    this.router.navigateByUrl('/admin/estudiante/listar-estudiantes');
   }
 
 }

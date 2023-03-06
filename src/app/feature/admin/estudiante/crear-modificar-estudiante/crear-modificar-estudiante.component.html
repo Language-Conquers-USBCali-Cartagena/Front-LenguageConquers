@@ -109,8 +109,15 @@
         </div>
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
+              <mat-label class="titulos">Monedas Obtenidas</mat-label>
+              <input type="number" matInput autocomplete="off" formControlName="monedasObtenidas">
+              <mat-icon matSuffix class="boton">monedas</mat-icon>
+            </mat-form-field>
+      </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
             <mat-label class="titulos">Usuario Modificador</mat-label>
-            <input type="text" matInput autocomplete="off" formControlName="modificador" class="ancho">
+            <input type="text" matInput autocomplete="off" formControlName="usuarioModificador" class="ancho">
             <mat-icon matSuffix class="boton">name</mat-icon>
           </mat-form-field>
         </div>

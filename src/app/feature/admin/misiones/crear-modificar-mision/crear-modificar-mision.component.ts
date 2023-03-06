@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Curso } from 'src/app/shared/models/curso';
@@ -9,10 +9,8 @@ import { CursoService } from 'src/app/shared/services/curso/curso.service';
 import { MonedasService } from 'src/app/shared/services/monedas/monedas.service';
 import Swal from 'sweetalert2';
 import { MisionService } from '../../../../shared/services/mision/mision.service';
-import { DomSanitizer } from '@angular/platform-browser';
-import { getDownloadURL, list, ref,  Storage, uploadBytes } from '@angular/fire/storage';
-import { MatCheckboxChange } from '@angular/material/checkbox';
-import { MatRadioChange } from '@angular/material/radio';
+import { getDownloadURL,  ref,  Storage, uploadBytes } from '@angular/fire/storage';
+
 
 
 
@@ -25,17 +23,11 @@ export class CrearModificarMisionComponent implements OnInit {
 
   form!: FormGroup;
   mision!:Mision;
-  monedas: Monedas[] = [];
   cursos: Curso[] = [];
-  estados:Estado[] = [];
   hayErrores = false;
   mensajeError: string="";
   imagenUrl: string = "";
 
-  isFile: boolean = false;
-  isURL: boolean = false;
-
-  porcentajeSubida!:number;
 
 
   constructor(private storage: Storage, private fb: FormBuilder, private monedasService: MonedasService,private cursoService: CursoService, private router:Router,  private activatedRoute: ActivatedRoute, private misionService: MisionService) {
@@ -46,7 +38,7 @@ export class CrearModificarMisionComponent implements OnInit {
     this.form = this.fb.group({
       idMision: ['', Validators.required],
       nombre:  ['', Validators.required],
-      imagen: ['', Validators.required],
+      imagenM: ['', Validators.required],
       idCurso: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
@@ -64,9 +56,7 @@ export class CrearModificarMisionComponent implements OnInit {
   getCurso(){
     this.cursoService.getCurso().subscribe(resp => this.cursos = resp)
   }
-  getMonedas(){
-    this.monedasService.getMoneda().subscribe(resp => this.monedas = resp)
-  }
+
 
   guardarMision(){
     this.hayErrores = false;
@@ -124,7 +114,7 @@ export class CrearModificarMisionComponent implements OnInit {
     this.form.setValue({
       idMision: mision.idMision,
       nombre: mision.nombre,
-      imagen: mision.imagen,
+      imagenM: mision.imagen,
       idCurso: mision.idCurso,
       usuarioCreador: mision.usuarioCreador,
       fechaCreacion : mision.fechaCreacion,
@@ -133,15 +123,6 @@ export class CrearModificarMisionComponent implements OnInit {
     });
   }
 
-  archivoOrURL(event: MatRadioChange){
-    if(event.value ==1){
-      this.isFile = true;
-      this.isURL = false;
-    }else if(event.value ==2){
-      this.isURL =true;
-      this.isFile = false;
-    }
-  }
   cargarMision(){
     this.activatedRoute.params.subscribe(
       (params) => {
@@ -158,7 +139,7 @@ export class CrearModificarMisionComponent implements OnInit {
 
   actualizar():void{
     const nombre = this.form.value.nombre;
-    const imagenMision = this.form.value.imagen;
+    const imagenMision = this.imagenUrl;
     const curso = this.form.value.idCurso;
     const usuarioModificador = this.form.value.usuarioModificador;
     let mision: Mision = {idMision: this.form.value.idMision, nombre: nombre, imagen: imagenMision,  idCurso:curso.idCurso, usuarioModificador: usuarioModificador,

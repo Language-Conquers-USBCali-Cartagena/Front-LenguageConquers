@@ -48,4 +48,8 @@ export class EstudianteService {
     return this.http.get<Estudiante>(`${environment.endpoint}/estudiante/porCorrero`, {params: paramsHttp});
   }
 
+  cantidadEstudiantes():Observable<number>{
+    return this.http.get<number>(`${environment.endpoint}/estudiante/cantidadEstudiante`);
+  }
+
 }

@@ -94,12 +94,12 @@ export class PerfilEstudianteComponent implements OnInit {
   ngOnInit() {
     this.crearEstudiante();
     //this.cargarEstudiante();
+    this.obtenerEstudiante();
     this.getAvatar(this.pagina);
     this.getEstado();
     this.getPrograma();
     this.getGenero();
     this.getSemestre();
-    this.obtenerEstudiante();
     this.setEstado();
   }
 
@@ -136,8 +136,8 @@ export class PerfilEstudianteComponent implements OnInit {
   }
 
   setEstado(){
-    this.estadoService.consultarPorId(this.idEstado!).subscribe(data => {
-      this.nombreEstado = data.estado;
+    this.generoService.consultarPorId(this.idGenero!).subscribe(data => {
+      this.nombreEstado = data.genero;
 
     })
   }

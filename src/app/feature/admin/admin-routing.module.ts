@@ -13,9 +13,6 @@ import { MisionesComponent } from './misiones/misiones.component';
 import { ProgramaComponent } from './programa/programa.component';
 import { CrearRegistrarComponent } from './reto/crear-registrar/crear-registrar.component';
 import { RetoComponent } from './reto/reto.component';
-import { DocenteComponent } from './usuarios/crear-modificar-usuarios/docente/docente.component';
-import { EstudianteComponent } from './usuarios/crear-modificar-usuarios/estudiante/estudiante.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
 import { CrearModificarLogrosComponent } from './logros/crear-modificar-logros/crear-modificar-logros.component';
 import { CrearModificarArticulosComponent } from './articulos/crear-modificar-articulos/crear-modificar-articulos.component';
 import { CrearModificarCategoriaComponent } from './categoria-articulos/crear-modificar-categoria/crear-modificar-categoria.component';
@@ -23,6 +20,10 @@ import { CrearModificarAvatarComponent } from './avatar/crear-modificar-avatar/c
 import { CrearModificarEstadoComponent } from './estado/crear-modificar-estado/crear-modificar-estado.component';
 import { CrearModificarProgramaComponent } from './programa/crear-modificar-programa/crear-modificar-programa.component';
 import { CrearModificarCursoComponent } from './curso/crear-modificar-curso/crear-modificar-curso.component';
+import { EstudianteComponent } from './estudiante/estudiante.component';
+import { CrearModificarEstudianteComponent } from './estudiante/crear-modificar-estudiante/crear-modificar-estudiante.component';
+import { ProfesorComponent } from './profesor/profesor.component';
+import { CrearModificarProfesorComponent } from './profesor/crear-modificar-profesor/crear-modificar-profesor.component';
 
 
 const routes: Routes = [
@@ -149,24 +150,28 @@ const routes: Routes = [
         component: CrearRegistrarComponent,
       },
       {
-        path: 'usuarios/listar-usuarios',
-        component: UsuariosComponent,
+        path: 'estudiante/listar-estudiantes',
+        component: EstudianteComponent,
       },
       {
-        path: 'usuarios/crearDocente',
-        component: DocenteComponent
+        path: 'estudiante/crearEstudiante',
+        component: CrearModificarEstudianteComponent,
       },
       {
-        path: 'usuarios/ActualizarDocente/:id',
-        component: DocenteComponent
+        path: 'estudiante/actualizarEstudiante/:id',
+        component: CrearModificarEstudianteComponent
       },
       {
-        path: 'usuarios/crearEstudiante',
-        component: EstudianteComponent
+        path: 'profesor/listar-profesores',
+        component: ProfesorComponent,
       },
       {
-        path: 'usuarios/ActualizarEstudiante/:id',
-        component: EstudianteComponent
+        path: 'profesor/actualizarProfesor/:id',
+        component: CrearModificarProfesorComponent,
+      },
+      {
+        path: 'profesor/crearProfesor',
+        component: CrearModificarProfesorComponent,
       },
 
     ]

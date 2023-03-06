@@ -18,7 +18,7 @@
       rgba(24, 27, 28, 0.867));
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.615);
+  box-shadow: 0 1px 45px 0 rgb(43, 43, 43);
   font-size: 30px;
   border-radius: 10px;
   border: 60px solid  rgb(45, 48, 48, 0.883);
@@ -26,8 +26,8 @@
   text-align: center;
 }
 .botonEncendido{
-  margin-top:210px;
-  margin-left: 880px ;
+  margin-top:140px;
+  margin-left: 920px ;
   background: rgb(173, 216, 230);
   border-radius: 20%;
   width: 40px;
@@ -60,8 +60,8 @@
 }
 
 .botonTutorial, .botonTema{
-  margin-top:38px;
-  margin-left: -28px ;
+  margin-top:18px;
+  margin-left: -20px ;
   background: rgb(97, 100, 101);
   border-radius: 20%;
   border:5px solid #262525c6;
@@ -78,6 +78,9 @@
   cursor: pointer;
   padding: 1%;
 }
+.botonTema{
+  margin-top:35px;
+}
 .botonTutorial{
   font-size:27px;
   backdrop-filter: blur(3px);
@@ -87,7 +90,7 @@
 
 .tituloTutorial{
   margin-top:15px;
-  margin-left: 15px;
+  margin-left: 18px;
   cursor: pointer;
 }
 .botonEncendidoTutorial, .botonEncendidoPista{
@@ -128,7 +131,7 @@
   font-size: 15px;
 }
 .botones, .botones1, .botones2{
-  margin-top:46px;
+  margin-top:56px;
   margin-left: 5px ;
   background: rgb(103, 106, 104);
   border-radius: 20%;
@@ -234,4 +237,107 @@
   margin-top: 10px;
   width: 45px;
   height: 45px;
+}
+
+.pantallaAdentro{
+ margin-left: 10px;
+}
+
+.example-container1 {
+  width: 200px;
+  max-width: 100%;
+  margin: -25px 755px -25px 0;
+  display: inline-block;
+  max-height: 400px;
+  overflow-y: auto;
+
+  /* vertical-align: top; */
+}
+
+.example-list1 {
+  border: solid 1px #6f6e6e00;
+  min-height: 60px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+
+.example-box1 {
+  padding: 20px 10px;
+  border-bottom: solid 1px #6b696972;
+  color: rgba(255, 255, 255, 0.87);
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  box-sizing: border-box;
+  cursor: move;
+  background: rgb(55, 58, 58);
+  font-size: 14px;
+}
+
+/* Las de abjo son para las horizontales */
+.example-container{
+  margin-top:10px;
+  margin-left: -170px;
+}
+.example-list {
+  width: 1000px;
+  max-width: 100%;
+  border: solid 1px rgba(255, 255, 255, 0.105);
+  min-height: 60px;
+  display: flex;
+  /* flex-direction: row; */
+  background: rgba(255, 255, 255, 0);
+  border-radius: 4px;
+  overflow: hidden;
+
+}
+
+.example-box {
+  margin-top: 40px;
+  padding: 20px 10px;
+  border-right: solid 1px #cccccc00;
+  color: rgba(255, 255, 255, 0.87);
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+  box-sizing: border-box;
+  cursor: move;
+  background: rgba(255, 255, 255, 0);
+  font-size: 14px;
+  flex-grow: 1;
+  flex-basis: 0;
+  cursor: move;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cuadro-respuesta{
+  margin-left: 500px;
+  margin-top: -380px;
 }

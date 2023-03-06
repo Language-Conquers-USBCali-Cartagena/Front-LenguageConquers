@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Semestre } from 'src/app/shared/models/semestre';
 import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
 import { ArticulosAdquiridosService } from 'src/app/shared/services/articulosAdquiridos/articulos-adquiridos.service';
+import { SemestreService } from 'src/app/shared/services/semestre/semestre.service';
 
 @Component({
   selector: 'app-articulos-adquiridos',
@@ -10,6 +12,7 @@ import { ArticulosAdquiridosService } from 'src/app/shared/services/articulosAdq
 })
 export class ArticulosAdquiridosComponent implements OnInit {
 
+
   isSideNavCollapsed=false;
   screenWidth = 0;
 
@@ -17,10 +20,13 @@ export class ArticulosAdquiridosComponent implements OnInit {
     this.screenWidth = data.screenWidth;
     this.isSideNavCollapsed = data.collapsed;
   }
-  constructor(articulosAdquiridosService: ArticulosAdquiridosService, private router: Router) { }
+  constructor(articulosAdquiridosService: ArticulosAdquiridosService,  private router: Router) { }
 
   ngOnInit(): void {
+
   }
+
+
   irMapa(){
     this.router.navigate(['/curso/mapa/1']);
   }

@@ -23,10 +23,13 @@ export class ProfesorService {
   }
 
   actualizarProfesor(profesor: Profesor): Observable<string>{
-    return this.http.put(`${environment.endpoint}/profesor/actualizarProfesor/${profesor.idProfesor}`,profesor,{ responseType: 'text'});
+    return this.http.put(`${environment.endpoint}/profesor/actualizarProfesor`,profesor,{ responseType: 'text'});
   }
 
   eliminarProfesor(idProfesor: number): Observable<string>{
     return this.http.delete(`${environment.endpoint}/profesor/eliminarProfesor/${idProfesor}`,{ responseType: 'text'});
+  }
+  cantidadProfesores():Observable<number>{
+    return this.http.get<number>(`${environment.endpoint}/profesor/cantidadProfesores`);
   }
 }

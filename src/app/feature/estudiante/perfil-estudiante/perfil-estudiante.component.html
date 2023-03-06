@@ -49,7 +49,7 @@
           <div class="campo-entrada">
             <mat-form-field appearance="fill">
               <mat-label class="titulos">Semestre</mat-label>
-              <mat-select formControlName="idSemestre">
+              <mat-select formControlName="idSemestre" [(ngModel)]="semestres">
                 <mat-option *ngFor="let semestre of semestres" [value]="semestre">
                   {{semestre.nombre}}
                 </mat-option>
@@ -58,15 +58,14 @@
             </mat-form-field>
           </div>
           <div class="campo-entrada">
-            <mat-form-field appearance="fill">
-              <mat-label class="titulos">Genero</mat-label>
-              <mat-select formControlName="idGenero">
-                <mat-option *ngFor="let genero of generos" [value]="genero">
+            <form appearance="fill">
+              <label class="titulos" for="genero">Genero</label>
+              <select formControlName="idGenero" id="genero" >            <option *ngFor="let genero of generos" [value]="genero">
                   {{genero.genero}}
-                </mat-option>
-              </mat-select>
+                </option>
+              </select>
               <mat-icon matSuffix class="boton">gender</mat-icon>
-            </mat-form-field>
+            </form>
           </div>
           <div class="campo-entrada">
             <mat-form-field appearance="fill">

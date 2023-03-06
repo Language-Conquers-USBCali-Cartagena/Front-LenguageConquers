@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Genero } from 'src/app/shared/models/genero';
 import { Profesor } from 'src/app/shared/models/profesor';
 import { GeneroService } from 'src/app/shared/services/genero/genero.service';
 import { ProfesorService } from 'src/app/shared/services/profesor/profesor.service';
 import Swal from 'sweetalert2';
+import { getDownloadURL,  ref,  Storage, uploadBytes } from '@angular/fire/storage';
 
 @Component({
-  selector: 'app-docente',
-  templateUrl: './docente.component.html',
-  styleUrls: ['./docente.component.css']
+  selector: 'app-crear-modificar-profesor',
+  templateUrl: './crear-modificar-profesor.component.html',
+  styleUrls: ['./crear-modificar-profesor.component.css']
 })
-export class DocenteComponent implements OnInit {
+export class CrearModificarProfesorComponent implements OnInit {
 
   profesor!: Profesor;
   form!: FormGroup;
@@ -21,11 +22,12 @@ export class DocenteComponent implements OnInit {
   esActualizar: boolean = true;
   hayErrores = false;
   mensajeError: string = "";
+  imagenUrl: string = "";
 
-  constructor(private fb: FormBuilder, private generoService: GeneroService, private router: Router, private activatedRoute: ActivatedRoute, private profesorService: ProfesorService) {
+  constructor(private storage: Storage,private fb: FormBuilder, private generoService: GeneroService, private router: Router, private activatedRoute: ActivatedRoute, private profesorService: ProfesorService) {
     this.crearDocente();
   }
-/*TODO: REVISAR SI AL FIN VA A QUEDAR LISTADO EN UNA TABLA TANTO PROFESOR COMO ESTUDIANTE*/
+
   crearDocente() {
     this.form = this.fb.group({
       idProfesor: ['', Validators.required],
@@ -54,7 +56,7 @@ export class DocenteComponent implements OnInit {
     const correo = this.form.value.correo;
     const nombre = this.form.value.nombre;
     const apellido = this.form.value.apellido;
-    const foto = this.form.value.foto;
+    const foto = this.imagenUrl;
     const usuarioCreador = this.form.value.usuarioCreador;
     const fechaCreacion = new Date();
     const genero = this.form.value.idGenero;
@@ -67,7 +69,7 @@ export class DocenteComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         });
-        this.router.navigate(['/admin/usuarios/listar-usuarios']);
+        this.router.navigate(['/admin/profesor/listar-profesores']);
       }
     }, (e) => {
       this.hayErrores = true;
@@ -112,14 +114,34 @@ export class DocenteComponent implements OnInit {
     );
   }
 
+  uploadImage($event: any) {
+    const file = $event.target.files[0];
+    console.log(file);
+    const imagenReferencia = ref(this.storage, `docente/${file.name}`);
+    uploadBytes(imagenReferencia,file,{contentType:'image/png'}).then(
+      response =>{
+        getDownloadURL(imagenReferencia).then(downloadURL =>{
+          this.imagenUrl = downloadURL;
+        });
+      }).catch(error =>{
+        Swal.fire({
+          icon:'error',
+          title: 'Oops...',
+          text: error
+        });
+      });
+  }
+
   actualizar() {
     const correo = this.form.value.correo;
     const nombre = this.form.value.nombre;
     const apellido = this.form.value.apellido;
-    const foto = this.form.value.foto;
+    const foto = this.imagenUrl;
     const usuarioModificador =  this.form.value.usuarioModificador;
     const genero = this.form.value.idGenero;
-    let profesor: Profesor = { idProfesor: this.form.value.idProfesor, nombre: nombre, apellido: apellido, correo: correo, foto: foto, usuarioModificador: usuarioModificador, fechaModificacion: new Date(), idGenero: genero.idGenero, usuarioCreador: this.profesor.usuarioCreador, fechaCreacion: this.profesor.fechaCreacion }
+    let profesor: Profesor = { idProfesor: this.form.value.idProfesor, nombre: nombre, apellido: apellido,
+       correo: correo, foto: foto, usuarioModificador: usuarioModificador, fechaModificacion: new Date(Date.now()-1), idGenero: genero.idGenero,
+       usuarioCreador: this.profesor.usuarioCreador, fechaCreacion: this.profesor.fechaCreacion}
     this.profesorService.actualizarProfesor(profesor).subscribe(data =>{
       Swal.fire({
         icon: 'success',
@@ -127,7 +149,7 @@ export class DocenteComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       });
-      this.router.navigateByUrl('/admin/usuarios/listar-usuarios');
+      this.router.navigateByUrl('/admin/profesor/listar-profesores');
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e.error;
@@ -142,7 +164,8 @@ export class DocenteComponent implements OnInit {
   }
 
   atras() {
-    this.router.navigateByUrl('/admin/usuarios/listar-usuarios');
+    this.router.navigateByUrl('/admin/profesor/listar-profesores');
   }
+
 
 }

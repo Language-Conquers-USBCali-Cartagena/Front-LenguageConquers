@@ -13,12 +13,40 @@
   width:1840px;
   padding-left:-10px;
 }
+.monedas{
+  background: rgba(116, 116, 116, 0.561);
+  width: 180px;
+  height: 70px;
+  margin-left: 80%;
+  margin-top: -30px;
+  border-radius: 10px;
+
+}
+.monedasEstudiante {
+  color:white;
+  margin-left:85px;
+  margin-top: 60px;
+  font-size: 50px;
+}
+.monedasEstudiante h1 {
+  color:white;
+  margin-left:5px;
+  margin-top: -10px;
+  font-size: 50px;
+}
+.monedasActuales{
+  margin-left:-65px;
+  margin-top: -38px;
+  float: left;
+  width:50px;
+  height:50px;
+}
 .container{
   width: 1030px;
   height: 800px;
   margin-right: 80px;
   margin-left: 310px;
-  padding: 48px;
+  padding: 18px;
 
 }
 .slider{
@@ -122,6 +150,7 @@ box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
   font-size:35px;
   font-family: Mouse Memoirs;
 }
+
 .precio{
   color:white;
   margin-left:15%;
@@ -199,7 +228,7 @@ box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
     color:white;
     margin-left:0%;
     margin-top: -20px;
-  
+
   }
   .precio-img{
     vertical-align: middle !important;

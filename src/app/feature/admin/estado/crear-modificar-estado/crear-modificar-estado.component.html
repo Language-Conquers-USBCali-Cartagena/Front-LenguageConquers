@@ -32,7 +32,7 @@
             </ng-template>
                     <div class="boton">
                         <button mat-raised-button class="botones" (click)="atras()">Atrás</button>
-                        <button mat-raised-button class="botones" (click)="guardarEstado()" *ngIf="!estado else botonEditar">Crear Estado</button>
+                        <button mat-raised-button class="botones" (click)="guardarEstado()" *ngIf="!estado else botonEditar" >Crear Estado</button>
                         <ng-template #botonEditar>
                           <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Actualizar Estado</button>
                         </ng-template>
