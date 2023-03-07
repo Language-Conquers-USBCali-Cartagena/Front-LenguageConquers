@@ -35,9 +35,39 @@ export class CrearModificarEstudianteComponent implements OnInit {
   hayErrores = false;
   mensajeError: string="";
 
+  idSemestre: number | undefined = 0;
+  idGenero: number | undefined = 0;
+  idProgramas: number | undefined = 0;
+  idEstado: number | undefined = 0;
+  nombreSemestre!: string | undefined;
+  nombreProgramas!: string| undefined;
+  estado!: string;
+  semestre!: string;
+  genero!: string;
+  programa!: string;
+  nombreGenero!: string | undefined;
+  usuario!: Estudiante;
+  nombreEstado!: string | undefined;
+
   constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
               private router:Router, private programaService: ProgramaService, private estadoService: EstadoService, private estudianteService: EstudianteService) {
       this.crearEstudiante();
+  }
+
+
+  ngOnInit(): void {
+    this.crearEstudiante();
+    this.cargarEstudiante();
+    this.obtenerEstudiante();
+    this.getGenero();
+    this.getAvatar(this.pagina);
+    this.getSemestre();
+    this.getPrograma();
+    this.getEstado();
+    this.setEstado();
+    this.setSemestre();
+    this.setGenero();
+    this.setPrograma();
   }
 
   crearEstudiante(){
@@ -61,14 +91,23 @@ export class CrearModificarEstudianteComponent implements OnInit {
       monedasObtenidas: [''],
     });
   }
-  ngOnInit(): void {
-    this.crearEstudiante();
-    this.cargarEstudiante();
-    this.getGenero();
-    this.getAvatar(this.pagina);
-    this.getSemestre();
-    this.getPrograma();
-    this.getEstado();
+
+  obtenerEstudiante() {
+    let usuarioResp: Estudiante = JSON.parse(String(localStorage.getItem("usuario")));
+    this.setEstudiante(usuarioResp);
+    this.idEstado = usuarioResp.idEstado;
+    this.idGenero = usuarioResp.idGenero;
+    this.idProgramas = usuarioResp.idPrograma;
+    this.idSemestre = usuarioResp.idSemestre;
+  }
+
+
+  getPrograma(){
+    this.programaService.getProgramas().subscribe(resp => this.programas = resp)
+  }
+
+  getEstado(){
+    this.estadoService.getEstados().subscribe(resp => this.estados = resp)
   }
 
   getGenero(){
@@ -77,6 +116,35 @@ export class CrearModificarEstudianteComponent implements OnInit {
   getSemestre(){
     this.semestreService.getSemestre().subscribe(resp => this.semestres = resp);
   }
+
+  setEstado(){
+    this.estadoService.consultarPorId(this.idEstado!).subscribe(data => {
+      this.nombreEstado = data.estado;
+      this.estado = this.nombreEstado ?? "";
+    });
+  }
+
+  setSemestre(){
+    this.semestreService.consultarPorId(this.idSemestre!).subscribe(data => {
+      this.nombreSemestre = data.nombre;
+      this.semestre = this.nombreSemestre ?? "";
+    });
+  }
+
+  setGenero(){
+    this.generoService.consultarPorId(this.idGenero!).subscribe(data => {
+      this.nombreGenero = data.genero;
+      this.genero = this.nombreGenero ?? "";
+    });
+  }
+
+  setPrograma(){
+    this.programaService.consultarPorId(this.idProgramas!).subscribe(data =>{
+      this.nombreProgramas = data.nombre;
+      this.programa = this.nombreProgramas ?? "";
+    })
+  }
+
 
   async getAvatar(page: number){
     await this.avatarService.getAvataresPage(page).toPromise().then((response) => {
@@ -118,13 +186,6 @@ export class CrearModificarEstudianteComponent implements OnInit {
 
   }
 
-  getPrograma(){
-    this.programaService.getProgramas().subscribe(resp => this.programas = resp)
-  }
-
-  getEstado(){
-    this.estadoService.getEstados().subscribe(resp => this.estados = resp)
-  }
 
   guardarEstudiante(){
     this.hayErrores = false;

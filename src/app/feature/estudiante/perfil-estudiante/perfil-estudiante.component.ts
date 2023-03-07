@@ -44,12 +44,16 @@ export class PerfilEstudianteComponent implements OnInit {
   idGenero: number | undefined = 0;
   idProgramas: number | undefined = 0;
   idEstado: number | undefined = 0;
-  nombreSemestre!: string;
-  nombreProgramas!: string;
+  nombreSemestre!: string | undefined;
+  nombreProgramas!: string| undefined;
   estado!: string;
-  nombreGenero!: string;
+  semestre!: string;
+  genero!: string;
+  programa!: string;
+  nombreGenero!: string | undefined;
   usuario!: Estudiante;
   nombreEstado!: string | undefined;
+
 
 
 
@@ -101,16 +105,19 @@ export class PerfilEstudianteComponent implements OnInit {
     this.getGenero();
     this.getSemestre();
     this.setEstado();
+    this.setSemestre();
+    this.setGenero();
+    this.setPrograma();
   }
 
   obtenerEstudiante() {
     let usuarioResp: Estudiante = JSON.parse(String(localStorage.getItem("usuario")));
-    console.log(usuarioResp.apellido);
     this.setEstudiante(usuarioResp);
     this.idEstado = usuarioResp.idEstado;
     this.idGenero = usuarioResp.idGenero;
     this.idProgramas = usuarioResp.idPrograma;
     this.idSemestre = usuarioResp.idSemestre;
+
 
   }
 
@@ -136,11 +143,33 @@ export class PerfilEstudianteComponent implements OnInit {
   }
 
   setEstado(){
-    this.generoService.consultarPorId(this.idGenero!).subscribe(data => {
-      this.nombreEstado = data.genero;
+    this.estadoService.consultarPorId(this.idEstado!).subscribe(data => {
+      this.nombreEstado = data.estado;
+      this.estado = this.nombreEstado ?? "";
+    });
+  }
 
+  setSemestre(){
+    this.semestreService.consultarPorId(this.idSemestre!).subscribe(data => {
+      this.nombreSemestre = data.nombre;
+      this.semestre = this.nombreSemestre ?? "";
+    });
+  }
+
+  setGenero(){
+    this.generoService.consultarPorId(this.idGenero!).subscribe(data => {
+      this.nombreGenero = data.genero;
+      this.genero = this.nombreGenero ?? "";
+    });
+  }
+
+  setPrograma(){
+    this.programaService.consultarPorId(this.idProgramas!).subscribe(data =>{
+      this.nombreProgramas = data.nombre;
+      this.programa = this.nombreProgramas ?? "";
     })
   }
+
 
   setEstudiante(estudiante: Estudiante){
     this.form = this.fb.group({
@@ -151,7 +180,7 @@ export class PerfilEstudianteComponent implements OnInit {
       puntaje: estudiante.puntaje,
       idSemestre: estudiante.idSemestre,
       idAvatar: estudiante.idAvatar,
-      idGenero: estudiante.idGenero,
+      idGenero: this.nombreGenero,
       usuarioCreador: estudiante.usuarioModificador,
       fechaCreacion: estudiante.fechaCreacion,
       fechaNacimiento: estudiante.fechaNacimiento,
