@@ -17,6 +17,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { AdminModule } from './feature/admin/admin.module';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { HttpInterceptorService } from './core/service/HttpInterceptor.service';
+import { PruebaComponent } from './prueba/prueba/prueba.component';
 
 
 
@@ -24,6 +25,7 @@ import { HttpInterceptorService } from './core/service/HttpInterceptor.service';
   declarations: [
     AppComponent,
     PerfilEstudianteComponent,
+    PruebaComponent,
   ],
   imports: [
     BrowserModule,

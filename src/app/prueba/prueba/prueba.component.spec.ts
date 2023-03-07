@@ -1,20 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NivelIDEComponent } from './nivel-ide.component';
+import { PruebaComponent } from './prueba.component';
 
-describe('NivelIDEComponent', () => {
-  let component: NivelIDEComponent;
-  let fixture: ComponentFixture<NivelIDEComponent>;
+describe('PruebaComponent', () => {
+  let component: PruebaComponent;
+  let fixture: ComponentFixture<PruebaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NivelIDEComponent ]
+      declarations: [ PruebaComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(NivelIDEComponent);
+    fixture = TestBed.createComponent(PruebaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

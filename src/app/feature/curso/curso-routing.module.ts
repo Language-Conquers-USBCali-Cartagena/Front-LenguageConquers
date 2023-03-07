@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { CursoComponent } from './curso/curso.component';
 import { DragAndDropComponent } from './reto/drag-and-drop/drag-and-drop.component';
 import { MapaComponent } from './mapa/mapa.component';
-import { NivelIDEComponent } from './reto/nivel-ide/nivel-ide.component';
 import { ArticulosAdquiridosComponent } from './articulos-adquiridos/articulos-adquiridos.component';
 
 
@@ -21,7 +20,7 @@ const routes:Routes = [
             },
             {
                 path: 'ide/:curso/:reto',
-                component: NivelIDEComponent
+                component: DragAndDropComponent
             },
             {
               path: 'drag',

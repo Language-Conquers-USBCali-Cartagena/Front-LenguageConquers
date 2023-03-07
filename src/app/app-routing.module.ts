@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PruebaComponent } from './prueba/prueba/prueba.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: ()=>import('./feature/admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'prueba',
+    component: PruebaComponent
   }
 
 

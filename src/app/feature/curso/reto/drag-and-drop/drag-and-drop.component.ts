@@ -1,11 +1,10 @@
-import { CdkDragDrop, copyArrayItem,  moveItemInArray,
-  transferArrayItem,CdkDrag } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Respuestas } from 'src/app/shared/models/opciones';
-import { PalabraReservadaService } from '../../../../shared/services/palabraReservada/palabraReservada.service';
-import { PalabrasReservadas } from '../../../../shared/models/palabrasReservadas';
-
+import { PalabrasReservadas } from 'src/app/shared/models/palabrasReservadas';
+import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
+import { PalabraReservadaService } from 'src/app/shared/services/palabraReservada/palabraReservada.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-drag-and-drop',
   templateUrl: './drag-and-drop.component.html',
@@ -24,12 +23,14 @@ export class DragAndDropComponent implements OnInit {
   h: PalabrasReservadas[] = [];
   i: PalabrasReservadas[] = [];
   j: PalabrasReservadas[] = [];
-
+  condicion = false;
   constructor(private router: Router, private palabraService: PalabraReservadaService) { }
 
   async ngOnInit() {
+    this.mostrarPistas();
     await this.ObtenetPalabras();
   }
+
   ObtenetPalabras(){
     this.palabraService.getPalabrasReservadas().subscribe(data => {
       this.palabras = data;
@@ -74,6 +75,16 @@ export class DragAndDropComponent implements OnInit {
 
     // });
 
+    Swal.fire({
+      title: 'Sweet!',
+      text: 'Aqui va el texto de explicación',
+      html:
+        '<iframe width="440" height="315" src="https://www.youtube.com/embed/HD_zesxhkC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false
+    })
+
   }
 
   organizar(lista: PalabrasReservadas[], numeroLista: number){
@@ -85,5 +96,48 @@ export class DragAndDropComponent implements OnInit {
 
     }
   }
+
+
+
+  isSideNavCollapsed=false;
+  screenWidth = 0;
+  onToggleSideNav(data: SideNavToggle):void{
+    this.screenWidth = data.screenWidth;
+    this.isSideNavCollapsed = data.collapsed;
+  }
+
+  atras(){
+    this.router.navigateByUrl('curso/mapa/1');
+  }
+  mostrarTutorial(){
+    Swal.fire({
+      html:
+        '<iframe width="440" height="315" src="https://www.youtube.com/embed/HD_zesxhkC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false
+    })
+  }
+
+  mostrarPistas(){
+    Swal.fire({
+      title: 'Sweet!',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet scelerisque risus. Aliquam erat volutpat. Ut convallis tempus varius. Mauris nec fermentum libero. Donec maximus iaculis urna id sollicitudin. Proin tempus velit elit, ac suscipit odio tempor quis. Nam lacinia turpis nibh, ac commodo nulla vehicula vitae. Praesent venenatis mauris nec efficitur feugiat. Nunc fringilla posuere neque, varius facilisis risus laoreet et. Integer consequat bibendum vehicula.Donec nec dui porta, ultricies lectus et, rutrum ligula. Maecenas scelerisque lacinia ex, vitae laoreet ipsum varius vitae.',
+      confirmButtonText: 'Continuar',
+      showCancelButton: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Sweet!',
+          text:'Maecenas sit amet eros nisl. Aliquam vitae aliquam erat. In malesuada non quam id tincidunt. Nulla at sapien ullamcorper, pharetra turpis vel, congue leo. Integer ut turpis tempus, suscipit velit id, malesuada sem. Curabitur tellus nibh, maximus id arcu quis, blandit tristique libero. Pellentesque vitae nunc ac nibh lacinia molestie sed quis urna. Ut faucibus blandit nunc et sodales. Donec ornare erat tortor, et mollis risus viverra id. Pellentesque vitae justo lacinia, ornare odio id, imperdiet eros. Curabitur tortor dolor, sodales euismod semper non, cursus ac ex. Integer hendrerit est ac ipsum elementum sollicitudin. Mauris sapien eros, sollicitudin sit amet dui mollis, ornare sagittis justo. Maecenas porta, ex quis condimentum porta, nisi ex efficitur diam, vehicula dignissim tortor eros eget mauris. Donec facilisis ante a ipsum sollicitudin, nec dictum lorem iaculis. Quisque blandit enim sem, lacinia vehicula sapien mattis id. Nam aliquam sapien in urna aliquet viverra.',
+          confirmButtonText: 'Continuar',
+        }
+
+      )
+      }
+    })
+  }
+
+
 
 }

@@ -1,0 +1,72 @@
+<div cdkDropListGroup>
+    <div class="example-container">
+      <div 
+      cdkDropList
+      #palabrasList="cdkDropList"
+      [cdkDropListConnectedTo]="[aList, bList, cList, dList, eList]"
+      [cdkDropListData]="palabras" 
+      class="example-list1" 
+      (cdkDropListDropped)="drop($event)">
+        <div class="example-box1" *ngFor="let item of palabras" cdkDrag>{{item.nombre}}</div>
+      </div>
+    </div>
+    <div class="cuadro-respuesta">
+      <div class="example-container">
+        <div 
+        cdkDropList
+        #aList="cdkDropList"
+        cdkDropListOrientation="horizontal" 
+        [cdkDropListData]="a" 
+        class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of a" cdkDrag>{{item.nombre}}</div>
+        </div>
+      </div>
+
+      <div class="example-container">
+        <div 
+        cdkDropList
+        #bList="cdkDropList"
+        cdkDropListOrientation="horizontal" 
+        [cdkDropListData]="b" 
+        class="example-list" 
+        (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of b" cdkDrag>{{item.nombre}}</div>
+        </div>
+      </div>
+      <div class="example-container">
+        <div 
+        cdkDropList
+        #cList="cdkDropList"
+        cdkDropListOrientation="horizontal" 
+        [cdkDropListData]="c" 
+        class="example-list" 
+        (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of c" cdkDrag>{{item.nombre}}</div>
+        </div>
+      </div>
+      <div class="example-container">
+        <div 
+        cdkDropList 
+        #dList="cdkDropList"
+        cdkDropListOrientation="horizontal" 
+        [cdkDropListData]="d" 
+        class="example-list" 
+        (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of d" cdkDrag>{{item.nombre}}</div>
+        </div>
+      </div>
+      <div class="example-container">
+        <div 
+        cdkDropList 
+        #eList="cdkDropList"
+        cdkDropListOrientation="horizontal" 
+        [cdkDropListData]="e" 
+        class="example-list" 
+        (cdkDropListDropped)="drop($event)">
+          <div class="example-box" *ngFor="let item of e" cdkDrag>{{item.nombre}}</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
