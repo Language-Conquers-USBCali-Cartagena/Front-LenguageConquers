@@ -28,11 +28,13 @@
   margin-top: 60px;
   font-size: 50px;
 }
-.monedasEstudiante h1 {
+.monedasEstudiante> h1 {
   color:white;
   margin-left:5px;
   margin-top: -10px;
   font-size: 50px;
+  position: relative;
+  top: 18px;
 }
 .monedasActuales{
   margin-left:-65px;
