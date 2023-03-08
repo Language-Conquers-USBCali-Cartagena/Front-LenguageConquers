@@ -44,12 +44,16 @@ export class PerfilEstudianteComponent implements OnInit {
   idGenero: number | undefined = 0;
   idProgramas: number | undefined = 0;
   idEstado: number | undefined = 0;
-  nombreSemestre!: string;
-  nombreProgramas!: string;
+  nombreSemestre!: string | undefined;
+  nombreProgramas!: string| undefined;
   estado!: string;
-  nombreGenero!: string;
+  semestre!: string;
+  genero!: string;
+  programa!: string;
+  nombreGenero!: string | undefined;
   usuario!: Estudiante;
   nombreEstado!: string | undefined;
+  idEstudiante!: number | undefined;
 
 
 
@@ -101,17 +105,19 @@ export class PerfilEstudianteComponent implements OnInit {
     this.getGenero();
     this.getSemestre();
     this.setEstado();
+    this.setSemestre();
+    this.setGenero();
+    this.setPrograma();
   }
 
   obtenerEstudiante() {
     let usuarioResp: Estudiante = JSON.parse(String(localStorage.getItem("usuario")));
-    console.log(usuarioResp.apellido);
     this.setEstudiante(usuarioResp);
     this.idEstado = usuarioResp.idEstado;
     this.idGenero = usuarioResp.idGenero;
     this.idProgramas = usuarioResp.idPrograma;
     this.idSemestre = usuarioResp.idSemestre;
-
+    this.idEstudiante = usuarioResp.idEstudiante;
   }
 
   crearEstudiante(){
@@ -136,11 +142,33 @@ export class PerfilEstudianteComponent implements OnInit {
   }
 
   setEstado(){
-    this.generoService.consultarPorId(this.idGenero!).subscribe(data => {
-      this.nombreEstado = data.genero;
+    this.estadoService.consultarPorId(this.idEstado!).subscribe(data => {
+      this.nombreEstado = data.estado;
+      this.estado = this.nombreEstado ?? "";
+    });
+  }
 
+  setSemestre(){
+    this.semestreService.consultarPorId(this.idSemestre!).subscribe(data => {
+      this.nombreSemestre = data.nombre;
+      this.semestre = this.nombreSemestre ?? "";
+    });
+  }
+
+  setGenero(){
+    this.generoService.consultarPorId(this.idGenero!).subscribe(data => {
+      this.nombreGenero = data.genero;
+      this.genero = this.nombreGenero ?? "";
+    });
+  }
+
+  setPrograma(){
+    this.programaService.consultarPorId(this.idProgramas!).subscribe(data =>{
+      this.nombreProgramas = data.nombre;
+      this.programa = this.nombreProgramas ?? "";
     })
   }
+
 
   setEstudiante(estudiante: Estudiante){
     this.form = this.fb.group({
@@ -151,7 +179,7 @@ export class PerfilEstudianteComponent implements OnInit {
       puntaje: estudiante.puntaje,
       idSemestre: estudiante.idSemestre,
       idAvatar: estudiante.idAvatar,
-      idGenero: estudiante.idGenero,
+      idGenero: this.nombreGenero,
       usuarioCreador: estudiante.usuarioModificador,
       fechaCreacion: estudiante.fechaCreacion,
       fechaNacimiento: estudiante.fechaNacimiento,
@@ -166,6 +194,7 @@ export class PerfilEstudianteComponent implements OnInit {
 
   async getAvatar(page: number){
     await this.avatarService.getAvataresPage(page).toPromise().then((response) => {
+
       if(response.length <= 0){
         this.pagina = this.pagina-1;
       }else{
@@ -203,7 +232,6 @@ export class PerfilEstudianteComponent implements OnInit {
     imagen.addEventListener('click', function(){
       const active = <HTMLImageElement>document.querySelector('img');
       seleccionado?.classList.remove('active');
-      /*console.log(typeof seleccionado?.id);*/
       this.classList.add('active');
     });
    });
@@ -226,20 +254,22 @@ export class PerfilEstudianteComponent implements OnInit {
 
 
   actualizar():void{
+    const idEstudiante = this.form.value.idEstudiante;
     const nombre = this.form.value.nombre;
     const apellido = this.form.value.apellido;
     const nickName = this.form.value.nickName;
     const nacimiento: Date = this.form.value.fechaNacimiento;
     const correo = this.form.value.correo;
-    const programa = this.form.value.idPrograma
-    const semestre = this.form.value.idSemestre;
-    const avatar = this.idAvatar;
+    const programa = this.idProgramas;
+    const semestre = this.idSemestre;
+    const avatar = this.form.value.idAvatar;
     const puntaje = this.form.value.puntaje;
-    const genero = this.form.value.idGenero;
-    const estado = this.form.value.idEstado;
-    const usuarioModificador = this.estudiante.nombre;
-    let estudiante: Estudiante = {idEstudiante: this.estudiante.idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName,puntaje: puntaje, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado, fechaCreacion: this.estudiante.fechaCreacion, usuarioCreador: this.estudiante.usuarioCreador}
+    const genero = this.idGenero;
+    const estado = this.idEstado;
+    const usuarioModificador = this.form.value.nombre;
+    
+    let estudiante: Estudiante = {idEstudiante: idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName,puntaje: puntaje, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioModificador: usuarioModificador,
+                                  fechaModificacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: estado, fechaCreacion: this.estudiante.fechaCreacion, usuarioCreador: this.estudiante.usuarioCreador}
     this.estudianteServiceNormal.actualizarEstudiante(estudiante).subscribe(data=>{
       Swal.fire({
         icon: 'success',
@@ -260,7 +290,6 @@ export class PerfilEstudianteComponent implements OnInit {
       });
     });
   }
-
 
 
 }

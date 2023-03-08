@@ -33,17 +33,60 @@ export class CrearModificarEstudianteComponent implements OnInit {
   pagina: number = 0;
   idAvatar: number = 0;
   hayErrores = false;
-  mensajeError: string="";
+  mensajeError: string = "";
+  idSemestre: number | undefined = 0;
+  idGenero: number | undefined = 0;
+  idProgramas: number | undefined = 0;
+  idEstado: number | undefined = 0;
+  nombreSemestre!: string | undefined;
+  nombreProgramas!: string | undefined;
+  estado!: string;
+  semestre!: string;
+  genero!: string;
+  programa!: string;
+  nombreGenero!: string | undefined;
+  usuario!: Estudiante;
+  nombreEstado!: string | undefined;
 
-  constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
-              private router:Router, private programaService: ProgramaService, private estadoService: EstadoService, private estudianteService: EstudianteService) {
-      this.crearEstudiante();
+  constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService, private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
+    private router: Router, private programaService: ProgramaService, private estadoService: EstadoService, private estudianteService: EstudianteService) {
+    this.crearEstudiante();
   }
 
-  crearEstudiante(){
+
+  ngOnInit(): void {
+    const idRutaActual = this.router.url;
+    console.log(idRutaActual);
+    if (idRutaActual != '/admin/estudiante/crearEstudiante') {
+      this.cargarEstudiante();
+      this.obtenerEstudiante();
+      this.getGenero();
+      this.getAvatar(this.pagina);
+      this.getSemestre();
+      this.getPrograma();
+      this.getEstado();
+      this.setEstado();
+      this.setSemestre();
+      this.setGenero();
+      this.setPrograma();
+    }else{
+      this.cargarEstudiante();
+      this.crearEstudiante();
+      this.getGenero();
+      this.getAvatar(this.pagina);
+      this.getSemestre();
+      this.getPrograma();
+      this.getEstado();
+
+    }
+
+
+  }
+
+  crearEstudiante() {
     this.form = this.fb.group({
       idEstudiante: ['', Validators.required],
-      nombre:  ['', Validators.required],
+      nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       nickName: ['', Validators.required],
       puntaje: ['', Validators.required],
@@ -61,77 +104,108 @@ export class CrearModificarEstudianteComponent implements OnInit {
       monedasObtenidas: [''],
     });
   }
-  ngOnInit(): void {
-    this.crearEstudiante();
-    this.cargarEstudiante();
-    this.getGenero();
-    this.getAvatar(this.pagina);
-    this.getSemestre();
-    this.getPrograma();
-    this.getEstado();
+
+  obtenerEstudiante() {
+    let usuarioResp: Estudiante = JSON.parse(String(localStorage.getItem("usuario")));
+    this.setEstudiante(usuarioResp);
+    this.idEstado = usuarioResp.idEstado;
+    this.idGenero = usuarioResp.idGenero;
+    this.idProgramas = usuarioResp.idPrograma;
+    this.idSemestre = usuarioResp.idSemestre;
   }
 
-  getGenero(){
+
+  getPrograma() {
+    this.programaService.getProgramas().subscribe(resp => this.programas = resp)
+  }
+
+  getEstado() {
+    this.estadoService.getEstados().subscribe(resp => this.estados = resp)
+  }
+
+  getGenero() {
     this.generoService.getGenero().subscribe(resp => this.generos = resp);
   }
-  getSemestre(){
+  getSemestre() {
     this.semestreService.getSemestre().subscribe(resp => this.semestres = resp);
   }
 
-  async getAvatar(page: number){
+  setEstado() {
+    this.estadoService.consultarPorId(this.idEstado!).subscribe(data => {
+      this.nombreEstado = data.estado;
+      this.estado = this.nombreEstado ?? "";
+    });
+  }
+
+  setSemestre() {
+    this.semestreService.consultarPorId(this.idSemestre!).subscribe(data => {
+      this.nombreSemestre = data.nombre;
+      this.semestre = this.nombreSemestre ?? "";
+    });
+  }
+
+  setGenero() {
+    this.generoService.consultarPorId(this.idGenero!).subscribe(data => {
+      this.nombreGenero = data.genero;
+      this.genero = this.nombreGenero ?? "";
+    });
+  }
+
+  setPrograma() {
+    this.programaService.consultarPorId(this.idProgramas!).subscribe(data => {
+      this.nombreProgramas = data.nombre;
+      this.programa = this.nombreProgramas ?? "";
+    })
+  }
+
+
+  async getAvatar(page: number) {
     await this.avatarService.getAvataresPage(page).toPromise().then((response) => {
-      if(response.length <= 0){
-        this.pagina = this.pagina-1;
-      }else{
+      if (response.length <= 0) {
+        this.pagina = this.pagina - 1;
+      } else {
         this.avatares = response;
       }
     })
   }
 
-  pasarIzq(){
-    if(this.pagina <=0){
+  pasarIzq() {
+    if (this.pagina <= 0) {
       this.pagina = 0;
 
-    }else{
-      this.pagina = this.avatares.length -1;
+    } else {
+      this.pagina = this.avatares.length - 1;
       this.getAvatar(this.pagina);
 
     }
   }
-  pasarDer(){
-    this.pagina = this.pagina +1;
+  pasarDer() {
+    this.pagina = this.pagina + 1;
     this.getAvatar(this.pagina);
 
   }
 
-  seleccionarAvatar(id:any){
+  seleccionarAvatar(id: any) {
     this.idAvatar = id.idAvatar;
     const images = document.querySelectorAll('img');
     let seleccionado = document.getElementById(id.idAvatar);
     images.forEach(imagen => {
-    imagen.addEventListener('click', function(){
-      const active = <HTMLImageElement>document.querySelector('img');
-      seleccionado?.classList.remove('active');
-      this.classList.add('active');
+      imagen.addEventListener('click', function () {
+        const active = <HTMLImageElement>document.querySelector('img');
+        seleccionado?.classList.remove('active');
+        this.classList.add('active');
+      });
     });
-   });
 
   }
 
-  getPrograma(){
-    this.programaService.getProgramas().subscribe(resp => this.programas = resp)
-  }
 
-  getEstado(){
-    this.estadoService.getEstados().subscribe(resp => this.estados = resp)
-  }
-
-  guardarEstudiante(){
+  guardarEstudiante() {
     this.hayErrores = false;
     const nombre = this.form.value.nombre;
     const apellido = this.form.value.apellido;
     const nickName = this.form.value.nickName;
-    const nacimiento: Date  = this.form.value.fechaNacimiento;
+    const nacimiento: Date = this.form.value.fechaNacimiento;
     const correo = this.form.value.correo;
     const programa = this.form.value.idPrograma
     const semestre = this.form.value.idSemestre;
@@ -139,31 +213,33 @@ export class CrearModificarEstudianteComponent implements OnInit {
     const genero = this.form.value.idGenero;
     const estado = this.form.value.idEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
-    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, puntaje: 0, monedasObtenidas: 0 ,idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado}
-      this.estudianteService.crearEstudiante(estudiante).subscribe(data =>{
-        if(data){
-          Swal.fire({
-            icon: 'success',
-            title: data,
-            showConfirmButton: false,
-            timer: 1500
-          });
-          this.router.navigate(['/admin/estudiante/listar-estudiantes']);
-        }
-      }, (e) => {
-        this.hayErrores = true;
-        this.mensajeError = e.error;
+    let estudiante: Estudiante = {
+      nombre: nombre, apellido: apellido, nickName: nickName, puntaje: 0, monedasObtenidas: 0, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioCreador: usuarioCreador,
+      fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado
+    }
+    this.estudianteService.crearEstudiante(estudiante).subscribe(data => {
+      if (data) {
         Swal.fire({
-          icon: 'error',
-          title: e['error'],
+          icon: 'success',
+          title: data,
           showConfirmButton: false,
           timer: 1500
         });
+        this.router.navigate(['/admin/estudiante/listar-estudiantes']);
+      }
+    }, (e) => {
+      this.hayErrores = true;
+      this.mensajeError = e.error;
+      Swal.fire({
+        icon: 'error',
+        title: e['error'],
+        showConfirmButton: false,
+        timer: 1500
       });
+    });
   }
 
-  setEstudiante(estudiante: Estudiante){
+  setEstudiante(estudiante: Estudiante) {
     this.form.setValue({
       idEstudiante: estudiante.idEstudiante,
       nombre: estudiante.nombre,
@@ -184,13 +260,13 @@ export class CrearModificarEstudianteComponent implements OnInit {
       monedasObtenidas: estudiante.monedasObtenidas,
     });
   }
-  cargarEstudiante(){
+  cargarEstudiante() {
     this.activatedRoute.params.subscribe(
       (params) => {
         const id = params['id'];
-        if ( id ) {
+        if (id) {
           this.estudianteService.consultarPorId(id).subscribe((data) => {
-            this.estudiante= data;
+            this.estudiante = data;
             this.setEstudiante(this.estudiante);
           });
         }
@@ -198,7 +274,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
     );
   }
 
-  actualizar():void{
+  actualizar(): void {
     const nombre = this.form.value.nombre;
     const apellido = this.form.value.apellido;
     const nickName = this.form.value.nickName;
@@ -212,9 +288,11 @@ export class CrearModificarEstudianteComponent implements OnInit {
     const estado = this.form.value.idEstado;
     const monedas = this.form.value.monedasObtenidas;
     const usuarioModificador = this.form.value.usuarioModificador;
-    let estudiante: Estudiante = {idEstudiante: this.form.value.idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName, puntaje: puntaje,fechaNacimiento: nacimiento, correo: correo, usuarioCreador: this.estudiante.usuarioCreador, usuarioModificador: usuarioModificador, fechaCreacion: this.estudiante.fechaCreacion,
-                                  fechaModificacion: new Date(), idPrograma: programa.idPrograma, idEstado: estado.idEstado, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero,  monedasObtenidas: monedas}
-    this.estudianteService.actualizarEstudiante(estudiante).subscribe(data=>{
+    let estudiante: Estudiante = {
+      idEstudiante: this.form.value.idEstudiante, nombre: nombre, apellido: apellido, nickName: nickName, puntaje: puntaje, fechaNacimiento: nacimiento, correo: correo, usuarioCreador: this.estudiante.usuarioCreador, usuarioModificador: usuarioModificador, fechaCreacion: this.estudiante.fechaCreacion,
+      fechaModificacion: new Date(), idPrograma: programa.idPrograma, idEstado: estado.idEstado, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, monedasObtenidas: monedas
+    }
+    this.estudianteService.actualizarEstudiante(estudiante).subscribe(data => {
       Swal.fire({
         icon: 'success',
         title: data,
@@ -234,7 +312,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
     });
   }
 
-  atras(){
+  atras() {
     this.router.navigateByUrl('/admin/estudiante/listar-estudiantes');
   }
 

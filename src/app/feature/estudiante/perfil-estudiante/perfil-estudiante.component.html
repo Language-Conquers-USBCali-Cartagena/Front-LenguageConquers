@@ -49,8 +49,8 @@
           <div class="campo-entrada">
             <mat-form-field appearance="fill">
               <mat-label class="titulos">Semestre</mat-label>
-              <mat-select formControlName="idSemestre" [(ngModel)]="semestres">
-                <mat-option *ngFor="let semestre of semestres" [value]="semestre">
+              <mat-select formControlName="idSemestre" [(value)]="semestre">
+                <mat-option *ngFor="let semestre of semestres" [value]="semestre.nombre">
                   {{semestre.nombre}}
                 </mat-option>
               </mat-select>
@@ -58,20 +58,21 @@
             </mat-form-field>
           </div>
           <div class="campo-entrada">
-            <form appearance="fill">
-              <label class="titulos" for="genero">Genero</label>
-              <select formControlName="idGenero" id="genero" >            <option *ngFor="let genero of generos" [value]="genero">
+            <mat-form-field appearance="fill">
+              <label class="titulos">Genero</label>
+              <mat-select formControlName="idGenero" [(value)]="genero">
+                <mat-option *ngFor="let genero of generos" [value]="genero.genero">
                   {{genero.genero}}
-                </option>
-              </select>
+                </mat-option>
+              </mat-select>
               <mat-icon matSuffix class="boton">gender</mat-icon>
-            </form>
+            </mat-form-field>
           </div>
           <div class="campo-entrada">
             <mat-form-field appearance="fill">
               <mat-label class="titulos">Programa</mat-label>
-              <mat-select formControlName="idPrograma">
-                <mat-option *ngFor="let programa of programas" [value]="programa">
+              <mat-select formControlName="idPrograma" [(value)]="programa">
+                <mat-option *ngFor="let programa of programas" [value]="programa.nombre">
                   {{programa.nombre}}
                 </mat-option>
               </mat-select>
