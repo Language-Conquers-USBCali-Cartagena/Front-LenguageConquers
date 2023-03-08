@@ -53,7 +53,7 @@ export class PerfilEstudianteComponent implements OnInit {
   nombreGenero!: string | undefined;
   usuario!: Estudiante;
   nombreEstado!: string | undefined;
-
+  idEstudiante!: number | undefined;
 
 
 
@@ -117,8 +117,7 @@ export class PerfilEstudianteComponent implements OnInit {
     this.idGenero = usuarioResp.idGenero;
     this.idProgramas = usuarioResp.idPrograma;
     this.idSemestre = usuarioResp.idSemestre;
-
-
+    this.idEstudiante = usuarioResp.idEstudiante;
   }
 
   crearEstudiante(){
@@ -255,6 +254,7 @@ export class PerfilEstudianteComponent implements OnInit {
 
 
   actualizar():void{
+    const idEstudiante = this.form.value.id;
     const nombre = this.form.value.nombre;
     const apellido = this.form.value.apellido;
     const nickName = this.form.value.nickName;
@@ -267,7 +267,7 @@ export class PerfilEstudianteComponent implements OnInit {
     const genero = this.form.value.idGenero;
     const estado = this.form.value.idEstado;
     const usuarioModificador = this.estudiante.nombre;
-    let estudiante: Estudiante = {idEstudiante: this.estudiante.idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName,puntaje: puntaje, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioModificador: usuarioModificador,
+    let estudiante: Estudiante = {idEstudiante: idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName,puntaje: puntaje, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioModificador: usuarioModificador,
                                   fechaModificacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado, fechaCreacion: this.estudiante.fechaCreacion, usuarioCreador: this.estudiante.usuarioCreador}
     this.estudianteServiceNormal.actualizarEstudiante(estudiante).subscribe(data=>{
       Swal.fire({
@@ -289,7 +289,6 @@ export class PerfilEstudianteComponent implements OnInit {
       });
     });
   }
-
 
 
 }

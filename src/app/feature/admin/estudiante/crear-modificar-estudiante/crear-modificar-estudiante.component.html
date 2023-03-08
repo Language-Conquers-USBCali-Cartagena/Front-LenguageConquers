@@ -38,8 +38,8 @@
         <div class="campo-entrada">
         <mat-form-field appearance="fill">
           <mat-label class="titulos">Semestre</mat-label>
-          <mat-select formControlName="idSemestre"  [(value)]="semestre">
-            <mat-option *ngFor="let semestre of semestres" [value]="semestre.nombre">
+          <mat-select formControlName="idSemestre">
+            <mat-option *ngFor="let semestre of semestres" [value]="semestre">
               {{semestre.nombre}}
             </mat-option>
           </mat-select>
@@ -65,7 +65,7 @@
               {{programa.nombre}}
             </mat-option>
           </mat-select>
-          <mat-icon matSuffix class="boton">gender</mat-icon>
+          <mat-icon matSuffix class="boton">program</mat-icon>
         </mat-form-field>
         </div>
         <div class="campo-entrada">
@@ -144,5 +144,7 @@
         </div>
       </div>
     </form>
+
+
   </mat-card-content>
 </mat-card>
