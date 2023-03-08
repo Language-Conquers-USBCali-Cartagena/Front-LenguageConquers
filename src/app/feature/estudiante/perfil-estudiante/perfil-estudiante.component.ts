@@ -194,6 +194,7 @@ export class PerfilEstudianteComponent implements OnInit {
 
   async getAvatar(page: number){
     await this.avatarService.getAvataresPage(page).toPromise().then((response) => {
+
       if(response.length <= 0){
         this.pagina = this.pagina-1;
       }else{
@@ -231,7 +232,6 @@ export class PerfilEstudianteComponent implements OnInit {
     imagen.addEventListener('click', function(){
       const active = <HTMLImageElement>document.querySelector('img');
       seleccionado?.classList.remove('active');
-      /*console.log(typeof seleccionado?.id);*/
       this.classList.add('active');
     });
    });
@@ -254,21 +254,22 @@ export class PerfilEstudianteComponent implements OnInit {
 
 
   actualizar():void{
-    const idEstudiante = this.form.value.id;
+    const idEstudiante = this.form.value.idEstudiante;
     const nombre = this.form.value.nombre;
     const apellido = this.form.value.apellido;
     const nickName = this.form.value.nickName;
     const nacimiento: Date = this.form.value.fechaNacimiento;
     const correo = this.form.value.correo;
-    const programa = this.form.value.idPrograma
-    const semestre = this.form.value.idSemestre;
-    const avatar = this.idAvatar;
+    const programa = this.idProgramas;
+    const semestre = this.idSemestre;
+    const avatar = this.form.value.idAvatar;
     const puntaje = this.form.value.puntaje;
-    const genero = this.form.value.idGenero;
-    const estado = this.form.value.idEstado;
-    const usuarioModificador = this.estudiante.nombre;
-    let estudiante: Estudiante = {idEstudiante: idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName,puntaje: puntaje, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado, fechaCreacion: this.estudiante.fechaCreacion, usuarioCreador: this.estudiante.usuarioCreador}
+    const genero = this.idGenero;
+    const estado = this.idEstado;
+    const usuarioModificador = this.form.value.nombre;
+    
+    let estudiante: Estudiante = {idEstudiante: idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName,puntaje: puntaje, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioModificador: usuarioModificador,
+                                  fechaModificacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: estado, fechaCreacion: this.estudiante.fechaCreacion, usuarioCreador: this.estudiante.usuarioCreador}
     this.estudianteServiceNormal.actualizarEstudiante(estudiante).subscribe(data=>{
       Swal.fire({
         icon: 'success',
