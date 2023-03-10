@@ -67,10 +67,11 @@
 @media only screen and (max-width: 600px) {
   .bg-img {
     width: 100%;
-    margin-top: 5px;
+    
     /* background-image: url(../../../../../assets/images/fondos/FondoPrincipal1.png); */
-    display: inline-table;
+    
     background: #2E2E2E;
+    background-size:auto ;
   }
 
   .fondoTarjeta {
