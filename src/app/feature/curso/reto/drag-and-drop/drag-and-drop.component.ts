@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class DragAndDropComponent implements OnInit {
 
+  exampleContainerHeight:string | undefined;
   palabras: PalabrasReservadas[] = [];
   a: PalabrasReservadas[] = [];
   b: PalabrasReservadas[] = [];
@@ -48,6 +49,11 @@ export class DragAndDropComponent implements OnInit {
         event.previousIndex,
         event.currentIndex,
       );
+    }
+    if(this.palabras.length >1){
+      this.exampleContainerHeight = `${this.palabras.length * 600}px`;
+    }else if(this.palabras.length <=1){
+      this.exampleContainerHeight = `${this.palabras.length}px`;
     }
   }
   reto(): void {
@@ -136,6 +142,17 @@ export class DragAndDropComponent implements OnInit {
       )
       }
     })
+  }
+
+  colorVariables(){
+    Swal.fire({
+      title: 'Colores de las Variables',
+      html:
+      ' <p class="explicacion-color"><span style="color: #E74C3C;"><b>Rojo:</b></span> Para variables no declaradas o no utilizadas</p><p> <span style="color: #27AE60;"><b>Verde:</b></span> Para variables locales o parámetros de función</p> <p class="explicacion-color"><span style="color: #3498DB"><b>Azul:</b></span> Para variables globales o de instancia</p> <p> <span style="color: #F4D03F"><b>Amarillo:</b></span> Para variables constantes o inmutables</p>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false
+    });
   }
 
 
