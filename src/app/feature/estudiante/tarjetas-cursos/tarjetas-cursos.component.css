@@ -1,6 +1,6 @@
-.body{
+.body {
 
-  background-color:rgb(219,211,205);
+  background-color: #2E2E2E;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   background-size: cover;
@@ -8,32 +8,40 @@
   height: auto;
   align-items: center;
 }
-.tarjetaPeq{
-  width: 1680px;
+.titulo1 {
+  font-size: 40px;
+  line-height: 5px;
+  margin-left: -1600px;
+  
+  color: black;
+}
+.tituloTarjetaPeq {
+  font: size 40px;
+  font-family: 'Roboto', sans-serif;
+  margin-left: -1420px;
+  color: black;
+}
+.tarjetaPeq {
+  width: 1640px;
   height: 10px;
-  margin-left: 83px;
-
+  left: 103px;
+  margin-top:10px ;
 
   /*Efecto espejo*/
   padding: 48px;
   border-radius: 24px;
-  background: linear-gradient(
-  135deg,
-  rgba(255, 255, 255, 0.514),
-  rgba(255, 255, 255, 0.514)
-
-);
-backdrop-filter: blur(3px);
--webkit-backdrop-filter: blur(3px);
-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-font-size: 30px;
-color:rgb(6,43,60);
-text-align: center;
-border-radius: 20px;
+  background: #97979799;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  font-size: 30px;
+  color: rgb(6, 43, 60);
+  text-align: center;
+  border-radius: 20px;
 }
 
 
-.imagen3d1{
+.imagen3d1 {
   position: absolute;
   left: 75%;
   top: -20px;
@@ -41,16 +49,11 @@ border-radius: 20px;
   height: 130px;
   transform: rotate(10deg);
 }
-.titulo1{
-  font-size: 40px;
-  line-height: 5px;
-  margin-top: -35px;
-  text-align: left;
-  color: black;
-}
-.imagen3d2{
+
+
+.imagen3d2 {
   background-image: url(../../../../assets/images/fondos/portadaCurso.png);
-  background-size:cover;
+  background-size: cover;
   position: absolute;
   left: 20%;
   top: -30px;
@@ -59,12 +62,9 @@ border-radius: 20px;
   width: 150px;
 
 }
-.tituloTarjetaPeq{
-  font: size 25px;
-  font-family: 'Roboto', sans-serif;
-  text-align: left;
-  color: black;
-}
+
+
+
 .fondoTarjeta {
   width: 1030px;
   height: 200px;
@@ -75,46 +75,50 @@ border-radius: 20px;
 
 
 }
-.estudiante{
-  display:flex;
-  flex-direction:row;
+
+.estudiante {
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
 }
-.estudiante>img{
+
+.estudiante>img {
   margin-left: 640px;
 
 }
-.estudiante>h2{
+
+.estudiante>h2 {
   margin-left: 640px;
 
 }
-.estudiante>button{
+
+.estudiante>button {
   margin-left: 640px;
 }
 
-.cursos{
-max-width: 180px;
-max-height: 200px;
-margin: 10px;
-line-height: 0.2;
-text-align: left;
-background-color:rgba(255, 255, 255, 0.832);
-box-shadow: 0 10px 42px 0 rgba(0, 0, 0, 0.452);
-cursor: pointer;
+.cursos {
+  max-width: 180px;
+  max-height: 200px;
+  margin: 10px;
+  line-height: 0.2;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.832);
+  box-shadow: 0 10px 42px 0 rgba(0, 0, 0, 0.452);
+  cursor: pointer;
 
 }
 
-.titulo{
-color: black;
+.titulo {
+  color: black;
 }
 
-.vinculos-contra{
-font-family: 'Roboto', sans-serif;
-font-size: 12px;
-color: rgb(0, 0, 0);
-top: 20px;
-bottom: 20px;
-margin-left: -7px;
+.vinculos-contra {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  top: 20px;
+  bottom: 20px;
+  margin-left: -7px;
 }
 
 
@@ -122,65 +126,54 @@ margin-left: -7px;
   box-shadow: 0px 2px 1px -1px rgba(116, 115, 115, 0.466),
     0px 1px 1px 0px rgba(116, 115, 115, 0.466), 0px 1px 3px 0px rgb(116, 115, 115, 0.466);
 }
+
 .mat-card.mat-card-flat:not([class*='mat-elevation-z']) {
   box-shadow: 0px 0px 0px 0px rgb(116, 115, 115, 0.466),
     0px 0px 0px 0px rgb(116, 115, 115, 0.466), 0px 0px 0px 0px rgb(116, 115, 115, 0.466);
 }
-@media screen  and (max-width: 700px) {
-  .body{
-      background-image:url(../../../../assets/images/fondos/portadaCurso.png);
-      background-size: cover;
-      height: 660px;
+
+@media screen and (max-width: 700px) {
+  .body {
+    background-image: url(../../../../assets/images/fondos/portadaCurso.png);
+    background-size: cover;
+    height: 660px;
 
   }
-  .fondoTarjeta {
-      width: 260px;
-      height: 570px;
-      font-family: Pirata One;
-      /*Efectoespejo*/
-      margin-left: 30px;
-      border-radius: 5px;
-      background: rgba(0, 0, 0, 0.176);
-      -webkit-border-radius: 5px;
-      -moz-border-radius: 5px;
-      -ms-border-radius: 5px;
-      -o-border-radius: 5px;
-}
-  .estudiante>img{
-      margin-left: 110px;
+
+  .estudiante>img {
+    margin-left: 80px;
 
   }
-  .estudiante>h2{
-      margin-left: 110px;
-  }
-  .estudiante>button{
-      margin-left: 110px;
+
+  .estudiante>h2 {
+    margin-left: 80px;
   }
 
+  .estudiante>button {
+    margin-left: 80px;
+  }
 
-
-
-  .tarjetaPeq{
+  .tarjetaPeq {
     width: 306px;
-    height: 40px;
+    height: 80px;
     margin-right: 0px;
-    margin-left: 67px;
+    margin-left: -22px;
+    
     /*Efecto espejo*/
     padding: 0px;
     border-radius: 24px;
-    background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.514),
-    rgba(255, 255, 255, 0.514)
-  );
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-  font-size: 30px;
-  color:rgb(6,43,60);
-  text-align: center;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.514),
+        rgba(255, 255, 255, 0.514));
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    font-size: 20px;
+    color: rgb(6, 43, 60);
+    text-align: center;
   }
-  .imagen3d1{
+
+  .imagen3d1 {
     position: absolute;
     left: 0%;
     top: 0px;
@@ -188,13 +181,10 @@ margin-left: -7px;
     height: 0px;
     transform: rotate(10deg);
   }
-  .titulo1{
-    font-size: 40px;
-    line-height: 5px;
-  }
-  .imagen3d2{
+
+  .imagen3d2 {
     background-image: url(../../../../assets/images/fondos/portadaCurso.png);
-    background-size:cover;
+    background-size: cover;
     position: absolute;
     left: 0%;
     top: 0px;
@@ -203,11 +193,18 @@ margin-left: -7px;
     width: 0px;
 
   }
-  .tituloTarjetaPeq{
-    font: size 20px;
-    font-family: 'Roboto', sans-serif;
-    color: rgb(6,43,60);
-
+  .titulo1 {
+    font-size: 40px;
+    line-height: 5px;
+    margin-left: -16px;
+    
+    color: black;
   }
-}
+  .tituloTarjetaPeq {
+    font: size 40px;
+    font-family: 'Roboto', sans-serif;
+    margin-left: -14px;
+    color: black;
+  }
 
+}

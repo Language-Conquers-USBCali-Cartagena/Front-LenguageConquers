@@ -23,46 +23,43 @@
   justify-content: center;
   align-items: center;
   display: flex; */
-
   position: absolute;
-  width: 394px;
-  height: 657px;
-  left: 32px;
+  width: 400px;
+  height: 700px;
+  left: 30px;
   top: 93px;
-
   border: 1px solid #FFFFFF;
   border-radius: 66px;
 }
+ 
 
 .mat-card {
   box-shadow: none;
 }
 
 .fondoTarjeta {
-
-
   font-family: Mouse Memoirs;
   /*Efecto espejo*/
-  padding: 1em;
-  width: 80%;
+
+  width: 86%;
   border-radius: 15px;
   background: rgba(151, 116, 116, 0);
 }
 
 .imagen {
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width: 1450px;
   height: 925px;
-  left: 470px;
+  left: 460px;
   top: 1px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border: 0px;
 }
 
 .logo {
-  height: 120px;
-  padding-left: 40px;
+  height: 170px;
+  
 }
 
 /*Responsive Mobile*/
@@ -71,8 +68,9 @@
   .bg-img {
     width: 100%;
     margin-top: 5px;
-    background-image: url(../../../../../assets/images/fondos/FondoPrincipal1.png);
+    /* background-image: url(../../../../../assets/images/fondos/FondoPrincipal1.png); */
     display: inline-table;
+    background: #2E2E2E;
   }
 
   .fondoTarjeta {
@@ -85,6 +83,28 @@
     /*Efectoespejo*/
 
   }
+  .login {
+    /* height: 10%;
+    bottom: 50%;
+    width: auto;
+    height: 100%;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content: center;
+    align-items: center;
+    display: flex; */
+    position: absolute;
+    width: 300px;
+    height: 600px;
+    left: 30px;
+    top: 93px;
+    border: 1px solid #FFFFFF;
+    border-radius: 66px;
+  }
+.logo {
+  height: 100px;
+  margin-left: 20px;
+}
 
 }
 

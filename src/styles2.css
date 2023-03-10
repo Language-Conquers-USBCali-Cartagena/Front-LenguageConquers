@@ -1862,7 +1862,7 @@ td.mat-footer-cell {
 }
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple,
 .mat-form-field.mat-form-field-invalid .mat-form-field-ripple.mat-accent {
-  background-color: #31B2C2;
+  background-color: #f55e53;
 }
 .mat-error {
   color: rgb(241, 231, 194);
