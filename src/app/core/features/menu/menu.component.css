@@ -8,14 +8,14 @@ body{
   position: relative;
 }
 .sidenav{
-  background:#ac998b;
+  background:#2E2E2E;
   transition: all .5s ease;
   position: fixed;
   z-index: 1;
   top: 0;
   width: 5rem;
   height: 100vh;
-  box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+  box-shadow: 0.063rem 0 1.25rem 0 #D9D9D9;
 
 }
 .logo-container{
@@ -45,7 +45,7 @@ body{
   font-size:34px;
   font-weight: 700;
   line-height:30px;
-  text-shadow: 0 0 2px #645349;
+  text-shadow: 0 0 2px #8690A3;
   color:rgb(255, 255, 255);
   text-align: left;
 }
@@ -104,12 +104,12 @@ body{
   font-family: Mouse Memoirs;
 }
 .sidenav-nav-link:hover{
- background-color:rgb(146, 129, 117);
+ background-color:#8690A3;
  color:#000;
 }
 .active{
 
-  background-color: rgb(146, 129, 117);
+  background-color: #8690A3;
 }
 .sidenav-link-icon, .sidenav-link-text{
   color:rgb(255, 255, 255);
@@ -118,7 +118,7 @@ body{
 .fondoLogo {
   align-items: center;
   padding-left: 45%;
-  background-color: #84614b;
+  background-color: #2E2E2E;
   box-shadow: 0.063rem 0 1.25rem 0 #757e8e;
 
 
@@ -132,7 +132,7 @@ body{
 
   @media screen and (max-width:700px) {
     .sidenav {
-      background: #ac998b;
+      background: #2E2E2E;
       transition: all .5s ease;
       position: fixed;
       z-index: 1;
@@ -171,7 +171,7 @@ body{
       font-size: 22px;
       font-weight: 450;
       line-height: 30px;
-      text-shadow: 0 0 2px #645349;
+      text-shadow: 0 0 2px #8690A3;
       color: rgb(255, 255, 255);
       text-align: left;
     }
@@ -239,13 +239,13 @@ body{
     }
 
     .sidenav-nav-link:hover {
-      background-color: rgb(146, 129, 117);
+      background-color: #8690A3;
       color: #000;
     }
 
     .active {
 
-      background-color: rgb(146, 129, 117);
+      background-color: #8690A3;
     }
 
     .sidenav-link-icon,
@@ -256,7 +256,7 @@ body{
     .fondoLogo {
       align-items: center;
       padding-left: 45%;
-      background-color: #84614b;
+      background-color: #8690A3;
       box-shadow: 0.063rem 0 1.25rem 0 #757e8e;
 
 
