@@ -141,16 +141,16 @@
   }
 
   .estudiante>img {
-    margin-left: 110px;
+    margin-left: 80px;
 
   }
 
   .estudiante>h2 {
-    margin-left: 110px;
+    margin-left: 80px;
   }
 
   .estudiante>button {
-    margin-left: 110px;
+    margin-left: 80px;
   }
 
   .tarjetaPeq {
@@ -192,6 +192,18 @@
     width: 0px;
 
   }
+  .titulo1 {
+    font-size: 40px;
+    line-height: 5px;
+    margin-left: -16px;
+    
+    color: black;
+  }
+  .tituloTarjetaPeq {
+    font: size 40px;
+    font-family: 'Roboto', sans-serif;
+    margin-left: -14px;
+    color: black;
+  }
 
- 
 }
