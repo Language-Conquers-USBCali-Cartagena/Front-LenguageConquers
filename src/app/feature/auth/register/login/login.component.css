@@ -8,7 +8,7 @@
   font-family: Mouse Memoirs;
    /*Efecto espejo*/
   padding: 1em;
-  width: 80%;
+  width: 100%;
   border-radius: 15px;
   background: rgba(151, 116, 116, 0);
 }
@@ -17,8 +17,8 @@
 }
 .entradauc1 {
   margin-left: 10px;
-  margin-right: 50px;
-  width: 350px;
+  margin-right: 10px;
+  width: 320px;
   font-family: 'Mouse Memoirs';
   font-size: 20px;
   color:rgb(235, 227, 215);
@@ -28,8 +28,8 @@
 }
 .entradauc2 {
   margin-left: 10px;
-  margin-right: 50px;
-  width: 350px;
+  margin-right: 10px;
+  width: 320px;
   font-family: 'Mouse Memoirs';
   font-size: 20px;
   color:rgb(235, 227, 215);
@@ -52,7 +52,7 @@
   -o-border-radius: 10px;
   padding-left: 1em;
   font-size: 1.5em;
-  margin-left:3.45em;
+  margin-left:65px;
   color: rgb(241,231,194);
 }
 .botones:hover{
@@ -71,22 +71,22 @@
 .lienas::after,.lienas::before{
   content: '';
   position: absolute;
-  width: 100px;
+  width: 120px;
   height: 3px;
   background-color: #FFFFFF;
-  margin-top: 10px;
+  margin-top: 13px;
 }
 .lienas::before{
-  left: -20px;
+  left: 0px;
 }
 .lienas::after{
-  right: -20px;
+  right: 0px;
 }
 .otrac {
 display: flex;
  margin-top: 5px;
  margin-bottom: 10px;
- margin-left: 45px;
+ margin-left: 50px;
  width: auto;
  height: auto;
 }
@@ -112,7 +112,7 @@ display: flex;
   color: rgb(241,231,194);
  top: 20px;
  bottom: 20px;
- margin-left: -7px;
+ margin-left: 14px;
 }
 .vinculos-contra:hover{
   color: #31B2C2;
