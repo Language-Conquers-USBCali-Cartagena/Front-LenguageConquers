@@ -38,8 +38,6 @@
 }
 
 .fondoTarjeta {
-
-
   font-family: Mouse Memoirs;
   /*Efecto espejo*/
 
@@ -70,8 +68,9 @@
   .bg-img {
     width: 100%;
     margin-top: 5px;
-    background-image: url(../../../../../assets/images/fondos/FondoPrincipal1.png);
+    /* background-image: url(../../../../../assets/images/fondos/FondoPrincipal1.png); */
     display: inline-table;
+    background: #2E2E2E;
   }
 
   .fondoTarjeta {
@@ -84,6 +83,28 @@
     /*Efectoespejo*/
 
   }
+  .login {
+    /* height: 10%;
+    bottom: 50%;
+    width: auto;
+    height: 100%;
+    margin-left:auto;
+    margin-right:auto;
+    justify-content: center;
+    align-items: center;
+    display: flex; */
+    position: absolute;
+    width: 300px;
+    height: 600px;
+    left: 30px;
+    top: 93px;
+    border: 1px solid #FFFFFF;
+    border-radius: 66px;
+  }
+.logo {
+  height: 100px;
+  margin-left: 20px;
+}
 
 }
 
