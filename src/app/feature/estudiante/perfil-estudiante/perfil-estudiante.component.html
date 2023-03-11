@@ -58,8 +58,9 @@
             </mat-form-field>
           </div>
           <div class="campo-entrada">
+            
             <mat-form-field appearance="fill">
-              <label class="titulos">Genero</label>
+              <mat-label class="titulos">Genero</mat-label>
               <mat-select formControlName="idGenero" [(value)]="genero">
                 <mat-option *ngFor="let genero of generos" [value]="genero.genero">
                   {{genero.genero}}
