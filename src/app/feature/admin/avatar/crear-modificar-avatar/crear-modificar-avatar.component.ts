@@ -56,8 +56,11 @@ export class CrearModificarAvatarComponent implements OnInit {
     const nombre = this.form.value.nombre;
     const imagenAvatar = this.imagenUrl;
     const usuarioCreador = this.form.value.usuarioCreador;
+    const moment = require('moment-timezone');
+    const pais = 'Colombia';
+    const fechaActual = moment().tz(pais).format();
     let avatar: Avatar = {nombreAvatar: nombre, imgAvatar: imagenAvatar,  usuarioCreador: usuarioCreador,
-                                  fechaCreacion: new Date()}
+                                  fechaCreacion: fechaActual}
     this.avatarService.crearAvatar(avatar).subscribe(data => {
       if(data){
         Swal.fire({
@@ -112,8 +115,11 @@ export class CrearModificarAvatarComponent implements OnInit {
     const nombre = this.form.value.nombre;
     const imagenAvatar = this.imagenUrl;
     const usuarioModificador = this.form.value.usuarioModificador;
+    const moment = require('moment-timezone');
+    const pais = 'Colombia';
+    const fechaActual = moment().tz(pais).format();
     let avatar: Avatar = {idAvatar: this.form.value.idAvatar,nombreAvatar: nombre, imgAvatar: imagenAvatar, usuarioModificador: usuarioModificador,
-                                 fechaModificacion: new Date()}
+                                 fechaModificacion: fechaActual}
     this.avatarService.actualizarAvatar(avatar).subscribe(()=>{
       Swal.fire({
         icon: 'success',

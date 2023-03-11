@@ -16,7 +16,7 @@ export class CrearModificarEstadoComponent implements OnInit {
   estado!:Estado;
   hayErrores = false;
   mensajeError: string="";
- 
+
 
   constructor(private fb: FormBuilder,private router: Router,  private activatedRoute: ActivatedRoute, private estadoService: EstadoService) {
     this.crearEstado();
@@ -41,8 +41,11 @@ export class CrearModificarEstadoComponent implements OnInit {
   guardarEstado(){
     const nombreEstado = this.form.value.nombreEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
+    const moment = require('moment-timezone');
+    const pais = 'Colombia';
+    const fechaActual = moment().tz(pais).format();
     let estado: Estado = {estado: nombreEstado, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: new Date()}
+                                  fechaCreacion: fechaActual}
       this.estadoService.crearEstado(estado).subscribe(data => {
         if(data){
           Swal.fire({
@@ -92,8 +95,11 @@ export class CrearModificarEstadoComponent implements OnInit {
   actualizar():void{
     const nombreEstado = this.form.value.nombreEstado;
     const usuarioModificador = this.form.value.usuarioModificador;
+    const moment = require('moment-timezone');
+    const pais = 'Colombia';
+    const fechaActual = moment().tz(pais).format();
     let estado: Estado = {idEstado: this.form.value.idEstado, estado: nombreEstado, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date(),fechaCreacion: this.estado.fechaCreacion, usuarioCreador: this.estado.usuarioCreador}
+                                  fechaModificacion: fechaActual,fechaCreacion: this.estado.fechaCreacion, usuarioCreador: this.estado.usuarioCreador}
     this.estadoService.actualizarEstado(estado).subscribe(data=>{
       Swal.fire({
         icon: 'success',

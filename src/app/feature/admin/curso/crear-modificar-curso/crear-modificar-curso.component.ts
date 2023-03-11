@@ -24,6 +24,7 @@ export class CrearModificarCursoComponent implements OnInit {
   hayErrores = false;
   mensajeError: string="";
 
+
   constructor(private fb: FormBuilder, private estadoService: EstadoService,private profesorService: ProfesorService, private router:Router, private cursoService: CursoService,  private activatedRoute: ActivatedRoute) {
     this.crearCurso();
    }
@@ -54,7 +55,7 @@ export class CrearModificarCursoComponent implements OnInit {
   }
   getProfesor() {
     this.profesorService.getProfesor().subscribe(resp =>this.profesores = resp);
-    
+
   }
 
   getEstado(){
@@ -71,8 +72,11 @@ export class CrearModificarCursoComponent implements OnInit {
     const estado = this.form.value.idEstado;
     const profesor = this.form.value.idProfesor;
     const usuarioCreador = this.form.value.usuarioCreador;
+    const moment = require('moment-timezone');
+    const pais = 'Colombia';
+    const fechaActual = moment().tz(pais).format();
     let curso: Curso = {nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: 0, idEstado: estado.idEstado, idProfesor: profesor.idProfesor, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: new Date()}
+                                  fechaCreacion: fechaActual}
     this.cursoService.crearCurso(curso).subscribe(data => {
       if(data){
         Swal.fire({
@@ -139,8 +143,11 @@ export class CrearModificarCursoComponent implements OnInit {
     const estado= this.form.value.idEstado;
     const profesor = this.form.value.idProfesor;
     const usuarioModificador = this.form.value.usuarioModificador;
+    const moment = require('moment-timezone');
+    const pais = 'Colombia';
+    const fechaActual = moment().tz(pais).format();
     let curso: Curso = {idCurso:this.curso.idCurso,nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: progreso, idEstado: estado.idEstado, idProfesor: profesor.idProfesor, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date(), fechaCreacion: this.curso.fechaCreacion, usuarioCreador: this.curso.usuarioCreador}
+                                  fechaModificacion: fechaActual, fechaCreacion: this.curso.fechaCreacion, usuarioCreador: this.curso.usuarioCreador}
     this.cursoService.actualizarCurso(curso).subscribe(data=>{
       Swal.fire({
         icon: 'success',

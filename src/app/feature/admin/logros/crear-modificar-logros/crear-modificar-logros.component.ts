@@ -52,8 +52,11 @@ export class CrearModificarLogrosComponent implements OnInit {
     const descripcion = this.form.value.descripcion;
     const imagenLogro = this.imagenUrl;
     const usuarioCreador = this.form.value.usuarioCreador;
+    const moment = require('moment-timezone');
+    const pais = 'Colombia';
+    const fechaActual = moment().tz(pais).format();
     let logro: Logros = {nombre: nombre, descripcion: descripcion,  imagen: imagenLogro, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: new Date()}
+                                  fechaCreacion: fechaActual}
     this.logroService.crearLogro(logro).subscribe(data => {
       if(data){
         Swal.fire({
@@ -111,8 +114,11 @@ export class CrearModificarLogrosComponent implements OnInit {
     const descripcion = this.form.value.descripcion;
     const imagenLogro = this.imagenUrl;
     const usuarioModificador = this.form.value.usuarioModificador;
+    const moment = require('moment-timezone');
+    const pais = 'Colombia';
+    const fechaActual = moment().tz(pais).format();
     let logro: Logros = {idLogro:this.form.value.idLogro ,nombre: nombre, descripcion: descripcion, imagen: imagenLogro, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: new Date(), fechaCreacion: this.logro.fechaCreacion, usuarioCreador: this.logro.usuarioCreador}
+                                  fechaModificacion: fechaActual, fechaCreacion: this.logro.fechaCreacion, usuarioCreador: this.logro.usuarioCreador}
     this.logroService.actualizarLogro(logro).subscribe(data=>{
       Swal.fire({
         icon: 'success',

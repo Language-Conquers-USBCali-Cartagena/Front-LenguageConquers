@@ -213,9 +213,12 @@ export class CrearModificarEstudianteComponent implements OnInit {
     const genero = this.form.value.idGenero;
     const estado = this.form.value.idEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
+    const moment = require('moment-timezone');
+    const pais = 'Colombia';
+    const fechaActual = moment().tz(pais).format();
     let estudiante: Estudiante = {
       nombre: nombre, apellido: apellido, nickName: nickName, puntaje: 0, monedasObtenidas: 0, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioCreador: usuarioCreador,
-      fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado
+      fechaCreacion: fechaActual, fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado
     }
     this.estudianteService.crearEstudiante(estudiante).subscribe(data => {
       if (data) {
@@ -288,9 +291,12 @@ export class CrearModificarEstudianteComponent implements OnInit {
     const estado = this.form.value.idEstado;
     const monedas = this.form.value.monedasObtenidas;
     const usuarioModificador = this.form.value.usuarioModificador;
+    const moment = require('moment-timezone');
+    const pais = 'Colombia';
+    const fechaActual = moment().tz(pais).format();
     let estudiante: Estudiante = {
       idEstudiante: this.form.value.idEstudiante, nombre: nombre, apellido: apellido, nickName: nickName, puntaje: puntaje, fechaNacimiento: nacimiento, correo: correo, usuarioCreador: this.estudiante.usuarioCreador, usuarioModificador: usuarioModificador, fechaCreacion: this.estudiante.fechaCreacion,
-      fechaModificacion: new Date(), idPrograma: programa.idPrograma, idEstado: estado.idEstado, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, monedasObtenidas: monedas
+      fechaModificacion:fechaActual, idPrograma: programa.idPrograma, idEstado: estado.idEstado, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, monedasObtenidas: monedas
     }
     this.estudianteService.actualizarEstudiante(estudiante).subscribe(data => {
       Swal.fire({
