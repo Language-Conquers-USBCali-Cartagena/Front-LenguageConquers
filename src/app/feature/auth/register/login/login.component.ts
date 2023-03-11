@@ -15,7 +15,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providers: [AuthService],
 })
 export class LoginComponent implements OnInit {
-  public user$:Observable<any> = this.authService.afauth.user;
+  public user$: Observable<any> = this.authService.afauth.user;
   form: UntypedFormGroup;
   hide = true;
   loading = false;
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   estudianteExiste: boolean = false;
   userEmail = new UntypedFormControl('');
 
-  constructor(private fb: UntypedFormBuilder, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService,private auth: AngularFireAuth) {
+  constructor(private fb: UntypedFormBuilder, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService, private auth: AngularFireAuth) {
     this.form = this.fb.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required]
@@ -34,15 +34,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.validaciones()
   }
-  async obtenerToken(){
+  async obtenerToken() {
     await this.auth.idToken.subscribe(resp => {
       localStorage.setItem('Token', `${resp}`);
 
       this.token = resp;
-      console.log(resp);
-      
+
     })
-   
+
   }
 
   async ingresar() {
@@ -51,15 +50,9 @@ export class LoginComponent implements OnInit {
 
 
     this.authService.login(usuario, password).then(async res => {
-      if(res?.user?.emailVerified == true){
-        this.fail = false;
-        console.log(res);
-        await this.obtenerToken();
-        
-        this.validaciones();
-      }else if(res?.user?.emailVerified == false){
-        this.router.navigate(['/auth/verificar-email']);
-      }
+
+      await this.obtenerToken();
+      this.validaciones();
     }).catch(err => {
       this.error();
       this.form.reset();
@@ -75,8 +68,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  IngresarConFacebook(){
-    this.authService.loginWithFacebook().then(res => {
+  IngresarConFacebook() {
+    this.authService.loginWithFacebook().then(async res => {
+      await this.obtenerToken();
       this.validaciones();
     }).catch(err => {
       this.error();
@@ -103,46 +97,44 @@ export class LoginComponent implements OnInit {
 
   }
 
-  async validarExistenciaBD(email: string){
+  async validarExistenciaBD(email: string) {
 
     await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
       this.profesorExiste = response;
-      if(response == true){
+      if (response == true) {
         this.router.navigateByUrl("/profesor/menuProfesor");
       }
     })
-    this.router.navigateByUrl("/estudiante/menu")
     await this.loginService.existEstudianteByCorreo(email).toPromise().then((response) => {
       this.estudianteExiste = response;
-      if(response == true){
-        
+      if (response == true) {
+        this.router.navigateByUrl("/estudiante/menu")
       }
     })
-    this.estudianteExiste = true
-    if(this.estudianteExiste == true || this. profesorExiste == true){
+    if (this.estudianteExiste == true || this.profesorExiste == true) {
       return true
-    }else {
+    } else {
       return false
     }
 
   }
-  validaciones(){
+  validaciones() {
     this.loading = true;
     setTimeout(() => {
-      this.authService.getUserLogged().subscribe(res =>{
-        if(res?.email == null){
+      this.authService.getUserLogged().subscribe(res => {
+        if (res?.email == null) {
           this.loading = false;
         }
       })
-      let correo= '';
-      this.user$.subscribe(  res => {
-        if(res.emailVerified == false){
+      let correo = '';
+      this.user$.subscribe(res => {
+        if (res.emailVerified == false) {
           this.router.navigate(['auth/verificar-email'])
         }
         correo = res.email;
         localStorage.setItem("correo", correo);
         this.validarExistenciaBD(correo).then(resp => {
-          if(resp == false){
+          if (resp == false) {
             this.router.navigateByUrl("/auth/crearUsuario")
           }
         })
@@ -153,23 +145,23 @@ export class LoginComponent implements OnInit {
 
   }
 
-  async recuperarPassword(){
-    const {value: email} = await Swal.fire({
+  async recuperarPassword() {
+    const { value: email } = await Swal.fire({
       title: 'Restablecer Contraseña',
       input: 'email',
       inputLabel: 'Ingrese la dirección de correo electrónico asociado a la cuenta de Language Conquers.',
       inputPlaceholder: 'Email',
       confirmButtonColor: '#31B2C2',
-      position:'center',
+      position: 'center',
       backdrop: '',
-      
-    })
- 
-  responsive: true
 
-    if (email){
-      Swal.fire({ icon: 'success', text:'Se envío el correo a ${email}, revisa la bandeja de tú correo.'});
+    })
+
+    responsive: true
+
+    if (email) {
+      Swal.fire({ icon: 'success', text: 'Se envío el correo a ${email}, revisa la bandeja de tú correo.' });
       await this.authService.recuperarContraseña(email);
     }
-    }
+  }
 }
