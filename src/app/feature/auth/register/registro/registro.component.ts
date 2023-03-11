@@ -168,10 +168,10 @@ export class RegistroComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         if (result.value) {
-          Swal.fire({ icon: 'success', text: 'Has aceptado los términos y condiciones.' ,confirmButtonColor: '#c98345',});
+          Swal.fire({ icon: 'success', text: 'Has aceptado los términos y condiciones.' ,confirmButtonColor: '#31B2C2',});
           this.terminos = true;
         } else {
-          Swal.fire({ icon: 'error', text: "Es necesario aceptar los términos y condiciones para registrase.", confirmButtonColor: '#c98345',});
+          Swal.fire({ icon: 'error', text: "Es necesario aceptar los términos y condiciones para registrase.", confirmButtonColor: '#31B2C2',});
           this.terminos = false;
         }
 
