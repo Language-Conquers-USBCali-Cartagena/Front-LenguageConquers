@@ -23,7 +23,7 @@
   color:rgb(235, 227, 215);
 }
 .mat-label{
-  color: rgb(241, 231, 194);
+  color: rgb(255, 255, 255);
 }
 .entradauc2 {
   margin-left: 10px;
@@ -36,10 +36,10 @@
 .boton {
   padding-right:10px;
   top: 35px;
-  color: rgb(235, 227, 215);
+  color: rgb(255, 255, 255);
 }
 .vinculos{
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
   text-align: justify;
   font-family: 'Mouse Memoirs' ;
   margin-top: 20px;
@@ -66,10 +66,10 @@
   font-size: 1.5em;
   margin-left: 3.45em;
   text-align: center;
-  color: rgb(241,231,194);
+  color: #ffffff;
 }
 .ancho1:hover{
-  background-color: rgb(241,231,194);
+  background-color: rgb(255, 255, 255);
   color: #31B2C2;
 }
 .otrac {
@@ -120,7 +120,7 @@
 .vinculos-contra{
   font-family: Mouse Memoirs;
   font-size: 20px;
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
   top: 20px;
   bottom: 20px;
   margin-left: 40px;
@@ -135,11 +135,11 @@
 .button{
   height: 50px;
   background-color:rgb(115, 112, 121);
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
 }
 
 .email {
- color: rgb(241,231,194);
+ color: rgb(255, 255, 255);
  font-family: Mouse Memoirs;
 }
 
@@ -166,11 +166,11 @@
     -o-border-radius: 10px;
     align-content: center;
     margin-left: 81px;
-    color: rgb(241,231,194);
+    color: rgb(255, 255, 255);
     margin-left: 80px;
 }
   .botones:hover{
-    background-color: rgb(241,231,194);
+    background-color: rgb(255, 255, 255);
     color: #31B2C2;
 
   }
@@ -200,7 +200,7 @@
  .vinculos{
   font-family: Mouse Memoirs;
   font-size: 20px;
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
  margin-top: 100px;
  bottom: 20px;
   margin-left: 70px;
@@ -220,7 +220,7 @@
   font-size: 1.5em;
   margin-left: 2.45em;
   text-align: center;
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
 }
 .vinculos-contra {
   margin-top: 0px;
