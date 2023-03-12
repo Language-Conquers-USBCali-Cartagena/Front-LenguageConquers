@@ -37,7 +37,7 @@
   height: 150px;
   width: 150px;
   border-radius:50%;
-  background: conic-gradient(#cd9e76 3.6deg, #ededed 0deg);
+  background: conic-gradient(#30B4C6 3.6deg, #ededed 0deg); 
   display: flex;
   align-items: center;
   justify-content:center;
@@ -48,7 +48,25 @@
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  background-color:  #ac998b;
+  background-color:  #c3c3c3;
+}
+.circular-progress2{
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius:50%;
+  background: conic-gradient(#DBDB24 3.6deg, #ededed 0deg); 
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.circular-progress2::before{
+  content: " ";
+  position: absolute;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-color:  #c3c3c3;
 }
 .progress-value{
   position: relative;
@@ -56,12 +74,16 @@
   font-weight:600;
   color: #ededed;
 }
-.text,.text2{
+.text{
   font-size:30px;
   font-weight: 500;
-  color: #606060;
+  color: #DBDB24;
 }
-
+.text2{
+  font-size:30px;
+  font-weight: 500;
+  color: #30B4C6;
+}
 .tarjeta{
   width: 550px;
   height: 540px;
