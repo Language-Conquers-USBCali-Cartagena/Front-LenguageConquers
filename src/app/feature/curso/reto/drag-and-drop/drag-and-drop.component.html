@@ -13,7 +13,7 @@
             class="example-box1"
             *ngFor="let item of palabras"
             cdkDrag
-            [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'black'"
+            [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
             >{{item.nombre}}</div>
           </div>
         </div>
@@ -25,7 +25,7 @@
               class="example-box"
               *ngFor="let item of a"
               cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'black'"
+              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
               >{{item.nombre}}</div>
             </div>
           </div>
@@ -35,7 +35,7 @@
               class="example-box"
               *ngFor="let item of b"
               cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'black'"
+              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
               >{{item.nombre}}</div>
             </div>
           </div>
@@ -45,7 +45,7 @@
               class="example-box"
               *ngFor="let item of c"
               cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'black'"
+              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
               >{{item.nombre}}</div>
             </div>
           </div>
@@ -55,7 +55,7 @@
               class="example-box"
               *ngFor="let item of d"
               cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'black'"
+              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
               >{{item.nombre}}</div>
             </div>
           </div>
@@ -65,7 +65,62 @@
               class="example-box"
               *ngFor="let item of e"
               cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'black'"
+              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
+              >{{item.nombre}}</div>
+            </div>
+
+          </div>
+          <div class="example-container">
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="f" class="example-list" (cdkDropListDropped)="drop($event)">
+              <div
+              class="example-box"
+              *ngFor="let item of f"
+              cdkDrag
+              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
+              >{{item.nombre}}</div>
+            </div>
+
+          </div>
+          <div class="example-container">
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="g" class="example-list" (cdkDropListDropped)="drop($event)">
+              <div
+              class="example-box"
+              *ngFor="let item of g"
+              cdkDrag
+              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
+              >{{item.nombre}}</div>
+            </div>
+
+          </div>
+          <div class="example-container">
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="h" class="example-list" (cdkDropListDropped)="drop($event)">
+              <div
+              class="example-box"
+              *ngFor="let item of h"
+              cdkDrag
+              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
+              >{{item.nombre}}</div>
+            </div>
+
+          </div>
+          <div class="example-container">
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="i" class="example-list" (cdkDropListDropped)="drop($event)">
+              <div
+              class="example-box"
+              *ngFor="let item of i"
+              cdkDrag
+              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
+              >{{item.nombre}}</div>
+            </div>
+
+          </div>
+          <div class="example-container">
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="j" class="example-list" (cdkDropListDropped)="drop($event)">
+              <div
+              class="example-box"
+              *ngFor="let item of j"
+              cdkDrag
+              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
               >{{item.nombre}}</div>
             </div>
 

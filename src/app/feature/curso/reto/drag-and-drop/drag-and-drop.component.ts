@@ -1,6 +1,6 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PalabrasReservadas } from 'src/app/shared/models/palabrasReservadas';
 import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
 import { PalabraReservadaService } from 'src/app/shared/services/palabraReservada/palabraReservada.service';
@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./drag-and-drop.component.css']
 })
 export class DragAndDropComponent implements OnInit {
-
+  retoParam: number = 0;
   exampleContainerHeight:string | undefined;
   palabras: PalabrasReservadas[] = [];
   a: PalabrasReservadas[] = [];
@@ -25,15 +25,16 @@ export class DragAndDropComponent implements OnInit {
   i: PalabrasReservadas[] = [];
   j: PalabrasReservadas[] = [];
   condicion = false;
-  constructor(private router: Router, private palabraService: PalabraReservadaService) { }
+  constructor(private router: Router, private palabraService: PalabraReservadaService, private route: ActivatedRoute) { }
 
   async ngOnInit() {
     this.mostrarPistas();
+    this.retoParam = this.route.snapshot.params['reto']
     await this.ObtenetPalabras();
   }
 
   ObtenetPalabras(){
-    this.palabraService.getPalabrasReservadas().subscribe(data => {
+    this.palabraService.getPalabrasReservadas(this.retoParam).subscribe(data => {
       this.palabras = data;
     });
   }
@@ -74,22 +75,23 @@ export class DragAndDropComponent implements OnInit {
     this.organizar(this.j, 10);
 
     let resp: PalabrasReservadas[] = this.a.concat(this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
-    resp.forEach(resp => { console.log(resp);
-    })
-    // this.palabraService.procesarPalabras(resp).subscribe(resp =>{
-    //   console.log(resp);
+    this.palabraService.procesarPalabras(resp).subscribe(resp =>{
+      console.log(resp);
+      //TODO: Hacer pop-up de respuesta
+    }, (err) => {
+      console.log(err);
+      //TODO: Hacer pop-up de error
+    });
 
-    // });
-
-    Swal.fire({
-      title: 'Sweet!',
-      text: 'Aqui va el texto de explicación',
-      html:
-        '<iframe width="440" height="315" src="https://www.youtube.com/embed/HD_zesxhkC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-      showCloseButton: true,
-      focusConfirm: false,
-      showConfirmButton: false
-    })
+    // Swal.fire({
+    //   title: 'Sweet!',
+    //   text: 'Aqui va el texto de explicación',
+    //   html:
+    //     '<iframe width="440" height="315" src="https://www.youtube.com/embed/HD_zesxhkC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+    //   showCloseButton: true,
+    //   focusConfirm: false,
+    //   showConfirmButton: false
+    // })
 
   }
 
