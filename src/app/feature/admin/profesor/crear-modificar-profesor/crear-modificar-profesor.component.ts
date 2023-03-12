@@ -6,7 +6,7 @@ import { Profesor } from 'src/app/shared/models/profesor';
 import { GeneroService } from 'src/app/shared/services/genero/genero.service';
 import { ProfesorService } from 'src/app/shared/services/profesor/profesor.service';
 import Swal from 'sweetalert2';
-import { getDownloadURL,  ref,  Storage, uploadBytes } from '@angular/fire/storage';
+import { getDownloadURL, ref, Storage, uploadBytes } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-crear-modificar-profesor',
@@ -24,7 +24,7 @@ export class CrearModificarProfesorComponent implements OnInit {
   mensajeError: string = "";
   imagenUrl: string = "";
 
-  constructor(private storage: Storage,private fb: FormBuilder, private generoService: GeneroService, private router: Router, private activatedRoute: ActivatedRoute, private profesorService: ProfesorService) {
+  constructor(private storage: Storage, private fb: FormBuilder, private generoService: GeneroService, private router: Router, private activatedRoute: ActivatedRoute, private profesorService: ProfesorService) {
     this.crearDocente();
   }
 
@@ -33,7 +33,7 @@ export class CrearModificarProfesorComponent implements OnInit {
       idProfesor: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      foto:['', Validators.required],
+      foto: ['', Validators.required],
       correo: ['', Validators.required],
       idGenero: ['', Validators.required],
       usuarioCreador: ['', Validators.required],
@@ -58,9 +58,11 @@ export class CrearModificarProfesorComponent implements OnInit {
     const apellido = this.form.value.apellido;
     const foto = this.imagenUrl;
     const usuarioCreador = this.form.value.usuarioCreador;
-    const fechaCreacion = new Date();
+    const moment = require('moment-timezone');
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     const genero = this.form.value.idGenero;
-    let profesor: Profesor = { nombre: nombre, apellido: apellido, correo: correo, foto: foto, usuarioCreador: usuarioCreador, fechaCreacion: fechaCreacion, idGenero: genero.idGenero }
+    let profesor: Profesor = { nombre: nombre, apellido: apellido, correo: correo, foto: foto, usuarioCreador: usuarioCreador, fechaCreacion: fechaActual, idGenero: genero.idGenero }
     this.profesorService.crearProfesor(profesor).subscribe(data => {
       if (data) {
         Swal.fire({
@@ -74,7 +76,6 @@ export class CrearModificarProfesorComponent implements OnInit {
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e.error;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],
@@ -100,13 +101,13 @@ export class CrearModificarProfesorComponent implements OnInit {
   }
 
 
-  cargarDocente(){
+  cargarDocente() {
     this.activatedRoute.params.subscribe(
       (params) => {
         const id = params['id'];
-        if ( id ) {
+        if (id) {
           this.profesorService.consultarPorId(id).subscribe((data) => {
-            this.profesor= data;
+            this.profesor = data;
             this.setDocente(this.profesor);
           });
         }
@@ -118,14 +119,14 @@ export class CrearModificarProfesorComponent implements OnInit {
     const file = $event.target.files[0];
     console.log(file);
     const imagenReferencia = ref(this.storage, `docente/${file.name}`);
-    uploadBytes(imagenReferencia,file,{contentType:'image/png'}).then(
-      response =>{
-        getDownloadURL(imagenReferencia).then(downloadURL =>{
+    uploadBytes(imagenReferencia, file, { contentType: 'image/png' }).then(
+      response => {
+        getDownloadURL(imagenReferencia).then(downloadURL => {
           this.imagenUrl = downloadURL;
         });
-      }).catch(error =>{
+      }).catch(error => {
         Swal.fire({
-          icon:'error',
+          icon: 'error',
           title: 'Oops...',
           text: error
         });
@@ -137,12 +138,17 @@ export class CrearModificarProfesorComponent implements OnInit {
     const nombre = this.form.value.nombre;
     const apellido = this.form.value.apellido;
     const foto = this.imagenUrl;
-    const usuarioModificador =  this.form.value.usuarioModificador;
+    const usuarioModificador = this.form.value.usuarioModificador;
     const genero = this.form.value.idGenero;
-    let profesor: Profesor = { idProfesor: this.form.value.idProfesor, nombre: nombre, apellido: apellido,
-       correo: correo, foto: foto, usuarioModificador: usuarioModificador, fechaModificacion: new Date(Date.now()-1), idGenero: genero.idGenero,
-       usuarioCreador: this.profesor.usuarioCreador, fechaCreacion: this.profesor.fechaCreacion}
-    this.profesorService.actualizarProfesor(profesor).subscribe(data =>{
+    const moment = require('moment-timezone');
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
+    let profesor: Profesor = {
+      idProfesor: this.form.value.idProfesor, nombre: nombre, apellido: apellido,
+      correo: correo, foto: foto, usuarioModificador: usuarioModificador, fechaModificacion: fechaActual, idGenero: genero.idGenero,
+      usuarioCreador: this.profesor.usuarioCreador, fechaCreacion: this.profesor.fechaCreacion
+    }
+    this.profesorService.actualizarProfesor(profesor).subscribe(data => {
       Swal.fire({
         icon: 'success',
         title: data,
@@ -153,7 +159,6 @@ export class CrearModificarProfesorComponent implements OnInit {
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e.error;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],

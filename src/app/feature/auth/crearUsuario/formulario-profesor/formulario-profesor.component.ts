@@ -42,11 +42,12 @@ export class FormularioProfesorComponent implements OnInit {
     const nombre = this.form.value.nombre;
     const apellido = this.form.value.apellido;
     const foto = 'https://cdn-icons-png.flaticon.com/512/257/257667.png';
-    const usuarioCreador = 'admin';
-    const fechaCreacion = new Date();
+    const usuarioCreador = this.form.value.nombre + this.form.value.apellido;
+    const moment = require('moment-timezone');
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     const genero = this.form.value.genero.idGenero;
-    let profesor: Profesor = {nombre: nombre, apellido: apellido, correo:correo, foto:foto, usuarioCreador: usuarioCreador, fechaCreacion: fechaCreacion, idGenero: genero}
-
+    let profesor: Profesor = {nombre: nombre, apellido: apellido, correo:correo, foto:foto, usuarioCreador: usuarioCreador, fechaCreacion:fechaActual, idGenero: genero}
     this.loginService.createProfesor(profesor).subscribe(resp => {
       localStorage.setItem("correo", correo);
       Swal.fire({

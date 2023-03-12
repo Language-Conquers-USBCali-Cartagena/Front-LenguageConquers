@@ -20,6 +20,7 @@ export const environment = {
   //endpoint:'https://languageconquers.herokuapp.com'
   //'https://languageconquers.herokuapp.com'
   endpoint: 'http://localhost:8086'
+
 };
 const firebaseApp = initializeApp(environment.firebase);
 const storage = getStorage(firebaseApp);

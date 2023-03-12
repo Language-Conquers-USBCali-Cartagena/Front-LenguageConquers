@@ -4,9 +4,6 @@ import { CursoComponent } from './curso/curso.component';
 import { DragAndDropComponent } from './reto/drag-and-drop/drag-and-drop.component';
 import { MapaComponent } from './mapa/mapa.component';
 
-
-
-
 const routes:Routes = [
     {
         path: '',

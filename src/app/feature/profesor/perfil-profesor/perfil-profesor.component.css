@@ -1,0 +1,75 @@
+.fondo {
+  background: rgb(219,211,205);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding:5.2vh;
+  height: 100%;
+  width: auto;
+}
+.tarjeta{
+  width: 550px;
+  height: 540px;
+  margin-top: 10px;
+  margin-right: 30px;
+  margin-left: 40%;
+  /*Efecto espejo*/
+  padding: 48px;
+  border-radius: 24px;
+  background: linear-gradient(
+  135deg,
+  #ffffffad,
+  #ffffffad
+);
+backdrop-filter: blur(3px);
+-webkit-backdrop-filter: blur(3px);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+font-size: 30px;
+
+text-align: center;
+}
+.entradas {
+  display: grid;
+  margin-top: 10px;
+  margin-bottom: -100px;
+  grid-template-columns: repeat(1, 18em);
+  justify-content: center;
+
+}
+.titulos{
+  font-size:20px
+}
+.tituloImagen1{
+  font-size: 18px;
+}
+input{
+  font-size:18px;
+}
+
+.botonSeleccionarArchivo{
+  color: rgb(254,254,231);
+  margin-left: -129px;
+  margin-top: -35px;
+  width: 159px;
+  height:23px;
+  background-color: rgb(85, 183, 232);
+  border-radius: 20px;
+  position: absolute;
+  padding: 10px;
+  font-size: 20px;
+  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
+  cursor: pointer;
+}
+
+.botones{
+  color: rgb(254,254,231);
+  border-radius: 20px;
+  background-color: rgb(85, 183, 232);
+  text-align: center !important;
+  align-items: center !important;
+  margin: 0 10px;
+  display: inline-block;
+  width:130px;
+  height:40px;
+  font-size: 20px;
+
+}

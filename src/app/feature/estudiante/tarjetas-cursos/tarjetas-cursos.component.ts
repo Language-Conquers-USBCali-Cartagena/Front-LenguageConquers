@@ -3,10 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Estudiante } from '../../../shared/models/estudiante';
 import { EstudianteServiceService } from '../services/estudiante-service.service';
 import { Curso } from '../../../shared/models/curso';
-import { CursosCards } from 'src/app/shared/models/cardCursos';
-import { CursosCardsService } from '../services/cursos-cards.service';
 import { CursoService } from 'src/app/shared/services/curso/curso.service';
-import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-tarjetas-cursos',
@@ -20,7 +18,7 @@ export class TarjetasCursosComponent implements OnInit {
   cursos?: Curso[];
   correo: string = '';
   curso?:Curso;
-  constructor(private estudianteService: EstudianteServiceService, private cardsCursos:CursosCardsService, private cursoService: CursoService,  private activateRouter: ActivatedRoute) {
+  constructor(private estudianteService: EstudianteServiceService,  private cursoService: CursoService,  private activateRouter: ActivatedRoute) {
 
 
    }
@@ -54,6 +52,9 @@ export class TarjetasCursosComponent implements OnInit {
     })
   }
 
+  public capitalizerFirstLetter(str: string) {
+    return str.charAt(0).toUpperCase()+ str.slice(1).toLowerCase();
+  }
 
 
 
