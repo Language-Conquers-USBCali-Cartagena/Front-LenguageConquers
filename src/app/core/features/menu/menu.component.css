@@ -8,7 +8,7 @@ body{
   position: relative;
 }
 .sidenav{
-  background:#2E2E2E;
+  background:#2e2e2ec0;
   transition: all .5s ease;
   position: fixed;
   z-index: 1;

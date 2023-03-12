@@ -6,14 +6,12 @@ import { MapaComponent } from './mapa/mapa.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
 import { DragAndDropComponent } from './reto/drag-and-drop/drag-and-drop.component';
-import { ArticulosAdquiridosComponent } from './articulos-adquiridos/articulos-adquiridos.component';
 
 @NgModule({
   declarations: [
     CursoComponent,
     MapaComponent,
     DragAndDropComponent,
-    ArticulosAdquiridosComponent
   ],
   imports: [
     CommonModule,

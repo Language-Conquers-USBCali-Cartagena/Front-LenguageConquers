@@ -53,16 +53,16 @@
   padding-left: 1em;
   font-size: 1.5em;
   margin-left:65px;
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
 }
 .botones:hover{
-  background-color: rgb(241,231,194);
+  background-color: rgb(255, 255, 255);
   color: #31B2C2;
 }
 
 /**lineas*/
 .lienas{
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
   text-align: center;
   font-family: 'Mouse Memoirs' ;
   margin-top: 20px;
@@ -109,7 +109,7 @@ display: flex;
 .vinculos-contra{
   font-family: 'Mouse Memoirs';
   font-size: 20px;
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
  top: 20px;
  bottom: 20px;
  margin-left: 14px;
@@ -166,11 +166,11 @@ display: flex;
     -o-border-radius: 10px;
     align-content: center;
     margin-left: 81px;
-    color: rgb(241,231,194);
+    color: rgb(255, 255, 255);
     margin-left: 40px;
 }
   .botones:hover{
-    background-color: rgb(241,231,194);
+    background-color: rgb(255, 255, 255);
     color: #31B2C2;
 
   }
@@ -188,7 +188,7 @@ display: flex;
 .otrac {
  padding-left: 1px;
  display: flex;
- margin-top: 10px;
+ margin-top: 20px;
  margin-bottom: 1px;
  margin-left: 38.5px;
 }
@@ -208,7 +208,7 @@ display: flex;
 }
 /*lineas responsive*/
 .lienas{
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
   text-align: center;
   font-family: 'Mouse Memoirs' ;
   margin-top: 20px;
@@ -219,7 +219,7 @@ display: flex;
   position: absolute;
   width: 97px;
   height: 1.5px;
-  background-color: rgb(241,231,194);
+  background-color: rgb(255, 255, 255);
   margin-top: 15px;
 }
 .lienas::before{
@@ -231,8 +231,8 @@ display: flex;
 .otrac {
   
   display: flex;
-  margin-top: 1px;
-  margin-bottom: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   margin-left: 31px;
  }
 

@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Estudiante } from 'src/app/shared/models/estudiante';
 import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
-import { EstudianteServiceService } from '../../estudiante/services/estudiante-service.service';
 import Swal from 'sweetalert2';
 import { EstudianteService } from 'src/app/shared/services/estudiante/estudiante.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AvatarService } from 'src/app/shared/services/avatar/avatar.service';
 import { Avatar } from 'src/app/shared/models/avatar';
+import { EstudianteServiceService } from '../../services/estudiante-service.service';
 
 
 @Component({
@@ -20,8 +20,6 @@ export class MapaComponent implements OnInit {
 
   estudiante: Estudiante = {};
   usuario: string = '';
-  isSideNavCollapsed=false;
-  screenWidth = 0;
   form!: FormGroup;
   nickname: string | undefined ="";
   nombre: string | undefined = "";
@@ -33,10 +31,7 @@ export class MapaComponent implements OnInit {
 
 
 
-  onToggleSideNav(data: SideNavToggle):void{
-    this.screenWidth = data.screenWidth;
-    this.isSideNavCollapsed = data.collapsed;
-  }
+
   constructor(private router: Router, private estudianteService: EstudianteServiceService,private  estudianteServiceNormal: EstudianteService,private fb: FormBuilder, private avatarService: AvatarService) { }
 
   ngOnInit(): void {
@@ -69,9 +64,7 @@ getAvatarPorid(){
     this.imgAvatar = String(this.avatar.imgAvatar);
   });
 }
-  reto1(){
-    this.router.navigateByUrl('/descripcion/1/1');
-  }
+ 
 
   verTutorial(){
     Swal.fire({
@@ -85,7 +78,7 @@ getAvatarPorid(){
   }
 
   articulosAdquiridos(){
-    this.router.navigate(['/curso/articulosAdquiridos']);
+    this.router.navigate(['/estudiante/articulos-adquiridos']);
   }
   home(){
     this.router.navigate(['/estudiante/menu']);

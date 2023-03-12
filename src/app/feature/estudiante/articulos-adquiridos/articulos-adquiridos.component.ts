@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ArticulosAdquiridos } from 'src/app/shared/models/articulosAdquiridos';
 import { Semestre } from 'src/app/shared/models/semestre';
-import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
 import { ArticulosAdquiridosService } from 'src/app/shared/services/articulosAdquiridos/articulos-adquiridos.service';
 import { SemestreService } from 'src/app/shared/services/semestre/semestre.service';
 import Swal from 'sweetalert2';
@@ -18,13 +17,9 @@ export class ArticulosAdquiridosComponent implements OnInit {
 
   imagenUrl = '';
   mostrarImagen = false;
-  isSideNavCollapsed=false;
-  screenWidth = 0;
+  
 
-  onToggleSideNav(data: SideNavToggle):void{
-    this.screenWidth = data.screenWidth;
-    this.isSideNavCollapsed = data.collapsed;
-  }
+  
   constructor(private articulosAdquiridosService: ArticulosAdquiridosService,  private router: Router) { }
 
   ngOnInit(): void {

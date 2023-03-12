@@ -9,10 +9,11 @@
   </mat-card>
   <div class="fondoTarjeta">
     <div class="estudiante">
-      <mat-card class="cursos" *ngFor="let tarjetas of cursosCard" [routerLink]="['/curso/mapa/1']">
+      <!-- TODO: Cargar redireccion del routerlink con servicio de la bd -->
+      <mat-card class="cursos" *ngFor="let tarjetas of cursosCard" [routerLink]="['/estudiante/curso/mapa/1']">
        <img mat-card-image src="./assets/images/fondos/portadaCurso.png">
           <mat-card-subtitle class="titulo">Facultad de Ingenieria</mat-card-subtitle>
-          <a class="vinculos-contra" [routerLink]="['/curso/mapa/1']">{{tarjetas.nombre}}</a>
+          <a class="vinculos-contra" [routerLink]="['/estudiante/curso/mapa/1']">{{tarjetas.nombre}}</a>
       </mat-card>
     </div>
   </div>

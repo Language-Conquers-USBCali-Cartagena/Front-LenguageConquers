@@ -1,6 +1,6 @@
 .body {
 
-  background-color: #2E2E2E;
+  background-color: #343434;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   background-size: cover;
@@ -11,14 +11,14 @@
 .titulo1 {
   font-size: 40px;
   line-height: 5px;
-  margin-left: -1600px;
+  float: left;
   
   color: black;
 }
 .tituloTarjetaPeq {
   font: size 40px;
   font-family: 'Roboto', sans-serif;
-  margin-left: -1420px;
+float: left;
   color: black;
 }
 .tarjetaPeq {
@@ -194,16 +194,17 @@
 
   }
   .titulo1 {
-    font-size: 40px;
+    font-size: 20px;
     line-height: 5px;
-    margin-left: -16px;
-    
+    float: none;
     color: black;
+    
+    padding-top: 10px;
   }
   .tituloTarjetaPeq {
-    font: size 40px;
+    font: size 20px;
     font-family: 'Roboto', sans-serif;
-    margin-left: -14px;
+    float: none;
     color: black;
   }
 

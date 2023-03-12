@@ -25,7 +25,7 @@ export const itemsEst = [
 
   },
   {
-    redirectTo: '/curso/articulosAdquiridos',
+    redirectTo: '/estudiante/articulos-adquiridos',
     icon: 'local_mall',
     label: 'Artículos Adquiridos',
 

@@ -23,7 +23,7 @@
   color:rgb(235, 227, 215);
 }
 .mat-label{
-  color: rgb(241, 231, 194);
+  color: rgb(255, 255, 255);
 }
 .entradauc2 {
   margin-left: 10px;
@@ -36,10 +36,10 @@
 .boton {
   padding-right:10px;
   top: 35px;
-  color: rgb(235, 227, 215);
+  color: rgb(255, 255, 255);
 }
 .vinculos{
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
   text-align: justify;
   font-family: 'Mouse Memoirs' ;
   margin-top: 20px;
@@ -66,10 +66,10 @@
   font-size: 1.5em;
   margin-left: 3.45em;
   text-align: center;
-  color: rgb(241,231,194);
+  color: #ffffff;
 }
 .ancho1:hover{
-  background-color: rgb(241,231,194);
+  background-color: rgb(255, 255, 255);
   color: #31B2C2;
 }
 .otrac {
@@ -120,7 +120,7 @@
 .vinculos-contra{
   font-family: Mouse Memoirs;
   font-size: 20px;
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
   top: 20px;
   bottom: 20px;
   margin-left: 40px;
@@ -135,11 +135,11 @@
 .button{
   height: 50px;
   background-color:rgb(115, 112, 121);
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
 }
 
 .email {
- color: rgb(241,231,194);
+ color: rgb(255, 255, 255);
  font-family: Mouse Memoirs;
 }
 
@@ -166,26 +166,26 @@
     -o-border-radius: 10px;
     align-content: center;
     margin-left: 81px;
-    color: rgb(241,231,194);
-    margin-left: 80px;
+    color: rgb(255, 255, 255);
+    margin-left: 40px;
 }
   .botones:hover{
-    background-color: rgb(241,231,194);
+    background-color: rgb(255, 255, 255);
     color: #31B2C2;
 
   }
 
 .entradauc1 {
-  margin-left: 0px;
-  margin-right: 50px;
-  width: 300px;
+  margin-left: -20px;
+  margin-right: 5px;
+  width: 250px;
   font-family: 'Mouse Memoirs';
   font-size: 20px;
 }
 .entradauc2 {
-  margin-left: 0px;
-  margin-right: 50px;
-  width: 300px;
+  margin-left: -20px;
+  margin-right: 5px;
+  width: 250px;
   font-family: 'Mouse Memoirs';
   font-size: 20px;
 }
@@ -193,17 +193,17 @@
 .otrac {
   padding-left: 1px;
   display: flex;
-  margin-top: 2px;
-  margin-bottom: 1px;
-  margin-left: 49px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  margin-left: 33px;
  }
  .vinculos{
   font-family: Mouse Memoirs;
   font-size: 20px;
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
  margin-top: 100px;
  bottom: 20px;
-  margin-left: 70px;
+  margin-left: 40px;
 }
 .ancho1{
   max-width: 10em;
@@ -218,13 +218,14 @@
   -o-border-radius: 10px;
   padding-left: 1em;
   font-size: 1.5em;
-  margin-left: 2.45em;
+  margin-left: 0.2em;
   text-align: center;
-  color: rgb(241,231,194);
+  color: rgb(255, 255, 255);
 }
 .vinculos-contra {
-  margin-top: 0px;
+  margin-top: 10px;
   text-align: center;
+  margin-left: 0px;
 }
 }
 /*boton de check*/

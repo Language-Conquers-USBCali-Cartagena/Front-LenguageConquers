@@ -23,11 +23,6 @@ const routes: Routes = [
     loadChildren: ()=>import('./feature/profesor/profesor.module').then(m => m.ProfesorModule)
   },
   {
-
-    path: 'curso',
-    loadChildren: ()=>import('./feature/curso/curso.module').then(m => m.CursoModule)
-  },
-  {
     path: 'logout',
     loadChildren: ()=>import('./feature/logout/logout.module').then(m => m.LogoutModule)
   },
