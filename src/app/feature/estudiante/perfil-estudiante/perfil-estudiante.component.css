@@ -62,7 +62,7 @@
   height: 150px;
   width: 150px;
   border-radius:50%;
-  background: conic-gradient(#cd9e76 3.6deg, #ededed 0deg);
+  background: conic-gradient(#DFDD24 3.6deg, #ededed 0deg);
   display: flex;
   align-items: center;
   justify-content:center;
@@ -73,7 +73,7 @@
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  background-color:  #ac998b;
+  background-color:  #DFDD24;
 }
 .progress-value2{
   position: relative;
