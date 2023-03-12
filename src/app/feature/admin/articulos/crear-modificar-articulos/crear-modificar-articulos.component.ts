@@ -74,8 +74,11 @@ export class CrearModificarArticulosComponent implements OnInit {
     const estado= this.form.value.idEstado;
     const categoria = this.form.value.idCategoria;
     const usuarioCreador = this.form.value.usuarioCreador;
+    const moment = require('moment-timezone');
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let articulo: Articulo = {nombre: nombre, descripcion: descripcion, precio: precio,  nivelValido: nivelValido, imagen: imagen, idEstado: estado.idEstado, idCategoria: categoria.idCategoria, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: new Date()}
+                                  fechaCreacion: fechaActual}
     this.articuloService.crearArticulo(articulo).subscribe(data => {
       if(data){
         Swal.fire({
@@ -156,8 +159,11 @@ export class CrearModificarArticulosComponent implements OnInit {
     const estado = this.form.value.idEstado;
     const categoria = this.form.value.idCategoria;
     const usuarioModificador = this.form.value.usuarioModificador;
+    const moment = require('moment-timezone');
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let articulo: Articulo = {idArticulo:this.form.value.idArticulo,nombre: nombre, descripcion: descripcion, precio: precio, nivelValido: nivelValido, imagen: imagenArticulo, idEstado: estado.idEstado, idCategoria: categoria.idCategoria, usuarioModificador: usuarioModificador,
-                                 fechaModificacion: new Date(), usuarioCreador: this.articulo.usuarioCreador, fechaCreacion: this.articulo.fechaCreacion}
+                                 fechaModificacion: fechaActual, usuarioCreador: this.articulo.usuarioCreador, fechaCreacion: this.articulo.fechaCreacion}
     this.articuloService.actualizarArticulo(articulo).subscribe(data=>{
       Swal.fire({
         icon: 'success',

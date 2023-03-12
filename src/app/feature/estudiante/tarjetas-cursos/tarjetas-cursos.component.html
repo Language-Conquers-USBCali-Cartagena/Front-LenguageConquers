@@ -1,9 +1,7 @@
 <div class="body">
-
-  
   <app-slider-principal></app-slider-principal>
   <mat-card fxFlex="50" class="tarjetaPeq">
-    <mat-card-title class="titulo1">Hola {{estudiante.nombre}} {{estudiante.apellido}}</mat-card-title>
+    <mat-card-title class="titulo1">Hola {{capitalizerFirstLetter(estudiante.nombre||'')}} {{capitalizerFirstLetter(estudiante.apellido||'')}}</mat-card-title>
     <br>
     <mat-card-subtitle class="tituloTarjetaPeq">Bienvenido de nuevo a Language Conquers</mat-card-subtitle>
   </mat-card>

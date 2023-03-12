@@ -60,15 +60,13 @@ export class CrearModificarMisionComponent implements OnInit {
 
   guardarMision(){
     this.hayErrores = false;
-   // this.fileInput.nativeElement.dispatchEvent(new Event('change'));
-
     const nombre = this.form.value.nombre;
     const imagenMision = this.imagenUrl;
     const curso = this.form.value.idCurso;
     const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let mision: Mision = {nombre: nombre, imagen: imagenMision, idCurso:curso.idCurso, usuarioCreador: usuarioCreador,
                                   fechaCreacion: fechaActual}
     this.misionService.crearMision(mision).subscribe(data =>{
@@ -84,7 +82,6 @@ export class CrearModificarMisionComponent implements OnInit {
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e.error;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],
@@ -146,8 +143,8 @@ export class CrearModificarMisionComponent implements OnInit {
     const curso = this.form.value.idCurso;
     const usuarioModificador = this.form.value.usuarioModificador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let mision: Mision = {idMision: this.form.value.idMision, nombre: nombre, imagen: imagenMision,  idCurso:curso.idCurso, usuarioModificador: usuarioModificador,
                                   fechaModificacion: fechaActual, fechaCreacion: this.mision.fechaCreacion, usuarioCreador: this.mision.usuarioCreador}
     this.misionService.actualizarMision(mision).subscribe(data=>{

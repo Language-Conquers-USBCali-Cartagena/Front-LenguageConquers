@@ -214,8 +214,8 @@ export class CrearModificarEstudianteComponent implements OnInit {
     const estado = this.form.value.idEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estudiante: Estudiante = {
       nombre: nombre, apellido: apellido, nickName: nickName, puntaje: 0, monedasObtenidas: 0, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioCreador: usuarioCreador,
       fechaCreacion: fechaActual, fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado
@@ -292,8 +292,8 @@ export class CrearModificarEstudianteComponent implements OnInit {
     const monedas = this.form.value.monedasObtenidas;
     const usuarioModificador = this.form.value.usuarioModificador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estudiante: Estudiante = {
       idEstudiante: this.form.value.idEstudiante, nombre: nombre, apellido: apellido, nickName: nickName, puntaje: puntaje, fechaNacimiento: nacimiento, correo: correo, usuarioCreador: this.estudiante.usuarioCreador, usuarioModificador: usuarioModificador, fechaCreacion: this.estudiante.fechaCreacion,
       fechaModificacion:fechaActual, idPrograma: programa.idPrograma, idEstado: estado.idEstado, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, monedasObtenidas: monedas

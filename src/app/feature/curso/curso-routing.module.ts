@@ -6,9 +6,6 @@ import { DragAndDropComponent } from './reto/drag-and-drop/drag-and-drop.compone
 import { MapaComponent } from './mapa/mapa.component';
 import { ArticulosAdquiridosComponent } from './articulos-adquiridos/articulos-adquiridos.component';
 
-
-
-
 const routes:Routes = [
     {
         path: '',

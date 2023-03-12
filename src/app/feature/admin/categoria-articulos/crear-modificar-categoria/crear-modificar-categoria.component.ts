@@ -53,8 +53,8 @@ export class CrearModificarCategoriaComponent implements OnInit {
     const estado= this.form.value.idEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let categoria: Categorias = {nombre: nombre, descripcion: descripcion, idEstado: estado.idEstado, usuarioCreador: usuarioCreador,
                                   fechaCreacion: fechaActual}
     this.categoriaService.crearCategoria(categoria).subscribe(data =>{
@@ -112,8 +112,8 @@ export class CrearModificarCategoriaComponent implements OnInit {
     const estado= this.form.value.idEstado;
     const usuarioModificador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let categoria: Categorias = {idCategoria: this.categoria.idCategoria,nombre: nombre, descripcion: descripcion, idEstado: estado.idEstado, usuarioModificador: usuarioModificador,
                                   fechaModificacion: fechaActual, fechaCreacion: this.categoria.fechaCreacion, usuarioCreador: this.categoria.usuarioCreador}
     this.categoriaService.actualizarCategorias(categoria).subscribe(data=>{

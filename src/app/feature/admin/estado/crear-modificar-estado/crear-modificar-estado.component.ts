@@ -42,8 +42,8 @@ export class CrearModificarEstadoComponent implements OnInit {
     const nombreEstado = this.form.value.nombreEstado;
     const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estado: Estado = {estado: nombreEstado, usuarioCreador: usuarioCreador,
                                   fechaCreacion: fechaActual}
       this.estadoService.crearEstado(estado).subscribe(data => {
@@ -96,8 +96,8 @@ export class CrearModificarEstadoComponent implements OnInit {
     const nombreEstado = this.form.value.nombreEstado;
     const usuarioModificador = this.form.value.usuarioModificador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estado: Estado = {idEstado: this.form.value.idEstado, estado: nombreEstado, usuarioModificador: usuarioModificador,
                                   fechaModificacion: fechaActual,fechaCreacion: this.estado.fechaCreacion, usuarioCreador: this.estado.usuarioCreador}
     this.estadoService.actualizarEstado(estado).subscribe(data=>{

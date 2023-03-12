@@ -1,0 +1,52 @@
+<div class="fondo">
+  <mat-card class="tarjeta">
+    <mat-card-content>
+      <form [formGroup]="form">
+        <div class="entradas">
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Nombre</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="nombre" class="ancho">
+              <mat-icon matSuffix class="boton">name</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Apellidos</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="apellido">
+              <mat-icon matSuffix class="boton">lastname</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Correo</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="correo">
+              <mat-icon matSuffix class="boton">correo</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <label class="titulos">Genero</label>
+              <mat-select formControlName="idGenero" [(value)]="genero">
+                <mat-option *ngFor="let genero of generos" [value]="genero.genero">
+                  {{genero.genero}}
+                </mat-option>
+              </mat-select>
+              <mat-icon matSuffix class="boton">gender</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="campo-entrada">
+            <mat-label class="tituloImagen1"> Seleccionar Foto </mat-label>
+            <br><br>
+            <input class="inputFile" type="file" #fileInput (change)="uploadImage($event)" id="Foto">
+            <label for="Foto" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
+            <br><br>
+          </div>
+          <div class="boton">
+            <button mat-raised-button class="botones" (click)="actualizar()">Actualizar</button>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

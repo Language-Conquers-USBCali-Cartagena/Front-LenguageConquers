@@ -74,8 +74,11 @@ export class FormularioEstudianteComponent implements OnInit {
     const genero = this.form.value.genero.idGenero;
     const nacimiento: Date = this.form.value.fechaNacimiento;
     const programa = this.form.value.programa.idPrograma
-    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioCreador: 'Admin',
-                                  fechaCreacion: new Date(), fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: 1}
+    const moment = require('moment-timezone');
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
+    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioCreador: nombre + apellido,
+                                  fechaCreacion: fechaActual, fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: 1}
     this.loginService.createEstudiante(estudiante).subscribe(resp =>{
       localStorage.setItem("correo", correo);
       Swal.fire({

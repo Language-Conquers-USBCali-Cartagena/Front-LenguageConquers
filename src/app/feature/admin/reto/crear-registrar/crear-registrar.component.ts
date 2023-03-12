@@ -81,8 +81,8 @@ export class CrearRegistrarComponent implements OnInit {
     const curso = this.form.value.idCurso;
     const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let reto: Reto = {nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite,idMision: mision.idMision, idEstado: estado.idEstado, idCurso: curso.idCurso, usuarioCreador: usuarioCreador,
                                   fechaCreacion: fechaActual, esGrupal: false, cantidadEstudiantes: 0}
     this.retoService.crearReto(reto).subscribe(data => {
@@ -153,8 +153,8 @@ export class CrearRegistrarComponent implements OnInit {
     const curso = this.form.value.idCurso;
     const usuarioModificador = this.form.value.usuarioModificador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let reto: Reto = {idReto: this.form.value.idReto, nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite, idMision: mision.idMision,idEstado: estado.idEstado, idCurso: curso.idCurso, usuarioModificador: usuarioModificador,
       fechaModificacion: fechaActual, esGrupal: false, cantidadEstudiantes: 0, fechaCreacion: this.reto.fechaCreacion, usuarioCreador: this.reto.usuarioCreador}
     this.retoService.actualizarReto(reto).subscribe(data =>{
@@ -167,7 +167,6 @@ export class CrearRegistrarComponent implements OnInit {
       this.router.navigate(['/admin/reto/listar-retos']);
     }, (e) => {
       this.hayErrores = true;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],

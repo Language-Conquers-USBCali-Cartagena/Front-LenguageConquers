@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Profesor } from '../../../shared/models/profesor';
-import { ServiciosLoginService } from '../../../shared/services/Login/servicios-login.service';
 import { ActivatedRoute } from '@angular/router';
-import { CursosCards } from 'src/app/shared/models/cardCursos';
-import { CursosCardsService } from '../../estudiante/services/cursos-cards.service';
+import { ProfesorServicesService } from '../services/services.service';
+import { Curso } from 'src/app/shared/models/curso';
+import { CursoService } from 'src/app/shared/services/curso/curso.service';
 
 @Component({
   selector: 'app-menu-profesor',
@@ -11,34 +11,38 @@ import { CursosCardsService } from '../../estudiante/services/cursos-cards.servi
   styleUrls: ['./menu-profesor.component.css']
 })
 export class MenuProfesorComponent implements OnInit {
-  cursosCard: CursosCards[] = [];
+  cursosCard: Curso[] = [];
   profesor: Profesor = {};
+  genero: string ='';
   correo: string ='';
-  constructor(private loginService: ServiciosLoginService, private cardsCursos:CursosCardsService, private _route: ActivatedRoute) {
+  constructor(private cursoService: CursoService, private _route: ActivatedRoute, private profesorService: ProfesorServicesService) {
 
 
   }
-  ngOnInit(): void {
-    this.cargarTarjetasCursos();
-    this.correo = localStorage.getItem("correo")!;
-    this.obtenerProfesor(this.correo);
+  async ngOnInit() {
+    await this.cargarTarjetasCursos();
+    await this.obtenerProfesor();
 
   }
   cargarTarjetasCursos(){
-    this.cargarTarjetasCursos();
-    this.cardsCursos.getCursosCards().subscribe(data =>{
-      this.cursosCard = data
+    this.cursoService.getCurso().subscribe(data =>{
+      this.cursosCard = data;
     });
   }
 
-  async obtenerProfesor(correo: string) {
-    await this.loginService.getProfesor(correo).toPromise().then((response) => {
+  async obtenerProfesor() {
+    let correo = localStorage.getItem("correo")!;
+    console.log(correo);
+    await this.profesorService.getProfesor(correo).toPromise().then((response) =>{
+      localStorage.setItem("usuario", JSON.stringify(response));
       this.profesor = response;
-    }
-    )
-    // console.log(this.profesor)
-    // console.log(this.correo)
+    });
   }
-  
+
+  public capitalizerFirstLetter(str: string) {
+    return str.charAt(0).toUpperCase()+ str.slice(1).toLowerCase();
+  }
+  //TODO:HACER SERVICIO PARA TRAER LOS CURSOS POR DOCENTE
+
 
 }
