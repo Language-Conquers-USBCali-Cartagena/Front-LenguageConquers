@@ -56,31 +56,6 @@
   font-weight:600;
   color: #ededed;
 }
-
-.circular-progress2{
-  position: relative;
-  height: 150px;
-  width: 150px;
-  border-radius:50%;
-  background: conic-gradient(#DFDD24 3.6deg, #ededed 0deg);
-  display: flex;
-  align-items: center;
-  justify-content:center;
-}
-.circular-progress2::before{
-  content: " ";
-  position: absolute;
-  height: 120px;
-  width: 120px;
-  border-radius: 50%;
-  background-color:  #DFDD24;
-}
-.progress-value2{
-  position: relative;
-  font-size: 40px;
-  font-weight:600;
-  color: #ededed;
-}
 .text,.text2{
   font-size:30px;
   font-weight: 500;
