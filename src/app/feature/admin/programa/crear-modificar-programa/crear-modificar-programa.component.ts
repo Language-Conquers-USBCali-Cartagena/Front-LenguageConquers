@@ -40,8 +40,8 @@ export class CrearModificarProgramaComponent implements OnInit {
     const nombre = this.form.value.nombre;
     const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let programa: Programa = {nombre: nombre, usuarioCreador: usuarioCreador,
                                   fechaCreacion: fechaActual}
     this.programaService.crearPrograma(programa).subscribe(data => {
@@ -98,8 +98,8 @@ export class CrearModificarProgramaComponent implements OnInit {
     const nombre = this.form.value.nombre;
     const usuarioModificador = this.form.value.usuarioModificador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let programa: Programa = {idPrograma: this.form.value.idPrograma,nombre: nombre, usuarioModificador: usuarioModificador,
                                   fechaModificacion: fechaActual}
     this.programaService.actualizarPrograma(programa).subscribe(data =>{
@@ -112,7 +112,6 @@ export class CrearModificarProgramaComponent implements OnInit {
       this.router.navigate(['/admin/programa/listar-programa']);
     }, (e) => {
       this.hayErrores = true;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],

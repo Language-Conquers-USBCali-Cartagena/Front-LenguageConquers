@@ -59,8 +59,8 @@ export class CrearModificarProfesorComponent implements OnInit {
     const foto = this.imagenUrl;
     const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     const genero = this.form.value.idGenero;
     let profesor: Profesor = { nombre: nombre, apellido: apellido, correo: correo, foto: foto, usuarioCreador: usuarioCreador, fechaCreacion: fechaActual, idGenero: genero.idGenero }
     this.profesorService.crearProfesor(profesor).subscribe(data => {
@@ -76,7 +76,6 @@ export class CrearModificarProfesorComponent implements OnInit {
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e.error;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],
@@ -142,8 +141,8 @@ export class CrearModificarProfesorComponent implements OnInit {
     const usuarioModificador = this.form.value.usuarioModificador;
     const genero = this.form.value.idGenero;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let profesor: Profesor = {
       idProfesor: this.form.value.idProfesor, nombre: nombre, apellido: apellido,
       correo: correo, foto: foto, usuarioModificador: usuarioModificador, fechaModificacion: fechaActual, idGenero: genero.idGenero,
@@ -160,7 +159,6 @@ export class CrearModificarProfesorComponent implements OnInit {
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e.error;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],

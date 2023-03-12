@@ -73,8 +73,8 @@ export class CrearModificarCursoComponent implements OnInit {
     const profesor = this.form.value.idProfesor;
     const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let curso: Curso = {nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: 0, idEstado: estado.idEstado, idProfesor: profesor.idProfesor, usuarioCreador: usuarioCreador,
                                   fechaCreacion: fechaActual}
     this.cursoService.crearCurso(curso).subscribe(data => {
@@ -144,8 +144,8 @@ export class CrearModificarCursoComponent implements OnInit {
     const profesor = this.form.value.idProfesor;
     const usuarioModificador = this.form.value.usuarioModificador;
     const moment = require('moment-timezone');
-    const pais = 'Colombia';
-    const fechaActual = moment().tz(pais).format();
+    const pais = 'America/Bogota';
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let curso: Curso = {idCurso:this.curso.idCurso,nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: progreso, idEstado: estado.idEstado, idProfesor: profesor.idProfesor, usuarioModificador: usuarioModificador,
                                   fechaModificacion: fechaActual, fechaCreacion: this.curso.fechaCreacion, usuarioCreador: this.curso.usuarioCreador}
     this.cursoService.actualizarCurso(curso).subscribe(data=>{
