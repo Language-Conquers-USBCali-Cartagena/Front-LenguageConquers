@@ -1,18 +1,24 @@
 .body {
-  height: auto;
   align-items: center;
-  padding-left: -1%;
-  margin-left: 130px;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  background-color: #323232;
+  height: 700px;
+}
+.body2 {
+  
+  background-color: #323232;
+  height: 75px;
+}
+.fondo{
+  padding-bottom:10px ;
+  background-color: #323232;
 }
 .fondoPantalla{
-  width: 60%;
+  width: 1000px;
   height: 400px;
-  margin-right: 20px;
-  margin-left: -20px;
+  padding-top: 50px;
+  margin-left: 120px;
   /*Efecto espejo*/
-  padding: 55px;
+  
   background: linear-gradient(135deg,
       rgba(24, 27, 28, 0.867),
       rgba(24, 27, 28, 0.867));
@@ -26,7 +32,7 @@
   text-align: center;
 }
 .botonEncendido{
-  margin-top:140px;
+  margin-top:50px;
   margin-left: 920px ;
   background: rgb(173, 216, 230);
   border-radius: 20%;
@@ -41,8 +47,8 @@
   width: 12%;
   height: 480px;
   margin-right: 10px;
-  margin-top: -630px;
-  margin-left: 1190px;
+  margin-top: -567px;
+  margin-left: 1300px;
   /*Efecto espejo*/
   padding: 55px;
   background: linear-gradient(135deg,
@@ -266,6 +272,7 @@ h1{
   border-radius: 4px;
   overflow: hidden;
   display: block;
+  height: 350px;
 }
 
 .example-box1 {
@@ -289,13 +296,13 @@ h1{
 /* Las de abjo son para las horizontales */
 .example-container{
   width: 400px;
-  margin: 0 25px 25px 0;
+  margin: 0 ;
   display: inline-block;
   padding: 0;
   position: relative;
 }
 .example-list {
-  width: 1000px;
+  width: 800px;
   max-width: 100%;
   border: solid 1px rgb(109, 115, 117);
   min-height: 60px;
@@ -352,9 +359,11 @@ h1{
 .cuadro-respuesta{
   margin-left: 500px;
   margin-top: -380px;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
+  
+  display: block;
+  position: static;
+  height: 400px;
+  overflow-y: auto;
 }
 .texto{
   width:900px;
