@@ -115,7 +115,7 @@ export class DragAndDropComponent implements OnInit {
   }
 
   atras(){
-    this.router.navigateByUrl('curso/mapa/1');
+    this.router.navigateByUrl('estudiante/curso/mapa/1');
   }
   mostrarTutorial(){
     Swal.fire({

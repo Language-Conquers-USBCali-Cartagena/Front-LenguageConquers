@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ProfesorComponent } from './profesor/profesor.component';
 import { MenuProfesorComponent } from './menu-profesor/menu-profesor.component';
 import { CursoComponent } from './curso/curso.component';
-import { MapaComponent } from '../curso/mapa/mapa.component';
+// import { MapaComponent } from '../curso/mapa/mapa.component';
 
 
 
@@ -22,8 +22,8 @@ const routes:Routes = [
               component: CursoComponent,
               children: [
                 {
-                  path: 'mapa/:curso',
-                  component: MapaComponent
+                  // path: 'mapa/:curso',
+                  // component: MapaComponent
               },
 
               ]

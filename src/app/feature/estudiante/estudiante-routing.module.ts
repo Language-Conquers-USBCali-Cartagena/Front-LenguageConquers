@@ -8,6 +8,7 @@ import { NotificacionesComponent } from '../../core/features/notificacion/notifi
 import { TiendaPrincipalComponent } from '../../core/features/tienda-principal/tienda-principal.component';
 import { TarjetasLogrosComponent } from 'src/app/core/features/tarjetas-logros/tarjetas-logros.component';
 import { RankingComponent } from 'src/app/core/features/ranking/ranking.component';
+import { ArticulosAdquiridosComponent } from './articulos-adquiridos/articulos-adquiridos.component';
 
 
 
@@ -22,10 +23,6 @@ const routes:Routes = [
             {
                 path: 'menu',
                 component: TarjetasCursosComponent
-            },
-            {
-                path: 'curso/:idCurso',
-                component: PerfilEstudianteComponent
             },
             {
                 path: 'perfil',
@@ -46,6 +43,14 @@ const routes:Routes = [
             {
                 path: 'tienda',
                 component: TiendaPrincipalComponent
+            },
+            {
+                path: 'articulos-adquiridos',
+                component: ArticulosAdquiridosComponent
+            },
+            {
+                path: 'curso',
+                loadChildren:()=>import('./curso/curso.module').then(m => m.CursoModule)
             }
         ]
     }
