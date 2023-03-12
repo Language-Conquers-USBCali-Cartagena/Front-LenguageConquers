@@ -8,12 +8,13 @@
   
   width: 300px;
   height: auto;
+  padding-top: 3in;
 }
 
 .tarjeta {
   width: 150px;
   height: 540px;
-  
+  margin-left: 100px;
   font-size: 30px;
 
 }
@@ -60,8 +61,8 @@
   font-size: 20px;
 }
 .centro {
-  margin-left: 450px;
-  margin-top: 100px;
+  margin-left: 950px;
+  margin-top: 150px;
 
 }
 
@@ -70,7 +71,7 @@
   height: 200px;
   margin-top: -580px;
   margin-right: 30px;
-  margin-left: -100px;
+  margin-left: -200px;
   /*Efecto espejo*/
   padding: 48px;
   border-radius: 24px;
@@ -110,7 +111,7 @@
   transform: scale(1.5) rotate(5deg);
 }
 .centroAbajo {
-  margin-left: 450px;
+  margin-left: 850px;
 
 }
 
@@ -146,10 +147,17 @@
   background-color: rgb(85, 183, 232);
   text-align: center !important;
   align-items: center !important;
-  margin: 0 10px;
+  margin: 0 -290px;
+  margin-left: 370px;
   display: inline-block;
   width: 130px;
   height: 40px;
   font-size: 20px;
+
+}
+@media screen and (max-width: 700px) {
+  .tarjeta{
+    margin-left: 90px;
+  }
 
 }
