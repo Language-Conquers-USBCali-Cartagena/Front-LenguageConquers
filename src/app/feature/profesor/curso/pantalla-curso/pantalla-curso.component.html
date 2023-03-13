@@ -1,1 +1,37 @@
-<p>pantalla-curso works!</p>
+<div class="body">
+  <mat-grid-list cols="3" rowHeight="2:1" style="height:100%">
+    <mat-grid-tile colspan="1" class="cuadroIzq">
+      <mat-card class="tarjetaCurso">
+        <mat-card-header>
+          <mat-card-title class="nombreCurso">Curso: </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="infoCurso">
+          <p>Inicio del Curso:</p>
+          <p>Finalización del Curso:</p>
+          <p>Cantidad de Estudiantes Matriculados:</p>
+          <p>Progreso del Curso: </p>
+          <p>Estado:</p>
+        </mat-card-content>
+        <mat-card-actions class="boton">
+          <button mat-raised-button class="botones" (click)="listaRetos()">Listar Retos</button>
+          <button mat-raised-button class="botones" (click)="configurarRetos()">Configurar Reto</button>
+          <button mat-raised-button class="botones" (click)="misEstudiantes()">Mis Estudiantes</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" class="cuadroDer">
+      <mat-card class="tarjetaReto">
+        <div [hidden]="!isRetoLista">
+          <app-lista-retos></app-lista-retos>
+        </div>
+        <div [hidden]="!isConfigReto">
+          <app-habilitar-reto></app-habilitar-reto>
+        </div>
+        <div [hidden]="!isEstudiantes">
+          <app-mis-estudiantes></app-mis-estudiantes>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>

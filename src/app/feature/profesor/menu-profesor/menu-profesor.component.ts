@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Profesor } from '../../../shared/models/profesor';
-import { ActivatedRoute } from '@angular/router';
 import { ProfesorServicesService } from '../services/services.service';
 import { Curso } from 'src/app/shared/models/curso';
 import { CursoService } from 'src/app/shared/services/curso/curso.service';
@@ -15,7 +14,7 @@ export class MenuProfesorComponent implements OnInit {
   profesor: Profesor = {};
   genero: string ='';
   correo: string ='';
-  constructor(private cursoService: CursoService, private _route: ActivatedRoute, private profesorService: ProfesorServicesService) {
+  constructor(private cursoService: CursoService, private profesorService: ProfesorServicesService) {
 
 
   }
@@ -32,7 +31,6 @@ export class MenuProfesorComponent implements OnInit {
 
   async obtenerProfesor() {
     let correo = localStorage.getItem("correo")!;
-    console.log(correo);
     await this.profesorService.getProfesor(correo).toPromise().then((response) =>{
       localStorage.setItem("usuario", JSON.stringify(response));
       this.profesor = response;

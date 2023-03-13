@@ -1,0 +1,64 @@
+<mat-card-header>
+  <mat-card-title class="nombreReto">Reto: </mat-card-title>
+</mat-card-header>
+<form [formGroup]="form">
+  <div class="entradas">
+
+    <div class="campo-entrada">
+      <mat-form-field appearance="fill" class="example-form-field">
+        <mat-label class="titulos">Fecha de Inicio</mat-label>
+        <input matInput [matDatepicker]="datepicker" formControlName="fechaInicio">
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="campo-entrada">
+      <mat-form-field appearance="fill" class="example-form-field">
+        <mat-label class="titulos">Fecha Limite</mat-label>
+        <input matInput [matDatepicker]="datepicker1" formControlName="fechaLimite">
+        <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker1>
+          <mat-datepicker-actions>
+            <button mat-button matDatepickerCancel>Cancel</button>
+            <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+          </mat-datepicker-actions>
+        </mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="campo-entrada">
+      <mat-form-field appearance="fill">
+        <mat-label class="titulos">Maximo de Intentos</mat-label>
+        <input type="number" matInput autocomplete="off" formControlName="maximoIntentos">
+        <mat-icon matSuffix class="botonIntentos">intentos</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="campo-entrada">
+      <mat-form-field appearance="fill">
+        <mat-label class="titulos">Monedas</mat-label>
+        <input type="number" matInput autocomplete="off" formControlName="monedas">
+        <mat-icon matSuffix class="button"> local_atm</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="campo-entrada">
+      <mat-form-field appearance="fill">
+        <mat-label class="titulos">Estado</mat-label>
+        <mat-select formControlName="idEstado">
+          <mat-option *ngFor="let estado of estados" [value]="estado">
+            {{estado.estado}}
+          </mat-option>
+        </mat-select>
+        <mat-icon matSuffix class="button">estado</mat-icon>
+      </mat-form-field>
+    </div>
+    <br>
+    <div class="boton">
+      <button mat-raised-button   class="botones" id="editar" (click)="actualizar()">Actualizar Reto</button>
+      <button mat-raised-button class="botones" id="atras" (click)="atras()">Atrás</button>
+    </div>
+  </div>
+</form>

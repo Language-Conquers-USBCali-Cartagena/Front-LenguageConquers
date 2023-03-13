@@ -31,10 +31,9 @@ const routes:Routes = [
               component: RankingComponent
             },
             {
-              path:'curso',
-              component:PantallaCursoComponent
-
-            }
+              path: 'curso',
+              loadChildren:()=>import('./curso/curso-profesor.module').then(m => m.CursoProfesorModule)
+          }
         ]
     }
 ]
