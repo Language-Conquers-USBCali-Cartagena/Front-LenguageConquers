@@ -30,7 +30,7 @@ form {
 .botones{
   color: rgb(254,254,231);
   border-radius: 20px;
-  background-color: rgb(201, 131, 69);
+  background-color: #30B4C6;
   text-align: center !important;
   align-items: center !important;
   margin: 0 10px;
@@ -42,7 +42,7 @@ form {
 }
 
 .botonsalir{
-  color: rgb(201, 131, 69);
+  color: #30B4C6;
   border-radius: 20px;
   background-color: rgb(254,254,231);
   text-align: center !important;
