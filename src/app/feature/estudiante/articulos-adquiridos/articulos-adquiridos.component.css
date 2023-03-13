@@ -158,6 +158,23 @@
 @media screen and (max-width: 700px) {
   .tarjeta{
     margin-left: 90px;
+    margin-top: -260px;
   }
-
+ .tarjetaCentro{
+margin-left: -860px;
+margin-top: -460px;
+height: 150px;
+width: 190px;
+ }
+ .tarjetaCentroAbajo{
+  margin-left: -760px;
+  margin-top: 10px;
+  width: 190px;
+ }
+ .botones{
+  margin-left: -150px;
+  margin-top: 10px;
+  margin: 0 -180px;
+ }
+ 
 }
