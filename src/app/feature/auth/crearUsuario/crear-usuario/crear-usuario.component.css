@@ -42,7 +42,7 @@
   background-color: rgba(36, 28, 25, 0.918);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 920px;
+  height: 935px;
   width: auto;
 }
 
@@ -70,7 +70,7 @@ h1 {
 
 img {
   width: auto;
-  height: 100px;
+  height: 130px;
   align-items: center;
 }
 .imagenizq{
@@ -78,7 +78,7 @@ img {
   margin-bottom:250px;
   margin-left:-50px;
   width:800px;
-  height:715px;
+  height:725px;
   border-radius: 24px;
 }
 .imagenLado{
