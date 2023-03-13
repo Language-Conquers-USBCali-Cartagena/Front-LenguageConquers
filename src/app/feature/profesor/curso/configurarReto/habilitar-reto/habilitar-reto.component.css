@@ -1,0 +1,66 @@
+.nombreReto{
+  margin-top: 20px;
+  margin-left: 60px;
+  align-items: center;
+  text-align: center;
+  font-size: 28px;
+  color: #fff;
+}
+form {
+  height: 350px;
+  width: auto;
+  text-align: center;
+}
+.campo-entrada {
+  float: right;
+  width: 100%;
+  padding-right: 8px;
+}
+.entradas {
+  display: grid;
+  margin-top: 10px;
+  margin-bottom: -100px;
+  grid-template-columns: repeat(2, 18em);
+  justify-content: center;
+}
+
+.titulos {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+input{
+  width: 30px !;
+}
+.botonIntentos {
+  margin: 3px;
+  position: center;
+  margin-left: 5px;
+  margin-right: -190%;
+  line-height: 35px;
+  align-items: center;
+}
+.button{
+  color: #000000cf;
+}
+.boton {
+  margin: 3px;
+  position: center;
+  margin-left: -35px;
+  margin-right: -90%;
+  line-height: 35px;
+  align-items: center;
+}
+.botones {
+  color: rgb(254, 254, 231);
+  border-radius: 20px;
+  background-color: rgb(85, 183, 232);
+  text-align: center !important;
+  align-items: center !important;
+  margin-top: 30px;
+  margin-left: 130px;
+  display: inline-block;
+  width: 130px;
+  height: 40px;
+  font-size: 20px;
+}
+

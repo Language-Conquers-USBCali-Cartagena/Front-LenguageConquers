@@ -46,7 +46,14 @@ export class CrearRegistrarComponent implements OnInit {
       usuarioCreador: ['', Validators.required],
       fechaCreacion: ['', Validators.required],
       usuarioModificador: ['', Validators.required],
-      fechaModificacion: ['', Validators.required]
+      fechaModificacion: ['', Validators.required],
+      monedas:['', Validators.required],
+      solucion:[''],
+      descripcionTeoria: ['', Validators.required],
+      imgTema1:[''],
+      imgeTema2:[''],
+      urlVideo1:[''],
+      urlVideo2:['']
     });
    }
 

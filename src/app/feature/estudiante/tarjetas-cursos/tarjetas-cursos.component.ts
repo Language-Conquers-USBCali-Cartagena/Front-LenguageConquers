@@ -18,7 +18,7 @@ export class TarjetasCursosComponent implements OnInit {
   cursos?: Curso[];
   correo: string = '';
   curso?:Curso;
-  constructor(private estudianteService: EstudianteServiceService,  private cursoService: CursoService,  private activateRouter: ActivatedRoute) {
+  constructor(private estudianteService: EstudianteServiceService,  private cursoService: CursoService) {
 
 
    }
