@@ -367,8 +367,8 @@ h1{
 }
 .texto{
   width:900px;
-  margin-top: -42px;
-  margin-left: -20px;
+  margin-top: -40px;
+  margin-left: 5px;
   justify-content: flex-start;
   text-align: justify;
 }
