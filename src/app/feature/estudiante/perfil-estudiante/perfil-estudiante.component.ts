@@ -72,7 +72,7 @@ export class PerfilEstudianteComponent implements OnInit {
   progress = setInterval(() => {
     this.progressStartValue++;
     document.querySelector('.progress-value')!.textContent = `${this.progressStartValue}%`;
-    document.getElementById("progreso")!.style.background= `conic-gradient(#cd9e76 ${this.progressStartValue * 3.6}deg, #ededed 0deg)` ;
+    document.getElementById("progreso")!.style.background= `conic-gradient(#30B4C6 ${this.progressStartValue * 3.6}deg, #ededed 0deg)` ;
     if (this.progressStartValue == this.progressEndValue) {
       clearInterval(this.progress);
     }
@@ -83,7 +83,7 @@ export class PerfilEstudianteComponent implements OnInit {
   progresoBarra2 = setInterval(() => {
     this.progressStartValue2++;
     document.querySelector('#grafica2 #progreso2 #progressValue2')!.textContent = `${this.progressStartValue2}%`;
-    document.getElementById("progreso2")!.style.background= `conic-gradient(#cd9e76 ${this.progressStartValue2 * 3.6}deg, #ededed 0deg)` ;
+    document.getElementById("progreso2")!.style.background= `conic-gradient(#DBDB24 ${this.progressStartValue2 * 3.6}deg, #ededed 0deg)` ;
     if (this.progressStartValue2 == this.progressEndValue2) {
       clearInterval(this.progresoBarra2);
     }

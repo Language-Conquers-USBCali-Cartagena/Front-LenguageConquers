@@ -1,5 +1,5 @@
 .fondo {
-  background: rgb(219,211,205);
+  background: #343434;
   background-repeat: no-repeat;
   background-size: cover;
   padding:5.2vh;
@@ -37,7 +37,7 @@
   height: 150px;
   width: 150px;
   border-radius:50%;
-  background: conic-gradient(#cd9e76 3.6deg, #ededed 0deg);
+  background: conic-gradient(#30B4C6 3.6deg, #ededed 0deg); 
   display: flex;
   align-items: center;
   justify-content:center;
@@ -48,7 +48,25 @@
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  background-color:  #ac998b;
+  background-color:  #c3c3c3;
+}
+.circular-progress2{
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius:50%;
+  background: conic-gradient(#DBDB24 3.6deg, #ededed 0deg); 
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.circular-progress2::before{
+  content: " ";
+  position: absolute;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-color:  #c3c3c3;
 }
 .progress-value{
   position: relative;
@@ -56,12 +74,16 @@
   font-weight:600;
   color: #ededed;
 }
-.text,.text2{
+.text{
   font-size:30px;
   font-weight: 500;
-  color: #606060;
+  color: #DBDB24;
 }
-
+.text2{
+  font-size:30px;
+  font-weight: 500;
+  color: #30B4C6;
+}
 .tarjeta{
   width: 550px;
   height: 540px;
@@ -71,11 +93,8 @@
   /*Efecto espejo*/
   padding: 48px;
   border-radius: 24px;
-  background: linear-gradient(
-  135deg,
-  #ffffffad,
-  #ffffffad
-);
+  background: rgba(195, 195, 195, 0.41);
+
 backdrop-filter: blur(3px);
 -webkit-backdrop-filter: blur(3px);
 box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
@@ -99,7 +118,8 @@ text-align: center;
 
 }
 .titulos{
-  font-size:20px
+  font-size:20px;
+  color:white ;
 }
 
 
@@ -120,7 +140,7 @@ input{
   width:130px;
   height:40px;
   font-size: 20px;
-
+  color: white;
 }
 
 .carrousel{
@@ -191,12 +211,12 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
 }
 @media screen and (max-width: 700px)  {
   .fondo {
-    background: rgba(255, 255, 255, 0.87);
+    background: #2e2e2e;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0vh;
-    height: 1201px;
-    width: auto;
+    height: 1200px;
+    width: 510px;
   }
   
   .grafica1{
@@ -229,7 +249,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
   height: 150px;
   width: 150px;
   border-radius:50%;
-  background: conic-gradient(#cd9e76 3.6deg, #ededed 0deg);
+  background: conic-gradient(#30B4C6 3.6deg, #ededed 0deg);
   display: flex;
   align-items: center;
   justify-content:center;
@@ -240,7 +260,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
   height: 120px;
   width: 120px;
   border-radius: 50%;
-  background-color:  #ac998b;
+  background-color:  #c3c3c3;
 }
 .progress-value{
   position: relative;
@@ -248,11 +268,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
   font-weight:600;
   color: #ededed;
 }
-  .text,.text2{
-    font-size:20px;
-    font-weight: 500;
-    color: #606060;
-  }
+
   .tarjeta{
     width: 189px;
     height: 860px;
@@ -261,7 +277,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     margin-left: 101px;
     padding: 29px;
     border-radius: 24px;
-    background: linear-gradient( 135deg, #ededed, #ededed );
+    background: linear-gradient( 135deg, #c3c3c369, #ededed );
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     box-shadow: 0 8px 32px 0 rgb(0 0 0 / 36%);
@@ -324,7 +340,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     padding-right: 18px;
   }
   .botones{
-    color: rgb(254,254,231);
+    color: #8a6060;
     border-radius: 20px;
     background-color: rgb(85, 183, 232);
     text-align: center !important;
@@ -391,7 +407,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     margin-left: 0px;
     grid-template-columns: repeat(1, 18em);
     justify-content: center;
-  
+    
   }
   
   .carrousel{
@@ -435,5 +451,15 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
   object-fit: cover;
   opacity: .8;
   transition: .3s;
+  }
+  .text{
+    font-size:20px;
+    font-weight: 500;
+    color: #DBDB24;
+  }
+  .text2{
+    font-size:20px;
+    font-weight: 500;
+    color: #30B4C6;
   }
 }

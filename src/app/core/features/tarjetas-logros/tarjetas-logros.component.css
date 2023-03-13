@@ -1,5 +1,5 @@
 .body{
-  background-color: rgb(219,211,205);
+  background-color: #2e2e2e;
   background-size: cover;
   background-repeat: no-repeat;
   height: auto;
@@ -9,7 +9,7 @@
 .banner{
   background-image: url(../../../../assets/images/fondos/bannerLogros.png);
   background-size: cover;
-  height: 400px;
+  height: 450px;
   width: 1840px;
   padding-left:-10px;
   
