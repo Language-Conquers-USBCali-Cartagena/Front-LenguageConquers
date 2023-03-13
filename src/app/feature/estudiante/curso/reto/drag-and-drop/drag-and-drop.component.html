@@ -4,7 +4,11 @@
   <div class="fondoPantalla">
     <div class="pantallaAdentro">
       <div class="texto">
-        <h1 class="variables"><b># Ten en cuenta el color de las variables </b><img src="../../../../assets/icons/information.png" class="info" (click)="colorVariables()"></h1>
+        <h1 class="variables"># <span style="color: #E74C3C;"><b>Rojo:</b></span> Métodos <mat-icon matSuffix style="font-size: 20px; color:#E74C3C; cursor:pointer"(click)="colorRojo()" >sms_failed</mat-icon></h1>
+        <h1 class="variables"># <span style="color: #27AE60;"><b>Verde:</b></span> Objetos <mat-icon matSuffix style="font-size: 20px; color:#27AE60; cursor:pointer" (click)="colorVerde()" >sms_failed</mat-icon></h1>
+        <h1 class="variables"># <span style="color: #3498DB"><b>Azul:</b></span>  Variable con valor <mat-icon matSuffix style="font-size: 20px; color:#3498DB; cursor:pointer" (click)="colorAzul()" >sms_failed</mat-icon></h1>
+        <h1 class="variables"># <span style="color: #F4D03F"><b>Amarillo:</b></span> Variable sin valor <mat-icon matSuffix style="font-size: 20px; color:#F4D03F; cursor:pointer" (click)="colorAmarillo()" >sms_failed</mat-icon></h1>
+        <br>
         <h1 class="reto"># Reto: Deberas crear un algoritmo que permita coger un coco de la palmera.</h1>
       </div>
       <div cdkDropListGroup>
@@ -130,7 +134,7 @@
       </div>
     </div>
 
-    
+
   </div>
   <div class="botonEncendido"></div>
   <div class="fondoTorre">
@@ -139,7 +143,7 @@
       <img src="../../../../../../assets/icons/video.png" alt="Tutorial" class="imgTutorial">
     </button>
     <div class="botonEncendidoTutorial"></div>
-   
+
     <button type="button" class="botonTema" (click)="mostrarPistas()">
       <label class="tituloPista">Pistas</label>
       <img src="../../../../../../assets/icons/pista.png" alt="pista" class="imgPista">
@@ -160,5 +164,5 @@
       <img src="../../../../../../assets/icons/play.png" alt="Tutorial" class="imgEjecutar" matTooltip="Ejecutar">
     </button>
   </div>
- 
+
 </div>

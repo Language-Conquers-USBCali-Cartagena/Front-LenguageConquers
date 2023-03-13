@@ -4,21 +4,20 @@
   height: 700px;
 }
 .body2 {
-  
   background-color: #323232;
-  height: 75px;
+  height: 10px;
 }
 .fondo{
   padding-bottom:10px ;
   background-color: #323232;
 }
 .fondoPantalla{
-  width: 1000px;
-  height: 400px;
-  padding-top: 50px;
-  margin-left: 120px;
+  width: 1100px;
+  height: 450px;
+  padding-top: 10px;
+  margin-left: 110px;
   /*Efecto espejo*/
-  
+
   background: linear-gradient(135deg,
       rgba(24, 27, 28, 0.867),
       rgba(24, 27, 28, 0.867));
@@ -27,7 +26,7 @@
   box-shadow: 0 1px 45px 0 rgb(43, 43, 43);
   font-size: 30px;
   border-radius: 10px;
-  border: 60px solid  rgb(45, 48, 48, 0.883);
+  border: 30px solid  rgba(10, 10, 10, 0.883);
   color: rgb(255, 255, 255);
   text-align: center;
 }
@@ -271,7 +270,7 @@ h1{
   background: rgba(255, 255, 255, 0);
   border-radius: 4px;
   overflow: auto;
-  
+
   height: 350px;
 }
 
@@ -316,7 +315,7 @@ h1{
 
 .example-box {
   padding: 20px 10px;
-  border-right: solid 1px #8a8a8a;
+  border-right: solid 1px #cfcfcfaa;
   color: rgba(0, 0, 0, 0.87);
   display: flex;
   flex-direction: row;
@@ -359,7 +358,6 @@ h1{
 .cuadro-respuesta{
   margin-left: 500px;
   margin-top: -400px;
-  
   display: block;
   position: static;
   height: 400px;
@@ -367,7 +365,7 @@ h1{
 }
 .texto{
   width:900px;
-  margin-top: -40px;
+  margin-top: -8px;
   margin-left: 5px;
   justify-content: flex-start;
   text-align: justify;
@@ -379,12 +377,24 @@ h1{
 .variables{
   font-size:12px;
   font-family: 'Courier New', Courier, monospace;
-  
+  line-height: 1px;
+  margin-bottom: -8px;
+
+}
+
+.colores{
+  font-size:12px;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1;
+}
+.colores p{
+  line-height: 1;
 }
 .explicacion-color{
   margin-top: 10px;
   font-size:13px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: justify;
 
 }
 .info{

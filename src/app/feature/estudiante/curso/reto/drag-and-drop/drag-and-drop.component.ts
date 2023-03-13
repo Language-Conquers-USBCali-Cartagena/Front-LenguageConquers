@@ -1,4 +1,5 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PalabrasReservadas } from 'src/app/shared/models/palabrasReservadas';
@@ -77,10 +78,33 @@ export class DragAndDropComponent implements OnInit {
     let resp: PalabrasReservadas[] = this.a.concat(this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
     this.palabraService.procesarPalabras(resp).subscribe(resp =>{
       console.log(resp);
-      //TODO: Hacer pop-up de respuesta
-    }, (err) => {
-      console.log(err);
-      //TODO: Hacer pop-up de error
+      Swal.fire({
+        title: 'Respuesta!',
+        text: resp,
+        focusConfirm: false,
+        showCancelButton: true,
+        showConfirmButton: false
+      });
+    }, error => {
+      if(error instanceof HttpErrorResponse){
+        console.log(error.error);
+        Swal.fire({
+          title: 'Error',
+          text: error.error,
+          focusConfirm: false,
+          confirmButtonText: 'Intentar',
+          confirmButtonColor: '#31B2C2',
+        });
+      }else {
+        console.log(error.message);
+        Swal.fire({
+          title: 'Error',
+          text: error.message,
+          focusConfirm: false,
+          confirmButtonText: 'Intentar',
+          confirmButtonColor: '#31B2C2',
+        });
+      }
     });
 
     // Swal.fire({
@@ -129,16 +153,19 @@ export class DragAndDropComponent implements OnInit {
 
   mostrarPistas(){
     Swal.fire({
-      title: 'Sweet!',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet scelerisque risus. Aliquam erat volutpat. Ut convallis tempus varius. Mauris nec fermentum libero. Donec maximus iaculis urna id sollicitudin. Proin tempus velit elit, ac suscipit odio tempor quis. Nam lacinia turpis nibh, ac commodo nulla vehicula vitae. Praesent venenatis mauris nec efficitur feugiat. Nunc fringilla posuere neque, varius facilisis risus laoreet et. Integer consequat bibendum vehicula.Donec nec dui porta, ultricies lectus et, rutrum ligula. Maecenas scelerisque lacinia ex, vitae laoreet ipsum varius vitae.',
+      title: '¿Qué es un algoritmo?',
+      html:
+      '<p>Un algoritmo es en realidad un procedimiento por etapas. Es un conjunto de reglas que hay que seguir para realizar una tarea o resolver un problema.</p> Un algoritmo es en realidad un procedimiento por etapas. Es un conjunto de reglas que hay que seguir para realizar una tarea o resolver un problema. <p>Mucho antes de la aparición de los ordenadores, los humanos ya utilizaban algoritmos. Las recetas de cocina, las operaciones matemáticas o incluso las instrucciones para montar un mueble pueden considerarse algoritmos.</p>',
       confirmButtonText: 'Continuar',
+      confirmButtonColor: '#31B2C2',
       showCancelButton: true,
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title: 'Sweet!',
-          text:'Maecenas sit amet eros nisl. Aliquam vitae aliquam erat. In malesuada non quam id tincidunt. Nulla at sapien ullamcorper, pharetra turpis vel, congue leo. Integer ut turpis tempus, suscipit velit id, malesuada sem. Curabitur tellus nibh, maximus id arcu quis, blandit tristique libero. Pellentesque vitae nunc ac nibh lacinia molestie sed quis urna. Ut faucibus blandit nunc et sodales. Donec ornare erat tortor, et mollis risus viverra id. Pellentesque vitae justo lacinia, ornare odio id, imperdiet eros. Curabitur tortor dolor, sodales euismod semper non, cursus ac ex. Integer hendrerit est ac ipsum elementum sollicitudin. Mauris sapien eros, sollicitudin sit amet dui mollis, ornare sagittis justo. Maecenas porta, ex quis condimentum porta, nisi ex efficitur diam, vehicula dignissim tortor eros eget mauris. Donec facilisis ante a ipsum sollicitudin, nec dictum lorem iaculis. Quisque blandit enim sem, lacinia vehicula sapien mattis id. Nam aliquam sapien in urna aliquet viverra.',
-          confirmButtonText: 'Continuar',
+          title: '¿Qué es un algoritmo?',
+          text:'En el campo de la programación informática, los algoritmos son conjuntos de reglas que indican al ordenador cómo ejecutar una tarea. En realidad, un programa informático es un algoritmo que indica al ordenador qué pasos debe realizar y en qué orden para llevar a cabo una tarea específica. Se escriben utilizando un lenguaje de programación.',
+          showCancelButton: true,
+          confirmButtonColor: '#31B2C2'
         }
 
       )
@@ -146,11 +173,41 @@ export class DragAndDropComponent implements OnInit {
     })
   }
 
-  colorVariables(){
+  colorVerde() {
     Swal.fire({
-      title: 'Colores de las Variables',
+      title: '¿Qué es un Objeto?',
       html:
-      ' <p class="explicacion-color"><span style="color: #E74C3C;"><b>Rojo:</b></span> Para variables no declaradas o no utilizadas</p><p> <span style="color: #27AE60;"><b>Verde:</b></span> Para variables locales o parámetros de función</p> <p class="explicacion-color"><span style="color: #3498DB"><b>Azul:</b></span> Para variables globales o de instancia</p> <p> <span style="color: #F4D03F"><b>Amarillo:</b></span> Para variables constantes o inmutables</p>',
+      '<p class="explicacion-color">Se trata de un ente abstracto usado en programación que permite separar los diferentes componentes de un programa, simplificando así su elaboración, depuración y posteriores mejoras. Los objetos integran, a diferencia de los métodos procedurales, tanto los procedimientos como las variables y datos referentes al objeto.</p><p> A los objetos se les otorga ciertas características en la vida real. Cada parte del programa que se desea realizar es tratado como objeto, siendo así estas partes independientes las unas de las otras.Los objetos se componen de 3 partes fundamentales: metodos, eventos y atributos.</p>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false
+    });
+  }
+  colorRojo() {
+    Swal.fire({
+      title: '¿Que es un método?',
+      html:
+      '<p>Los métodos son un bloque de instrucciones de código, nos permiten agrupar instrucciones, que despues pueden ser llamadas cuantas veces sea necesario simplemente llamando al método, esto nos permite reutilizar código y resolver problemas cada vez más complejos.</p>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false
+    });
+  }
+  colorAzul() {
+    Swal.fire({
+      title: '¿Qué son las variables con valor?',
+      html:
+      '<p>Una variable se declara para indicarle al programa a partir de qué lugar empieza a existir, qué nombre tendrá y qué tipo de datos almacenará. La asignación de un valor inicial se llama inicialización. Para declarar una variable usaremos una instrucción compuesta del nombre del tipo de datos de la variable, el nombre de la variable y opcionalmente un operador de asignación y un valor inicial.</p>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false
+    });
+  }
+  colorAmarillo() {
+    Swal.fire({
+      title: '¿Qué son las varibales?',
+      html:
+      '<p>Las variables sirven para almacenar números o cadenas de caracteres (palabras). Las instrucciones correspondientes a variables permiten crearlas y usarlas en un programa.</p>',
       showCloseButton: true,
       focusConfirm: false,
       showConfirmButton: false
