@@ -9,7 +9,7 @@
 .banner{
   background-image: url(../../../../assets/images/fondos/bannerLogros.png);
   background-size: cover;
-  height: 450px;
+  height: 350px;
   width: 1840px;
   padding-left:-10px;
   
@@ -17,7 +17,7 @@
 
 .container{
   width: 1030px;
-  height: 800px;
+  height: 450px;
   margin-right: 80px;
   margin-left: 500px;
   padding: 48px;
@@ -88,7 +88,7 @@ box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 }
 .cardPeq{
   width: 150px;
-  height:160px;
+  height:70px;
   margin: 10px;
   text-align: center;
   align-items: center;
