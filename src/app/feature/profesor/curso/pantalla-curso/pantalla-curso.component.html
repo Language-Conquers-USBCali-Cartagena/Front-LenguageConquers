@@ -3,18 +3,17 @@
     <mat-grid-tile colspan="1" class="cuadroIzq">
       <mat-card class="tarjetaCurso">
         <mat-card-header>
-          <mat-card-title class="nombreCurso">Curso: </mat-card-title>
+          <mat-card-title class="nombreCurso">{{nombreCurso}}</mat-card-title>
         </mat-card-header>
         <mat-card-content class="infoCurso">
-          <p>Inicio del Curso:</p>
-          <p>Finalización del Curso:</p>
-          <p>Cantidad de Estudiantes Matriculados:</p>
-          <p>Progreso del Curso: </p>
-          <p>Estado:</p>
+          <p><span class="datosCurso"><b>Inicio del Curso:</b></span>  {{fechaFormateadaInicio}}</p>
+          <p><span class="datosCurso"><b>Finalización del Curso:</b></span> {{fechaFormateadaFinal}}</p>
+          <p><span class="datosCurso"><b>Estudiantes Matriculados:</b></span> {{cantEstudiantiantes}}</p>
+          <p><span class="datosCurso"><b>Progreso del Curso:</b></span> {{progresoCurso}}</p>
+          <p><span class="datosCurso"><b>Estado:</b></span> {{nombreEstado}}</p>
         </mat-card-content>
         <mat-card-actions class="boton">
           <button mat-raised-button class="botones" (click)="listaRetos()">Listar Retos</button>
-          <button mat-raised-button class="botones" (click)="configurarRetos()">Configurar Reto</button>
           <button mat-raised-button class="botones" (click)="misEstudiantes()">Mis Estudiantes</button>
         </mat-card-actions>
       </mat-card>
@@ -22,10 +21,10 @@
     <mat-grid-tile colspan="2" class="cuadroDer">
       <mat-card class="tarjetaReto">
         <div [hidden]="!isRetoLista">
-          <app-lista-retos></app-lista-retos>
+          <app-lista-retos (editarReto)="onEditarReto($event)"></app-lista-retos>
         </div>
         <div [hidden]="!isConfigReto">
-          <app-habilitar-reto></app-habilitar-reto>
+          <app-habilitar-reto *ngIf="isConfigReto" [retoParaHabilitar]="retoSeleccionado"></app-habilitar-reto>
         </div>
         <div [hidden]="!isEstudiantes">
           <app-mis-estudiantes></app-mis-estudiantes>

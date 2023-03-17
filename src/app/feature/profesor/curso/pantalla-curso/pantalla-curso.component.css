@@ -30,17 +30,20 @@
 }
 .nombreCurso{
   margin-top: 20px;
-  margin-left: 60px;
+  margin-left: 10px;
   align-items: center;
   text-align: center;
-  font-size: 28px;
-  color: #fff;
+  font-size: 25px;
+  color: #3b3b3bf9;
 }
 .infoCurso{
   margin-top: 20px;
-  color: #fff;
-  font-size:17px;
+  color: #3b3b3bf9;
+  font-size:20px;
   line-height: 30px;
+}
+.datosCurso{
+  font-size:20px;
 }
 .boton{
   margin-left: 20%;

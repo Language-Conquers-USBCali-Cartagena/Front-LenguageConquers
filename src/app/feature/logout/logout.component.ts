@@ -13,10 +13,11 @@ export class LogoutComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.eliminarCache();
+
     this.salir();
   }
   salir(){
+    this.eliminarCache();
     this.authService.logout();
     this.router.navigateByUrl("/auth/login");
   }

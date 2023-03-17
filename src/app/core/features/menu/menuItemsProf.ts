@@ -1,11 +1,11 @@
 export const itemsProf = [
   {
-    routeLink: '/profesor/menuProfesor',
+    redirectTo: '/profesor/menuProfesor',
     icon: 'home',
     label: 'Home',
   },
   {
-    routeLink: '/profesor/ranking',
+    redirectTo: '/profesor/ranking',
     icon: 'poll',
     label: 'Ranking',
   },

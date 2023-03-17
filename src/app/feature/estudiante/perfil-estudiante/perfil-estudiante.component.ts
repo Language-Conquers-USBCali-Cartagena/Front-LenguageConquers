@@ -59,7 +59,7 @@ export class PerfilEstudianteComponent implements OnInit {
 
   //Progreso 1
 
-  circularProgress = document.querySelector("[class='circular-progress']") as HTMLElement;
+ /* circularProgress = document.querySelector("[class='circular-progress']") as HTMLElement;
   progreso2=document.querySelector('#grafica2 #progreso2') as HTMLElement;
   progressValue = document.querySelector('.progress-value');
   progressValue2 = document.getElementById("progressValue2")
@@ -88,7 +88,7 @@ export class PerfilEstudianteComponent implements OnInit {
       clearInterval(this.progresoBarra2);
     }
   }, this.speed);
-
+*/
 
   constructor(private estudianteService: EstudianteServiceService,private  estudianteServiceNormal: EstudianteService, private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
     private router:Router, private programaService: ProgramaService, private estadoService: EstadoService) {

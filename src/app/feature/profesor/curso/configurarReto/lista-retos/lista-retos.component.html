@@ -29,7 +29,7 @@
 
     <ng-container matColumnDef="monedas">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Monedas</th>
-      <td mat-cell *matCellDef="let row">{{row.monedas}}</td>
+      <td mat-cell *matCellDef="let row">{{row.moneda}}</td>
     </ng-container>
 
     <ng-container matColumnDef="idEstado">
@@ -40,9 +40,9 @@
     <ng-container matColumnDef="Acciones">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element; let i = index"style="text-align:center">
-        <a class="botones" style="color:rgb(19, 12, 59); cursor:pointer"  matTooltip="Habilitar Reto">
+        <button class="botones" style="color:rgb(19, 12, 59); cursor:pointer" (click)="onEditarReto(element)" matTooltip="Habilitar Reto">
           <mat-icon>edit</mat-icon>
-        </a>
+        </button>
         </td>
     </ng-container>
 

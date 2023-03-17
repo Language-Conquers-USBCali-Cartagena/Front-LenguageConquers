@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit,Output,ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -22,7 +22,10 @@ export class ListaRetosComponent implements OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
+  idReto = 0;
 
+
+  @Output() editarReto = new EventEmitter<any>();
 
 
   constructor(private retoService: RetoService, private routerAct: ActivatedRoute, private router: Router ) {
@@ -52,5 +55,11 @@ export class ListaRetosComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+ onEditarReto(reto: Reto){
+  this.editarReto.emit(reto);
+
+ }
+
 
 }

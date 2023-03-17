@@ -7,10 +7,10 @@
   </mat-card>
   <div class="fondoTarjeta">
     <div class="profesor">
-      <mat-card class="cursos" *ngFor="let tarjetas of cursosCard" [routerLink]="['/profesor/curso/configuracion-curso/1']" >
+      <mat-card class="cursos" *ngFor="let tarjetas of cursos" (click)="seleccionarCurso(tarjetas.idCurso!)">
         <img mat-card-image src="./assets/images/fondos/portadaCurso.png">
           <mat-card-subtitle class="titulo">Facultad de Ingenieria</mat-card-subtitle>
-          <a class="vinculos-contra" [routerLink]="['/profesor/curso/configuracion-curso/1']">{{tarjetas.nombre}}</a>
+          <a class="vinculos-contra">{{tarjetas.nombre}}</a>
       </mat-card>
     </div>
   </div>
