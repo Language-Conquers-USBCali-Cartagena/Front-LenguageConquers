@@ -5,7 +5,7 @@ import { EstadoService } from '../../../../../shared/services/estado/estado.serv
 import { RetoService } from '../../../../../shared/services/reto/reto.service';
 import { Reto } from 'src/app/shared/models/reto';
 
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,15 +17,19 @@ export class HabilitarRetoComponent implements OnInit {
 
   retoForm: FormGroup = new FormGroup({});
   estados:Estado[] = [];
-  reto!: Reto;
+  reto: Reto ={};
 
-  @Input() retoParaHabilitar: Reto | undefined;
+  
   retoActualizado!: Reto;
-
-  constructor(private fb: FormBuilder, private estadoService:  EstadoService, private retoService: RetoService, private router: Router) { }
+  
+  constructor(private fb: FormBuilder, private estadoService:  EstadoService, private retoService: RetoService, private router: Router, private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
+    const retoString = this.route.snapshot.queryParamMap.get('listaRetos')?.replace(/\[|\]/g, '')!;
+    this.reto = JSON.parse(retoString);
+    
+    
     this.retoForm = this.fb.group({
       maximoIntentos: ['', Validators.required],
       fechaInicio:  ['', Validators.required],
@@ -34,16 +38,15 @@ export class HabilitarRetoComponent implements OnInit {
       moneda:  ['', Validators.required],
     });
 
-    if (this.retoParaHabilitar) {
+    if (this.reto) {
       this.retoForm.patchValue({
-        maximoIntentos: this.retoParaHabilitar.maximoIntentos,
-        fechaInicio: this.retoParaHabilitar.fechaInicio,
-        fechaLimite: this.retoParaHabilitar.fechaLimite,
-        idEstado: this.retoParaHabilitar.idReto,
-        moneda: this.retoParaHabilitar.monedas,
+        maximoIntentos: this.reto.maximoIntentos,
+        fechaInicio: this.reto.fechaInicio,
+        fechaLimite: this.reto.fechaLimite,
+        idEstado: this.reto.idReto,
+        moneda: this.reto.moneda,
       });
     }
-    console.log(this.retoParaHabilitar);
     this.getEstado();
   }
 
@@ -59,7 +62,7 @@ export class HabilitarRetoComponent implements OnInit {
       maximoIntentos: reto.maximoIntentos,
       fechaInicio: reto.fechaInicio,
       fechaLimite: reto.fechaLimite,
-      mmoneda: reto.monedas,
+      mmoneda: reto.moneda,
       idEstado: reto.idEstado,
       usuarioModificador: reto.usuarioModificador,
       fechaModificacion: reto.fechaModificacion
@@ -78,28 +81,28 @@ export class HabilitarRetoComponent implements OnInit {
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let reto: Reto = {
-      idReto: this.retoParaHabilitar!.idReto,
-      nombreReto: this.retoParaHabilitar!.nombreReto,
-      descripcion: this.retoParaHabilitar!.descripcion,
+      idReto: this.reto!.idReto,
+      nombreReto: this.reto!.nombreReto,
+      descripcion: this.reto!.descripcion,
       maximoIntentos: intentos,
       fechaInicio: fechaInicio,
       fechaLimite: fechaLimite,
-      idMision: this.retoParaHabilitar!.idMision,
+      idMision: this.reto!.idMision,
       idEstado: estado.idEstado,
-      idCurso: this.retoParaHabilitar!.idCurso,
+      idCurso: this.reto!.idCurso,
       usuarioModificador: usuarioModificador,
       fechaModificacion: fechaActual,
-      monedas: this.retoForm.value.moneda,
+      moneda: this.retoForm.value.moneda,
       esGrupal: false,
       cantidadEstudiantes: 0,
-      fechaCreacion: this.retoParaHabilitar!.fechaCreacion,
-      usuarioCreador: this.retoParaHabilitar!.usuarioCreador,
-      solucion: this.retoParaHabilitar!.solucion,
-      descripcionTeoria: this.retoParaHabilitar!.descripcionTeoria,
-      imgTema1: this.retoParaHabilitar!.imgTema1,
-      imgTema2: this.retoParaHabilitar!.imgTema2,
-      urlVideo1: this.retoParaHabilitar!.urlVideo1,
-      urlVideo2: this.retoParaHabilitar!.urlVideo2}
+      fechaCreacion: this.reto!.fechaCreacion,
+      usuarioCreador: this.reto!.usuarioCreador,
+      solucion: this.reto!.solucion,
+      descripcionTeoria: this.reto!.descripcionTeoria,
+      imgTema1: this.reto!.imgTema1,
+      imgTema2: this.reto!.imgTema2,
+      urlVideo1: this.reto!.urlVideo1,
+      urlVideo2: this.reto!.urlVideo2}
     this.retoService.actualizarReto(reto).subscribe(data =>{
       Swal.fire({
         icon: 'success',
@@ -107,7 +110,7 @@ export class HabilitarRetoComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500
       });
-      this.router.navigate([''])
+      this.atras();
     }, (e) => {
       console.log(e['error']);
       Swal.fire({
@@ -123,7 +126,10 @@ export class HabilitarRetoComponent implements OnInit {
 
 
   atras(){
-
+    const ruta = this.router.url.split('/');
+    ruta.pop();
+    const newRuta = ruta.join('/');
+    this.router.navigateByUrl(newRuta);
   }
 
 

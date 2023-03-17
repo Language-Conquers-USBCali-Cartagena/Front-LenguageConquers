@@ -14,7 +14,7 @@ export interface Reto{
     fechaModificacion?: Date;
     esGrupal?: boolean;
     cantidadEstudiantes?: number;
-    monedas?:number;
+    moneda?:number;
     solucion?:string;
     descripcionTeoria?: string;
     imgTema1?: string;

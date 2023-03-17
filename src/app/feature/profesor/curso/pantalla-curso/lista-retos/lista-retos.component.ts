@@ -25,7 +25,6 @@ export class ListaRetosComponent implements OnInit {
   idReto = 0;
 
 
-  @Output() editarReto = new EventEmitter<any>();
 
 
   constructor(private retoService: RetoService, private routerAct: ActivatedRoute, private router: Router ) {
@@ -56,8 +55,11 @@ export class ListaRetosComponent implements OnInit {
     }
   }
 
- onEditarReto(reto: Reto){
-  this.editarReto.emit(reto);
+ onEditarReto(){
+  const ruta = this.router.url.split('/');
+  ruta.pop();
+  const newRuta = ruta.join('/');
+  this.router.navigate([newRuta +'/editar-reto'], {queryParams: {listaRetos: JSON.stringify(this.listaRetos)}});
 
  }
 

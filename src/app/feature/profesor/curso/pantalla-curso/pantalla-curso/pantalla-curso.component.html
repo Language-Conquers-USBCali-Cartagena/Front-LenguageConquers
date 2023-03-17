@@ -20,15 +20,7 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="2" class="cuadroDer">
       <mat-card class="tarjetaReto">
-        <div [hidden]="!isRetoLista">
-          <app-lista-retos (editarReto)="onEditarReto($event)"></app-lista-retos>
-        </div>
-        <div [hidden]="!isConfigReto">
-          <app-habilitar-reto *ngIf="isConfigReto" [retoParaHabilitar]="retoSeleccionado"></app-habilitar-reto>
-        </div>
-        <div [hidden]="!isEstudiantes">
-          <app-mis-estudiantes></app-mis-estudiantes>
-        </div>
+        <router-outlet></router-outlet>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

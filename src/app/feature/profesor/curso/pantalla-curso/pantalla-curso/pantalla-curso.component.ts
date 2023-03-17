@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Curso } from 'src/app/shared/models/curso';
 import { Profesor } from 'src/app/shared/models/profesor';
-import { ProfesorServicesService } from '../../services/services.service';
 import { CursoService } from 'src/app/shared/services/curso/curso.service';
-import { EstadoService } from '../../../../shared/services/estado/estado.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { Reto } from 'src/app/shared/models/reto';
+import { EstadoService } from 'src/app/shared/services/estado/estado.service';
 
 
 @Component({
@@ -49,6 +48,8 @@ export class PantallaCursoComponent implements OnInit {
       (params) => {
         const id = params['curso'];
         if ( id ) {
+          
+          
           this.cursoService.consultarPorId(id).subscribe((data) => {
             this.nombreCurso = data.nombre;
             this.inicioCurso = data.inicioCurso;

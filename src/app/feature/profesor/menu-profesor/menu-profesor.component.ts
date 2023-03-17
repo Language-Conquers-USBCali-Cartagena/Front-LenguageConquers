@@ -45,7 +45,7 @@ export class MenuProfesorComponent implements OnInit {
 
   seleccionarCurso(cursoId: number): void {
     this.cursoSeleccionadoId = cursoId;
-    this.router.navigate(['/profesor/curso/configuracion-curso/', cursoId]);
+    this.router.navigate(['/profesor/curso/', cursoId]);
   }
 
   public capitalizerFirstLetter(str: string) {
