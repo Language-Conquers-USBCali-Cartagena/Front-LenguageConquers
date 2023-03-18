@@ -2,6 +2,7 @@
   <mat-card class="tarjeta">
     <mat-card-content>
       <form [formGroup]="form">
+        <img mat-card-image class="fotoPerfil"  src={{fotoProfesor}}>
         <div class="entradas">
           <div class="campo-entrada">
             <mat-form-field appearance="fill">
@@ -24,24 +25,38 @@
               <mat-icon matSuffix class="boton">correo</mat-icon>
             </mat-form-field>
           </div>
+
           <div class="campo-entrada">
             <mat-form-field appearance="fill">
-              <label class="titulos">Genero</label>
-              <mat-select formControlName="idGenero" [(value)]="genero">
-                <mat-option *ngFor="let genero of generos" [value]="genero.genero">
+              <mat-label class="titulos">Genero</mat-label>
+              <mat-select formControlName="idGenero" (selectionChange)="setGenero($event.value)">
+                <mat-option *ngFor="let genero of generos" [value]="genero.idGenero">
                   {{genero.genero}}
                 </mat-option>
               </mat-select>
-              <mat-icon matSuffix class="boton">gender</mat-icon>
+              <mat-icon matSuffix class="button">estado</mat-icon>
             </mat-form-field>
           </div>
+
           <div class="campo-entrada">
-            <mat-label class="tituloImagen1"> Seleccionar Foto </mat-label>
-            <br><br>
-            <input class="inputFile" type="file" #fileInput (change)="uploadImage($event)" id="Foto">
-            <label for="Foto" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
-            <br><br>
+            <mat-label class="titulos">Desea Actualizar su Foto</mat-label>
+            <br>
+            <mat-radio-group   [(ngModel)]="actualizarFoto" [ngModelOptions]="{standalone: true}">
+              <mat-radio-button value="si">SI</mat-radio-button>
+              <mat-radio-button value="no">NO</mat-radio-button>
+            </mat-radio-group>
           </div>
+          <br>
+          <ng-template #seleccionarFoto>
+            <div  class="campo-entrada">
+              <mat-label class="tituloImagen1"> Seleccionar Foto </mat-label>
+              <br><br>
+              <input class="inputFile" type="file" #fileInput (change)="uploadImage($event)" id="Foto">
+              <label for="Foto" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
+              <br>
+            </div>
+          </ng-template>
+          <ng-container *ngTemplateOutlet="actualizarFoto === 'si' ? seleccionarFoto : null"></ng-container>
           <div class="boton">
             <button mat-raised-button class="botones" (click)="actualizar()">Actualizar</button>
           </div>

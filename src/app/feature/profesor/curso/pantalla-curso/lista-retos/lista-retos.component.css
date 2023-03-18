@@ -28,3 +28,9 @@ td, th {
   line-height: 10px;
   font-family: 'Roboto';
 }
+.botones{
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}

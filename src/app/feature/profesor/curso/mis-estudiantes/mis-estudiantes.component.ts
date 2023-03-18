@@ -14,7 +14,7 @@ import { EstudianteService } from 'src/app/shared/services/estudiante/estudiante
 export class MisEstudiantesComponent implements OnInit {
 
   listaEstudiante: Estudiante[] = []
-  displayedColumns: string[] = ['Nombre', 'Apellidos', 'Correo','NickName', 'idReto', 'intentos','puntaje','FechaEntrega', 'idEstado'];
+  displayedColumns: string[] = ['Nombre', 'Apellidos', 'Correo','NickName', 'Reto', 'Intentos','Puntaje','FechaEntrega', 'Estado'];
   dataSource = new MatTableDataSource<Estudiante>(this.listaEstudiante);
   id: string | null;
   @ViewChild(MatPaginator)

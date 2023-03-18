@@ -7,6 +7,7 @@ import { Reto } from 'src/app/shared/models/reto';
 
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ProfesorServicesService } from '../../../services/services.service';
 
 @Component({
   selector: 'app-habilitar-reto',
@@ -18,18 +19,22 @@ export class HabilitarRetoComponent implements OnInit {
   retoForm: FormGroup = new FormGroup({});
   estados:Estado[] = [];
   reto: Reto ={};
-
-  
+  estado!: string;
+  idEstado: number | undefined;
+  nombreEstado!: string | undefined;
   retoActualizado!: Reto;
-  
-  constructor(private fb: FormBuilder, private estadoService:  EstadoService, private retoService: RetoService, private router: Router, private route: ActivatedRoute) { }
+  correo: string ='';
+  nombreProfesor: string| undefined;
+
+  constructor(private fb: FormBuilder, private estadoService:  EstadoService, private retoService: RetoService, private router: Router, private route: ActivatedRoute, private profesorService: ProfesorServicesService) { }
 
 
-  ngOnInit(): void {
+   ngOnInit(){
     const retoString = this.route.snapshot.queryParamMap.get('listaRetos')?.replace(/\[|\]/g, '')!;
     this.reto = JSON.parse(retoString);
-    
-    
+    this.idEstado = this.reto.idEstado;
+    this.obtenerProfesor();
+
     this.retoForm = this.fb.group({
       maximoIntentos: ['', Validators.required],
       fechaInicio:  ['', Validators.required],
@@ -50,7 +55,13 @@ export class HabilitarRetoComponent implements OnInit {
     this.getEstado();
   }
 
-
+  async obtenerProfesor() {
+    let correo = localStorage.getItem("correo")!;
+    await this.profesorService.getProfesor(correo).toPromise().then((response) =>{
+      localStorage.setItem("usuario", JSON.stringify(response));
+      this.nombreProfesor = response.nombre?.concat(" ", response.apellido!);
+    });
+  }
    getEstado(){
     this.estadoService.getEstados().subscribe(resp => this.estados = resp);
   }
@@ -69,14 +80,18 @@ export class HabilitarRetoComponent implements OnInit {
     });
   }
 
+  setEstado(idEstado: number){
+    this.estadoService.consultarPorId(idEstado!).subscribe(data => {
+      this.nombreEstado = data.estado;
+    });
+
+  }
+
   actualizarReto():void{
-    const intentos = this.retoForm.value.maximoIntentos;
-    const fechaInicio: Date  = this.retoForm.value.fechaInicio;
-    const fechaLimite: Date  = this.retoForm.value.fechaLimite;
-    const monedas  = this.retoForm.value.moneda;
-    console.log(monedas);
     const estado= this.retoForm.value.idEstado;
-    const usuarioModificador = 'angela';
+    const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
+    const usuarioModificador = this.nombreProfesor;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
@@ -84,11 +99,11 @@ export class HabilitarRetoComponent implements OnInit {
       idReto: this.reto!.idReto,
       nombreReto: this.reto!.nombreReto,
       descripcion: this.reto!.descripcion,
-      maximoIntentos: intentos,
-      fechaInicio: fechaInicio,
-      fechaLimite: fechaLimite,
+      maximoIntentos: this.retoForm.value.maximoIntentos,
+      fechaInicio: this.retoForm.value.fechaInicio,
+      fechaLimite: this.retoForm.value.fechaLimite,
       idMision: this.reto!.idMision,
-      idEstado: estado.idEstado,
+      idEstado: idEstado,
       idCurso: this.reto!.idCurso,
       usuarioModificador: usuarioModificador,
       fechaModificacion: fechaActual,

@@ -21,4 +21,5 @@ export interface Reto{
     imgTema2?: string;
     urlVideo1?:string;
     urlVideo2?:string;
+    nombreEstado?: string;
 }

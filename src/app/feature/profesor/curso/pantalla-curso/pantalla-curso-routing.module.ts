@@ -3,6 +3,7 @@ import { NgModule } from "@angular/core";
 import { ListaRetosComponent } from "./lista-retos/lista-retos.component";
 import { PantallaCursoComponent } from "./pantalla-curso/pantalla-curso.component";
 import { HabilitarRetoComponent } from './habilitar-reto/habilitar-reto.component';
+import { MisEstudiantesComponent } from '../mis-estudiantes/mis-estudiantes.component';
 
 const routes: Routes =[
  {
@@ -21,6 +22,10 @@ const routes: Routes =[
     {
         path: 'editar-reto',
         component: HabilitarRetoComponent
+    },
+    {
+      path: 'mis-estudiantes',
+      component:MisEstudiantesComponent
     }
   ]
  }

@@ -27,6 +27,14 @@ font-size: 30px;
 
 text-align: center;
 }
+.fotoPerfil{
+
+  margin-left: 45%;
+  height: 80px;
+  width: 80px;
+  background-color: aliceblue;
+  border-radius: 50%;
+}
 .entradas {
   display: grid;
   margin-top: 10px;

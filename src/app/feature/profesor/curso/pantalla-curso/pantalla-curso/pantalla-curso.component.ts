@@ -48,8 +48,8 @@ export class PantallaCursoComponent implements OnInit {
       (params) => {
         const id = params['curso'];
         if ( id ) {
-          
-          
+
+
           this.cursoService.consultarPorId(id).subscribe((data) => {
             this.nombreCurso = data.nombre;
             this.inicioCurso = data.inicioCurso;
@@ -88,20 +88,12 @@ export class PantallaCursoComponent implements OnInit {
   }
 
   listaRetos(){
-    this.isRetoLista = true;
-    this.isConfigReto= false;
-    this.isEstudiantes = false;
-  }
-  configurarRetos(){
-    this.isConfigReto = true;
-    this.isEstudiantes = false;
-    this.isRetoLista = false;
+    this.router.navigate(['/profesor/curso/1/lista-curso']);
   }
 
+
   misEstudiantes(){
-    this.isEstudiantes = true;
-    this.isConfigReto= false;
-    this.isRetoLista = false;
+    this.router.navigate(['/profesor/curso/1/mis-estudiantes']);
   }
 
 }
