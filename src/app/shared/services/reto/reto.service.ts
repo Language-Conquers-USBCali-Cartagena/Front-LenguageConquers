@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Reto } from '../../models/reto';
 
@@ -28,5 +28,12 @@ export class RetoService {
 
   eliminarReto(idReto: number): Observable<string>{
     return this.http.delete(`${environment.endpoint}/reto/eliminarReto/${idReto}`,{ responseType: 'text'});
+  }
+
+  private retoSubject = new BehaviorSubject<any>(null);
+  reto$ = this.retoSubject.asObservable();
+
+  setReto(reto: any) {
+    this.retoSubject.next(reto);
   }
 }

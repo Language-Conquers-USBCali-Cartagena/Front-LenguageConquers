@@ -22,5 +22,16 @@ export class ProfesorServicesService {
     return this.http.get<Profesor>(`${this.baseUrl}/profesor/porCorreo`, {params: paramsHttp});
   }
 
+  getCursos(idProfesor: number): Observable<Curso[]>{
+    let paramHttp = new HttpParams({
+      fromObject: {
+        idProfesor: `${idProfesor}`
+      }
+    });
+    return this.http.get<Curso[]>(`${this.baseUrl}/curso/porIdProfesor`, {params: paramHttp});
+  }
+
+
+
 
 }

@@ -18,7 +18,7 @@
     </div>
     <ng-template #profesor>
       <li class="sidenav-nav-item" *ngFor="let data of menuItemsProf" >
-        <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
+        <a class="sidenav-nav-link" [routerLink]="[data.redirectTo]"
           routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
           >
 

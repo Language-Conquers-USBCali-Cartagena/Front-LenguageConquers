@@ -1,9 +1,8 @@
 <mat-card-header>
   <mat-card-title class="nombreReto">Reto: </mat-card-title>
 </mat-card-header>
-<form [formGroup]="form">
+<form [formGroup]="retoForm">
   <div class="entradas">
-
     <div class="campo-entrada">
       <mat-form-field appearance="fill" class="example-form-field">
         <mat-label class="titulos">Fecha de Inicio</mat-label>
@@ -40,15 +39,15 @@
     <div class="campo-entrada">
       <mat-form-field appearance="fill">
         <mat-label class="titulos">Monedas</mat-label>
-        <input type="number" matInput autocomplete="off" formControlName="monedas">
+        <input type="number" matInput autocomplete="off" formControlName="moneda">
         <mat-icon matSuffix class="button"> local_atm</mat-icon>
       </mat-form-field>
     </div>
     <div class="campo-entrada">
       <mat-form-field appearance="fill">
         <mat-label class="titulos">Estado</mat-label>
-        <mat-select formControlName="idEstado">
-          <mat-option *ngFor="let estado of estados" [value]="estado">
+        <mat-select formControlName="idEstado" (selectionChange)="setEstado($event.value)">
+          <mat-option *ngFor="let estado of estados" [value]="estado.idEstado">
             {{estado.estado}}
           </mat-option>
         </mat-select>
@@ -57,7 +56,7 @@
     </div>
     <br>
     <div class="boton">
-      <button mat-raised-button   class="botones" id="editar" (click)="actualizar()">Actualizar Reto</button>
+      <button mat-raised-button   class="botones" id="editar" (click)="actualizarReto()">Actualizar Reto</button>
       <button mat-raised-button class="botones" id="atras" (click)="atras()">Atrás</button>
     </div>
   </div>

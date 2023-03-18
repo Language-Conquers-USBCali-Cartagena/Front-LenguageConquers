@@ -1,9 +1,10 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit,Output,ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Reto } from 'src/app/shared/models/reto';
+import { EstadoService } from 'src/app/shared/services/estado/estado.service';
 import { RetoService } from 'src/app/shared/services/reto/reto.service';
 
 
@@ -15,17 +16,20 @@ import { RetoService } from 'src/app/shared/services/reto/reto.service';
 export class ListaRetosComponent implements OnInit {
 
   listaRetos: Reto[] = []
-  displayedColumns: string[] = [ 'nombre',  'intentos', 'fechaInicio', 'fechaLimite','monedas', 'idEstado', 'Acciones'];
+  displayedColumns: string[] = [ 'nombre',  'intentos', 'fechaInicio', 'fechaLimite','monedas', 'Estado', 'Acciones'];
   dataSource = new MatTableDataSource<Reto>(this.listaRetos);
   id: string | null |undefined;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
+  idReto = 0;
+  nombreEstado: string |undefined;
 
 
 
-  constructor(private retoService: RetoService, private routerAct: ActivatedRoute, private router: Router ) {
+
+  constructor(private retoService: RetoService, private routerAct: ActivatedRoute, private router: Router, private estadoService: EstadoService ) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
    }
 
@@ -36,6 +40,12 @@ export class ListaRetosComponent implements OnInit {
   cargarRetos(){
     this.retoService.getReto().subscribe(resp =>{
       this.listaRetos = resp;
+      for (let i = 0; i < this.listaRetos.length; i++) {
+        const reto = this.listaRetos[i];
+        this.estadoService.consultarPorId(reto.idEstado!).subscribe(estado => {
+          reto.nombreEstado = estado.estado;
+        });
+      }
       this.dataSource.data = this.listaRetos;
     });
   }
@@ -52,5 +62,14 @@ export class ListaRetosComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
+ onEditarReto(){
+  const ruta = this.router.url.split('/');
+  ruta.pop();
+  const newRuta = ruta.join('/');
+  this.router.navigate([newRuta +'/editar-reto'], {queryParams: {listaRetos: JSON.stringify(this.listaRetos)}});
+
+ }
+
 
 }

@@ -4,7 +4,6 @@ import { ProfesorComponent } from './profesor/profesor.component';
 import { MenuProfesorComponent } from './menu-profesor/menu-profesor.component';
 
 
-import { PantallaCursoComponent } from './curso/pantalla-curso/pantalla-curso.component';
 import { PerfilProfesorComponent } from './perfil-profesor/perfil-profesor.component';
 import { RankingComponent } from 'src/app/core/features/ranking/ranking.component';
 

@@ -16,6 +16,9 @@ export class EstudianteService {
     return this.http.get<Estudiante[]>(`${environment.endpoint}/estudiante`)
   }
 
+  rankingEstudiantes():Observable<Estudiante[]>{
+    return this.http.get<Estudiante[]>(`${environment.endpoint}/estudiante/rankingEstudiante`);
+  }
   crearEstudiante(estudiante: Estudiante): Observable<string>{
     return this.http.post(`${environment.endpoint}/estudiante/crearEstudiante`, estudiante,{ responseType: 'text'});
   }
@@ -52,5 +55,6 @@ export class EstudianteService {
   cantidadEstudiantes():Observable<number>{
     return this.http.get<number>(`${environment.endpoint}/estudiante/cantidadEstudiante`);
   }
+
 
 }

@@ -1,13 +1,15 @@
 mat-card-title{
   font-size:30px;
   color: #ffff;
-  margin-left: 30%;
+  margin-left: 35%;
+  margin-top: 10px;
 }
 mat-form-field {
   font-size: 14px;
   width: 50%;
   color: rgb(197,139,91);
   font-size: 18px;
+  margin-left: 25%;
 }
 table {
   table-layout: fixed;

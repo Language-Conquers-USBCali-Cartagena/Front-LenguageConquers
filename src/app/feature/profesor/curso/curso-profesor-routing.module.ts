@@ -1,6 +1,5 @@
 import { RouterModule, Routes } from "@angular/router";
 import { CursoProfesorComponent } from './curso/curso-profesor.component';
-import { PantallaCursoComponent } from './pantalla-curso/pantalla-curso.component';
 import { NgModule } from "@angular/core";
 
 const routes: Routes =[
@@ -9,8 +8,8 @@ const routes: Routes =[
   component: CursoProfesorComponent,
   children: [
     {
-      path: 'configuracion-curso/:curso',
-      component: PantallaCursoComponent
+      path: ':curso',
+      loadChildren: ()=>import('./pantalla-curso/pantalla-curso.module').then(m => m.PantallaCursoModule)
     }
   ]
  }

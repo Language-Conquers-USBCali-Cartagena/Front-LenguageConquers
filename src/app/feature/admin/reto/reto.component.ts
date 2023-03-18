@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class RetoComponent implements OnInit {
 
-  listaRetos: Reto[] = []
+  listaRetos: Reto[] = [];
   displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'intentos', 'fechaInicio', 'fechaLimite', 'idMision', 'idEstado', 'idCurso','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
   dataSource = new MatTableDataSource<Reto>(this.listaRetos);
   id: string | null |undefined;
