@@ -8,6 +8,8 @@ import { ServiciosLoginService } from '../../../../shared/services/Login/servici
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import Swal from 'sweetalert2'
 import { contains } from '@firebase/util';
+import { EstudianteService } from '../../../../shared/services/estudiante/estudiante.service';
+import { ProfesorService } from 'src/app/shared/services/profesor/profesor.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -21,7 +23,9 @@ export class RegistroComponent implements OnInit {
   terminos= false;
   profesorExiste: boolean = false;
   estudianteExiste: boolean = false;
-  constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService, private dialog: MatDialog) {
+  constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar, 
+    private router: Router, private authService: AuthService, private loginService: ServiciosLoginService, private dialog: MatDialog,
+    private estudianteServece: EstudianteService, private profesorService: ProfesorService) {
     this.form = this.fb.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required],
@@ -110,27 +114,30 @@ export class RegistroComponent implements OnInit {
     })
   }
 
-  async validarExistenciaBD(email: string){
+  async validarExistenciaBD(email: string) {
+    
+    await this.estudianteServece.getEstudiantePorCorreo(email).toPromise().then((response) =>{
+      this.estudianteExiste = true;
+      localStorage.setItem("usuario", JSON.stringify(response));
+      this.router.navigateByUrl("/estudiante/menu");
+    }).catch((error) =>{
+    });
+    
+    await this.profesorService.getProfesorPorCorreo(email).toPromise().then((response) => {
+      this.profesorExiste = true;
+      console.log("Existe por correo");
+      localStorage.setItem("usuario", JSON.stringify(response));
+      this.router.navigateByUrl("/profesor/menuProfesor");
 
-    await this.loginService.existEstudianteByCorreo(email).toPromise().then((response) => {
-      this.estudianteExiste = response;
-      if(response == true){
-        localStorage.setItem("correo", email);
-        this.router.navigateByUrl("/estudiante/menu")
-      }
-    })
-    await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
-      this.profesorExiste = response;
-      if(response == true){
-        localStorage.setItem("correo", email);
-        this.router.navigateByUrl("/profesor/menuProfesor")
-      }
-    })
-    if(this.estudianteExiste == true || this. profesorExiste == true){
+    }).catch((rerror) => {
+    });
+
+    if (this.estudianteExiste == true || this.profesorExiste == true) {
       return true
-    }else {
+    } else {
       return false
     }
+
   }
   validaciones(){
     this.loading = true;

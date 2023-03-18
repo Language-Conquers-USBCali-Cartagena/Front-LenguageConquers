@@ -49,7 +49,8 @@ export class FormularioProfesorComponent implements OnInit {
     const genero = this.form.value.genero.idGenero;
     let profesor: Profesor = {nombre: nombre, apellido: apellido, correo:correo, foto:foto, usuarioCreador: usuarioCreador, fechaCreacion:fechaActual, idGenero: genero}
     this.loginService.createProfesor(profesor).subscribe(resp => {
-      localStorage.setItem("correo", correo);
+      localStorage.setItem("usuario", JSON.stringify(profesor));
+      
       Swal.fire({
         icon: 'success',
         title: resp,

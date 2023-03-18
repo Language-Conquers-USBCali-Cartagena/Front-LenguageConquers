@@ -6,6 +6,8 @@ import { ServiciosLoginService } from '../../../../shared/services/Login/servici
 import { Observable } from 'rxjs';
 import Swal from 'sweetalert2'
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { EstudianteService } from 'src/app/shared/services/estudiante/estudiante.service';
+import { ProfesorService } from 'src/app/shared/services/profesor/profesor.service';
 
 
 @Component({
@@ -24,7 +26,8 @@ export class LoginComponent implements OnInit {
   estudianteExiste: boolean = false;
   userEmail = new UntypedFormControl('');
 
-  constructor(private fb: UntypedFormBuilder, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService, private auth: AngularFireAuth) {
+  constructor(private fb: UntypedFormBuilder, private router: Router, private authService: AuthService, private loginService: ServiciosLoginService, 
+    private auth: AngularFireAuth, private estudianteServece: EstudianteService, private profesorService: ProfesorService) {
     this.form = this.fb.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required]
@@ -32,7 +35,6 @@ export class LoginComponent implements OnInit {
   }
   token: string | null = '';
   ngOnInit(): void {
-    this.validaciones()
   }
   async obtenerToken() {
     await this.auth.idToken.subscribe(resp => {
@@ -98,19 +100,23 @@ export class LoginComponent implements OnInit {
   }
 
   async validarExistenciaBD(email: string) {
+    
+    await this.estudianteServece.getEstudiantePorCorreo(email).toPromise().then((response) =>{
+      this.estudianteExiste = true;
+      localStorage.setItem("usuario", JSON.stringify(response));
+      this.router.navigateByUrl("/estudiante/menu");
+    }).catch((error) =>{
+    });
+    
+    await this.profesorService.getProfesorPorCorreo(email).toPromise().then((response) => {
+      this.profesorExiste = true;
+      console.log("Existe por correo");
+      localStorage.setItem("usuario", JSON.stringify(response));
+      this.router.navigateByUrl("/profesor/menuProfesor");
 
-    await this.loginService.existProfesorByCorreo(email).toPromise().then((response) => {
-      this.profesorExiste = response;
-      if (response == true) {
-        this.router.navigateByUrl("/profesor/menuProfesor");
-      }
-    })
-    await this.loginService.existEstudianteByCorreo(email).toPromise().then((response) => {
-      this.estudianteExiste = response;
-      if (response == true) {
-        this.router.navigateByUrl("/estudiante/menu")
-      }
-    })
+    }).catch((rerror) => {
+    });
+
     if (this.estudianteExiste == true || this.profesorExiste == true) {
       return true
     } else {
@@ -132,7 +138,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['auth/verificar-email'])
         }
         correo = res.email;
-        localStorage.setItem("correo", correo);
         this.validarExistenciaBD(correo).then(resp => {
           if (resp == false) {
             this.router.navigateByUrl("/auth/crearUsuario")

@@ -6,6 +6,8 @@ import { MenuProfesorComponent } from './menu-profesor/menu-profesor.component';
 
 import { PerfilProfesorComponent } from './perfil-profesor/perfil-profesor.component';
 import { RankingComponent } from 'src/app/core/features/ranking/ranking.component';
+import { AuthGuardGuard } from 'src/app/core/guards/authGuard.guard';
+import { ProfesorGuardGuard } from '../../core/guards/profesor-guard.guard';
 
 
 
@@ -14,7 +16,7 @@ const routes:Routes = [
     {
         path: '',
         component: ProfesorComponent,
-        // canActivate: [AuthGuardGuard],
+        canActivate: [AuthGuardGuard, ProfesorGuardGuard],
         children: [
             {
                 path: 'menuProfesor',

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -31,5 +31,13 @@ export class ProfesorService {
   }
   cantidadProfesores():Observable<number>{
     return this.http.get<number>(`${environment.endpoint}/profesor/cantidadProfesores`);
+  }
+  getProfesorPorCorreo(email: string): Observable<Profesor>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        correo: `${email}`
+      }
+    });
+    return this.http.get<Profesor>(`${environment.endpoint}/profesor/porCorreo`, {params: paramsHttp});
   }
 }

@@ -23,24 +23,15 @@ export class MenuProfesorComponent implements OnInit {
 
   }
   async ngOnInit() {
-    await this.obtenerProfesor();
+    this.profesor = JSON.parse(String(localStorage.getItem('usuario')));
     await this.obtenerCursos();
 
   }
 
   async obtenerCursos(){
-    await this.profesorService.getCursos(Number(this.idProfesor)).toPromise().then((response) => {
+    await this.profesorService.getCursos(Number(this.profesor.idProfesor)).toPromise().then((response) => {
       this.cursos = response;
     })
-  }
-  async obtenerProfesor() {
-    let correo = localStorage.getItem("correo")!;
-    await this.profesorService.getProfesor(correo).toPromise().then((response) =>{
-      localStorage.setItem("usuario", JSON.stringify(response));
-      this.profesor = response;
-      this.idProfesor = this.profesor.idProfesor;
-
-    });
   }
 
   seleccionarCurso(cursoId: number): void {

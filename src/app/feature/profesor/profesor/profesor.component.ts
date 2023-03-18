@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
-import { AuthService } from '../../../core/service/auth.service';
 
 @Component({
   selector: 'app-profesor',
@@ -16,13 +14,8 @@ export class ProfesorComponent implements OnInit {
     this.screenWidth = data.screenWidth;
     this.isSideNavCollapsed = data.collapsed;
   }
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-  }
-
-  salir(){
-    this.authService.logout()
-    this.router.navigateByUrl("/auth/login");
   }
 }

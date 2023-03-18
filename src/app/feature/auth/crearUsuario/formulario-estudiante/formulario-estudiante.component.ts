@@ -80,7 +80,7 @@ export class FormularioEstudianteComponent implements OnInit {
     let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioCreador: nombre + apellido,
                                   fechaCreacion: fechaActual, fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: 1}
     this.loginService.createEstudiante(estudiante).subscribe(resp =>{
-      localStorage.setItem("correo", correo);
+      localStorage.setItem("usuario", JSON.stringify(estudiante));
       Swal.fire({
         icon: 'success',
         title: resp,

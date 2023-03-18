@@ -15,7 +15,7 @@ export const itemsProf = [
     label: 'Perfil',
   },
   {
-    redirectTo: '/auth/login',
+    redirectTo: '/logout',
     icon: 'exit_to_app',
     label: 'Salir',
 
