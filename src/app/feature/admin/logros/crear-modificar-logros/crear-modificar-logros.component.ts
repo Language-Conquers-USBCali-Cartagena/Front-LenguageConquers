@@ -63,7 +63,7 @@ export class CrearModificarLogrosComponent implements OnInit {
           icon: 'success',
           title: 'El logro se ha creado exitosamente.',
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/logros/listar-logros']);
       }
@@ -75,7 +75,7 @@ export class CrearModificarLogrosComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
 
@@ -124,7 +124,7 @@ export class CrearModificarLogrosComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/logros/listar-logros']);
   }, (e) => {
@@ -134,7 +134,7 @@ export class CrearModificarLogrosComponent implements OnInit {
       icon: 'error',
       title: e['error'],
       showConfirmButton: false,
-      timer: 1500
+      showCloseButton: true,
     });
   });
   }

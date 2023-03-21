@@ -83,20 +83,18 @@ export class CrearModificarCursoComponent implements OnInit {
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/cursos/listar-cursos']);
       }
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e['error'];
-      console.log(this.mensajeError);
-
       Swal.fire({
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }
@@ -153,7 +151,7 @@ export class CrearModificarCursoComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/cursos/listar-cursos']);
     }, (e) => {
@@ -163,7 +161,7 @@ export class CrearModificarCursoComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

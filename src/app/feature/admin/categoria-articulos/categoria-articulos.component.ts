@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,7 +11,8 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-categoria-articulos',
   templateUrl: './categoria-articulos.component.html',
-  styleUrls: ['./categoria-articulos.component.css']
+  styleUrls: ['./categoria-articulos.component.css'],
+  providers: [DatePipe]
 })
 export class CategoriaArticulosComponent implements OnInit {
 
@@ -23,7 +25,7 @@ export class CategoriaArticulosComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private categoriaService: CategoriaService, private routerAct: ActivatedRoute, private router: Router ) {
+  constructor(private categoriaService: CategoriaService, private routerAct: ActivatedRoute, private router: Router,  private datePipe: DatePipe ) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
    }
 
@@ -80,5 +82,12 @@ export class CategoriaArticulosComponent implements OnInit {
   }
 
 
+  formatDate(dateString: string | null | undefined): string {
+    if (!dateString) {
+      return '';
+    }
+    const date = new Date(dateString);
+    return this.datePipe.transform(date, 'dd-MM-yyyy')!;
+  }
 
 }

@@ -6,11 +6,13 @@ import { MatSort } from '@angular/material/sort';
 import { EstudianteService } from '../../../shared/services/estudiante/estudiante.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-estudiante',
   templateUrl: './estudiante.component.html',
-  styleUrls: ['./estudiante.component.css']
+  styleUrls: ['./estudiante.component.css'],
+  providers: [DatePipe]
 })
 export class EstudianteComponent implements OnInit {
 
@@ -23,7 +25,7 @@ export class EstudianteComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private estudianteService: EstudianteService, private routerAct: ActivatedRoute, private router: Router) {
+  constructor(private estudianteService: EstudianteService, private routerAct: ActivatedRoute, private router: Router, private datePipe: DatePipe) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
   }
   ngOnInit(): void {
@@ -33,6 +35,7 @@ export class EstudianteComponent implements OnInit {
   cargarEstudiante(){
     this.estudianteService.getEstudiante().subscribe(resp =>{
       this.listaEstudiante = resp;
+
       this.dataSource.data = this.listaEstudiante;
     });
   }
@@ -79,6 +82,16 @@ export class EstudianteComponent implements OnInit {
   actualizarEstudiante(idEstudiante:number){
     this.router.navigate(['admin/estudiante/actualizarEstudiante/', idEstudiante]);
   }
+
+  formatDate(dateString: string | null | undefined): string {
+    if (!dateString) {
+      return '';
+    }
+    const date = new Date(dateString);
+    return this.datePipe.transform(date, 'dd-MM-yyyy')!;
+  }
+
+
 
 
 }

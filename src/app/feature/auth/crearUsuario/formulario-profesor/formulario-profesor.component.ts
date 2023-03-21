@@ -50,12 +50,12 @@ export class FormularioProfesorComponent implements OnInit {
     let profesor: Profesor = {nombre: nombre, apellido: apellido, correo:correo, foto:foto, usuarioCreador: usuarioCreador, fechaCreacion:fechaActual, idGenero: genero}
     this.loginService.createProfesor(profesor).subscribe(resp => {
       localStorage.setItem("usuario", JSON.stringify(profesor));
-      
+
       Swal.fire({
         icon: 'success',
         title: resp,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigateByUrl('/profesor/menuProfesor');
     }, err => {

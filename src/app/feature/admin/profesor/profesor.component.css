@@ -52,3 +52,10 @@ td, th {
   line-height: 10px;
   font-family: 'Roboto';
 }
+.imagenMiniatura{
+  width: 40px;
+  height: 40px;
+  margin-left: 30px;
+  margin-top: -1px;
+  background-size: cover;
+}

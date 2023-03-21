@@ -85,7 +85,7 @@ export class CrearModificarArticulosComponent implements OnInit {
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/articulos/listar-articulos']);
       }
@@ -95,7 +95,7 @@ export class CrearModificarArticulosComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
 
@@ -169,7 +169,7 @@ export class CrearModificarArticulosComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/articulos/listar-articulos']);
     },(e) =>{
@@ -180,7 +180,7 @@ export class CrearModificarArticulosComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

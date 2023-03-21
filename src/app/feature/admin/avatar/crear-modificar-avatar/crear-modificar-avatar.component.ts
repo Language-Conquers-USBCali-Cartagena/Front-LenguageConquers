@@ -67,7 +67,7 @@ export class CrearModificarAvatarComponent implements OnInit {
           icon: 'success',
           title: 'El avatar se ha creado exitosamente.',
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/avatar/listar-avatar']);
       }
@@ -79,7 +79,7 @@ export class CrearModificarAvatarComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }
@@ -125,7 +125,7 @@ export class CrearModificarAvatarComponent implements OnInit {
         icon: 'success',
         title: 'El avatar se ha actualizado exitosamente.',
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/avatar/listar-avatar']);
   }, (e) => {
@@ -136,7 +136,7 @@ export class CrearModificarAvatarComponent implements OnInit {
       icon: 'error',
       title: e['error'],
       showConfirmButton: false,
-      timer: 1500
+      showCloseButton: true,
     });
   }
   );

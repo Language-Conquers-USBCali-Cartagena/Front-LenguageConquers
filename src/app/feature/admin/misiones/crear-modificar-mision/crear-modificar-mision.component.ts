@@ -75,7 +75,7 @@ export class CrearModificarMisionComponent implements OnInit {
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/misiones/listar-misiones']);
       }
@@ -86,7 +86,7 @@ export class CrearModificarMisionComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
 
@@ -152,7 +152,7 @@ export class CrearModificarMisionComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/misiones/listar-misiones']);
     }, (e) => {
@@ -163,7 +163,7 @@ export class CrearModificarMisionComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

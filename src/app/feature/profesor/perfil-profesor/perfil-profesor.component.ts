@@ -170,7 +170,7 @@ export class PerfilProfesorComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/profesor/menuProfesor']);
     }, (e) => {
@@ -180,7 +180,7 @@ export class PerfilProfesorComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

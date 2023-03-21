@@ -226,7 +226,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/estudiante/listar-estudiantes']);
       }
@@ -237,7 +237,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }
@@ -303,7 +303,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/estudiante/listar-estudiantes']);
     }, (e) => {
@@ -313,7 +313,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

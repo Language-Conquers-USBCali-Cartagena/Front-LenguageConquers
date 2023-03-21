@@ -23,7 +23,7 @@ export class RegistroComponent implements OnInit {
   terminos= false;
   profesorExiste: boolean = false;
   estudianteExiste: boolean = false;
-  constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar, 
+  constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar,
     private router: Router, private authService: AuthService, private loginService: ServiciosLoginService, private dialog: MatDialog,
     private estudianteServece: EstudianteService, private profesorService: ProfesorService) {
     this.form = this.fb.group({
@@ -81,7 +81,7 @@ export class RegistroComponent implements OnInit {
       toast: true,
       position: 'top',
       showConfirmButton: false,
-      timer: 5000,
+      timer: 6000,
       timerProgressBar: false,
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -100,7 +100,7 @@ export class RegistroComponent implements OnInit {
       toast: true,
       position: 'top',
       showConfirmButton: false,
-      timer: 5000,
+      timer: 6000,
       timerProgressBar: false,
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -115,14 +115,14 @@ export class RegistroComponent implements OnInit {
   }
 
   async validarExistenciaBD(email: string) {
-    
+
     await this.estudianteServece.getEstudiantePorCorreo(email).toPromise().then((response) =>{
       this.estudianteExiste = true;
       localStorage.setItem("usuario", JSON.stringify(response));
       this.router.navigateByUrl("/estudiante/menu");
     }).catch((error) =>{
     });
-    
+
     await this.profesorService.getProfesorPorCorreo(email).toPromise().then((response) => {
       this.profesorExiste = true;
       console.log("Existe por correo");
@@ -193,7 +193,7 @@ export class RegistroComponent implements OnInit {
       toast: true,
       position: 'top',
       showConfirmButton: false,
-      timer: 5000,
+      timer: 6000,
       timerProgressBar: false,
       didOpen: (toast) => {
         toast.addEventListener('mouseenter', Swal.stopTimer)

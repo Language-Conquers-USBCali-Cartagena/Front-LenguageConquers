@@ -63,7 +63,7 @@ export class CrearModificarCategoriaComponent implements OnInit {
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/categoria-articulos/listar']);
       }
@@ -74,7 +74,7 @@ export class CrearModificarCategoriaComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }
@@ -121,7 +121,7 @@ export class CrearModificarCategoriaComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/categoria-articulos/listar']);
     }, (e) => {
@@ -131,7 +131,7 @@ export class CrearModificarCategoriaComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       })
     });
   }

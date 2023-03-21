@@ -50,7 +50,7 @@ export class CrearModificarProgramaComponent implements OnInit {
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/programa/listar-programa']);
       }
@@ -62,7 +62,7 @@ export class CrearModificarProgramaComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
 
@@ -107,7 +107,7 @@ export class CrearModificarProgramaComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/programa/listar-programa']);
     }, (e) => {
@@ -116,7 +116,7 @@ export class CrearModificarProgramaComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

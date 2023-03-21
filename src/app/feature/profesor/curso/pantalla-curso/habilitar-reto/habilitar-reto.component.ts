@@ -123,7 +123,7 @@ export class HabilitarRetoComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.atras();
     }, (e) => {
@@ -132,7 +132,7 @@ export class HabilitarRetoComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

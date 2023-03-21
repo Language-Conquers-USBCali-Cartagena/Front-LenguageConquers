@@ -98,7 +98,7 @@ export class CrearRegistrarComponent implements OnInit {
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/reto/listar-retos']);
       }
@@ -110,7 +110,7 @@ export class CrearRegistrarComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
 
@@ -169,7 +169,7 @@ export class CrearRegistrarComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/reto/listar-retos']);
     }, (e) => {
@@ -178,7 +178,7 @@ export class CrearRegistrarComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

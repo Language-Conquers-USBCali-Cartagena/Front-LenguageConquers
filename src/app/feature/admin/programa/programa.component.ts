@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,7 +11,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-programa',
   templateUrl: './programa.component.html',
-  styleUrls: ['./programa.component.css']
+  styleUrls: ['./programa.component.css'],
+  providers: [DatePipe]
+
 })
 export class ProgramaComponent implements OnInit {
 
@@ -23,7 +26,7 @@ export class ProgramaComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private programaService: ProgramaService,private routerAct: ActivatedRoute, private router: Router) {
+  constructor(private programaService: ProgramaService,private routerAct: ActivatedRoute, private router: Router,  private datePipe: DatePipe) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
   }
 
@@ -78,6 +81,13 @@ export class ProgramaComponent implements OnInit {
     this.router.navigate(['/admin/programa/editarPrograma/', idPrograma]);
   }
 
+  formatDate(dateString: string | null | undefined): string {
+    if (!dateString) {
+      return '';
+    }
+    const date = new Date(dateString);
+    return this.datePipe.transform(date, 'dd-MM-yyyy')!;
+  }
 
 
 }

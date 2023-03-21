@@ -52,7 +52,7 @@ export class CrearModificarEstadoComponent implements OnInit {
             icon: 'success',
             title: data,
             showConfirmButton: false,
-            timer: 1500
+            timer: 2000
           });
           this.router.navigate(['/admin/estado/listar-estados']);
         }
@@ -63,7 +63,7 @@ export class CrearModificarEstadoComponent implements OnInit {
           icon: 'error',
           title: e['error'],
           showConfirmButton: false,
-          timer: 1500
+          showCloseButton: true,
         });
       });
   }
@@ -105,7 +105,7 @@ export class CrearModificarEstadoComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/estado/listar-estados']);
     }, (e) => {
@@ -115,7 +115,7 @@ export class CrearModificarEstadoComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

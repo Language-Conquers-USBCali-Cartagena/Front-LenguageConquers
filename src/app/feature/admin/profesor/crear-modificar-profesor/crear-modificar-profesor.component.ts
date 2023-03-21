@@ -69,7 +69,7 @@ export class CrearModificarProfesorComponent implements OnInit {
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/profesor/listar-profesores']);
       }
@@ -80,7 +80,7 @@ export class CrearModificarProfesorComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }
@@ -153,7 +153,7 @@ export class CrearModificarProfesorComponent implements OnInit {
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigateByUrl('/admin/profesor/listar-profesores');
     }, (e) => {
@@ -163,7 +163,7 @@ export class CrearModificarProfesorComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }
