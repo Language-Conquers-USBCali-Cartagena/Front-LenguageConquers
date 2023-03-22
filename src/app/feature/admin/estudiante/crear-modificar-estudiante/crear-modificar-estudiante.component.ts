@@ -56,7 +56,6 @@ export class CrearModificarEstudianteComponent implements OnInit {
 
   ngOnInit(): void {
     const idRutaActual = this.router.url;
-    console.log(idRutaActual);
     if (idRutaActual != '/admin/estudiante/crearEstudiante') {
       this.cargarEstudiante();
       this.obtenerEstudiante();
@@ -202,23 +201,29 @@ export class CrearModificarEstudianteComponent implements OnInit {
 
   guardarEstudiante() {
     this.hayErrores = false;
-    const nombre = this.form.value.nombre;
-    const apellido = this.form.value.apellido;
-    const nickName = this.form.value.nickName;
-    const nacimiento: Date = this.form.value.fechaNacimiento;
-    const correo = this.form.value.correo;
     const programa = this.form.value.idPrograma
     const semestre = this.form.value.idSemestre;
     const avatar = this.idAvatar;
     const genero = this.form.value.idGenero;
     const estado = this.form.value.idEstado;
-    const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estudiante: Estudiante = {
-      nombre: nombre, apellido: apellido, nickName: nickName, puntaje: 0, monedasObtenidas: 0, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, usuarioCreador: usuarioCreador,
-      fechaCreacion: fechaActual, fechaNacimiento: nacimiento, idPrograma: programa.idPrograma, correo: correo, idEstado: estado.idEstado
+      nombre: this.form.value.nombre,
+      apellido: this.form.value.apellido,
+      nickName: this.form.value.nickName,
+      puntaje: 0,
+      monedasObtenidas: 0,
+      idSemestre: semestre.idSemestre,
+      idAvatar: avatar,
+      idGenero: genero.idGenero,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual,
+      fechaNacimiento: this.form.value.fechaNacimiento,
+      idPrograma: programa.idPrograma,
+      correo: this.form.value.correo,
+      idEstado: estado.idEstado
     }
     this.estudianteService.crearEstudiante(estudiante).subscribe(data => {
       if (data) {
@@ -278,25 +283,32 @@ export class CrearModificarEstudianteComponent implements OnInit {
   }
 
   actualizar(): void {
-    const nombre = this.form.value.nombre;
-    const apellido = this.form.value.apellido;
-    const nickName = this.form.value.nickName;
-    const nacimiento: Date = this.form.value.fechaNacimiento;
-    const correo = this.form.value.correo;
     const programa = this.form.value.idPrograma;
     const semestre = this.form.value.idSemestre;
     const avatar = this.idAvatar;
-    const puntaje = this.form.value.puntaje;
     const genero = this.form.value.idGenero;
     const estado = this.form.value.idEstado;
-    const monedas = this.form.value.monedasObtenidas;
-    const usuarioModificador = this.form.value.usuarioModificador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estudiante: Estudiante = {
-      idEstudiante: this.form.value.idEstudiante, nombre: nombre, apellido: apellido, nickName: nickName, puntaje: puntaje, fechaNacimiento: nacimiento, correo: correo, usuarioCreador: this.estudiante.usuarioCreador, usuarioModificador: usuarioModificador, fechaCreacion: this.estudiante.fechaCreacion,
-      fechaModificacion:fechaActual, idPrograma: programa.idPrograma, idEstado: estado.idEstado, idSemestre: semestre.idSemestre, idAvatar: avatar, idGenero: genero.idGenero, monedasObtenidas: monedas
+      idEstudiante: this.form.value.idEstudiante,
+      nombre: this.form.value.nombre,
+      apellido: this.form.value.apellido,
+      nickName: this.form.value.nickName,
+      puntaje: this.form.value.puntaje,
+      fechaNacimiento: this.form.value.fechaNacimiento,
+      correo: this.form.value.correo,
+      usuarioCreador: this.estudiante.usuarioCreador,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaCreacion: this.estudiante.fechaCreacion,
+      fechaModificacion:fechaActual,
+      idPrograma: programa.idPrograma,
+      idEstado: estado.idEstado,
+      idSemestre: semestre.idSemestre,
+      idAvatar: avatar,
+      idGenero: genero.idGenero,
+      monedasObtenidas:this.form.value.monedasObtenidas
     }
     this.estudianteService.actualizarEstudiante(estudiante).subscribe(data => {
       Swal.fire({

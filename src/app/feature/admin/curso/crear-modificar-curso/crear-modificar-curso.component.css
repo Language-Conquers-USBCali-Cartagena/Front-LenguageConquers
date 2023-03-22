@@ -20,7 +20,7 @@
     display: grid;
     margin-top: 10px;
     margin-bottom: -100px;
-    grid-template-columns: repeat(2, 18em);
+    grid-template-columns: repeat(4, 18em);
     justify-content: center;
 
 

@@ -26,7 +26,7 @@ export class CrearModificarArticulosComponent implements OnInit {
   hayErrores: boolean = false;
   mensajeError: any;
   imagenUrl: string = "";
-
+  actualizarFoto: string = 'no';
   isFile: boolean = false;
   isURL: boolean = false;
   porcentajeSubida!:number;
@@ -66,19 +66,21 @@ export class CrearModificarArticulosComponent implements OnInit {
     this.categoriaService.getCategoria().subscribe(resp => this.categorias = resp)
   }
   guardarArticulo(){
-    const nombre = this.form.value.nombre;
-    const descripcion = this.form.value.descripcion;
-    const precio = this.form.value.precio;
-    const nivelValido = this.form.value.nivelValido;
-    const imagen = this.imagenUrl;
     const estado= this.form.value.idEstado;
     const categoria = this.form.value.idCategoria;
-    const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let articulo: Articulo = {nombre: nombre, descripcion: descripcion, precio: precio,  nivelValido: nivelValido, imagen: imagen, idEstado: estado.idEstado, idCategoria: categoria.idCategoria, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: fechaActual}
+    let articulo: Articulo = {
+      nombre: this.form.value.nombre,
+      descripcion: this.form.value.descripcion,
+      precio: this.form.value.precio,
+      nivelValido: this.form.value.nivelValido,
+      imagen: this.imagenUrl,
+      idEstado: estado.idEstado,
+      idCategoria: categoria.idCategoria,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual}
     this.articuloService.crearArticulo(articulo).subscribe(data => {
       if(data){
         Swal.fire({
@@ -151,19 +153,26 @@ export class CrearModificarArticulosComponent implements OnInit {
   }
 
   actualizar():void{
-    const nombre = this.form.value.nombre;
-    const descripcion = this.form.value.descripcion;
-    const precio = this.form.value.precio;
-    const nivelValido = this.form.value.nivelValido;
-    const imagenArticulo = this.imagenUrl;
+    const imagenArticuloNueva = this.imagenUrl;
     const estado = this.form.value.idEstado;
     const categoria = this.form.value.idCategoria;
-    const usuarioModificador = this.form.value.usuarioModificador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let articulo: Articulo = {idArticulo:this.form.value.idArticulo,nombre: nombre, descripcion: descripcion, precio: precio, nivelValido: nivelValido, imagen: imagenArticulo, idEstado: estado.idEstado, idCategoria: categoria.idCategoria, usuarioModificador: usuarioModificador,
-                                 fechaModificacion: fechaActual, usuarioCreador: this.articulo.usuarioCreador, fechaCreacion: this.articulo.fechaCreacion}
+    const imagenVieja = this.articulo.imagen;
+    let articulo: Articulo = {
+      idArticulo:this.form.value.idArticulo,
+      nombre: this.form.value.nombre,
+      descripcion: this.form.value.descripcion,
+      precio: this.form.value.precio,
+      nivelValido: this.form.value.nivelValido,
+      imagen: imagenArticuloNueva ? imagenArticuloNueva: imagenVieja,
+      idEstado: estado.idEstado,
+      idCategoria: categoria.idCategoria,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual,
+      usuarioCreador: this.articulo.usuarioCreador,
+      fechaCreacion: this.articulo.fechaCreacion}
     this.articuloService.actualizarArticulo(articulo).subscribe(data=>{
       Swal.fire({
         icon: 'success',

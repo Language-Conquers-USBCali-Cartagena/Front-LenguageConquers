@@ -40,15 +40,36 @@
               <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
             </mat-form-field>
           </div>
+          <div class="campo-entrada">
+            <mat-label class="titulos">Desea Actualizar su Foto</mat-label>
+            <br>
+            <mat-radio-group   [(ngModel)]="actualizarFoto" [ngModelOptions]="{standalone: true}">
+              <mat-radio-button value="si">SI</mat-radio-button>
+              <mat-radio-button value="no">NO</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <br>
+          <ng-template #seleccionarFoto>
+            <div  class="campo-entrada">
+              <mat-label class="tituloImagen1"> Seleccionar Foto </mat-label>
+              <br><br>
+              <input class="inputFile" type="file" #fileInput (change)="uploadImage($event)" id="Foto">
+              <label for="Foto" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
+              <br>
+            </div>
+        </ng-template>
+        <ng-container *ngTemplateOutlet="actualizarFoto === 'si' ? seleccionarFoto : null"></ng-container>
         </ng-template>
         <br>
-        <div class="campo-entrada">
-          <mat-label class="tituloImagen1"> Seleccionar Imagen Para la Misión </mat-label>
-          <br><br>
-          <input class="inputFile" type="file" #fileInput
-            (change)="uploadImage($event)" id="imagenMision">
-          <label for="imagenMision" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
-          <br><br>
+        <div *ngIf="!mision">
+          <div class="campo-entrada">
+            <mat-label class="tituloImagen1"> Seleccionar Imagen Para la Misión </mat-label>
+            <br><br>
+            <input class="inputFile" type="file" #fileInput
+              (change)="uploadImage($event)" id="imagenMision">
+            <label for="imagenMision" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
+            <br><br>
+          </div>
         </div>
         <div class="boton">
           <button mat-raised-button class="botones" id="atras" (click)="atras()">Atrás</button>

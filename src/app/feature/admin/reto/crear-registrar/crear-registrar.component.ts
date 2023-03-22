@@ -78,20 +78,25 @@ export class CrearRegistrarComponent implements OnInit {
 
   guardarReto(){
     this.hayErrores = false;
-    const nombre = this.form.value.nombreReto;
-    const descripcion = this.form.value.descripcion;
-    const intentos = this.form.value.maximoIntentos;
-    const fechaInicio: Date  = this.form.value.fechaInicio;
-    const fechaLimite: Date  = this.form.value.fechaLimite;
     const mision = this.form.value.idMision;
     const estado= this.form.value.idEstado;
     const curso = this.form.value.idCurso;
-    const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let reto: Reto = {nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite,idMision: mision.idMision, idEstado: estado.idEstado, idCurso: curso.idCurso, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: fechaActual, esGrupal: false, cantidadEstudiantes: 0}
+    let reto: Reto = {
+      nombreReto: this.form.value.nombreReto,
+      descripcion: this.form.value.descripcion,
+      maximoIntentos: this.form.value.maximoIntentos,
+      fechaInicio: this.form.value.fechaInicio,
+      fechaLimite: this.form.value.fechaLimite,
+      idMision: mision.idMision,
+      idEstado: estado.idEstado,
+      idCurso: curso.idCurso,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual,
+      esGrupal: false,
+      cantidadEstudiantes: 0}
     this.retoService.crearReto(reto).subscribe(data => {
       if(data){
         Swal.fire({
@@ -150,20 +155,28 @@ export class CrearRegistrarComponent implements OnInit {
 
 
   actualizar():void{
-    const nombre = this.form.value.nombreReto;
-    const descripcion = this.form.value.descripcion;
-    const intentos = this.form.value.maximoIntentos;
-    const fechaInicio: Date  = this.form.value.fechaInicio;
-    const fechaLimite: Date  = this.form.value.fechaLimite;
     const mision = this.form.value.idMision;
     const estado= this.form.value.idEstado;
     const curso = this.form.value.idCurso;
-    const usuarioModificador = this.form.value.usuarioModificador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let reto: Reto = {idReto: this.form.value.idReto, nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite, idMision: mision.idMision,idEstado: estado.idEstado, idCurso: curso.idCurso, usuarioModificador: usuarioModificador,
-      fechaModificacion: fechaActual, esGrupal: false, cantidadEstudiantes: 0, fechaCreacion: this.reto.fechaCreacion, usuarioCreador: this.reto.usuarioCreador}
+    let reto: Reto = {
+      idReto: this.form.value.idReto,
+      nombreReto: this.form.value.nombreReto,
+      descripcion: this.form.value.descripcion,
+      maximoIntentos: this.form.value.maximoIntentos,
+      fechaInicio: this.form.value.fechaInicio,
+      fechaLimite: this.form.value.fechaLimite,
+      idMision: mision.idMision,
+      idEstado: estado.idEstado,
+      idCurso: curso.idCurso,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual,
+      esGrupal: false,
+      cantidadEstudiantes: 0,
+      fechaCreacion: this.reto.fechaCreacion,
+      usuarioCreador: this.reto.usuarioCreador}
     this.retoService.actualizarReto(reto).subscribe(data =>{
       Swal.fire({
         icon: 'success',

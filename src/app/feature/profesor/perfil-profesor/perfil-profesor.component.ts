@@ -123,66 +123,44 @@ export class PerfilProfesorComponent implements OnInit {
 
   actualizar() {
     const genero = this.form.value.idGenero;
+    const fotoNueva = this.imagenUrl;
     const generoSeleccionado = this.generos.find(e => e.idGenero == genero);
     const idGenero = Number(generoSeleccionado?.idGenero ?? "");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-
-    if(this.imagenUrl ==="[Empty String]"){
-      const foto = this.profesor.foto;
-      let profesor: Profesor = {
+    const fotoVieja = this.profesor.foto;
+    let profesor: Profesor = {
         idProfesor: this.form.value.idProfesor,
         nombre: this.form.value.nombre,
         apellido: this.form.value.apellido,
         correo: this.form.value.correo,
-        foto: foto,
+        foto: fotoNueva ? fotoNueva : fotoVieja,
         usuarioModificador: this.form.value.nombre + ' ' + this.form.value.apellido,
         fechaModificacion: fechaActual,
         idGenero: idGenero,
         usuarioCreador: this.profesor.usuarioCreador,
         fechaCreacion: this.profesor.fechaCreacion
       }
-     this.servicioActualizarProfesor(profesor);
-
-    }else{
-      let profesor: Profesor = {
-        idProfesor: this.form.value.idProfesor,
-        nombre: this.form.value.nombre,
-        apellido: this.form.value.apellido,
-        correo: this.form.value.correo,
-        foto: this.imagenUrl,
-        usuarioModificador: this.form.value.nombre + ' ' + this.form.value.apellido,
-        fechaModificacion: fechaActual,
-        idGenero: idGenero,
-        usuarioCreador: this.profesor.usuarioCreador,
-        fechaCreacion: this.profesor.fechaCreacion
-      }
-      this.servicioActualizarProfesor(profesor);
-
-    }
-  }
-
-  servicioActualizarProfesor(profesor: Profesor){
-
     this.profesorService.actualizarProfesor(profesor).subscribe(data => {
-      Swal.fire({
-        icon: 'success',
-        title: data,
-        showConfirmButton: false,
-        timer: 2000
+        Swal.fire({
+          icon: 'success',
+          title: data,
+          showConfirmButton: false,
+          timer: 2000
+        });
+        this.router.navigate(['/profesor/menuProfesor']);
+      }, (e) => {
+        this.hayErrores = true;
+        this.mensajeError = e.error;
+        Swal.fire({
+          icon: 'error',
+          title: e['error'],
+          showConfirmButton: false,
+          showCloseButton: true,
+        });
       });
-      this.router.navigate(['/profesor/menuProfesor']);
-    }, (e) => {
-      this.hayErrores = true;
-      this.mensajeError = e.error;
-      Swal.fire({
-        icon: 'error',
-        title: e['error'],
-        showConfirmButton: false,
-        showCloseButton: true,
-      });
-    });
+
   }
 
 

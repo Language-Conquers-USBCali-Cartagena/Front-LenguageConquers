@@ -24,7 +24,7 @@ export class CrearModificarAvatarComponent implements OnInit {
   mensajeError: string="";
   crear:boolean = false;
   imagenUrl: string = "";
-
+  actualizarFoto: string = 'no';
   isFile: boolean = false;
   isURL: boolean = false;
 
@@ -53,14 +53,14 @@ export class CrearModificarAvatarComponent implements OnInit {
   guardarAvatar(){
     this.hayErrores = false;
     this.crear = true;
-    const nombre = this.form.value.nombre;
-    const imagenAvatar = this.imagenUrl;
-    const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let avatar: Avatar = {nombreAvatar: nombre, imgAvatar: imagenAvatar,  usuarioCreador: usuarioCreador,
-                                  fechaCreacion: fechaActual}
+    let avatar: Avatar = {
+      nombreAvatar: this.form.value.nombre,
+      imgAvatar: this.imagenUrl,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual}
     this.avatarService.crearAvatar(avatar).subscribe(data => {
       if(data){
         Swal.fire({
@@ -112,14 +112,17 @@ export class CrearModificarAvatarComponent implements OnInit {
   }
 
   actualizar():void{
-    const nombre = this.form.value.nombre;
-    const imagenAvatar = this.imagenUrl;
-    const usuarioModificador = this.form.value.usuarioModificador;
+    const imagenAvatarNueva = this.imagenUrl;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let avatar: Avatar = {idAvatar: this.form.value.idAvatar,nombreAvatar: nombre, imgAvatar: imagenAvatar, usuarioModificador: usuarioModificador,
-                                 fechaModificacion: fechaActual}
+    const imagenAvatarVieja = this.avatar.imgAvatar;
+    let avatar: Avatar = {
+      idAvatar: this.form.value.idAvatar,
+      nombreAvatar: this.form.value.nombre,
+      imgAvatar: imagenAvatarNueva ? imagenAvatarNueva : imagenAvatarVieja,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual}
     this.avatarService.actualizarAvatar(avatar).subscribe(()=>{
       Swal.fire({
         icon: 'success',

@@ -64,19 +64,22 @@ export class CrearModificarCursoComponent implements OnInit {
 
   guardarCurso(){
     this.hayErrores = false;
-    const nombre = this.form.value.nombre;
-    const password = this.form.value.password;
-    const cantidadEstudiantes = this.form.value.cantidadEstudiantes;
-    const fechaInicio: Date = this.form.value.inicioCurso;
-    const fechaFin: Date = this.form.value.finCurso;
     const estado = this.form.value.idEstado;
     const profesor = this.form.value.idProfesor;
-    const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let curso: Curso = {nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: 0, idEstado: estado.idEstado, idProfesor: profesor.idProfesor, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: fechaActual}
+    let curso: Curso = {
+      nombre:  this.form.value.nombre,
+      password: this.form.value.password,
+      cantidadEstudiantes: this.form.value.cantidadEstudiantes,
+      inicioCurso: this.form.value.inicioCurso,
+      finCurso: this.form.value.finCurso,
+      progreso: 0,
+      idEstado: estado.idEstado,
+      idProfesor: profesor.idProfesor,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual}
     this.cursoService.crearCurso(curso).subscribe(data => {
       if(data){
         Swal.fire({
@@ -132,20 +135,25 @@ export class CrearModificarCursoComponent implements OnInit {
   }
 
   actualizar():void{
-    const nombre = this.form.value.nombre;
-    const password = this.form.value.password;
-    const cantidadEstudiantes = this.form.value.cantidadEstudiantes;
-    const fechaInicio: Date = this.form.value.inicioCurso;
-    const fechaFin: Date = this.form.value.finCurso;
-    const progreso = this.form.value.progreso;
     const estado= this.form.value.idEstado;
     const profesor = this.form.value.idProfesor;
-    const usuarioModificador = this.form.value.usuarioModificador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let curso: Curso = {idCurso:this.curso.idCurso,nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: progreso, idEstado: estado.idEstado, idProfesor: profesor.idProfesor, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: fechaActual, fechaCreacion: this.curso.fechaCreacion, usuarioCreador: this.curso.usuarioCreador}
+    let curso: Curso = {
+      idCurso:this.curso.idCurso,
+      nombre: this.form.value.nombre,
+      password: this.form.value.password,
+      cantidadEstudiantes: this.form.value.cantidadEstudiantes,
+      inicioCurso: this.form.value.inicioCurso,
+      finCurso: this.form.value.finCurso,
+      progreso: this.form.value.progreso,
+      idEstado: estado.idEstado,
+      idProfesor: profesor.idProfesor,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual,
+      fechaCreacion: this.curso.fechaCreacion,
+      usuarioCreador: this.curso.usuarioCreador}
     this.cursoService.actualizarCurso(curso).subscribe(data=>{
       Swal.fire({
         icon: 'success',
