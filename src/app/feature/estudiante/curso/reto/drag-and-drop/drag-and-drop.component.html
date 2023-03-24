@@ -3,6 +3,28 @@
 <div class="body">
   <div class="fondoPantalla">
     <div class="pantallaAdentro">
+
+      <div class="navbar">
+        <button type="button" class="botonTutorial" (click)="mostrarTutorial()">
+          <label class="tituloTutorial"> Como Practicar</label>
+          <img src="../../../../../../assets/icons/video.png" alt="Tutorial" class="imgTutorial">
+        </button>
+        
+    
+        <button type="button" class="botonTema" (click)="mostrarPistas()">
+          <label class="tituloPista">Pistas</label>
+          <img src="../../../../../../assets/icons/pista.png" alt="pista" class="imgPista">
+        </button>
+        
+        <button type="button" class="botonAtras" (click)="atras()">
+          <img src="../../../../../../assets/icons/atras.png" alt="Tutorial" class="imgAtras">
+          <label class="tituloAtras"> Atrás</label>
+        </button>
+        <button type="button" class="botonEjecutar" (click)="ejecutar()">
+          <img src="../../../../../../assets/icons/play.png" alt="Tutorial" class="imgEjecutar" matTooltip="Ejecutar">
+        </button>
+      </div>
+
       <div class="texto">
         
         <h1 class="reto"># Reto: Deberas crear un algoritmo que permita coger un coco de la palmera.</h1>
@@ -133,25 +155,6 @@
 
   </div>
   
-  <div class="fondoTorre">
-    <button type="button" class="botonTutorial" (click)="mostrarTutorial()">
-      <label class="tituloTutorial"> Como Practicar</label>
-      <img src="../../../../../../assets/icons/video.png" alt="Tutorial" class="imgTutorial">
-    </button>
-    <div class="botonEncendidoTutorial"></div>
-
-    <button type="button" class="botonTema" (click)="mostrarPistas()">
-      <label class="tituloPista">Pistas</label>
-      <img src="../../../../../../assets/icons/pista.png" alt="pista" class="imgPista">
-    </button>
-    
-    <button type="button" class="botonAtras" (click)="atras()">
-      <img src="../../../../../../assets/icons/atras.png" alt="Tutorial" class="imgAtras">
-      <label class="tituloAtras"> Atrás</label>
-    </button>
-    <button type="button" class="botonEjecutar" (click)="ejecutar()">
-      <img src="../../../../../../assets/icons/play.png" alt="Tutorial" class="imgEjecutar" matTooltip="Ejecutar">
-    </button>
-  </div>
+  
 
 </div>
