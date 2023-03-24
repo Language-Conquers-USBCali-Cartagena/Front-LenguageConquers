@@ -17,45 +17,19 @@
   padding-top: 10px;
   margin-left: 110px;
   /*Efecto espejo*/
-
-  background: linear-gradient(135deg,
-      rgba(24, 27, 28, 0.867),
-      rgba(24, 27, 28, 0.867));
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 45px 0 rgb(43, 43, 43);
   font-size: 30px;
   border-radius: 10px;
   border: 30px solid  rgba(10, 10, 10, 0.883);
   color: rgb(255, 255, 255);
-  text-align: center;
+  float: inline-end;
+  
 }
 
 .navbar{
-  width: 12%;
-  height: 480px;
-  margin-right: 10px;
-  margin-top: -550px;
-  margin-left: 1300px;
-  /*Efecto espejo*/
-  padding: 55px;
-  background: linear-gradient(135deg,
-      rgba(24, 27, 28, 0.867),
-      rgba(24, 27, 28, 0.867));
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 45px 0 rgb(43, 43, 43);
-  font-size: 30px;
-  border: 20px solid;
-  border-radius: 10px;
-  border: 20px solid  rgb(46,49,49);
-  color: rgb(255, 255, 255);
-  text-align: center;
+  display: inline-flex;
 }
 
-.botonTutorial, .botonTema{
-  margin-top:18px;
-  margin-left: -20px ;
+.botonTutorial{
   background: rgb(97, 100, 101);
   border-radius: 20%;
   border:5px solid #262525c6;
@@ -69,8 +43,24 @@
   display: flex;
   justify-content: space-around;
   color: #fff;
-  cursor: pointer;
-  padding: 1%;
+  
+} 
+.botonTema{
+  
+  background: rgb(97, 100, 101);
+  border-radius: 20%;
+  border:5px solid #262525c6;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.615);
+  width: 230px;
+  height: 70px;
+  font-family: Mouse Memoirs;
+  font-size:38px;
+  display: flex;
+  justify-content: space-around;
+  color: #fff;
+  
 }
 .botonTema{
   margin-top:35px;
