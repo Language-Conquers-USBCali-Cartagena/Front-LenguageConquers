@@ -247,5 +247,90 @@ h1 {
 
 .reto {
   font-size: 18px;
-
+}
+@media screen and (max-width:700px) {
+  /* .body{
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: 22rem;
+    grid-template-columns: repeat(auto-fill,minmax(15rem,1fr));
+  }
+  .resto{
+    grid-column: span 2;
+  } */
+  .fondoPantalla {
+    width: 300px;
+    height: 650px;
+    padding-top: 0px;
+    margin-left: 40px;
+    /*Efecto espejo*/
+    font-size: 30px;
+    border-radius: 10px;
+    border: 30px solid rgba(10, 10, 10, 0.883);
+    color: rgb(255, 255, 255);
+    float: inline-end;
+  
+  }
+  .navbar {
+    width: 300px;
+    background-color: rgb(97, 100, 101);
+    margin-top: -10px;
+    margin-left: -10px;
+    
+  }
+  .botonTutorial {
+    background: rgb(97, 100, 101);
+    border-style: hidden;
+    width: 60px;
+    height: 50px;
+    margin-left: 40px;
+  }
+  
+  .botonTema {
+  
+    background: rgb(97, 100, 101);
+    border-style: hidden;
+    width: 60px;
+    height: 50px;
+    margin-left: 40px;
+  
+  }
+  .cuadro-respuesta {
+    margin-left: 10px;
+    margin-top: 10px;
+    
+    height: 200px;
+    overflow:auto;
+    
+  }
+  .example-container1 {
+    width: 270px;
+    max-width: 100%;
+   margin-left: 10px;
+    display: inline-block;
+    max-height: 200px;
+    overflow-y: visible;
+    margin-top: 5px;
+  
+    /* vertical-align: top; */
+  }
+  .example-list1 {
+    border: solid 1px #6f6e6e00;
+    min-height: 60px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 4px;
+    overflow: auto;
+  
+    height: 250px;
+  }
+  .example-container {
+    width: 250px;
+    margin: 0;
+    display: inline-block;
+    padding: 0;
+    position: relative;
+  }
+  .reto {
+    font-size: 12px;
+  }
 }
