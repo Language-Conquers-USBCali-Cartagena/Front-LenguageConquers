@@ -7,12 +7,13 @@
   background-repeat: no-repeat;
   height: auto;
   align-items: center;
+   overflow: hidden; 
 }
 .titulo1 {
   font-size: 40px;
   line-height: 5px;
   float: left;
-
+  
   color: black;
 }
 .tituloTarjetaPeq {
@@ -66,33 +67,36 @@ float: left;
 
 
 .fondoTarjeta {
-  width: 1030px;
+  width: 90%;
   height: 200px;
   margin-right: 80px;
   margin-left: 110px;
   padding: 48px;
   margin-top: -20px;
-
-
+  display: grid;
+  gap: 10px;
+  grid-column: 2;
+  grid-template-columns: repeat(auto-fit,minmax(50px,1fr));
 }
 
-.estudiante {
+.profesor {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
 }
 
-.estudiante>img {
+.profesor>img {
   margin-left: 640px;
 
 }
 
-.estudiante>h2 {
+.profesor>h2 {
   margin-left: 640px;
 
 }
 
-.estudiante>button {
+.profesor>button {
   margin-left: 640px;
 }
 
@@ -140,16 +144,16 @@ float: left;
 
   }
 
-  .estudiante>img {
+  .profesor>img {
     margin-left: 80px;
 
   }
 
-  .estudiante>h2 {
+  .profesor>h2 {
     margin-left: 80px;
   }
 
-  .estudiante>button {
+  .profesor>button {
     margin-left: 80px;
   }
 
@@ -158,7 +162,7 @@ float: left;
     height: 80px;
     margin-right: 0px;
     margin-left: -22px;
-
+    
     /*Efecto espejo*/
     padding: 0px;
     border-radius: 24px;
@@ -198,7 +202,7 @@ float: left;
     line-height: 5px;
     float: none;
     color: black;
-
+    
     padding-top: 10px;
   }
   .tituloTarjetaPeq {
@@ -207,5 +211,31 @@ float: left;
     float: none;
     color: black;
   }
-
+  .fondoTarjeta {
+    width: 60%;
+    margin-right: 20%;
+    margin-left: 20%;
+    padding: 5%;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+  .profesor {
+    display: contents;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .titulo {
+    color: black;
+    font-size: 10px;
+    margin-left: 40px;
+    word-spacing: -41px;
+  }
+  .vinculos-contra {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    color: rgb(0, 0, 0);
+    top: 10px;
+    bottom: 10px;
+    margin-left: 0;
+  }
 }
