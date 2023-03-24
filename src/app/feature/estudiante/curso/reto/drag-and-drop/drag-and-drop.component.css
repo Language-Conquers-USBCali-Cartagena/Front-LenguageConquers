@@ -15,10 +15,10 @@
 }
 
 .fondoPantalla {
-  width: 1300px;
+  width: 1760px;
   height: 650px;
   padding-top: 10px;
-  margin-left: 260px;
+  margin-left: 90px;
   /*Efecto espejo*/
   font-size: 30px;
   border-radius: 10px;
@@ -38,24 +38,23 @@
 
 .botonTutorial {
   background: rgb(97, 100, 101);
-  border-radius: 20%;
+  border-style: hidden;
   width: 60px;
   height: 50px;
-  margin-left: 710px;
+  margin-left: 1200px;
 }
 
 .botonTema {
 
   background: rgb(97, 100, 101);
-  border-radius: 20%;
+  border-style: hidden;
   width: 60px;
   height: 50px;
-  margin-left: 60px;
+  margin-left: 40px;
 
 }
 
-.imgTutorial,
-.imgPista {
+.imgTutorial,.imgPista ,.imgAtras{
 
   width: 40px;
   height: 40px;
@@ -79,7 +78,7 @@
 
 .botonAtras {
 
-
+  border-style: hidden;
   background: rgb(97, 100, 101);
   border-radius: 20%;
   width: 60px;
@@ -92,21 +91,14 @@ h1 {
 }
 
 
-.imgAtras {
-  margin-left: 5px;
-  margin-top: 2px;
-  width: 30px;
-  height: 30px;
-}
-
 .botonEjecutar {
-
+  border-style: hidden;
   background: rgb(25, 197, 106);
   border: 2px solid rgb(16, 122, 65);
   border-radius: 50%;
   width: 60px;
   height: 50px;
-  margin-left: 60px;
+  margin-left: 40px;
 }
 
 .imgEjecutar {
@@ -224,7 +216,7 @@ h1 {
 }
 
 .cuadro-respuesta {
-  margin-left: 720px;
+  margin-left: 1200px;
   margin-top: -360px;
   display: block;
   position: static;
