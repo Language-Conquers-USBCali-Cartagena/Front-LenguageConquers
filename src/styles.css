@@ -40,7 +40,7 @@ a {
 
 }
 ::-webkit-scrollbar-thumb{
-  background-color: rgba(187, 153, 136, 0.541);
+  background-color: rgb(97, 100, 101);
   border: .25em solid #eacda3/.5;
   border-radius: 100vw;
 

@@ -161,7 +161,7 @@ td{
     background-image: url(../../../../assets/images/fondos/bannerRanking.png);
     background-size: cover;
     height:100px;
-    width:410px;
+    width:370px;
     padding-left:-10px;
   }
   .container{
@@ -177,6 +177,20 @@ td{
   color: #fff;
   }
   .tabla{
-    padding-left: 23%;
+    padding-left: 0%;
+  }
+  table {
+    width: 50%;
+    background: #343434;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  }
+  th{
+    font-size: 15px;
+    white-space: break-spaces;
+  }
+  td{
+    font-size: 15px;
   }
 }

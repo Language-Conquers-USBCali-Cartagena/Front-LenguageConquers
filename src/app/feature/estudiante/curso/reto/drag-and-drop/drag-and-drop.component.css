@@ -1,126 +1,61 @@
 .body {
   align-items: center;
   background-color: #323232;
-  height: 700px;
+  height: 724px;
 }
+
 .body2 {
   background-color: #323232;
   height: 10px;
 }
-.fondo{
-  padding-bottom:10px ;
+
+.fondo {
+  padding-bottom: 10px;
   background-color: #323232;
 }
-.fondoPantalla{
-  width: 1100px;
-  height: 450px;
+
+.fondoPantalla {
+  width: 1600px;
+  height: 650px;
   padding-top: 10px;
-  margin-left: 110px;
+  margin-left: 190px;
   /*Efecto espejo*/
-
-  background: linear-gradient(135deg,
-      rgba(24, 27, 28, 0.867),
-      rgba(24, 27, 28, 0.867));
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 45px 0 rgb(43, 43, 43);
   font-size: 30px;
   border-radius: 10px;
-  border: 30px solid  rgba(10, 10, 10, 0.883);
+  border: 30px solid rgba(10, 10, 10, 0.883);
   color: rgb(255, 255, 255);
-  text-align: center;
-}
-.botonEncendido{
-  margin-top: -40px;
-  margin-left: 1160px ;
-  background: rgb(173, 216, 230);
-  border-radius: 20%;
-  width: 40px;
-  height: 18px;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  border: 2px solid  rgb(146, 186, 199);
-  box-shadow: 0 1px 45px 0 rgba(0, 0, 0, 0.739);
-}
-.fondoTorre{
-  width: 12%;
-  height: 480px;
-  margin-right: 10px;
-  margin-top: -550px;
-  margin-left: 1300px;
-  /*Efecto espejo*/
-  padding: 55px;
-  background: linear-gradient(135deg,
-      rgba(24, 27, 28, 0.867),
-      rgba(24, 27, 28, 0.867));
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 45px 0 rgb(43, 43, 43);
-  font-size: 30px;
-  border: 20px solid;
-  border-radius: 10px;
-  border: 20px solid  rgb(46,49,49);
-  color: rgb(255, 255, 255);
-  text-align: center;
+  float: inline-end;
+
 }
 
-.botonTutorial, .botonTema{
-  margin-top:18px;
-  margin-left: -20px ;
+.navbar {
+  width: 1600px;
+  background-color: rgb(97, 100, 101);
+  margin-top: -10px;
+  margin-left: -10px;
+  
+}
+
+.botonTutorial {
   background: rgb(97, 100, 101);
-  border-radius: 20%;
-  border:5px solid #262525c6;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.615);
-  width: 230px;
-  height: 70px;
-  font-family: Mouse Memoirs;
-  font-size:38px;
-  display: flex;
-  justify-content: space-around;
-  color: #fff;
-  cursor: pointer;
-  padding: 1%;
-}
-.botonTema{
-  margin-top:35px;
-}
-.botonTutorial{
-  font-size:27px;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.615);
+  border-style: hidden;
+  width: 60px;
+  height: 50px;
+  margin-left: 1100px;
 }
 
-.tituloTutorial{
-  margin-top:15px;
-  margin-left: 18px;
-  cursor: pointer;
-}
-.botonEncendidoTutorial, .botonEncendidoPista{
-  margin-top:-46px;
-  margin-left: -10px ;
-  background: #19c56a;
-  border-radius: 20%;
-  width: 18px;
-  height: 20px;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.615);
-}
-.botonEncendidoPista{
-  width: 40px;
-  height: 20px;
-}
-.tituloPista{
-  margin-top:10px;
+.botonTema {
+
+  background: rgb(97, 100, 101);
+  border-style: hidden;
+  width: 60px;
+  height: 50px;
   margin-left: 40px;
-  cursor: pointer;
+
 }
-.imgTutorial, .imgPista{
-  margin-left: -35px;
-  margin-top: 10px;
+
+.imgTutorial,.imgPista ,.imgAtras{
+
   width: 40px;
   height: 40px;
 
@@ -136,120 +71,44 @@
   padding: 0px 11px;
   font-size: 15px;
 }
-.botones, .botones1, .botones2{
-  margin-top:56px;
-  margin-left: 5px ;
-  background: rgb(103, 106, 104);
-  border-radius: 20%;
-  width: 40px;
-  height: 20px;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.615);
-}
-.botones1{
-  margin-top:-20px;
-  margin-left: 65px ;
-}
-.botones2{
-  margin-top:-20px;
-  margin-left: 130px ;
-}
-.botonCD{
-  margin-top:36px;
-  margin-left: -28px ;
-  padding: 2px;
-  background: rgb(103, 106, 104);
-  border-radius: 20%;
-  width: 230px;
-  height: 60px;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.615);
-  border:5px solid #262525c6;
-}
-.cd{
-  margin-top:15px;
-  margin-left: 12px ;
-  background: rgba(255, 255, 255, 0);
-  width: 200px;
-  height: 30px;
-  border-radius: 20%;
-  border: 2px solid black;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.615);
-}
-.botones3{
-  margin-top:-36px;
-  margin-left: 5px ;
-  height: 15px;
-  width: 30px;
-  background: rgb(60, 61, 60);
-  border-radius: 20%;
-}
-.botonAtras{
-  margin-top:46px;
-  margin-left: 35px ;
-  background: rgb(152, 156, 153);
-  border-radius: 20%;
-  border-color: #ffffff00;
-  width: 100px;
-  height: 40px;
-  font-family: Mouse Memoirs;
-  font-size:25px;
-  display: flex;
-  justify-content: space-around;
-  color: #fff;
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 25px 0 rgba(39, 39, 39, 0.615);
 
 
+
+
+
+.botonAtras {
+
+  border-style: hidden;
+  background: rgb(97, 100, 101);
+  border-radius: 20%;
+  width: 60px;
+  height: 50px;
+  margin-left: 60px;
 }
-h1{
+
+h1 {
   margin: 0;
 }
-.botonAtras{
-  cursor: pointer;
-}
-.tituloAtras{
-  margin-top:5px;
-  margin-left: 15px;
-  cursor: pointer;
-}
-.imgAtras{
-  margin-left: 5px;
-  margin-top: 2px;
-  width: 30px;
-  height: 30px;
-}
-.botonEjecutar{
-  cursor: pointer;
-  margin-top:24px;
-  margin-left: 50px ;
+
+
+.botonEjecutar {
+  border-style: hidden;
   background: rgb(25, 197, 106);
-  border:2px solid rgb(16, 122, 65);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.615);
+  border: 2px solid rgb(16, 122, 65);
   border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  font-family: Mouse Memoirs;
-  font-size:25px;
-  display: flex;
-  justify-content: space-around;
+  width: 60px;
+  height: 50px;
+  margin-left: 40px;
 }
-.imgEjecutar{
-  margin-left: 2px;
-  margin-top: 10px;
+
+.imgEjecutar {
+
   width: 45px;
   height: 45px;
 }
 
-.pantallaAdentro{
- margin-left: 10px;
+.pantallaAdentro {
+  margin-left: 10px;
 }
 
 .example-container1 {
@@ -293,13 +152,14 @@ h1{
 }
 
 /* Las de abjo son para las horizontales */
-.example-container{
+.example-container {
   width: 400px;
-  margin: 0 ;
+  margin: 0;
   display: inline-block;
   padding: 0;
   position: relative;
 }
+
 .example-list {
   width: 800px;
   max-width: 100%;
@@ -307,7 +167,7 @@ h1{
   min-height: 60px;
   display: flex;
   flex-direction: row;
-  background: rgb(55,58,59);
+  background: rgb(55, 58, 59);
   border-radius: 4px;
   overflow: hidden;
 
@@ -335,8 +195,8 @@ h1{
   box-sizing: border-box;
   border-radius: 4px;
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
-              0 8px 10px 1px rgba(0, 0, 0, 0.14),
-              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 .cdk-drag-placeholder {
@@ -355,56 +215,122 @@ h1{
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.cuadro-respuesta{
-  margin-left: 500px;
-  margin-top: -400px;
+.cuadro-respuesta {
+  margin-left: 1100px;
+  margin-top: -360px;
   display: block;
   position: static;
   height: 400px;
   overflow-y: auto;
 }
-.texto{
-  width:900px;
+
+.texto {
+  width: 900px;
   margin-top: -8px;
   margin-left: 5px;
   justify-content: flex-start;
   text-align: justify;
 }
-.texto-explicacion{
-  width:900px;
+
+.texto-explicacion {
+  width: 900px;
 
 }
-.variables{
-  font-size:12px;
+
+.variables {
+  font-size: 12px;
   font-family: 'Courier New', Courier, monospace;
   line-height: 1px;
   margin-bottom: -8px;
 
 }
 
-.colores{
-  font-size:12px;
-  font-family: 'Courier New', Courier, monospace;
-  line-height: 1;
+.reto {
+  font-size: 18px;
 }
-.colores p{
-  line-height: 1;
-}
-.explicacion-color{
-  margin-top: 10px;
-  font-size:13px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  text-align: justify;
-
-}
-.info{
-  margin-left:880px;
-  margin: 0;
-  width: 20px;
-  height: 20px;
- cursor: pointer;
-}
-.reto{
-  font-size:18px;
-
+@media screen and (max-width:700px) {
+  /* .body{
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: 22rem;
+    grid-template-columns: repeat(auto-fill,minmax(15rem,1fr));
+  }
+  .resto{
+    grid-column: span 2;
+  } */
+  .fondoPantalla {
+    width: 300px;
+    height: 650px;
+    padding-top: 0px;
+    margin-left: 40px;
+    /*Efecto espejo*/
+    font-size: 30px;
+    border-radius: 10px;
+    border: 30px solid rgba(10, 10, 10, 0.883);
+    color: rgb(255, 255, 255);
+    float: inline-end;
+  
+  }
+  .navbar {
+    width: 300px;
+    background-color: rgb(97, 100, 101);
+    margin-top: -10px;
+    margin-left: -10px;
+    
+  }
+  .botonTutorial {
+    background: rgb(97, 100, 101);
+    border-style: hidden;
+    width: 60px;
+    height: 50px;
+    margin-left: 40px;
+  }
+  
+  .botonTema {
+  
+    background: rgb(97, 100, 101);
+    border-style: hidden;
+    width: 60px;
+    height: 50px;
+    margin-left: 40px;
+  
+  }
+  .cuadro-respuesta {
+    margin-left: 10px;
+    margin-top: 10px;
+    
+    height: 200px;
+    overflow:auto;
+    
+  }
+  .example-container1 {
+    width: 270px;
+    max-width: 100%;
+   margin-left: 10px;
+    display: inline-block;
+    max-height: 200px;
+    overflow-y: visible;
+    margin-top: 5px;
+  
+    /* vertical-align: top; */
+  }
+  .example-list1 {
+    border: solid 1px #6f6e6e00;
+    min-height: 60px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 4px;
+    overflow: auto;
+  
+    height: 250px;
+  }
+  .example-container {
+    width: 250px;
+    margin: 0;
+    display: inline-block;
+    padding: 0;
+    position: relative;
+  }
+  .reto {
+    font-size: 12px;
+  }
 }
