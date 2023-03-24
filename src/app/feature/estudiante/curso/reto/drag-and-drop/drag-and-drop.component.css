@@ -15,10 +15,10 @@
 }
 
 .fondoPantalla {
-  width: 1760px;
+  width: 1600px;
   height: 650px;
   padding-top: 10px;
-  margin-left: 90px;
+  margin-left: 190px;
   /*Efecto espejo*/
   font-size: 30px;
   border-radius: 10px;
@@ -29,10 +29,10 @@
 }
 
 .navbar {
-  display: flex;
-  margin-bottom: 30px;
+  width: 1600px;
   background-color: rgb(97, 100, 101);
-  border-radius: 10px;
+  margin-top: -10px;
+  margin-left: -10px;
   
 }
 
@@ -41,7 +41,7 @@
   border-style: hidden;
   width: 60px;
   height: 50px;
-  margin-left: 1200px;
+  margin-left: 1100px;
 }
 
 .botonTema {
@@ -216,7 +216,7 @@ h1 {
 }
 
 .cuadro-respuesta {
-  margin-left: 1200px;
+  margin-left: 1100px;
   margin-top: -360px;
   display: block;
   position: static;
@@ -243,32 +243,6 @@ h1 {
   line-height: 1px;
   margin-bottom: -8px;
 
-}
-
-.colores {
-  font-size: 12px;
-  font-family: 'Courier New', Courier, monospace;
-  line-height: 1;
-}
-
-.colores p {
-  line-height: 1;
-}
-
-.explicacion-color {
-  margin-top: 10px;
-  font-size: 13px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  text-align: justify;
-
-}
-
-.info {
-  margin-left: 880px;
-  margin: 0;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
 }
 
 .reto {
