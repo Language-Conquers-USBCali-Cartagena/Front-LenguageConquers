@@ -28,6 +28,7 @@ export class CrearModificarMisionComponent implements OnInit {
   mensajeError: string="";
   imagenUrl: string = "";
   actualizarFoto: string = 'no';
+  nombreCurso: string |undefined;
 
 
 
@@ -58,17 +59,25 @@ export class CrearModificarMisionComponent implements OnInit {
     this.cursoService.getCurso().subscribe(resp => this.cursos = resp)
   }
 
+  setCurso(idCursor: number){
+    this.cursoService.consultarPorId(idCursor).subscribe(data =>{
+      this.nombreCurso = data.nombre;
+    })
+  }
+
 
   guardarMision(){
     this.hayErrores = false;
     const curso = this.form.value.idCurso;
+    const cursoSeleccionado = this.cursos.find(e => e.idCurso === curso);
+    const idCurso = Number(cursoSeleccionado?.idCurso ??"");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let mision: Mision = {
       nombre: this.form.value.nombre,
       imagen: this.imagenUrl,
-      idCurso:curso.idCurso,
+      idCurso:idCurso,
       usuarioCreador: this.form.value.usuarioCreador,
       fechaCreacion: fechaActual}
     this.misionService.crearMision(mision).subscribe(data =>{
@@ -142,6 +151,8 @@ export class CrearModificarMisionComponent implements OnInit {
   actualizar():void{
     const imagenMisionNueva = this.imagenUrl;
     const curso = this.form.value.idCurso;
+    const cursoSeleccionado = this.cursos.find(e => e.idCurso === curso);
+    const idCurso = Number(cursoSeleccionado?.idCurso ??"");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
@@ -150,7 +161,7 @@ export class CrearModificarMisionComponent implements OnInit {
       idMision: this.form.value.idMision,
       nombre: this.form.value.nombre,
       imagen: imagenMisionNueva ? imagenMisionNueva: imagenVieja,
-      idCurso:curso.idCurso,
+      idCurso:idCurso,
       usuarioModificador: this.form.value.usuarioModificador,
       fechaModificacion: fechaActual,
       fechaCreacion: this.mision.fechaCreacion,

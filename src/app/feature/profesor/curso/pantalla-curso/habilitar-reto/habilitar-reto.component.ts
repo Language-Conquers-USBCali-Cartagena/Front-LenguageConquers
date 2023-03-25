@@ -114,8 +114,8 @@ export class HabilitarRetoComponent implements OnInit {
       usuarioCreador: this.reto!.usuarioCreador,
       solucion: this.reto!.solucion,
       descripcionTeoria: this.reto!.descripcionTeoria,
-      imgTema1: this.reto!.imgTema1,
-      imgTema2: this.reto!.imgTema2,
+      imagen1: this.reto!.imagen1,
+      imagen2: this.reto!.imagen2,
       urlVideo1: this.reto!.urlVideo1,
       urlVideo2: this.reto!.urlVideo2}
     this.retoService.actualizarReto(reto).subscribe(data =>{

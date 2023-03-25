@@ -55,33 +55,35 @@ export class CrearModificarAvatarComponent implements OnInit {
     this.crear = true;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
+    const fechaActual = moment().tz(pais).utcOffset('-05:00').format('YYYY-MM-DD');
     let avatar: Avatar = {
       nombreAvatar: this.form.value.nombre,
       imgAvatar: this.imagenUrl,
       usuarioCreador: this.form.value.usuarioCreador,
       fechaCreacion: fechaActual}
-    this.avatarService.crearAvatar(avatar).subscribe(data => {
-      if(data){
-        Swal.fire({
-          icon: 'success',
-          title: 'El avatar se ha creado exitosamente.',
-          showConfirmButton: false,
-          timer: 2000
+      setTimeout(() => {
+        this.avatarService.crearAvatar(avatar).subscribe(data => {
+          if(data){
+            Swal.fire({
+              icon: 'success',
+              title: 'El avatar se ha creado exitosamente.',
+              showConfirmButton: false,
+              timer: 2000
+            });
+            this.router.navigate(['/admin/avatar/listar-avatar']);
+          }
+        }, (e) => {
+          this.hayErrores = true;
+          this.mensajeError = e['error'];
+          console.log(e['error']);
+          Swal.fire({
+            icon: 'error',
+            title: e['error'],
+            showConfirmButton: false,
+            showCloseButton: true,
+          });
         });
-        this.router.navigate(['/admin/avatar/listar-avatar']);
-      }
-    }, (e) => {
-      this.hayErrores = true;
-      this.mensajeError = e['error'];
-      console.log(e['error']);
-      Swal.fire({
-        icon: 'error',
-        title: e['error'],
-        showConfirmButton: false,
-        showCloseButton: true,
-      });
-    });
+      }, 8000);
   }
 
 

@@ -59,8 +59,8 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Estado</mat-label>
-                        <mat-select formControlName="idEstado">
-                            <mat-option *ngFor="let estado of estados" [value]="estado">
+                        <mat-select formControlName="idEstado" (selectionChange)="setEstado($event.value)">
+                            <mat-option *ngFor="let estado of estados" [value]="estado.idEstado">
                                 {{estado.estado}}
                             </mat-option>
                         </mat-select>
@@ -70,9 +70,9 @@
                 <div class="campo-entrada">
                     <mat-form-field appearance="fill">
                         <mat-label class="titulos">Profesor</mat-label>
-                        <mat-select formControlName="idProfesor">
-                            <mat-option *ngFor="let profesor of profesores" [value]="profesor">
-                                {{profesor.nombre}}
+                        <mat-select formControlName="idProfesor" (selectionChange)="setProfesor($event.value)">
+                            <mat-option *ngFor="let profesor of profesores" [value]="profesor.idProfesor">
+                                {{profesor.nombre + ' ' + profesor.apellido}}
                             </mat-option>
                         </mat-select>
                         <mat-icon matSuffix class="boton">curso</mat-icon>
@@ -86,13 +86,6 @@
                     </mat-form-field>
                 </div>
                 <ng-template #editar>
-                  <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Progreso</mat-label>
-                        <input type="number" matInput autocomplete="off" formControlName="progreso" placeholder="Ingrese el valor en porcentaje">
-                        <mat-icon matSuffix class="boton">progreso</mat-icon>
-                    </mat-form-field>
-                </div>
                 <div class="campo-entrada">
                   <mat-form-field appearance="fill">
                       <mat-label class="titulos">Usuario Modificador</mat-label>

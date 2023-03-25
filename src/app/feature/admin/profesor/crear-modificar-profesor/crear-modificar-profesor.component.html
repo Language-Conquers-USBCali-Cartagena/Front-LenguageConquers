@@ -31,8 +31,8 @@
           <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Genero</mat-label>
-            <mat-select formControlName="idGenero">
-              <mat-option *ngFor="let genero of generos" [value]="genero">
+            <mat-select formControlName="idGenero" (selectionChange)="setGenero($event.value)">
+              <mat-option *ngFor="let genero of generos" [value]="genero.idGenero">
                 {{genero.genero}}
               </mat-option>
             </mat-select>

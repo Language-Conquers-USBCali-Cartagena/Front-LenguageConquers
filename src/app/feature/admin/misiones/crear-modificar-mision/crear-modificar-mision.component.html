@@ -17,8 +17,8 @@
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Curso</mat-label>
-            <mat-select formControlName="idCurso">
-              <mat-option *ngFor="let curso of cursos" [value]="curso">
+            <mat-select formControlName="idCurso" (selectionChange)="setCurso($event.value)">
+              <mat-option *ngFor="let curso of cursos" [value]="curso.idCurso">
                 {{curso.nombre}}
               </mat-option>
             </mat-select>

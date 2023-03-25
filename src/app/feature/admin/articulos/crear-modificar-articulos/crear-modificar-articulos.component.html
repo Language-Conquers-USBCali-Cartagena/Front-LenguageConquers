@@ -38,8 +38,8 @@
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Estado</mat-label>
-            <mat-select formControlName="idEstado">
-              <mat-option *ngFor="let estado of estados" [value]="estado">
+            <mat-select formControlName="idEstado" (selectionChange)="setEstado($event.value)">
+              <mat-option *ngFor="let estado of estados" [value]="estado.idEstado">
                 {{estado.estado}}
               </mat-option>
             </mat-select>
@@ -49,8 +49,8 @@
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Categoría</mat-label>
-            <mat-select formControlName="idCategoria">
-              <mat-option *ngFor="let categoria of categorias" [value]="categoria">
+            <mat-select formControlName="idCategoria" (selectionChange)="setCategoria($event.value)">
+              <mat-option *ngFor="let categoria of categorias" [value]="categoria.idCategoria">
                 {{categoria.nombre}}
               </mat-option>
             </mat-select>

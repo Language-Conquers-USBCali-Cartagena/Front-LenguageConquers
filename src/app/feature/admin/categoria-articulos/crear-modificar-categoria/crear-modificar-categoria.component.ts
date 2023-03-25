@@ -19,6 +19,8 @@ export class CrearModificarCategoriaComponent implements OnInit {
   categoria!: Categorias;
   hayErrores = false;
   mensajeError: string="";
+  nombreEstado: string | undefined;
+
 
 
   constructor(private fb: FormBuilder,private estadoService: EstadoService,private router:Router, private categoriaService: CategoriaService, private activatedRoute: ActivatedRoute) {
@@ -45,17 +47,24 @@ export class CrearModificarCategoriaComponent implements OnInit {
   getEstado(){
     this.estadoService.getEstados().subscribe(resp => this.estados = resp)
   }
+  setEstado(idEstado: number){
+    this.estadoService.consultarPorId(idEstado).subscribe(data =>{
+      this.nombreEstado = data.estado;
+    })
+  }
 
   guardarCategoria(){
     this.hayErrores = false;
     const estado= this.form.value.idEstado;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado === estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ??"");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let categoria: Categorias = {
       nombre: this.form.value.nombre,
       descripcion: this.form.value.descripcion,
-      idEstado: estado.idEstado,
+      idEstado: idEstado,
       usuarioCreador: this.form.value.usuarioCreador,
       fechaCreacion: fechaActual}
     this.categoriaService.crearCategoria(categoria).subscribe(data =>{
@@ -109,6 +118,8 @@ export class CrearModificarCategoriaComponent implements OnInit {
 
   actualizar(): void{
     const estado= this.form.value.idEstado;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado === estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ??"");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
@@ -116,7 +127,7 @@ export class CrearModificarCategoriaComponent implements OnInit {
       idCategoria: this.categoria.idCategoria,
       nombre: this.form.value.nombre,
       descripcion: this.form.value.descripcion,
-      idEstado: estado.idEstado,
+      idEstado: idEstado,
       usuarioModificador: this.form.value.usuarioModificador,
       fechaModificacion: fechaActual,
       fechaCreacion: this.categoria.fechaCreacion,

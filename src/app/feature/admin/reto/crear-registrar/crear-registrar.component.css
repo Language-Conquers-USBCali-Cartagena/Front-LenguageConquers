@@ -20,12 +20,46 @@
   display: grid;
   margin-top: 10px;
   margin-bottom: -100px;
-  grid-template-columns: repeat(3, 18em);
+  grid-template-columns: repeat(4, 18em);
   justify-content: center;
 
 
 }
-
+.tituloImagen1{
+  margin-left: -500px;
+  margin-top: -46px;
+  font-size: 25px;
+}
+.inputFile1{
+  margin-left: -380px;
+  margin-top: -46px;
+}
+.tituloImagen2{
+  margin-left: 80px;
+  margin-top: -46px;
+  font-size: 25px;
+}
+.inputFile2{
+  margin-left: 80px;
+  margin-top: -46px;
+}
+.botonSeleccionarArchivo1, .botonSeleccionarArchivo2{
+  margin-left: -310px;
+  margin-top: -12px;
+  width: 128px;
+  height:20px;
+  background-color: rgb(205, 159, 118);
+  border-radius: 20px;
+  position: absolute;
+  padding: 10px;
+  font-size: 20px;
+  box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
+  cursor: pointer;
+}
+.botonSeleccionarArchivo2{
+  margin-left: -150px;
+  margin-top: -36px;
+}
 .titulos {
   font-size: 20px;
   color: rgb(255, 255, 255);
@@ -51,6 +85,10 @@ input{
 form {
   height: 350px;
   width: auto;
+}
+matSuffix{
+  margin-top:-10px;
+  font-size: 18px;
 }
 
 .boton {

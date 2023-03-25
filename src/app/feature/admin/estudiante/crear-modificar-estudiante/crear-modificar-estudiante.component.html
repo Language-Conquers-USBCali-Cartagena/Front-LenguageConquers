@@ -38,8 +38,8 @@
         <div class="campo-entrada">
         <mat-form-field appearance="fill">
           <mat-label class="titulos">Semestre</mat-label>
-          <mat-select formControlName="idSemestre">
-            <mat-option *ngFor="let semestre of semestres" [value]="semestre">
+          <mat-select formControlName="idSemestre" (selectionChange)="setSemestre($event.value)">
+            <mat-option *ngFor="let semestre of semestres" [value]="semestre.idSemestre">
               {{semestre.nombre}}
             </mat-option>
           </mat-select>
@@ -49,8 +49,8 @@
         <div class="campo-entrada">
         <mat-form-field appearance="fill">
           <mat-label class="titulos">Genero</mat-label>
-          <mat-select formControlName="idGenero" [(value)]="genero">
-            <mat-option *ngFor="let genero of generos" [value]="genero.genero">
+          <mat-select formControlName="idGenero" (selectionChange)="setGenero($event.value)">
+            <mat-option *ngFor="let genero of generos" [value]="genero.idGenero">
               {{genero.genero}}
             </mat-option>
           </mat-select>
@@ -60,8 +60,8 @@
         <div class="campo-entrada">
         <mat-form-field appearance="fill">
           <mat-label class="titulos">Programa</mat-label>
-          <mat-select formControlName="idPrograma" [(value)]="programa">
-            <mat-option *ngFor="let programa of programas" [value]="programa.nombre">
+          <mat-select formControlName="idPrograma" (selectionChange)="setPrograma($event.value)">
+            <mat-option *ngFor="let programa of programas" [value]="programa.idPrograma">
               {{programa.nombre}}
             </mat-option>
           </mat-select>
@@ -71,8 +71,8 @@
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Estado</mat-label>
-            <mat-select formControlName="idEstado" [(value)]="estado" >
-              <mat-option *ngFor="let estado of estados" [value]="estado.estado">
+            <mat-select formControlName="idEstado" (selectionChange)="setEstado($event.value)">
+              <mat-option *ngFor="let estado of estados" [value]="estado.idEstado">
                 {{estado.estado}}
               </mat-option>
             </mat-select>
@@ -127,8 +127,8 @@
           <div class="car">
             <div class="izq"><a type="submit" (click)="pasarIzq()"><mat-icon>keyboard_arrow_left</mat-icon></a></div>
             <div class="cimg" *ngFor="let avatar of avatares">
-              <div class="imgAvatar">
-                <img mat-card-avatar src="{{avatar.imgAvatar}}" id="{{avatar.idAvatar}}" class="avatares"  data-id="{{avatar.idAvatar}}"  (click)="seleccionarAvatar(this.avatar)">
+              <div class="imgAvatar" [ngClass]="{'active': avatar === avatarSeleccionado}">
+                <img #avatarImg mat-card-avatar src="{{avatar.imgAvatar}}"  id="{{avatar.idAvatar}}" class="avatares"  data-id="{{avatar.idAvatar}}"  (click)="seleccionarAvatar(avatar)">
               </div>
             </div>
             <div class="der"><a type="submit" (click)="pasarDer()"><mat-icon>keyboard_arrow_right</mat-icon></a></div>

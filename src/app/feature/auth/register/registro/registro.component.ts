@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
 import { contains } from '@firebase/util';
 import { EstudianteService } from '../../../../shared/services/estudiante/estudiante.service';
 import { ProfesorService } from 'src/app/shared/services/profesor/profesor.service';
+import { MatCheckbox } from '@angular/material/checkbox';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -23,6 +24,9 @@ export class RegistroComponent implements OnInit {
   terminos= false;
   profesorExiste: boolean = false;
   estudianteExiste: boolean = false;
+  @ViewChild('checkboxExterno') checkboxExterno!: MatCheckbox;
+
+
   constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar,
     private router: Router, private authService: AuthService, private loginService: ServiciosLoginService, private dialog: MatDialog,
     private estudianteServece: EstudianteService, private profesorService: ProfesorService) {
@@ -33,6 +37,7 @@ export class RegistroComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
   async registrarse() {
     const usuario = this.form.value.usuario;
@@ -41,17 +46,18 @@ export class RegistroComponent implements OnInit {
       this.authService.emailVerification();
       this.router.navigate(['/auth/verificar-email'])
     }).catch(err => {
-      if(this.terminos == false){
-        this.errorTerminos();
-      }else if(password.length<6){
+      if(password.length<6){
         this.passwordInvalid();
+
+      }else if(!this.checkboxExterno.checked){
+        this.errorTerminos();
       }else{
         this.error();
       }
       this.form.reset();
     });
-
   }
+
   IngresarConGoogle() {
     this.authService.loginWithGoogle().then(res => {
       console.log("Ingreso: ", res);
@@ -107,7 +113,6 @@ export class RegistroComponent implements OnInit {
         toast.addEventListener('mouseleave', Swal.resumeTimer)
       }
     })
-
     Toast.fire({
       icon: 'info',
       title: 'Debe aceptar los términos y condiciones.'
@@ -171,6 +176,8 @@ export class RegistroComponent implements OnInit {
       input: 'checkbox',
       confirmButtonColor: '#31B2C2',
       inputPlaceholder: 'Acepto términos y condiciones.',
+      showCloseButton: true,
+      showCancelButton: true,
       backdrop: '',
     }).then((result) => {
       if (result.isConfirmed) {
@@ -185,7 +192,7 @@ export class RegistroComponent implements OnInit {
       } else {
         console.log(`modal was dismissed by ${result.dismiss}`)
       }
-    })
+    });
   }
 
   passwordInvalid() {

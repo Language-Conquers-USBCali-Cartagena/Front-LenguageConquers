@@ -24,6 +24,7 @@ export class CrearModificarProfesorComponent implements OnInit {
   mensajeError: string = "";
   imagenUrl: string = "";
   actualizarFoto: string = 'no';
+  nombreGenero: string| undefined ;
 
   constructor(private storage: Storage, private fb: FormBuilder, private generoService: GeneroService, private router: Router, private activatedRoute: ActivatedRoute, private profesorService: ProfesorService) {
     this.crearDocente();
@@ -52,12 +53,19 @@ export class CrearModificarProfesorComponent implements OnInit {
   getGenero() {
     this.generoService.getGenero().subscribe(resp => this.generos = resp);
   }
+  setGenero(idGenero: number) {
+    this.generoService.consultarPorId(idGenero!).subscribe(data => {
+      this.nombreGenero = data.genero;
+    });
+  }
 
   guardarProfesor() {
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     const genero = this.form.value.idGenero;
+    const generoSeleccionado = this.generos.find(e => e.idGenero == genero);
+    const idGenero = Number(generoSeleccionado?.idGenero ?? "");
     let profesor: Profesor = {
       nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
@@ -65,7 +73,7 @@ export class CrearModificarProfesorComponent implements OnInit {
       foto: this.imagenUrl,
       usuarioCreador: this.form.value.usuarioCreador,
       fechaCreacion: fechaActual,
-      idGenero: genero.idGenero }
+      idGenero: idGenero }
     this.profesorService.crearProfesor(profesor).subscribe(data => {
       if (data) {
         Swal.fire({
@@ -139,6 +147,8 @@ export class CrearModificarProfesorComponent implements OnInit {
   actualizar() {
     const fotoNueva = this.imagenUrl;
     const genero = this.form.value.idGenero;
+    const generoSeleccionado = this.generos.find(e => e.idGenero == genero);
+    const idGenero = Number(generoSeleccionado?.idGenero ?? "");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
@@ -151,7 +161,7 @@ export class CrearModificarProfesorComponent implements OnInit {
       foto: fotoNueva ? fotoNueva : fotoVieja,
       usuarioModificador: this.form.value.usuarioModificador,
       fechaModificacion: fechaActual,
-      idGenero: genero.idGenero,
+      idGenero: idGenero,
       usuarioCreador: this.profesor.usuarioCreador,
       fechaCreacion: this.profesor.fechaCreacion
     }

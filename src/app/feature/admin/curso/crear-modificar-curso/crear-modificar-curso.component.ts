@@ -23,6 +23,8 @@ export class CrearModificarCursoComponent implements OnInit {
   estados:Estado[] = [];
   hayErrores = false;
   mensajeError: string="";
+  nombreProfesor: string | undefined;
+  nombreEstado: string | undefined;
 
 
   constructor(private fb: FormBuilder, private estadoService: EstadoService,private profesorService: ProfesorService, private router:Router, private cursoService: CursoService,  private activatedRoute: ActivatedRoute) {
@@ -57,15 +59,29 @@ export class CrearModificarCursoComponent implements OnInit {
     this.profesorService.getProfesor().subscribe(resp =>this.profesores = resp);
 
   }
+  setProfesor(idProfesor:number){
+    this.profesorService.consultarPorId(idProfesor).subscribe(data =>{
+      this.nombreProfesor = data.nombre + ' ' + data.apellido;
+    })
+  }
 
   getEstado(){
     this.estadoService.getEstados().subscribe(resp => this.estados = resp)
+  }
+  setEstado(idEstado: number){
+    this.estadoService.consultarPorId(idEstado).subscribe(data =>{
+      this.nombreEstado = data.estado;
+    })
   }
 
   guardarCurso(){
     this.hayErrores = false;
     const estado = this.form.value.idEstado;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
     const profesor = this.form.value.idProfesor;
+    const profesorSeleccionado = this.profesores.find(e => e.idProfesor == profesor);
+    const idProfesor = Number(profesorSeleccionado?.idProfesor ?? "");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
@@ -76,8 +92,8 @@ export class CrearModificarCursoComponent implements OnInit {
       inicioCurso: this.form.value.inicioCurso,
       finCurso: this.form.value.finCurso,
       progreso: 0,
-      idEstado: estado.idEstado,
-      idProfesor: profesor.idProfesor,
+      idEstado: idEstado,
+      idProfesor: idProfesor,
       usuarioCreador: this.form.value.usuarioCreador,
       fechaCreacion: fechaActual}
     this.cursoService.crearCurso(curso).subscribe(data => {
@@ -136,7 +152,11 @@ export class CrearModificarCursoComponent implements OnInit {
 
   actualizar():void{
     const estado= this.form.value.idEstado;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
     const profesor = this.form.value.idProfesor;
+    const profesorSeleccionado = this.profesores.find(e => e.idProfesor == profesor);
+    const idProfesor = Number(profesorSeleccionado?.idProfesor ?? "");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
@@ -147,9 +167,9 @@ export class CrearModificarCursoComponent implements OnInit {
       cantidadEstudiantes: this.form.value.cantidadEstudiantes,
       inicioCurso: this.form.value.inicioCurso,
       finCurso: this.form.value.finCurso,
-      progreso: this.form.value.progreso,
-      idEstado: estado.idEstado,
-      idProfesor: profesor.idProfesor,
+      progreso: this.curso.progreso,
+      idEstado: idEstado,
+      idProfesor: idProfesor,
       usuarioModificador: this.form.value.usuarioModificador,
       fechaModificacion: fechaActual,
       fechaCreacion: this.curso.fechaCreacion,
