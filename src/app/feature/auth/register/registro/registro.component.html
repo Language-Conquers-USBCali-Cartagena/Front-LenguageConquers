@@ -16,15 +16,20 @@
             <mat-icon class="boton">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
-      <a target="_window" class="vinculos" (click)="terminosCondiciones()">Términos y Condiciones</a>
-    <div *ngIf="terminos === true" style="top: 100px">
+       <!-- <mat-checkbox class="vinculos" [(ngModel)]="terminos"></mat-checkbox>
+      <a target="_window" class="vinculos" (click)="terminosCondiciones()">Términos y Condiciones</a>-->
+      <div class="terminosCon">
+        <mat-checkbox class="vinculosT" #checkboxExterno></mat-checkbox>
+        <a target="_window" class="vinculosT" (click)="terminosCondiciones()" style="cursor: pointer;">Términos y Condiciones</a>
+      </div>
+      <div *ngIf="checkboxExterno.checked || terminos" style="top: 100px">
       <button class="ancho1" mat-raised-button (click)="registrarse()"> Crear Cuenta </button>
     </div>
-    <div *ngIf="terminos === false" style="top: 100px">
+    <div *ngIf="!checkboxExterno.checked && !terminos" style="top: 100px">
       <button class="ancho1" mat-raised-button (click)="errorTerminos()"> Crear Cuenta </button>
     </div>
     </div>
-    <br />
+    <br>
       <div class="otrac">
         <a type="submit" (click)="IngresarConGoogle()" class="ancho otrac google"></a>
         <a type="submit" (click)="IngresarConFacebook()" class="ancho otrac facebook"></a>

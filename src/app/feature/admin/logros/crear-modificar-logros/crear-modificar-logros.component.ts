@@ -20,7 +20,7 @@ export class CrearModificarLogrosComponent implements OnInit {
   hayErrores= false;
   mensajeError: string="";
   imagenUrl: string = "";
-
+  actualizarFoto: string = 'no';
   isFile: boolean = false;
   isURL: boolean = false;
   porcentajeSubida!:number;
@@ -48,22 +48,22 @@ export class CrearModificarLogrosComponent implements OnInit {
   }
   guardarLogro(){
     this.hayErrores = false;
-    const nombre = this.form.value.nombre;
-    const descripcion = this.form.value.descripcion;
-    const imagenLogro = this.imagenUrl;
-    const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let logro: Logros = {nombre: nombre, descripcion: descripcion,  imagen: imagenLogro, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: fechaActual}
+    let logro: Logros = {
+      nombre: this.form.value.nombre,
+      descripcion: this.form.value.descripcion,
+      imagen: this.imagenUrl,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual}
     this.logroService.crearLogro(logro).subscribe(data => {
       if(data){
         Swal.fire({
           icon: 'success',
           title: 'El logro se ha creado exitosamente.',
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/logros/listar-logros']);
       }
@@ -75,7 +75,7 @@ export class CrearModificarLogrosComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
 
@@ -110,21 +110,26 @@ export class CrearModificarLogrosComponent implements OnInit {
   }
 
   actualizar():void{
-    const nombre = this.form.value.nombre;
-    const descripcion = this.form.value.descripcion;
-    const imagenLogro = this.imagenUrl;
-    const usuarioModificador = this.form.value.usuarioModificador;
+    const imagenLogroNueva = this.imagenUrl;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let logro: Logros = {idLogro:this.form.value.idLogro ,nombre: nombre, descripcion: descripcion, imagen: imagenLogro, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: fechaActual, fechaCreacion: this.logro.fechaCreacion, usuarioCreador: this.logro.usuarioCreador}
+    const imagenVieja = this.logro.imagen;
+    let logro: Logros = {
+      idLogro:this.form.value.idLogro,
+      nombre: this.form.value.nombre,
+      descripcion: this.form.value.descripcion,
+      imagen: imagenLogroNueva ? imagenLogroNueva: imagenVieja,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual,
+      fechaCreacion: this.logro.fechaCreacion,
+      usuarioCreador: this.logro.usuarioCreador}
     this.logroService.actualizarLogro(logro).subscribe(data=>{
       Swal.fire({
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/logros/listar-logros']);
   }, (e) => {
@@ -134,7 +139,7 @@ export class CrearModificarLogrosComponent implements OnInit {
       icon: 'error',
       title: e['error'],
       showConfirmButton: false,
-      timer: 1500
+      showCloseButton: true,
     });
   });
   }

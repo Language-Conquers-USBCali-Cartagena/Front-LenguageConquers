@@ -23,6 +23,8 @@ export class CrearModificarCursoComponent implements OnInit {
   estados:Estado[] = [];
   hayErrores = false;
   mensajeError: string="";
+  nombreProfesor: string | undefined;
+  nombreEstado: string | undefined;
 
 
   constructor(private fb: FormBuilder, private estadoService: EstadoService,private profesorService: ProfesorService, private router:Router, private cursoService: CursoService,  private activatedRoute: ActivatedRoute) {
@@ -57,46 +59,61 @@ export class CrearModificarCursoComponent implements OnInit {
     this.profesorService.getProfesor().subscribe(resp =>this.profesores = resp);
 
   }
+  setProfesor(idProfesor:number){
+    this.profesorService.consultarPorId(idProfesor).subscribe(data =>{
+      this.nombreProfesor = data.nombre + ' ' + data.apellido;
+    })
+  }
 
   getEstado(){
     this.estadoService.getEstados().subscribe(resp => this.estados = resp)
   }
+  setEstado(idEstado: number){
+    this.estadoService.consultarPorId(idEstado).subscribe(data =>{
+      this.nombreEstado = data.estado;
+    })
+  }
 
   guardarCurso(){
     this.hayErrores = false;
-    const nombre = this.form.value.nombre;
-    const password = this.form.value.password;
-    const cantidadEstudiantes = this.form.value.cantidadEstudiantes;
-    const fechaInicio: Date = this.form.value.inicioCurso;
-    const fechaFin: Date = this.form.value.finCurso;
     const estado = this.form.value.idEstado;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
     const profesor = this.form.value.idProfesor;
-    const usuarioCreador = this.form.value.usuarioCreador;
+    const profesorSeleccionado = this.profesores.find(e => e.idProfesor == profesor);
+    const idProfesor = Number(profesorSeleccionado?.idProfesor ?? "");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let curso: Curso = {nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: 0, idEstado: estado.idEstado, idProfesor: profesor.idProfesor, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: fechaActual}
+    let curso: Curso = {
+      nombre:  this.form.value.nombre,
+      password: this.form.value.password,
+      cantidadEstudiantes: this.form.value.cantidadEstudiantes,
+      inicioCurso: this.form.value.inicioCurso,
+      finCurso: this.form.value.finCurso,
+      progreso: 0,
+      idEstado: idEstado,
+      idProfesor: idProfesor,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual}
     this.cursoService.crearCurso(curso).subscribe(data => {
       if(data){
         Swal.fire({
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/cursos/listar-cursos']);
       }
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e['error'];
-      console.log(this.mensajeError);
-
       Swal.fire({
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }
@@ -134,26 +151,35 @@ export class CrearModificarCursoComponent implements OnInit {
   }
 
   actualizar():void{
-    const nombre = this.form.value.nombre;
-    const password = this.form.value.password;
-    const cantidadEstudiantes = this.form.value.cantidadEstudiantes;
-    const fechaInicio: Date = this.form.value.inicioCurso;
-    const fechaFin: Date = this.form.value.finCurso;
-    const progreso = this.form.value.progreso;
     const estado= this.form.value.idEstado;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
     const profesor = this.form.value.idProfesor;
-    const usuarioModificador = this.form.value.usuarioModificador;
+    const profesorSeleccionado = this.profesores.find(e => e.idProfesor == profesor);
+    const idProfesor = Number(profesorSeleccionado?.idProfesor ?? "");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let curso: Curso = {idCurso:this.curso.idCurso,nombre: nombre, password: password, cantidadEstudiantes: cantidadEstudiantes,inicioCurso: fechaInicio, finCurso: fechaFin, progreso: progreso, idEstado: estado.idEstado, idProfesor: profesor.idProfesor, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: fechaActual, fechaCreacion: this.curso.fechaCreacion, usuarioCreador: this.curso.usuarioCreador}
+    let curso: Curso = {
+      idCurso:this.curso.idCurso,
+      nombre: this.form.value.nombre,
+      password: this.form.value.password,
+      cantidadEstudiantes: this.form.value.cantidadEstudiantes,
+      inicioCurso: this.form.value.inicioCurso,
+      finCurso: this.form.value.finCurso,
+      progreso: this.curso.progreso,
+      idEstado: idEstado,
+      idProfesor: idProfesor,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual,
+      fechaCreacion: this.curso.fechaCreacion,
+      usuarioCreador: this.curso.usuarioCreador}
     this.cursoService.actualizarCurso(curso).subscribe(data=>{
       Swal.fire({
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/cursos/listar-cursos']);
     }, (e) => {
@@ -163,7 +189,7 @@ export class CrearModificarCursoComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

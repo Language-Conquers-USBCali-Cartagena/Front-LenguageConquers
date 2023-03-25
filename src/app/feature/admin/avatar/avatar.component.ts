@@ -6,11 +6,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AvatarService } from 'src/app/shared/services/avatar/avatar.service';
 import Swal from 'sweetalert2';
 import { Avatar } from '../../../shared/models/avatar';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-avatar',
   templateUrl: './avatar.component.html',
-  styleUrls: ['./avatar.component.css']
+  styleUrls: ['./avatar.component.css'],
+  providers: [DatePipe]
 })
 export class AvatarComponent implements OnInit {
 
@@ -22,7 +24,7 @@ export class AvatarComponent implements OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  constructor(private avatarService: AvatarService, private routerAct: ActivatedRoute, private router: Router) {
+  constructor(private avatarService: AvatarService, private routerAct: ActivatedRoute, private router: Router,  private datePipe: DatePipe) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
    }
 
@@ -78,6 +80,14 @@ export class AvatarComponent implements OnInit {
 
   actualizarAvatar(idAvatar:number){
     this.router.navigate(['/admin/avatar/editarAvatar/',idAvatar]);
+  }
+
+  formatDate(dateString: string | null | undefined): string {
+    if (!dateString) {
+      return '';
+    }
+    const date = new Date(dateString);
+    return this.datePipe.transform(date, 'dd-MM-yyyy')!;
   }
 
 }

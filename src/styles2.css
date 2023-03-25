@@ -457,8 +457,8 @@ input.mat-input-element {
 .mat-tooltip {
 
   font-family: 'Mouse Memoirs';
-  font-size: 10px;
-  padding-top: 6px;
+  font-size: 18px;
+  padding-top: 10px;
   padding-bottom: 6px;
 }
 .mat-tooltip-handset {

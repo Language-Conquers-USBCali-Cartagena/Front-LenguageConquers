@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,7 +11,8 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-profesor',
   templateUrl: './profesor.component.html',
-  styleUrls: ['./profesor.component.css']
+  styleUrls: ['./profesor.component.css'],
+  providers: [DatePipe]
 })
 export class ProfesorComponent implements OnInit {
 
@@ -23,7 +25,7 @@ export class ProfesorComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private profesorService: ProfesorService,private routerAct: ActivatedRoute,private router: Router ) {
+  constructor(private profesorService: ProfesorService,private routerAct: ActivatedRoute,private router: Router,  private datePipe: DatePipe ) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
    }
 
@@ -79,6 +81,14 @@ export class ProfesorComponent implements OnInit {
 
   actualizarProfesor(idProfesor:number){
     this.router.navigate(['/admin/profesor/actualizarProfesor/', idProfesor]);
+  }
+
+  formatDate(dateString: string | null | undefined): string {
+    if (!dateString) {
+      return '';
+    }
+    const date = new Date(dateString);
+    return this.datePipe.transform(date, 'dd-MM-yyyy')!;
   }
 
 }

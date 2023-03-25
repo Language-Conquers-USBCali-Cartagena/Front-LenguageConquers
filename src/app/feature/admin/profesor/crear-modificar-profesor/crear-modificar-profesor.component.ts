@@ -23,6 +23,8 @@ export class CrearModificarProfesorComponent implements OnInit {
   hayErrores = false;
   mensajeError: string = "";
   imagenUrl: string = "";
+  actualizarFoto: string = 'no';
+  nombreGenero: string| undefined ;
 
   constructor(private storage: Storage, private fb: FormBuilder, private generoService: GeneroService, private router: Router, private activatedRoute: ActivatedRoute, private profesorService: ProfesorService) {
     this.crearDocente();
@@ -51,25 +53,34 @@ export class CrearModificarProfesorComponent implements OnInit {
   getGenero() {
     this.generoService.getGenero().subscribe(resp => this.generos = resp);
   }
+  setGenero(idGenero: number) {
+    this.generoService.consultarPorId(idGenero!).subscribe(data => {
+      this.nombreGenero = data.genero;
+    });
+  }
 
   guardarProfesor() {
-    const correo = this.form.value.correo;
-    const nombre = this.form.value.nombre;
-    const apellido = this.form.value.apellido;
-    const foto = this.imagenUrl;
-    const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     const genero = this.form.value.idGenero;
-    let profesor: Profesor = { nombre: nombre, apellido: apellido, correo: correo, foto: foto, usuarioCreador: usuarioCreador, fechaCreacion: fechaActual, idGenero: genero.idGenero }
+    const generoSeleccionado = this.generos.find(e => e.idGenero == genero);
+    const idGenero = Number(generoSeleccionado?.idGenero ?? "");
+    let profesor: Profesor = {
+      nombre: this.form.value.nombre,
+      apellido: this.form.value.apellido,
+      correo: this.form.value.correo,
+      foto: this.imagenUrl,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual,
+      idGenero: idGenero }
     this.profesorService.crearProfesor(profesor).subscribe(data => {
       if (data) {
         Swal.fire({
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/profesor/listar-profesores']);
       }
@@ -80,7 +91,7 @@ export class CrearModificarProfesorComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }
@@ -134,26 +145,32 @@ export class CrearModificarProfesorComponent implements OnInit {
   }
 
   actualizar() {
-    const correo = this.form.value.correo;
-    const nombre = this.form.value.nombre;
-    const apellido = this.form.value.apellido;
-    const foto = this.imagenUrl;
-    const usuarioModificador = this.form.value.usuarioModificador;
+    const fotoNueva = this.imagenUrl;
     const genero = this.form.value.idGenero;
+    const generoSeleccionado = this.generos.find(e => e.idGenero == genero);
+    const idGenero = Number(generoSeleccionado?.idGenero ?? "");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
+    const fotoVieja = this.profesor.foto;
     let profesor: Profesor = {
-      idProfesor: this.form.value.idProfesor, nombre: nombre, apellido: apellido,
-      correo: correo, foto: foto, usuarioModificador: usuarioModificador, fechaModificacion: fechaActual, idGenero: genero.idGenero,
-      usuarioCreador: this.profesor.usuarioCreador, fechaCreacion: this.profesor.fechaCreacion
+      idProfesor: this.form.value.idProfesor,
+      nombre: this.form.value.nombre,
+      apellido: this.form.value.apellido,
+      correo: this.form.value.correo,
+      foto: fotoNueva ? fotoNueva : fotoVieja,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual,
+      idGenero: idGenero,
+      usuarioCreador: this.profesor.usuarioCreador,
+      fechaCreacion: this.profesor.fechaCreacion
     }
     this.profesorService.actualizarProfesor(profesor).subscribe(data => {
       Swal.fire({
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigateByUrl('/admin/profesor/listar-profesores');
     }, (e) => {
@@ -163,10 +180,12 @@ export class CrearModificarProfesorComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
+
   }
+
 
   atras() {
     this.router.navigateByUrl('/admin/profesor/listar-profesores');

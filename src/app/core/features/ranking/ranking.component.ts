@@ -20,7 +20,7 @@ export class RankingComponent implements OnInit {
   primerEstudiante!: Estudiante ;
   segundoEstudiante!: Estudiante;
   tercerEstudiante!: Estudiante;
-  displayedColumns: string[] = ['Avatar', 'NickName', 'Nombre','Apellido','Puntaje', 'MonedasAdquiridas'];
+  displayedColumns: string[] = ['Posicion','Avatar', 'NickName', 'Nombre','Apellido','Puntaje', 'MonedasAdquiridas'];
   dataSource =  new MatTableDataSource<Estudiante>(this.listaEstudiantes);
   usuarioResp!: Estudiante;
   imgAvatar!: string;
@@ -38,7 +38,13 @@ export class RankingComponent implements OnInit {
   ranking(){
     this.estudianteService.rankingEstudiantes().subscribe(data =>{
       data.sort((a,b) => b.puntaje! - a.puntaje!);
-      this.listaEstudiantes = data;
+      const listaConPosiciones = data.map((estudiante, index) => {
+        return {
+          posicion: index + 1,
+          ...estudiante
+        };
+      });
+      this.listaEstudiantes = listaConPosiciones;
       this.primerEstudiante = this.listaEstudiantes[0];
     this.segundoEstudiante = this.listaEstudiantes[1];
     this.tercerEstudiante = this.listaEstudiantes[2];

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Articulo } from 'src/app/shared/models/articulos';
 import { Categorias } from 'src/app/shared/models/categoria';
@@ -8,9 +8,7 @@ import { CategoriaService } from 'src/app/shared/services/categoria/categoria.se
 import { EstadoService } from 'src/app/shared/services/estado/estado.service';
 import Swal from 'sweetalert2';
 import { ArticuloService } from '../../../../shared/services/articulo/articulo.service';
-import { ref, uploadBytesResumable, Storage, getDownloadURL, list, uploadBytes } from '@angular/fire/storage';
-import { MatCheckboxChange } from '@angular/material/checkbox';
-import { MatRadioChange } from '@angular/material/radio';
+import { ref, Storage, getDownloadURL,  uploadBytes } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-crear-modificar-articulos',
@@ -26,10 +24,12 @@ export class CrearModificarArticulosComponent implements OnInit {
   hayErrores: boolean = false;
   mensajeError: any;
   imagenUrl: string = "";
-
+  actualizarFoto: string = 'no';
   isFile: boolean = false;
   isURL: boolean = false;
   porcentajeSubida!:number;
+  nombreCategoria: string | undefined;
+  nombreEstado: string | undefined;
 
 
   constructor(private storage: Storage, private fb: FormBuilder, private categoriaService: CategoriaService, private estadoService: EstadoService,private router:Router,  private activatedRoute: ActivatedRoute, private articuloService: ArticuloService) {
@@ -62,30 +62,48 @@ export class CrearModificarArticulosComponent implements OnInit {
   getEstado(){
     this.estadoService.getEstados().subscribe(resp => this.estados = resp)
   }
+
+  setEstado(idEstado: number){
+    this.estadoService.consultarPorId(idEstado).subscribe(data =>{
+      this.nombreEstado = data.estado;
+    })
+  }
   getCategoria(){
     this.categoriaService.getCategoria().subscribe(resp => this.categorias = resp)
   }
+
+  setCategoria(idCategoria: number){
+    this.categoriaService.consultarPorId(idCategoria).subscribe(data =>{
+      this.nombreCategoria = data.nombre;
+    });
+  }
   guardarArticulo(){
-    const nombre = this.form.value.nombre;
-    const descripcion = this.form.value.descripcion;
-    const precio = this.form.value.precio;
-    const nivelValido = this.form.value.nivelValido;
-    const imagen = this.imagenUrl;
     const estado= this.form.value.idEstado;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
     const categoria = this.form.value.idCategoria;
-    const usuarioCreador = this.form.value.usuarioCreador;
+    const categoriaSeleccionada = this.categorias.find(e =>e.idCategoria == categoria);
+    const idCategoria = Number(categoriaSeleccionada?.idCategoria ?? "");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let articulo: Articulo = {nombre: nombre, descripcion: descripcion, precio: precio,  nivelValido: nivelValido, imagen: imagen, idEstado: estado.idEstado, idCategoria: categoria.idCategoria, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: fechaActual}
+    const fechaActual = moment().tz(pais).utcOffset('-05:00').format('YYYY-MM-DD');
+    let articulo: Articulo = {
+      nombre: this.form.value.nombre,
+      descripcion: this.form.value.descripcion,
+      precio: this.form.value.precio,
+      nivelValido: this.form.value.nivelValido,
+      imagen: this.imagenUrl,
+      idEstado: idEstado,
+      idCategoria: idCategoria,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual}
     this.articuloService.crearArticulo(articulo).subscribe(data => {
       if(data){
         Swal.fire({
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/articulos/listar-articulos']);
       }
@@ -95,7 +113,7 @@ export class CrearModificarArticulosComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
 
@@ -151,25 +169,36 @@ export class CrearModificarArticulosComponent implements OnInit {
   }
 
   actualizar():void{
-    const nombre = this.form.value.nombre;
-    const descripcion = this.form.value.descripcion;
-    const precio = this.form.value.precio;
-    const nivelValido = this.form.value.nivelValido;
-    const imagenArticulo = this.imagenUrl;
+    const imagenArticuloNueva = this.imagenUrl;
     const estado = this.form.value.idEstado;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
     const categoria = this.form.value.idCategoria;
-    const usuarioModificador = this.form.value.usuarioModificador;
+    const categoriaSeleccionada = this.categorias.find(e =>e.idCategoria == categoria);
+    const idCategoria = Number(categoriaSeleccionada?.idCategoria ?? "");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let articulo: Articulo = {idArticulo:this.form.value.idArticulo,nombre: nombre, descripcion: descripcion, precio: precio, nivelValido: nivelValido, imagen: imagenArticulo, idEstado: estado.idEstado, idCategoria: categoria.idCategoria, usuarioModificador: usuarioModificador,
-                                 fechaModificacion: fechaActual, usuarioCreador: this.articulo.usuarioCreador, fechaCreacion: this.articulo.fechaCreacion}
+    const imagenVieja = this.articulo.imagen;
+    let articulo: Articulo = {
+      idArticulo:this.form.value.idArticulo,
+      nombre: this.form.value.nombre,
+      descripcion: this.form.value.descripcion,
+      precio: this.form.value.precio,
+      nivelValido: this.form.value.nivelValido,
+      imagen: imagenArticuloNueva ? imagenArticuloNueva: imagenVieja,
+      idEstado: idEstado,
+      idCategoria: idCategoria,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual,
+      usuarioCreador: this.articulo.usuarioCreador,
+      fechaCreacion: this.articulo.fechaCreacion}
     this.articuloService.actualizarArticulo(articulo).subscribe(data=>{
       Swal.fire({
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/articulos/listar-articulos']);
     },(e) =>{
@@ -180,7 +209,7 @@ export class CrearModificarArticulosComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

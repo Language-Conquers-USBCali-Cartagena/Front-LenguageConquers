@@ -37,7 +37,27 @@
                     <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
                   </mat-form-field>
                 </div>
+                <div class="campo-entrada">
+                  <mat-label class="titulos">Desea Actualizar su Foto</mat-label>
+                  <br>
+                  <mat-radio-group   [(ngModel)]="actualizarFoto" [ngModelOptions]="{standalone: true}">
+                    <mat-radio-button value="si">SI</mat-radio-button>
+                    <mat-radio-button value="no">NO</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <br>
+                <ng-template #seleccionarFoto>
+                  <div  class="campo-entrada">
+                    <mat-label class="tituloImagen1"> Seleccionar Foto </mat-label>
+                    <br><br>
+                    <input class="inputFile" type="file" #fileInput (change)="uploadImage($event)" id="Foto">
+                    <label for="Foto" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
+                    <br>
+                  </div>
+                </ng-template>
+                <ng-container *ngTemplateOutlet="actualizarFoto === 'si' ? seleccionarFoto : null"></ng-container>
               </ng-template>
+            <div *ngIf="!logro">
               <div class="campo-entrada">
                 <mat-label class="tituloImagen1"> Seleccionar Imagen de Avatar </mat-label>
                 <br><br>
@@ -46,6 +66,7 @@
                 <label for="imagenLogro" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
                 <br>
               </div>
+            </div>
                     <div class="boton">
                         <button mat-raised-button class="botones" (click)="atras()">Atrás</button>
                         <button mat-raised-button class="botones" (click)="guardarLogro()" *ngIf="!logro else botonEditar">Crear Logro</button>

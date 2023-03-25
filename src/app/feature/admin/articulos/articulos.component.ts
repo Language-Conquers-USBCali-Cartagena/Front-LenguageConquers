@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,7 +11,8 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-articulos',
   templateUrl: './articulos.component.html',
-  styleUrls: ['./articulos.component.css']
+  styleUrls: ['./articulos.component.css'],
+  providers: [DatePipe]
 })
 export class ArticulosComponent implements OnInit {
 
@@ -22,7 +24,7 @@ export class ArticulosComponent implements OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  constructor(private articulosService: ArticuloService, private routerAct: ActivatedRoute, private router: Router) {
+  constructor(private articulosService: ArticuloService, private routerAct: ActivatedRoute, private router: Router,  private datePipe: DatePipe) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
    }
 
@@ -58,7 +60,7 @@ export class ArticulosComponent implements OnInit {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 4000,
         timerProgressBar: true,
         didOpen: (toast) => {
           toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -75,6 +77,14 @@ export class ArticulosComponent implements OnInit {
 
   actualizarArticulo(idArticulo:number){
     this.router.navigate(['/admin/articulos/editarArticulo/',idArticulo]);
+  }
+
+  formatDate(dateString: string | null | undefined): string {
+    if (!dateString) {
+      return '';
+    }
+    const date = new Date(dateString);
+    return this.datePipe.transform(date, 'dd-MM-yyyy')!;
   }
 
 }

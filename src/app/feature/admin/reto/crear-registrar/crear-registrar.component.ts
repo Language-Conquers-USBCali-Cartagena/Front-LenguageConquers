@@ -12,6 +12,8 @@ import { MisionService } from 'src/app/shared/services/mision/mision.service';
 import { MonedasService } from 'src/app/shared/services/monedas/monedas.service';
 import Swal from 'sweetalert2';
 import { RetoService } from '../../../../shared/services/reto/reto.service';
+import { getDownloadURL, ref, Storage, uploadBytes } from '@angular/fire/storage';
+
 
 @Component({
   selector: 'app-crear-registrar',
@@ -27,8 +29,15 @@ export class CrearRegistrarComponent implements OnInit {
   estados:Estado[] = [];
   hayErrores = false;
   mensajeError: string="";
+  imagenUrl1: string = "";
+  imagenUrl2: string = "";
+  subirImagen1: string = 'no';
+  subirImagen2: string = 'no';
+  nombreMision: string | undefined;
+  nombreEstado: string | undefined;
+  nombreCurso: string | undefined;
 
-  constructor(private fb: FormBuilder, private misionService: MisionService , private cursoService: CursoService,private estadoService: EstadoService,private router:Router, private activatedRoute: ActivatedRoute, private retoService: RetoService) {
+  constructor(private fb: FormBuilder, private misionService: MisionService , private cursoService: CursoService,private estadoService: EstadoService,private router:Router, private activatedRoute: ActivatedRoute, private retoService: RetoService, private storage: Storage) {
     this.crearReto();
    }
 
@@ -47,13 +56,13 @@ export class CrearRegistrarComponent implements OnInit {
       fechaCreacion: ['', Validators.required],
       usuarioModificador: ['', Validators.required],
       fechaModificacion: ['', Validators.required],
-      monedas:['', Validators.required],
-      solucion:[''],
+      moneda:['', Validators.required],
+      solucion:[],
       descripcionTeoria: ['', Validators.required],
-      imgTema1:[''],
-      imgeTema2:[''],
-      urlVideo1:[''],
-      urlVideo2:['']
+      imagen1:[],
+      imagen2:[],
+      urlVideo1:[],
+      urlVideo2:[]
     });
    }
 
@@ -68,41 +77,113 @@ export class CrearRegistrarComponent implements OnInit {
     this.misionService.getMision().subscribe(resp => this.misiones = resp);
   }
 
+  setMision(idMision: number){
+    this.misionService.consultarPorId(idMision).subscribe(data => {
+      this.nombreMision = data.nombre;
+    })
+  }
+
   getCurso(){
     this.cursoService.getCurso().subscribe(resp => this.cursos = resp);
   }
+
+  setCurso(idCursor: number){
+    this.cursoService.consultarPorId(idCursor).subscribe(data =>{
+      this.nombreCurso = data.nombre;
+    })
+  }
+
 
   getEstado(){
     this.estadoService.getEstados().subscribe(resp => this.estados = resp);
   }
 
+  setEstado(idEstado: number){
+    this.estadoService.consultarPorId(idEstado).subscribe(data =>{
+      this.nombreEstado = data.estado;
+    })
+  }
+
+  uploadImage($event: any) {
+    const file = $event.target.files[0];
+    const imagenReferencia = ref(this.storage, `retoArchivos${file.name}`);
+    uploadBytes(imagenReferencia, file, { contentType: 'image/png' }).then(
+      response => {
+        getDownloadURL(imagenReferencia).then(downloadURL => {
+          this.imagenUrl1 = downloadURL;
+        });
+      }).catch(error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error
+        });
+      });
+  }
+ /* uploadImage2($event: any) {
+    const file = $event.target.files[0];
+    const imagenReferencia = ref(this.storage, `retoArchivos${file.name}`);
+    uploadBytes(imagenReferencia, file, { contentType: 'image/png' }).then(
+      response => {
+        getDownloadURL(imagenReferencia).then(downloadURL => {
+          this.imagenUrl2 = downloadURL;
+        });
+      }).catch(error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error
+        });
+      });
+  } */
+
+
   guardarReto(){
     this.hayErrores = false;
-    const nombre = this.form.value.nombreReto;
-    const descripcion = this.form.value.descripcion;
-    const intentos = this.form.value.maximoIntentos;
-    const fechaInicio: Date  = this.form.value.fechaInicio;
-    const fechaLimite: Date  = this.form.value.fechaLimite;
     const mision = this.form.value.idMision;
+    const misionSeleccionado = this.misiones.find(e => e.idMision === mision);
+    const idMision = Number(misionSeleccionado?.idMision ??"");
     const estado= this.form.value.idEstado;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado === estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ??"");
     const curso = this.form.value.idCurso;
-    const usuarioCreador = this.form.value.usuarioCreador;
+    const cursoSeleccionado = this.cursos.find(e => e.idCurso === curso);
+    const idCurso = Number(cursoSeleccionado?.idCurso ??"");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let reto: Reto = {nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite,idMision: mision.idMision, idEstado: estado.idEstado, idCurso: curso.idCurso, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: fechaActual, esGrupal: false, cantidadEstudiantes: 0}
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD HH:mm:ss');
+    let reto: Reto = {
+      nombreReto: this.form.value.nombreReto,
+      descripcion: this.form.value.descripcion,
+      maximoIntentos: this.form.value.maximoIntentos,
+      fechaInicio: this.form.value.fechaInicio,
+      fechaLimite: this.form.value.fechaLimite,
+      idMision: idMision,
+      idEstado: idEstado,
+      idCurso: idCurso,
+      moneda: this.form.value.moneda,
+      descripcionTeoria:this.form.value.descripcionTeoria,
+      solucion: this.form.value.solucion,
+      imagen1: this.imagenUrl1 ? this.imagenUrl1: null!,
+      imagen2: this.imagenUrl2 ? this.imagenUrl2: null!,
+      urlVideo1: this.form.value.urlVideo1,
+      urlVideo2: this.form.value.urlVideo2,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual,
+      esGrupal: false,
+      cantidadEstudiantes: 0}
+      console.log(reto)
     this.retoService.crearReto(reto).subscribe(data => {
+      console.log(data)
       if(data){
         Swal.fire({
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/reto/listar-retos']);
-      }
-    }, (e) => {
+      }}, (e) => {
       this.hayErrores = true;
       this.mensajeError = e.error;
       console.log(e['error']);
@@ -110,20 +191,27 @@ export class CrearRegistrarComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
 
   }
 
   setReto(reto: Reto) {
-    this.form.setValue({
+    this.form.patchValue({
       idReto: reto.idReto,
       nombreReto: reto.nombreReto,
       descripcion: reto.descripcion,
       maximoIntentos: reto.maximoIntentos,
       fechaInicio: reto.fechaInicio,
       fechaLimite: reto.fechaLimite,
+      moneda: reto.moneda,
+      descripcionTeoria: reto.descripcionTeoria,
+      solucion:reto.solucion,
+      imagen1: reto.imagen1,
+      imagen2: reto.imagen2,
+      urlVideo1: reto.urlVideo1,
+      urlVideo2: reto.urlVideo2,
       idMision: reto.idMision,
       idEstado: reto.idEstado,
       idCurso: reto.idCurso,
@@ -150,26 +238,51 @@ export class CrearRegistrarComponent implements OnInit {
 
 
   actualizar():void{
-    const nombre = this.form.value.nombreReto;
-    const descripcion = this.form.value.descripcion;
-    const intentos = this.form.value.maximoIntentos;
-    const fechaInicio: Date  = this.form.value.fechaInicio;
-    const fechaLimite: Date  = this.form.value.fechaLimite;
+    const img1Nueva = this.imagenUrl1;
+    const img2Nueva = this.imagenUrl2;
+    const img1Vieja = this.reto.imagen1;
+    const img2Vieja = this.reto.imagen2;
     const mision = this.form.value.idMision;
+    const misionSeleccionado = this.misiones.find(e => e.idMision === mision);
+    const idMision = Number(misionSeleccionado?.idMision ??"");
     const estado= this.form.value.idEstado;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado === estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ??"");
     const curso = this.form.value.idCurso;
-    const usuarioModificador = this.form.value.usuarioModificador;
+    const cursoSeleccionado = this.cursos.find(e => e.idCurso === curso);
+    const idCurso = Number(cursoSeleccionado?.idCurso ??"");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let reto: Reto = {idReto: this.form.value.idReto, nombreReto: nombre, descripcion: descripcion, maximoIntentos: intentos, fechaInicio: fechaInicio, fechaLimite: fechaLimite, idMision: mision.idMision,idEstado: estado.idEstado, idCurso: curso.idCurso, usuarioModificador: usuarioModificador,
-      fechaModificacion: fechaActual, esGrupal: false, cantidadEstudiantes: 0, fechaCreacion: this.reto.fechaCreacion, usuarioCreador: this.reto.usuarioCreador}
+    const fechaActual = moment().tz(pais).format('YYYY-MM-DD HH:mm:ss');
+    let reto: Reto = {
+      idReto: this.form.value.idReto,
+      nombreReto: this.form.value.nombreReto,
+      descripcion: this.form.value.descripcion,
+      maximoIntentos: this.form.value.maximoIntentos,
+      fechaInicio: this.form.value.fechaInicio,
+      fechaLimite: this.form.value.fechaLimite,
+      idMision: idMision,
+      idEstado: idEstado,
+      idCurso: idCurso,
+      moneda: this.form.value.moneda,
+      descripcionTeoria:this.form.value.descripcionTeoria,
+      solucion: this.form.value.solucion,
+      imagen1: img1Nueva? img1Nueva: img1Vieja,
+      imagen2: img2Nueva?img2Nueva: img2Vieja,
+      urlVideo1: this.form.value.urlVideo1,
+      urlVideo2: this.form.value.urlVideo2,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual,
+      esGrupal: false,
+      cantidadEstudiantes: 0,
+      fechaCreacion: this.reto.fechaCreacion,
+      usuarioCreador: this.reto.usuarioCreador}
     this.retoService.actualizarReto(reto).subscribe(data =>{
       Swal.fire({
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/reto/listar-retos']);
     }, (e) => {
@@ -178,7 +291,7 @@ export class CrearRegistrarComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

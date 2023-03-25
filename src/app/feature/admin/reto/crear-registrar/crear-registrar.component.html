@@ -1,124 +1,192 @@
 <mat-card class="tarjetaPrincipal">
-    <mat-card-content>
-        <mat-card-title *ngIf="!reto else editarT">Registrar Reto</mat-card-title>
-        <ng-template #editarT>
-          <mat-card-title>Actualizar Reto</mat-card-title>
+  <mat-card-content>
+    <mat-card-title *ngIf="!reto else editarT">Registrar Reto</mat-card-title>
+    <ng-template #editarT>
+      <mat-card-title>Actualizar Reto</mat-card-title>
+    </ng-template>
+    <br>
+    <form [formGroup]="form">
+      <div class="entradas">
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Nombre</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="nombreReto">
+            <mat-icon matSuffix class="boton">nombre</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Intentos</mat-label>
+            <input type="number" matInput autocomplete="off" formControlName="maximoIntentos">
+            <mat-icon matSuffix class="boton">intentos</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Monedas</mat-label>
+            <input type="number" matInput autocomplete="off" formControlName="moneda">
+            <mat-icon matSuffix class="boton">local_atm</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Misión</mat-label>
+            <mat-select formControlName="idMision">
+              <mat-option *ngFor="let mision of misiones" [value]="mision">
+                {{mision.nombre}}
+              </mat-option>
+            </mat-select>
+            <mat-icon matSuffix class="boton">mision</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Curso</mat-label>
+            <mat-select formControlName="idCurso">
+              <mat-option *ngFor="let curso of cursos" [value]="curso">
+                {{curso.nombre}}
+              </mat-option>
+            </mat-select>
+            <mat-icon matSuffix class="boton">curso</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Estado</mat-label>
+            <mat-select formControlName="idEstado">
+              <mat-option *ngFor="let estado of estados" [value]="estado">
+                {{estado.estado}}
+              </mat-option>
+            </mat-select>
+            <mat-icon matSuffix class="boton">estado</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill" class="example-form-field">
+            <mat-label class="titulos">Fecha de Inicio</mat-label>
+            <input matInput [matDatepicker]="datepicker" formControlName="fechaInicio">
+            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker>
+              <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+              </mat-datepicker-actions>
+            </mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill" class="example-form-field">
+            <mat-label class="titulos">Fecha Limite</mat-label>
+            <input matInput [matDatepicker]="datepicker1" formControlName="fechaLimite">
+            <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
+            <mat-datepicker #datepicker1>
+              <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+              </mat-datepicker-actions>
+            </mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Solución del reto</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="solucion">
+            <mat-icon matSuffix class="boton" matTooltip="Ingrese el resultado final que debe obtener el estudiante al finalizar el reto.">info</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada" *ngIf="!reto else editar">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Usuario Creador</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
+            <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
+          </mat-form-field>
+        </div>
+        <ng-template #editar>
+          <div class="campo-entrada">
+            <mat-form-field appearance="fill">
+              <mat-label class="titulos">Usuario Modificador</mat-label>
+              <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
+              <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
+            </mat-form-field>
+          </div>
         </ng-template>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Descripción del Reto</mat-label>
+            <textarea matInput type="textArea" matInput autocomplete="off" formControlName="descripcion"></textarea>
+            <mat-icon matSuffix class="boton">descripcion</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Descripción Teoría</mat-label>
+            <textarea matInput type="textArea" matInput autocomplete="off"
+              formControlName="descripcionTeoria"></textarea>
+            <mat-icon matSuffix class="boton" matTooltip="Ingrese información del tema con la que el estudiante tendrá que resolver el reto.">info</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Url Video 1</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="urlVideo1">
+            <mat-icon matSuffix class="boton">nombre</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-form-field appearance="fill">
+            <mat-label class="titulos">Url Video 2</mat-label>
+            <input type="text" matInput autocomplete="off" formControlName="urlVideo2">
+            <mat-icon matSuffix class="boton">nombre</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="campo-entrada">
+          <mat-label class="titulos">Desea Subir una Imagen para complementar el tema</mat-label>
+          <br>
+          <mat-radio-group [(ngModel)]="subirImagen1" [ngModelOptions]="{standalone: true}">
+            <mat-radio-button value="si">SI</mat-radio-button>
+            <mat-radio-button value="no">NO</mat-radio-button>
+          </mat-radio-group>
+        </div>
         <br>
-        <form [formGroup]="form">
-            <div class="entradas">
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Nombre</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="nombreReto">
-                        <mat-icon matSuffix class="boton">nombre</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Descripción</mat-label>
-                        <textarea matInput type="textArea" matInput autocomplete="off" formControlName="descripcion"></textarea>
-                        <mat-icon matSuffix class="boton">descripcion</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Intentos</mat-label>
-                        <input type="number" matInput autocomplete="off" formControlName="maximoIntentos">
-                        <mat-icon matSuffix class="boton">intentos</mat-icon>
-                      </mat-form-field>
-                </div>
-                <div class="campo-entrada">
-                  <mat-form-field appearance="fill">
-                      <mat-label class="titulos">Monedas</mat-label>
-                      <input type="number" matInput autocomplete="off" formControlName="monedas">
-                      <mat-icon matSuffix class="boton">local_atm</mat-icon>
-                    </mat-form-field>
-              </div>
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Misión</mat-label>
-                        <mat-select formControlName="idMision">
-                            <mat-option *ngFor="let mision of misiones" [value]="mision">
-                                {{mision.nombre}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-icon matSuffix class="boton">mision</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Curso</mat-label>
-                        <mat-select formControlName="idCurso" >
-                            <mat-option *ngFor="let curso of cursos" [value]="curso">
-                                {{curso.nombre}}
-                            </mat-option>
-                        </mat-select>
-                        <mat-icon matSuffix class="boton">curso</mat-icon>
-                    </mat-form-field>
-                </div>
-                <div class="campo-entrada">
-                  <mat-form-field appearance="fill">
-                      <mat-label class="titulos">Estado</mat-label>
-                      <mat-select formControlName="idEstado">
-                          <mat-option *ngFor="let estado of estados" [value]="estado">
-                              {{estado.estado}}
-                          </mat-option>
-                      </mat-select>
-                      <mat-icon matSuffix class="boton">estado</mat-icon>
-                  </mat-form-field>
-              </div>
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill" class="example-form-field">
-                        <mat-label class="titulos">Fecha de Inicio</mat-label>
-                        <input matInput [matDatepicker]="datepicker" formControlName="fechaInicio">
-                        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-                        <mat-datepicker #datepicker>
-                            <mat-datepicker-actions>
-                                <button mat-button matDatepickerCancel>Cancel</button>
-                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-                            </mat-datepicker-actions>
-                        </mat-datepicker>
-                    </mat-form-field>
-                </div>
-                <div class="campo-entrada">
-                    <mat-form-field appearance="fill" class="example-form-field">
-                        <mat-label class="titulos">Fecha Limite</mat-label>
-                        <input matInput [matDatepicker]="datepicker1" formControlName="fechaLimite">
-                        <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
-                        <mat-datepicker #datepicker1>
-                            <mat-datepicker-actions>
-                                <button mat-button matDatepickerCancel>Cancel</button>
-                                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
-                            </mat-datepicker-actions>
-                        </mat-datepicker>
-                    </mat-form-field>
-                </div>
-                <div class="campo-entrada" *ngIf="!reto else editar">
-                    <mat-form-field appearance="fill">
-                        <mat-label class="titulos">Usuario Creador</mat-label>
-                        <input type="text" matInput autocomplete="off" formControlName="usuarioCreador">
-                        <mat-icon matSuffix class="boton">usuarioCreador</mat-icon>
-                    </mat-form-field>
-                </div>
-                <ng-template #editar>
-                <div class="campo-entrada">
-                  <mat-form-field appearance="fill">
-                      <mat-label class="titulos">Usuario Modificador</mat-label>
-                      <input type="text" matInput autocomplete="off" formControlName="usuarioModificador">
-                      <mat-icon matSuffix class="boton">usuarioModificador</mat-icon>
-                  </mat-form-field>
-              </div>
-            </ng-template>
-                    <div class="boton">
-                        <button mat-raised-button class="botones" id="atras" (click)="atras()">Atrás</button>
-                        <button mat-raised-button class="botones" id="guardarReto" (click)="guardarReto()" *ngIf="!reto else botonEditar">Crear Reto</button>
-                        <ng-template #botonEditar>
-                          <button mat-raised-button type="button" id="editar" (click)="actualizar()"  class="botones">Actualizar Reto</button>
-                        </ng-template>
-                      </div>
-                </div>
+        <ng-template #seleccionarFoto>
+          <div class="campo-entrada">
+            <mat-label class="tituloImagen1"> Seleccionar Imagen </mat-label>
+            <br><br>
+            <input class="inputFile1" type="file" #fileInput (change)="uploadImage($event)" id="img1">
+            <label for="img1" class="botonSeleccionarArchivo1"> Seleccionar Imagen</label>
+            <br>
+          </div>
+        </ng-template>
+        <ng-container *ngTemplateOutlet="subirImagen1 === 'si' ? seleccionarFoto : null"></ng-container>
+        <!--  <div class="campo-entrada">
+          <mat-label class="titulos">Desea Subir otra Imagen para complementar el tema</mat-label>
+          <br>
+          <mat-radio-group [(ngModel)]="subirImagen2" [ngModelOptions]="{standalone: true}">
+            <mat-radio-button value="si">SI</mat-radio-button>
+            <mat-radio-button value="no">NO</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      <ng-template #seleccionarFoto>
+          <div class="campo-entrada">
+            <mat-label class="tituloImagen2"> Seleccionar Imagen </mat-label>
+            <br><br>
+            <input class="inputFile2" type="file" #fileInput (change)="uploadImage2($event)" id="img2">
+            <label for="img2" class="botonSeleccionarArchivo2"> Seleccionar Imagen</label>
+            <br>
+          </div>
+          <ng-container *ngTemplateOutlet="subirImagen2 === 'si' ? seleccionarFoto : null"></ng-container>
+        </ng-template>-->
+        <div class="boton">
+          <button mat-raised-button class="botones" id="atras" (click)="atras()">Atrás</button>
+          <button mat-raised-button class="botones" id="guardarReto" (click)="guardarReto()"
+            *ngIf="!reto else botonEditar">Crear Reto</button>
+          <ng-template #botonEditar>
+            <button mat-raised-button type="button" id="editar" (click)="actualizar()" class="botones">Actualizar
+              Reto</button>
+          </ng-template>
+        </div>
+      </div>
 
-        </form>
-    </mat-card-content>
+    </form>
+  </mat-card-content>
 </mat-card>

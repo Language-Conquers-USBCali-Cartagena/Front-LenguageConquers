@@ -10,11 +10,13 @@ import { MonedasService } from 'src/app/shared/services/monedas/monedas.service'
 import { RetoService } from 'src/app/shared/services/reto/reto.service';
 import Swal from 'sweetalert2';
 import { MisionService } from '../../../shared/services/mision/mision.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-misiones',
   templateUrl: './misiones.component.html',
-  styleUrls: ['./misiones.component.css']
+  styleUrls: ['./misiones.component.css'],
+  providers: [DatePipe]
 })
 export class MisionesComponent implements OnInit {
 
@@ -27,7 +29,7 @@ export class MisionesComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private retoService: RetoService, private misionService: MisionService, private cursoService: CursoService, private monedasService: MonedasService, private router: Router, private routerAct: ActivatedRoute) {
+  constructor(private retoService: RetoService, private misionService: MisionService, private cursoService: CursoService, private monedasService: MonedasService, private router: Router, private routerAct: ActivatedRoute,  private datePipe: DatePipe) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
   }
 
@@ -81,6 +83,14 @@ export class MisionesComponent implements OnInit {
 
   actualizarMision(idMision: number){
     this.router.navigate(['/admin/misiones/editarMision/', idMision]);
+  }
+
+  formatDate(dateString: string | null | undefined): string {
+    if (!dateString) {
+      return '';
+    }
+    const date = new Date(dateString);
+    return this.datePipe.transform(date, 'dd-MM-yyyy')!;
   }
 
 }

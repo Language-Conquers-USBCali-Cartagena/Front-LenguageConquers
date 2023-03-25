@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,12 +11,13 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-reto',
   templateUrl: './reto.component.html',
-  styleUrls: ['./reto.component.css']
+  styleUrls: ['./reto.component.css'],
+  providers: [DatePipe]
 })
 export class RetoComponent implements OnInit {
 
   listaRetos: Reto[] = [];
-  displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'intentos', 'fechaInicio', 'fechaLimite', 'idMision', 'idEstado', 'idCurso','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
+  displayedColumns: string[] = ['id', 'nombre', 'descripcion', 'intentos', 'fechaInicio', 'fechaLimite', 'solucion','monedas','idMision', 'idEstado', 'idCurso','usuarioCreador', 'fechaCreacion', 'usuarioModificador', 'fechaModificacion', 'Acciones'];
   dataSource = new MatTableDataSource<Reto>(this.listaRetos);
   id: string | null |undefined;
   @ViewChild(MatPaginator)
@@ -23,7 +25,7 @@ export class RetoComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private retoService: RetoService,private routerAct: ActivatedRoute, private router: Router ) {
+  constructor(private retoService: RetoService,private routerAct: ActivatedRoute, private router: Router, private datePipe: DatePipe ) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
   }
 
@@ -77,6 +79,14 @@ export class RetoComponent implements OnInit {
 
   actualizarReto(idReto:number){
     this.router.navigate(['/admin/reto/editarReto/',idReto]);
+  }
+
+  formatDate(dateString: string | null | undefined): string {
+    if (!dateString) {
+      return '';
+    }
+    const date = new Date(dateString);
+    return this.datePipe.transform(date, 'dd-MM-yyyy')!;
   }
 
 

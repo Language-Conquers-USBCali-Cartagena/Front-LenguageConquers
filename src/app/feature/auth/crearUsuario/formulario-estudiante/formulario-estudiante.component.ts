@@ -85,7 +85,7 @@ export class FormularioEstudianteComponent implements OnInit {
         icon: 'success',
         title: resp,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigateByUrl('/estudiante/menu');
     }, err =>{

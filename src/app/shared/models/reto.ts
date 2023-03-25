@@ -17,8 +17,8 @@ export interface Reto{
     moneda?:number;
     solucion?:string;
     descripcionTeoria?: string;
-    imgTema1?: string;
-    imgTema2?: string;
+    imagen1?: string;
+    imagen2?: string;
     urlVideo1?:string;
     urlVideo2?:string;
     nombreEstado?: string;

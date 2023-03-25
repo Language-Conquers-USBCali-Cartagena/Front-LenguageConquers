@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -10,7 +11,8 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-logros',
   templateUrl: './logros.component.html',
-  styleUrls: ['./logros.component.css']
+  styleUrls: ['./logros.component.css'],
+  providers: [DatePipe]
 })
 export class LogrosComponent implements OnInit {
 
@@ -23,7 +25,7 @@ export class LogrosComponent implements OnInit {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
-  constructor(private logrosService: LogrosService, private routerAct: ActivatedRoute, private router: Router ) {
+  constructor(private logrosService: LogrosService, private routerAct: ActivatedRoute, private router: Router, private datePipe: DatePipe ) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
    }
 
@@ -78,6 +80,13 @@ export class LogrosComponent implements OnInit {
 
   actualizarLogro(idLogro: number){
     this.router.navigate(['/admin/logros/editarLogro/', idLogro]);
+  }
+  formatDate(dateString: string | null | undefined): string {
+    if (!dateString) {
+      return '';
+    }
+    const date = new Date(dateString);
+    return this.datePipe.transform(date, 'dd-MM-yyyy')!;
   }
 
 

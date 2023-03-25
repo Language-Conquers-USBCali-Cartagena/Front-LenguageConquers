@@ -19,6 +19,8 @@ export class CrearModificarCategoriaComponent implements OnInit {
   categoria!: Categorias;
   hayErrores = false;
   mensajeError: string="";
+  nombreEstado: string | undefined;
+
 
 
   constructor(private fb: FormBuilder,private estadoService: EstadoService,private router:Router, private categoriaService: CategoriaService, private activatedRoute: ActivatedRoute) {
@@ -45,25 +47,33 @@ export class CrearModificarCategoriaComponent implements OnInit {
   getEstado(){
     this.estadoService.getEstados().subscribe(resp => this.estados = resp)
   }
+  setEstado(idEstado: number){
+    this.estadoService.consultarPorId(idEstado).subscribe(data =>{
+      this.nombreEstado = data.estado;
+    })
+  }
 
   guardarCategoria(){
     this.hayErrores = false;
-    const nombre = this.form.value.nombre;
-    const descripcion = this.form.value.descripcion;
     const estado= this.form.value.idEstado;
-    const usuarioCreador = this.form.value.usuarioCreador;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado === estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ??"");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let categoria: Categorias = {nombre: nombre, descripcion: descripcion, idEstado: estado.idEstado, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: fechaActual}
+    let categoria: Categorias = {
+      nombre: this.form.value.nombre,
+      descripcion: this.form.value.descripcion,
+      idEstado: idEstado,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual}
     this.categoriaService.crearCategoria(categoria).subscribe(data =>{
       if(data){
         Swal.fire({
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/categoria-articulos/listar']);
       }
@@ -74,7 +84,7 @@ export class CrearModificarCategoriaComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }
@@ -107,21 +117,27 @@ export class CrearModificarCategoriaComponent implements OnInit {
   }
 
   actualizar(): void{
-    const nombre = this.form.value.nombre;
-    const descripcion = this.form.value.descripcion;
     const estado= this.form.value.idEstado;
-    const usuarioModificador = this.form.value.usuarioCreador;
+    const estadoSeleccionado = this.estados.find(e => e.idEstado === estado);
+    const idEstado = Number(estadoSeleccionado?.idEstado ??"");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let categoria: Categorias = {idCategoria: this.categoria.idCategoria,nombre: nombre, descripcion: descripcion, idEstado: estado.idEstado, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: fechaActual, fechaCreacion: this.categoria.fechaCreacion, usuarioCreador: this.categoria.usuarioCreador}
+    let categoria: Categorias = {
+      idCategoria: this.categoria.idCategoria,
+      nombre: this.form.value.nombre,
+      descripcion: this.form.value.descripcion,
+      idEstado: idEstado,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual,
+      fechaCreacion: this.categoria.fechaCreacion,
+      usuarioCreador: this.categoria.usuarioCreador}
     this.categoriaService.actualizarCategorias(categoria).subscribe(data=>{
       Swal.fire({
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/categoria-articulos/listar']);
     }, (e) => {
@@ -131,7 +147,7 @@ export class CrearModificarCategoriaComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       })
     });
   }

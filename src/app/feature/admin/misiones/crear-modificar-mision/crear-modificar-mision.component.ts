@@ -27,6 +27,8 @@ export class CrearModificarMisionComponent implements OnInit {
   hayErrores = false;
   mensajeError: string="";
   imagenUrl: string = "";
+  actualizarFoto: string = 'no';
+  nombreCurso: string |undefined;
 
 
 
@@ -57,25 +59,34 @@ export class CrearModificarMisionComponent implements OnInit {
     this.cursoService.getCurso().subscribe(resp => this.cursos = resp)
   }
 
+  setCurso(idCursor: number){
+    this.cursoService.consultarPorId(idCursor).subscribe(data =>{
+      this.nombreCurso = data.nombre;
+    })
+  }
+
 
   guardarMision(){
     this.hayErrores = false;
-    const nombre = this.form.value.nombre;
-    const imagenMision = this.imagenUrl;
     const curso = this.form.value.idCurso;
-    const usuarioCreador = this.form.value.usuarioCreador;
+    const cursoSeleccionado = this.cursos.find(e => e.idCurso === curso);
+    const idCurso = Number(cursoSeleccionado?.idCurso ??"");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let mision: Mision = {nombre: nombre, imagen: imagenMision, idCurso:curso.idCurso, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: fechaActual}
+    let mision: Mision = {
+      nombre: this.form.value.nombre,
+      imagen: this.imagenUrl,
+      idCurso:idCurso,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual}
     this.misionService.crearMision(mision).subscribe(data =>{
       if(data){
         Swal.fire({
           icon: 'success',
           title: data,
           showConfirmButton: false,
-          timer: 1500
+          timer: 2000
         });
         this.router.navigate(['/admin/misiones/listar-misiones']);
       }
@@ -86,7 +97,7 @@ export class CrearModificarMisionComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
 
@@ -138,21 +149,29 @@ export class CrearModificarMisionComponent implements OnInit {
   }
 
   actualizar():void{
-    const nombre = this.form.value.nombre;
-    const imagenMision = this.imagenUrl;
+    const imagenMisionNueva = this.imagenUrl;
     const curso = this.form.value.idCurso;
-    const usuarioModificador = this.form.value.usuarioModificador;
+    const cursoSeleccionado = this.cursos.find(e => e.idCurso === curso);
+    const idCurso = Number(cursoSeleccionado?.idCurso ??"");
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let mision: Mision = {idMision: this.form.value.idMision, nombre: nombre, imagen: imagenMision,  idCurso:curso.idCurso, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: fechaActual, fechaCreacion: this.mision.fechaCreacion, usuarioCreador: this.mision.usuarioCreador}
+    const imagenVieja = this.mision.imagen;
+    let mision: Mision = {
+      idMision: this.form.value.idMision,
+      nombre: this.form.value.nombre,
+      imagen: imagenMisionNueva ? imagenMisionNueva: imagenVieja,
+      idCurso:idCurso,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual,
+      fechaCreacion: this.mision.fechaCreacion,
+      usuarioCreador: this.mision.usuarioCreador}
     this.misionService.actualizarMision(mision).subscribe(data=>{
       Swal.fire({
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/misiones/listar-misiones']);
     }, (e) => {
@@ -163,7 +182,7 @@ export class CrearModificarMisionComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }

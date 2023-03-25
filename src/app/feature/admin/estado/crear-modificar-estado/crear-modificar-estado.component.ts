@@ -39,20 +39,20 @@ export class CrearModificarEstadoComponent implements OnInit {
   }
 
   guardarEstado(){
-    const nombreEstado = this.form.value.nombreEstado;
-    const usuarioCreador = this.form.value.usuarioCreador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let estado: Estado = {estado: nombreEstado, usuarioCreador: usuarioCreador,
-                                  fechaCreacion: fechaActual}
+    let estado: Estado = {
+      estado: this.form.value.nombreEstado,
+      usuarioCreador: this.form.value.usuarioCreador,
+      fechaCreacion: fechaActual}
       this.estadoService.crearEstado(estado).subscribe(data => {
         if(data){
           Swal.fire({
             icon: 'success',
             title: data,
             showConfirmButton: false,
-            timer: 1500
+            timer: 2000
           });
           this.router.navigate(['/admin/estado/listar-estados']);
         }
@@ -63,7 +63,7 @@ export class CrearModificarEstadoComponent implements OnInit {
           icon: 'error',
           title: e['error'],
           showConfirmButton: false,
-          timer: 1500
+          showCloseButton: true,
         });
       });
   }
@@ -93,19 +93,22 @@ export class CrearModificarEstadoComponent implements OnInit {
     )
   }
   actualizar():void{
-    const nombreEstado = this.form.value.nombreEstado;
-    const usuarioModificador = this.form.value.usuarioModificador;
     const moment = require('moment-timezone');
     const pais = 'America/Bogota';
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let estado: Estado = {idEstado: this.form.value.idEstado, estado: nombreEstado, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: fechaActual,fechaCreacion: this.estado.fechaCreacion, usuarioCreador: this.estado.usuarioCreador}
+    let estado: Estado = {
+      idEstado: this.form.value.idEstado,
+      estado: this.form.value.nombreEstado,
+      usuarioModificador: this.form.value.usuarioModificador,
+      fechaModificacion: fechaActual,
+      fechaCreacion: this.estado.fechaCreacion,
+      usuarioCreador: this.estado.usuarioCreador}
     this.estadoService.actualizarEstado(estado).subscribe(data=>{
       Swal.fire({
         icon: 'success',
         title: data,
         showConfirmButton: false,
-        timer: 1500
+        timer: 2000
       });
       this.router.navigate(['/admin/estado/listar-estados']);
     }, (e) => {
@@ -115,7 +118,7 @@ export class CrearModificarEstadoComponent implements OnInit {
         icon: 'error',
         title: e['error'],
         showConfirmButton: false,
-        timer: 1500
+        showCloseButton: true,
       });
     });
   }
