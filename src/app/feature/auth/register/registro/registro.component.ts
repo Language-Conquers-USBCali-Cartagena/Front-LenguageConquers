@@ -182,6 +182,7 @@ export class RegistroComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         if (result.value) {
+          this.checkboxExterno.checked = true;
           Swal.fire({ icon: 'success', text: 'Has aceptado los términos y condiciones.' ,confirmButtonColor: '#31B2C2',});
           this.terminos = true;
         } else {

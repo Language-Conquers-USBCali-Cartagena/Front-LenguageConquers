@@ -48,7 +48,7 @@ export class FormularioProfesorComponent implements OnInit {
     const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     const genero = this.form.value.genero.idGenero;
     let profesor: Profesor = {nombre: nombre, apellido: apellido, correo:correo, foto:foto, usuarioCreador: usuarioCreador, fechaCreacion:fechaActual, idGenero: genero}
-    this.loginService.createProfesor(profesor).subscribe(resp => {
+    this.loginService.createProfesor(profesor).subscribe( resp => {
       localStorage.setItem("usuario", JSON.stringify(profesor));
 
       Swal.fire({
@@ -57,6 +57,7 @@ export class FormularioProfesorComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       });
+       localStorage.setItem("usuario", JSON.stringify(profesor));
       this.router.navigateByUrl('/profesor/menuProfesor');
     }, err => {
       console.log(err['error']);

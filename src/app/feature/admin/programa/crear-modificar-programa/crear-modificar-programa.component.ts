@@ -43,7 +43,7 @@ export class CrearModificarProgramaComponent implements OnInit {
     let programa: Programa = {
       nombre: this.form.value.nombre,
       usuarioCreador: this.form.value.usuarioCreador,
-      fechaCreacion: fechaActual}
+      fechaCreacion: new Date()}
     this.programaService.crearPrograma(programa).subscribe(data => {
       if(data){
         Swal.fire({
