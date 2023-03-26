@@ -19,8 +19,8 @@
        <!-- <mat-checkbox class="vinculos" [(ngModel)]="terminos"></mat-checkbox>
       <a target="_window" class="vinculos" (click)="terminosCondiciones()">Términos y Condiciones</a>-->
       <div class="terminosCon">
-        <mat-checkbox class="vinculosT" #checkboxExterno></mat-checkbox>
-        <a target="_window" class="vinculosT" (click)="terminosCondiciones()" style="cursor: pointer;">Términos y Condiciones</a>
+        <mat-checkbox class="vinculosT" #checkboxExterno><a target="_window" class="vinculosT" (click)="terminosCondiciones()" style="cursor: pointer;">Términos y Condiciones</a></mat-checkbox>
+        
       </div>
       <div *ngIf="checkboxExterno.checked || terminos" style="top: 100px">
       <button class="ancho1" mat-raised-button (click)="registrarse()"> Crear Cuenta </button>
