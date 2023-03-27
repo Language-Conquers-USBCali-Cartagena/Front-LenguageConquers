@@ -119,7 +119,7 @@
 }
 
 .cardPeq:hover mat-card-content {
-  height: 100px;
+  height: 200px;
 
   background: rgba(146, 129, 117, 0.734);
 }
@@ -128,7 +128,7 @@
   text-align: center;
   opacity: 1;
   visibility: visible;
-  bottom: 10px;
+  top: 10px;
 }
 
 .cardPeq:hover img {
