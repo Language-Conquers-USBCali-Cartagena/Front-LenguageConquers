@@ -239,3 +239,25 @@ float: left;
     margin-left: 0;
   }
 }
+/*Responsive Tablet*/
+
+@media only screen and (max-width: 768px) {
+
+  .imagen {
+    width: 60%;
+    max-width: 1450px;
+    height: 60%;
+    max-height: 920px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: 0px;
+    
+  }
+}
+
+/*Responsive Laptop*/
+
+@media only screen and (max-width: 992px) {}
+
+/*Responsive Large Screen*/
+
+@media only screen and (max-width: 1200px) {}
