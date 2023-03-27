@@ -2,15 +2,13 @@
   background: #343434;
   background-repeat: no-repeat;
   background-size: cover;
-  
   height: 100%;
-  width: auto;
+  width: 100%;
 }
 .grafica1{
   display: flex;
-  margin-top: -30px;
-
-  margin-left: 600px;
+  margin-top: 40px;
+  margin-left: 400px;
   width: 180px;
   padding: 50px 0;
   border-radius:8px;
@@ -22,8 +20,8 @@
 
 .grafica2{
   display: flex;
-  margin-top: 20px;
-  margin-left: 600px;
+  margin-top: 30px;
+  margin-left: 400px;
   width: 180px;
   padding: 50px 0;
   border-radius:8px;
@@ -87,9 +85,9 @@
 .tarjeta{
   width: 550px;
   height: 540px;
-  margin-top: -640px;
+  margin-top: -630px;
   margin-right: 30px;
-  margin-left: 800px;
+  margin-left: 600px;
   /*Efecto espejo*/
   padding: 48px;
   border-radius: 24px;
@@ -208,6 +206,54 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
 .mat-card.mat-card-flat:not([class*='mat-elevation-z']) {
   box-shadow: 0px 0px 0px 0px rgb(116, 115, 115, 0.466),
     0px 0px 0px 0px rgb(116, 115, 115, 0.466), 0px 0px 0px 0px rgb(116, 115, 115, 0.466);
+}
+
+/*Responsive Laptop*/
+
+@media only screen and (max-width: 992px) {
+  .tarjeta{
+    width: 550px;
+    height: 540px;
+    margin-top: -630px;
+    margin-right: 30px;
+    margin-left: 290px;
+    /*Efecto espejo*/
+    padding: 48px;
+    border-radius: 24px;
+    background: rgba(195, 195, 195, 0.41);
+  
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  font-size: 30px;
+  
+  text-align: center;
+  }
+  .grafica1{
+    display: flex;
+    margin-top: 40px;
+    margin-left: 100px;
+    width: 180px;
+    padding: 50px 0;
+    border-radius:8px;
+    background-color:#c3c3c369;
+    row-gap: 30px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .grafica2{
+    display: flex;
+    margin-top: 30px;
+    margin-left: 100px;
+    width: 180px;
+    padding: 50px 0;
+    border-radius:8px;
+    background-color:#c3c3c369;
+    row-gap: 30px;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 @media screen and (max-width: 700px)  {
   .fondo {
@@ -463,3 +509,4 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     color: #30B4C6;
   }
 }
+
