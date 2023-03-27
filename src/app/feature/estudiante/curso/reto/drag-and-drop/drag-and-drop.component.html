@@ -5,19 +5,20 @@
     <div class="pantallaAdentro">
       <div class="navbar">
         <button type="button" class="botonTutorial" (click)="mostrarTutorial()">
-          
-          <img src="../../../../../../assets/icons/video.png" alt="Tutorial" class="imgTutorial" matTooltip="Como Practicar">
+
+          <img src="../../../../../../assets/icons/video.png" alt="Tutorial" class="imgTutorial"
+            matTooltip="Como Practicar">
         </button>
-        
-    
+
+
         <button type="button" class="botonTema" (click)="mostrarPistas()">
-          
+
           <img src="../../../../../../assets/icons/pista.png" alt="pista" class="imgPista" matTooltip="Pistas">
         </button>
-        
+
         <button type="button" class="botonAtras" (click)="atras()">
           <img src="../../../../../../assets/icons/atras.png" alt="Tutorial" class="imgAtras" matTooltip="Atrás">
-          
+
         </button>
         <button type="button" class="botonEjecutar" (click)="ejecutar()">
           <img src="../../../../../../assets/icons/play.png" alt="Tutorial" class="imgEjecutar" matTooltip="Ejecutar">
@@ -25,125 +26,102 @@
       </div>
 
       <div class="texto">
-        
+
         <h1 class="reto"># Reto: Deberas crear un algoritmo que permita coger un coco de la palmera.</h1>
       </div>
       <div cdkDropListGroup>
         <div class="example-container1" [style.height]="exampleContainerHeight">
-          <div cdkDropList [cdkDropListData]="palabras" class="example-list1" (cdkDropListDropped)="drop($event)" fxLayout fxLayoutAlign="center">
-            <div
-            class="example-box1"
-            *ngFor="let item of palabras"
-            cdkDrag
-            [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
-            >{{item.nombre}}</div>
+          <div cdkDropList [cdkDropListData]="palabras" class="example-list1" (cdkDropListDropped)="drop($event)"
+            fxLayout fxLayoutAlign="center">
+            <div class="example-box1" *ngFor="let item of palabras" cdkDrag
+              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
+              {{item.nombre}}</div>
           </div>
         </div>
         <div class="cuadro-respuesta">
           <div class="example-container">
             <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="a" class="example-list"
               (cdkDropListDropped)="drop($event)">
-              <div
-              class="example-box"
-              *ngFor="let item of a"
-              cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
-              >{{item.nombre}}</div>
+              <div class="example-box" *ngFor="let item of a" cdkDrag
+                [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
+                {{item.nombre}}</div>
             </div>
           </div>
           <div class="example-container">
-            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="b" class="example-list" (cdkDropListDropped)="drop($event)">
-              <div
-              class="example-box"
-              *ngFor="let item of b"
-              cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
-              >{{item.nombre}}</div>
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="b" class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of b" cdkDrag
+                [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
+                {{item.nombre}}</div>
             </div>
           </div>
           <div class="example-container">
-            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="c" class="example-list" (cdkDropListDropped)="drop($event)">
-              <div
-              class="example-box"
-              *ngFor="let item of c"
-              cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
-              >{{item.nombre}}</div>
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="c" class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of c" cdkDrag
+                [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
+                {{item.nombre}}</div>
             </div>
           </div>
           <div class="example-container">
-            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="d" class="example-list" (cdkDropListDropped)="drop($event)">
-              <div
-              class="example-box"
-              *ngFor="let item of d"
-              cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
-              >{{item.nombre}}</div>
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="d" class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of d" cdkDrag
+                [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
+                {{item.nombre}}</div>
             </div>
           </div>
           <div class="example-container">
-            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="e" class="example-list" (cdkDropListDropped)="drop($event)">
-              <div
-              class="example-box"
-              *ngFor="let item of e"
-              cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
-              >{{item.nombre}}</div>
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="e" class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of e" cdkDrag
+                [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
+                {{item.nombre}}</div>
             </div>
 
           </div>
           <div class="example-container">
-            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="f" class="example-list" (cdkDropListDropped)="drop($event)">
-              <div
-              class="example-box"
-              *ngFor="let item of f"
-              cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
-              >{{item.nombre}}</div>
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="f" class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of f" cdkDrag
+                [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
+                {{item.nombre}}</div>
             </div>
 
           </div>
           <div class="example-container">
-            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="g" class="example-list" (cdkDropListDropped)="drop($event)">
-              <div
-              class="example-box"
-              *ngFor="let item of g"
-              cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
-              >{{item.nombre}}</div>
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="g" class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of g" cdkDrag
+                [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
+                {{item.nombre}}</div>
             </div>
 
           </div>
           <div class="example-container">
-            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="h" class="example-list" (cdkDropListDropped)="drop($event)">
-              <div
-              class="example-box"
-              *ngFor="let item of h"
-              cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
-              >{{item.nombre}}</div>
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="h" class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of h" cdkDrag
+                [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
+                {{item.nombre}}</div>
             </div>
 
           </div>
           <div class="example-container">
-            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="i" class="example-list" (cdkDropListDropped)="drop($event)">
-              <div
-              class="example-box"
-              *ngFor="let item of i"
-              cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
-              >{{item.nombre}}</div>
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="i" class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of i" cdkDrag
+                [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
+                {{item.nombre}}</div>
             </div>
 
           </div>
           <div class="example-container">
-            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="j" class="example-list" (cdkDropListDropped)="drop($event)">
-              <div
-              class="example-box"
-              *ngFor="let item of j"
-              cdkDrag
-              [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'"
-              >{{item.nombre}}</div>
+            <div cdkDropList cdkDropListOrientation="horizontal" [cdkDropListData]="j" class="example-list"
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let item of j" cdkDrag
+                [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
+                {{item.nombre}}</div>
             </div>
 
           </div>
@@ -151,9 +129,6 @@
       </div>
     </div>
 
-
   </div>
-  
-  
 
 </div>
