@@ -1,7 +1,8 @@
 .body {
   align-items: center;
   background-color: #323232;
-  height: 724px;
+  height: 100%;
+  overflow-wrap: normal;
 }
 
 .body2 {
@@ -15,10 +16,9 @@
 }
 
 .fondoPantalla {
-  width: 1600px;
-  height: 650px;
+  width: 60%;
   padding-top: 10px;
-  margin-left: 190px;
+  margin-left: 100px;
   /*Efecto espejo*/
   font-size: 30px;
   border-radius: 10px;
@@ -29,11 +29,9 @@
 }
 
 .navbar {
-  width: 1600px;
+  width: 100%;
   background-color: rgb(97, 100, 101);
   margin-top: -10px;
-  margin-left: -10px;
-  
 }
 
 .botonTutorial {
@@ -41,7 +39,7 @@
   border-style: hidden;
   width: 60px;
   height: 50px;
-  margin-left: 1100px;
+  
 }
 
 .botonTema {
@@ -216,11 +214,12 @@ h1 {
 }
 
 .cuadro-respuesta {
-  margin-left: 1100px;
+  margin-left: 200px;
   margin-top: -360px;
   display: block;
   position: static;
   height: 400px;
+  width: 200px;
   overflow-y: auto;
 }
 

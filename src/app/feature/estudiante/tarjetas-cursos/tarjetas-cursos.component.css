@@ -138,7 +138,7 @@ float: left;
 
 @media screen and (max-width: 700px) {
   .body {
-    background-image: url(../../../../assets/images/fondos/portadaCurso.png);
+    
     background-size: cover;
     height: 660px;
 
