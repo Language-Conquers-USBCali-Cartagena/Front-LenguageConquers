@@ -92,9 +92,6 @@ export class HabilitarRetoComponent implements OnInit {
     const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
     const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
     const usuarioModificador = this.nombreProfesor;
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let reto: Reto = {
       idReto: this.reto!.idReto,
       nombreReto: this.reto!.nombreReto,
@@ -106,7 +103,7 @@ export class HabilitarRetoComponent implements OnInit {
       idEstado: idEstado,
       idCurso: this.reto!.idCurso,
       usuarioModificador: usuarioModificador,
-      fechaModificacion: fechaActual,
+      fechaModificacion: new Date(),
       moneda: this.retoForm.value.moneda,
       esGrupal: false,
       cantidadEstudiantes: 0,

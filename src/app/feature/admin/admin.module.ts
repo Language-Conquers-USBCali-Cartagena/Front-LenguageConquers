@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticulosComponent } from './articulos/articulos.component';
 import { AvatarComponent } from './avatar/avatar.component';
@@ -27,6 +27,7 @@ import { ProfesorComponent } from './profesor/profesor.component';
 import { CrearModificarProfesorComponent } from './profesor/crear-modificar-profesor/crear-modificar-profesor.component';
 import { EstudianteComponent } from './estudiante/estudiante.component';
 import { CrearModificarEstudianteComponent } from './estudiante/crear-modificar-estudiante/crear-modificar-estudiante.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 
@@ -62,7 +63,10 @@ import { CrearModificarEstudianteComponent } from './estudiante/crear-modificar-
         CommonModule,
         AdminRoutingModule,
         MaterialModule,
-        CoreModule
-    ]
+        CoreModule,
+        NgxChartsModule
+
+    ],
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class AdminModule { }

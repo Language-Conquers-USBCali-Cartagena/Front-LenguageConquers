@@ -7,14 +7,18 @@
   background-repeat: no-repeat;
   height: auto;
   align-items: center;
-   overflow: hidden; 
+   overflow: hidden;
 }
 .titulo1 {
   font-size: 40px;
   line-height: 5px;
   float: left;
-  
+
   color: black;
+}
+.tituloCursos{
+  font-size: 35px;
+  color: #ffffff;
 }
 .tituloTarjetaPeq {
   line-height: 40px;
@@ -84,7 +88,7 @@ float: left;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 .profesor>img {
@@ -163,7 +167,7 @@ float: left;
     height: 80px;
     margin-right: 0px;
     margin-left: -22px;
-    
+
     /*Efecto espejo*/
     padding: 0px;
     border-radius: 24px;
@@ -203,7 +207,7 @@ float: left;
     line-height: 5px;
     float: none;
     color: black;
-    
+
     padding-top: 10px;
   }
   .tituloTarjetaPeq {
@@ -223,7 +227,7 @@ float: left;
     display: contents;
     justify-content: center;
     align-items: center;
-    
+
   }
   .titulo {
     color: black;

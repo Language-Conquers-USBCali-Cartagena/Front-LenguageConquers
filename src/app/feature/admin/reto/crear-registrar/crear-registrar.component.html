@@ -30,7 +30,7 @@
         </div>
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
-            <mat-label class="titulos">Misión</mat-label>
+            <mat-label class="titulos">Misi&oacute;n</mat-label>
             <mat-select formControlName="idMision">
               <mat-option *ngFor="let mision of misiones" [value]="mision">
                 {{mision.nombre}}
@@ -76,7 +76,7 @@
         </div>
         <div class="campo-entrada">
           <mat-form-field appearance="fill" class="example-form-field">
-            <mat-label class="titulos">Fecha Limite</mat-label>
+            <mat-label class="titulos">Fecha L&iacute;mite</mat-label>
             <input matInput [matDatepicker]="datepicker1" formControlName="fechaLimite">
             <mat-datepicker-toggle matSuffix [for]="datepicker1"></mat-datepicker-toggle>
             <mat-datepicker #datepicker1>
@@ -89,7 +89,7 @@
         </div>
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
-            <mat-label class="titulos">Solución del reto</mat-label>
+            <mat-label class="titulos">Soluci&oacute;n del reto</mat-label>
             <input type="text" matInput autocomplete="off" formControlName="solucion">
             <mat-icon matSuffix class="boton" matTooltip="Ingrese el resultado final que debe obtener el estudiante al finalizar el reto.">info</mat-icon>
           </mat-form-field>
@@ -112,7 +112,7 @@
         </ng-template>
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
-            <mat-label class="titulos">Descripción del Reto</mat-label>
+            <mat-label class="titulos">Descripci&oacute;n del Reto</mat-label>
             <textarea matInput type="textArea" matInput autocomplete="off" formControlName="descripcion"></textarea>
             <mat-icon matSuffix class="boton">descripcion</mat-icon>
           </mat-form-field>
@@ -177,7 +177,7 @@
           <ng-container *ngTemplateOutlet="subirImagen2 === 'si' ? seleccionarFoto : null"></ng-container>
         </ng-template>-->
         <div class="boton">
-          <button mat-raised-button class="botones" id="atras" (click)="atras()">Atrás</button>
+          <button mat-raised-button class="botones" id="atras" (click)="atras()">Atr&aacute;s</button>
           <button mat-raised-button class="botones" id="guardarReto" (click)="guardarReto()"
             *ngIf="!reto else botonEditar">Crear Reto</button>
           <ng-template #botonEditar>

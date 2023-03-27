@@ -84,9 +84,6 @@ export class CrearModificarArticulosComponent implements OnInit {
     const categoria = this.form.value.idCategoria;
     const categoriaSeleccionada = this.categorias.find(e =>e.idCategoria == categoria);
     const idCategoria = Number(categoriaSeleccionada?.idCategoria ?? "");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).utcOffset('-05:00').format('YYYY-MM-DD');
     let articulo: Articulo = {
       nombre: this.form.value.nombre,
       descripcion: this.form.value.descripcion,
@@ -96,7 +93,7 @@ export class CrearModificarArticulosComponent implements OnInit {
       idEstado: idEstado,
       idCategoria: idCategoria,
       usuarioCreador: this.form.value.usuarioCreador,
-      fechaCreacion: fechaActual}
+      fechaCreacion: new Date()}
     this.articuloService.crearArticulo(articulo).subscribe(data => {
       if(data){
         Swal.fire({
@@ -176,9 +173,6 @@ export class CrearModificarArticulosComponent implements OnInit {
     const categoria = this.form.value.idCategoria;
     const categoriaSeleccionada = this.categorias.find(e =>e.idCategoria == categoria);
     const idCategoria = Number(categoriaSeleccionada?.idCategoria ?? "");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     const imagenVieja = this.articulo.imagen;
     let articulo: Articulo = {
       idArticulo:this.form.value.idArticulo,
@@ -190,7 +184,7 @@ export class CrearModificarArticulosComponent implements OnInit {
       idEstado: idEstado,
       idCategoria: idCategoria,
       usuarioModificador: this.form.value.usuarioModificador,
-      fechaModificacion: fechaActual,
+      fechaModificacion: new Date(),
       usuarioCreador: this.articulo.usuarioCreador,
       fechaCreacion: this.articulo.fechaCreacion}
     this.articuloService.actualizarArticulo(articulo).subscribe(data=>{

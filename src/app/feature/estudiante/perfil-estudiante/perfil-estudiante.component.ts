@@ -267,12 +267,23 @@ export class PerfilEstudianteComponent implements OnInit {
     const genero = this.idGenero;
     const estado = this.idEstado;
     const usuarioModificador = this.form.value.nombre + this.form.value.apellido;
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-
-    let estudiante: Estudiante = {idEstudiante: idEstudiante,nombre: nombre, apellido: apellido, nickName: nickName,puntaje: puntaje, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioModificador: usuarioModificador,
-                                  fechaModificacion: fechaActual, fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: estado, fechaCreacion: this.estudiante.fechaCreacion, usuarioCreador: this.estudiante.usuarioCreador}
+    let estudiante: Estudiante = {
+      idEstudiante: idEstudiante,
+      nombre: nombre, 
+      apellido: apellido,
+      nickName: nickName,
+      puntaje: puntaje, 
+      idSemestre: semestre, 
+      idAvatar: avatar, 
+      idGenero: genero, 
+      usuarioModificador: usuarioModificador,
+      fechaModificacion: new Date(),
+      fechaNacimiento: nacimiento,
+      idPrograma: programa, 
+      correo: correo, 
+      idEstado: estado, 
+      fechaCreacion: this.estudiante.fechaCreacion, 
+      usuarioCreador: this.estudiante.usuarioCreador}
     this.estudianteServiceNormal.actualizarEstudiante(estudiante).subscribe(data=>{
       Swal.fire({
         icon: 'success',

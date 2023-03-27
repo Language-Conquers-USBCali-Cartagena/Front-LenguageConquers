@@ -1,57 +1,69 @@
+<div class="contentup" fxFlex="50">
+  <mat-card class="tarjetaPeq">
+    <mat-card-header>
+      <mat-card-title>Cantidad de Usuarios Registrados</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions class="tamGrafica">
+      <ngx-charts-pie-grid
+      [view]="view"
+      scheme="aqua"
+      [results]="single"
+      (select)="onSelect($event)">
+    </ngx-charts-pie-grid>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="tarjetaPeq">
+    <mat-card-header>
+      <mat-card-title>Cantidad de Retos Registrados</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions  class="tamGrafica">
+      <!--Aqui va el dato-->
+      <ngx-charts-pie-grid
+      [view]="view"
+      scheme="aqua"
+      [results]="single"
+      (select)="onSelect($event)">
+    </ngx-charts-pie-grid>
+
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="tarjetaPeq ">
+    <mat-card-header>
+      <mat-card-title>Cantidad de Logros Registrados</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions  class="tamGrafica">
+      <!--Aqui va el dato-->
+      <ngx-charts-pie-grid
+      [view]="view"
+      scheme="aqua"
+      [results]="single"
+      (select)="onSelect($event)">
+    </ngx-charts-pie-grid>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
 
-    
-    
-      <div class="contentup" fxFlex="50">
-        <mat-card class="tarjetaPeq">
-          <mat-card-header>
-            <mat-card-title>Cantidad de Usuarios Registrados</mat-card-title>
-          </mat-card-header>
-          <mat-card-actions>
-            <!--Aqui va el dato-->
-          </mat-card-actions>
-        </mat-card>
-        <mat-card class="tarjetaPeq">
-          <mat-card-header>
-            <mat-card-title>Cantidad de Retos Registrados</mat-card-title>
-          </mat-card-header>
-          <mat-card-actions>
-             <!--Aqui va el dato-->
-          </mat-card-actions>
-        </mat-card>
-       
-        <mat-card class="tarjetaPeq ">
-          <mat-card-header>
-            <mat-card-title>Cantidad de Logros Registrados</mat-card-title>
-          </mat-card-header>
-          <mat-card-actions>
-             <!--Aqui va el dato-->
-          </mat-card-actions>
-        </mat-card>
-      </div>
-    
- 
-      <div class="contentdown" fxFlex="50">
-        <mat-card class="tarjetaGraficos">
-          <mat-card-header>
-            <mat-card-title>Graficos</mat-card-title>
-          </mat-card-header>
-          <mat-card-actions>
-            <!--Aqui va la grafica-->
-          </mat-card-actions>
-        </mat-card>
-      
- 
-    
-      
-        <mat-card class="tarjetaGraficos">
-          <mat-card-header>
-            <mat-card-title>Graficos</mat-card-title>
-          </mat-card-header>
-          <mat-card-actions>
-            <!--Aqui va la grafica-->
-          </mat-card-actions>
-        </mat-card>
-      </div>
- 
- 
+<div class="contentdown" fxFlex="50">
+  <mat-card class="tarjetaGraficos">
+    <mat-card-header>
+      <mat-card-title>Distribuci&oacute;n de retos completados</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+
+    </mat-card-actions>
+  </mat-card>
+
+
+
+
+  <mat-card class="tarjetaGraficos">
+    <mat-card-header>
+      <mat-card-title>Puntaje y monedas ganadas por estudiante</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <!--Aqui va la grafica-->
+    </mat-card-actions>
+  </mat-card>
+</div>

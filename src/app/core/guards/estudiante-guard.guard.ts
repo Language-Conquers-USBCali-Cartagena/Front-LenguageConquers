@@ -15,7 +15,7 @@ export class EstudianteGuardGuard implements CanActivate {
       if(typeof usuario.idEstudiante === "undefined"){
         await Swal.fire({
           title: '403',
-          text: 'No tiene permisos para acceder a las opciones de estudiante',
+          text: 'No tiene permisos para acceder a las opciones de estudiante.',
           focusConfirm: false,
           confirmButtonText: 'Regresar',
           confirmButtonColor: '#31B2C2',
@@ -26,5 +26,5 @@ export class EstudianteGuardGuard implements CanActivate {
         return true;
       }
   }
-  
+
 }

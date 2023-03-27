@@ -186,9 +186,6 @@ export class CrearModificarEstudianteComponent implements OnInit {
     const estado = this.form.value.idEstado;
     const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
     const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estudiante: Estudiante = {
       nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
@@ -199,7 +196,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
       idAvatar: avatar,
       idGenero: idGenero,
       usuarioCreador: this.form.value.usuarioCreador,
-      fechaCreacion: fechaActual,
+      fechaCreacion: new Date(),
       fechaNacimiento: this.form.value.fechaNacimiento,
       idPrograma: idPrograma,
       correo: this.form.value.correo,
@@ -276,9 +273,6 @@ export class CrearModificarEstudianteComponent implements OnInit {
     const estado = this.form.value.idEstado;
     const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
     const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estudiante: Estudiante = {
       idEstudiante: this.form.value.idEstudiante,
       nombre: this.form.value.nombre,
@@ -290,7 +284,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
       usuarioCreador: this.estudiante.usuarioCreador,
       usuarioModificador: this.form.value.usuarioModificador,
       fechaCreacion: this.estudiante.fechaCreacion,
-      fechaModificacion:fechaActual,
+      fechaModificacion:new Date(),
       idPrograma: idPrograma,
       idEstado: idEstado,
       idSemestre: idSemestre,

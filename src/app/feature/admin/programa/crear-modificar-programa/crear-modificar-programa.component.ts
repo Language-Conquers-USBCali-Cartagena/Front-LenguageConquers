@@ -37,13 +37,10 @@ export class CrearModificarProgramaComponent implements OnInit {
   }
 
   guardarPrograma(){
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let programa: Programa = {
       nombre: this.form.value.nombre,
       usuarioCreador: this.form.value.usuarioCreador,
-      fechaCreacion: fechaActual}
+      fechaCreacion: new Date()}
     this.programaService.crearPrograma(programa).subscribe(data => {
       if(data){
         Swal.fire({
@@ -95,14 +92,11 @@ export class CrearModificarProgramaComponent implements OnInit {
   }
 
   actualizar():void{
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let programa: Programa = {
       idPrograma: this.form.value.idPrograma,
       nombre: this.form.value.nombre,
       usuarioModificador: this.form.value.usuarioModificador,
-      fechaModificacion: fechaActual}
+      fechaModificacion: new Date()}
     this.programaService.actualizarPrograma(programa).subscribe(data =>{
       Swal.fire({
         icon: 'success',

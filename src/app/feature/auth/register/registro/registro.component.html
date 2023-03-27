@@ -6,11 +6,11 @@
     <form *ngIf="!loading" [formGroup]="form" (ngsubmit)="registrarse()">
       <div class="fondoTarjeta">
         <mat-form-field appearance="fill" class="entradauc1">
-          <mat-label>Correo electrónico</mat-label>
+          <mat-label>Correo electr&oacute;nico</mat-label>
           <input matInput autocomplete="off" formControlName="usuario">
         </mat-form-field>
         <mat-form-field appearance="fill" class="entradauc2">
-          <mat-label>Contraseña</mat-label>
+          <mat-label>Contrase&ntilde;a</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon class="boton">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -20,7 +20,7 @@
       <a target="_window" class="vinculos" (click)="terminosCondiciones()">Términos y Condiciones</a>-->
       <div class="terminosCon">
         <mat-checkbox class="vinculosT" #checkboxExterno></mat-checkbox>
-        <a target="_window" class="vinculosT" (click)="terminosCondiciones()" style="cursor: pointer;">Términos y Condiciones</a>
+        <a target="_window" class="vinculosT" (click)="terminosCondiciones()" style="cursor: pointer;">T&eacute;rminos y Condiciones</a>
       </div>
       <div *ngIf="checkboxExterno.checked || terminos" style="top: 100px">
       <button class="ancho1" mat-raised-button (click)="registrarse()"> Crear Cuenta </button>
