@@ -1,4 +1,4 @@
-.body{
+.body {
   background-color: #2e2e2e;
   background-size: cover;
   background-repeat: no-repeat;
@@ -6,89 +6,102 @@
   align-items: center;
   padding-left: 1%;
 }
-.banner{
-  background-image: url(../../../../assets/images/fondos/bannerLogros.png);
-  background-size: cover;
-  height: 450px;
-  width: 1840px;
-  padding-left:-10px;
-  
-}
 
-.container{
+.banner {
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+  max-height: 920px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: 0px;
+
+}
+.box{
+  position: relative;
+  
+  }
+
+.container {
   width: 1030px;
   height: 800px;
   margin-right: 80px;
   margin-left: 500px;
   padding: 48px;
-  
+
 }
 
-.slider{
+.slider {
   margin-left: -50%;
-  display:flex;
-  flex-direction:row;
-  
+  display: flex;
+  flex-direction: row;
+
 }
 
-.card{
+.card {
   width: 220px;
   height: 130px;
   margin: 10px;
-  text-align:left;
+  text-align: left;
   border-radius: 30px;
-  background: linear-gradient(
-  135deg,
-  rgba(255, 255, 255, 0.349),
-  rgba(255, 255, 255, 0.514)
-);
-backdrop-filter: blur(3px);
--webkit-backdrop-filter: blur(3px);
-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.349),
+      rgba(255, 255, 255, 0.514));
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 }
-.mat-card-content{
+
+.mat-card-content {
   vertical-align: middle !important;
 }
-.logros{
+
+.logros {
 
   transform: translate(10px, -15px);
   float: left;
-  width:100px;
-  height:100px;
-  margin-left:-8px;
+  width: 100px;
+  height: 100px;
+  margin-left: -8px;
 
 }
-.nombreLogro{
-  font-size:25px;
-  color:rgb(165,101,50);
-  margin-left:55%;
+
+.nombreLogro {
+  font-size: 25px;
+  color: rgb(165, 101, 50);
+  margin-left: 55%;
   margin-top: 20%;
   line-height: 25px;
 }
-.izq1{
-  margin-left:450px;
+
+.izq1 {
+  margin-left: 450px;
 }
-.der1{
+
+.der1 {
   margin-right: 150px;
 }
-.izq1,.der1 {
+
+.izq1,
+.der1 {
   margin-top: 100px;
   position: relative;
   background-color: transparent;
   color: black;
 
 }
-.tarjetasPeq{
-  margin-left:35%;
+
+.tarjetasPeq {
+  margin-left: 35%;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   flex-wrap: wrap;
 
 
 }
-.cardPeq{
+
+.cardPeq {
   width: 150px;
-  height:160px;
+  height: 160px;
   margin: 10px;
   text-align: center;
   align-items: center;
@@ -97,64 +110,68 @@ box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
   overflow: hidden;
   position: relative;
   display: flex;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.437),
-    rgba(255, 255, 255, 0.437)
-  );
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.437),
+      rgba(255, 255, 255, 0.437));
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 6px 28px 0 rgba(0, 0, 0, 0.36);
-  transition:0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
-.cardPeq:hover{
+
+.cardPeq:hover {
   cursor: pointer;
 }
 
-.cardPeq:hover mat-card-content{
-  height:100px;
-  bottom:-5px;
-  background:rgba(146,129,117, 0.734);
+.cardPeq:hover mat-card-content {
+  height: 200px;
+
+  background: rgba(146, 129, 117, 0.734);
 }
-.cardPeq:hover p{
+
+.cardPeq:hover p {
   text-align: center;
   opacity: 1;
   visibility: visible;
-
+  top: 10px;
 }
-.cardPeq:hover img{
+
+.cardPeq:hover img {
   margin-bottom: 25px;
-  margin-left:5%;
+  margin-left: 5%;
   transform: rotate(-10deg);
 }
 
-.mat-card-image{
+.mat-card-image {
   margin-bottom: 50px;
-  margin-left:-12px;
+  margin-left: -12px;
   align-items: center;
 }
-.logros2{
-  transform: translate(18px,25px);
-  width:140px;
-  height:180px;
+
+.logros2 {
+  transform: translate(18px, 25px);
+  width: 140px;
+  height: 180px;
   vertical-align: middle;
   transition: 0.5s;
 }
 
-.nombreLogro2{
-  font-size:30px;
-  color:rgb(255, 255, 255);
-  margin-left:-25%;
+.nombreLogro2 {
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  margin-left: -25%;
   align-items: center;
   text-align: center;
   line-height: 25px;
 }
-h1{
+
+h1 {
   margin: 20px;
-  font-size:15px;
+  font-size: 15px;
 }
-p{
-  font-size:15px;
+
+p {
+  font-size: 15px;
   visibility: hidden;
   opacity: 0;
   text-align: flex-end;
@@ -162,9 +179,10 @@ p{
   position: relative;
 
 }
-.mat-card-content{
-  height:50px;
-  width:250px;
+
+.mat-card-content {
+  height: 50px;
+  width: 250px;
   position: absolute;
   bottom: 0px;
   right: 0.1px;
@@ -172,19 +190,21 @@ p{
   padding: 16px;
   box-sizing: border-box;
   position: absolute;
-  background:rgba(146,129,117, 0.734);
-  color:white;
+  background: rgba(146, 129, 117, 0.734);
+  color: white;
   transition: 0.5s;
 }
-.mat-card-content p{
+
+.mat-card-content p {
   align-items: center;
   line-height: 12px;
   margin-top: -8px;
   text-align: center;
   margin-right: 30%;
-  font-size:12px;
+  font-size: 12px;
   font-family: 'Roboto';
 }
+
 @media screen and (max-width: 700px) {
   .body {
     background-color: rgba(172, 153, 139, 0.87);
@@ -194,15 +214,14 @@ p{
     align-items: center;
     padding-left: 1%;
   }
-  
+
   .banner {
-    background-image: url(../../../../assets/images/fondos/bannerLogros.png);
-    background-size: cover;
+    
     height: 80px;
     width: 100%;
     padding-left: -10px;
   }
-  
+
   .container {
     width: 100%;
     height: 620px;
@@ -210,33 +229,32 @@ p{
     margin-left: 5px;
     padding: 0px;
   }
+
   .slider {
     margin-left: -50%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
   }
-  
+
   .card {
     width: 220px;
     height: 100px;
     margin: 10px;
     text-align: left;
     border-radius: 30px;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.349),
-      rgba(255, 255, 255, 0.514)
-    );
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.349),
+        rgba(255, 255, 255, 0.514));
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
   }
-  
+
   .mat-card-content {
     vertical-align: middle !important;
   }
-  
+
   .logros {
     transform: translate(10px, -15px);
     float: left;
@@ -244,7 +262,7 @@ p{
     height: 100px;
     margin-left: -8px;
   }
-  
+
   .nombreLogro {
     font-size: 25px;
     color: rgb(165, 101, 50);
@@ -252,9 +270,10 @@ p{
     margin-top: 20%;
     line-height: 5px;
   }
-  .cardPeq{
+
+  .cardPeq {
     width: 50px;
-    height:20px;
+    height: 20px;
     margin: 10px;
     text-align: center;
     align-items: center;
@@ -263,48 +282,50 @@ p{
     overflow: hidden;
     position: relative;
     display: flex;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.437),
-      rgba(255, 255, 255, 0.437)
-    );
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.437),
+        rgba(255, 255, 255, 0.437));
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     box-shadow: 0 6px 28px 0 rgba(0, 0, 0, 0.36);
-    transition:0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
   }
-  .logros2{
-    transform: translate(18px,25px);
-    width:70px;
-    height:90px;
+
+  .logros2 {
+    transform: translate(18px, 25px);
+    width: 70px;
+    height: 90px;
     vertical-align: middle;
     transition: 0.5s;
   }
-  
-  .nombreLogro2{
-    font-size:10px;
-    color:rgb(255, 255, 255);
-    margin-left:-66%;
+
+  .nombreLogro2 {
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    margin-left: -66%;
     align-items: center;
     text-align: center;
     line-height: 25px;
   }
-  h1{
+
+  h1 {
     margin: 20px;
-    font-size:15px;
+    font-size: 15px;
   }
-  p{
-    font-size:15px;
+
+  p {
+    font-size: 15px;
     visibility: hidden;
     opacity: 0;
     text-align: flex-end;
     align-items: flex-end;
     position: relative;
-  
+
   }
-  .mat-card-content{
-    height:50px;
-    width:250px;
+
+  .mat-card-content {
+    height: 50px;
+    width: 250px;
     position: absolute;
     bottom: 0px;
     right: 0.1px;
@@ -312,11 +333,12 @@ p{
     padding: 16px;
     box-sizing: border-box;
     position: absolute;
-    background:rgba(146,129,117, 0.734);
-    color:white;
+    background: rgba(146, 129, 117, 0.734);
+    color: white;
     transition: 0.5s;
   }
-  .mat-card-content p{
+
+  .mat-card-content p {
     align-items: center;
     line-height: 12px;
     margin-top: -8px;
@@ -325,39 +347,100 @@ p{
     font-size: 5px;
     font-family: 'Roboto';
   }
-  .tarjetasPeq{
-    margin-left:50%;
+
+  .tarjetasPeq {
+    margin-left: 50%;
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     flex-wrap: wrap;
-  
-  
+
+
   }
-  .cardPeq:hover{
+
+  .cardPeq:hover {
     cursor: pointer;
   }
-  
-  .cardPeq:hover mat-card-content{
-    height:120px;
-    bottom:-5px;
-    background:rgba(146,129,117, 0.734);
+
+  .cardPeq:hover mat-card-content {
+    height: 120px;
+    bottom: -5px;
+    background: rgba(146, 129, 117, 0.734);
   }
-  .cardPeq:hover p{
+
+  .cardPeq:hover p {
     text-align: center;
     opacity: 1;
     visibility: visible;
-  
+
   }
-  .cardPeq:hover img{
+
+  .cardPeq:hover img {
     margin-bottom: 10px;
-    margin-left:5%;
+    margin-left: 5%;
     transform: rotate(-10deg);
   }
-  
-  .mat-card-image{
+
+  .mat-card-image {
     margin-bottom: 30px;
-    margin-left:-30px;
-    
-    align-items:center;
+    margin-left: -30px;
+
+    align-items: center;
   }
+}
+/*Responsive Tablet*/
+
+@media only screen and (max-width: 768px) {
+
+  .slider {
+    margin-left: 0%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .banner {
+    width: 60%;
+    max-width: 1450px;
+    height: 60%;
+    max-height: 920px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: 0px;
+    
+  }
+  .container {
+    width: 1030px;
+    height: 800px;
+    margin-right: 80px;
+    margin-left: -120px;
+    padding: 48px;
+  
+  }
+}
+
+/*Responsive Laptop*/
+
+@media only screen and (max-width: 992px) {
+  
+  .slider {
+    margin-left: 0%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+.banner {
+  width: 80%;
+  max-width: 1450px;
+  height: 80%;
+  max-height: 920px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: 0px;
+  
+}
+.container {
+  width: 1030px;
+  height: 800px;
+  margin-right: 80px;
+  margin-left: -320px;
+  padding: 48px;
+
+}
 }

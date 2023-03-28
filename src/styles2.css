@@ -1372,7 +1372,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
 .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-  background-color: #ff4081;
+  background-color: #31B2C2;
 }
 .mat-checkbox-indeterminate.mat-warn .mat-checkbox-background,
 .mat-checkbox-checked.mat-warn .mat-checkbox-background {
@@ -1401,7 +1401,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   .mat-ripple-element,
 .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent
   .mat-ripple-element {
-  background: #ff4081;
+  background: #31B2C2;
 }
 .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-warn .mat-ripple-element,
 .mat-checkbox:active:not(.mat-checkbox-disabled).mat-warn .mat-ripple-element {
@@ -2108,10 +2108,10 @@ td.mat-footer-cell {
   stroke: #f44336;
 }
 .mat-radio-outer-circle {
-  border-color: rgb(188,119,61);
+  border-color: rgb(115, 112, 121);
 }
 .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
-  border-color:  rgb(201,131,69);
+  border-color:  rgb(115, 112, 121);
 }
 .mat-radio-button.mat-primary .mat-radio-inner-circle,
 .mat-radio-button.mat-primary
@@ -2119,10 +2119,10 @@ td.mat-footer-cell {
   .mat-ripple-element:not(.mat-radio-persistent-ripple),
 .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-persistent-ripple,
 .mat-radio-button.mat-primary:active .mat-radio-persistent-ripple {
-  background-color:  rgb(201,131,69);
+  background-color:  rgb(115, 112, 121);
 }
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: rgb(201,131,69);
+  border-color: rgb(115, 112, 121);
 }
 .mat-radio-button.mat-accent .mat-radio-inner-circle,
 .mat-radio-button.mat-accent
@@ -2130,7 +2130,7 @@ td.mat-footer-cell {
   .mat-ripple-element:not(.mat-radio-persistent-ripple),
 .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
 .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
-  background-color: rgb(201,131,69);
+  background-color: rgb(115, 112, 121);
 }
 .mat-radio-button.mat-warn.mat-radio-checked .mat-radio-outer-circle {
   border-color: #f44336;
