@@ -56,5 +56,10 @@ export class EstudianteService {
     return this.http.get<number>(`${environment.endpoint}/estudiante/cantidadEstudiante`);
   }
 
+  monedasGanadasPromedio():Observable<number>{
+    return this.http.get<number>(`${environment.endpoint}/estudiante/promedioMonedasEstudiantes`);
+  }
+
+
 
 }

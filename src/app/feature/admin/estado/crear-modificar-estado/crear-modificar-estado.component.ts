@@ -39,13 +39,10 @@ export class CrearModificarEstadoComponent implements OnInit {
   }
 
   guardarEstado(){
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estado: Estado = {
       estado: this.form.value.nombreEstado,
       usuarioCreador: this.form.value.usuarioCreador,
-      fechaCreacion: fechaActual}
+      fechaCreacion: new Date()}
       this.estadoService.crearEstado(estado).subscribe(data => {
         if(data){
           Swal.fire({
@@ -93,14 +90,11 @@ export class CrearModificarEstadoComponent implements OnInit {
     )
   }
   actualizar():void{
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estado: Estado = {
       idEstado: this.form.value.idEstado,
       estado: this.form.value.nombreEstado,
       usuarioModificador: this.form.value.usuarioModificador,
-      fechaModificacion: fechaActual,
+      fechaModificacion: new Date(),
       fechaCreacion: this.estado.fechaCreacion,
       usuarioCreador: this.estado.usuarioCreador}
     this.estadoService.actualizarEstado(estado).subscribe(data=>{

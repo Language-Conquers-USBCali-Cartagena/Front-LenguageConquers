@@ -82,9 +82,6 @@ export class CrearModificarCursoComponent implements OnInit {
     const profesor = this.form.value.idProfesor;
     const profesorSeleccionado = this.profesores.find(e => e.idProfesor == profesor);
     const idProfesor = Number(profesorSeleccionado?.idProfesor ?? "");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let curso: Curso = {
       nombre:  this.form.value.nombre,
       password: this.form.value.password,
@@ -95,7 +92,7 @@ export class CrearModificarCursoComponent implements OnInit {
       idEstado: idEstado,
       idProfesor: idProfesor,
       usuarioCreador: this.form.value.usuarioCreador,
-      fechaCreacion: fechaActual}
+      fechaCreacion: new Date()}
     this.cursoService.crearCurso(curso).subscribe(data => {
       if(data){
         Swal.fire({
@@ -157,9 +154,6 @@ export class CrearModificarCursoComponent implements OnInit {
     const profesor = this.form.value.idProfesor;
     const profesorSeleccionado = this.profesores.find(e => e.idProfesor == profesor);
     const idProfesor = Number(profesorSeleccionado?.idProfesor ?? "");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let curso: Curso = {
       idCurso:this.curso.idCurso,
       nombre: this.form.value.nombre,
@@ -171,7 +165,7 @@ export class CrearModificarCursoComponent implements OnInit {
       idEstado: idEstado,
       idProfesor: idProfesor,
       usuarioModificador: this.form.value.usuarioModificador,
-      fechaModificacion: fechaActual,
+      fechaModificacion: new Date(),
       fechaCreacion: this.curso.fechaCreacion,
       usuarioCreador: this.curso.usuarioCreador}
     this.cursoService.actualizarCurso(curso).subscribe(data=>{

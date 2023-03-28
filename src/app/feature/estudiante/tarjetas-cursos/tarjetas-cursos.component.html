@@ -6,11 +6,12 @@
     <mat-card-subtitle class="tituloTarjetaPeq">Bienvenido de nuevo a Language Conquers</mat-card-subtitle>
   </mat-card>
   <div class="fondoTarjeta">
+    <h2 class="tituloCursos">Cursos</h2>
     <div class="estudiante">
       <!-- TODO: Cargar redireccion del routerlink con servicio de la bd -->
       <mat-card class="cursos" *ngFor="let tarjetas of cursosCard" [routerLink]="['/estudiante/curso/mapa/1']">
        <img mat-card-image src="./assets/images/fondos/portadaCurso.png">
-          <mat-card-subtitle class="titulo">Facultad de Ingenieria</mat-card-subtitle>
+          <mat-card-subtitle class="titulo">Facultad de Ingenier&iacute;a</mat-card-subtitle>
           <a class="vinculos-contra" [routerLink]="['/estudiante/curso/mapa/1']">{{tarjetas.nombre}}</a>
       </mat-card>
     </div>

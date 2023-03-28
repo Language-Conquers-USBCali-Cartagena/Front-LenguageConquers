@@ -126,9 +126,6 @@ export class PerfilProfesorComponent implements OnInit {
     const fotoNueva = this.imagenUrl;
     const generoSeleccionado = this.generos.find(e => e.idGenero == genero);
     const idGenero = Number(generoSeleccionado?.idGenero ?? "");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     const fotoVieja = this.profesor.foto;
     let profesor: Profesor = {
         idProfesor: this.form.value.idProfesor,
@@ -137,7 +134,7 @@ export class PerfilProfesorComponent implements OnInit {
         correo: this.form.value.correo,
         foto: fotoNueva ? fotoNueva : fotoVieja,
         usuarioModificador: this.form.value.nombre + ' ' + this.form.value.apellido,
-        fechaModificacion: fechaActual,
+        fechaModificacion: new Date(),
         idGenero: idGenero,
         usuarioCreador: this.profesor.usuarioCreador,
         fechaCreacion: this.profesor.fechaCreacion

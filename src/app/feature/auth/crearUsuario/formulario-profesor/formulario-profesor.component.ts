@@ -43,11 +43,15 @@ export class FormularioProfesorComponent implements OnInit {
     const apellido = this.form.value.apellido;
     const foto = 'https://cdn-icons-png.flaticon.com/512/257/257667.png';
     const usuarioCreador = this.form.value.nombre + this.form.value.apellido;
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     const genero = this.form.value.genero.idGenero;
-    let profesor: Profesor = {nombre: nombre, apellido: apellido, correo:correo, foto:foto, usuarioCreador: usuarioCreador, fechaCreacion:fechaActual, idGenero: genero}
+    let profesor: Profesor = {
+      nombre: nombre, 
+      apellido: apellido,
+      correo:correo, 
+      foto:foto, 
+      usuarioCreador: usuarioCreador, 
+      fechaCreacion:new Date(), 
+      idGenero: genero}
     this.loginService.createProfesor(profesor).subscribe(resp => {
       localStorage.setItem("usuario", JSON.stringify(profesor));
 
@@ -57,6 +61,7 @@ export class FormularioProfesorComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       });
+       localStorage.setItem("usuario", JSON.stringify(profesor));
       this.router.navigateByUrl('/profesor/menuProfesor');
     }, err => {
       console.log(err['error']);

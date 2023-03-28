@@ -138,6 +138,7 @@ opacity: 1;
 }
 .active{
 opacity: 1 !important;
+transform: scale(1.2);
 box-shadow: 0 5px rgba(1,23,46,0.6);
 }
 .mat-input-element{

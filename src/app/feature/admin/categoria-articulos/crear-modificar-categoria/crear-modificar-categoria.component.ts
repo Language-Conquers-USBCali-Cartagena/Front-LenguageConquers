@@ -58,15 +58,12 @@ export class CrearModificarCategoriaComponent implements OnInit {
     const estado= this.form.value.idEstado;
     const estadoSeleccionado = this.estados.find(e => e.idEstado === estado);
     const idEstado = Number(estadoSeleccionado?.idEstado ??"");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let categoria: Categorias = {
       nombre: this.form.value.nombre,
       descripcion: this.form.value.descripcion,
       idEstado: idEstado,
       usuarioCreador: this.form.value.usuarioCreador,
-      fechaCreacion: fechaActual}
+      fechaCreacion: new Date()}
     this.categoriaService.crearCategoria(categoria).subscribe(data =>{
       if(data){
         Swal.fire({
@@ -120,16 +117,13 @@ export class CrearModificarCategoriaComponent implements OnInit {
     const estado= this.form.value.idEstado;
     const estadoSeleccionado = this.estados.find(e => e.idEstado === estado);
     const idEstado = Number(estadoSeleccionado?.idEstado ??"");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let categoria: Categorias = {
       idCategoria: this.categoria.idCategoria,
       nombre: this.form.value.nombre,
       descripcion: this.form.value.descripcion,
       idEstado: idEstado,
       usuarioModificador: this.form.value.usuarioModificador,
-      fechaModificacion: fechaActual,
+      fechaModificacion: new Date(),
       fechaCreacion: this.categoria.fechaCreacion,
       usuarioCreador: this.categoria.usuarioCreador}
     this.categoriaService.actualizarCategorias(categoria).subscribe(data=>{

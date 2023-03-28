@@ -4,59 +4,13 @@
   grid-template-columns: 480px 520px 1px;
   padding: 80px;
   }
-  .contentdown{
-  display: grid;
-  grid-template-columns: 700px 10px ;
-  padding: 80px;
-  }
-  
-  
-  .tarjetaPeq{
-    width: 250px;
-    height: 50px;
-    margin-right: 10px;
-    margin-left: 50px;
-    margin: 10px;
-    /*Efecto espejo*/
-    padding: 48px;
-    border-radius: 24px;
-    background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.514),
-    rgba(255, 255, 255, 0.514));
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.36);
-    font-size: 30px;
-    color:rgb(6,43,60);
-    text-align: center;
-  }
-  .tarjetaGraficos{
-    width: 580px;
-    height: 230px;
-    margin-right: 10px;
-    margin-left: 0px;
-    /*Efecto espejo*/
-    padding: 45px;
-    border-radius: 24px;
-    background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.514),
-    rgba(255, 255, 255, 0.514));
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
-    font-size: 30px;
-    color:rgb(6,43,60);
-    text-align: center;
-  }
-  
-  mat-card-title{
-    font-size: 30px;
-    font-weight: bold;
-    font-style: normal;
+  .dashboard{
+    width: 80%;
+    margin-left: 20%;
     align-items: center;
-    text-align: center;
   }
-  
-  
+  .title{
+    font-size: 35px;
+    color: #ffffff;
+  }
+

@@ -110,7 +110,6 @@ export class LoginComponent implements OnInit {
     
     await this.profesorService.getProfesorPorCorreo(email).toPromise().then((response) => {
       this.profesorExiste = true;
-      console.log("Existe por correo");
       localStorage.setItem("usuario", JSON.stringify(response));
       this.router.navigateByUrl("/profesor/menuProfesor");
 

@@ -18,7 +18,12 @@ import { environment } from 'src/environments/environment';
         return this.http.get<PalabrasReservadas[]>(`${environment.endpoint}/palabrasReservadas/palabras-por-reto`, {params});
     }
 
-    procesarPalabras(palabras: PalabrasReservadas[]): Observable<string>{
-        return this.http.post(`${environment.endpoint}/palabrasReservadas/respuesta`, palabras,{ responseType: 'text'});
+    procesarPalabras(palabras: PalabrasReservadas[], esBasico: Boolean): Observable<string>{
+      let paramsHttp = new HttpParams({
+        fromObject: {
+          esBasico: `${esBasico}`
+        }
+      });
+      return this.http.post(`${environment.endpoint}/palabrasReservadas/respuesta` ,palabras,{ responseType: 'text', params: paramsHttp});
     }
   }

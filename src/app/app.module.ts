@@ -1,4 +1,4 @@
-import {  NgModule } from '@angular/core';
+import {  CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,7 @@ import { AdminModule } from './feature/admin/admin.module';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { HttpInterceptorService } from './core/service/HttpInterceptor.service';
 import { PruebaComponent } from './prueba/prueba/prueba.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 
@@ -50,7 +51,8 @@ import { PruebaComponent } from './prueba/prueba/prueba.component';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 
 })
 export class AppModule {

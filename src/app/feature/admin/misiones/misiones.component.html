@@ -7,7 +7,7 @@
       </mat-form-field>
       <div class="demo-button-container">
         <button mat-raised-button (click)="registrarMision()" class="demo-button">
-          Registrar Misión
+          Registrar Misi&oacute;n
         </button>
       </div>
       <div class="mat-elevation-z8">
@@ -24,12 +24,12 @@
           </ng-container>
 
           <ng-container matColumnDef="idNivelMisión">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id NivelMisión </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id NivelMisi&oacute;n </th>
             <td mat-cell *matCellDef="let row"> {{row.idNivelMision}} </td>
           </ng-container>
 
           <ng-container matColumnDef="idTipoMisión">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id TipoMisión </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id TipoMisi&oacute;n </th>
             <td mat-cell *matCellDef="let row"> {{row.idTipoMision}} </td>
           </ng-container>
 
@@ -49,7 +49,7 @@
           </ng-container>
 
           <ng-container matColumnDef="fechaCreacion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Creación</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Creaci&oacute;n</th>
             <td mat-cell *matCellDef="let row"> {{formatDate(row.fechaCreacion)}} </td>
           </ng-container>
 
@@ -59,7 +59,7 @@
           </ng-container>
 
           <ng-container matColumnDef="fechaModificacion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Modificación</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha Modificaci&oacute;n</th>
             <td mat-cell *matCellDef="let row"> {{formatDate(row.fechaModificacion)}} </td>
           </ng-container>
 
@@ -69,7 +69,7 @@
               <a  class="botones" [routerLink]="['/misiones/editarMision/',element.idMision]" style="color:rgb(19, 12, 59); cursor:pointer" (click)="actualizarMision(element.idMision)" matTooltip="Editar Misión">
                 <mat-icon>edit</mat-icon>
               </a>
-              <a  class="botones" (click)="eliminarMision(element.idMision)" id="eliminarMision" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Reto">
+              <a  class="botones" (click)="eliminarMision(element.idMision)" id="eliminarMision" style="color:rgb(224, 26, 26); cursor:pointer" matTooltip="Eliminar Misión">
                 <mat-icon>delete</mat-icon>
               </a>
             </td>
@@ -79,10 +79,10 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
           <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No existe una misión con el nombre "{{input.value}}"</td>
+            <td class="mat-cell" colspan="4">No existe una misi&oacute;n con el nombre "{{input.value}}"</td>
           </tr>
         </table>
-        <mat-paginator [pageSizeOptions]="[7]" aria-label="Seleccione la pagina de retos"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[7]" aria-label="Seleccione la pagina de las misiones"></mat-paginator>
       </div>
     </mat-card-content>
 </mat-card>

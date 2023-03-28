@@ -127,7 +127,7 @@
           <div class="car">
             <div class="izq"><a type="submit" (click)="pasarIzq()"><mat-icon>keyboard_arrow_left</mat-icon></a></div>
             <div class="cimg" *ngFor="let avatar of avatares">
-              <div class="imgAvatar" [ngClass]="{'active': avatar === avatarSeleccionado}">
+              <div class="imgAvatar" [ngClass]="{'active': avatar === idAvatarS}">
                 <img #avatarImg mat-card-avatar src="{{avatar.imgAvatar}}"  id="{{avatar.idAvatar}}" class="avatares"  data-id="{{avatar.idAvatar}}"  (click)="seleccionarAvatar(avatar)">
               </div>
             </div>
@@ -135,7 +135,7 @@
         </div>
         <br><br>
         <div  class="boton">
-          <button mat-raised-button class="botones" (click)="atras()">Atrás</button>
+          <button mat-raised-button class="botones" (click)="atras()">Atr&aacute;s</button>
           <button mat-raised-button class="botones" (click)="guardarEstudiante()" *ngIf="!estudiante else botonEditar">Crear Estudiante</button>
           <ng-template #botonEditar>
             <button mat-raised-button class="botones2" (click)="actualizar()">Actualizar</button>

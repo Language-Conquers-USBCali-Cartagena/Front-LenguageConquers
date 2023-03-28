@@ -39,4 +39,8 @@ export class AvatarService {
   eliminarAvatar(idAvatar: number): Observable<string>{
     return this.http.delete(`${environment.endpoint}/avatar/eliminarAvatar/${idAvatar}`,{ responseType: 'text'});
   }
+
+  avataresRegistrados(): Observable<number>{
+    return this.http.get<number>(`${environment.endpoint}/avatar/cantidadAvatares`);
+  }
 }

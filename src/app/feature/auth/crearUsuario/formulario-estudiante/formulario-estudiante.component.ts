@@ -74,11 +74,19 @@ export class FormularioEstudianteComponent implements OnInit {
     const genero = this.form.value.genero.idGenero;
     const nacimiento: Date = this.form.value.fechaNacimiento;
     const programa = this.form.value.programa.idPrograma
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
-    let estudiante: Estudiante = {nombre: nombre, apellido: apellido, nickName: nickName, idSemestre: semestre, idAvatar: avatar, idGenero: genero, usuarioCreador: nombre + apellido,
-                                  fechaCreacion: fechaActual, fechaNacimiento: nacimiento, idPrograma: programa, correo: correo, idEstado: 1}
+    let estudiante: Estudiante = {
+      nombre: nombre, 
+      apellido: apellido, 
+      nickName: nickName, 
+      idSemestre: semestre, 
+      idAvatar: avatar, 
+      idGenero: genero, 
+      usuarioCreador: nombre + ' ' + apellido,
+      fechaCreacion: new Date(),
+      fechaNacimiento: nacimiento, 
+      idPrograma: programa, 
+      correo: correo, 
+      idEstado: 1}
     this.loginService.createEstudiante(estudiante).subscribe(resp =>{
       localStorage.setItem("usuario", JSON.stringify(estudiante));
       Swal.fire({
@@ -87,6 +95,7 @@ export class FormularioEstudianteComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       });
+      localStorage.setItem("usuario", JSON.stringify(estudiante));
       this.router.navigateByUrl('/estudiante/menu');
     }, err =>{
       console.log(err['error']);
@@ -139,7 +148,6 @@ export class FormularioEstudianteComponent implements OnInit {
     imagen.addEventListener('click', function(){
       const active = <HTMLImageElement>document.querySelector('img');
       seleccionado?.classList.remove('active');
-      /*console.log(typeof seleccionado?.id);*/
       this.classList.add('active');
     });
    });

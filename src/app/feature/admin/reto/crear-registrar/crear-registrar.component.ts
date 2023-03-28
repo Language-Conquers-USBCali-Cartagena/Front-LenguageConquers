@@ -149,9 +149,6 @@ export class CrearRegistrarComponent implements OnInit {
     const curso = this.form.value.idCurso;
     const cursoSeleccionado = this.cursos.find(e => e.idCurso === curso);
     const idCurso = Number(cursoSeleccionado?.idCurso ??"");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD HH:mm:ss');
     let reto: Reto = {
       nombreReto: this.form.value.nombreReto,
       descripcion: this.form.value.descripcion,
@@ -169,7 +166,7 @@ export class CrearRegistrarComponent implements OnInit {
       urlVideo1: this.form.value.urlVideo1,
       urlVideo2: this.form.value.urlVideo2,
       usuarioCreador: this.form.value.usuarioCreador,
-      fechaCreacion: fechaActual,
+      fechaCreacion: new Date(),
       esGrupal: false,
       cantidadEstudiantes: 0}
       console.log(reto)
@@ -251,9 +248,6 @@ export class CrearRegistrarComponent implements OnInit {
     const curso = this.form.value.idCurso;
     const cursoSeleccionado = this.cursos.find(e => e.idCurso === curso);
     const idCurso = Number(cursoSeleccionado?.idCurso ??"");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD HH:mm:ss');
     let reto: Reto = {
       idReto: this.form.value.idReto,
       nombreReto: this.form.value.nombreReto,
@@ -272,7 +266,7 @@ export class CrearRegistrarComponent implements OnInit {
       urlVideo1: this.form.value.urlVideo1,
       urlVideo2: this.form.value.urlVideo2,
       usuarioModificador: this.form.value.usuarioModificador,
-      fechaModificacion: fechaActual,
+      fechaModificacion: new Date(),
       esGrupal: false,
       cantidadEstudiantes: 0,
       fechaCreacion: this.reto.fechaCreacion,
