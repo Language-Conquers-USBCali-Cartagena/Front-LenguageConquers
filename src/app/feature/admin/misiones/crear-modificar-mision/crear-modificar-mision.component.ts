@@ -71,15 +71,12 @@ export class CrearModificarMisionComponent implements OnInit {
     const curso = this.form.value.idCurso;
     const cursoSeleccionado = this.cursos.find(e => e.idCurso === curso);
     const idCurso = Number(cursoSeleccionado?.idCurso ??"");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let mision: Mision = {
       nombre: this.form.value.nombre,
       imagen: this.imagenUrl,
       idCurso:idCurso,
       usuarioCreador: this.form.value.usuarioCreador,
-      fechaCreacion: fechaActual}
+      fechaCreacion: new Date()}
     this.misionService.crearMision(mision).subscribe(data =>{
       if(data){
         Swal.fire({
@@ -153,9 +150,6 @@ export class CrearModificarMisionComponent implements OnInit {
     const curso = this.form.value.idCurso;
     const cursoSeleccionado = this.cursos.find(e => e.idCurso === curso);
     const idCurso = Number(cursoSeleccionado?.idCurso ??"");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     const imagenVieja = this.mision.imagen;
     let mision: Mision = {
       idMision: this.form.value.idMision,
@@ -163,7 +157,7 @@ export class CrearModificarMisionComponent implements OnInit {
       imagen: imagenMisionNueva ? imagenMisionNueva: imagenVieja,
       idCurso:idCurso,
       usuarioModificador: this.form.value.usuarioModificador,
-      fechaModificacion: fechaActual,
+      fechaModificacion: new Date(),
       fechaCreacion: this.mision.fechaCreacion,
       usuarioCreador: this.mision.usuarioCreador}
     this.misionService.actualizarMision(mision).subscribe(data=>{

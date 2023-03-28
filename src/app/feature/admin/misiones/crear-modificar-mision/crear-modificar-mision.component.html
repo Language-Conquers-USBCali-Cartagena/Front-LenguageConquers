@@ -1,6 +1,6 @@
 <mat-card class="tarjetaPrincipal">
   <mat-card-content>
-    <mat-card-title *ngIf="!mision else editarT">Registrar Misión</mat-card-title>
+    <mat-card-title *ngIf="!mision else editarT">Registrar Misi&oacute;n</mat-card-title>
     <ng-template #editarT>
       <mat-card-title>Actualizar Misión</mat-card-title>
     </ng-template>
@@ -63,7 +63,7 @@
         <br>
         <div *ngIf="!mision">
           <div class="campo-entrada">
-            <mat-label class="tituloImagen1"> Seleccionar Imagen Para la Misión </mat-label>
+            <mat-label class="tituloImagen1"> Seleccionar Imagen Para la Misi&oacute;n </mat-label>
             <br><br>
             <input class="inputFile" type="file" #fileInput
               (change)="uploadImage($event)" id="imagenMision">
@@ -72,7 +72,7 @@
           </div>
         </div>
         <div class="boton">
-          <button mat-raised-button class="botones" id="atras" (click)="atras()">Atrás</button>
+          <button mat-raised-button class="botones" id="atras" (click)="atras()">Atr&aacute;s</button>
           <button mat-raised-button class="botones" id="guardarMision" (click)="guardarMision()"
             *ngIf="!mision else botonEditar">Crear Misión</button>
           <ng-template #botonEditar>

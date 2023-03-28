@@ -36,4 +36,12 @@ export class RetoService {
   setReto(reto: any) {
     this.retoSubject.next(reto);
   }
+
+  cantidadRetos():Observable<number>{
+    return this.http.get<number>(`${environment.endpoint}/reto/cantidadRetos`);
+  }
+
+  promedioRetos():Observable<number>{
+    return this.http.get<number>(`${environment.endpoint}/reto/promedioMonedasRetos`);
+  }
 }

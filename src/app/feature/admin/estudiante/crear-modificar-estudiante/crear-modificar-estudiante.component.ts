@@ -31,7 +31,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
   estados: Estado[] = [];
   correo: string = '';
   pagina: number = 0;
-  idAvatar: number = 0;
+  idAvatar?: number = 0;
   hayErrores = false;
   mensajeError: string = "";
   avatarSeleccionado = this.avatares[0];
@@ -45,11 +45,15 @@ export class CrearModificarEstudianteComponent implements OnInit {
   usuario!: Estudiante;
   nombreEstado!: string | undefined;
   nombreAvatar!: string | undefined;
+  idAvatarS: string = '';
+  avatarPorDefecto: any = this.avatares[0];
+
   @ViewChild('avatarImg') avatarImg!: ElementRef<HTMLImageElement>;
 
   constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService, private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
     private router: Router, private programaService: ProgramaService, private estadoService: EstadoService, private estudianteService: EstudianteService) {
     this.crearEstudiante();
+    this.idAvatar = this.avatares[0]?.idAvatar ?? 0;
   }
 
 
@@ -154,18 +158,16 @@ export class CrearModificarEstudianteComponent implements OnInit {
   }
 
   seleccionarAvatar(avatar: any) {
-        this.idAvatar = avatar.idAvatar;
+    this.idAvatar = avatar.idAvatar;
     const images = document.querySelectorAll('img');
-    let seleccionado = document.getElementById(avatar.idAvatar);
+    let seleccionado = document.getElementById(avatar.idAvatar.toString());
     images.forEach(imagen => {
       imagen.addEventListener('click', function () {
         const active = <HTMLImageElement>document.querySelector('img');
         seleccionado?.classList.remove('active');
         this.classList.add('active');
-        
       });
     });
-
   }
 
 
@@ -184,9 +186,6 @@ export class CrearModificarEstudianteComponent implements OnInit {
     const estado = this.form.value.idEstado;
     const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
     const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estudiante: Estudiante = {
       nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
@@ -197,7 +196,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
       idAvatar: avatar,
       idGenero: idGenero,
       usuarioCreador: this.form.value.usuarioCreador,
-      fechaCreacion: fechaActual,
+      fechaCreacion: new Date(),
       fechaNacimiento: this.form.value.fechaNacimiento,
       idPrograma: idPrograma,
       correo: this.form.value.correo,
@@ -274,9 +273,6 @@ export class CrearModificarEstudianteComponent implements OnInit {
     const estado = this.form.value.idEstado;
     const estadoSeleccionado = this.estados.find(e => e.idEstado == estado);
     const idEstado = Number(estadoSeleccionado?.idEstado ?? "");
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     let estudiante: Estudiante = {
       idEstudiante: this.form.value.idEstudiante,
       nombre: this.form.value.nombre,
@@ -288,7 +284,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
       usuarioCreador: this.estudiante.usuarioCreador,
       usuarioModificador: this.form.value.usuarioModificador,
       fechaCreacion: this.estudiante.fechaCreacion,
-      fechaModificacion:fechaActual,
+      fechaModificacion:new Date(),
       idPrograma: idPrograma,
       idEstado: idEstado,
       idSemestre: idSemestre,

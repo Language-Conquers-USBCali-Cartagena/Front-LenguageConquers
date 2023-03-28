@@ -1,8 +1,8 @@
 <mat-card class="tarjetaPrincipal">
   <mat-card-content>
-    <mat-card-title *ngIf="!articulo else editarT">Registrar Artículo</mat-card-title>
+    <mat-card-title *ngIf="!articulo else editarT">Registrar Art&iacute;culo</mat-card-title>
     <ng-template #editarT>
-      <mat-card-title>Actualizar Artículo</mat-card-title>
+      <mat-card-title>Actualizar Art&iacute;culo</mat-card-title>
     </ng-template>
     <br>
     <form [formGroup]="form">
@@ -16,7 +16,7 @@
         </div>
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
-            <mat-label class="titulos">Descripción</mat-label>
+            <mat-label class="titulos">Descripci&oacute;n</mat-label>
             <textarea matInput type="textArea" matInput autocomplete="off" formControlName="descripcion"></textarea>
             <mat-icon matSuffix class="boton">descripcion</mat-icon>
           </mat-form-field>
@@ -30,7 +30,7 @@
         </div>
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
-            <mat-label class="titulos">Nivel Válido</mat-label>
+            <mat-label class="titulos">Nivel V&aacute;lido</mat-label>
             <input type="number" matInput autocomplete="off" formControlName="nivelValido">
             <mat-icon matSuffix class="boton">nivelValido</mat-icon>
           </mat-form-field>
@@ -48,7 +48,7 @@
         </div>
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
-            <mat-label class="titulos">Categoría</mat-label>
+            <mat-label class="titulos">Categor&iacute;a</mat-label>
             <mat-select formControlName="idCategoria" (selectionChange)="setCategoria($event.value)">
               <mat-option *ngFor="let categoria of categorias" [value]="categoria.idCategoria">
                 {{categoria.nombre}}
@@ -95,7 +95,7 @@
         </ng-template>
         <div *ngIf="!articulo">
           <div class="campo-entrada">
-            <mat-label class="tituloImagen1"> Seleccionar Imagen del Artículo </mat-label>
+            <mat-label class="tituloImagen1"> Seleccionar Imagen del Art&iacute;culo </mat-label>
             <br>
             <input class="inputFile" type="file" #fileInput
               (change)="uploadImage($event)"  id="imagenArticulo">
@@ -104,12 +104,12 @@
           </div>
         </div>
         <div class="boton">
-          <button mat-raised-button class="botones" (click)="atras()">Atras</button>
+          <button mat-raised-button class="botones" (click)="atras()">Atr&aacute;s</button>
           <button mat-raised-button class="botones"  id="guardarArticulo" (click)="guardarArticulo()"
             *ngIf="!articulo else botonEditar">Crear Artículo</button>
           <ng-template #botonEditar>
             <button mat-raised-button type="button" id="editar" (click)="actualizar()" class="botones">Guardar
-              Artículo</button>
+              Art&iacute;culo</button>
           </ng-template>
         </div>
       </div>

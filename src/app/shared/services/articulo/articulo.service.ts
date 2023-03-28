@@ -40,4 +40,8 @@ export class ArticuloService {
   eliminarArticulo(idArticulo: number): Observable<string>{
     return this.http.delete(`${environment.endpoint}/articulo/eliminarArticulo/${idArticulo}`,{ responseType: 'text'});
   }
+
+  articulosRegistrados(): Observable<number>{
+    return this.http.get<number>(`${environment.endpoint}/articulo/cantidadArticulos`);
+  }
 }

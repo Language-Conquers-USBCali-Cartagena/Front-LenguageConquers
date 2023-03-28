@@ -53,14 +53,11 @@ export class CrearModificarAvatarComponent implements OnInit {
   guardarAvatar(){
     this.hayErrores = false;
     this.crear = true;
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).utcOffset('-05:00').format('YYYY-MM-DD');
     let avatar: Avatar = {
       nombreAvatar: this.form.value.nombre,
       imgAvatar: this.imagenUrl,
       usuarioCreador: this.form.value.usuarioCreador,
-      fechaCreacion: fechaActual}
+      fechaCreacion: new Date()}
       setTimeout(() => {
         this.avatarService.crearAvatar(avatar).subscribe(data => {
           if(data){
@@ -115,16 +112,13 @@ export class CrearModificarAvatarComponent implements OnInit {
 
   actualizar():void{
     const imagenAvatarNueva = this.imagenUrl;
-    const moment = require('moment-timezone');
-    const pais = 'America/Bogota';
-    const fechaActual = moment().tz(pais).format('YYYY-MM-DD');
     const imagenAvatarVieja = this.avatar.imgAvatar;
     let avatar: Avatar = {
       idAvatar: this.form.value.idAvatar,
       nombreAvatar: this.form.value.nombre,
       imgAvatar: imagenAvatarNueva ? imagenAvatarNueva : imagenAvatarVieja,
       usuarioModificador: this.form.value.usuarioModificador,
-      fechaModificacion: fechaActual}
+      fechaModificacion: new Date()}
     this.avatarService.actualizarAvatar(avatar).subscribe(()=>{
       Swal.fire({
         icon: 'success',
