@@ -31,7 +31,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
   estados: Estado[] = [];
   correo: string = '';
   pagina: number = 0;
-  idAvatar: number = 0;
+  idAvatar?: number = 0;
   hayErrores = false;
   mensajeError: string = "";
   avatarSeleccionado = this.avatares[0];
@@ -45,11 +45,15 @@ export class CrearModificarEstudianteComponent implements OnInit {
   usuario!: Estudiante;
   nombreEstado!: string | undefined;
   nombreAvatar!: string | undefined;
+  idAvatarS: string = '';
+  avatarPorDefecto: any = this.avatares[0];
+
   @ViewChild('avatarImg') avatarImg!: ElementRef<HTMLImageElement>;
 
   constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService, private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
     private router: Router, private programaService: ProgramaService, private estadoService: EstadoService, private estudianteService: EstudianteService) {
     this.crearEstudiante();
+    this.idAvatar = this.avatares[0]?.idAvatar ?? 0;
   }
 
 
@@ -139,35 +143,38 @@ export class CrearModificarEstudianteComponent implements OnInit {
     })
   }
 
-  pasarIzq() {
-    if (this.pagina <= 0) {
+
+  pasarIzq(){
+    if(this.pagina <=0){
       this.pagina = 0;
 
-    } else {
-      this.pagina = this.avatares.length - 1;
+    }else{
+      this.pagina = this.pagina-1;
       this.getAvatar(this.pagina);
-
+      console.log(this.pagina);
     }
   }
-  pasarDer() {
-    this.pagina = this.pagina + 1;
+  pasarDer(){
+
+    this.pagina = this.pagina +1;
+
+    console.log(this.pagina);
+    console.log(this.avatares.length);
     this.getAvatar(this.pagina);
 
   }
 
   seleccionarAvatar(avatar: any) {
-        this.idAvatar = avatar.idAvatar;
+    this.idAvatar = avatar.idAvatar;
     const images = document.querySelectorAll('img');
-    let seleccionado = document.getElementById(avatar.idAvatar);
+    let seleccionado = document.getElementById(avatar.idAvatar.toString());
     images.forEach(imagen => {
       imagen.addEventListener('click', function () {
         const active = <HTMLImageElement>document.querySelector('img');
         seleccionado?.classList.remove('active');
         this.classList.add('active');
-        
       });
     });
-
   }
 
 

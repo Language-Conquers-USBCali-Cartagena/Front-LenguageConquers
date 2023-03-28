@@ -30,23 +30,34 @@
 
 .navbar {
   width: 1600px;
+  height: 50px;
   background-color: rgb(97, 100, 101);
   margin-top: -10px;
   margin-left: -10px;
-  
+
 }
 
-.botonTutorial {
-  background: rgb(97, 100, 101);
+.botonIntentos {
+  background: transparent;
   border-style: hidden;
   width: 60px;
   height: 50px;
-  margin-left: 1100px;
+  margin-left: 490px;
+
 }
+.botonTutorial {
+  background: transparent;
+  border-style: hidden;
+  width: 60px;
+  height: 50px;
+  margin-left: 470px;
+
+}
+
 
 .botonTema {
 
-  background: rgb(97, 100, 101);
+  background: transparent;
   border-style: hidden;
   width: 60px;
   height: 50px;
@@ -54,12 +65,6 @@
 
 }
 
-.imgTutorial,.imgPista ,.imgAtras{
-
-  width: 40px;
-  height: 40px;
-
-}
 
 .button:hover:enabled {
   background-color: rgb(172, 153, 139, 0.934);
@@ -73,8 +78,15 @@
 }
 
 
-
-
+.iconos{
+  color: #fff;
+}
+.icono-info{
+  color: #3794e0;
+}
+.icono-run{
+  color: rgb(25, 197, 106);
+}
 
 .botonAtras {
 
@@ -86,15 +98,9 @@
   margin-left: 60px;
 }
 
-h1 {
-  margin: 0;
-}
-
 
 .botonEjecutar {
   border-style: hidden;
-  background: rgb(25, 197, 106);
-  border: 2px solid rgb(16, 122, 65);
   border-radius: 50%;
   width: 60px;
   height: 50px;
@@ -114,11 +120,11 @@ h1 {
 .example-container1 {
   width: 200px;
   max-width: 100%;
-  margin: -25px 755px -25px 0;
   display: inline-block;
-  max-height: 400px;
+  max-height: 600px;
   overflow-y: visible;
-  margin-top: 5px;
+  margin-top: 25px;
+  margin-left: 250px;
 
   /* vertical-align: top; */
 }
@@ -225,24 +231,43 @@ h1 {
 }
 
 .texto {
-  width: 900px;
-  margin-top: -8px;
+  width: 200px;
+  margin-top: 18px;
   margin-left: 5px;
   justify-content: flex-start;
   text-align: justify;
+  display: flex;
+  flex-direction: column;
 }
 
+.palabra1, .palabra2, .reto{
+  width: 200px;
+  height: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.variables .reto ::before{
+  content: "# ";
+
+}
 .texto-explicacion {
   width: 900px;
 
 }
 
 .variables {
-  font-size: 12px;
+  font-size: 18px;
   font-family: 'Courier New', Courier, monospace;
   line-height: 1px;
   margin-bottom: -8px;
 
+}
+.retoExp{
+  font-family: 'Courier New', Courier, monospace;
+  align-items: flex-start;
+  text-align: start;
+  line-height: 25px;
+  margin-bottom: -10px;
 }
 
 .reto {
@@ -269,14 +294,14 @@ h1 {
     border: 30px solid rgba(10, 10, 10, 0.883);
     color: rgb(255, 255, 255);
     float: inline-end;
-  
+
   }
   .navbar {
     width: 300px;
     background-color: rgb(97, 100, 101);
     margin-top: -10px;
     margin-left: -10px;
-    
+
   }
   .botonTutorial {
     background: rgb(97, 100, 101);
@@ -285,23 +310,23 @@ h1 {
     height: 50px;
     margin-left: 40px;
   }
-  
+
   .botonTema {
-  
+
     background: rgb(97, 100, 101);
     border-style: hidden;
     width: 60px;
     height: 50px;
     margin-left: 40px;
-  
+
   }
   .cuadro-respuesta {
     margin-left: 10px;
     margin-top: 10px;
-    
+
     height: 200px;
     overflow:auto;
-    
+
   }
   .example-container1 {
     width: 270px;
@@ -311,7 +336,7 @@ h1 {
     max-height: 200px;
     overflow-y: visible;
     margin-top: 5px;
-  
+
     /* vertical-align: top; */
   }
   .example-list1 {
@@ -320,7 +345,7 @@ h1 {
     background: rgba(255, 255, 255, 0);
     border-radius: 4px;
     overflow: auto;
-  
+
     height: 250px;
   }
   .example-container {

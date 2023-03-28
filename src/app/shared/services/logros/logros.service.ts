@@ -30,5 +30,8 @@ export class LogrosService {
   eliminarLogro(idLogro: number): Observable<string>{
     return this.http.delete(`${environment.endpoint}/logro/eliminarLogro/${idLogro}`,{ responseType: 'text'});
   }
+  cantidadLogros():Observable<number>{
+    return this.http.get<number>(`${environment.endpoint}/logro/cantidadLogros`);
+  }
 
 }
