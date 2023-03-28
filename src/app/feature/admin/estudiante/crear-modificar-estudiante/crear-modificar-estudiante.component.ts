@@ -143,25 +143,18 @@ export class CrearModificarEstudianteComponent implements OnInit {
     })
   }
 
-
-  pasarIzq(){
+  pasarIzq() {
     if(this.pagina <=0){
       this.pagina = 0;
 
     }else{
       this.pagina = this.pagina-1;
       this.getAvatar(this.pagina);
-      console.log(this.pagina);
     }
   }
-  pasarDer(){
-
+  pasarDer() {
     this.pagina = this.pagina +1;
-
-    console.log(this.pagina);
-    console.log(this.avatares.length);
     this.getAvatar(this.pagina);
-
   }
 
   seleccionarAvatar(avatar: any) {

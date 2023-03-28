@@ -95,6 +95,7 @@ export class FormularioEstudianteComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       });
+      localStorage.setItem("usuario", JSON.stringify(estudiante));
       this.router.navigateByUrl('/estudiante/menu');
     }, err =>{
       console.log(err['error']);
@@ -147,7 +148,6 @@ export class FormularioEstudianteComponent implements OnInit {
     imagen.addEventListener('click', function(){
       const active = <HTMLImageElement>document.querySelector('img');
       seleccionado?.classList.remove('active');
-      /*console.log(typeof seleccionado?.id);*/
       this.classList.add('active');
     });
    });

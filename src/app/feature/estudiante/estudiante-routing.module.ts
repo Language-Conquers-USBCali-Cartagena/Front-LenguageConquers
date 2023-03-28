@@ -9,6 +9,7 @@ import { TiendaPrincipalComponent } from '../../core/features/tienda-principal/t
 import { TarjetasLogrosComponent } from 'src/app/core/features/tarjetas-logros/tarjetas-logros.component';
 import { RankingComponent } from 'src/app/core/features/ranking/ranking.component';
 import { ArticulosAdquiridosComponent } from './articulos-adquiridos/articulos-adquiridos.component';
+import { EstudianteGuardGuard } from 'src/app/core/guards/estudiante-guard.guard';
 
 
 
@@ -18,7 +19,7 @@ const routes:Routes = [
     {
         path: '',
         component: EstudianteComponent,
-        // canActivate: [AuthGuardGuard],
+        canActivate: [AuthGuardGuard, EstudianteGuardGuard],
         children: [
             {
                 path: 'menu',

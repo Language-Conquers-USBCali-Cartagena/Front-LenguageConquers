@@ -76,7 +76,7 @@ export class DragAndDropComponent implements OnInit {
     this.organizar(this.j, 10);
 
     let resp: PalabrasReservadas[] = this.a.concat(this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
-    this.palabraService.procesarPalabras(resp).subscribe(resp =>{
+    this.palabraService.procesarPalabras(resp, true).subscribe(resp =>{
       console.log(resp);
       Swal.fire({
         title: 'Respuesta!',

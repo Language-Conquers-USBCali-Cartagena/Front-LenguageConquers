@@ -61,6 +61,7 @@ export class FormularioProfesorComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       });
+       localStorage.setItem("usuario", JSON.stringify(profesor));
       this.router.navigateByUrl('/profesor/menuProfesor');
     }, err => {
       console.log(err['error']);

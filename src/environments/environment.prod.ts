@@ -9,5 +9,6 @@ export const environment = {
     messagingSenderId: '373075886736',
     measurementId: 'G-R8EJ8PT8KQ',
   },
-  production: true
+  production: true,
+  endpoint:'https://languageconquers.herokuapp.com'
 };
