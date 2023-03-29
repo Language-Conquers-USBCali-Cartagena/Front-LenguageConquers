@@ -28,7 +28,7 @@ float: left;
   color: black;
 }
 .tarjetaPeq {
-  width: 1640px;
+  width: 87%;
   height: 10px;
   left: 103px;
   margin-top:10px ;
@@ -74,36 +74,22 @@ float: left;
 .fondoTarjeta {
   width: 90%;
   height: 200px;
-  margin-right: 80px;
-  margin-left: 110px;
+  margin-right: 10px;
+  margin-left: 60px;
   padding: 48px;
   margin-top: -20px;
   display: grid;
-  gap: 10px;
-  grid-column: 2;
-  grid-template-columns: repeat(auto-fit,minmax(50px,1fr));
+  grid-template-columns: repeat(1,minmax(50px,1fr));
+  margin-bottom: 40px;
 }
 
 .estudiante {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-flex;
+ 
 
 }
 
-.estudiante>img {
-  margin-left: 640px;
 
-}
-
-.estudiante>h2 {
-  margin-left: 640px;
-
-}
-
-.estudiante>button {
-  margin-left: 640px;
-}
 
 .cursos {
   max-width: 180px;
@@ -145,7 +131,7 @@ float: left;
   .body {
     
     background-size: cover;
-    height: 660px;
+    
 
   }
 
@@ -163,7 +149,7 @@ float: left;
   }
 
   .tarjetaPeq {
-    width: 306px;
+    width: 75%;
     height: 80px;
     margin-right: 0px;
     margin-left: -22px;
@@ -218,10 +204,12 @@ float: left;
   }
   .fondoTarjeta {
     width: 60%;
+    margin-top: 10%;
     margin-right: 20%;
     margin-left: 20%;
     padding: 5%;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(1, minmax(100px, 1fr));
+    overflow-y: scroll;
   }
   .estudiante {
     display: contents;
