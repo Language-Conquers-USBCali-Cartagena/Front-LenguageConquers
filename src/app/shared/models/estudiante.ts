@@ -17,4 +17,5 @@ export interface Estudiante {
     idGenero?:           number;
     monedasObtenidas?:   number;
     imagenAvatar?: string;
+    nombreEstado?: string;
 }

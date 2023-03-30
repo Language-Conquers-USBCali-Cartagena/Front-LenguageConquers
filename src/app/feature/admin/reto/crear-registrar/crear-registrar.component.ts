@@ -182,8 +182,6 @@ export class CrearRegistrarComponent implements OnInit {
         this.router.navigate(['/admin/reto/listar-retos']);
       }}, (e) => {
       this.hayErrores = true;
-      this.mensajeError = e.error;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],

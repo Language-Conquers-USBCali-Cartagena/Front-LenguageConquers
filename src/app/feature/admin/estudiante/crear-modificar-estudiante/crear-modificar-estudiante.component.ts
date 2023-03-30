@@ -46,24 +46,30 @@ export class CrearModificarEstudianteComponent implements OnInit {
   nombreEstado!: string | undefined;
   nombreAvatar!: string | undefined;
   idAvatarS: string = '';
-  avatarPorDefecto: any = this.avatares[0];
+  idAvatarEstudiante: number |undefined;
 
   @ViewChild('avatarImg') avatarImg!: ElementRef<HTMLImageElement>;
+  idSeleccionado: any;
+
+  avatarPorDefecto: any;
+  idAvatarPorDefecto: number | undefined;
+
 
   constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService, private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
     private router: Router, private programaService: ProgramaService, private estadoService: EstadoService, private estudianteService: EstudianteService) {
     this.crearEstudiante();
-    this.idAvatar = this.avatares[0]?.idAvatar ?? 0;
+    //this.idAvatar = this.avatares[0]?.idAvatar ?? 0;
   }
 
 
-  ngOnInit(): void {
-      this.cargarEstudiante();
+  async ngOnInit(){
+      await this.cargarEstudiante();
       this.getGenero();
       this.getAvatar(this.pagina);
       this.getSemestre();
       this.getPrograma();
       this.getEstado();
+
   }
 
   crearEstudiante() {
@@ -159,8 +165,9 @@ export class CrearModificarEstudianteComponent implements OnInit {
 
   seleccionarAvatar(avatar: any) {
     this.idAvatar = avatar.idAvatar;
+    console.log('id del avatar: ' + this.idAvatar);
     const images = document.querySelectorAll('img');
-    let seleccionado = document.getElementById(avatar.idAvatar.toString());
+    const seleccionado = document.getElementById(String(avatar.idAvatar));
     images.forEach(imagen => {
       imagen.addEventListener('click', function () {
         const active = <HTMLImageElement>document.querySelector('img');
@@ -168,7 +175,10 @@ export class CrearModificarEstudianteComponent implements OnInit {
         this.classList.add('active');
       });
     });
+
+
   }
+
 
 
   guardarEstudiante() {
@@ -245,14 +255,24 @@ export class CrearModificarEstudianteComponent implements OnInit {
       monedasObtenidas: estudiante.monedasObtenidas,
     });
   }
-  cargarEstudiante() {
+  async cargarEstudiante() {
     this.activatedRoute.params.subscribe(
       (params) => {
         const id = params['id'];
         if (id) {
           this.estudianteService.consultarPorId(id).subscribe((data) => {
             this.estudiante = data;
+            this.idAvatarEstudiante = data.idAvatar;
             this.setEstudiante(this.estudiante);
+
+            this.avatares.forEach(avatar => {
+              if (avatar.idAvatar === this.idAvatarEstudiante) {
+              setTimeout(() => {
+                const imgElement = document.getElementById(this.idAvatarEstudiante!.toString()) as HTMLImageElement;
+                imgElement?.classList.add('active');
+              },100);
+              }
+            });
           });
         }
       }
