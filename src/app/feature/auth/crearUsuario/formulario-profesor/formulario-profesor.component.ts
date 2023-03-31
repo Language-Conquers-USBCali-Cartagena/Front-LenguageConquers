@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../../../../core/service/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ProfesorService } from '../../../../shared/services/profesor/profesor.service';
 
 @Component({
   selector: 'app-formulario-profesor',
@@ -20,7 +21,14 @@ export class FormularioProfesorComponent implements OnInit {
   correo: string = '';
   public user$:Observable<any> = this.authService.afauth.user;
 
-  constructor(private fb: UntypedFormBuilder, private generoService: GeneroService, private loginService: ServiciosLoginService, private authService: AuthService, private router: Router) {
+  constructor(
+    private fb: UntypedFormBuilder, 
+    private generoService: GeneroService, 
+    private loginService: ServiciosLoginService, 
+    private authService: AuthService, 
+    private router: Router,
+    private profesorService: ProfesorService
+    ) {
 
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
@@ -50,27 +58,24 @@ export class FormularioProfesorComponent implements OnInit {
       correo:correo, 
       foto:foto, 
       usuarioCreador: usuarioCreador, 
-      fechaCreacion:new Date(), 
+      fechaCreacion:new Date(2023, 1, 1, 10, 10, 10), 
       idGenero: genero}
     this.loginService.createProfesor(profesor).subscribe(resp => {
-      localStorage.setItem("usuario", JSON.stringify(profesor));
-
       Swal.fire({
         icon: 'success',
         title: resp,
         showConfirmButton: false,
         timer: 2000
       });
-       localStorage.setItem("usuario", JSON.stringify(profesor));
-      this.router.navigateByUrl('/profesor/menuProfesor');
+      this.profesorService.getProfesorPorCorreo(correo).subscribe(resp => {
+        localStorage.setItem("usuario", JSON.stringify(resp));
+        this.router.navigateByUrl("/profesor/menuProfesor");        
+      })
     }, err => {
-      console.log(err['error']);
       Swal.fire({ icon: 'error', text: err['error'], confirmButtonColor: '#33b5e5',});
       this.router.navigateByUrl('/auth/crearUsuario');
       }
-
     );
-
   }
 
   getGenero(){

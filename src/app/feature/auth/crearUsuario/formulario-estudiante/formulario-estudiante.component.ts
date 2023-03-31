@@ -17,6 +17,7 @@ import { CarusselAvataresComponent } from 'src/app/core/features/carussel-avatar
 import { prodErrorMap } from 'firebase/auth';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import Swal from 'sweetalert2';
+import { EstudianteService } from '../../../../shared/services/estudiante/estudiante.service';
 
 @Component({
   selector: 'app-formulario-estudiante',
@@ -39,9 +40,17 @@ export class FormularioEstudianteComponent implements OnInit {
 
   public user$:Observable<any> = this.authService.afauth.user;
 
-  constructor(private fb: UntypedFormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService,
-
-              private loginService: ServiciosLoginService, private router:Router, private programaService: ProgramaService,  private authService: AuthService) {
+  constructor(
+    private fb: UntypedFormBuilder, 
+    private generoService: GeneroService, 
+    private semestreService: SemestreService,
+    private avatarService: AvatarService,
+    private loginService: ServiciosLoginService, 
+    private router:Router, 
+    private programaService: ProgramaService,
+    private authService: AuthService,
+    private estudianteService: EstudianteService
+    ) {
     this.form = this.fb.group({
       nombre:  ['', Validators.required],
       apellido: ['', Validators.required],
@@ -88,22 +97,23 @@ export class FormularioEstudianteComponent implements OnInit {
       correo: correo, 
       idEstado: 1}
     this.loginService.createEstudiante(estudiante).subscribe(resp =>{
-      localStorage.setItem("usuario", JSON.stringify(estudiante));
       Swal.fire({
         icon: 'success',
         title: resp,
         showConfirmButton: false,
         timer: 2000
       });
-      localStorage.setItem("usuario", JSON.stringify(estudiante));
-      this.router.navigateByUrl('/estudiante/menu');
+      this.estudianteService.getEstudiantePorCorreo(correo).subscribe((resp) =>{
+        localStorage.setItem("usuario", JSON.stringify(resp));
+        this.router.navigateByUrl('/estudiante/menu');
+        
+      });
     }, err =>{
       console.log(err['error']);
       Swal.fire({ icon: 'error', text: err['error'], confirmButtonColor: '#33b5e5',});
       localStorage.setItem("correo", correo);
       this.router.navigateByUrl('/auth/login');
     })
-
   }
 
   getGenero(){

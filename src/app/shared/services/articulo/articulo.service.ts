@@ -44,4 +44,13 @@ export class ArticuloService {
   articulosRegistrados(): Observable<number>{
     return this.http.get<number>(`${environment.endpoint}/articulo/cantidadArticulos`);
   }
+
+  getArticulosNoObtenidos(idEstudiante: number): Observable<Articulo[]>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        idEstudiante: `${idEstudiante}`
+      }
+    });
+    return this.http.get<Articulo[]>(`${environment.endpoint}/articulo/articulosNoObtenidos`, {params: paramsHttp})
+  }
 }

@@ -11,61 +11,11 @@
   <div class="container">
     <div class="slider">
       <div class="tarjetasPeq">
-        <mat-card class="cardPeq">
-          <img mat-card-image class="imagenArticulo" src="https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/Acha.png?alt=media&token=e93357db-faa5-45cc-9c23-e17db3f119ca">
+        <mat-card class="cardPeq" *ngFor="let articulo of productos">
+          <img mat-card-image class="imagenArticulo" src="{{articulo.imagen}}">
           <br>
           <mat-card-content>
-            <p class="precio">100<img mat-card-image class="precio-img"
-                src="../assets/images/moneda.png">
-            </p>
-            <p><button mat-button class="botones">Canjear</button></p>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="cardPeq">
-          <img mat-card-image class="imagenArticulo" src="https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/cascoVikingo.png?alt=media&token=55e5da9f-4651-44f7-8000-995567db58af">
-          <br>
-          <mat-card-content>
-            <p class="precio">200<img mat-card-image class="precio-img"
-                src="../assets/images/moneda.png">
-            </p>
-            <p><button mat-button class="botones">Canjear</button></p>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="cardPeq">
-          <img mat-card-image class="imagenArticulo" src="https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/corona.png?alt=media&token=e13d7c76-abf9-4860-9fe9-28ccb3d868d4">
-          <br>
-          <mat-card-content>
-            <p class="precio">150<img mat-card-image class="precio-img"
-                src="../assets/images/moneda.png">
-            </p>
-            <p><button mat-button class="botones">Canjear</button></p>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="cardPeq">
-          <img mat-card-image class="imagenArticulo" src="https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/mascara.png?alt=media&token=ce50d9a1-1ca9-4797-8fc7-ae04c620fea5">
-          <br>
-          <mat-card-content>
-            <p class="precio">180<img mat-card-image class="precio-img"
-                src="../assets/images/moneda.png">
-            </p>
-            <p><button mat-button class="botones">Canjear</button></p>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="cardPeq">
-          <img mat-card-image class="imagenArticulo" src="https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/sombrero.png?alt=media&token=7b58d3ee-416c-4c92-9752-f647469eca32">
-          <br>
-          <mat-card-content>
-            <p class="precio">220<img mat-card-image class="precio-img"
-                src="../assets/images/moneda.png">
-            </p>
-            <p><button mat-button class="botones">Canjear</button></p>
-          </mat-card-content>
-        </mat-card>
-        <mat-card class="cardPeq">
-          <img mat-card-image class="imagenArticulo" src="https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/gorra.png?alt=media&token=4a7593fb-02c7-4de2-ae7d-8b712104dfbc">
-          <br>
-          <mat-card-content>
-            <p class="precio">80<img mat-card-image class="precio-img"
+            <p class="precio">{{articulo.precio}}<img mat-card-image class="precio-img"
                 src="../assets/images/moneda.png">
             </p>
             <p><button mat-button class="botones">Canjear</button></p>
@@ -73,5 +23,4 @@
         </mat-card>
       </div>
     </div>
-
   </div>

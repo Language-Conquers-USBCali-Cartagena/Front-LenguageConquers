@@ -5,8 +5,16 @@
   <div class="container">
     <div class="slider" fxLayout="row wrap" fxLayoutGap="16px grid">
       <div class="tarjetasPeq" fxFlex="25%" fxFlex.xs="100%" fxFlex.ms="33%">
-        <mat-card class="cardPeq" *ngFor="let logro of listaLogros">
+        <mat-card class="cardPeq" *ngFor="let logro of listaLogrosObtenidos">
           <img mat-card-image class="logros2" src="{{logro.imagen}}">
+          <br>
+          <mat-card-content>
+            <h1 class="nombreLogro2">{{logro.nombre}}</h1>
+            <p>{{logro.descripcion}}</p>
+          </mat-card-content>
+        </mat-card>
+        <mat-card class="cardPeq" *ngFor="let logro of listaLogros" >
+          <img mat-card-image class="logros2 card2" src="{{logro.imagen}}">
           <br>
           <mat-card-content>
             <h1 class="nombreLogro2">{{logro.nombre}}</h1>
