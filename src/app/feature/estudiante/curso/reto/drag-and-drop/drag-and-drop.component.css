@@ -18,7 +18,7 @@
 .fondoPantalla {
   width: 60%;
   padding-top: 10px;
-  margin-left: 100px;
+  margin-left: 200px;
   /*Efecto espejo*/
   font-size: 30px;
   border-radius: 10px;
@@ -31,7 +31,8 @@
 .navbar {
   width: 100%;
   background-color: rgb(97, 100, 101);
-  margin-top: -10px;
+  margin-top: -1%;
+  margin-left: 0%;
 }
 
 .botonIntentos {
@@ -108,9 +109,7 @@
   height: 45px;
 }
 
-.pantallaAdentro {
-  margin-left: 10px;
-}
+
 
 .example-container1 {
   width: 200px;
@@ -217,13 +216,15 @@
 }
 
 .cuadro-respuesta {
-  margin-left: 200px;
-  margin-top: -360px;
-  display: block;
-  position: static;
+  margin-left: 470px;
+  margin-top: -350px;
+  
+  position: relative;
   height: 400px;
-  width: 200px;
-  overflow-y: auto;
+  width: 400px;
+  display: grid;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .texto {
@@ -280,8 +281,8 @@
     grid-column: span 2;
   } */
   .fondoPantalla {
-    width: 300px;
-    height: 650px;
+    width: 70%;
+    height: 90%;
     padding-top: 0px;
     margin-left: 40px;
     /*Efecto espejo*/
@@ -293,10 +294,10 @@
 
   }
   .navbar {
-    width: 300px;
+    width: 100%;
     background-color: rgb(97, 100, 101);
-    margin-top: -10px;
-    margin-left: -10px;
+    margin-top: 0px;
+    margin-left: 0px;
 
   }
   .botonTutorial {
@@ -317,9 +318,11 @@
 
   }
   .cuadro-respuesta {
-    margin-left: 10px;
-    margin-top: 10px;
-
+    margin-left: 20px;
+    margin-top: 20px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 260px;
     height: 200px;
     overflow:auto;
 
@@ -333,7 +336,7 @@
     overflow-y: visible;
     margin-top: 5px;
 
-    /* vertical-align: top; */
+   
   }
   .example-list1 {
     border: solid 1px #6f6e6e00;

@@ -1,24 +1,18 @@
 <app-menu (onToggleSideNav)="onToggleSideNav($event)"></app-menu>
+<div class="body2"></div>
 <div class="body">
   <div class="fondoPantalla">
     <div class="pantallaAdentro">
       <div class="navbar">
         <button type="button" class="botonTutorial" (click)="mostrarTutorial()">
-
-          <img src="../../../../../../assets/icons/video.png" alt="Tutorial" class="imgTutorial"
-            matTooltip="Como Practicar">
+          <mat-icon class="icono-info" matTooltip="Como Practicar">
+            help
+          </mat-icon>
         </button>
-
-
-        <button type="button" class="botonTema" (click)="mostrarPistas()">
-
-          <img src="../../../../../../assets/icons/pista.png" alt="pista" class="imgPista" matTooltip="Pistas">
-        </button>
-
         <button type="button" class="botonAtras" (click)="atras()">
-          <img src="../../../../../../assets/icons/atras.png" alt="Tutorial" class="imgAtras" matTooltip="Atrás">
-
-
+          <mat-icon class="icono-info" matTooltip="atras">
+            backspace
+          </mat-icon>
         </button>
         <button mat-icon-button  class="botonTema" (click)="mostrarPistas()" matTooltip="Pistas">
           <mat-icon class="icono-info">info</mat-icon>
