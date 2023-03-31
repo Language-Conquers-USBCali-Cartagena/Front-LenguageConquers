@@ -1,6 +1,6 @@
 .container {
-  height: 735px;
-  width: auto;
+  height: 100%;
+  width: 100%;
   background-color: #2e2e2e;
 }
 
@@ -176,5 +176,8 @@ width: 190px;
   margin-top: 10px;
   margin: 0 -180px;
  }
- 
+ .container{
+  overflow-y: scroll;
+  overflow-x: hidden;
+ }
 }
