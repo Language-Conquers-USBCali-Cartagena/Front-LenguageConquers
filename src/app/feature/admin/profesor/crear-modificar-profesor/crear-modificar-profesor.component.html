@@ -67,7 +67,7 @@
             <div  class="campo-entrada">
               <mat-label class="tituloImagen1"> Seleccionar Foto </mat-label>
               <br><br>
-              <input class="inputFile" type="file" #fileInput (change)="uploadImage($event)" id="Foto">
+              <input class="inputFile" type="file" #fileInput (click)="cargandoImagen()" (change)="uploadImage($event)" id="Foto">
               <label for="Foto" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
               <br>
             </div>
@@ -78,7 +78,7 @@
           <div class="campo-entrada">
             <mat-label class="tituloImagen1"> Seleccionar Foto </mat-label>
             <br><br>
-            <input class="inputFile" type="file" #fileInput
+            <input class="inputFile" type="file" #fileInput (click)="cargandoImagen()"
             (change)="uploadImage($event)" id="foto">
             <label for="foto" class="botonSeleccionarArchivo"> Seleccionar Imagen</label>
             <br><br>

@@ -9,6 +9,7 @@ import { Avatar } from 'src/app/shared/models/avatar';
 import { AvatarService } from 'src/app/shared/services/avatar/avatar.service';
 import Swal from 'sweetalert2';
 import { MatRadioChange } from '@angular/material/radio';
+import { serialize } from 'v8';
 
 @Component({
   selector: 'app-crear-modificar-avatar',
@@ -58,12 +59,11 @@ export class CrearModificarAvatarComponent implements OnInit {
       imgAvatar: this.imagenUrl,
       usuarioCreador: this.form.value.usuarioCreador,
       fechaCreacion: new Date()}
-      setTimeout(() => {
         this.avatarService.crearAvatar(avatar).subscribe(data => {
           if(data){
             Swal.fire({
               icon: 'success',
-              title: 'El avatar se ha creado exitosamente.',
+              title: data,
               showConfirmButton: false,
               timer: 2000
             });
@@ -80,8 +80,9 @@ export class CrearModificarAvatarComponent implements OnInit {
             showCloseButton: true,
           });
         });
-      }, 8000);
   }
+
+
 
 
   setAvatar(avatar:Avatar){
@@ -94,6 +95,18 @@ export class CrearModificarAvatarComponent implements OnInit {
       usuarioModificador: avatar.usuarioModificador,
       fechaModificacion: avatar.fechaModificacion
     });
+  }
+
+  cargandoImagen(){
+    setTimeout(()=>{
+    Swal.fire({
+      icon: 'warning',
+      title: 'Se esta cargando la imagen.',
+      showCloseButton: false,
+      showConfirmButton: false,
+      timer: 10000,
+      timerProgressBar: true,
+    })}, 2000);
   }
 
   cargarAvatar(){
@@ -119,14 +132,16 @@ export class CrearModificarAvatarComponent implements OnInit {
       imgAvatar: imagenAvatarNueva ? imagenAvatarNueva : imagenAvatarVieja,
       usuarioModificador: this.form.value.usuarioModificador,
       fechaModificacion: new Date()}
-    this.avatarService.actualizarAvatar(avatar).subscribe(()=>{
-      Swal.fire({
-        icon: 'success',
-        title: 'El avatar se ha actualizado exitosamente.',
-        showConfirmButton: false,
-        timer: 2000
-      });
-      this.router.navigate(['/admin/avatar/listar-avatar']);
+    this.avatarService.actualizarAvatar(avatar).subscribe(data =>{
+      if(data){
+        Swal.fire({
+          icon: 'success',
+          title: data,
+          showConfirmButton: false,
+          timer: 2000
+        });
+        this.router.navigate(['/admin/avatar/listar-avatar']);
+      }
   }, (e) => {
     this.hayErrores = true;
     this.mensajeError = e['error'];

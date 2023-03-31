@@ -6,6 +6,9 @@ import { MatSort } from '@angular/material/sort';
 import { RetoEstudianteService } from 'src/app/shared/services/retoEstudiante/reto-estudiante.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EstadoService } from 'src/app/shared/services/estado/estado.service';
+import { RetoService } from '../../../../../shared/services/reto/reto.service';
+import { EstudianteService } from 'src/app/shared/services/estudiante/estudiante.service';
+import { Estudiante } from '../../../../../shared/models/estudiante';
 
 @Component({
   selector: 'app-progreso-estudiante',
@@ -25,15 +28,22 @@ export class ProgresoEstudianteComponent implements OnInit {
   idReto = 0;
   nombreEstado: string |undefined;
  idEstudiante!: number;
+nombreEstudiante!:string | undefined;
 
-  constructor(private retoEstudianteService: RetoEstudianteService, private routerAct: ActivatedRoute, private router: Router, private estadoService: EstadoService ) {
+  constructor(private retoEstudianteService: RetoEstudianteService, private routerAct: ActivatedRoute, private router: Router, private estadoService: EstadoService, private retoServicio: RetoService, private estudianteService: EstudianteService ) {
     this.id = this.routerAct.snapshot.paramMap.get('id');
     this.idEstudiante = Number(this.id);
-    console.log(this.idEstudiante)
    }
 
   ngOnInit(): void {
     this.cargarRetos();
+    this.obtenerEstudiante();
+  }
+
+  obtenerEstudiante(){
+    this.estudianteService.consultarPorId(this.idEstudiante).subscribe(data => {
+      this.nombreEstudiante = data.nombre?.concat(' ', data.apellido!);
+    })
   }
 
 
@@ -44,6 +54,9 @@ export class ProgresoEstudianteComponent implements OnInit {
         this.estadoService.consultarPorId(retoEstudiante.idEstado!).subscribe(estado => {
           retoEstudiante.nombreEstado = estado.estado;
         });
+        this.retoServicio.consultarPorId(retoEstudiante.idReto!).subscribe(reto =>{
+          retoEstudiante.nombreReto = reto.nombreReto;
+        })
       }
       this.dataSource.data = this.listaRetoEstudiantes;
     });

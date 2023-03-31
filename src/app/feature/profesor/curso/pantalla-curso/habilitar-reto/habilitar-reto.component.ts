@@ -109,8 +109,8 @@ export class HabilitarRetoComponent implements OnInit {
       usuarioCreador: this.reto.usuarioCreador,
       solucion: this.reto.solucion,
       descripcionTeoria: this.reto.descripcionTeoria,
-      imagen1: this.reto.imagen1,
-      imagen2: this.reto.imagen2,
+      imagenTema1: this.reto.imagenTema1,
+      imagenTema2: this.reto.imagenTema2,
       urlVideo1: this.reto.urlVideo1,
       urlVideo2: this.reto.urlVideo2}
       console.log(reto.fechaInicio)

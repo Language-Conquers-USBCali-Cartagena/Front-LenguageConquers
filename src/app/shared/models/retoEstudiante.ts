@@ -12,4 +12,5 @@ export interface RetoEstudiante{
   fechaCreacion?: Date;
   fechaModificacion?: Date;
   nombreEstado?: string;
+  nombreReto?: string;
 }

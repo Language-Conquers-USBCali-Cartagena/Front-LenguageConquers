@@ -20,7 +20,7 @@
   display: grid;
   margin-top: 10px;
   margin-bottom: -100px;
-  grid-template-columns: repeat(4, 18em);
+  grid-template-columns: repeat(5, 18em);
   justify-content: center;
 
 
@@ -43,6 +43,16 @@
   margin-left: 80px;
   margin-top: -46px;
 }
+.botonImagen{
+
+  background-color: #fff;
+  align-items: center;
+  margin:2px;
+  display: inline-block;
+  border-radius: 18px;
+  width: 120px;
+  height: 50px;
+}
 .botonSeleccionarArchivo1, .botonSeleccionarArchivo2{
   margin-left: -310px;
   margin-top: -12px;
@@ -57,7 +67,7 @@
   cursor: pointer;
 }
 .botonSeleccionarArchivo2{
-  margin-left: -150px;
+  margin-left: -55px;
   margin-top: -36px;
 }
 .titulos {

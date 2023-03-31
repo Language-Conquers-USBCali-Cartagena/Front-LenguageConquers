@@ -116,6 +116,18 @@ export class CrearModificarArticulosComponent implements OnInit {
 
   }
 
+  cargandoImagen(){
+    setTimeout(()=>{
+    Swal.fire({
+      icon: 'warning',
+      title: 'Se esta cargando la imagen.',
+      showCloseButton: false,
+      showConfirmButton: false,
+      timer: 10000,
+      timerProgressBar: true,
+    })}, 2000);
+  }
+
   uploadImage($event: any) {
     const file = $event.target.files[0];
     console.log(file);

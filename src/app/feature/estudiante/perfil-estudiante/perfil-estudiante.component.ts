@@ -20,7 +20,32 @@ import Swal from 'sweetalert2';
 import { log } from 'console';
 import { style } from '@angular/animations';
 import { EstudianteServiceService } from '../services/estudiante-service.service';
-
+export var single = [
+  {
+    "name": "Germany",
+    "value": 8940000
+  },
+  {
+    "name": "USA",
+    "value": 5000000
+  },
+  {
+    "name": "France",
+    "value": 7200000
+  },
+  {
+    "name": "UK",
+    "value": 6200000
+  },
+  {
+    "name": "Italy",
+    "value": 4200000
+  },
+  {
+    "name": "Spain",
+    "value": 8200000
+  }
+];
 @Component({
   selector: 'app-perfil-estudiante',
   templateUrl: './perfil-estudiante.component.html',
@@ -54,7 +79,15 @@ export class PerfilEstudianteComponent implements OnInit {
   usuario!: Estudiante;
   nombreEstado!: string | undefined;
   idEstudiante!: number | undefined;
+  idAvatarSeleccionado!: number | undefined;
+  idAvatarPorDefecto: number | undefined;
 
+  single=[] ;
+  view: [number, number] = [200, 300];
+  showLegend: boolean = true;
+  showLabels: boolean = true;
+  valor: any;
+  valor2: any;
 
 
   //Progreso 1
@@ -90,16 +123,21 @@ export class PerfilEstudianteComponent implements OnInit {
   }, this.speed);
 */
 
-  constructor(private estudianteService: EstudianteServiceService,private  estudianteServiceNormal: EstudianteService, private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
-    private router:Router, private programaService: ProgramaService, private estadoService: EstadoService) {
-      this.crearEstudiante();
-     }
 
-  ngOnInit() {
+constructor(private estudianteService: EstudianteServiceService,private  estudianteServiceNormal: EstudianteService, private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
+  private router:Router, private programaService: ProgramaService, private estadoService: EstadoService) {
     this.crearEstudiante();
-    //this.cargarEstudiante();
+    this.single=[];
+  }
+
+
+ ngOnInit() {
+   this.crearEstudiante();
     this.obtenerEstudiante();
     this.getAvatar(this.pagina);
+    this.actualizarGrafica1();
+    this.actualizarGrafica2();
+    this.cargarAvatarSeleccionado(this.idAvatarPorDefecto!);
     this.getEstado();
     this.getPrograma();
     this.getGenero();
@@ -113,6 +151,7 @@ export class PerfilEstudianteComponent implements OnInit {
   obtenerEstudiante() {
     let usuarioResp: Estudiante = JSON.parse(String(localStorage.getItem("usuario")));
     this.setEstudiante(usuarioResp);
+    this.idAvatarPorDefecto = usuarioResp.idAvatar;
     this.idEstado = usuarioResp.idEstado;
     this.idGenero = usuarioResp.idGenero;
     this.idProgramas = usuarioResp.idPrograma;
@@ -141,6 +180,19 @@ export class PerfilEstudianteComponent implements OnInit {
     });
   }
 
+  actualizarGrafica1() {
+    const valor =10; //this.estudianteServiceNormal.monedasGanadasPromedio;
+    this.valor = valor;
+    const gradient = `conic-gradient(#30B4C6 ${Number(valor) * 3.6}deg, #ededed 0deg)`;
+    document.getElementById("progreso")!.style.background = gradient;
+  }
+
+  actualizarGrafica2() {
+    const valor =16; //this.estudianteServiceNormal.monedasGanadasPromedio;
+    this.valor2 = valor;
+    const gradient = `conic-gradient(#30B4C6 ${Number(valor) * 3.6}deg, #ededed 0deg)`;
+    document.getElementById("progreso2")!.style.background = gradient;
+  }
   setEstado(){
     this.estadoService.consultarPorId(this.idEstado!).subscribe(data => {
       this.nombreEstado = data.estado;
@@ -189,12 +241,12 @@ export class PerfilEstudianteComponent implements OnInit {
       usuarioModificador: estudiante.usuarioModificador,
       fechaModificacion: estudiante.fechaModificacion
     });
+    this.cargarAvatarSeleccionado(estudiante.idAvatar!);
   }
 
 
   async getAvatar(page: number){
     await this.avatarService.getAvataresPage(page).toPromise().then((response) => {
-
       if(response.length <= 0){
         this.pagina = this.pagina-1;
       }else{
@@ -210,32 +262,35 @@ export class PerfilEstudianteComponent implements OnInit {
     }else{
       this.pagina = this.pagina-1;
       this.getAvatar(this.pagina);
-      console.log(this.pagina);
     }
   }
   pasarDer(){
-
     this.pagina = this.pagina +1;
-
-    console.log(this.pagina);
-    console.log(this.avatares.length);
     this.getAvatar(this.pagina);
 
   }
 
   seleccionarAvatar(id:any){
     this.idAvatar = id.idAvatar;
-
     const images = document.querySelectorAll('img');
-    let seleccionado = document.getElementById(id.idAvatar);
+    const seleccionado = document.getElementById(String(id));
     images.forEach(imagen => {
-    imagen.addEventListener('click', function(){
-      const active = <HTMLImageElement>document.querySelector('img');
-      seleccionado?.classList.remove('active');
-      this.classList.add('active');
+      imagen.addEventListener('click', function () {
+        const active = <HTMLImageElement>document.querySelector('img');
+        seleccionado?.classList.remove('active');
+        this.classList.add('active');
+      });
     });
-   });
   }
+
+  cargarAvatarSeleccionado(idAvatar: number){
+    const avatarSeleccionado = this.avatares.find(avatar =>avatar.idAvatar === idAvatar);
+    if(avatarSeleccionado){
+      const imgElement = document.getElementById(String(this.idAvatarPorDefecto)) as HTMLImageElement;
+      imgElement?.classList.add('active');
+    }
+  }
+
 
 
   getGenero(){
@@ -269,20 +324,20 @@ export class PerfilEstudianteComponent implements OnInit {
     const usuarioModificador = this.form.value.nombre + this.form.value.apellido;
     let estudiante: Estudiante = {
       idEstudiante: idEstudiante,
-      nombre: nombre, 
+      nombre: nombre,
       apellido: apellido,
       nickName: nickName,
-      puntaje: puntaje, 
-      idSemestre: semestre, 
-      idAvatar: avatar, 
-      idGenero: genero, 
+      puntaje: puntaje,
+      idSemestre: semestre,
+      idAvatar: avatar,
+      idGenero: genero,
       usuarioModificador: usuarioModificador,
       fechaModificacion: new Date(),
       fechaNacimiento: nacimiento,
-      idPrograma: programa, 
-      correo: correo, 
-      idEstado: estado, 
-      fechaCreacion: this.estudiante.fechaCreacion, 
+      idPrograma: programa,
+      correo: correo,
+      idEstado: estado,
+      fechaCreacion: this.estudiante.fechaCreacion,
       usuarioCreador: this.estudiante.usuarioCreador}
     this.estudianteServiceNormal.actualizarEstudiante(estudiante).subscribe(data=>{
       Swal.fire({
@@ -305,5 +360,7 @@ export class PerfilEstudianteComponent implements OnInit {
     });
   }
 
-
+  onSelect(event: Event) {
+    console.log(event);
+  }
 }

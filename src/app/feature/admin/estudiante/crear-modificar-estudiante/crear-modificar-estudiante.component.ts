@@ -58,12 +58,11 @@ export class CrearModificarEstudianteComponent implements OnInit {
   constructor(private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService, private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
     private router: Router, private programaService: ProgramaService, private estadoService: EstadoService, private estudianteService: EstudianteService) {
     this.crearEstudiante();
-    //this.idAvatar = this.avatares[0]?.idAvatar ?? 0;
   }
 
 
-  async ngOnInit(){
-      await this.cargarEstudiante();
+  ngOnInit(){
+      this.cargarEstudiante();
       this.getGenero();
       this.getAvatar(this.pagina);
       this.getSemestre();
@@ -179,7 +178,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
 
   }
 
-
+  
 
   guardarEstudiante() {
     this.hayErrores = false;
@@ -255,7 +254,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
       monedasObtenidas: estudiante.monedasObtenidas,
     });
   }
-  async cargarEstudiante() {
+  cargarEstudiante() {
     this.activatedRoute.params.subscribe(
       (params) => {
         const id = params['id'];
@@ -264,19 +263,20 @@ export class CrearModificarEstudianteComponent implements OnInit {
             this.estudiante = data;
             this.idAvatarEstudiante = data.idAvatar;
             this.setEstudiante(this.estudiante);
+            this.cargarAvatarSeleccionado(this.idAvatarEstudiante!);
 
-            this.avatares.forEach(avatar => {
-              if (avatar.idAvatar === this.idAvatarEstudiante) {
-              setTimeout(() => {
-                const imgElement = document.getElementById(this.idAvatarEstudiante!.toString()) as HTMLImageElement;
-                imgElement?.classList.add('active');
-              },100);
-              }
-            });
           });
         }
       }
     );
+  }
+
+  cargarAvatarSeleccionado(idAvatar: number){
+    const avatarSeleccionado = this.avatares.find(avatar =>avatar.idAvatar === idAvatar);
+    if(avatarSeleccionado){
+      const imgElement = document.getElementById(this.idAvatarEstudiante!.toString()) as HTMLImageElement;
+      imgElement?.classList.add('active');
+    }
   }
 
   actualizar(): void {
