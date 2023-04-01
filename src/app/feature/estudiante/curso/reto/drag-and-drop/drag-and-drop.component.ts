@@ -2,9 +2,11 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Estudiante } from 'src/app/shared/models/estudiante';
 import { PalabrasReservadas } from 'src/app/shared/models/palabrasReservadas';
 import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
 import { PalabraReservadaService } from 'src/app/shared/services/palabraReservada/palabraReservada.service';
+import { RetoService } from 'src/app/shared/services/reto/reto.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-drag-and-drop',
@@ -15,6 +17,7 @@ export class DragAndDropComponent implements OnInit {
   retoParam: number = 0;
   exampleContainerHeight:string | undefined;
   palabras: PalabrasReservadas[] = [];
+  estudiante: Estudiante = {};
   a: PalabrasReservadas[] = [];
   b: PalabrasReservadas[] = [];
   c: PalabrasReservadas[] = [];
@@ -26,11 +29,17 @@ export class DragAndDropComponent implements OnInit {
   i: PalabrasReservadas[] = [];
   j: PalabrasReservadas[] = [];
   condicion = false;
-  constructor(private router: Router, private palabraService: PalabraReservadaService, private route: ActivatedRoute) { }
+  constructor(
+    private router: Router, 
+    private palabraService: PalabraReservadaService, 
+    private route: ActivatedRoute,
+    private retosService: RetoService
+    ) { }
 
   async ngOnInit() {
     this.mostrarPistas();
-    this.retoParam = this.route.snapshot.params['reto']
+    this.retoParam = this.route.snapshot.params['reto'];
+    this.estudiante = JSON.parse(String(localStorage.getItem('usuario')))
     await this.ObtenetPalabras();
   }
 
@@ -76,36 +85,68 @@ export class DragAndDropComponent implements OnInit {
     this.organizar(this.j, 10);
 
     let resp: PalabrasReservadas[] = this.a.concat(this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
-    this.palabraService.procesarPalabras(resp, true).subscribe(resp =>{
-      console.log(resp);
-      Swal.fire({
-        title: 'Respuesta!',
-        text: resp,
-        focusConfirm: false,
-        showCancelButton: true,
-        showConfirmButton: false
-      });
-    }, error => {
-      if(error instanceof HttpErrorResponse){
-        console.log(error.error);
+    let id = this.estudiante.idEstudiante!;
+    console.log(resp);
+    console.log(id);
+    console.log(this.retoParam);
+    this.retosService.completar(resp, false, id, this.retoParam).subscribe(respuesta =>{
         Swal.fire({
-          title: 'Error',
-          text: error.error,
+          title: 'Respuesta!',
+          text: respuesta,
           focusConfirm: false,
-          confirmButtonText: 'Intentar',
-          confirmButtonColor: '#31B2C2',
+          showCancelButton: true,
+          showConfirmButton: false
         });
-      }else {
-        console.log(error.message);
-        Swal.fire({
-          title: 'Error',
-          text: error.message,
-          focusConfirm: false,
-          confirmButtonText: 'Intentar',
-          confirmButtonColor: '#31B2C2',
-        });
-      }
-    });
+      }, error => {
+        if(error instanceof HttpErrorResponse){
+          Swal.fire({
+            title: 'Error',
+            text: error.error,
+            focusConfirm: false,
+            confirmButtonText: 'Intentar',
+            confirmButtonColor: '#31B2C2',
+          });
+        }else {
+          console.log(error.message);
+          Swal.fire({
+            title: 'Error',
+            text: error.message,
+            focusConfirm: false,
+            confirmButtonText: 'Intentar',
+            confirmButtonColor: '#31B2C2',
+          });
+        }
+    })
+    // this.palabraService.procesarPalabras(resp, true).subscribe(resp =>{
+    //   console.log(resp);
+    //   Swal.fire({
+    //     title: 'Respuesta!',
+    //     text: resp,
+    //     focusConfirm: false,
+    //     showCancelButton: true,
+    //     showConfirmButton: false
+    //   });
+    // }, error => {
+    //   if(error instanceof HttpErrorResponse){
+    //     console.log(error.error);
+    //     Swal.fire({
+    //       title: 'Error',
+    //       text: error.error,
+    //       focusConfirm: false,
+    //       confirmButtonText: 'Intentar',
+    //       confirmButtonColor: '#31B2C2',
+    //     });
+    //   }else {
+    //     console.log(error.message);
+    //     Swal.fire({
+    //       title: 'Error',
+    //       text: error.message,
+    //       focusConfirm: false,
+    //       confirmButtonText: 'Intentar',
+    //       confirmButtonColor: '#31B2C2',
+    //     });
+    //   }
+    // });
 
     // Swal.fire({
     //   title: 'Sweet!',

@@ -13,4 +13,5 @@ export interface RetoEstudiante{
   fechaModificacion?: Date;
   nombreEstado?: string;
   nombreReto?: string;
+  intentos?: number;
 }

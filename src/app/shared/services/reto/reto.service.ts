@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Reto } from '../../models/reto';
+import { PalabrasReservadas } from 'src/app/shared/models/palabrasReservadas';
 
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,16 @@ export class RetoService {
 
   promedioRetos():Observable<number>{
     return this.http.get<number>(`${environment.endpoint}/reto/promedioMonedasRetos`);
+  }
+
+  completar(palabras: PalabrasReservadas[], esBasico: Boolean, idestudiante: number, idReto: number):Observable<string>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        esBasico: `${esBasico}`,
+        idEstudiante: `${idestudiante}`,
+        idReto: `${idReto}`
+      }
+    });
+    return this.http.post(`${environment.endpoint}/reto/completar`, palabras ,{params: paramsHttp, responseType: 'text'});
   }
 }
