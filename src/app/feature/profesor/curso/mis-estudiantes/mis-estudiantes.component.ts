@@ -66,18 +66,15 @@ export class MisEstudiantesComponent implements OnInit {
 
   onVerEstudiante(idEstudiante: number){
     this.retoEstudianteService.listarPorIdEstudiante(idEstudiante).subscribe(data =>{
-      if(!data){
-        this.habilitado = false;
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'El estudiante no ha realizado ningun reto.',
-        })
-      }
-    });
-    if (this.habilitado) {
       this.router.navigate(['/profesor/curso/1/progreso-estudiante/', idEstudiante]);
-  }
+    },err => {
+      Swal.fire({
+        icon: 'info',
+        text: 'El estudiante no ha realizado ningun reto.',
+        showCloseButton: true,
+        showConfirmButton: false,
+      })
+    });
 }
 
 }
