@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { error } from 'console';
+import { Articulo } from 'src/app/shared/models/articulos';
 import { ArticulosAdquiridos } from 'src/app/shared/models/articulosAdquiridos';
+import { Estudiante } from 'src/app/shared/models/estudiante';
 import { Semestre } from 'src/app/shared/models/semestre';
+import { ArticuloService } from 'src/app/shared/services/articulo/articulo.service';
 import { ArticulosAdquiridosService } from 'src/app/shared/services/articulosAdquiridos/articulos-adquiridos.service';
 import { SemestreService } from 'src/app/shared/services/semestre/semestre.service';
 import Swal from 'sweetalert2';
@@ -13,40 +17,61 @@ import Swal from 'sweetalert2';
 })
 export class ArticulosAdquiridosComponent implements OnInit {
 
-  articulosA:ArticulosAdquiridos[] = [];
-
-  imagenUrl = '';
+  articulosA:Articulo[] = [];
+  estudiante: Estudiante = {};
+  articuloSeleccionado: Articulo = {};
   mostrarImagen = false;
   
 
   
-  constructor(private articulosAdquiridosService: ArticulosAdquiridosService,  private router: Router) { }
+  constructor(
+    private articulosAdquiridosService: ArticulosAdquiridosService,  
+    private router: Router,
+    private articulosService: ArticuloService
+    ) { }
 
   ngOnInit(): void {
-
+    this.estudiante = JSON.parse(String(localStorage.getItem('usuario')))!;
+    this.obtenerArticulos();
   }
 
+  obtenerArticulos(){
+
+    let idEstudiante: number = this.estudiante.idEstudiante!;
+    this.articulosService.getArticulosObtenidos(idEstudiante).subscribe(resp => {
+      this.articulosA = resp;
+    });
+  }
 
   irMapa(){
     this.router.navigate(['/curso/mapa/1']);
   }
 
-  mostrarImagenGrande(){
-    this.imagenUrl = '../../assets/images/tienda/gorra.png';
+  mostrarImagenGrande(articulo : Articulo | undefined){
+    this.articuloSeleccionado= articulo!;
     this.mostrarImagen = true;
   }
 
-  eliminarArticulo(idArticulo: number){
+  eliminarArticulo(){
     Swal.fire({
-      title: 'Deseas eliminar este artículo {NombreArticulo}',
+      title: 'Deseas eliminar este artículo ' + this.articuloSeleccionado.nombre,
       showCancelButton: true,
       confirmButtonText: 'Eliminar',
     }).then((result) => {
       if (result.isConfirmed) {
         //aqui va el metodo para eliminar el articulo - se traer el elemento con el localstorage
-        this.articulosAdquiridosService.eliminarArticuloAdquirido(idArticulo).subscribe(data =>{
-          this.articulosA = this.articulosA.filter(c => c!== idArticulo);
-          Swal.fire('Artículo Eliminado!', '', 'success')
+        
+        this.articulosAdquiridosService.eliminarArticulosPorIds(this.estudiante.idEstudiante!, this.articuloSeleccionado.idArticulo!).subscribe(data =>{
+          
+          Swal.fire({
+            icon: 'success',
+            title: data,
+            showConfirmButton: false,
+            timer: 2000
+          }).then((result) => {
+            window.location.reload();
+          });
+        
         })
       }
     })

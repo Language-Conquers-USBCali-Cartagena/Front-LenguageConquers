@@ -2,40 +2,30 @@
   <div class="ladoIzq">
     <div class="tarjeta">
       <h2 class="tituloLadoIzq">Art&iacute;culos Adquiridos</h2>
-      <mat-card class="tarjetaArticulo" *ngFor="let tarjetas of articulosA" >
-        <img src="../../assets/images/tienda/gorra.png" class="imagenArticulo">
-        <mat-card-title class="tituloArticulo">Nombre Art&iacute;culo</mat-card-title>
-        <button mat-raised-button class="botonArticulo" (click)="mostrarImagenGrande()">Ver</button>
-      </mat-card>
-      <mat-card class="tarjetaArticulo">
-        <img src="../../assets/images/tienda/gorra.png" class="imagenArticulo">
-        <mat-card-title class="tituloArticulo">Nombre Art&iacute;culo</mat-card-title>
-        <button mat-raised-button class="botonArticulo" (click)="mostrarImagenGrande()">Ver</button>
-      </mat-card>
-      <mat-card class="tarjetaArticulo">
-        <img src="../../assets/images/tienda/gorra.png" class="imagenArticulo">
-        <mat-card-title class="tituloArticulo">Nombre Art&iacute;culo</mat-card-title>
-        <button mat-raised-button class="botonArticulo">Ver</button>
+      <mat-card class="tarjetaArticulo" *ngFor="let articulo of articulosA">
+        <img src="{{articulo.imagen}}" class="imagenArticulo">
+        <mat-card-title class="tituloArticulo">{{articulo.nombre}}</mat-card-title>
+        <button mat-raised-button class="botonArticulo" (click)="mostrarImagenGrande(articulo)">Ver</button>
       </mat-card>
     </div>
   </div>
   <div class="centro">
     <mat-card class="tarjetaCentro">
         <div class="hover-rotate" id="contenedorImagen" >
-         <img *ngIf="mostrarImagen" src="{{imagenUrl}}">
+         <img *ngIf="mostrarImagen" src="{{articuloSeleccionado.imagen}}">
         </div>
     </mat-card>
   </div>
   <div class="centroAbajo">
     <mat-card class="tarjetaCentroAbajo">
       <mat-card-header>
-        <mat-card-title>Descripci&oacute;n</mat-card-title>
+        <mat-card-title *ngIf="mostrarImagen">{{articuloSeleccionado.descripcion}}</mat-card-title>
       </mat-card-header>
     </mat-card>
   </div>
   <div class="boton">
     <button mat-raised-button class="botones" (click)="irMapa()">Volver al Mapa</button>
-    <button mat-raised-button class="botones" (click)="eliminarArticulo(1)">Eliminar Art&iacute;culo</button>
+    <button mat-raised-button class="botones" (click)="eliminarArticulo()">Eliminar Art&iacute;culo</button>
   </div>
 </div>
 

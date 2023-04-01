@@ -53,4 +53,12 @@ export class ArticuloService {
     });
     return this.http.get<Articulo[]>(`${environment.endpoint}/articulo/articulosNoObtenidos`, {params: paramsHttp})
   }
+  getArticulosObtenidos(idEstudiante: number):Observable<Articulo[]>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        idEstudiante: `${idEstudiante}`
+      }
+    });
+    return this.http.get<Articulo[]>(`${environment.endpoint}/articulo/articulosObtenidos`, {params: paramsHttp})
+  }
 }

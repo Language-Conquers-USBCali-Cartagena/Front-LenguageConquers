@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ArticulosAdquiridos } from '../../models/articulosAdquiridos';
@@ -24,8 +24,26 @@ export class ArticulosAdquiridosService {
   eliminarArticuloAdquirido(idArticuloAdquirido: number): Observable<string>{
     return this.http.delete(`${environment.endpoint}/misArticulos/eliminarArticuloAdquirido/${idArticuloAdquirido}`, { responseType: 'text'});
   }
+  eliminarArticulosPorIds(idEstudiante: number, idArticulo: number): Observable<String>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        idEstudiante: `${idEstudiante}`,
+        idArticulo: `${idArticulo}`
+      }
+    });
+    return this.http.delete(`${environment.endpoint}/misArticulos/eliminarArticuloPorIds`, {params: paramsHttp, responseType: 'text'});
+  }
 
   listarPorIdAticuloAdquirido(idArticuloAdquirido: number){
     return this.http.get<ArticulosAdquiridos>(`${environment.endpoint}/misArticulos/porId/${idArticuloAdquirido}`);
+  }
+  comprar(idEstudiante: number, idArticulo: number): Observable<number>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        idEstudiante: `${idEstudiante}`,
+        idArticulo: `${idArticulo}`
+      }
+    });
+    return this.http.get<number>(`${environment.endpoint}/misArticulos/comprar`, {params: paramsHttp});
   }
 }

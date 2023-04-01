@@ -35,6 +35,6 @@ import { NotificacionesComponent } from './features/notificacion/notificaciones.
     MenuComponent,
     FooterComponent,
 
-  ]
+  ],
 })
 export class CoreModule { }

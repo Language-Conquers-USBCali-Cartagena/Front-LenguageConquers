@@ -18,7 +18,7 @@
             <p class="precio">{{articulo.precio}}<img mat-card-image class="precio-img"
                 src="../assets/images/moneda.png">
             </p>
-            <p><button mat-button class="botones">Canjear</button></p>
+            <p><button mat-button class="botones" (click)="comprarArticulo(articulo.idArticulo)">Canjear</button></p>
           </mat-card-content>
         </mat-card>
       </div>
