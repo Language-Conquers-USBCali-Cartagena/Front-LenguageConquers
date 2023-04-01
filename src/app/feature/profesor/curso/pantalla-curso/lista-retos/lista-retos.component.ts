@@ -63,11 +63,8 @@ export class ListaRetosComponent implements OnInit {
     }
   }
 
- onEditarReto(){
-  const ruta = this.router.url.split('/');
-  ruta.pop();
-  const newRuta = ruta.join('/');
-  this.router.navigate([newRuta +'/editar-reto'], {queryParams: {listaRetos: JSON.stringify(this.listaRetos)}});
+ onEditarReto(idReto: number){
+  this.router.navigate(['/profesor/curso/1/editar-reto/', idReto]);
 
  }
 

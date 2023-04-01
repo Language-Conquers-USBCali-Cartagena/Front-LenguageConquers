@@ -35,7 +35,7 @@
   height: 150px;
   width: 150px;
   border-radius:50%;
-  background: conic-gradient(#30B4C6 3.6deg, #ededed 0deg); 
+  background: conic-gradient(#30B4C6 3.6deg, #ededed 0deg);
   display: flex;
   align-items: center;
   justify-content:center;
@@ -53,7 +53,7 @@
   height: 150px;
   width: 150px;
   border-radius:50%;
-  background: conic-gradient(#DBDB24 3.6deg, #ededed 0deg); 
+  background: conic-gradient(#DBDB24 3.6deg, #ededed 0deg);
   display: flex;
   align-items: center;
   justify-content:center;
@@ -221,12 +221,12 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     padding: 48px;
     border-radius: 24px;
     background: rgba(195, 195, 195, 0.41);
-  
+
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
   font-size: 30px;
-  
+
   text-align: center;
   }
   .grafica1{
@@ -241,7 +241,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     flex-direction: column;
     align-items: center;
   }
-  
+
   .grafica2{
     display: flex;
     margin-top: 30px;
@@ -264,7 +264,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     height: 1200px;
     width: 100%;
   }
-  
+
   .grafica1{
     display: flex;
     margin-top: -21px;
@@ -278,7 +278,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     flex-direction: column;
     align-items: center;
   }
-  
+
   .grafica2{
     display: flex;
     margin-top: -193px;
@@ -334,7 +334,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     text-align: center;
     overflow-x: hidden;
   }
-  
+
   .texto{
       align-items: center;
       text-align: center;
@@ -353,19 +353,19 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     line-height: 40px;
   }
   .titulo2{
-  
+
     font-size: 30px;
     line-height: 0.1px;
     color: rgba(128, 47, 47, 0.712);
   }
   .imagen3d2{
-  
+
     position: absolute;
     left: 40%;
     top: 10px;
     transform: translateX(-50%);
     height: 150px;
-  
+
   }
   .tarjetaDatos{
     width: 430px;
@@ -383,7 +383,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     width: 100%;
     font-size: 15px;
   }
-  
+
   td {
     padding-right: 18px;
   }
@@ -398,14 +398,14 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     width:130px;
     height:40px;
     font-size: 20px;
-  
+
   }
   .progreso{
     height: 130px;
     margin-top: -500px;
     margin-left: -100px;
-  
-  
+
+
   }
   .example-h2 {
     margin: 10px;
@@ -421,11 +421,11 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     border-style: solid;
     border-width: 10px;
   }
-  
+
   .example-margin {
     margin-top: 15px;
     color: #fff;
-  
+
   }
   .example-h22 {
     margin: 10px;
@@ -446,25 +446,25 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     margin-top: -10px;
     margin-left: 10px;
     color: #fff;
-  
+
   }
-  
+
   .entradas {
     display: grid;
     margin-top: 10px;
     margin-left: 0px;
     grid-template-columns: repeat(1, 18em);
     justify-content: center;
-    
+
   }
-  
+
   .carrousel{
     width: 551px;
     height: 37px;
     margin-bottom: 0px;
     margin-left: -146px;
   }
-  
+
   .car {
     display: flex;
     justify-content: center;
@@ -475,7 +475,7 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
     background-color: transparent;
     color: black;
     cursor: pointer;
-  
+
   }
   .cimg {
   margin-left: 10px;
@@ -488,9 +488,9 @@ box-shadow: 0 5px rgba(1,23,46,0.6);
   height: 20px;
   width: 20px;
   display: flex;
-  
+
   }
-  
+
   .cimg .imgAvatar .avatares{
   height: 40px;
   width: 40px;

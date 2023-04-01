@@ -59,8 +59,8 @@ export class CrearRegistrarComponent implements OnInit {
       moneda:['', Validators.required],
       solucion:[],
       descripcionTeoria: ['', Validators.required],
-      imagen1:[],
-      imagen2:[],
+      imagenTema1:[],
+      imagenTema2:[],
       urlVideo1:[],
       urlVideo2:[]
     });
@@ -104,6 +104,18 @@ export class CrearRegistrarComponent implements OnInit {
     })
   }
 
+  cargandoImagen(){
+    setTimeout(()=>{
+    Swal.fire({
+      icon: 'warning',
+      title: 'Se esta cargando la imagen.',
+      showCloseButton: false,
+      showConfirmButton: false,
+      timer: 10000,
+      timerProgressBar: true,
+    })}, 2000);
+  }
+
   uploadImage($event: any) {
     const file = $event.target.files[0];
     const imagenReferencia = ref(this.storage, `retoArchivos${file.name}`);
@@ -120,7 +132,7 @@ export class CrearRegistrarComponent implements OnInit {
         });
       });
   }
- /* uploadImage2($event: any) {
+ uploadImage2($event: any) {
     const file = $event.target.files[0];
     const imagenReferencia = ref(this.storage, `retoArchivos${file.name}`);
     uploadBytes(imagenReferencia, file, { contentType: 'image/png' }).then(
@@ -135,7 +147,7 @@ export class CrearRegistrarComponent implements OnInit {
           text: error
         });
       });
-  } */
+  }
 
 
   guardarReto(){
@@ -161,17 +173,15 @@ export class CrearRegistrarComponent implements OnInit {
       moneda: this.form.value.moneda,
       descripcionTeoria:this.form.value.descripcionTeoria,
       solucion: this.form.value.solucion,
-      imagen1: this.imagenUrl1 ? this.imagenUrl1: null!,
-      imagen2: this.imagenUrl2 ? this.imagenUrl2: null!,
+      imagenTema1: this.imagenUrl1 ? this.imagenUrl1: null!,
+      imagenTema2: this.imagenUrl2 ? this.imagenUrl2: null!,
       urlVideo1: this.form.value.urlVideo1,
       urlVideo2: this.form.value.urlVideo2,
       usuarioCreador: this.form.value.usuarioCreador,
       fechaCreacion: new Date(),
       esGrupal: false,
       cantidadEstudiantes: 0}
-      console.log(reto)
     this.retoService.crearReto(reto).subscribe(data => {
-      console.log(data)
       if(data){
         Swal.fire({
           icon: 'success',
@@ -182,8 +192,6 @@ export class CrearRegistrarComponent implements OnInit {
         this.router.navigate(['/admin/reto/listar-retos']);
       }}, (e) => {
       this.hayErrores = true;
-      this.mensajeError = e.error;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],
@@ -205,8 +213,8 @@ export class CrearRegistrarComponent implements OnInit {
       moneda: reto.moneda,
       descripcionTeoria: reto.descripcionTeoria,
       solucion:reto.solucion,
-      imagen1: reto.imagen1,
-      imagen2: reto.imagen2,
+      imagenTema1: reto.imagenTema1,
+      imagenTema2: reto.imagenTema2,
       urlVideo1: reto.urlVideo1,
       urlVideo2: reto.urlVideo2,
       idMision: reto.idMision,
@@ -237,8 +245,8 @@ export class CrearRegistrarComponent implements OnInit {
   actualizar():void{
     const img1Nueva = this.imagenUrl1;
     const img2Nueva = this.imagenUrl2;
-    const img1Vieja = this.reto.imagen1;
-    const img2Vieja = this.reto.imagen2;
+    const img1Vieja = this.reto.imagenTema1;
+    const img2Vieja = this.reto.imagenTema2;
     const mision = this.form.value.idMision;
     const misionSeleccionado = this.misiones.find(e => e.idMision === mision);
     const idMision = Number(misionSeleccionado?.idMision ??"");
@@ -261,8 +269,8 @@ export class CrearRegistrarComponent implements OnInit {
       moneda: this.form.value.moneda,
       descripcionTeoria:this.form.value.descripcionTeoria,
       solucion: this.form.value.solucion,
-      imagen1: img1Nueva? img1Nueva: img1Vieja,
-      imagen2: img2Nueva?img2Nueva: img2Vieja,
+      imagenTema1: this.imagenUrl1? this.imagenUrl1: this.reto.imagenTema1,
+      imagenTema2: this.imagenUrl2? this.imagenUrl2: this.reto.imagenTema2,
       urlVideo1: this.form.value.urlVideo1,
       urlVideo2: this.form.value.urlVideo2,
       usuarioModificador: this.form.value.usuarioModificador,
@@ -289,7 +297,46 @@ export class CrearRegistrarComponent implements OnInit {
       });
     });
   }
+  verImagen1(){
 
+   if(this.reto.imagenTema1 || this.imagenUrl1){
+      let imageUrl = this.reto.imagenTema1 ? this.reto.imagenTema1 : this.imagenUrl1;
+      setTimeout(() => {
+      Swal.fire({
+        imageUrl: imageUrl ,
+        imageWidth: 600,
+        imageHeight: 500,
+        showCloseButton: true,
+        showConfirmButton: false,
+
+      })},3000);
+    }else if(!this.reto || !this.reto.imagenTema1 || !this.imagenUrl1 || this.reto.imagenTema1.trim() === ''){
+      Swal.fire({
+        icon:'info',
+        title:'No hay imagen del tema 1 asignada',
+        showCloseButton: true,
+        showConfirmButton: false,
+      });
+    }
+  }
+  verImagen2(){
+    if(!this.reto?.imagenTema2 || !this.imagenUrl2){
+      Swal.fire({
+        icon:'info',
+        title:'No hay imagen del tema 2 asignada',
+        showCloseButton: true,
+        showConfirmButton: false,
+      });
+    }else{
+      Swal.fire({
+        imageUrl: this.reto.imagenTema2? this.reto.imagenTema2: this.imagenUrl2 ,
+        imageWidth: 600,
+        imageHeight: 500,
+        showCloseButton: true,
+        showConfirmButton: false,
+      })
+    }
+  }
 
   atras(){
     this.router.navigateByUrl('/admin/reto/listar-retos');

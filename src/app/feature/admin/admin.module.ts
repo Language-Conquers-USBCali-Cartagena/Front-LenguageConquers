@@ -64,9 +64,11 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
         AdminRoutingModule,
         MaterialModule,
         CoreModule,
-        NgxChartsModule
+        NgxChartsModule,
 
-    ],
-    schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+
+
+    ],schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+
 })
 export class AdminModule { }

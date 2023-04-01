@@ -32,6 +32,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     BrowserModule,
     AdminModule,
     AppRoutingModule,
+ 
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
@@ -41,8 +42,6 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
-
-
   ],
   providers: [
     {
@@ -52,6 +51,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     }
   ],
   bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 
 
 })

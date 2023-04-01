@@ -31,8 +31,8 @@
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Misi&oacute;n</mat-label>
-            <mat-select formControlName="idMision">
-              <mat-option *ngFor="let mision of misiones" [value]="mision">
+            <mat-select formControlName="idMision" (selectionChange)="setMision($event.value)" >
+              <mat-option *ngFor="let mision of misiones" [value]="mision.idMision">
                 {{mision.nombre}}
               </mat-option>
             </mat-select>
@@ -42,8 +42,8 @@
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Curso</mat-label>
-            <mat-select formControlName="idCurso">
-              <mat-option *ngFor="let curso of cursos" [value]="curso">
+            <mat-select formControlName="idCurso" (selectionChange)="setCurso($event.value)">
+              <mat-option *ngFor="let curso of cursos" [value]="curso.idCurso">
                 {{curso.nombre}}
               </mat-option>
             </mat-select>
@@ -53,8 +53,8 @@
         <div class="campo-entrada">
           <mat-form-field appearance="fill">
             <mat-label class="titulos">Estado</mat-label>
-            <mat-select formControlName="idEstado">
-              <mat-option *ngFor="let estado of estados" [value]="estado">
+            <mat-select formControlName="idEstado" (selectionChange)="setEstado($event.value)">
+              <mat-option *ngFor="let estado of estados" [value]="estado.idEstado">
                 {{estado.estado}}
               </mat-option>
             </mat-select>
@@ -140,6 +140,10 @@
           </mat-form-field>
         </div>
         <div class="campo-entrada">
+          <button mat-flat-button  class="botonImagen"  (click)="verImagen1()">Ver Imagen 1</button>
+          <button mat-flat-button  class="botonImagen"  (click)="verImagen2()">Ver Imagen 2</button>
+        </div>
+        <div class="campo-entrada">
           <mat-label class="titulos">Desea Subir una Imagen para complementar el tema</mat-label>
           <br>
           <mat-radio-group [(ngModel)]="subirImagen1" [ngModelOptions]="{standalone: true}">
@@ -152,13 +156,13 @@
           <div class="campo-entrada">
             <mat-label class="tituloImagen1"> Seleccionar Imagen </mat-label>
             <br><br>
-            <input class="inputFile1" type="file" #fileInput (change)="uploadImage($event)" id="img1">
+            <input class="inputFile1" type="file" #fileInput (click)="cargandoImagen()" (change)="uploadImage($event)" id="img1">
             <label for="img1" class="botonSeleccionarArchivo1"> Seleccionar Imagen</label>
             <br>
           </div>
         </ng-template>
         <ng-container *ngTemplateOutlet="subirImagen1 === 'si' ? seleccionarFoto : null"></ng-container>
-        <!--  <div class="campo-entrada">
+        <div class="campo-entrada">
           <mat-label class="titulos">Desea Subir otra Imagen para complementar el tema</mat-label>
           <br>
           <mat-radio-group [(ngModel)]="subirImagen2" [ngModelOptions]="{standalone: true}">
@@ -166,16 +170,18 @@
             <mat-radio-button value="no">NO</mat-radio-button>
           </mat-radio-group>
         </div>
-      <ng-template #seleccionarFoto>
+        <ng-container *ngIf="subirImagen2 === 'si'">
+          <ng-container *ngTemplateOutlet="subirImagen2 === 'si' ? seleccionarFoto2 : null"></ng-container>
+        </ng-container>
+      <ng-template #seleccionarFoto2>
           <div class="campo-entrada">
             <mat-label class="tituloImagen2"> Seleccionar Imagen </mat-label>
             <br><br>
-            <input class="inputFile2" type="file" #fileInput (change)="uploadImage2($event)" id="img2">
+            <input class="inputFile2" type="file" #fileInput (click)="cargandoImagen()" (change)="uploadImage2($event)" id="img2">
             <label for="img2" class="botonSeleccionarArchivo2"> Seleccionar Imagen</label>
             <br>
           </div>
-          <ng-container *ngTemplateOutlet="subirImagen2 === 'si' ? seleccionarFoto : null"></ng-container>
-        </ng-template>-->
+        </ng-template>
         <div class="boton">
           <button mat-raised-button class="botones" id="atras" (click)="atras()">Atr&aacute;s</button>
           <button mat-raised-button class="botones" id="guardarReto" (click)="guardarReto()"

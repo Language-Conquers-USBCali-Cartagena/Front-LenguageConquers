@@ -5,6 +5,7 @@ import { MisEstudiantesComponent } from './mis-estudiantes/mis-estudiantes.compo
 import { CursoProfesorRoutingModule } from './curso-profesor-routing.module';
 import { CoreModule } from '../../../core/core.module';
 import { MaterialModule } from '../../../shared/material/material.module';
+import { ProgresoEstudianteComponent } from './pantalla-curso/progreso-estudiante/progreso-estudiante.component';
 
 
 
@@ -12,6 +13,7 @@ import { MaterialModule } from '../../../shared/material/material.module';
   declarations: [
     CursoProfesorComponent,
     MisEstudiantesComponent,
+    ProgresoEstudianteComponent,
   ],
   imports: [
     CommonModule,

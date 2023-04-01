@@ -1,0 +1,39 @@
+<h1 class="titulo">Progreso del estudiante {{nombreEstudiante}}</h1>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del reto" #input>
+</mat-form-field>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="Reto">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Reto</th>
+      <td mat-cell *matCellDef="let row">{{row.nombreReto}}</td>
+    </ng-container>
+    <ng-container matColumnDef="FechaEntrega">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de Entrega</th>
+      <td mat-cell *matCellDef="let row">{{row.fechaEntrega}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="intentosRealizados">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Intentos Realizados</th>
+      <td mat-cell *matCellDef="let row">{{row.intentosRealizados}}</td>
+    </ng-container>
+    <ng-container matColumnDef="puntaje">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Puntaje</th>
+      <td mat-cell *matCellDef="let row">{{row.puntaje}}</td>
+    </ng-container>
+    <ng-container matColumnDef="Estado">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>
+      <td mat-cell *matCellDef="let row">{{row.estado}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No existe un reto con el nombre "{{input.value}}"</td>
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5]" aria-label="Seleccione la pagina de retos"></mat-paginator>
+</div>

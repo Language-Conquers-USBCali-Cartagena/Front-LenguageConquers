@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
@@ -25,6 +25,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [],
@@ -55,9 +56,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatListModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatProgressBarModule
+    MatProgressBarModule,
 
-  ]
+
+  ],
+  
 })
 export class MaterialModule { }
 

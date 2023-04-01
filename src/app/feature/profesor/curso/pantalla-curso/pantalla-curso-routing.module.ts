@@ -4,6 +4,7 @@ import { ListaRetosComponent } from "./lista-retos/lista-retos.component";
 import { PantallaCursoComponent } from "./pantalla-curso/pantalla-curso.component";
 import { HabilitarRetoComponent } from './habilitar-reto/habilitar-reto.component';
 import { MisEstudiantesComponent } from '../mis-estudiantes/mis-estudiantes.component';
+import { ProgresoEstudianteComponent } from './progreso-estudiante/progreso-estudiante.component';
 
 const routes: Routes =[
  {
@@ -20,12 +21,16 @@ const routes: Routes =[
         component: ListaRetosComponent,
     },
     {
-        path: 'editar-reto',
+        path: 'editar-reto/:id',
         component: HabilitarRetoComponent
     },
     {
       path: 'mis-estudiantes',
       component:MisEstudiantesComponent
+    },
+    {
+      path: 'progreso-estudiante/:id',
+      component:ProgresoEstudianteComponent
     }
   ]
  }
