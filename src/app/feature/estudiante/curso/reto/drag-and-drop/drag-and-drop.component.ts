@@ -4,9 +4,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Estudiante } from 'src/app/shared/models/estudiante';
 import { PalabrasReservadas } from 'src/app/shared/models/palabrasReservadas';
+import { RetoEstudiante } from 'src/app/shared/models/retoEstudiante';
 import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
 import { PalabraReservadaService } from 'src/app/shared/services/palabraReservada/palabraReservada.service';
 import { RetoService } from 'src/app/shared/services/reto/reto.service';
+import { RetoEstudianteService } from 'src/app/shared/services/retoEstudiante/reto-estudiante.service';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-drag-and-drop',
@@ -18,6 +20,7 @@ export class DragAndDropComponent implements OnInit {
   exampleContainerHeight:string | undefined;
   palabras: PalabrasReservadas[] = [];
   estudiante: Estudiante = {};
+  retoEstudiante: RetoEstudiante = {}
   a: PalabrasReservadas[] = [];
   b: PalabrasReservadas[] = [];
   c: PalabrasReservadas[] = [];
@@ -33,7 +36,8 @@ export class DragAndDropComponent implements OnInit {
     private router: Router, 
     private palabraService: PalabraReservadaService, 
     private route: ActivatedRoute,
-    private retosService: RetoService
+    private retosService: RetoService,
+    private retoEstudianteService: RetoEstudianteService
     ) { }
 
   async ngOnInit() {
@@ -86,17 +90,18 @@ export class DragAndDropComponent implements OnInit {
 
     let resp: PalabrasReservadas[] = this.a.concat(this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
     let id = this.estudiante.idEstudiante!;
-    console.log(resp);
-    console.log(id);
-    console.log(this.retoParam);
     this.retosService.completar(resp, false, id, this.retoParam).subscribe(respuesta =>{
-        Swal.fire({
-          title: 'Respuesta!',
-          text: respuesta,
-          focusConfirm: false,
-          showCancelButton: true,
-          showConfirmButton: false
-        });
+        this.retoEstudiante = {fechaCreacion: new Date, fechaEntrega: new Date, idEstado: 1, idEstudiante: this.estudiante.idEstudiante!, idGrupo: 1,
+          idReto: this.retoParam +1, idRol: 1, puntaje: 0, usuarioCreador: 'admin', intentos: 0};
+        this.retoEstudianteService.crearRetoEstudiante(this.retoEstudiante).subscribe(resp => {
+          Swal.fire({
+            title: 'Respuesta!',
+            text: respuesta,
+            focusConfirm: false,
+            showCancelButton: true,
+            showConfirmButton: false
+          });
+        });  
       }, error => {
         if(error instanceof HttpErrorResponse){
           Swal.fire({

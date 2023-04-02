@@ -14,7 +14,7 @@ const routes:Routes = [
                 component: MapaComponent
             },
             {
-                path: 'ide/:curso/:reto',
+                path: 'ide/:reto',
                 component: DragAndDropComponent
             }
         ]

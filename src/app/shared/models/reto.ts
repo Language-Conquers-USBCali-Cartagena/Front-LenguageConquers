@@ -15,6 +15,7 @@ export interface Reto{
     esGrupal?: boolean;
     cantidadEstudiantes?: number;
     moneda?:number;
+    nivel?: number;
     solucion?:string;
     descripcionTeoria?: string;
     imagenTema1?: string;

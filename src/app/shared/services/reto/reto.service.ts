@@ -55,5 +55,14 @@ export class RetoService {
       }
     });
     return this.http.post(`${environment.endpoint}/reto/completar`, palabras ,{params: paramsHttp, responseType: 'text'});
+  } 
+
+  retosPorEstudiante(idEstudiante: number):Observable<Reto[]>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        idEstudiante: idEstudiante
+      }
+    });
+    return this.http.get<Reto[]>(`${environment.endpoint}/reto/retosPorEstudiante`, {params: paramsHttp});
   }
 }

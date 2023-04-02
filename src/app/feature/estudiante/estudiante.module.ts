@@ -8,6 +8,7 @@ import { MaterialModule } from '../../shared/material/material.module';
 import { EstudianteServiceService } from './services/estudiante-service.service';
 import { ArticulosAdquiridosComponent } from './articulos-adquiridos/articulos-adquiridos.component';
 import { CursoModule } from './curso/curso.module';
+import { CursoEstudianteService } from 'src/app/shared/services/cursoEstudiante/curso-estudiante.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { CursoModule } from './curso/curso.module';
     CursoModule
   ],
   providers: [
-    EstudianteServiceService
+    EstudianteServiceService,
   ]
 })
 export class EstudianteModule { }

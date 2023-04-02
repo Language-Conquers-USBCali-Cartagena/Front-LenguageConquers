@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Estudiante } from 'src/app/shared/models/estudiante';
-import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
 import Swal from 'sweetalert2';
-import { EstudianteService } from 'src/app/shared/services/estudiante/estudiante.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AvatarService } from 'src/app/shared/services/avatar/avatar.service';
 import { Avatar } from 'src/app/shared/models/avatar';
-import { EstudianteServiceService } from '../../services/estudiante-service.service';
+import { Reto } from 'src/app/shared/models/reto';
+import { RetoService } from 'src/app/shared/services/reto/reto.service';
+import { RetoEstudianteService } from 'src/app/shared/services/retoEstudiante/reto-estudiante.service';
 
 
 @Component({
@@ -21,25 +21,32 @@ export class MapaComponent implements OnInit {
   estudiante: Estudiante = {};
   usuario: string = '';
   form!: FormGroup;
-  nickname: string | undefined ="";
+  nickname: string | undefined = "";
   nombre: string | undefined = "";
-  puntuacion: number | undefined= 0;
-  monedas:number| undefined =0;
+  puntuacion: number | undefined = 0;
+  monedas: number | undefined = 0;
   avatar!: Avatar;
-  idAvatar: number =0;
-  imgAvatar :string ="";
+  idAvatar: number = 0;
+  imgAvatar: string = "";
+  retos: Reto[] = []
 
 
 
-
-  constructor(private router: Router, private estudianteService: EstudianteServiceService,private  estudianteServiceNormal: EstudianteService,private fb: FormBuilder, private avatarService: AvatarService) { }
+  constructor(
+    private router: Router, 
+    private fb: FormBuilder, 
+    private avatarService: AvatarService,
+    private retoService: RetoService,
+    private retoEstudianteService: RetoEstudianteService
+    ) { }
 
   ngOnInit(): void {
     this.obtenerEstudiante();
+    this.cargarRetos();
     this.getAvatarPorid();
   }
 
-  setEstudiante(estudiante: Estudiante){
+  setEstudiante(estudiante: Estudiante) {
     this.form = this.fb.group({
       idEstudiante: estudiante.idEstudiante,
       nombre: estudiante.nombre,
@@ -48,25 +55,35 @@ export class MapaComponent implements OnInit {
       puntaje: estudiante.puntaje
     });
   }
- obtenerEstudiante() {
-  let usuarioResp: Estudiante = JSON.parse(String(localStorage.getItem("usuario")));
-  this.setEstudiante(usuarioResp);
-  this.idAvatar = Number(usuarioResp.idAvatar);
-  this.monedas = usuarioResp.monedasObtenidas;
-  this.nickname = usuarioResp.nickName;
-  this.puntuacion = usuarioResp.puntaje;
-  this.nombre = usuarioResp.nombre;
-}
+  redireccion(idReto: number | undefined){
+    this.router.navigate(['estudiante/curso/ide', idReto!])
+  }
+  cargarRetos(){
+    this.retoService.retosPorEstudiante(this.estudiante.idEstudiante!).subscribe((resp) => {
+      
+      this.retos = resp;
+    }, error => {
+    })
+  }
+  obtenerEstudiante() {
+    this.estudiante = JSON.parse(String(localStorage.getItem("usuario")));
+    this.setEstudiante(this.estudiante);
+    this.idAvatar = Number(this.estudiante.idAvatar);
+    this.monedas = this.estudiante.monedasObtenidas;
+    this.nickname = this.estudiante.nickName;
+    this.puntuacion = this.estudiante.puntaje;
+    this.nombre = this.estudiante.nombre;
+  }
 
-getAvatarPorid(){
-  this.avatarService.consultarPorId(this.idAvatar).subscribe(resultado =>{
-    this.avatar = resultado
-    this.imgAvatar = String(this.avatar.imgAvatar);
-  });
-}
- 
+  getAvatarPorid() {
+    this.avatarService.consultarPorId(this.idAvatar).subscribe(resultado => {
+      this.avatar = resultado
+      this.imgAvatar = String(this.avatar.imgAvatar);
+    });
+  }
 
-  verTutorial(){
+
+  verTutorial() {
     Swal.fire({
       html:
         '<iframe width="440" height="315" src="https://www.youtube.com/embed/HD_zesxhkC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
@@ -77,10 +94,10 @@ getAvatarPorid(){
     })
   }
 
-  articulosAdquiridos(){
+  articulosAdquiridos() {
     this.router.navigate(['/estudiante/articulos-adquiridos']);
   }
-  home(){
+  home() {
     this.router.navigate(['/estudiante/menu']);
   }
 }

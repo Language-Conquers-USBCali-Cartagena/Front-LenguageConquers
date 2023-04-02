@@ -1,5 +1,5 @@
 export interface RetoEstudiante{
-  idRetoEstudiante: number;
+  idRetoEstudiante?: number;
   fechaEntrega?: Date;
   puntaje?: number;
   idEstado?: number;
