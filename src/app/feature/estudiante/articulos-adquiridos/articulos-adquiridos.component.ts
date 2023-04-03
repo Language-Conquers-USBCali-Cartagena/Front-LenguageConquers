@@ -21,11 +21,11 @@ export class ArticulosAdquiridosComponent implements OnInit {
   estudiante: Estudiante = {};
   articuloSeleccionado: Articulo = {};
   mostrarImagen = false;
-  
 
-  
+
+
   constructor(
-    private articulosAdquiridosService: ArticulosAdquiridosService,  
+    private articulosAdquiridosService: ArticulosAdquiridosService,
     private router: Router,
     private articulosService: ArticuloService
     ) { }
@@ -59,10 +59,9 @@ export class ArticulosAdquiridosComponent implements OnInit {
       confirmButtonText: 'Eliminar',
     }).then((result) => {
       if (result.isConfirmed) {
-        //aqui va el metodo para eliminar el articulo - se traer el elemento con el localstorage
-        
+
         this.articulosAdquiridosService.eliminarArticulosPorIds(this.estudiante.idEstudiante!, this.articuloSeleccionado.idArticulo!).subscribe(data =>{
-          
+
           Swal.fire({
             icon: 'success',
             title: data,
@@ -71,7 +70,7 @@ export class ArticulosAdquiridosComponent implements OnInit {
           }).then((result) => {
             window.location.reload();
           });
-        
+
         })
       }
     })

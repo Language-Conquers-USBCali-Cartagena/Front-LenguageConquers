@@ -3,7 +3,7 @@
     <mat-card-title>Lista de Estudiantes Registrados</mat-card-title>
     <mat-form-field>
       <mat-label>Filter</mat-label>
-      <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del estudiante" #input>
+      <input id="busqueda"  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del estudiante" #input>
     </mat-form-field>
     <div class="demo-button-container">
       <button mat-raised-button (click)="registrarEstudiante()" class="demo-button">

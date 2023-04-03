@@ -92,50 +92,15 @@ export class PerfilEstudianteComponent implements OnInit {
   progresoCurso: any;
   progresoLogro: any;
 
-
-  //Progreso 1
-
- /* circularProgress = document.querySelector("[class='circular-progress']") as HTMLElement;
-  progreso2=document.querySelector('#grafica2 #progreso2') as HTMLElement;
-  progressValue = document.querySelector('.progress-value');
-  progressValue2 = document.getElementById("progressValue2")
-  progressStartValue = 10;
-  progressStartValue2 = 10;
-  //aqui va el valor de la grafica que se debe poner desde el servicio
-  progressEndValue = 20;
-  progressEndValue2 = 30;
-  speed = 100;
-  progress = setInterval(() => {
-    this.progressStartValue++;
-    document.querySelector('.progress-value')!.textContent = `${this.progressStartValue}%`;
-    document.getElementById("progreso")!.style.background= `conic-gradient(#30B4C6 ${this.progressStartValue * 3.6}deg, #ededed 0deg)` ;
-    if (this.progressStartValue == this.progressEndValue) {
-      clearInterval(this.progress);
-    }
-  }, this.speed);
-
-  //progreso 2
-
-  progresoBarra2 = setInterval(() => {
-    this.progressStartValue2++;
-    document.querySelector('#grafica2 #progreso2 #progressValue2')!.textContent = `${this.progressStartValue2}%`;
-    document.getElementById("progreso2")!.style.background= `conic-gradient(#DBDB24 ${this.progressStartValue2 * 3.6}deg, #ededed 0deg)` ;
-    if (this.progressStartValue2 == this.progressEndValue2) {
-      clearInterval(this.progresoBarra2);
-    }
-  }, this.speed);
-*/
-
-
 constructor(
   private estudianteService: EstudianteServiceService,
-  private  estudianteServiceNormal: EstudianteService, 
-  private fb: FormBuilder, private generoService: GeneroService, 
+  private  estudianteServiceNormal: EstudianteService,
+  private fb: FormBuilder, private generoService: GeneroService,
   private semestreService: SemestreService,
-  private avatarService: AvatarService, 
+  private avatarService: AvatarService,
   private activatedRoute: ActivatedRoute,
-  private router:Router, 
-  private programaService: ProgramaService, 
+  private router:Router,
+  private programaService: ProgramaService,
   private estadoService: EstadoService,
   private cursoService: CursoService,
   private logroService: LogrosService
@@ -143,7 +108,7 @@ constructor(
     this.crearEstudiante();
     this.single=[];
   }
-  
+
   ngOnInit() {
     this.estudiante = JSON.parse(String(localStorage.getItem("usuario")));
     this.crearEstudiante();
@@ -195,7 +160,7 @@ constructor(
     });
   }
 
-  actualizarGrafica1() {    
+  actualizarGrafica1() {
     this.cursoService.progresoCurso(1, this.estudiante.idEstudiante!).subscribe((resp) =>{
       this.progresoCurso = Number(resp);
       const gradient = `conic-gradient(#30B4C6 ${Number(resp) * 3.6}deg, #ededed 0deg)`;
@@ -212,7 +177,7 @@ constructor(
       document.getElementById("progreso2")!.style.background = gradient;
     }, error => {
       console.log(error.error);
-      
+
     });
   }
   setEstado(){

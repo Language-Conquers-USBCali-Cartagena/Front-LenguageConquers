@@ -3,7 +3,7 @@
       <mat-card-title>Lista de Categor&iacute;as Registradas</mat-card-title>
       <mat-form-field>
         <mat-label>Filter</mat-label>
-        <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre de la Categoria" #input>
+        <input id="busqueda"  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre de la Categoria" #input>
       </mat-form-field>
       <div class="demo-button-container">
         <button mat-raised-button (click)="registrarCategoria()" class="demo-button">

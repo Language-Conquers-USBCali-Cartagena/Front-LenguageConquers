@@ -702,18 +702,18 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   background-color: rgba(0, 0, 0, 0.1);
 }
 .mat-option {
-  color: rgb(137,104,83);
+  color: #31b2c2;
 }
 .mat-option:hover:not(.mat-option-disabled),
 .mat-option:focus:not(.mat-option-disabled) {
   background: rgba(0, 0, 0, 0.04);
 }
 .mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled) {
-  background: rgb(137,104,83);
+  background: #31b2c2;
 }
 .mat-option.mat-active {
   background: rgba(194, 126, 126, 0.04);
-  color: rgb(137,104,83);
+  color: #31b2c2;
 }
 .mat-option.mat-option-disabled {
   color: rgba(175, 64, 64, 0.38);
@@ -744,7 +744,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 .mat-primary .mat-pseudo-checkbox-checked,
 .mat-primary .mat-pseudo-checkbox-indeterminate {
-  background: rgb(201,131,69);
+  background: #31b2c2;
 }
 .mat-pseudo-checkbox-checked,
 .mat-pseudo-checkbox-indeterminate,
@@ -1084,7 +1084,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-button.mat-primary,
 .mat-icon-button.mat-primary,
 .mat-stroked-button.mat-primary {
-  color:  rgb(201,131,69);
+  color:  #31b2c2;
 }
 .mat-button.mat-accent,
 .mat-icon-button.mat-accent,
@@ -1113,7 +1113,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-button.mat-primary .mat-button-focus-overlay,
 .mat-icon-button.mat-primary .mat-button-focus-overlay,
 .mat-stroked-button.mat-primary .mat-button-focus-overlay {
-  background-color:  rgb(201,131,69);
+  background-color:  #31b2c2;
 }
 .mat-button.mat-accent .mat-button-focus-overlay,
 .mat-icon-button.mat-accent .mat-button-focus-overlay,
@@ -1189,7 +1189,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 .mat-raised-button.mat-primary,
 .mat-fab.mat-primary,
 .mat-mini-fab.mat-primary {
-  background-color:  rgb(201,131,69);
+  background-color:  #31b2c2;
 }
 .mat-flat-button.mat-accent,
 .mat-raised-button.mat-accent,
@@ -1368,7 +1368,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background,
 .mat-checkbox-checked.mat-primary .mat-checkbox-background {
-  background-color: rgb(201,131,69);
+  background-color: #31b2c2;
 }
 .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
 .mat-checkbox-checked.mat-accent .mat-checkbox-background {
@@ -1395,7 +1395,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   .mat-ripple-element,
 .mat-checkbox:active:not(.mat-checkbox-disabled).mat-primary
   .mat-ripple-element {
-  background:   rgb(201,131,69);
+  background:   #31b2c2;
 }
 .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent
   .mat-ripple-element,
@@ -1429,7 +1429,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
   background: #000;
 }
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary {
-  background-color: rgb(201,131,69);
+  background-color: #31b2c2;
   color: #fff;
 }
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-primary .mat-chip-remove {
@@ -1562,7 +1562,7 @@ td.mat-footer-cell {
   background: #46a35e;
 }
 .mat-calendar-body-selected {
-  background-color: rgb(201,131,69);
+  background-color: #31b2c2;
   color: #fff;
 }
 .mat-calendar-body-disabled > .mat-calendar-body-selected {
@@ -1588,12 +1588,12 @@ td.mat-footer-cell {
   color: rgba(0, 0, 0, 0.87);
 }
 .mat-datepicker-content.mat-accent .mat-calendar-body-in-range::before {
-  background: rgba(255, 64, 129, 0.2);
+  background: rgba(138, 193, 197, 0.537);
 }
 .mat-datepicker-content.mat-accent .mat-calendar-body-comparison-identical,
 .mat-datepicker-content.mat-accent
   .mat-calendar-body-in-comparison-range::before {
-  background: rgba(249, 171, 0, 0.2);
+  background: rgba(0, 212, 249, 0.2);
 }
 .mat-datepicker-content.mat-accent
   .mat-calendar-body-comparison-bridge-start::before,
@@ -1736,7 +1736,7 @@ td.mat-footer-cell {
     0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
 }
 .mat-datepicker-toggle-active {
-  color: rgb(201, 131, 69);
+  color: #31b2c2;
 }
 .mat-datepicker-toggle-active.mat-accent {
   color: #ff4081;
@@ -1925,7 +1925,7 @@ td.mat-footer-cell {
   color: rgba(0, 0, 0, 0.87);
 }
 .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-  color: rgb(201, 131, 69);
+  color: #31b2c2;
 }
 .mat-form-field-appearance-outline.mat-focused.mat-accent
   .mat-form-field-outline-thick {
@@ -1948,7 +1948,7 @@ td.mat-footer-cell {
   color: rgba(0, 0, 0, 0.06);
 }
 .mat-icon.mat-primary {
-  color: rgb(201, 131, 69);
+  color: #31b2c2;
 }
 .mat-icon.mat-accent {
   color: #ff4081;
@@ -1965,7 +1965,7 @@ td.mat-footer-cell {
   color: rgba(0, 255, 255, 0);
 }
 .mat-input-element {
-  caret-color: rgb(201, 131, 69);
+  caret-color: #31b2c2;
 }
 .mat-input-element::placeholder {
   color: rgba(0, 0, 0, 0.42);
@@ -1988,7 +1988,7 @@ td.mat-footer-cell {
 }
 .mat-form-field-type-mat-native-select.mat-form-field-invalid
   .mat-form-field-infix::after {
-  color: rgb(201, 131, 69);
+  color: #31b2c2;
 }
 .mat-list-base .mat-list-item {
   color: rgba(0, 0, 0, 0.87);
@@ -2097,7 +2097,7 @@ td.mat-footer-cell {
 .mat-progress-spinner circle,
 .mat-spinner circle {
 
-  stroke: rgb(197,139,91);
+  stroke: #31b2c2;
 }
 .mat-progress-spinner.mat-accent circle,
 .mat-spinner.mat-accent circle {
@@ -2240,13 +2240,13 @@ td.mat-footer-cell {
   background-color: #ff4081;
 }
 .mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
-  background-color: rgb(201,131,69);
+  background-color: #31b2c2;
 }
 .mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-bar {
   background-color: rgba(201,131,69, 0.54);
 }
 .mat-slide-toggle.mat-primary.mat-checked .mat-ripple-element {
-  background-color: rgb(201,131,69);
+  background-color: #31b2c2;
 }
 .mat-slide-toggle.mat-warn.mat-checked .mat-slide-toggle-thumb {
   background-color: #f44336;
@@ -2274,7 +2274,7 @@ td.mat-footer-cell {
 .mat-primary .mat-slider-track-fill,
 .mat-primary .mat-slider-thumb,
 .mat-primary .mat-slider-thumb-label {
-  background-color: rgb(201,131,69);
+  background-color: #31b2c2;
 }
 .mat-primary .mat-slider-thumb-label-text {
   color: #fff;
@@ -2399,7 +2399,7 @@ td.mat-footer-cell {
 .mat-step-header .mat-step-icon-selected,
 .mat-step-header .mat-step-icon-state-done,
 .mat-step-header .mat-step-icon-state-edit {
-  background-color: rgb(201,131,69);
+  background-color: #31b2c2;
   color: #fff;
 }
 .mat-step-header.mat-accent .mat-step-icon {

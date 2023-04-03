@@ -20,7 +20,7 @@ export class RetoEstudianteService {
   }
 
   listarPorIdEstudiante(idEstudiante: number){
-    return this.http.get<RetoEstudiante>(`${environment.endpoint}/retoEstudiante/porIdEstudiante/${idEstudiante}`)
+    return this.http.get<RetoEstudiante[]>(`${environment.endpoint}/retoEstudiante/porIdEstudiante/${idEstudiante}`)
   }
 
   listarPorIdReto(idReto: number){
@@ -38,7 +38,7 @@ export class RetoEstudianteService {
   eliminarRetoEstudiante(idRetoEstudiante: number): Observable<string>{
     return this.http.delete(`${environment.endpoint}/retoEstudiante/eliminarRetoEstudiante/${idRetoEstudiante}`,{ responseType: 'text'})
   }
-  
+
   promedioRetos():Observable<number>{
     return this.http.get<number>(`${environment.endpoint}/retoEstudiante/promedioRetosCompletados`);
   }

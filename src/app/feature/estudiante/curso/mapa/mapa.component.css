@@ -84,8 +84,7 @@ mat-toolbar {
   margin-top: 80px;
 }
 .iconoMenu {
-  width: 10px;
-  height: 10px;
+
   cursor: pointer;
 }
 .iconoMenu:hover {
@@ -123,14 +122,14 @@ mat-toolbar {
 }
 
 .button:hover:enabled {
-  background-color: rgb(172, 153, 139, 0.934);
+  background-color: rgba(139, 163, 172, 0.934);
   cursor: pointer;
   border: none;
   border-radius: 8px;
   color: rgba(222, 240, 247, 1);
   border: none;
   padding: 0px 11px;
-  font-size: 15px;
+  font-size: 18px;
 }
 .button:disabled {
   cursor: not-allowed;

@@ -5,10 +5,7 @@
   margin-left: 70px;
   /*Efecto espejo*/
   padding: 55px;
-  background: linear-gradient(
-  135deg,
-  rgba(172,153,139, 0.514),
-  rgba(172,153,139, 0.514));
+  background-color: #2e2e2e;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
@@ -48,7 +45,7 @@ mat-form-field{
     margin-top: -36px;
     width: 128px;
     height:20px;
-    background-color: rgb(205, 159, 118);
+    background-color: #31b2c2;
     border-radius: 20px;
     position: absolute;
     padding: 10px;
@@ -70,7 +67,7 @@ mat-form-field{
 .botones {
   color: rgb(254, 254, 231);
   border-radius: 20px;
-  background-color: rgb(201, 131, 69);
+  background-color: #31b2c2;
   text-align: center !important;
   align-items: center !important;
   margin: 0 10px;
@@ -82,10 +79,10 @@ mat-form-field{
 
 }
 .mat-input-element{
-  color: rgb(136,103,82) !important;
+  color: rgb(233, 227, 223) !important;
 }
 mat-icon{
-  color: rgb(0, 0, 0);
+  color: rgb(238, 234, 234);
 }
 mat-card-title{
   font-size:30px;

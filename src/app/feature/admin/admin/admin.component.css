@@ -1,14 +1,15 @@
 .container{
     height:750px;
+
   }
   mat-toolbar {
     height:70px;
     width:auto;
-    background-color:#ac998b;
+    background-color: #424141;
   }
   .menu{
     width:1920px;
-  
+
   }
   .boton{
     margin: 70px;
@@ -18,11 +19,11 @@
   .example-spacer {
     flex: 1 1 auto;
   }
-  
-  
-  
+
+
+
   .sidenav{
-    background-color:#ac998b;
+    background-color: #323232;
     height:100%;
     width:230px;
     display:block;
@@ -39,7 +40,7 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-  
+
   }
   .logo{
     position: relative;
@@ -84,7 +85,7 @@
   .logo-img img{
     width: 150px;
     margin-left:10px;
-  
+
   }
   .sidenav-nav-item{
     width: 100%;
@@ -114,20 +115,20 @@
   }
   .sidenav-nav-link:hover{
    background-color:rgb(146, 129, 117);
-   color:#000;
+   color:#ede6e6;
   }
   .active{
-  
+
     background-color: rgb(146, 129, 117);
   }
   .sidenav-link-icon,.sidenav-link-text{
     color:rgb(255, 255, 255);
   }
-  
+
   mat-drawer-content{
     margin: 30px -80px 0px 20px;
   }
-  
+
   .tarjetas{
     background-color: rgb(255, 255, 255);
     margin-top:-150px;
@@ -139,19 +140,23 @@
     background-repeat: no-repeat;
     height: auto;
     align-items: center;
-  
+
   }
   .botones{
     background-color: transparent;
     text-align: center;
     margin-left: 40px;
     width:120px;
-    color: #84614b;
+    color: #e9dddd;
     font-size: 20px;
   }
-  
-  
-  
-  
-  
-  
+
+mat-icon{
+  color: #ffffff;
+}
+.admin{
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+

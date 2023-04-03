@@ -5,25 +5,26 @@
         <label style="margin-bottom:0%; cursor:pointer;">
           Tutorial
         </label>
-        <img src="../../../../../assets/images/tutorial.png" class="iconoMenu">
+        <mat-icon class="iconoMenu">video_label</mat-icon>
+
       </button>
       <button type="button" class="button" routerLink="/missionStudent">
         <label style="margin-bottom:0%; cursor:pointer;">
           Misiones
         </label>
-        <img src="../../../../../assets/images/mision.png">
+        <mat-icon class="iconoMenu">map</mat-icon>
       </button>
       <button type="button" class="button" (click)="articulosAdquiridos()">
         <label style="margin-bottom:0%; cursor:pointer;">
           Art&iacute;culos Adquiridos
         </label>
-        <img class="iconoMenu" style=" width: 50px;" src="../../../../../assets/images/cofreArticulosAdq.png" >
+        <mat-icon class="iconoMenu">local_mall</mat-icon>
       </button>
       <button type="button" class="button" (click)="home()">
         <label style="margin-bottom:0%; cursor:pointer;">
           Volver a Home
         </label>
-        <img src="../../../../../assets/icons/2.png" class="iconoMenu">
+        <mat-icon class="iconoMenu">home</mat-icon>
       </button>
     </div>
   </div>
@@ -36,7 +37,7 @@
       <div class="tituloInfoEstudiante">Monedas:{{monedas}} </div>
     </div>
   </div>
-  
+
   <div class="tesoro1" *ngIf="retos[0] != undefined" (click) = "redireccion(retos[0].idReto)" [ngClass]="{'completo': retos[0].idEstadoRetoEstu == 3, 'incompleto': retos[0].idEstadoRetoEstu == 4, 'activo': retos[0].idEstadoRetoEstu == 1}">
       <img src="../../../../../assets/images/Recurso34.png">
   </div>

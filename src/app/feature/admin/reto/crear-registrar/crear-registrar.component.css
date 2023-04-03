@@ -5,9 +5,7 @@
   margin-left: 70px;
   /*Efecto espejo*/
   padding: 55px;
-  background: linear-gradient(135deg,
-      rgba(172, 153, 139, 0.514),
-      rgba(172, 153, 139, 0.514));
+  background-color: #2e2e2e;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
@@ -45,20 +43,21 @@
 }
 .botonImagen{
 
-  background-color: #fff;
+  background-color: #62cfde;
   align-items: center;
   margin:2px;
   display: inline-block;
   border-radius: 18px;
   width: 120px;
-  height: 50px;
+  height: 40px;
+  color: #fff;
 }
 .botonSeleccionarArchivo1, .botonSeleccionarArchivo2{
   margin-left: -310px;
   margin-top: -12px;
   width: 128px;
   height:20px;
-  background-color: rgb(205, 159, 118);
+  background-color: #31b2c2;
   border-radius: 20px;
   position: absolute;
   padding: 10px;
@@ -113,7 +112,7 @@ matSuffix{
 .botones {
   color: rgb(254, 254, 231);
   border-radius: 20px;
-  background-color: rgb(201, 131, 69);
+  background-color: #31b2c2;
   text-align: center !important;
   align-items: center !important;
   margin: 0 10px;
@@ -125,7 +124,7 @@ matSuffix{
 }
 
 .botonsalir {
-  color: rgb(201, 131, 69);
+  color: #31b2c2;
   border-radius: 20px;
   background-color: rgb(254, 254, 231);
   text-align: center !important;
@@ -138,8 +137,12 @@ matSuffix{
 
 }
 .mat-input-element{
-  color: rgb(136,103,82) !important;
+  color: rgb(240, 237, 235) !important;
 }
 mat-card-title{
   font-size:30px;
 }
+mat-icon{
+  color: #fff;
+}
+
