@@ -16,7 +16,7 @@ const routes:Routes = [
     {
         path: '',
         component: ProfesorComponent,
-        canActivate: [AuthGuardGuard, ProfesorGuardGuard],
+        canActivate: [ProfesorGuardGuard],
         children: [
             {
                 path: 'menuProfesor',

@@ -12,6 +12,18 @@ export class ProfesorGuardGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot) {
       const usuario: Profesor = JSON.parse(String(localStorage.getItem('usuario')));
+      if(usuario == null){
+        await Swal.fire({
+          title: 'Error Http: 403',
+          text: 'No tiene permisos para acceder a las opciones de profesor',
+
+          focusConfirm: false,
+          confirmButtonText: 'Regresar',
+          confirmButtonColor: '#31B2C2',
+        })
+        window.history.go(-1);
+        return false;
+      }
       if(typeof usuario.idProfesor === "undefined"){
         await Swal.fire({
           title: 'Error Http: 403',

@@ -19,7 +19,7 @@ const routes:Routes = [
     {
         path: '',
         component: EstudianteComponent,
-        canActivate: [AuthGuardGuard, EstudianteGuardGuard],
+        canActivate: [EstudianteGuardGuard],
         children: [
             {
                 path: 'menu',

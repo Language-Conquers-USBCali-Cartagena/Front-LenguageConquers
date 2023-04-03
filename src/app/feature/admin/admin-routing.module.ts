@@ -24,6 +24,8 @@ import { EstudianteComponent } from './estudiante/estudiante.component';
 import { CrearModificarEstudianteComponent } from './estudiante/crear-modificar-estudiante/crear-modificar-estudiante.component';
 import { ProfesorComponent } from './profesor/profesor.component';
 import { CrearModificarProfesorComponent } from './profesor/crear-modificar-profesor/crear-modificar-profesor.component';
+import { AuthGuardGuard } from 'src/app/core/guards/authGuard.guard';
+import { AdministradorGuard } from 'src/app/core/guards/administrador.guard';
 
 
 const routes: Routes = [
@@ -31,6 +33,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AdministradorGuard],
     children: [
       {
         path: '',

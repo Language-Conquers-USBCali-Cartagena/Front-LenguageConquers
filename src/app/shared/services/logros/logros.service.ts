@@ -50,4 +50,13 @@ export class LogrosService {
     return this.http.get<Logros[]>(`${environment.endpoint}/logro/logrosNoObtenidos`, {params: paramsHttp})
   }
 
+  progresoLogros(idEstudiante: number):Observable<string>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        idEstudiante: `${idEstudiante}`
+      }
+    });
+    return this.http.get<string>(`${environment.endpoint}/logro/progresoLogro`, {params: paramsHttp});
+  }
+
 }

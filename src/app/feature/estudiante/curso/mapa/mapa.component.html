@@ -37,22 +37,22 @@
     </div>
   </div>
   
-  <div class="tesoro1" *ngIf="retos[0] != undefined" (click) = "redireccion(retos[0].idReto)">
+  <div class="tesoro1" *ngIf="retos[0] != undefined" (click) = "redireccion(retos[0].idReto)" [ngClass]="{'completo': retos[0].idEstadoRetoEstu == 3, 'incompleto': retos[0].idEstadoRetoEstu == 4, 'activo': retos[0].idEstadoRetoEstu == 1}">
       <img src="../../../../../assets/images/Recurso34.png">
   </div>
-  <div class="tesoro2" *ngIf="retos[1] != undefined" (click) = "redireccion(retos[1].idReto)">
+  <div class="tesoro2" *ngIf="retos[1] != undefined" (click) = "redireccion(retos[1].idReto)" [ngClass]="{'completo': retos[1].idEstadoRetoEstu == 3, 'incompleto': retos[1].idEstadoRetoEstu == 4, 'activo': retos[1].idEstadoRetoEstu == 1}">
       <img src="../../../../../assets/images/Recurso34.png" alt="" >
   </div>
-  <div class="tesoro3" *ngIf="retos[2] != undefined" (click) = "redireccion(retos[2].idReto)">
+  <div class="tesoro3" *ngIf="retos[2] != undefined" (click) = "redireccion(retos[2].idReto)" [ngClass]="{'completo': retos[2].idEstadoRetoEstu == 3, 'incompleto': retos[2].idEstadoRetoEstu == 4, 'activo': retos[2].idEstadoRetoEstu == 1}">
       <img src="../../../../../assets/images/Recurso34.png" alt="">
   </div>
-  <div class="tesoro3" *ngIf="retos[2] != undefined" (click) = "redireccion(retos[2].idReto)">
+  <div class="tesoro4" *ngIf="retos[3] != undefined" (click) = "redireccion(retos[3].idReto)" [ngClass]="{'completo': retos[3].idEstadoRetoEstu == 3, 'incompleto': retos[3].idEstadoRetoEstu == 4, 'activo': retos[3].idEstadoRetoEstu == 1}">
       <img src="../../../../../assets/images/Recurso34.png" alt="">
   </div>
-  <div class="tesoro3" *ngIf="retos[2] != undefined" (click) = "redireccion(retos[2].idReto)">
+  <div class="tesoro5" *ngIf="retos[4] != undefined" (click) = "redireccion(retos[4].idReto)" [ngClass]="{'completo': retos[4].idEstadoRetoEstu == 3, 'incompleto': retos[4].idEstadoRetoEstu == 4, 'activo': retos[4].idEstadoRetoEstu == 1}">
       <img src="../../../../../assets/images/Recurso34.png" alt="">
   </div>
-  <div class="tesoro3" *ngIf="retos[2] != undefined" (click) = "redireccion(retos[2].idReto)">
+  <div class="tesoro6" *ngIf="retos[5] != undefined" (click) = "redireccion(retos[5].idReto)" [ngClass]="{'completo': retos[5].idEstadoRetoEstu == 3, 'incompleto': retos[5].idEstadoRetoEstu == 4, 'activo': retos[5].idEstadoRetoEstu == 1}">
       <img src="../../../../../assets/images/Recurso34.png" alt="">
   </div>
 </div>

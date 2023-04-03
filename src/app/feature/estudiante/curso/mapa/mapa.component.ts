@@ -8,6 +8,8 @@ import { Avatar } from 'src/app/shared/models/avatar';
 import { Reto } from 'src/app/shared/models/reto';
 import { RetoService } from 'src/app/shared/services/reto/reto.service';
 import { RetoEstudianteService } from 'src/app/shared/services/retoEstudiante/reto-estudiante.service';
+import { error } from 'console';
+import { RetoEstudiante } from 'src/app/shared/models/retoEstudiante';
 
 
 @Component({
@@ -40,9 +42,9 @@ export class MapaComponent implements OnInit {
     private retoEstudianteService: RetoEstudianteService
     ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.obtenerEstudiante();
-    this.cargarRetos();
+    await this.cargarRetos();
     this.getAvatarPorid();
   }
 
@@ -56,7 +58,25 @@ export class MapaComponent implements OnInit {
     });
   }
   redireccion(idReto: number | undefined){
-    this.router.navigate(['estudiante/curso/ide', idReto!])
+    this.retoEstudianteService.porRetoyEstudiante(idReto!, this.estudiante.idEstudiante!).subscribe((resp) => {
+      let retoEstudiante: RetoEstudiante = resp;
+      
+      if(retoEstudiante.idEstado != 1){
+        Swal.fire({
+          icon: "info",
+          title: 'Reto terminado',
+          text: 'El reto ya fue finalizado'
+        });
+      }else{
+        this.router.navigate(['estudiante/curso/ide', idReto!])
+      }
+    }, error => {
+      Swal.fire({
+        icon: "error",
+        title: 'Ups...',
+        text: error.error
+      });
+    });
   }
   cargarRetos(){
     this.retoService.retosPorEstudiante(this.estudiante.idEstudiante!).subscribe((resp) => {

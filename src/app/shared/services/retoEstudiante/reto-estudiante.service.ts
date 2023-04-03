@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -38,8 +38,18 @@ export class RetoEstudianteService {
   eliminarRetoEstudiante(idRetoEstudiante: number): Observable<string>{
     return this.http.delete(`${environment.endpoint}/retoEstudiante/eliminarRetoEstudiante/${idRetoEstudiante}`,{ responseType: 'text'})
   }
-
+  
   promedioRetos():Observable<number>{
     return this.http.get<number>(`${environment.endpoint}/retoEstudiante/promedioRetosCompletados`);
+  }
+
+  porRetoyEstudiante(idReto: number, idEstudiante: number):Observable<RetoEstudiante>{
+    let httParams = new HttpParams({
+      fromObject: {
+        idReto: idReto,
+        idEstudiante: idEstudiante
+      }
+    });
+    return this.http.get<RetoEstudiante>(`${environment.endpoint}/retoEstudiante/porRetoyEstudiante`, {params: httParams});
   }
 }

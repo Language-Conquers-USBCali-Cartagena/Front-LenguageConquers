@@ -11,6 +11,7 @@ import { contains } from '@firebase/util';
 import { EstudianteService } from '../../../../shared/services/estudiante/estudiante.service';
 import { ProfesorService } from 'src/app/shared/services/profesor/profesor.service';
 import { MatCheckbox } from '@angular/material/checkbox';
+import { AdministradorService } from 'src/app/shared/services/administrador/administrador.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -24,12 +25,21 @@ export class RegistroComponent implements OnInit {
   terminos= false;
   profesorExiste: boolean = false;
   estudianteExiste: boolean = false;
+  administradorExiste: boolean = false;
   @ViewChild('checkboxExterno') checkboxExterno!: MatCheckbox;
 
 
-  constructor(private fb: UntypedFormBuilder, private _snackbar: MatSnackBar,
-    private router: Router, private authService: AuthService, private loginService: ServiciosLoginService, private dialog: MatDialog,
-    private estudianteServece: EstudianteService, private profesorService: ProfesorService) {
+  constructor(
+    private fb: UntypedFormBuilder, 
+    private _snackbar: MatSnackBar,
+    private router: Router, 
+    private authService: AuthService, 
+    private loginService: ServiciosLoginService, 
+    private dialog: MatDialog,
+    private estudianteServece: EstudianteService, 
+    private profesorService: ProfesorService,
+    private administradorService: AdministradorService
+    ) {
     this.form = this.fb.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required],
@@ -44,7 +54,7 @@ export class RegistroComponent implements OnInit {
     const password = this.form.value.password;
     await this.authService.register(usuario, password).then(res => {
       this.authService.emailVerification();
-      this.router.navigate(['/auth/verificar-email'])
+      this.router.navigate(['/auth/verificar-email']);
     }).catch(err => {
       if(password.length<6){
         this.passwordInvalid();
@@ -60,7 +70,6 @@ export class RegistroComponent implements OnInit {
 
   IngresarConGoogle() {
     this.authService.loginWithGoogle().then(res => {
-      console.log("Ingreso: ", res);
       this.validaciones();
     }).catch(err => {
       if(this.terminos == false){
@@ -123,6 +132,7 @@ export class RegistroComponent implements OnInit {
 
     await this.estudianteServece.getEstudiantePorCorreo(email).toPromise().then((response) =>{
       this.estudianteExiste = true;
+      console.log(response);
       localStorage.setItem("usuario", JSON.stringify(response));
       this.router.navigateByUrl("/estudiante/menu");
     }).catch((error) =>{
@@ -133,11 +143,19 @@ export class RegistroComponent implements OnInit {
       console.log("Existe por correo");
       localStorage.setItem("usuario", JSON.stringify(response));
       this.router.navigateByUrl("/profesor/menuProfesor");
-
-    }).catch((rerror) => {
+      
+    }).catch((error) => {
     });
+    
+    await this.administradorService.getadminPorCorreo(email).toPromise().then((response) => {
+      this.administradorExiste = true;
+      localStorage.setItem("usuario", JSON.stringify(response));
+      this.router.navigateByUrl("/admin/home");
 
-    if (this.estudianteExiste == true || this.profesorExiste == true) {
+    }).catch((error) => {
+    });
+    
+    if (this.estudianteExiste == true || this.profesorExiste == true || this.administradorExiste == true) {
       return true
     } else {
       return false

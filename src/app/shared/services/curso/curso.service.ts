@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -31,7 +31,15 @@ export class CursoService {
     return this.http.delete(`${environment.endpoint}/curso/eliminarCurso/${idCurso}`,{ responseType: 'text'});
   }
 
-
+  progresoCurso(idCurso: number, idEstudiante: number): Observable<string>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+        idEstudiante: idEstudiante,
+        idCurso: idCurso
+      }
+    });
+    return this.http.get<string>(`${environment.endpoint}/curso/progresoCurso`, {params: paramsHttp});
+  }
 
 
 }

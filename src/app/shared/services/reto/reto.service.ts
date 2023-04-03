@@ -65,4 +65,6 @@ export class RetoService {
     });
     return this.http.get<Reto[]>(`${environment.endpoint}/reto/retosPorEstudiante`, {params: paramsHttp});
   }
+
+
 }

@@ -17,9 +17,12 @@ import { Semestre } from 'src/app/shared/models/semestre';
 import { Programa } from 'src/app/shared/models/programa';
 import { Estado } from 'src/app/shared/models/estado';
 import Swal from 'sweetalert2';
-import { log } from 'console';
+import { error, log } from 'console';
 import { style } from '@angular/animations';
 import { EstudianteServiceService } from '../services/estudiante-service.service';
+import { RetoService } from 'src/app/shared/services/reto/reto.service';
+import { LogrosService } from 'src/app/shared/services/logros/logros.service';
+import { CursoService } from 'src/app/shared/services/curso/curso.service';
 export var single = [
   {
     "name": "Germany",
@@ -86,8 +89,8 @@ export class PerfilEstudianteComponent implements OnInit {
   view: [number, number] = [200, 300];
   showLegend: boolean = true;
   showLabels: boolean = true;
-  valor: any;
-  valor2: any;
+  progresoCurso: any;
+  progresoLogro: any;
 
 
   //Progreso 1
@@ -124,15 +127,26 @@ export class PerfilEstudianteComponent implements OnInit {
 */
 
 
-constructor(private estudianteService: EstudianteServiceService,private  estudianteServiceNormal: EstudianteService, private fb: FormBuilder, private generoService: GeneroService, private semestreService: SemestreService,private avatarService: AvatarService, private activatedRoute: ActivatedRoute,
-  private router:Router, private programaService: ProgramaService, private estadoService: EstadoService) {
+constructor(
+  private estudianteService: EstudianteServiceService,
+  private  estudianteServiceNormal: EstudianteService, 
+  private fb: FormBuilder, private generoService: GeneroService, 
+  private semestreService: SemestreService,
+  private avatarService: AvatarService, 
+  private activatedRoute: ActivatedRoute,
+  private router:Router, 
+  private programaService: ProgramaService, 
+  private estadoService: EstadoService,
+  private cursoService: CursoService,
+  private logroService: LogrosService
+  ) {
     this.crearEstudiante();
     this.single=[];
   }
-
-
- ngOnInit() {
-   this.crearEstudiante();
+  
+  ngOnInit() {
+    this.estudiante = JSON.parse(String(localStorage.getItem("usuario")));
+    this.crearEstudiante();
     this.obtenerEstudiante();
     this.getAvatar(this.pagina);
     this.actualizarGrafica1();
@@ -148,8 +162,9 @@ constructor(private estudianteService: EstudianteServiceService,private  estudia
     this.setPrograma();
   }
 
+
   obtenerEstudiante() {
-    let usuarioResp: Estudiante = JSON.parse(String(localStorage.getItem("usuario")));
+    let usuarioResp = this.estudiante ;
     this.setEstudiante(usuarioResp);
     this.idAvatarPorDefecto = usuarioResp.idAvatar;
     this.idEstado = usuarioResp.idEstado;
@@ -180,18 +195,25 @@ constructor(private estudianteService: EstudianteServiceService,private  estudia
     });
   }
 
-  actualizarGrafica1() {
-    const valor =10; //this.estudianteServiceNormal.monedasGanadasPromedio;
-    this.valor = valor;
-    const gradient = `conic-gradient(#30B4C6 ${Number(valor) * 3.6}deg, #ededed 0deg)`;
-    document.getElementById("progreso")!.style.background = gradient;
+  actualizarGrafica1() {    
+    this.cursoService.progresoCurso(1, this.estudiante.idEstudiante!).subscribe((resp) =>{
+      this.progresoCurso = Number(resp);
+      const gradient = `conic-gradient(#30B4C6 ${Number(resp) * 3.6}deg, #ededed 0deg)`;
+      document.getElementById("progreso")!.style.background = gradient;
+    }, error => {
+      console.log(error.error);
+    });
   }
 
   actualizarGrafica2() {
-    const valor =16; //this.estudianteServiceNormal.monedasGanadasPromedio;
-    this.valor2 = valor;
-    const gradient = `conic-gradient(#30B4C6 ${Number(valor) * 3.6}deg, #ededed 0deg)`;
-    document.getElementById("progreso2")!.style.background = gradient;
+    this.logroService.progresoLogros(this.estudiante.idEstudiante!).subscribe((resp) =>{
+      this.progresoLogro = Number(resp);
+      const gradient = `conic-gradient(#ff9a5a ${Number(resp) * 3.6}deg, #ededed 0deg)`;
+      document.getElementById("progreso2")!.style.background = gradient;
+    }, error => {
+      console.log(error.error);
+      
+    });
   }
   setEstado(){
     this.estadoService.consultarPorId(this.idEstado!).subscribe(data => {

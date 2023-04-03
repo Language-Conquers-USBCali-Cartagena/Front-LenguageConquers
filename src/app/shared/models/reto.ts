@@ -23,4 +23,5 @@ export interface Reto{
     urlVideo1?:string;
     urlVideo2?:string;
     nombreEstado?: string;
+    idEstadoRetoEstu?: number;
 }
