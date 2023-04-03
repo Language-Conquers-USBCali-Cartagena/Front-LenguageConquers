@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 480px 520px 1px;
   padding: 80px;
+  background-color: #2e2e2e;
   }
   .dashboard{
     width: 80%;

@@ -3,7 +3,7 @@
       <mat-card-title>Lista de Logros Registrados</mat-card-title>
       <mat-form-field>
         <mat-label>Filter</mat-label>
-        <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del logro" #input>
+        <input id="busqueda"  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del logro" #input>
       </mat-form-field>
       <div class="demo-button-container">
         <button mat-raised-button (click)="registrarLogros()" class="demo-button">

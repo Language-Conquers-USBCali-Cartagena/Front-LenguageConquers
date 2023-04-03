@@ -3,11 +3,15 @@
   background-color: #323232;
   height: 100%;
   overflow-wrap: normal;
+
+
+
 }
 
 .body2 {
   background-color: #323232;
   height: 10px;
+  margin-bottom: 30px;
 }
 
 .fondo {
@@ -16,9 +20,10 @@
 }
 
 .fondoPantalla {
-  width: 60%;
-  padding-top: 10px;
-  margin-left: 200px;
+  width: 80%;
+
+
+  margin-left: 150px;
   /*Efecto espejo*/
   font-size: 30px;
   border-radius: 10px;
@@ -78,7 +83,10 @@
   color: #fff;
 }
 .icono-info{
-  color: #3794e0;
+  color: #ffffff;
+}
+.icono-info atras{
+  padding-left: 40px;
 }
 .icono-run{
   color: rgb(25, 197, 106);
@@ -218,7 +226,7 @@
 .cuadro-respuesta {
   margin-left: 470px;
   margin-top: -350px;
-  
+
   position: relative;
   height: 400px;
   width: 400px;
@@ -336,7 +344,7 @@
     overflow-y: visible;
     margin-top: 5px;
 
-   
+
   }
   .example-list1 {
     border: solid 1px #6f6e6e00;

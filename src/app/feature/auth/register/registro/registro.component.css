@@ -50,7 +50,7 @@
   text-align: justify;
 } */
 .vinculosT{
-  
+
   font-size: 20px;
   color: rgb(255, 255, 255);
   text-align: justify;
@@ -62,7 +62,7 @@
 
 .vinculosT mat-checkbox{
   margin-right: 20px;
-  background: #31B2C2;
+ 
 }
 .vinculos{
   color: rgb(255, 255, 255);
@@ -254,7 +254,7 @@
   margin-left: 0px;
 }
 .vinculosT{
-  
+
   font-size: 20px;
   color: rgb(255, 255, 255);
   margin-left: -60px;

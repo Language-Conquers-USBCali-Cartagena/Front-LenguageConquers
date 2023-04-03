@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Estudiante } from 'src/app/shared/models/estudiante';
 import { PalabrasReservadas } from 'src/app/shared/models/palabrasReservadas';
+import { Reto } from 'src/app/shared/models/reto';
 import { RetoEstudiante } from 'src/app/shared/models/retoEstudiante';
 import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
 import { EstudianteService } from 'src/app/shared/services/estudiante/estudiante.service';
@@ -22,6 +23,7 @@ export class DragAndDropComponent implements OnInit {
   palabras: PalabrasReservadas[] = [];
   estudiante: Estudiante = {};
   retoEstudiante: RetoEstudiante = {}
+  retoInfo: Reto = {};
   a: PalabrasReservadas[] = [];
   b: PalabrasReservadas[] = [];
   c: PalabrasReservadas[] = [];
@@ -34,8 +36,8 @@ export class DragAndDropComponent implements OnInit {
   j: PalabrasReservadas[] = [];
   condicion = false;
   constructor(
-    private router: Router, 
-    private palabraService: PalabraReservadaService, 
+    private router: Router,
+    private palabraService: PalabraReservadaService,
     private route: ActivatedRoute,
     private retosService: RetoService,
     private retoEstudianteService: RetoEstudianteService,
@@ -48,12 +50,19 @@ export class DragAndDropComponent implements OnInit {
     this.estudiante = JSON.parse(String(localStorage.getItem('usuario')))
     await this.ObtenetPalabras();
     this.obtenerRetoEstudiante()
+    await this.obtenerReto();
   }
 
   ObtenetPalabras(){
     this.palabraService.getPalabrasReservadas(this.retoParam).subscribe(data => {
       this.palabras = data;
     });
+  }
+  obtenerReto(){
+    this.retosService.consultarPorId(this.retoParam).subscribe(data =>{
+      this.retoInfo = data;
+      this.mostrarPistas();
+    })
   }
   obtenerRetoEstudiante(){
     this.retoEstudianteService.porRetoyEstudiante(this.retoParam!, this.estudiante.idEstudiante!).subscribe(resp =>{
@@ -107,6 +116,7 @@ export class DragAndDropComponent implements OnInit {
       confirmButtonText: 'Sí',
       cancelButtonText: 'No',
       showLoaderOnConfirm: true,
+      confirmButtonColor: '#31B2C2',
       preConfirm: () => {
         this.retosService.completar(resp, esBasico, id, this.retoParam).subscribe(respuesta =>{
           this.retoEstudiante.fechaModificacion = new Date;
@@ -118,7 +128,7 @@ export class DragAndDropComponent implements OnInit {
               this.retoEstudiante = {fechaCreacion: new Date, fechaEntrega: new Date, idEstado: 1, idEstudiante: this.estudiante.idEstudiante!, idGrupo: 1,
                 idReto: total, idRol: 1, puntaje: 0, usuarioCreador: 'admin', intentos: 0};
               this.retoEstudianteService.crearRetoEstudiante(this.retoEstudiante).subscribe(resp => {
-                
+
                 Swal.fire({
                   title: 'Respuesta!',
                   html:  `<div style="white-space: pre-line;">${respuesta}</div>`,
@@ -126,7 +136,8 @@ export class DragAndDropComponent implements OnInit {
                   focusConfirm: false,
                   showCancelButton: false,
                   showConfirmButton: true,
-                  confirmButtonText: 'Continuar'
+                  confirmButtonText: 'Continuar',
+                  confirmButtonColor: '#31B2C2',
                 }).then(() => {
                   window.history.back()
                 });
@@ -165,8 +176,8 @@ export class DragAndDropComponent implements OnInit {
         })
       }
     })
-    
-   
+
+
   }
 
   sumarID(){
@@ -208,22 +219,50 @@ export class DragAndDropComponent implements OnInit {
 
   mostrarPistas(){
     Swal.fire({
-      title: '¿Qué es un algoritmo?',
-      html:
-      '<p>Un algoritmo es en realidad un procedimiento por etapas. Es un conjunto de reglas que hay que seguir para realizar una tarea o resolver un problema.</p> Un algoritmo es en realidad un procedimiento por etapas. Es un conjunto de reglas que hay que seguir para realizar una tarea o resolver un problema. <p>Mucho antes de la aparición de los ordenadores, los humanos ya utilizaban algoritmos. Las recetas de cocina, las operaciones matemáticas o incluso las instrucciones para montar un mueble pueden considerarse algoritmos.</p>',
+      title: this.retoInfo.nombreReto,
+     text:this.retoInfo.descripcionTeoria,
       confirmButtonText: 'Continuar',
       confirmButtonColor: '#31B2C2',
       showCancelButton: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: '¿Qué es un algoritmo?',
-          text:'En el campo de la programación informática, los algoritmos son conjuntos de reglas que indican al ordenador cómo ejecutar una tarea. En realidad, un programa informático es un algoritmo que indica al ordenador qué pasos debe realizar y en qué orden para llevar a cabo una tarea específica. Se escriben utilizando un lenguaje de programación.',
-          showCancelButton: true,
-          confirmButtonColor: '#31B2C2'
+        if(this.retoInfo.urlVideo1 !==null){
+          Swal.fire({
+            title: this.retoInfo.nombreReto,
+            html: `<video width="100%" height="auto" controls><source src="${this.retoInfo.urlVideo1}" type="video/mp4"></video>`,
+            confirmButtonText: 'Continuar',
+            confirmButtonColor: '#31B2C2',
+            showCancelButton: true,
+          })
+        }else if(this.retoInfo.urlVideo2 !== null){
+          Swal.fire({
+            title: this.retoInfo.nombreReto,
+            html: `<video width="100%" height="auto" controls><source src="${this.retoInfo.urlVideo2}" type="video/mp4"></video>`,
+            confirmButtonText: 'Continuar',
+            confirmButtonColor: '#31B2C2',
+            showCancelButton: true,
+          })
+        }else if(this.retoInfo.imagenTema1 !==null){
+          Swal.fire({
+            title: this.retoInfo.nombreReto,
+            imageUrl: this.retoInfo.imagenTema1,
+            imageWidth: 400,
+            imageHeight: 200,
+            confirmButtonText: 'Continuar',
+            confirmButtonColor: '#31B2C2',
+            showCancelButton: true,
+          })
+        }else if(this.retoInfo.imagenTema2 !== null){
+          Swal.fire({
+            title: this.retoInfo.nombreReto,
+            imageUrl: this.retoInfo.imagenTema2,
+            imageWidth: 400,
+            imageHeight: 200,
+            confirmButtonText: 'Continuar',
+            confirmButtonColor: '#31B2C2',
+            showCancelButton: true,
+          })
         }
-
-      )
       }
     })
   }
@@ -239,6 +278,7 @@ export class DragAndDropComponent implements OnInit {
     });
   }
   colorRojo() {
+    
     Swal.fire({
       title: '¿Que es un método?',
       html:

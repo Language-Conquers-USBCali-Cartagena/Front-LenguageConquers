@@ -3,7 +3,7 @@
       <mat-card-title>Lista de Avatares Registrados</mat-card-title>
       <mat-form-field>
         <mat-label>Filter</mat-label>
-        <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del avatar" #input>
+        <input id="busqueda" matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del avatar" #input>
       </mat-form-field>
       <div class="demo-button-container">
         <button mat-raised-button (click)="registrarAvatar()" class="demo-button">

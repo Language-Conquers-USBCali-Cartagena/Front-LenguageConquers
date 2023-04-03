@@ -31,16 +31,19 @@ export class ProgresoEstudianteComponent implements OnInit {
 nombreEstudiante!:string | undefined;
 
   constructor(private retoEstudianteService: RetoEstudianteService, private routerAct: ActivatedRoute, private router: Router, private estadoService: EstadoService, private retoServicio: RetoService, private estudianteService: EstudianteService ) {
-    this.id = this.routerAct.snapshot.paramMap.get('id');
-    this.idEstudiante = Number(this.id);
+
    }
 
   ngOnInit(): void {
+    this.id = this.routerAct.snapshot.paramMap.get('id');
+    console.log(this.id);
+    this.idEstudiante = Number(this.id);
     this.cargarRetos();
     this.obtenerEstudiante();
   }
 
   obtenerEstudiante(){
+    console.log(this.idEstudiante);
     this.estudianteService.consultarPorId(this.idEstudiante).subscribe(data => {
       this.nombreEstudiante = data.nombre?.concat(' ', data.apellido!);
     })
@@ -49,8 +52,9 @@ nombreEstudiante!:string | undefined;
 
   cargarRetos(){
     this.retoEstudianteService.listarPorIdEstudiante(this.idEstudiante).subscribe(resp =>{
-      for (let i = 0; i < this.listaRetoEstudiantes.length; i++) {
-        const retoEstudiante = this.listaRetoEstudiantes[i];
+      console.log(resp)
+      for (let i = 0; i < resp.length; i++) {
+        const retoEstudiante = resp[i];
         this.estadoService.consultarPorId(retoEstudiante.idEstado!).subscribe(estado => {
           retoEstudiante.nombreEstado = estado.estado;
         });
@@ -58,7 +62,8 @@ nombreEstudiante!:string | undefined;
           retoEstudiante.nombreReto = reto.nombreReto;
         })
       }
-      this.dataSource.data = this.listaRetoEstudiantes;
+      this.dataSource.data = resp;
+      console.log(this.dataSource.data)
     });
   }
 

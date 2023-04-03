@@ -3,7 +3,7 @@
       <mat-card-title>Lista de Retos Registrados</mat-card-title>
       <mat-form-field>
         <mat-label>Filter</mat-label>
-        <input  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del reto" #input>
+        <input id="busqueda"  matInput (keyup)="applyFilter($event)" placeholder="Ingrese el nombre del reto" #input>
       </mat-form-field>
       <div class="demo-button-container">
         <button mat-raised-button (click)="registrarReto()" class="demo-button">

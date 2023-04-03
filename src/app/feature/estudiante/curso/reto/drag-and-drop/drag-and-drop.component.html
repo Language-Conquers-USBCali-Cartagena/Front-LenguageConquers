@@ -1,21 +1,21 @@
 <app-menu (onToggleSideNav)="onToggleSideNav($event)"></app-menu>
-<div class="body2"></div>
+
 <div class="body">
   <div class="fondoPantalla">
     <div class="pantallaAdentro">
       <div class="navbar">
-        <button type="button" class="botonTutorial" (click)="mostrarTutorial()">
-          <mat-icon class="icono-info" matTooltip="Como Practicar">
-            help
+        <button type="button" class="botonAtras" (click)="atras()">
+          <mat-icon class="icono-info atras" matTooltip="atrás">
+            keyboard_backspace
           </mat-icon>
         </button>
-        <button type="button" class="botonAtras" (click)="atras()">
-          <mat-icon class="icono-info" matTooltip="atras">
-            backspace
+        <button type="button" class="botonTutorial" (click)="mostrarTutorial()">
+          <mat-icon class="icono-info" matTooltip="Como Practicar">
+            info
           </mat-icon>
         </button>
         <button mat-icon-button  class="botonTema" (click)="mostrarPistas()" matTooltip="Pistas">
-          <mat-icon class="icono-info">info</mat-icon>
+          <mat-icon class="icono-info">search</mat-icon>
         </button>
         <button mat-icon-button class="botonEjecutar" (click)="ejecutar()" matTooltip="Ejecutar">
           <mat-icon class="icono-run">play_circle_outline</mat-icon>
@@ -23,12 +23,17 @@
       </div>
 
       <div class="texto">
-
-        <h1 class="reto"># Reto: Deberas crear un algoritmo que permita coger un coco de la palmera.</h1>
+        <div class="palabra1">
+          <h1 class="variables"># <span style="color: #E74C3C; cursor: pointer;" ><b>Rojo:</b></span> Acciones</h1>
+        </div>
+        <div class="palabra2">
+          <h1 class="variables"># <span style="color: #27AE60;"><b>Verde:</b></span> Valores  </h1>
+        </div>
+        <h1 class="reto"># Reto: {{retoInfo.descripcion}}</h1>
       </div>
       <div cdkDropListGroup>
         <div class="example-container1" [style.height]="exampleContainerHeight">
-          <div cdkDropList [cdkDropListData]="palabras" class="example-list1" (cdkDropListDropped)="drop($event)"
+          <div cdkDropList [cdkDropListData]="palabras" #exampleList1 class="example-list1" (cdkDropListDropped)="drop($event)"
             fxLayout fxLayoutAlign="center">
             <div class="example-box1" *ngFor="let item of palabras" cdkDrag
               [style.color]="(item.categoria === 'Metodo') ? '#E74C3C' : (item.categoria === 'VariableCV') ? '#3498DB' : (item.categoria === 'Variable') ? '#F4D03F': (item.categoria === 'Objeto') ? '#27AE60' : (item.categoria === 'logica') ? 'withe' : 'withe'">
@@ -127,5 +132,5 @@
     </div>
 
   </div>
-
+<br><br>
 </div>

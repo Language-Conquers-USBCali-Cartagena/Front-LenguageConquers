@@ -5,15 +5,12 @@
     margin-left: 70px;
     /*Efecto espejo*/
     padding: 55px;
-    background: linear-gradient(
-    135deg,
-    rgba(172,153,139, 0.514),
-    rgba(172,153,139, 0.514));
+    background-color: #2e2e2e;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
     font-size: 30px;
-    color:rgb(6,43,60);
+    color:rgb(216, 220, 221);
     text-align: center;
   }
   .demo-button-container {
@@ -25,10 +22,17 @@
   .demo-button + .demo-button {
     margin-left: 58px;
   }
+
+  mat-label{
+    color: white;
+    }
+    #busqueda::placeholder{
+      color: white;
+    }
   mat-form-field {
     font-size: 14px;
     width: 50%;
-    color: rgb(197,139,91);
+    color: #31b2c2;
     font-size: 18px;
   }
 
