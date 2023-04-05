@@ -5,6 +5,8 @@ import { ArticuloService } from 'src/app/shared/services/articulo/articulo.servi
 import { Estudiante } from '../../../shared/models/estudiante';
 import { ArticulosAdquiridosService } from 'src/app/shared/services/articulosAdquiridos/articulos-adquiridos.service';
 import Swal from 'sweetalert2';
+import { LogroEstudianteService } from '../../../shared/services/logroEstudiante/logro-estudiante.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tienda-principal',
@@ -24,6 +26,8 @@ export class TiendaPrincipalComponent implements OnInit {
     private articuloService: ArticuloService ,
     private fb: UntypedFormBuilder,
     private articulosObtenidosService: ArticulosAdquiridosService,
+    private logroEstudianteService: LogroEstudianteService,
+    private router: Router
     ){
     this.form = fb.group({
       id: ['', Validators.required]
@@ -44,35 +48,62 @@ export class TiendaPrincipalComponent implements OnInit {
 
   comprarArticulo(idArticulo: any){
     Swal.fire({
-      icon: 'warning',
-      title: 'Procesando compra.',
-      showConfirmButton: false,
-      timer: 2000
-    });
-    this.articulosObtenidosService.comprar(this.idEstudiante, idArticulo).subscribe(resp => {
-      this.estudiante.monedasObtenidas = resp;
-      localStorage.setItem("usuario", JSON.stringify(this.estudiante));
-      Swal.fire({
-        icon: 'success',
-        title: 'Obtuvo el articulo satisfactoruamente.',
-        showConfirmButton: false,
-        timer: 2000
-      }).then((resp) => {
-        this.reload();
-      });
-    }, 
-    error => {
-      Swal.fire({
-        icon: 'error',
-          title: error['error'],
-          showConfirmButton: false,
-          showCloseButton: true, 
-      })      
-    })
+      title: '¿Desea realizar esta compra?',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No',
+      showLoaderOnConfirm: true,
+      confirmButtonColor: '#31B2C2',
+      preConfirm: () => {
+        this.articulosObtenidosService.comprar(this.idEstudiante, idArticulo).subscribe(resp => {
+          this.validarLogro(this.estudiante.idEstudiante!);
+          this.estudiante.monedasObtenidas = resp;
+          localStorage.setItem("usuario", JSON.stringify(this.estudiante));
+          Swal.fire({
+            icon: 'success',
+            title: 'Obtuvo el articulo satisfactoruamente.',
+            showConfirmButton: false,
+            timer: 2000
+          }).then(async (resp) => {
+            await this.reload();
+          });
+        }, 
+        error => {
+          Swal.fire({
+            icon: 'error',
+              title: error['error'],
+              showConfirmButton: false,
+              showCloseButton: true, 
+          })      
+        })
+        allowOutsideClick: () => !Swal.isLoading()
+      }}).then((resp) => {
+        if (resp.isConfirmed) {
+          Swal.fire({
+            title: '¡Se esta procesando su compra!',
+            icon: 'info',
+            timerProgressBar: true,
+            showConfirmButton: false,
+            showCloseButton: false
+          })
+        }
+      })   
   }
 
+  async validarLogro(idEstudiante: number){
+    await this.logroEstudianteService.comprador(idEstudiante).subscribe((resp) => {
+      if(resp != ''){
+        Swal.fire({
+          title: '¡Felicitaciones!',
+          icon: 'success',
+          text: resp,
+          timer: 3000
+        });
+      }
+    })
+  }
   reload(){
-    window.location.reload()
+    this.router.navigateByUrl('estudiante/articulos-adquiridos')
   }
   // pasarIzq(){
   //   if(this.pagina <=0){

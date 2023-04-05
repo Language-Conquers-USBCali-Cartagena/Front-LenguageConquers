@@ -8,6 +8,7 @@ import { Reto } from 'src/app/shared/models/reto';
 import { RetoEstudiante } from 'src/app/shared/models/retoEstudiante';
 import { SideNavToggle } from 'src/app/shared/models/sideNavToggle';
 import { EstudianteService } from 'src/app/shared/services/estudiante/estudiante.service';
+import { LogroEstudianteService } from 'src/app/shared/services/logroEstudiante/logro-estudiante.service';
 import { PalabraReservadaService } from 'src/app/shared/services/palabraReservada/palabraReservada.service';
 import { RetoService } from 'src/app/shared/services/reto/reto.service';
 import { RetoEstudianteService } from 'src/app/shared/services/retoEstudiante/reto-estudiante.service';
@@ -41,7 +42,8 @@ export class DragAndDropComponent implements OnInit {
     private route: ActivatedRoute,
     private retosService: RetoService,
     private retoEstudianteService: RetoEstudianteService,
-    private estudianteService: EstudianteService
+    private estudianteService: EstudianteService,
+    private logroEstudianteService: LogroEstudianteService,
     ) { }
 
   async ngOnInit() {
@@ -138,12 +140,14 @@ export class DragAndDropComponent implements OnInit {
                   showConfirmButton: true,
                   confirmButtonText: 'Continuar',
                   confirmButtonColor: '#31B2C2',
-                }).then(() => {
+                }).then(async() => {
+                  await this.validarLogros(id, this.retoParam);
+                  await this.actualizarEstudiante(id);
                   window.history.back()
                 });
               });
             }
-          })
+          });
           }, error => {
             if(error instanceof HttpErrorResponse){
               Swal.fire({
@@ -178,13 +182,42 @@ export class DragAndDropComponent implements OnInit {
     })
 
 
+    
+  }
+  async validarLogros(idestudiante: number, idReto: number){
+    await this.logroEstudianteService.perfeccionista(idestudiante, idReto).subscribe((resp) => {
+      if(resp != ''){
+        Swal.fire({
+          title: '¡Felicitaciones!',
+          icon: 'success',
+          text: resp,
+          timer: 3000
+        });
+      }
+    });
+
+  }
+  async actualizarEstudiante(idEstudiante: number){
+    await this.estudianteService.consultarPorId(idEstudiante).subscribe(async (resp) => {
+      let estudiante: Estudiante = resp;
+      localStorage.setItem("usuario", JSON.stringify(estudiante));
+      await this.logroEstudianteService.ahorrador(estudiante.idEstudiante!).subscribe((resp) => {
+        if(resp != ''){
+          Swal.fire({
+            title: '¡Felicitaciones!',
+            icon: 'success',
+            text: resp,
+            timer: 3000
+          });
+        }
+     });
+    });
   }
 
   sumarID(){
     let idReto: number =  Number(this.retoParam) ;
     let suma: number = 1;
     let total: number = suma + idReto;
-    console.log(total);
     return total;
   }
   organizar(lista: PalabrasReservadas[], numeroLista: number){
