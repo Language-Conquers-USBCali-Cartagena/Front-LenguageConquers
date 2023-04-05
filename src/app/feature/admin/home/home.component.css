@@ -7,11 +7,13 @@
   }
   .dashboard{
     width: 80%;
-    margin-left: 20%;
+    margin-left: 12%;
     align-items: center;
   }
   .title{
     font-size: 35px;
+    text-align: center;
+    align-items: center;
     color: #ffffff;
   }
 
