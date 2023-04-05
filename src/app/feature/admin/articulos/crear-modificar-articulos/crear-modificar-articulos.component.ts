@@ -186,6 +186,7 @@ export class CrearModificarArticulosComponent implements OnInit {
     const categoriaSeleccionada = this.categorias.find(e =>e.idCategoria == categoria);
     const idCategoria = Number(categoriaSeleccionada?.idCategoria ?? "");
     const imagenVieja = this.articulo.imagen;
+    console.log(this.form.value.descripcion)
     let articulo: Articulo = {
       idArticulo:this.form.value.idArticulo,
       nombre: this.form.value.nombre,

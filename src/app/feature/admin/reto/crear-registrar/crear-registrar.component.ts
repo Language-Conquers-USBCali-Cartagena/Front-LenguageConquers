@@ -62,7 +62,8 @@ export class CrearRegistrarComponent implements OnInit {
       imagenTema1:[],
       imagenTema2:[],
       urlVideo1:[],
-      urlVideo2:[]
+      urlVideo2:[],
+
     });
    }
 
@@ -179,8 +180,7 @@ export class CrearRegistrarComponent implements OnInit {
       urlVideo2: this.form.value.urlVideo2,
       usuarioCreador: this.form.value.usuarioCreador,
       fechaCreacion: new Date(),
-      esGrupal: false,
-      cantidadEstudiantes: 0}
+      esGrupal: false}
     this.retoService.crearReto(reto).subscribe(data => {
       if(data){
         Swal.fire({
@@ -276,7 +276,7 @@ export class CrearRegistrarComponent implements OnInit {
       usuarioModificador: this.form.value.usuarioModificador,
       fechaModificacion: new Date(),
       esGrupal: false,
-      cantidadEstudiantes: 0,
+
       fechaCreacion: this.reto.fechaCreacion,
       usuarioCreador: this.reto.usuarioCreador}
     this.retoService.actualizarReto(reto).subscribe(data =>{

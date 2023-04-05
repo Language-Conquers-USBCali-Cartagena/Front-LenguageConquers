@@ -15,7 +15,7 @@ import { FormularioEstudianteComponent } from './crearUsuario/formulario-estudia
 import {MatGridListModule} from '@angular/material/grid-list';
 import { CoreModule } from 'src/app/core/core.module';
 import { RegistroPageComponent } from './register/registro-page/registro-page.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -39,6 +39,7 @@ import { RegistroPageComponent } from './register/registro-page/registro-page.co
     MatRadioModule,
     MatGridListModule,
     CoreModule,
+    FlexLayoutModule
 
   ],
   providers: [

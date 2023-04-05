@@ -104,7 +104,6 @@ export class HabilitarRetoComponent implements OnInit {
       fechaModificacion: new Date(),
       moneda: this.retoForm.value.moneda,
       esGrupal: false,
-      cantidadEstudiantes: 0,
       fechaCreacion: this.reto.fechaCreacion,
       usuarioCreador: this.reto.usuarioCreador,
       solucion: this.reto.solucion,

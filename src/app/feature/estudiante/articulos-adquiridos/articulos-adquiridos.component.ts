@@ -57,6 +57,7 @@ export class ArticulosAdquiridosComponent implements OnInit {
       title: 'Deseas eliminar este artículo ' + this.articuloSeleccionado.nombre,
       showCancelButton: true,
       confirmButtonText: 'Eliminar',
+      confirmButtonColor: '#31B2C2',
     }).then((result) => {
       if (result.isConfirmed) {
 

@@ -5,6 +5,7 @@ import { ArticuloService } from 'src/app/shared/services/articulo/articulo.servi
 import { Estudiante } from '../../../shared/models/estudiante';
 import { ArticulosAdquiridosService } from 'src/app/shared/services/articulosAdquiridos/articulos-adquiridos.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tienda-principal',
@@ -24,6 +25,7 @@ export class TiendaPrincipalComponent implements OnInit {
     private articuloService: ArticuloService ,
     private fb: UntypedFormBuilder,
     private articulosObtenidosService: ArticulosAdquiridosService,
+    private router: Router
     ){
     this.form = fb.group({
       id: ['', Validators.required]
@@ -60,19 +62,20 @@ export class TiendaPrincipalComponent implements OnInit {
       }).then((resp) => {
         this.reload();
       });
-    }, 
+
+    },
     error => {
       Swal.fire({
         icon: 'error',
           title: error['error'],
           showConfirmButton: false,
-          showCloseButton: true, 
-      })      
+          showCloseButton: true,
+      })
     })
   }
 
   reload(){
-    window.location.reload()
+    this.router.navigateByUrl('/estudiante/articulos-adquiridos');
   }
   // pasarIzq(){
   //   if(this.pagina <=0){

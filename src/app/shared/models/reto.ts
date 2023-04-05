@@ -13,7 +13,6 @@ export interface Reto{
     usuarioModificador?: string;
     fechaModificacion?: Date;
     esGrupal?: boolean;
-    cantidadEstudiantes?: number;
     moneda?:number;
     nivel?: number;
     solucion?:string;
