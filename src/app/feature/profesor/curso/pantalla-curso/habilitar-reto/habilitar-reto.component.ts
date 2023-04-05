@@ -117,7 +117,7 @@ export class HabilitarRetoComponent implements OnInit {
     this.retoService.actualizarReto(reto).subscribe(data =>{
       Swal.fire({
         icon: 'success',
-        title: data,
+        title: 'Se ha actualizado el estado del reto',
         showConfirmButton: false,
         timer: 2000
       });

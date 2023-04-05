@@ -1,19 +1,17 @@
-<div class="container">
-  <div>
-    <p>
-      <mat-toolbar class="menu">
-        <span class="example-spacer"></span>
-        <button mat-icon-button class="boton">
-          <mat-icon>account_circle</mat-icon></button>
-          <p class="admin">Administrador</p>
-        <button mat-icon-button routerLink="/logout" class="boton">
-          <mat-icon class="icono">logout</mat-icon>
-        </button>
-      </mat-toolbar>
-    </p>
-  </div>
-  <mat-drawer-container>
-    <mat-drawer mode="side" opened class="sidenav">
+
+<div fxLayout="column" fxFlexFill >
+  <mat-toolbar fxLayoutAlign="space-between center">
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="boton">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <p class="admin">Administrador</p>
+    <button mat-icon-button routerLink="/logout" class="boton">
+      <mat-icon class="icono">logout</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-drawer-container fxLayout="row" fxFlexFill>
+    <mat-drawer mode="side" opened class="sidenav" fxLayoutAlign="start center">
       <div class="logo">
         <a href="" class="logo-mini">
           <div class="logo-img">
@@ -21,37 +19,21 @@
           </div>
         </a>
       </div>
-      <br /><br /><br />
-      <button mat-button class="botones" (click)="irDasboard()">
-        Dashboard
-      </button>
-      <button mat-button class="botones" (click)="irEstudiante()">
-        Estudiantes
-      </button>
-      <button mat-button class="botones" (click)="irProfesor()">
-        Profesores
-      </button>
+      <br />
+      <button mat-button class="botones" (click)="irDasboard()">Dashboard</button>
+      <button mat-button class="botones" (click)="irEstudiante()">Estudiantes</button>
+      <button mat-button class="botones" (click)="irProfesor()">Profesores</button>
       <button mat-button class="botones" (click)="irReto()">Reto</button>
-      <button mat-button class="botones" (click)="irMisiones()">
-        Misiones
-      </button>
+      <button mat-button class="botones" (click)="irMisiones()">Misiones</button>
       <button mat-button class="botones" (click)="irLogros()">Logros</button>
-      <button mat-button class="botones" (click)="irArticulos()">
-        Art&iacute;culos
-      </button>
-      <button mat-button class="botones" (click)="irCategorias()">
-        Categor&iacute;as
-      </button>
-      <button mat-button class="botones" (click)="irAvatares()">
-        Avatares
-      </button>
+      <button mat-button class="botones" (click)="irArticulos()">Art&iacute;culos</button>
+      <button mat-button class="botones" (click)="irCategorias()">Categor&iacute;as</button>
+      <button mat-button class="botones" (click)="irAvatares()">Avatares</button>
       <button mat-button class="botones" (click)="irEstados()">Estados</button>
-      <button mat-button class="botones" (click)="irPrograma()">
-        Programa
-      </button>
+      <button mat-button class="botones" (click)="irPrograma()">Programa</button>
       <button mat-button class="botones" (click)="irCursos()">Cursos</button>
     </mat-drawer>
-    <mat-drawer-content>
+    <mat-drawer-content fxFlexFill>
       <router-outlet></router-outlet>
     </mat-drawer-content>
   </mat-drawer-container>

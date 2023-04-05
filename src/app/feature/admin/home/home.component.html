@@ -1,15 +1,13 @@
-<div class="contentup" fxFlex="50">
-  <!--TODO: LA IDEA ES QUE TANTO EL TITULO COMO LA GRAFICA ESTEN CENTRADOS EN LA PANTALLA-->
-  <div class="dashboard">
+<div fxLayout="row wrap" class="contentup">
+  <div fxFlex="100" fxFlex.gt-sm="50" class="dashboard">
     <h1 class="title">Estadísticas de datos registrados en la plataforma</h1>
     <ngx-charts-number-card
-    [view]="view"
-    scheme="forest"
-    [results]="data"
-    [cardColor]="cardColor"
-    (select)="onSelect1($event)"
+      [view]="view"
+      scheme="forest"
+      [results]="data"
+      [cardColor]="cardColor"
+      (select)="onSelect1($event)"
     >
-  </ngx-charts-number-card>
+    </ngx-charts-number-card>
   </div>
-
 </div>

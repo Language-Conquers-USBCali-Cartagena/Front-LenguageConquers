@@ -26,6 +26,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [],
@@ -57,10 +58,11 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatCheckboxModule,
     MatRadioModule,
     MatProgressBarModule,
+    FlexLayoutModule
 
 
   ],
-  
+
 })
 export class MaterialModule { }
 
