@@ -1,10 +1,16 @@
-<div class="body">
-  <app-slider-principal></app-slider-principal>
-  <mat-card fxFlex="50" class="tarjetaPeq">
-    <mat-card-title class="titulo1">Hola, Profesor {{capitalizerFirstLetter(profesor.nombre || '')}} {{capitalizerFirstLetter(profesor.apellido || '')}}</mat-card-title>
-    <br>
-    <mat-card-subtitle class="tituloTarjetaPeq">Bienvenido de nuevo a Language Conquers</mat-card-subtitle>
-  </mat-card>
+  <div class="body" fxLayout="column">
+    <div fxFlex="50" class="slider">
+      <app-slider-principal></app-slider-principal>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start"  class="card1">
+      <mat-card  class="tarjetaPeq"  fxFlex="60">
+        <mat-card-header fxLayout="column" fxLayoutAlign="center center" class="contenedor-tarjeta-peq">
+          <mat-card-title class="titulo1">Hola, Profesor {{capitalizerFirstLetter(profesor.nombre || '')}} {{capitalizerFirstLetter(profesor.apellido || '')}}</mat-card-title>
+          <mat-card-subtitle class="tituloTarjetaPeq">Bienvenido de nuevo a Language Conquers</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+
+    </div>
   <div class="fondoTarjeta">
     <h2 class="tituloCursos">Cursos</h2>
     <div class="profesor">
