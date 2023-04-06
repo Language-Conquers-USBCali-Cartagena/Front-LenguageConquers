@@ -1,17 +1,21 @@
 .body {
   align-items: center;
   background-color: #323232;
+  max-height: 750px;
   height: 100%;
-  overflow-wrap: normal;
-
 
 
 }
 
-.body2 {
-  background-color: #323232;
-  height: 10px;
-  margin-bottom: 30px;
+.logo {
+  height: 100px;
+  width: 200px;
+  position: relative;
+
+}
+
+.centro {
+  margin-left: 800px;
 }
 
 .fondo {
@@ -20,10 +24,12 @@
 }
 
 .fondoPantalla {
-  width: 80%;
-
-
-  margin-left: 150px;
+  margin-top: 10px;
+  max-width: 1700px;
+  width: 100%;
+  max-height: 550px;
+  height: 90%;
+  margin-left: 100px;
   /*Efecto espejo*/
   font-size: 30px;
   border-radius: 10px;
@@ -45,9 +51,10 @@
   border-style: hidden;
   width: 60px;
   height: 50px;
-  margin-left: 490px;
+
 
 }
+
 .botonTutorial {
   background: transparent;
   border-style: hidden;
@@ -58,12 +65,11 @@
 
 .botonTema {
 
-  background: transparent;
   border-style: hidden;
+  background: rgb(97, 100, 101);
+  border-radius: 20%;
   width: 60px;
   height: 50px;
-  margin-left: 40px;
-
 }
 
 
@@ -79,16 +85,19 @@
 }
 
 
-.iconos{
+.iconos {
   color: #fff;
 }
-.icono-info{
+
+.icono-info {
   color: #ffffff;
 }
-.icono-info atras{
+
+.icono-info atras {
   padding-left: 40px;
 }
-.icono-run{
+
+.icono-run {
   color: rgb(25, 197, 106);
 }
 
@@ -99,16 +108,16 @@
   border-radius: 20%;
   width: 60px;
   height: 50px;
-  margin-left: 60px;
+
 }
 
 
 .botonEjecutar {
   border-style: hidden;
-  border-radius: 50%;
+  background: rgb(97, 100, 101);
+  border-radius: 20%;
   width: 60px;
   height: 50px;
-  margin-left: 40px;
 }
 
 .imgEjecutar {
@@ -122,8 +131,8 @@
 .example-container1 {
   width: 200px;
   max-width: 100%;
-  display: inline-block;
-  max-height: 600px;
+
+  max-height: 200px;
   overflow-y: visible;
   margin-top: 25px;
   margin-left: 250px;
@@ -137,8 +146,9 @@
   background: rgba(255, 255, 255, 0);
   border-radius: 4px;
   overflow: auto;
-
-  height: 350px;
+  display: inline-block !important;
+  height: 400px;
+  width: 400px;
 }
 
 .example-box1 {
@@ -161,7 +171,7 @@
 
 /* Las de abjo son para las horizontales */
 .example-container {
-  width: 400px;
+  width: 500px;
   margin: 0;
   display: inline-block;
   padding: 0;
@@ -224,9 +234,9 @@
 }
 
 .cuadro-respuesta {
-  margin-left: 470px;
-  margin-top: -350px;
-
+  margin-left: 1100px;
+  margin-top: -200px;
+  width: 600px;
   position: relative;
   height: 400px;
   width: 400px;
@@ -245,16 +255,20 @@
   flex-direction: column;
 }
 
-.palabra1, .palabra2, .reto{
+.palabra1,
+.palabra2,
+.reto {
   width: 200px;
   height: 10px;
   margin-bottom: 10px;
   font-size: 18px;
 }
-.variables .reto ::before{
+
+.variables .reto ::before {
   content: "# ";
 
 }
+
 .texto-explicacion {
   width: 900px;
 
@@ -267,7 +281,8 @@
   margin-bottom: -8px;
 
 }
-.retoExp{
+
+.retoExp {
   font-family: 'Courier New', Courier, monospace;
   align-items: flex-start;
   text-align: start;
@@ -278,7 +293,9 @@
 .reto {
   font-size: 18px;
 }
+
 @media screen and (max-width:700px) {
+
   /* .body{
     display: grid;
     gap: 1rem;
@@ -301,6 +318,7 @@
     float: inline-end;
 
   }
+
   .navbar {
     width: 100%;
     background-color: rgb(97, 100, 101);
@@ -308,6 +326,7 @@
     margin-left: 0px;
 
   }
+
   .botonTutorial {
     background: rgb(97, 100, 101);
     border-style: hidden;
@@ -325,6 +344,7 @@
     margin-left: 40px;
 
   }
+
   .cuadro-respuesta {
     margin-left: 20px;
     margin-top: 20px;
@@ -332,13 +352,14 @@
     max-height: 100%;
     width: 260px;
     height: 200px;
-    overflow:auto;
+    overflow: auto;
 
   }
+
   .example-container1 {
     width: 270px;
     max-width: 100%;
-   margin-left: 10px;
+    margin-left: 10px;
     display: inline-block;
     max-height: 200px;
     overflow-y: visible;
@@ -346,6 +367,7 @@
 
 
   }
+
   .example-list1 {
     border: solid 1px #6f6e6e00;
     min-height: 60px;
@@ -355,6 +377,7 @@
 
     height: 250px;
   }
+
   .example-container {
     width: 250px;
     margin: 0;
@@ -362,7 +385,19 @@
     padding: 0;
     position: relative;
   }
+
   .reto {
     font-size: 12px;
+  }
+
+  .logo {
+    height: 100px;
+    width: 200px;
+    position: relative;
+
+  }
+
+  .centro {
+    margin-left: 100px;
   }
 }
