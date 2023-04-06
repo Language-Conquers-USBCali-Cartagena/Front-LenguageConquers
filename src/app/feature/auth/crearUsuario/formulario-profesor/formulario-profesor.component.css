@@ -7,16 +7,18 @@
 
 
 }
-.anchoField{
-width: 400px;
-height: 100px;
-font-size: 20px;
+
+.anchoField {
+  width: 400px;
+  height: 100px;
+  font-size: 20px;
 
 }
-.titulos{
-  font-size:20px;
+
+.titulos {
+  font-size: 20px;
   color: rgb(255, 255, 255);
-  }
+}
 
 form {
   height: 370px;
@@ -24,32 +26,52 @@ form {
 }
 
 .boton {
-  color: rgb(254,254,231);
+  color: rgb(254, 254, 231);
   border-radius: 20px;
   background-color: #30B4C6;
   margin: 4px;
   position: center;
   display: inline;
   line-height: 25px;
-  width:120px;
-  height:40px;
+  width: 120px;
+  height: 40px;
   font-size: 20px;
 
 }
 
-.botonsalir{
+.botonsalir {
   color: #30B4C6;
   border-radius: 20px;
-  background-color: rgb(254,254,231);
+  background-color: rgb(254, 254, 231);
   text-align: center !important;
   align-items: center !important;
   margin: 0 10px;
   display: inline-block;
-  width:100px;
-  height:40px;
+  width: 100px;
+  height: 40px;
   font-size: 20px;
 
 }
-input{
+
+input {
   font-size: 20px;
+}
+
+@media screen and (max-width:700px) {
+  .entradas {
+    margin-left: 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    grid-template-columns: repeat(1, 15em);
+
+  }
+
+  .anchoField {
+    width: 400px;
+    height: 100px;
+    font-size: 20px;
+
+  }
 }

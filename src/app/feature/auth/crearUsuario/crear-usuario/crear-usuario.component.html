@@ -5,8 +5,8 @@
   <div class="card" *ngIf="user$ | async as user;">
     <div class="crearUsuario">
       <mat-card class="fondoTarjeta">
-        <mat-grid-list cols="2" rowHeight="695px" rowWidth="900px">
-          <mat-grid-tile class="imagenizq">
+        <mat-grid-list [cols]=col rowHeight="695px" rowWidth="900px">
+          <mat-grid-tile class="imagenizq" *ngIf="col==2">
             <div>
               <img src="../../../../../assets/images/fondos/FondoRegistro.jpg" class="imagenLado">
             </div>
