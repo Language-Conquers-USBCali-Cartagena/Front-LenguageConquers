@@ -171,7 +171,7 @@
 
 /* Las de abjo son para las horizontales */
 .example-container {
-  width: 500px;
+  width: 660px;
   margin: 0;
   display: inline-block;
   padding: 0;
@@ -234,12 +234,12 @@
 }
 
 .cuadro-respuesta {
-  margin-left: 1100px;
+  margin-left: 900px;
   margin-top: -200px;
-  width: 600px;
+  width: 700px;
   position: relative;
   height: 400px;
-  width: 400px;
+  
   display: grid;
   overflow-y: scroll;
   overflow-x: hidden;
