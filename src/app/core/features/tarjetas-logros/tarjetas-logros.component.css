@@ -24,14 +24,14 @@
 .container {
   width: 900px;
   height: 100%;
-  margin-left: 350px;
+  margin-left: 150px;
   padding: 48px;
   display: grid;
   
 }
 
 .slider {
-  margin-left: -70%;
+  margin-left: -30%;
   display: inline-flex;
 
 }
