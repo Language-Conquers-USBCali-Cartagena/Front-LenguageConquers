@@ -131,7 +131,7 @@
 .example-container1 {
   width: 200px;
   max-width: 100%;
-
+position: absolute;
   max-height: 200px;
   overflow-y: visible;
   margin-top: 25px;
@@ -235,12 +235,12 @@
 
 .cuadro-respuesta {
   margin-left: 900px;
-  margin-top: -200px;
+  margin-top: 0px;
   width: 700px;
-  position: relative;
+  
   height: 400px;
   
-  display: grid;
+  position: absolute;
   overflow-y: scroll;
   overflow-x: hidden;
 }
