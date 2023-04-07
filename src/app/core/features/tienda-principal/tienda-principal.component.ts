@@ -67,14 +67,14 @@ export class TiendaPrincipalComponent implements OnInit {
           }).then(async (resp) => {
             await this.reload();
           });
-        }, 
+        },
         error => {
           Swal.fire({
             icon: 'error',
               title: error['error'],
               showConfirmButton: false,
-              showCloseButton: true, 
-          })      
+              showCloseButton: true,
+          })
         })
         allowOutsideClick: () => !Swal.isLoading()
       }}).then((resp) => {
@@ -87,7 +87,7 @@ export class TiendaPrincipalComponent implements OnInit {
             showCloseButton: false
           })
         }
-      })   
+      })
   }
 
   async validarLogro(idEstudiante: number){
@@ -97,7 +97,8 @@ export class TiendaPrincipalComponent implements OnInit {
           title: '¡Felicitaciones!',
           icon: 'success',
           text: resp,
-          timer: 3000
+          timer: 3000,
+          
         });
       }
     })
