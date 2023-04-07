@@ -1,6 +1,9 @@
 <app-menu (onToggleSideNav)="onToggleSideNav($event)"></app-menu>
 
 <div class="body">
+  <div class="centro">
+    <img src="../../../../../../assets/images/LogoVF.png" alt="LogoVF" class="logo">
+  </div>
   <div class="fondoPantalla">
     <div class="pantallaAdentro">
       <div class="navbar">
@@ -14,10 +17,10 @@
             info
           </mat-icon>
         </button>
-        <button mat-icon-button  class="botonTema" (click)="mostrarPistas()" matTooltip="Pistas">
+        <button type="button"  class="botonTema" (click)="mostrarPistas()" matTooltip="Pistas">
           <mat-icon class="icono-info">search</mat-icon>
         </button>
-        <button mat-icon-button class="botonEjecutar" (click)="ejecutar()" matTooltip="Ejecutar">
+        <button type="button" class="botonEjecutar" (click)="ejecutar()" matTooltip="Ejecutar">
           <mat-icon class="icono-run">play_circle_outline</mat-icon>
         </button>
       </div>
@@ -134,5 +137,5 @@
     </div>
 
   </div>
-<br><br>
+
 </div>

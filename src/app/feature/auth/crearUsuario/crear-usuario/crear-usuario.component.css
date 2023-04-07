@@ -13,11 +13,9 @@
   /*Efecto espejo*/
   padding: 48px;
   border-radius: 24px;
-  background: linear-gradient(
-    135deg,
-    rgba(159, 158, 158, 0.47),
-    rgba(195, 195, 195, 0.315)
-  );
+  background: linear-gradient(135deg,
+      rgba(159, 158, 158, 0.47),
+      rgba(195, 195, 195, 0.315));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
@@ -29,7 +27,7 @@
 
 }
 
-.titulo{
+.titulo {
   font-size: 30px;
   color: rgb(255, 255, 255);
   text-align: center;
@@ -51,7 +49,7 @@ a {
   margin-top: 1px;
   height: auto;
   width: 100px;
-  margin:10px auto;
+  margin: 10px auto;
 }
 
 h1 {
@@ -73,16 +71,89 @@ img {
   height: 130px;
   align-items: center;
 }
-.imagenizq{
-  margin-top:-43px;
-  margin-bottom:250px;
-  margin-left:-50px;
-  width:800px;
-  height:725px;
+
+.imagenizq {
+  margin-top: -43px;
+  margin-bottom: 250px;
+  margin-left: -50px;
+  width: 800px;
+  height: 725px;
   border-radius: 24px;
 }
-.imagenLado{
+
+.imagenLado {
   width: 800px;
   height: 735px;
 
+}
+
+@media screen and (max-width:700px) {
+  .imagenizq {
+    display: none !important;
+  }
+
+  .imagenLado {
+    display: none !important;
+  }
+
+  .titulo {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    height: 30px;
+    margin-left: 10px;
+  }
+
+  .fondoTarjeta {
+    max-width: 50%;
+    max-height: 90%;
+    margin: 10px auto;
+    margin-bottom: -40px;
+    
+  }
+}
+
+@media screen and (max-width:500px) {
+
+  .titulo {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    height: 30px;
+    margin-left: 10px;
+  }
+
+  .fondoTarjeta {
+    max-width: 27%;
+    max-height: 90%;
+    margin: 0px;
+    margin-bottom: 0px;
+    
+  }
+
+  .color {
+    padding-left: 15%;
+  }
+}
+@media screen and (max-width:400px) {
+
+  .titulo {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    height: 30px;
+    margin-left: 10px;
+  }
+
+  .fondoTarjeta {
+    max-width: 20%;
+    max-height: 90%;
+    margin: 0px;
+    margin-bottom: 0px;
+    margin-left: 2%;
+  }
+
+  .color {
+    padding-left: 10%;
+  }
 }

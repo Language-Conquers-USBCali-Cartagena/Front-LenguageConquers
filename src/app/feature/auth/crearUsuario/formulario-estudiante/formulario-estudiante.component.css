@@ -116,3 +116,97 @@ input{
   font-size: 20px;
 }
 
+@media screen and (max-width:700px) {
+  .entradas {
+    display: grid;
+   margin-top: 10px;
+   margin-bottom: -100px;
+   grid-template-columns: repeat(1,16em);
+   justify-content: center;
+   overflow-y: scroll;
+  
+  }
+  .campofecha{
+    align-items: center;
+    width: 50px;
+    padding-left:0px;
+  }
+  .carrousel{
+    width:230px;
+    height:50px;
+    margin-bottom: 0px;
+    margin-top: -60px;
+  }
+  .car {
+    display: flex;
+    justify-content: none;
+  }
+  .izq,.der {
+    margin-top: 40px;
+    position: relative;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+  
+  }
+  .cimg {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-right: 10px;
+  padding-left: -10px;
+  display: flex;
+  }
+  .cimg .imgAvatar {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  
+  }
+  .cimg .imgAvatar .avatares{
+    height: 40px;
+    width: 40px;
+    margin-top: 30px;
+    cursor: pointer;
+    object-fit: cover;
+    opacity: .8;
+    transition: .3s;
+    }
+  .botonsalir{
+    color: #30B4C6;
+    border-radius: 20px;
+    background-color: rgb(254,254,231);
+    text-align: center !important;
+    align-items: center !important;
+    margin: 0 ;
+    
+    width:50px;
+    height:40px;
+    font-size: 20px;
+  
+  }
+  
+  
+  .boton {
+  overflow-y: scroll;
+   margin-top: -20px;
+   position: center;
+   left: 80%;
+   line-height: 15px;
+   align-items: center;
+  
+  }
+  .botones{
+    color: rgb(254,254,231);
+    border-radius: 20px;
+    background-color: #30B4C6;
+    text-align: center !important;
+    align-items: center !important;
+    margin: 0 10px;
+   
+    width: 130px;
+    height:40px;
+    font-size: 20px;
+  
+  }
+}
+
