@@ -182,7 +182,7 @@ export class DragAndDropComponent implements OnInit {
     })
 
 
-    
+
   }
   async validarLogros(idestudiante: number, idReto: number){
     await this.logroEstudianteService.perfeccionista(idestudiante, idReto).subscribe((resp) => {
@@ -311,7 +311,7 @@ export class DragAndDropComponent implements OnInit {
     });
   }
   colorRojo() {
-    
+
     Swal.fire({
       title: '¿Que es un método?',
       html:
@@ -343,5 +343,15 @@ export class DragAndDropComponent implements OnInit {
   }
 
 
+ mostrarInstrucciones(){
+  Swal.fire({
+    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/Instrucciones.png?alt=media&token=f39ecd45-1865-40d1-bff5-259a3a17e7a9',
+    imageWidth: 500,
+    imageHeight: 400,
+    imageAlt: 'Instrucciones',
+    showCloseButton: true,
+    showConfirmButton: false
+  })
+ }
 
 }
