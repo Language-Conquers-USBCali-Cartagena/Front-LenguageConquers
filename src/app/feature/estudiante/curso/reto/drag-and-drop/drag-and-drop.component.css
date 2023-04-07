@@ -117,7 +117,12 @@
   height: 45px;
 }
 
-
+.nota{
+  font-size:15px;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: left;
+  line-height: 15px;
+}
 
 .example-container1 {
   width: 200px;
@@ -253,6 +258,7 @@
 }
 .variables .reto ::before{
   content: "# ";
+  line-height: 15px;
 
 }
 .texto-explicacion {
@@ -276,7 +282,10 @@
 }
 
 .reto {
-  font-size: 18px;
+  font-size: 15px;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: left;
+  line-height: 15px;
 }
 @media screen and (max-width:700px) {
   /* .body{
