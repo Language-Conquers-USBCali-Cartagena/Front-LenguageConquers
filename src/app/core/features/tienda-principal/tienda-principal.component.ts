@@ -55,8 +55,7 @@ export class TiendaPrincipalComponent implements OnInit {
       showLoaderOnConfirm: true,
       confirmButtonColor: '#31B2C2',
       preConfirm: () => {
-        this.articulosObtenidosService.comprar(this.idEstudiante, idArticulo).subscribe(resp => {
-          this.validarLogro(this.estudiante.idEstudiante!);
+        this.articulosObtenidosService.comprar(this.idEstudiante, idArticulo).subscribe(async resp => {
           this.estudiante.monedasObtenidas = resp;
           localStorage.setItem("usuario", JSON.stringify(this.estudiante));
           Swal.fire({
@@ -65,6 +64,7 @@ export class TiendaPrincipalComponent implements OnInit {
             showConfirmButton: false,
             timer: 2000
           }).then(async (resp) => {
+            await this.validarLogro(this.estudiante.idEstudiante!);
             await this.reload();
           });
         },
@@ -104,7 +104,7 @@ export class TiendaPrincipalComponent implements OnInit {
     })
   }
   reload(){
-    this.router.navigateByUrl('estudiante/articulos-adquiridos')
+    this.router.navigateByUrl('estudiante/articulos-adquiridos');
   }
   // pasarIzq(){
   //   if(this.pagina <=0){

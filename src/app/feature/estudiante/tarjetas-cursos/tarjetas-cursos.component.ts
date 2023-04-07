@@ -74,6 +74,7 @@ export class TarjetasCursosComponent implements OnInit {
       title: '¿Desea registrarse en este curso?',
       showCancelButton: true,
       confirmButtonText: 'Registrar',
+      confirmButtonColor: '#31B2C2',
     }).then((result) => {
       if(result.isConfirmed){
         this.cursoEstudiante = {puntaje: 0, nivel: 1, usuarioCreador: 'admin', fechaCreacion: new Date(), idCurso: idCurso, idEstudiante: this.estudiante.idEstudiante!}

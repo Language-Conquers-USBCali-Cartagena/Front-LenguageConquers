@@ -2,6 +2,7 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { error } from 'console';
 import { Estudiante } from 'src/app/shared/models/estudiante';
 import { PalabrasReservadas } from 'src/app/shared/models/palabrasReservadas';
 import { Reto } from 'src/app/shared/models/reto';
@@ -120,18 +121,18 @@ export class DragAndDropComponent implements OnInit {
       showLoaderOnConfirm: true,
       confirmButtonColor: '#31B2C2',
       preConfirm: () => {
-        this.retosService.completar(resp, esBasico, id, this.retoParam).subscribe(respuesta =>{
+        this.retosService.completar(resp, esBasico, id, this.retoParam).subscribe(async respuesta =>{
           this.retoEstudiante.fechaModificacion = new Date;
           this.retoEstudiante.usuarioModificador = 'admin';
           this.retoEstudiante.idEstado = 3;
-          this.retoEstudianteService.actualizarRetoEstudiante(this.retoEstudiante).subscribe(rep => {
+          await this.retoEstudianteService.actualizarRetoEstudiante(this.retoEstudiante).subscribe(async rep => {
             let total = this.sumarID();
             if(total <= 6){
               this.retoEstudiante = {fechaCreacion: new Date, fechaEntrega: new Date, idEstado: 1, idEstudiante: this.estudiante.idEstudiante!, idGrupo: 1,
                 idReto: total, idRol: 1, puntaje: 0, usuarioCreador: 'admin', intentos: 0};
-              this.retoEstudianteService.crearRetoEstudiante(this.retoEstudiante).subscribe(resp => {
+              await this.retoEstudianteService.crearRetoEstudiante(this.retoEstudiante).subscribe(async resp => {
 
-                Swal.fire({
+                await Swal.fire({
                   title: 'Respuesta!',
                   html:  `<div style="white-space: pre-line;">${respuesta}</div>`,
                   icon: 'success',
@@ -141,9 +142,15 @@ export class DragAndDropComponent implements OnInit {
                   confirmButtonText: 'Continuar',
                   confirmButtonColor: '#31B2C2',
                 }).then(async() => {
-                  await this.validarLogros(id, this.retoParam);
-                  await this.actualizarEstudiante(id);
-                  window.history.back()
+                  await this.actualizarEstudiante(id, this.retoParam);
+                });
+              }, error => {
+                Swal.fire({
+                  html: `<div style="white-space: pre-line;">${error.error.replace(/(\!|\.)/g, '$1\n')}</div>`,
+                  icon: 'error',
+                  focusConfirm: false,
+                  confirmButtonText: 'Intentar',
+                  confirmButtonColor: '#31B2C2',
                 });
               });
             }
@@ -192,22 +199,27 @@ export class DragAndDropComponent implements OnInit {
           icon: 'success',
           text: resp,
           timer: 3000
+        }).then(() => {
+          window.history.back();
         });
       }
     });
 
   }
-  async actualizarEstudiante(idEstudiante: number){
+  async actualizarEstudiante(idEstudiante: number, idReto: number){
     await this.estudianteService.consultarPorId(idEstudiante).subscribe(async (resp) => {
       let estudiante: Estudiante = resp;
       localStorage.setItem("usuario", JSON.stringify(estudiante));
-      await this.logroEstudianteService.ahorrador(estudiante.idEstudiante!).subscribe((resp) => {
+      await this.logroEstudianteService.ahorrador(estudiante.idEstudiante!).subscribe(async (resp) => {
+        await this.validarLogros(idEstudiante, idReto);
         if(resp != ''){
           Swal.fire({
             title: '¡Felicitaciones!',
             icon: 'success',
             text: resp,
             timer: 3000
+          }).then(() => {
+            window.history.back();
           });
         }
      });

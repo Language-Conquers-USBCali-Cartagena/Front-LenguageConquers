@@ -44,7 +44,7 @@ export class ArticulosAdquiridosComponent implements OnInit {
   }
 
   irMapa(){
-    this.router.navigate(['/curso/mapa/1']);
+    window.history.go(-1);
   }
 
   mostrarImagenGrande(articulo : Articulo | undefined){

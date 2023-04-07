@@ -138,9 +138,8 @@ export class FormularioEstudianteComponent implements OnInit {
       this.pagina = 0;
 
     }else{
-      this.pagina = this.avatares.length -1;
+      this.pagina = this.pagina-1;
       this.getAvatar(this.pagina);
-
     }
   }
   pasarDer(){
