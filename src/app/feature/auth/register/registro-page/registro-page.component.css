@@ -20,7 +20,7 @@
 
 .login {
   width: 420px;
-  height: 700px;
+  height: 640px;
   margin: 40px 20px 20px 20px;
   justify-content: center;
   align-items: center;
@@ -54,14 +54,15 @@
   max-height: 720px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border: 0px;
+  margin: 40px 20px 20px 20px;
   
 }
 .box{
-margin: 40px 20px 20px 20px;
+ height: 100%;
 }
 .logo {
-  height: 170px;
-  
+  height: 140px;
+  margin-left: 30px;
 }
 
 /*Responsive Mobile*/
