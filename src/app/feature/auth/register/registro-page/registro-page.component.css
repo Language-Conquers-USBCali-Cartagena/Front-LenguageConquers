@@ -61,7 +61,7 @@
 }
 
 /*Responsive Mobile*/
-@media only screen and (max-height: 1080px){
+/* @media only screen and (max-height: 1080px){
   .box{
     height: 99%;
    }
@@ -76,15 +76,11 @@
     justify-content: center;
     align-items: center;
     display: flex; 
-    /* position: absolute;
-    
-    left: 30px;
-    top: 93px; */
     border: 1px solid #FFFFFF;
     border-radius: 66px;
   }
   
-}
+} */
 @media only screen and (max-width: 600px) {
   .bg-img {
     width: 100%;
