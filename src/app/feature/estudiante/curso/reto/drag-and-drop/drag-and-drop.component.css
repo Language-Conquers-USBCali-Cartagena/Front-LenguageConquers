@@ -1,12 +1,14 @@
 .body {
   align-items: center;
   background-color: #323232;
-  max-height: 750px;
+  max-height: 750px !important;
   height: 100%;
-
-
 }
-
+.fondo{
+  position: static;
+  height: 1080px;
+  width: 1920px;
+}
 .logo {
   height: 100px;
   width: 200px;
