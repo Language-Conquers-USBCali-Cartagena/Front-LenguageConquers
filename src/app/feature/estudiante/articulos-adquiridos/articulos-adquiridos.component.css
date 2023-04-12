@@ -1,16 +1,15 @@
-.fondo{
-  position: static;
-  height: 1080px;
-  width: 1920px;
-}
+
+
 .container {
+  max-height: fit-content 1080px;
   height: 100%;
+  max-width: 1920px;
   width: 100%;
   background-color: #2e2e2e;
 }
 
 .ladoIzq {
-  
+
   width: 300px;
   height: auto;
   padding-top: 3in;
@@ -24,36 +23,38 @@
 
 }
 
-.tituloLadoIzq{
-  
+.tituloLadoIzq {
+
   font-size: 20px;
   color: rgb(85, 183, 232);
 
 }
 
-.tarjetaArticulo{
-  
+.tarjetaArticulo {
+
   width: 212px;
   height: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(237,237,237);
+  background-color: rgb(237, 237, 237);
 
 }
-.imagenArticulo{
-  
+
+.imagenArticulo {
+
   width: 80px;
   height: 60px;
 }
+
 .tituloArticulo {
-  
+
   font-size: 18px;
   line-height: 30px;
 }
 
 
-.botonArticulo{
+.botonArticulo {
   margin-left: 10px;
   color: rgb(254, 254, 231);
   border-radius: 20px;
@@ -65,6 +66,7 @@
   height: 40px;
   font-size: 20px;
 }
+
 .centro {
   margin-left: 950px;
   margin-top: 150px;
@@ -89,7 +91,8 @@
   color: rgb(6, 43, 60);
   text-align: center;
 }
-.hover-rotate{
+
+.hover-rotate {
   height: 380px;
   width: 300px;
   border-radius: 5px;
@@ -100,7 +103,7 @@
   min-height: 100%;
 }
 
-.hover-rotate img{
+.hover-rotate img {
 
   height: 220px;
   width: 250px;
@@ -109,12 +112,13 @@
   transition: 0.3s;
 }
 
-.tarjetaCentro .hover-rotate img:hover{
+.tarjetaCentro .hover-rotate img:hover {
 
   max-width: 100%;
   max-height: 100%;
   transform: scale(1.5) rotate(5deg);
 }
+
 .centroAbajo {
   margin-left: 850px;
 
@@ -160,29 +164,34 @@
   font-size: 20px;
 
 }
+
 @media screen and (max-width: 700px) {
-  .tarjeta{
+  .tarjeta {
     margin-left: 90px;
     margin-top: -260px;
   }
- .tarjetaCentro{
-margin-left: -860px;
-margin-top: -460px;
-height: 150px;
-width: 190px;
- }
- .tarjetaCentroAbajo{
-  margin-left: -760px;
-  margin-top: 10px;
-  width: 190px;
- }
- .botones{
-  margin-left: -150px;
-  margin-top: 10px;
-  margin: 0 -180px;
- }
- .container{
-  overflow-y: scroll;
-  overflow-x: hidden;
- }
+
+  .tarjetaCentro {
+    margin-left: -860px;
+    margin-top: -460px;
+    height: 150px;
+    width: 190px;
+  }
+
+  .tarjetaCentroAbajo {
+    margin-left: -760px;
+    margin-top: 10px;
+    width: 190px;
+  }
+
+  .botones {
+    margin-left: -150px;
+    margin-top: 10px;
+    margin: 0 -180px;
+  }
+
+  .container {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 }
