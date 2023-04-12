@@ -1,7 +1,7 @@
 .fondo{
   position: absolute;
-  max-width: 1960px;
-  max-height: 1100px;
+  max-width: 200em;
+  max-height: 100em;
   height:100%;
   width:100%;
 }
@@ -13,15 +13,10 @@
   background-color: #2E2E2E;
 }
 
-/* .fondo{
-  background-image: url(../../../../../assets/images/fondos/FondoPrincipal1.png);
-  background-size: cover;
-} */
-
 .login {
-  width: 420px;
-  height: 700px;
-  margin: 40px 20px 20px 20px;
+  width: 30em;
+  height: 50em;
+  margin: 10%;
   justify-content: center;
   align-items: center;
   display: flex; 
@@ -42,26 +37,25 @@
   font-family: Mouse Memoirs;
   /*Efecto espejo*/
 
-  width: 86%;
+  width: 80%;
   border-radius: 15px;
   background: rgba(151, 116, 116, 0);
 }
 
 .imagen {
   width: 100%;
-  max-width: 1750px;
+  max-width: 100em;
   height: 100%;
-  max-height: 940px;
+  max-height: 80em;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border: 0px;
-  margin-top: 10px;
-  
 }
 .box{
- height: 100%;
+ height: 99%;
+ margin-left: 10em;
 }
 .logo {
-  height: 170px;
+  height: 10em;
   
 }
 
@@ -91,7 +85,7 @@
   .imagen {
     width: 100%;
     max-width: 1250px;
-    height: 100%;
+    height: 80%;
     max-height: 720px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     border: 0px;
