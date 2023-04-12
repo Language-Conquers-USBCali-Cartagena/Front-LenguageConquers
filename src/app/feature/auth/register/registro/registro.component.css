@@ -1,3 +1,4 @@
+
 .spinner{
   margin: 0 auto;
   color:#31B2C2;
@@ -169,11 +170,22 @@
  font-family: Mouse Memoirs;
 }
 
+/* @media screen and (max-width: 600px) {
+  .registrar {
+    padding: 20px;
+  }
+  .fondoTarjeta {
+    width: 100%;
+  }
+  .entradauc1,
+  .entradauc2 {
+    width: 100%;
+  }
+} */
 
 
 
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 400px) {
   .fondoTarjeta{
     width: 20em;
     margin-left: 20px;
@@ -257,7 +269,7 @@
 
   font-size: 20px;
   color: rgb(255, 255, 255);
-  margin-left: -30px;
+  margin-left: -60px;
 }
 }
 /*boton de check*/
