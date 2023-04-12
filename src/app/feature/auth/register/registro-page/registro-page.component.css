@@ -46,13 +46,14 @@
   width: 100%;
   max-width: 100em;
   height: 100%;
-  max-height: 80em;
+  max-height: 70em;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border: 0px;
+
 }
 .box{
  height: 99%;
- margin-left: 20em;
+ margin-left: 6em;
 }
 .logo {
   height: 10em;
