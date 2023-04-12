@@ -81,7 +81,13 @@ left: 460px;
     background: #2E2E2E;
     background-size:cover ;
   }
-
+  .fondo{
+    position: absolute;
+    max-width: 1920px;
+    max-height: 1080px;
+    height:100%;
+    width:100%;
+  }
   .fondoTarjeta {
     height:600px;
     width: auto;
