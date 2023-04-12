@@ -1,7 +1,7 @@
 
 <mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
 
-<div class="body">
+
   <div class="registrar">
     <form *ngIf="!loading" [formGroup]="form" (ngsubmit)="registrarse()">
       <div class="fondoTarjeta">
@@ -44,4 +44,4 @@
       </div>
     </form>
   </div>
-</div>
+
