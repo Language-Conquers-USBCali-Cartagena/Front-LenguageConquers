@@ -20,7 +20,7 @@
 
 .login {
   width: 420px;
-  height: 640px;
+  height: 700px;
   margin: 40px 20px 20px 20px;
   justify-content: center;
   align-items: center;
@@ -49,24 +49,54 @@
 
 .imagen {
   width: 100%;
-  max-width: 1250px;
+  max-width: 1750px;
   height: 100%;
-  max-height: 720px;
+  max-height: 940px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border: 0px;
-  
+  margin-top: 10px;
   
 }
 .box{
  height: 100%;
 }
 .logo {
-  height: 140px;
-  margin-left: 30px;
+  height: 170px;
+  
 }
 
 /*Responsive Mobile*/
-
+@media only screen and (max-width: 1290px){
+  .box{
+    height: 99%;
+   }
+   .logo {
+     height: 140px;
+     margin-left: 30px;
+   }
+   .login {
+    width: 420px;
+    height: 640px;
+    margin: 40px 20px 20px 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex; 
+    /* position: absolute;
+    
+    left: 30px;
+    top: 93px; */
+    border: 1px solid #FFFFFF;
+    border-radius: 66px;
+  }
+  .imagen {
+    width: 100%;
+    max-width: 1250px;
+    height: 100%;
+    max-height: 720px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: 0px;
+  }
+}
 @media only screen and (max-width: 600px) {
   .bg-img {
     width: 100%;
