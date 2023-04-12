@@ -1,7 +1,7 @@
 .fondo{
   position: static;
-  height: 1080px;
-  width: 1920px;
+  height: 930px;
+  width:1920px;
 }
 .body {
   display: flex;
