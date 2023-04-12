@@ -66,7 +66,7 @@
 }
 
 /*Responsive Mobile*/
-@media only screen and (max-width: 1300px){
+@media only screen and (max-width: 1330px){
   .box{
     height: 99%;
    }
@@ -76,7 +76,7 @@
    }
    .login {
     width: 420px;
-    height: 640px;
+    height: 660px;
     margin: 40px 20px 20px 20px;
     justify-content: center;
     align-items: center;
