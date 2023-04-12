@@ -1,31 +1,32 @@
-<div class="container ">
-  <div class="ladoIzq">
-    <div class="tarjeta">
-      <h2 class="tituloLadoIzq">Art&iacute;culos Adquiridos</h2>
-      <mat-card class="tarjetaArticulo" *ngFor="let articulo of articulosA">
-        <img src="{{articulo.imagen}}" class="imagenArticulo">
-        <mat-card-title class="tituloArticulo">{{articulo.nombre}}</mat-card-title>
-        <button mat-raised-button class="botonArticulo" (click)="mostrarImagenGrande(articulo)">Ver</button>
+<div class="fondo">
+  <div class="container ">
+    <div class="ladoIzq">
+      <div class="tarjeta">
+        <h2 class="tituloLadoIzq">Art&iacute;culos Adquiridos</h2>
+        <mat-card class="tarjetaArticulo" *ngFor="let articulo of articulosA">
+          <img src="{{articulo.imagen}}" class="imagenArticulo">
+          <mat-card-title class="tituloArticulo">{{articulo.nombre}}</mat-card-title>
+          <button mat-raised-button class="botonArticulo" (click)="mostrarImagenGrande(articulo)">Ver</button>
+        </mat-card>
+      </div>
+    </div>
+    <div class="centro">
+      <mat-card class="tarjetaCentro">
+          <div class="hover-rotate" id="contenedorImagen" >
+           <img *ngIf="mostrarImagen" src="{{articuloSeleccionado.imagen}}">
+          </div>
       </mat-card>
     </div>
-  </div>
-  <div class="centro">
-    <mat-card class="tarjetaCentro">
-        <div class="hover-rotate" id="contenedorImagen" >
-         <img *ngIf="mostrarImagen" src="{{articuloSeleccionado.imagen}}">
-        </div>
-    </mat-card>
-  </div>
-  <div class="centroAbajo">
-    <mat-card class="tarjetaCentroAbajo">
-      <mat-card-header>
-        <mat-card-title *ngIf="mostrarImagen">{{articuloSeleccionado.descripcion}}</mat-card-title>
-      </mat-card-header>
-    </mat-card>
-  </div>
-  <div class="boton">
-    <button mat-raised-button class="botones" (click)="irMapa()">Volver</button>
-    <button mat-raised-button class="botones" (click)="eliminarArticulo()">Eliminar Art&iacute;culo</button>
+    <div class="centroAbajo">
+      <mat-card class="tarjetaCentroAbajo">
+        <mat-card-header>
+          <mat-card-title *ngIf="mostrarImagen">{{articuloSeleccionado.descripcion}}</mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </div>
+    <div class="boton">
+      <button mat-raised-button class="botones" (click)="irMapa()">Volver</button>
+      <button mat-raised-button class="botones" (click)="eliminarArticulo()">Eliminar Art&iacute;culo</button>
+    </div>
   </div>
 </div>
-
