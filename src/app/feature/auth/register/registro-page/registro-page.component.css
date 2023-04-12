@@ -52,7 +52,7 @@
 }
 .box{
  height: 99%;
- margin-left: 10em;
+ margin-left: 20em;
 }
 .logo {
   height: 10em;
@@ -71,7 +71,7 @@
    .login {
     width: 30em;
     height: 47em;
-    margin-left: 10em;
+    
     justify-content: center;
     align-items: center;
     display: flex; 
