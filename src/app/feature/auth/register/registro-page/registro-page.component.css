@@ -61,7 +61,7 @@
 }
 
 /*Responsive Mobile*/
-/* @media only screen and (max-height: 1080px){
+@media only screen and (max-height: 1080px){
   .box{
     height: 99%;
    }
@@ -80,7 +80,7 @@
     border-radius: 66px;
   }
   
-} */
+}
 @media only screen and (max-width: 600px) {
   .bg-img {
     width: 100%;
