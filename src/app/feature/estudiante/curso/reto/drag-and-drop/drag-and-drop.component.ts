@@ -26,6 +26,7 @@ export class DragAndDropComponent implements OnInit {
   estudiante: Estudiante = {};
   retoEstudiante: RetoEstudiante = {}
   retoInfo: Reto = {};
+  isBasic = false;
   a: PalabrasReservadas[] = [];
   b: PalabrasReservadas[] = [];
   c: PalabrasReservadas[] = [];
@@ -50,10 +51,12 @@ export class DragAndDropComponent implements OnInit {
   async ngOnInit() {
     this.mostrarPistas();
     this.retoParam = this.route.snapshot.params['reto'];
+    await this.esBasico();
     this.estudiante = JSON.parse(String(localStorage.getItem('usuario')))
     await this.ObtenetPalabras();
     this.obtenerRetoEstudiante()
     await this.obtenerReto();
+
   }
 
   ObtenetPalabras(){
@@ -94,10 +97,14 @@ export class DragAndDropComponent implements OnInit {
   reto(): void {
     this.router.navigate(['../curso/ide/1/1'])
   }
-
+  esBasico(){
+    if(this.retoParam <=3){
+      this.isBasic = true;
+    }
+  }
   //-------------------------
   ejecutar(){
-    let esBasico = false;
+    
     this.organizar(this.a, 1);
     this.organizar(this.b, 2);
     this.organizar(this.c, 3)
@@ -108,9 +115,6 @@ export class DragAndDropComponent implements OnInit {
     this.organizar(this.h, 8);
     this.organizar(this.i, 9);
     this.organizar(this.j, 10);
-    if(this.retoParam <=3){
-      esBasico = true;
-    }
     let resp: PalabrasReservadas[] = this.a.concat(this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
     let id = this.estudiante.idEstudiante!;
     Swal.fire({
@@ -121,10 +125,11 @@ export class DragAndDropComponent implements OnInit {
       showLoaderOnConfirm: true,
       confirmButtonColor: '#31B2C2',
       preConfirm: () => {
-        this.retosService.completar(resp, esBasico, id, this.retoParam).subscribe(async respuesta =>{
+        this.retosService.completar(resp, this.isBasic, id, this.retoParam).subscribe(async respuesta =>{
           this.retoEstudiante.fechaModificacion = new Date;
           this.retoEstudiante.usuarioModificador = 'admin';
           this.retoEstudiante.idEstado = 3;
+          if(respuesta)
           await this.retoEstudianteService.actualizarRetoEstudiante(this.retoEstudiante).subscribe(async rep => {
             let total = this.sumarID();
             if(total <= 6){
@@ -152,6 +157,19 @@ export class DragAndDropComponent implements OnInit {
                   confirmButtonText: 'Intentar',
                   confirmButtonColor: '#31B2C2',
                 });
+              });
+            }else{
+              await Swal.fire({
+                title: 'Respuesta!',
+                html:  `<div style="white-space: pre-line;">${respuesta}</div>`,
+                icon: 'success',
+                focusConfirm: false,
+                showCancelButton: false,
+                showConfirmButton: true,
+                confirmButtonText: 'Continuar',
+                confirmButtonColor: '#31B2C2',
+              }).then(async() => {
+                await this.actualizarEstudiante(id, this.retoParam);
               });
             }
           });
