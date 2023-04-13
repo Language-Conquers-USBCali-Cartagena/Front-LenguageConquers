@@ -163,13 +163,11 @@ mat-toolbar {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 }
 .imgAvatar {
-  margin-top: -25px;
-  align-items: center;
-  margin-left: 10px;
-  max-width: 80px;
-  height: 80px;
-  width: 110px;
+  margin-top: -3em;
+  width: 6em;
+  height: 6em;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .tituloInfoEstudiante {

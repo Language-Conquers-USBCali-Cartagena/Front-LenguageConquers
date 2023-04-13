@@ -45,8 +45,9 @@ export class MapaComponent implements OnInit {
   async ngOnInit() {
     this.obtenerEstudiante();
     await this.cargarRetos();
-    this.getAvatarPorid();
+    await this.getAvatarPorid();
   }
+
 
   setEstudiante(estudiante: Estudiante) {
     this.form = this.fb.group({
@@ -95,8 +96,8 @@ export class MapaComponent implements OnInit {
     this.nombre = this.estudiante.nombre;
   }
 
-  getAvatarPorid() {
-    this.avatarService.consultarPorId(this.idAvatar).subscribe(resultado => {
+  async getAvatarPorid() {
+    await this.avatarService.consultarPorId(this.idAvatar).subscribe(resultado => {
       this.avatar = resultado
       this.imgAvatar = String(this.avatar.imgAvatar);
     });
