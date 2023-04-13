@@ -301,7 +301,7 @@ position: absolute;
   line-height: 15px;
 }
 /****/
-@media only screen and (max-height: 1080px){
+@media only screen and (max-height: 900px){
   .fondo{
   
     height: 42.4em;
