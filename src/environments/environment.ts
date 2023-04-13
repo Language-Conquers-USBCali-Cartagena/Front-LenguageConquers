@@ -19,7 +19,7 @@ export const environment = {
   production: false,
   endpoint:'https://languageconquers.herokuapp.com'
   //'https://languageconquers.herokuapp.com'
-  //endpoint: 'http://localhost:8086'
+  // endpoint: 'http://localhost:8086'
 
 };
 const firebaseApp = initializeApp(environment.firebase);
