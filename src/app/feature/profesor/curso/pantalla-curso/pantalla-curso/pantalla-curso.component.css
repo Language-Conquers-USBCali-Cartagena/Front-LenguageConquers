@@ -1,7 +1,6 @@
 .body{
   background: rgb(52,52,52);
-  max-width: 150em;
-  max-height: 120em;
+  
   height: 100%;
   width: 100%;
   overflow-y: hidden;
