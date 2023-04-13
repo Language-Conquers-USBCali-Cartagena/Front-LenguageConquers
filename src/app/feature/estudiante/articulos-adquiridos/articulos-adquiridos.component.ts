@@ -30,16 +30,24 @@ export class ArticulosAdquiridosComponent implements OnInit {
     private articulosService: ArticuloService
     ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.estudiante = JSON.parse(String(localStorage.getItem('usuario')))!;
-    this.obtenerArticulos();
+    await this.obtenerArticulos();
   }
 
-  obtenerArticulos(){
+  async obtenerArticulos(){
 
     let idEstudiante: number = this.estudiante.idEstudiante!;
-    this.articulosService.getArticulosObtenidos(idEstudiante).subscribe(resp => {
-      this.articulosA = resp;
+    await this.articulosService.getArticulosObtenidos(idEstudiante).subscribe(resp => {
+      
+      if(resp[0] == undefined){
+        let articulo: Articulo[] = [{descripcion: 'Visita nuestra tienda y descubre los productos disponibles.', nombre: 'No has adquirido ningún artículo.', imagen: 'ssfsd'}]; 
+        this.articulosA = articulo;
+        this.articuloSeleccionado = articulo[0];
+      }else{
+        this.articulosA = resp;
+        this.articuloSeleccionado = resp[0];
+      }
     });
   }
 

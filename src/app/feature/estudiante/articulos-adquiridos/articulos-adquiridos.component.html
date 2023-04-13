@@ -13,14 +13,14 @@
     <div class="centro">
       <mat-card class="tarjetaCentro">
           <div class="hover-rotate" id="contenedorImagen" >
-           <img *ngIf="mostrarImagen" src="{{articuloSeleccionado.imagen}}">
+           <img src="{{articuloSeleccionado.imagen}}">      
           </div>
       </mat-card>
     </div>
     <div class="centroAbajo">
       <mat-card class="tarjetaCentroAbajo">
         <mat-card-header>
-          <mat-card-title *ngIf="mostrarImagen">{{articuloSeleccionado.descripcion}}</mat-card-title>
+          <mat-card-title>{{articuloSeleccionado.descripcion}}</mat-card-title>
         </mat-card-header>
       </mat-card>
     </div>
