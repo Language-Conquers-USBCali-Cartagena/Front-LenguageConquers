@@ -1,10 +1,10 @@
 .body {
-  
+
   max-height: 53em ;
-  
+
 }
 .fondo{
-  
+
   height: 52.4em;
   width: 137.1em;
   background-color: #323232;
@@ -135,7 +135,7 @@
 
 .example-container1 {
   width: 20em;
-  
+
 position: absolute;
   max-height: 20em;
   overflow-y: visible;
@@ -274,6 +274,8 @@ position: absolute;
 
 .palabra1,
 .palabra2,
+.palabra3,
+.palabra4,
 .reto {
   width: 200px;
   height: 10px;
@@ -317,7 +319,7 @@ position: absolute;
 /****/
 @media only screen and (max-height: 900px){
   .fondo{
-  
+
     height: 42.4em;
     width: 108.6em;
     background-color: #323232;
@@ -335,7 +337,7 @@ position: absolute;
     border: 30px solid rgba(10, 10, 10, 0.883);
     color: rgb(255, 255, 255);
     float: inline-end;
-  
+
   }
   .cuadro-respuesta {
     margin-left: 26em;
@@ -348,13 +350,13 @@ position: absolute;
   }
   .example-container1 {
     width: 18em;
-    
+
   position: absolute;
     max-height: 18em;
     overflow-y: visible;
     margin-top: -6em;
     margin-left: 11em;
-  
+
     /* vertical-align: top; */
   }
   .example-list1 {

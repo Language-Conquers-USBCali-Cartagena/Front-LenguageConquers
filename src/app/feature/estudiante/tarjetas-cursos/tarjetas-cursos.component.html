@@ -1,15 +1,15 @@
 <div class="body">
-  
+
   <app-slider-principal></app-slider-principal>
-  
+
   <mat-card  class="tarjetaPeq">
     <mat-card-title class="titulo1">Hola {{capitalizerFirstLetter(estudiante.nombre||'')}} {{capitalizerFirstLetter(estudiante.apellido||'')}}</mat-card-title>
     <br>
     <mat-card-subtitle class="tituloTarjetaPeq">Bienvenido de nuevo a Language Conquers</mat-card-subtitle>
   </mat-card>
-  
+
   <div class="fondoTarjeta">
-    <h2 class="tituloCursos">Cursos</h2>
+    <h2 class="tituloCursos">Cursos Disponibles</h2>
     <div class="estudiante">
       <mat-card class="cursos" *ngFor="let tarjetas of cursosCard" (click) ="registrarCurso(tarjetas.idCurso)">
        <img mat-card-image src="./assets/images/fondos/portadaCurso.png">
@@ -18,7 +18,7 @@
       </mat-card>
     </div>
   </div>
-  
+
   <br>
 
 </div>

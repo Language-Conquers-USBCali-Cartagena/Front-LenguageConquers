@@ -35,8 +35,8 @@ export class MapaComponent implements OnInit {
 
 
   constructor(
-    private router: Router, 
-    private fb: FormBuilder, 
+    private router: Router,
+    private fb: FormBuilder,
     private avatarService: AvatarService,
     private retoService: RetoService,
     private retoEstudianteService: RetoEstudianteService
@@ -61,12 +61,13 @@ export class MapaComponent implements OnInit {
   redireccion(idReto: number | undefined){
     this.retoEstudianteService.porRetoyEstudiante(idReto!, this.estudiante.idEstudiante!).subscribe((resp) => {
       let retoEstudiante: RetoEstudiante = resp;
-      
+
       if(retoEstudiante.idEstado != 1){
         Swal.fire({
           icon: "info",
           title: 'Reto terminado',
-          text: 'El reto ya fue finalizado'
+          text: 'El reto ya fue finalizado',
+          confirmButtonColor: '#31B2C2',
         });
       }else{
         this.router.navigate(['estudiante/curso/ide', idReto!])
@@ -81,7 +82,7 @@ export class MapaComponent implements OnInit {
   }
   cargarRetos(){
     this.retoService.retosPorEstudiante(this.estudiante.idEstudiante!).subscribe((resp) => {
-      
+
       this.retos = resp;
     }, error => {
     })
