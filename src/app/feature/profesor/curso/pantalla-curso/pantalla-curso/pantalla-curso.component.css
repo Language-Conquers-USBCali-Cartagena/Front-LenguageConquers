@@ -1,7 +1,10 @@
 .body{
   background: rgb(52,52,52);
+  max-width: 150em;
+  max-height: 120em;
   height: 100%;
   width: 100%;
+  overflow-y: hidden;
 }
 .cuadroIzq{
   width: 100%;
@@ -9,8 +12,8 @@
   margin-top: 10px;
 }
 .tarjetaCurso{
-  width: 300px;
-  height: 430px;
+  width: 30em;
+  height: 30em;
   margin-top: -100%;
   margin-left: 120px;
   margin-right: 20px;
@@ -72,7 +75,7 @@
 }
 .tarjetaReto{
   width: 800px;
-  height: 430px;
+  height: 35em;
   margin-top: -50%;
   margin-left: 80px;
   margin-right: 30px;

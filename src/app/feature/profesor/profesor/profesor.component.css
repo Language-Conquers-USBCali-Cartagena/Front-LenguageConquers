@@ -1,3 +1,7 @@
+*{
+  width: 100em;
+  height: 100em;
+}
 mat-sidenav-container {
   height: 100%;
 }
