@@ -305,7 +305,7 @@ position: absolute;
   .fondo{
   
     height: 42.4em;
-    width: 127.1em;
+    width: 108.6em;
     background-color: #323232;
   }
   .fondoPantalla {
@@ -324,24 +324,34 @@ position: absolute;
   
   }
   .cuadro-respuesta {
-    margin-left: 18em;
+    margin-left: 26em;
       margin-top: -6em;
-      width: 10em;
-      height: 10em;
+      width: 12em;
+      height: 12em;
       position: absolute;
       overflow-y: scroll;
       overflow-x: hidden;
   }
   .example-container1 {
-    width: 20em;
+    width: 18em;
     
   position: absolute;
-    max-height: 20em;
+    max-height: 18em;
     overflow-y: visible;
     margin-top: -6em;
     margin-left: 11em;
   
     /* vertical-align: top; */
+  }
+  .example-list1 {
+    border: solid 1px #6f6e6e00;
+    min-height: 60px;
+    background: rgba(255, 255, 255, 0);
+    border-radius: 4px;
+    overflow: auto;
+    display: inline-block !important;
+    height: 12em;
+    width: 10em;
   }
 }
 /****/
