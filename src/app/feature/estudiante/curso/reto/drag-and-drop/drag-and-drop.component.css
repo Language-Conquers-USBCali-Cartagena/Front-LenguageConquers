@@ -23,11 +23,11 @@
 
 .fondoPantalla {
   margin-top: 10px;
-    max-width: 36em;
+    max-width: 50em;
     width: 100%;
     max-height: 50em;
     height: 80%;
-    margin-left: 3em;
+    margin-left: 6em;
     font-size: 30px;
     border-radius: 10px;
   /*Efecto espejo*/
@@ -139,8 +139,8 @@
 position: absolute;
   max-height: 20em;
   overflow-y: visible;
-  margin-top: -10%;
-  margin-left: 9em;
+  margin-top: -6em;
+  margin-left: 11em;
 
   /* vertical-align: top; */
 }
@@ -152,7 +152,7 @@ position: absolute;
   border-radius: 4px;
   overflow: auto;
   display: inline-block !important;
-  height: 10em;
+  height: 17em;
   width: 10em;
 }
 
@@ -239,17 +239,17 @@ position: absolute;
 }
 
 .cuadro-respuesta {
-  margin-left: 24em;
-    margin-top: -10%;
-    width: 10em;
-    height: 10em;
+  margin-left: 28em;
+    margin-top: -6em;
+    width: 17em;
+    height: 17em;
     position: absolute;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
 .texto {
-  width: 200px;
+  width: 10em;
   margin-top: 18px;
   margin-left: 5px;
   justify-content: flex-start;
