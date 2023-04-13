@@ -1,7 +1,7 @@
 .fondo{
-  position: static;
-  height: 1080px;
-  width: 1920px;
+  position: relative;
+  height: 53em;
+  width: 135.8em;
 }
 .container {
   height: 100%;
@@ -159,6 +159,25 @@
   height: 40px;
   font-size: 20px;
 
+}
+@media only screen and (max-height: 900px){
+  .fondo{
+    position: static;
+    height: 50em;
+    width: 108.6em;
+  }
+  .container {
+    height: 100%;
+    width: 100%;
+    background-color: #2e2e2e;
+  }
+  
+  .ladoIzq {
+    
+    width: 300px;
+    height: auto;
+    padding-top: 3in;
+  }
 }
 @media screen and (max-width: 700px) {
   .tarjeta{
