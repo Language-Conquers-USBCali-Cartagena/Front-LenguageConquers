@@ -1,13 +1,14 @@
 .body {
   align-items: center;
   background-color: #323232;
-  max-height: 750px !important;
+  max-height: 52em ;
   height: 100%;
 }
 .fondo{
-  position: static;
-  height: 1080px;
-  width: 1920px;
+  
+  height: 80em;
+  width: 100em;
+  background-color: #323232;
 }
 .logo {
   height: 100px;
@@ -20,21 +21,17 @@
   margin-left: 800px;
 }
 
-.fondo {
-  padding-bottom: 10px;
-  background-color: #323232;
-}
 
 .fondoPantalla {
   margin-top: 10px;
-  max-width: 1700px;
-  width: 100%;
-  max-height: 550px;
-  height: 90%;
-  margin-left: 100px;
+    max-width: 36em;
+    width: 100%;
+    max-height: 50em;
+    height: 80%;
+    margin-left: 3em;
+    font-size: 30px;
+    border-radius: 10px;
   /*Efecto espejo*/
-  font-size: 30px;
-  border-radius: 10px;
   border: 30px solid rgba(10, 10, 10, 0.883);
   color: rgb(255, 255, 255);
   float: inline-end;
@@ -138,13 +135,13 @@
 }
 
 .example-container1 {
-  width: 200px;
-  max-width: 100%;
+  width: 20em;
+  
 position: absolute;
-  max-height: 200px;
+  max-height: 20em;
   overflow-y: visible;
   margin-top: -10%;
-  margin-left: 250px;
+  margin-left: 9em;
 
   /* vertical-align: top; */
 }
@@ -156,8 +153,8 @@ position: absolute;
   border-radius: 4px;
   overflow: auto;
   display: inline-block !important;
-  height: 400px;
-  width: 400px;
+  height: 10em;
+  width: 10em;
 }
 
 .example-box1 {
@@ -243,15 +240,13 @@ position: absolute;
 }
 
 .cuadro-respuesta {
-  margin-left: 900px;
-  margin-top: -10%;
-  width: 700px;
-
-  height: 400px;
-
-  position: absolute;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  margin-left: 24em;
+    margin-top: -10%;
+    width: 10em;
+    height: 10em;
+    position: absolute;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .texto {
