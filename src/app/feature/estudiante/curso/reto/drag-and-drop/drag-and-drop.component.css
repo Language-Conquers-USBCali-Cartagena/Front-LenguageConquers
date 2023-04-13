@@ -302,11 +302,17 @@ position: absolute;
 }
 /****/
 @media only screen and (max-height: 1080px){
+  .fondo{
+  
+    height: 42.4em;
+    width: 127.1em;
+    background-color: #323232;
+  }
   .fondoPantalla {
     margin-top: 10px;
-      max-width: 50em;
+      max-width: 40em;
       width: 100%;
-      max-height: 50em;
+      max-height: 40em;
       height: 80%;
       margin-left: 6em;
       font-size: 30px;
@@ -318,10 +324,10 @@ position: absolute;
   
   }
   .cuadro-respuesta {
-    margin-left: 28em;
+    margin-left: 18em;
       margin-top: -6em;
-      width: 17em;
-      height: 17em;
+      width: 10em;
+      height: 10em;
       position: absolute;
       overflow-y: scroll;
       overflow-x: hidden;
