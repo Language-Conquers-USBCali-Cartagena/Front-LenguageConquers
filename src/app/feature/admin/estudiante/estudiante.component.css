@@ -1,8 +1,12 @@
+.fondo{
+  
+  height: 65em;
+  background-color: #2e2e2e;
+}
 .tarjetaPrincipal{
-  width: 80%;
-  height: 500px;
-  margin-right: 20px;
-  margin-left: 70px;
+  width: 40em;
+  height: 26em;
+  margin-left: 16em;
   /*Efecto espejo*/
   padding: 55px;
   background-color: #2e2e2e;
