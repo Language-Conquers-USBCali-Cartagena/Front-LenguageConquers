@@ -320,7 +320,7 @@ export class DragAndDropComponent implements OnInit {
       if (result.isConfirmed) {
         if (this.retoInfo.urlVideo1 !== null) {
           console.log(this.retoInfo.urlVideo1);
-          
+
           Swal.fire({
             title: '¿Abrir YouTube?',
             text: 'Se abrirá una nueva ventana con la página de YouTube',
@@ -375,58 +375,49 @@ export class DragAndDropComponent implements OnInit {
     })
   }
 
-  colorVerde() {
-    Swal.fire({
-      title: '¿Qué es un Objeto?',
-      html:
-        '<p class="explicacion-color">Se trata de un ente abstracto usado en programación que permite separar los diferentes componentes de un programa, simplificando así su elaboración, depuración y posteriores mejoras. Los objetos integran, a diferencia de los métodos procedurales, tanto los procedimientos como las variables y datos referentes al objeto.</p><p> A los objetos se les otorga ciertas características en la vida real. Cada parte del programa que se desea realizar es tratado como objeto, siendo así estas partes independientes las unas de las otras.Los objetos se componen de 3 partes fundamentales: metodos, eventos y atributos.</p>',
-      showCloseButton: true,
-      focusConfirm: false,
-      showConfirmButton: false
-    });
-  }
-  colorRojo() {
-
-    Swal.fire({
-      title: '¿Que es un método?',
-      html:
-        '<p>Los métodos son un bloque de instrucciones de código, nos permiten agrupar instrucciones, que despues pueden ser llamadas cuantas veces sea necesario simplemente llamando al método, esto nos permite reutilizar código y resolver problemas cada vez más complejos.</p>',
-      showCloseButton: true,
-      focusConfirm: false,
-      showConfirmButton: false
-    });
-  }
-  colorAzul() {
-    Swal.fire({
-      title: '¿Qué son las variables con valor?',
-      html:
-        '<p>Una variable se declara para indicarle al programa a partir de qué lugar empieza a existir, qué nombre tendrá y qué tipo de datos almacenará. La asignación de un valor inicial se llama inicialización. Para declarar una variable usaremos una instrucción compuesta del nombre del tipo de datos de la variable, el nombre de la variable y opcionalmente un operador de asignación y un valor inicial.</p>',
-      showCloseButton: true,
-      focusConfirm: false,
-      showConfirmButton: false
-    });
-  }
-  colorAmarillo() {
-    Swal.fire({
-      title: '¿Qué son las varibales?',
-      html:
-        '<p>Las variables sirven para almacenar números o cadenas de caracteres (palabras). Las instrucciones correspondientes a variables permiten crearlas y usarlas en un programa.</p>',
-      showCloseButton: true,
-      focusConfirm: false,
-      showConfirmButton: false
-    });
-  }
-
 
   mostrarInstrucciones() {
-    Swal.fire({
-      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/Instrucciones.png?alt=media&token=f39ecd45-1865-40d1-bff5-259a3a17e7a9',
-      imageWidth: 500,
-      imageHeight: 400,
-      imageAlt: 'Instrucciones',
-      showCloseButton: true,
-      showConfirmButton: false
-    })
+    if(this.isBasic == true){
+      Swal.fire({
+        imageUrl: '../../../../../assets/images/instrucciones/1.png',
+        imageWidth: 500,
+        imageHeight: 400,
+        imageAlt: 'Instrucciones',
+        showCloseButton: true,
+        showConfirmButton: false
+      }).then((result) =>{
+        Swal.fire({
+          imageUrl: '../../../../../assets/images/instrucciones/3.png',
+          imageWidth: 500,
+          imageHeight: 400,
+          imageAlt: 'Instrucciones',
+          showCloseButton: true,
+          showConfirmButton: false
+        })
+      });
+    }else{
+      Swal.fire({
+        imageUrl: '../../../../../assets/images/instrucciones/2.png',
+        imageWidth: 500,
+        imageHeight: 400,
+        imageAlt: 'Instrucciones',
+        showCloseButton: true,
+        showConfirmButton: false
+      }).then((result) =>{
+        Swal.fire({
+          imageUrl: '../../../../../assets/images/instrucciones/3.png',
+          imageWidth: 500,
+          imageHeight: 400,
+          imageAlt: 'Instrucciones',
+          showCloseButton: true,
+          showConfirmButton: false
+        })
+      });;
+    }
+
+
+
+
   }
 
 
