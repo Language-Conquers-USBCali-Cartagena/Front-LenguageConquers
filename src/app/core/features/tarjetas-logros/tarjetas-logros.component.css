@@ -47,8 +47,8 @@
   text-align: left;
   border-radius: 30px;
   background: linear-gradient(135deg,
-      rgba(255, 255, 255, 0.349),
-      rgba(255, 255, 255, 0.514));
+      rgba(156, 198, 219, 0.349),
+      rgba(158, 213, 222, 0.514));
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
@@ -115,7 +115,7 @@
   display: flex;
   background: linear-gradient(135deg,
       rgba(255, 255, 255, 0.437),
-      rgba(255, 255, 255, 0.437));
+      rgba(238, 238, 238, 0.437));
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 6px 28px 0 rgba(0, 0, 0, 0.36);
@@ -131,7 +131,7 @@
 .cardPeq:hover mat-card-content {
   height: 200px;
 
-  background: rgba(130, 177, 208, 0.811);
+  background: rgba(205, 204, 204, 0.874);
 }
 
 .cardPeq:hover p {
@@ -195,7 +195,7 @@ p {
   padding: 16px;
   box-sizing: border-box;
   position: absolute;
-  background: rgba(130, 177, 208, 0.811);
+  background: rgba(205, 204, 204, 0.874);
   color: white;
   transition: 0.5s;
 }
