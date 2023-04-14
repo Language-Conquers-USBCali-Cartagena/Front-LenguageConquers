@@ -1,5 +1,5 @@
 <app-menu (onToggleSideNav)="onToggleSideNav($event)"></app-menu>
-
+<div id="video-container"></div>
 <div class="body fondo">
   <br>
   <div class="fondoPantalla">
@@ -10,15 +10,15 @@
             keyboard_backspace
           </mat-icon>
         </button>
-        <button type="button" class="botonTutorial" (click)="mostrarTutorial()">
+        <button type="button" class="botonTutorial" (click)="paginasNoDisponibles()">
           <mat-icon class="icono-info" matTooltip="Como Practicar">
             info
           </mat-icon>
         </button>
-        <button type="button"  class="botonTema" (click)="mostrarPistas()" matTooltip="Pistas">
+        <button type="button"  class="botonTema" (click)="mostrarPistas()" matTooltip="Tema">
           <mat-icon class="icono-info">search</mat-icon>
         </button>
-        <button type="button" class="botonEjecutar" (click)="ejecutar()" matTooltip="Ejecutar">
+        <button type="button" class="botonEjecutar" (click)="ejecutar()" matTooltip="Ejecutar Reto">
           <mat-icon class="icono-run">play_circle_outline</mat-icon>
         </button>
         <button type="button" class="botonInstrucciones" (click)="mostrarInstrucciones()" matTooltip="Instrucciones">

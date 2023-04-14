@@ -75,7 +75,6 @@ export class DragAndDropComponent implements OnInit {
     });
   }
 
-  //-----------------------------------------
   drop(event: CdkDragDrop<PalabrasReservadas[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -102,8 +101,8 @@ export class DragAndDropComponent implements OnInit {
     }
   }
   //-------------------------
-  ejecutar() {
 
+  ejecutar() {
     this.organizar(this.a, 1);
     this.organizar(this.b, 2);
     this.organizar(this.c, 3)
@@ -287,8 +286,8 @@ export class DragAndDropComponent implements OnInit {
   }
 
 
+  isSideNavCollapsed=false;
 
-  isSideNavCollapsed = false;
   screenWidth = 0;
   onToggleSideNav(data: SideNavToggle): void {
     this.screenWidth = data.screenWidth;
@@ -298,10 +297,11 @@ export class DragAndDropComponent implements OnInit {
   atras() {
     this.router.navigateByUrl('estudiante/curso/mapa/1');
   }
+
   mostrarTutorial() {
     Swal.fire({
       html:
-        '<iframe width="440" height="315" src="https://www.youtube.com/embed/HD_zesxhkC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        '<iframe width="440" height="315" src="{{v}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
       showCloseButton: true,
       focusConfirm: false,
       showConfirmButton: false
@@ -314,7 +314,8 @@ export class DragAndDropComponent implements OnInit {
       text: this.retoInfo.descripcionTeoria,
       confirmButtonText: 'Continuar',
       confirmButtonColor: '#31B2C2',
-      showCancelButton: true,
+      showCancelButton: false,
+      showCloseButton: true,
     }).then((result) => {
       if (result.isConfirmed) {
         if (this.retoInfo.urlVideo1 !== null) {
@@ -353,9 +354,10 @@ export class DragAndDropComponent implements OnInit {
             imageUrl: this.retoInfo.imagenTema1,
             imageWidth: 400,
             imageHeight: 200,
-            confirmButtonText: 'Continuar',
+            confirmButtonText: 'Continuar Explicación',
             confirmButtonColor: '#31B2C2',
-            showCancelButton: true,
+            showCancelButton: false,
+            showCloseButton: true,
           })
         } else if (this.retoInfo.imagenTema2 !== null) {
           Swal.fire({
@@ -363,9 +365,10 @@ export class DragAndDropComponent implements OnInit {
             imageUrl: this.retoInfo.imagenTema2,
             imageWidth: 400,
             imageHeight: 200,
-            confirmButtonText: 'Continuar',
+            confirmButtonText: 'Continuar Explicación',
             confirmButtonColor: '#31B2C2',
-            showCancelButton: true,
+            showCancelButton: false,
+            showCloseButton: true,
           })
         }
       }
@@ -425,5 +428,17 @@ export class DragAndDropComponent implements OnInit {
       showConfirmButton: false
     })
   }
+
+
+ paginasNoDisponibles(){
+  Swal.fire({
+    imageUrl: '../../../../../assets/images/PaginaConstruccion.png',
+    imageWidth: 'auto',
+    imageHeight: 350,
+    showConfirmButton: false,
+    showCloseButton: true,
+    background: '#e5e5e5',
+  })
+}
 
 }

@@ -122,4 +122,15 @@ export class MapaComponent implements OnInit {
   home() {
     this.router.navigate(['/estudiante/menu']);
   }
+
+  paginasNoDisponibles(){
+    Swal.fire({
+      imageUrl: '../../../../../assets/images/PaginaConstruccion.png',
+      imageWidth: 'auto',
+      imageHeight: 350,
+      showConfirmButton: false,
+      showCloseButton: true,
+      background: '#e5e5e5',
+    })
+  }
 }
