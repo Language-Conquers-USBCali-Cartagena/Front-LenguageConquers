@@ -49,13 +49,12 @@ export class DragAndDropComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.mostrarPistas();
     this.retoParam = this.route.snapshot.params['reto'];
+    await this.obtenerReto();
     await this.esBasico();
     this.estudiante = JSON.parse(String(localStorage.getItem('usuario')))
     await this.ObtenetPalabras();
     this.obtenerRetoEstudiante()
-    await this.obtenerReto();
 
   }
 
@@ -67,7 +66,7 @@ export class DragAndDropComponent implements OnInit {
   obtenerReto() {
     this.retosService.consultarPorId(this.retoParam).subscribe(data => {
       this.retoInfo = data;
-      this.mostrarPistas();
+      this.mostrarInstrucciones();
     })
   }
   obtenerRetoEstudiante() {
@@ -319,21 +318,35 @@ export class DragAndDropComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         if (this.retoInfo.urlVideo1 !== null) {
+          console.log(this.retoInfo.urlVideo1);
+          
           Swal.fire({
-            title: this.retoInfo.nombreReto,
-            html: `<video width="100%" height="auto" controls><source src="${this.retoInfo.urlVideo1}" type="video/mp4"></video>`,
-            confirmButtonText: 'Continuar',
-            confirmButtonColor: '#31B2C2',
+            title: '¿Abrir YouTube?',
+            text: 'Se abrirá una nueva ventana con la página de YouTube',
+            icon: 'info',
             showCancelButton: true,
-          })
+            confirmButtonText: 'Sí',
+            cancelButtonText: 'No',
+            confirmButtonColor: '#31B2C2',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.open(this.retoInfo.urlVideo1, '_blank');
+            }
+          });
         } else if (this.retoInfo.urlVideo2 !== null) {
           Swal.fire({
-            title: this.retoInfo.nombreReto,
-            html: `<video width="100%" height="auto" controls><source src="${this.retoInfo.urlVideo2}" type="video/mp4"></video>`,
-            confirmButtonText: 'Continuar',
-            confirmButtonColor: '#31B2C2',
+            title: '¿Abrir YouTube?',
+            text: 'Se abrirá una nueva ventana con la página de YouTube',
+            icon: 'info',
             showCancelButton: true,
-          })
+            confirmButtonText: 'Sí',
+            cancelButtonText: 'No',
+            confirmButtonColor: '#31B2C2',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.open(this.retoInfo.urlVideo2, '_blank');
+            }
+          });
         } else if (this.retoInfo.imagenTema1 !== null) {
           Swal.fire({
             title: this.retoInfo.nombreReto,
