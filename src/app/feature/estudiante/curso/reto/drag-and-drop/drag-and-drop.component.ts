@@ -21,7 +21,7 @@ import Swal from 'sweetalert2';
 })
 export class DragAndDropComponent implements OnInit {
   retoParam: number = 0;
-  exampleContainerHeight:string | undefined;
+  exampleContainerHeight: string | undefined;
   palabras: PalabrasReservadas[] = [];
   estudiante: Estudiante = {};
   retoEstudiante: RetoEstudiante = {}
@@ -46,32 +46,31 @@ export class DragAndDropComponent implements OnInit {
     private retoEstudianteService: RetoEstudianteService,
     private estudianteService: EstudianteService,
     private logroEstudianteService: LogroEstudianteService,
-    ) { }
+  ) { }
 
   async ngOnInit() {
-
     this.retoParam = this.route.snapshot.params['reto'];
+    await this.obtenerReto();
     await this.esBasico();
     this.estudiante = JSON.parse(String(localStorage.getItem('usuario')))
     await this.ObtenetPalabras();
     this.obtenerRetoEstudiante()
-    await this.obtenerReto();
 
   }
 
-  ObtenetPalabras(){
+  ObtenetPalabras() {
     this.palabraService.getPalabrasReservadas(this.retoParam).subscribe(data => {
       this.palabras = data;
     });
   }
-  obtenerReto(){
-    this.retosService.consultarPorId(this.retoParam).subscribe(data =>{
+  obtenerReto() {
+    this.retosService.consultarPorId(this.retoParam).subscribe(data => {
       this.retoInfo = data;
-      this.mostrarPistas();
+      this.mostrarInstrucciones();
     })
   }
-  obtenerRetoEstudiante(){
-    this.retoEstudianteService.porRetoyEstudiante(this.retoParam!, this.estudiante.idEstudiante!).subscribe(resp =>{
+  obtenerRetoEstudiante() {
+    this.retoEstudianteService.porRetoyEstudiante(this.retoParam!, this.estudiante.idEstudiante!).subscribe(resp => {
       this.retoEstudiante = resp;
     });
   }
@@ -87,22 +86,23 @@ export class DragAndDropComponent implements OnInit {
         event.currentIndex,
       );
     }
-    if(this.palabras.length >1){
+    if (this.palabras.length > 1) {
       this.exampleContainerHeight = `${this.palabras.length * 600}px`;
-    }else if(this.palabras.length <=1){
+    } else if (this.palabras.length <= 1) {
       this.exampleContainerHeight = `${this.palabras.length}px`;
     }
   }
   reto(): void {
     this.router.navigate(['../curso/ide/1/1'])
   }
-  esBasico(){
-    if(this.retoParam <=3){
+  esBasico() {
+    if (this.retoParam <= 3) {
       this.isBasic = true;
     }
   }
   //-------------------------
-  ejecutar(){
+
+  ejecutar() {
     this.organizar(this.a, 1);
     this.organizar(this.b, 2);
     this.organizar(this.c, 3)
@@ -123,56 +123,83 @@ export class DragAndDropComponent implements OnInit {
       showLoaderOnConfirm: true,
       confirmButtonColor: '#31B2C2',
       preConfirm: () => {
-        this.retosService.completar(resp, this.isBasic, id, this.retoParam).subscribe(async respuesta =>{
+        this.retosService.completar(resp, this.isBasic, id, this.retoParam).subscribe(async respuesta => {
           this.retoEstudiante.fechaModificacion = new Date;
           this.retoEstudiante.usuarioModificador = 'admin';
           this.retoEstudiante.idEstado = 3;
-          if(respuesta)
-          await this.retoEstudianteService.actualizarRetoEstudiante(this.retoEstudiante).subscribe(async rep => {
-            let total = this.sumarID();
-            if(total <= 6){
-              this.retoEstudiante = {fechaCreacion: new Date, fechaEntrega: new Date, idEstado: 1, idEstudiante: this.estudiante.idEstudiante!, idGrupo: 1,
-                idReto: total, idRol: 1, puntaje: 0, usuarioCreador: 'admin', intentos: 0};
-              await this.retoEstudianteService.crearRetoEstudiante(this.retoEstudiante).subscribe(async resp => {
+          if (respuesta)
+            await this.retoEstudianteService.actualizarRetoEstudiante(this.retoEstudiante).subscribe(async rep => {
+              let total = this.sumarID();
+              if (total <= 6) {
+                this.retoEstudiante = {
+                  fechaCreacion: new Date, fechaEntrega: new Date, idEstado: 1, idEstudiante: this.estudiante.idEstudiante!, idGrupo: 1,
+                  idReto: total, idRol: 1, puntaje: 0, usuarioCreador: 'admin', intentos: 0
+                };
+                await this.retoEstudianteService.crearRetoEstudiante(this.retoEstudiante).subscribe(async resp => {
 
+                  await Swal.fire({
+                    title: 'Respuesta!',
+                    html: `<div style="white-space: pre-line;">${respuesta}</div>`,
+                    icon: 'success',
+                    focusConfirm: false,
+                    showCancelButton: false,
+                    showConfirmButton: true,
+                    confirmButtonText: 'Continuar',
+                    confirmButtonColor: '#31B2C2',
+                  }).then(async () => {
+                    await this.actualizarEstudiante(id, this.retoParam);
+                  });
+                }, error => {
+                  Swal.fire({
+                    html: `<div style="white-space: pre-line;">${error.error.replace(/(\!|\.)/g, '$1\n')}</div>`,
+                    icon: 'error',
+                    focusConfirm: false,
+                    confirmButtonText: 'Intentar',
+                    confirmButtonColor: '#31B2C2',
+                  });
+                });
+              } else {
                 await Swal.fire({
                   title: 'Respuesta!',
-                  html:  `<div style="white-space: pre-line;">${respuesta}</div>`,
+                  html: `<div style="white-space: pre-line;">${respuesta}</div>`,
                   icon: 'success',
                   focusConfirm: false,
                   showCancelButton: false,
                   showConfirmButton: true,
                   confirmButtonText: 'Continuar',
                   confirmButtonColor: '#31B2C2',
-                }).then(async() => {
+                }).then(async () => {
                   await this.actualizarEstudiante(id, this.retoParam);
                 });
-              }, error => {
-                Swal.fire({
-                  html: `<div style="white-space: pre-line;">${error.error.replace(/(\!|\.)/g, '$1\n')}</div>`,
-                  icon: 'error',
-                  focusConfirm: false,
-                  confirmButtonText: 'Intentar',
-                  confirmButtonColor: '#31B2C2',
+              }
+            });
+        }, error => {
+          if (error instanceof HttpErrorResponse) {
+            if (error.error == "Has superado el máximo de intentos.") {
+              //TODO: Si entra debe habilitar siguiente nivel y sacar
+              let total = this.sumarID();
+              if (total <= 6) {
+                this.retoEstudiante = {
+                  fechaCreacion: new Date, fechaEntrega: new Date, idEstado: 1, idEstudiante: this.estudiante.idEstudiante!, idGrupo: 1,
+                  idReto: total, idRol: 1, puntaje: 0, usuarioCreador: 'admin', intentos: 0
+                };
+                this.retoEstudianteService.crearRetoEstudiante(this.retoEstudiante).subscribe(async (resp) => {
+                  await Swal.fire({
+                    title: 'Respuesta!',
+                    text: error.error,
+                    icon: 'error',
+                    focusConfirm: false,
+                    showCancelButton: false,
+                    showConfirmButton: true,
+                    confirmButtonText: 'Continuar',
+                    confirmButtonColor: '#31B2C2',
+                  }).then(async () => {
+                    await this.actualizarEstudiante(id, this.retoParam);
+                  });
                 });
-              });
+                console.log(error.error);
+              }
             }else{
-              await Swal.fire({
-                title: 'Respuesta!',
-                html:  `<div style="white-space: pre-line;">${respuesta}</div>`,
-                icon: 'success',
-                focusConfirm: false,
-                showCancelButton: false,
-                showConfirmButton: true,
-                confirmButtonText: 'Continuar',
-                confirmButtonColor: '#31B2C2',
-              }).then(async() => {
-                await this.actualizarEstudiante(id, this.retoParam);
-              });
-            }
-          });
-          }, error => {
-            if(error instanceof HttpErrorResponse){
               Swal.fire({
                 html: `<div style="white-space: pre-line;">${error.error.replace(/(\!|\.)/g, '$1\n')}</div>`,
                 icon: 'error',
@@ -180,15 +207,16 @@ export class DragAndDropComponent implements OnInit {
                 confirmButtonText: 'Intentar',
                 confirmButtonColor: '#31B2C2',
               });
-            }else {
-              Swal.fire({
-                text: `<div style="white-space: pre-line;">${error.error.replace(/(\!|\.)/g, '$1\n')}</div>`,
-                icon: 'error',
-                focusConfirm: false,
-                confirmButtonText: 'Intentar',
-                confirmButtonColor: '#31B2C2',
-              });
             }
+          } else {
+            Swal.fire({
+              text: `<div style="white-space: pre-line;">${error.error.replace(/(\!|\.)/g, '$1\n')}</div>`,
+              icon: 'error',
+              focusConfirm: false,
+              confirmButtonText: 'Intentar',
+              confirmButtonColor: '#31B2C2',
+            });
+          }
         })
         allowOutsideClick: () => !Swal.isLoading()
       }
@@ -207,9 +235,9 @@ export class DragAndDropComponent implements OnInit {
 
 
   }
-  async validarLogros(idestudiante: number, idReto: number){
+  async validarLogros(idestudiante: number, idReto: number) {
     await this.logroEstudianteService.perfeccionista(idestudiante, idReto).subscribe((resp) => {
-      if(resp != ''){
+      if (resp != '') {
         Swal.fire({
           title: '¡Felicitaciones!',
           icon: 'success',
@@ -222,13 +250,13 @@ export class DragAndDropComponent implements OnInit {
     });
 
   }
-  async actualizarEstudiante(idEstudiante: number, idReto: number){
+  async actualizarEstudiante(idEstudiante: number, idReto: number) {
     await this.estudianteService.consultarPorId(idEstudiante).subscribe(async (resp) => {
       let estudiante: Estudiante = resp;
       localStorage.setItem("usuario", JSON.stringify(estudiante));
       await this.logroEstudianteService.ahorrador(estudiante.idEstudiante!).subscribe(async (resp) => {
         await this.validarLogros(idEstudiante, idReto);
-        if(resp != ''){
+        if (resp != '') {
           Swal.fire({
             title: '¡Felicitaciones!',
             icon: 'success',
@@ -239,36 +267,38 @@ export class DragAndDropComponent implements OnInit {
           });
         }
         window.history.back();
-     });
+      });
     });
   }
 
-  sumarID(){
-    let idReto: number =  Number(this.retoParam) ;
+  sumarID() {
+    let idReto: number = Number(this.retoParam);
     let suma: number = 1;
     let total: number = suma + idReto;
     return total;
   }
-  organizar(lista: PalabrasReservadas[], numeroLista: number){
-    for(let i = 0; i < lista.length; i ++){
+  organizar(lista: PalabrasReservadas[], numeroLista: number) {
+    for (let i = 0; i < lista.length; i++) {
 
-      lista[i].orden = i +1;
+      lista[i].orden = i + 1;
       lista[i].lista = numeroLista;
     }
   }
 
+
   isSideNavCollapsed=false;
+
   screenWidth = 0;
-  onToggleSideNav(data: SideNavToggle):void{
+  onToggleSideNav(data: SideNavToggle): void {
     this.screenWidth = data.screenWidth;
     this.isSideNavCollapsed = data.collapsed;
   }
 
-  atras(){
+  atras() {
     this.router.navigateByUrl('estudiante/curso/mapa/1');
   }
-  mostrarTutorial(){
-    const v = this.retoInfo.urlVideo1;
+
+  mostrarTutorial() {
     Swal.fire({
       html:
         '<iframe width="440" height="315" src="{{v}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
@@ -278,35 +308,47 @@ export class DragAndDropComponent implements OnInit {
     })
   }
 
-  mostrarPistas(){
+  mostrarPistas() {
     Swal.fire({
       title: this.retoInfo.nombreReto,
-     text:this.retoInfo.descripcionTeoria,
-      confirmButtonText: 'Continuar Explicación',
+      text: this.retoInfo.descripcionTeoria,
+      confirmButtonText: 'Continuar',
       confirmButtonColor: '#31B2C2',
       showCancelButton: false,
       showCloseButton: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        if(this.retoInfo.urlVideo1 !==null){
+        if (this.retoInfo.urlVideo1 !== null) {
+          console.log(this.retoInfo.urlVideo1);
+          
           Swal.fire({
-            title: this.retoInfo.nombreReto,
-            html: `<iframe width="100%" height="auto" src="${this.retoInfo.urlVideo1}"</iframe>`,
-            confirmButtonText: 'Continuar Explicación',
+            title: '¿Abrir YouTube?',
+            text: 'Se abrirá una nueva ventana con la página de YouTube',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Sí',
+            cancelButtonText: 'No',
             confirmButtonColor: '#31B2C2',
-            showCancelButton: false,
-            showCloseButton: true,
-          })
-        }else if(this.retoInfo.urlVideo2 !== null){
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.open(this.retoInfo.urlVideo1, '_blank');
+            }
+          });
+        } else if (this.retoInfo.urlVideo2 !== null) {
           Swal.fire({
-            title: this.retoInfo.nombreReto,
-            html: `<video width="100%" height="auto" controls><source src="${this.retoInfo.urlVideo2}" type="video/mp4"></video>`,
-            confirmButtonText: 'Continuar Explicación',
+            title: '¿Abrir YouTube?',
+            text: 'Se abrirá una nueva ventana con la página de YouTube',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Sí',
+            cancelButtonText: 'No',
             confirmButtonColor: '#31B2C2',
-            showCancelButton: false,
-            showCloseButton: true,
-          })
-        }else if(this.retoInfo.imagenTema1 !==null){
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.open(this.retoInfo.urlVideo2, '_blank');
+            }
+          });
+        } else if (this.retoInfo.imagenTema1 !== null) {
           Swal.fire({
             title: this.retoInfo.nombreReto,
             imageUrl: this.retoInfo.imagenTema1,
@@ -317,7 +359,7 @@ export class DragAndDropComponent implements OnInit {
             showCancelButton: false,
             showCloseButton: true,
           })
-        }else if(this.retoInfo.imagenTema2 !== null){
+        } else if (this.retoInfo.imagenTema2 !== null) {
           Swal.fire({
             title: this.retoInfo.nombreReto,
             imageUrl: this.retoInfo.imagenTema2,
@@ -333,19 +375,60 @@ export class DragAndDropComponent implements OnInit {
     })
   }
 
+  colorVerde() {
+    Swal.fire({
+      title: '¿Qué es un Objeto?',
+      html:
+        '<p class="explicacion-color">Se trata de un ente abstracto usado en programación que permite separar los diferentes componentes de un programa, simplificando así su elaboración, depuración y posteriores mejoras. Los objetos integran, a diferencia de los métodos procedurales, tanto los procedimientos como las variables y datos referentes al objeto.</p><p> A los objetos se les otorga ciertas características en la vida real. Cada parte del programa que se desea realizar es tratado como objeto, siendo así estas partes independientes las unas de las otras.Los objetos se componen de 3 partes fundamentales: metodos, eventos y atributos.</p>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false
+    });
+  }
+  colorRojo() {
+
+    Swal.fire({
+      title: '¿Que es un método?',
+      html:
+        '<p>Los métodos son un bloque de instrucciones de código, nos permiten agrupar instrucciones, que despues pueden ser llamadas cuantas veces sea necesario simplemente llamando al método, esto nos permite reutilizar código y resolver problemas cada vez más complejos.</p>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false
+    });
+  }
+  colorAzul() {
+    Swal.fire({
+      title: '¿Qué son las variables con valor?',
+      html:
+        '<p>Una variable se declara para indicarle al programa a partir de qué lugar empieza a existir, qué nombre tendrá y qué tipo de datos almacenará. La asignación de un valor inicial se llama inicialización. Para declarar una variable usaremos una instrucción compuesta del nombre del tipo de datos de la variable, el nombre de la variable y opcionalmente un operador de asignación y un valor inicial.</p>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false
+    });
+  }
+  colorAmarillo() {
+    Swal.fire({
+      title: '¿Qué son las varibales?',
+      html:
+        '<p>Las variables sirven para almacenar números o cadenas de caracteres (palabras). Las instrucciones correspondientes a variables permiten crearlas y usarlas en un programa.</p>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false
+    });
+  }
 
 
- mostrarInstrucciones(){
+  mostrarInstrucciones() {
+    Swal.fire({
+      imageUrl: 'https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/Instrucciones.png?alt=media&token=f39ecd45-1865-40d1-bff5-259a3a17e7a9',
+      imageWidth: 500,
+      imageHeight: 400,
+      imageAlt: 'Instrucciones',
+      showCloseButton: true,
+      showConfirmButton: false
+    })
+  }
 
-  Swal.fire({
-    imageUrl: 'https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/Instrucciones.png?alt=media&token=f39ecd45-1865-40d1-bff5-259a3a17e7a9',
-    imageWidth: 500,
-    imageHeight: 400,
-    imageAlt: 'Instrucciones',
-    showCloseButton: true,
-    showConfirmButton: false
-  })
- }
 
  paginasNoDisponibles(){
   Swal.fire({
