@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit {
  }
 
  onSelect1(event: Event) {
-   console.log(event);
+   /*console.log(event);*/
  }
 
 

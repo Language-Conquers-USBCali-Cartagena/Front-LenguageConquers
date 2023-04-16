@@ -113,7 +113,6 @@ export class HabilitarRetoComponent implements OnInit {
       imagenTema2: this.reto.imagenTema2,
       urlVideo1: this.reto.urlVideo1,
       urlVideo2: this.reto.urlVideo2}
-      console.log(reto.fechaInicio)
     this.retoService.actualizarReto(reto).subscribe(data =>{
       Swal.fire({
         icon: 'success',
@@ -123,7 +122,6 @@ export class HabilitarRetoComponent implements OnInit {
       });
       this.atras();
     }, (e) => {
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],

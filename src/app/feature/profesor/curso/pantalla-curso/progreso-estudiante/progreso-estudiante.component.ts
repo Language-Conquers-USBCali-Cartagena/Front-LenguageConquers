@@ -36,14 +36,12 @@ nombreEstudiante!:string | undefined;
 
   ngOnInit(): void {
     this.id = this.routerAct.snapshot.paramMap.get('id');
-    console.log(this.id);
     this.idEstudiante = Number(this.id);
     this.cargarRetos();
     this.obtenerEstudiante();
   }
 
   obtenerEstudiante(){
-    console.log(this.idEstudiante);
     this.estudianteService.consultarPorId(this.idEstudiante).subscribe(data => {
       this.nombreEstudiante = data.nombre?.concat(' ', data.apellido!);
     })
@@ -52,7 +50,6 @@ nombreEstudiante!:string | undefined;
 
   cargarRetos(){
     this.retoEstudianteService.listarPorIdEstudiante(this.idEstudiante).subscribe(resp =>{
-      console.log(resp)
       for (let i = 0; i < resp.length; i++) {
         const retoEstudiante = resp[i];
         this.estadoService.consultarPorId(retoEstudiante.idEstado!).subscribe(estado => {
@@ -63,7 +60,6 @@ nombreEstudiante!:string | undefined;
         })
       }
       this.dataSource.data = resp;
-      console.log(this.dataSource.data)
     });
   }
 

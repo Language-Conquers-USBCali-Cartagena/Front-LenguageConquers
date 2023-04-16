@@ -29,12 +29,12 @@ export class LoginComponent implements OnInit {
   userEmail = new UntypedFormControl('');
 
   constructor(
-    private fb: UntypedFormBuilder, 
-    private router: Router, 
-    private authService: AuthService, 
-    private loginService: ServiciosLoginService, 
-    private auth: AngularFireAuth, 
-    private estudianteServece: EstudianteService, 
+    private fb: UntypedFormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    private loginService: ServiciosLoginService,
+    private auth: AngularFireAuth,
+    private estudianteServece: EstudianteService,
     private profesorService: ProfesorService,
     private administradorService: AdministradorService
     ) {
@@ -110,17 +110,15 @@ export class LoginComponent implements OnInit {
   }
 
   async validarExistenciaBD(email: string) {
-    
+
     await this.estudianteServece.getEstudiantePorCorreo(email).toPromise().then((response) =>{
-      console.log(response);
       this.estudianteExiste = true;
       localStorage.setItem("usuario", JSON.stringify(response));
       this.router.navigateByUrl("/estudiante/menu");
     }).catch((error) =>{
     });
-    
+
     await this.profesorService.getProfesorPorCorreo(email).toPromise().then((response) => {
-      console.log(response);
       this.profesorExiste = true;
       localStorage.setItem("usuario", JSON.stringify(response));
       this.router.navigateByUrl("/profesor/menuProfesor");
@@ -129,10 +127,9 @@ export class LoginComponent implements OnInit {
     });
 
     await this.administradorService.getadminPorCorreo(email).toPromise().then((response) => {
-      console.log(response);
       this.administradorExiste = true;
-      
-      
+
+
       localStorage.setItem("usuario", JSON.stringify(response));
       this.router.navigateByUrl("/admin/home");
 
@@ -161,8 +158,6 @@ export class LoginComponent implements OnInit {
         }
         correo = res.email;
         this.validarExistenciaBD(correo).then(resp => {
-          console.log(resp);
-          
           if (resp == false) {
             this.router.navigateByUrl("/auth/crearUsuario")
           }

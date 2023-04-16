@@ -76,7 +76,6 @@ export class CrearModificarCategoriaComponent implements OnInit {
       }
     }, (e) => {
       this.hayErrores = true;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],
@@ -136,7 +135,6 @@ export class CrearModificarCategoriaComponent implements OnInit {
       this.router.navigate(['/admin/categoria-articulos/listar']);
     }, (e) => {
       this.hayErrores = true;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],

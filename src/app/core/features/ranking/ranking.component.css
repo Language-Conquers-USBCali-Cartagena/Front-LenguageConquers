@@ -162,7 +162,7 @@ td{
 }
 @media screen and (max-width: 700px) {
   .banner{
-    background-image: url(../../../../assets/images/fondos/bannerRanking.png);
+    background-image: url(../../../../assets/images/banners/bannerRankingFinal.png);
     background-size: cover;
     height:100px;
     width:370px;

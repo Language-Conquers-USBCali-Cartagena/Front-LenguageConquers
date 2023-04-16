@@ -28,9 +28,9 @@ export class TarjetasCursosComponent implements OnInit {
   cursoEstudiante: CursoEstudiante ={};
   retoEstudiante: RetoEstudiante = {};
   constructor(
-    
+
     private router: Router,
-    private estudianteService: EstudianteServiceService,  
+    private estudianteService: EstudianteServiceService,
     private cursoService: CursoService,
     private cursoEstudianteService: CursoEstudianteService,
     private retoEstudianteService: RetoEstudianteService,
@@ -69,7 +69,6 @@ export class TarjetasCursosComponent implements OnInit {
     this.cursoEstudianteService.getCursoEstudiante(this.estudiante.idEstudiante!, idCurso!).subscribe((resp) =>{
       this.router.navigate(['estudiante/curso/mapa', idCurso]);
     }, error => {
-      console.log(error.error);
       Swal.fire({
       title: '¿Desea registrarse en este curso?',
       showCancelButton: true,

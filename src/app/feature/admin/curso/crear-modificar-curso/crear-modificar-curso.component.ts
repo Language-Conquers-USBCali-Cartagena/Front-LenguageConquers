@@ -178,7 +178,6 @@ export class CrearModificarCursoComponent implements OnInit {
       this.router.navigate(['/admin/cursos/listar-cursos']);
     }, (e) => {
       this.hayErrores = true;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],

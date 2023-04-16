@@ -164,7 +164,6 @@ export class CrearModificarEstudianteComponent implements OnInit {
 
   seleccionarAvatar(avatar: any) {
     this.idAvatar = avatar.idAvatar;
-    console.log('id del avatar: ' + this.idAvatar);
     const images = document.querySelectorAll('img');
     const seleccionado = document.getElementById(String(avatar.idAvatar));
     images.forEach(imagen => {
@@ -178,7 +177,7 @@ export class CrearModificarEstudianteComponent implements OnInit {
 
   }
 
-  
+
 
   guardarEstudiante() {
     this.hayErrores = false;

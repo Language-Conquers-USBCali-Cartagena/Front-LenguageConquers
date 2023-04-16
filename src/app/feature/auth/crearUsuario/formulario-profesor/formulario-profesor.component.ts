@@ -22,10 +22,10 @@ export class FormularioProfesorComponent implements OnInit {
   public user$:Observable<any> = this.authService.afauth.user;
 
   constructor(
-    private fb: UntypedFormBuilder, 
-    private generoService: GeneroService, 
-    private loginService: ServiciosLoginService, 
-    private authService: AuthService, 
+    private fb: UntypedFormBuilder,
+    private generoService: GeneroService,
+    private loginService: ServiciosLoginService,
+    private authService: AuthService,
     private router: Router,
     private profesorService: ProfesorService
     ) {
@@ -40,7 +40,6 @@ export class FormularioProfesorComponent implements OnInit {
   ngOnInit(): void {
     this.user$.subscribe(res =>
       {this.correo = res.email
-      console.log(this.correo)
     });
     this.getGenero();
   }
@@ -53,12 +52,12 @@ export class FormularioProfesorComponent implements OnInit {
     const usuarioCreador = this.form.value.nombre + this.form.value.apellido;
     const genero = this.form.value.genero.idGenero;
     let profesor: Profesor = {
-      nombre: nombre, 
+      nombre: nombre,
       apellido: apellido,
-      correo:correo, 
-      foto:foto, 
-      usuarioCreador: usuarioCreador, 
-      fechaCreacion:new Date(2023, 1, 1, 10, 10, 10), 
+      correo:correo,
+      foto:foto,
+      usuarioCreador: usuarioCreador,
+      fechaCreacion:new Date(2023, 1, 1, 10, 10, 10),
       idGenero: genero}
     this.loginService.createProfesor(profesor).subscribe(resp => {
       Swal.fire({
@@ -69,7 +68,7 @@ export class FormularioProfesorComponent implements OnInit {
       });
       this.profesorService.getProfesorPorCorreo(correo).subscribe(resp => {
         localStorage.setItem("usuario", JSON.stringify(resp));
-        this.router.navigateByUrl("/profesor/menuProfesor");        
+        this.router.navigateByUrl("/profesor/menuProfesor");
       })
     }, err => {
       Swal.fire({ icon: 'error', text: err['error'], confirmButtonColor: '#33b5e5',});
