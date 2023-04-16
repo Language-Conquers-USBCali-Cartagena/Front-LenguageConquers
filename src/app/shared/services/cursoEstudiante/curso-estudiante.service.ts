@@ -25,4 +25,13 @@ export class CursoEstudianteService {
     });
     return this.http.get(`${environment.endpoint}/cursoEstudiante/porEstudianteyCurso`, {params: paramsHttp});
   }
+
+  cantidadEstudiantesMatriculados(idCurso: number): Observable<number>{
+    let paramsHttp = new HttpParams({
+      fromObject: {
+       idCurso: `${idCurso}`
+      }
+    });
+    return this.http.get<number>(`${environment.endpoint}/cursoEstudiante/cantidadEstudiantesMatriculados`, {params: paramsHttp});
+  }
 }

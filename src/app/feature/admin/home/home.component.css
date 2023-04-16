@@ -1,11 +1,11 @@
 
   .contentup{
-  
+
   height: 52.2em;
   display: grid;
   grid-template-columns: 480px 520px 1px;
   padding: 80px;
-  background-color: #2e2e2e;
+  background-color: rgb(52,52,52);
   margin-left: 10em;
   }
   .dashboard{
