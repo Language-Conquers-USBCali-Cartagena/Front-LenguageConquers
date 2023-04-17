@@ -264,7 +264,6 @@ export class DragAndDropComponent implements OnInit {
             text: resp,
             timer: 3000
           }).then(() => {
-            /*console.log("Entro al then");*/
           });
         }
         window.history.back();

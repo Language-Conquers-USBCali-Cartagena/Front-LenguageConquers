@@ -69,7 +69,6 @@ export class PantallaCursoComponent implements OnInit {
 
   cargarCantidadEstudiantesMatriculados(id: number){
     this.cursoEstudianteService.cantidadEstudiantesMatriculados(1).subscribe(data =>{
-      console.log(data)
       this.cantEstudiantiantes = data;
 
     });

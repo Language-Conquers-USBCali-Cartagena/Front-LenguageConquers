@@ -56,7 +56,6 @@ export class CarusselAvataresComponent implements OnInit {
 
   }
   obtenerId(id: String){
-    /*console.log(id);*/
   }
 
 

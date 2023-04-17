@@ -49,6 +49,7 @@ export class PerfilProfesorComponent implements OnInit {
     this.setProfesor(usuarioResp);
     this.idGenero = usuarioResp.idGenero;
     this.fotoProfesor = usuarioResp.foto;
+    this.profesor = usuarioResp;
   }
 
   crearProfesor() {
@@ -138,6 +139,8 @@ export class PerfilProfesorComponent implements OnInit {
     const generoSeleccionado = this.generos.find(e => e.idGenero == genero);
     const idGenero = Number(generoSeleccionado?.idGenero ?? "");
     const fotoVieja = this.profesor.foto;
+    console.log(this.profesor);
+    
     let profesor: Profesor = {
         idProfesor: this.form.value.idProfesor,
         nombre: this.form.value.nombre,
@@ -157,6 +160,7 @@ export class PerfilProfesorComponent implements OnInit {
           showConfirmButton: false,
           timer: 2000
         });
+        localStorage.setItem("usuario", JSON.stringify(profesor));
         this.router.navigate(['/profesor/menuProfesor']);
       }, (e) => {
         this.hayErrores = true;

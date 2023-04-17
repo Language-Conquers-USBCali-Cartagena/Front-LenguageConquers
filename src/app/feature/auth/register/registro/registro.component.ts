@@ -169,17 +169,18 @@ export class RegistroComponent implements OnInit {
       })
       let correo= '';
       this.user$.subscribe(  res => {
-        if(res.emailVerified == false){
-          this.router.navigate(['auth/verificar-email'])
-        }
-        correo = res.email;
-        this.validarExistenciaBD(correo).then(resp => {
-          if(resp == false){
-            this.router.navigateByUrl("/auth/crearUsuario")
+        if(res && res.emailVerified){
+          if(res.emailVerified! == false){
+            this.router.navigate(['auth/verificar-email'])
           }
-        })
-
-      })
+          correo = res.email;
+          this.validarExistenciaBD(correo).then(resp => {
+            if(resp == false){
+              this.router.navigateByUrl("/auth/crearUsuario")
+            }
+          });
+        }
+      });
     }, 1500)
 
   }

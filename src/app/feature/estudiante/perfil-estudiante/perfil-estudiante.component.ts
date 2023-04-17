@@ -166,7 +166,6 @@ constructor(
       const gradient = `conic-gradient(#30B4C6 ${Number(resp) * 3.6}deg, #ededed 0deg)`;
       document.getElementById("progreso")!.style.background = gradient;
     }, error => {
-      console.log(error.error);
     });
   }
 
@@ -176,8 +175,6 @@ constructor(
       const gradient = `conic-gradient(#ff9a5a ${Number(resp) * 3.6}deg, #ededed 0deg)`;
       document.getElementById("progreso2")!.style.background = gradient;
     }, error => {
-      console.log(error.error);
-
     });
   }
   setEstado(){
@@ -333,6 +330,7 @@ constructor(
         showConfirmButton: false,
         timer: 2000
       });
+      localStorage.setItem("usuario", JSON.stringify(estudiante));
       this.router.navigate(['/estudiante/menu']);
     }, (e) => {
       this.hayErrores = true;
@@ -348,6 +346,5 @@ constructor(
   }
 
   onSelect(event: Event) {
-    console.log(event);
   }
 }

@@ -20,9 +20,11 @@ export class LogoutComponent implements OnInit {
     this.eliminarCache();
     this.authService.logout();
     this.router.navigateByUrl("/auth/login");
+    
   }
   eliminarCache(){
-    localStorage.clear();
+    localStorage.clear();   
+    sessionStorage.clear(); 
   }
 
 

@@ -90,12 +90,11 @@ export class MenuComponent implements OnInit {
   async getEmail(){
     await this.authService.getUserLogged().subscribe(resp => {
       this.email = resp?.email!;
-
       this.loginService.existEstudianteByCorreo(this.email).toPromise().then((resp) => {
         this.existeEstu = resp;
-
-      })
-    })
+      }).catch(() =>{
+      });
+    });
 
   }
   openDialog(): void {

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 @Component({
@@ -9,9 +10,19 @@ import { Observable } from 'rxjs';
 export class RegistroPageComponent implements OnInit {
   @Input() loading: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationStart && event.url === '/auth/login') {
+        if (!sessionStorage.getItem('primeraVez')) {
+          sessionStorage.setItem('primeraVez', 'true');
+          window.location.reload();
+        }
+      }
+    });
+
+  }
 
 
 

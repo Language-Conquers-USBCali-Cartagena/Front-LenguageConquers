@@ -21,24 +21,18 @@ export class HttpInterceptorService implements HttpInterceptor {
             return next.handle(newReq).pipe(
                 catchError((error:HttpErrorResponse) => {
                     if (error instanceof HttpErrorResponse) {
-                        console.log("Error: " + error.status);
             
                         switch (error.status) {
                             case 200:
-                                console.log('Funcionaaaaaa');
                                 break;
                             case 400:
-                                console.log('Error 400');
                                 break;
                             case 401:
-                                console.log('No tiene acceso');
                                 this.router.navigate(['/logout'])
                                 break;
                             case 403:
-                                console.log("El usuario no esta autirizado");
                                 break;
                             case 0:
-                                console.log("Error 0");
                                 break;
             
                         }

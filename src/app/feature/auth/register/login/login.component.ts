@@ -125,14 +125,10 @@ export class LoginComponent implements OnInit {
 
     }).catch((error) => {
     });
-
     await this.administradorService.getadminPorCorreo(email).toPromise().then((response) => {
       this.administradorExiste = true;
-
-
       localStorage.setItem("usuario", JSON.stringify(response));
       this.router.navigateByUrl("/admin/home");
-
     }).catch((error) => {
     });
 
@@ -153,17 +149,18 @@ export class LoginComponent implements OnInit {
       })
       let correo = '';
       this.user$.subscribe(res => {
-        if (res.emailVerified == false) {
-          this.router.navigate(['auth/verificar-email'])
-        }
-        correo = res.email;
-        this.validarExistenciaBD(correo).then(resp => {
-          if (resp == false) {
-            this.router.navigateByUrl("/auth/crearUsuario")
+        if(res && res.emailVerified){
+          if (res.emailVerified! == false) {
+            this.router.navigate(['auth/verificar-email'])
           }
-        })
-
-      })
+          correo = res.email;
+          this.validarExistenciaBD(correo).then(resp => {
+            if (resp == false) {
+              this.router.navigateByUrl("/auth/crearUsuario")
+            }
+          });
+        }
+      });
 
     }, 1500)
 
