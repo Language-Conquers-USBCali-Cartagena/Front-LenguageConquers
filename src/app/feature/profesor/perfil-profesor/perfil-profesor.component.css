@@ -83,7 +83,7 @@ input{
 }
 @media screen and (max-width:700px) {
   .fondo {
-    background: rgb(115, 112, 121);
+    background:  rgb(52,52,52);
     background-repeat: no-repeat;
     background-size: cover;
     padding:2.5vh;
