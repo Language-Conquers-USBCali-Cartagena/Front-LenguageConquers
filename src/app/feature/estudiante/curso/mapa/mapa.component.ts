@@ -108,7 +108,7 @@ export class MapaComponent implements OnInit {
   verTutorial() {
     Swal.fire({
       html:
-        '<iframe width="440" height="315" src="https://www.youtube.com/embed/HD_zesxhkC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+        '<iframe width="450" height="320" src="https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/Tutorial1.mp4?alt=media&token=de9c8539-d034-4cde-a149-925baf47d87a" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
       showCloseButton: true,
       focusConfirm: false,
       showConfirmButton: false,
@@ -123,14 +123,5 @@ export class MapaComponent implements OnInit {
     this.router.navigate(['/estudiante/menu']);
   }
 
-  paginasNoDisponibles(){
-    Swal.fire({
-      imageUrl: '../../../../../assets/images/PaginaConstruccion.png',
-      imageWidth: 'auto',
-      imageHeight: 350,
-      showConfirmButton: false,
-      showCloseButton: true,
-      background: '#e5e5e5',
-    })
-  }
+ 
 }
