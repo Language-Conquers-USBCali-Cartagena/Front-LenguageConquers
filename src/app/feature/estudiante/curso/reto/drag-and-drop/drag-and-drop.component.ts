@@ -412,26 +412,28 @@ export class DragAndDropComponent implements OnInit {
   }
 
 
- paginasNoDisponibles(){
-  Swal.fire({
-    imageUrl: '../../../../../assets/images/PaginaConstruccion.png',
-    imageWidth: 'auto',
-    imageHeight: 350,
-    showConfirmButton: false,
-    showCloseButton: true,
-    background: '#e5e5e5',
-  })
-}
+
 
 verTutorial() {
-  Swal.fire({
-    html:
-      '<iframe width="440" height="315" src="https://www.youtube.com/embed/HD_zesxhkC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-    showCloseButton: true,
-    focusConfirm: false,
-    showConfirmButton: false,
-    backdrop: '',
-  })
+  if(this.isBasic == true){
+    Swal.fire({
+      html:
+        '<iframe width="450" height="320" src="https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/Tutorial2.mp4?alt=media&token=652f686b-4a58-4749-a3ce-88803cc94f71" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false,
+      backdrop: '',
+    });
+  }else{
+    Swal.fire({
+      html:
+        '<iframe width="450" height="320" src="https://firebasestorage.googleapis.com/v0/b/languageconquers-740dc.appspot.com/o/Tutorial3.mp4?alt=media&token=a97dc5cf-c6bb-44d5-b1ea-320fa6b00dc6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+      showCloseButton: true,
+      focusConfirm: false,
+      showConfirmButton: false,
+      backdrop: '',
+    });
+  }
 }
 
 }
