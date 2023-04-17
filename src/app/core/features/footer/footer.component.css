@@ -9,7 +9,7 @@ section{
   background-color:#ededed;
   position: relative;
   padding-bottom: 60px;
-  min-height: 21vh;
+  min-height: 15vh;
 }
 
 .footer{
@@ -36,7 +36,7 @@ section{
   margin: 0 8px;
   opacity: 0.75;
   background: #fff;
-  
+
 }
 
 .footer .social a:hover{

@@ -136,7 +136,6 @@ export class CrearModificarProfesorComponent implements OnInit {
   }
   uploadImage($event: any) {
     const file = $event.target.files[0];
-    console.log(file);
     const imagenReferencia = ref(this.storage, `docente/${file.name}`);
     uploadBytes(imagenReferencia, file, { contentType: 'image/png' }).then(
       response => {

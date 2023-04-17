@@ -17,15 +17,14 @@ export class EmailVerificationComponent implements OnInit {
 
   onSendEmail():void{
     this.authService.emailVerification();
-    console.log(
+    /*console.log(
       this.authService.afauth.user
-    );
+    );*/
   }
 
   async verificationEmail(){
 
     await this.user$.subscribe(res =>{
-      console.log(res);
       if(res.emailVerified == true){
         this.router.navigate(['menuPrincipal'])
       }else{

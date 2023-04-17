@@ -25,7 +25,6 @@ export class CarusselAvataresComponent implements OnInit {
     this.form = fb.group({
       id: ['', Validators.required]
     })
-    console.log(this.form.value.id);
    }
 
   ngOnInit(): void {
@@ -57,7 +56,7 @@ export class CarusselAvataresComponent implements OnInit {
 
   }
   obtenerId(id: String){
-    console.log(id);
+    /*console.log(id);*/
   }
 
 
@@ -69,15 +68,12 @@ export class CarusselAvataresComponent implements OnInit {
 
     let seleccionado = document.getElementById(id.idAvatar);
     l = (seleccionado?.id)?.toString()!;
-    console.log(typeof l);
     let n: number = +l;
     this.idSeleccionado = n;
-    console.log('id seleccionado: '+ n);
     images.forEach(imagen => {
     imagen.addEventListener('click', function(){
       const active = <HTMLImageElement>document.querySelector('img');
       seleccionado?.classList.remove('active');
-      /*console.log(typeof seleccionado?.id);*/
       this.classList.add('active');
     });
 

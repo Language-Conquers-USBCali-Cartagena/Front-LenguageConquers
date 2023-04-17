@@ -54,7 +54,6 @@ export class CrearModificarProgramaComponent implements OnInit {
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e['error'];
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],

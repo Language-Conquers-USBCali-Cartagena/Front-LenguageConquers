@@ -67,7 +67,6 @@ export class CrearModificarLogrosComponent implements OnInit {
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e.error;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],
@@ -151,7 +150,6 @@ export class CrearModificarLogrosComponent implements OnInit {
   }
   uploadImage($event: any) {
     const file = $event.target.files[0];
-    console.log(file);
     const imagenReferencia = ref(this.storage, `logros/${file.name}`);
     uploadBytes(imagenReferencia,file,{contentType:'image/png'}).then(
       response =>{

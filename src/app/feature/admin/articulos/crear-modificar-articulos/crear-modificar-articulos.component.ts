@@ -130,7 +130,6 @@ export class CrearModificarArticulosComponent implements OnInit {
 
   uploadImage($event: any) {
     const file = $event.target.files[0];
-    console.log(file);
     const imagenReferencia = ref(this.storage, `articulos/${file.name}`);
     uploadBytes(imagenReferencia,file,{contentType:'image/png'}).then(
       response =>{
@@ -210,7 +209,6 @@ export class CrearModificarArticulosComponent implements OnInit {
     },(e) =>{
       this.hayErrores = true;
       this.mensajeError = e.error;
-      console.log(this.mensajeError);
       Swal.fire({
         icon: 'error',
         title: e['error'],

@@ -15,7 +15,7 @@ img:hover {
   filter: grayscale(100%);
 }
 /* .activo {
- opacity: 15%; 
+ opacity: 15%;
 } */
 .fondoLogo > img {
   height: 100%;
@@ -221,7 +221,7 @@ mat-toolbar {
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
     }
     .fondo {
-      background: url("../../../../../assets/images/fondos/FondoPerfil1.jpg");
+      background: url("../../../../../assets/images/fondos/mapa.png");
       background-size: cover;
       height: 100%;
       width: 100%;

@@ -1,5 +1,5 @@
 .fondo {
-  background: rgb(115, 112, 121);
+  background: rgb(52,52,52);
   background-repeat: no-repeat;
   background-size: cover;
   padding:5.2vh;
@@ -83,7 +83,7 @@ input{
 }
 @media screen and (max-width:700px) {
   .fondo {
-    background: rgb(115, 112, 121);
+    background:  rgb(52,52,52);
     background-repeat: no-repeat;
     background-size: cover;
     padding:2.5vh;
@@ -108,11 +108,11 @@ input{
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
   font-size: 30px;
-  
+
   text-align: center;
   }
   .fotoPerfil{
-  
+
     margin-left: 35%;
     height: 80px;
     width: 80px;
@@ -125,7 +125,7 @@ input{
     margin-bottom: -100px;
     grid-template-columns: repeat(1, 18em);
     justify-content: center;
-  
+
   }
   .titulos{
     font-size:20px
@@ -136,7 +136,7 @@ input{
   input{
     font-size:18px;
   }
-  
+
   .botonSeleccionarArchivo{
     color: rgb(254,254,231);
     margin-left: -129px;
@@ -151,7 +151,7 @@ input{
     box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
     cursor: pointer;
   }
-  
+
   .botones{
     color: rgb(254,254,231);
     border-radius: 20px;
@@ -163,6 +163,6 @@ input{
     width:130px;
     height:40px;
     font-size: 20px;
-  
+
   }
 }

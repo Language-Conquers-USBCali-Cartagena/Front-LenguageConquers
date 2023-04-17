@@ -55,7 +55,6 @@ export class CrearModificarEstadoComponent implements OnInit {
         }
       }, (e) => {
         this.hayErrores = true;
-        console.log(e['error']);
         Swal.fire({
           icon: 'error',
           title: e['error'],
@@ -107,7 +106,6 @@ export class CrearModificarEstadoComponent implements OnInit {
       this.router.navigate(['/admin/estado/listar-estados']);
     }, (e) => {
       this.hayErrores = true;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],

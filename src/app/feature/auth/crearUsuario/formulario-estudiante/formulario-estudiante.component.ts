@@ -41,12 +41,12 @@ export class FormularioEstudianteComponent implements OnInit {
   public user$:Observable<any> = this.authService.afauth.user;
 
   constructor(
-    private fb: UntypedFormBuilder, 
-    private generoService: GeneroService, 
+    private fb: UntypedFormBuilder,
+    private generoService: GeneroService,
     private semestreService: SemestreService,
     private avatarService: AvatarService,
-    private loginService: ServiciosLoginService, 
-    private router:Router, 
+    private loginService: ServiciosLoginService,
+    private router:Router,
     private programaService: ProgramaService,
     private authService: AuthService,
     private estudianteService: EstudianteService
@@ -84,17 +84,17 @@ export class FormularioEstudianteComponent implements OnInit {
     const nacimiento: Date = this.form.value.fechaNacimiento;
     const programa = this.form.value.programa.idPrograma
     let estudiante: Estudiante = {
-      nombre: nombre, 
-      apellido: apellido, 
-      nickName: nickName, 
-      idSemestre: semestre, 
-      idAvatar: avatar, 
-      idGenero: genero, 
+      nombre: nombre,
+      apellido: apellido,
+      nickName: nickName,
+      idSemestre: semestre,
+      idAvatar: avatar,
+      idGenero: genero,
       usuarioCreador: nombre + ' ' + apellido,
       fechaCreacion: new Date(),
-      fechaNacimiento: nacimiento, 
-      idPrograma: programa, 
-      correo: correo, 
+      fechaNacimiento: nacimiento,
+      idPrograma: programa,
+      correo: correo,
       idEstado: 1}
     this.loginService.createEstudiante(estudiante).subscribe(resp =>{
       Swal.fire({
@@ -106,10 +106,9 @@ export class FormularioEstudianteComponent implements OnInit {
       this.estudianteService.getEstudiantePorCorreo(correo).subscribe((resp) =>{
         localStorage.setItem("usuario", JSON.stringify(resp));
         this.router.navigateByUrl('/estudiante/menu');
-        
+
       });
     }, err =>{
-      console.log(err['error']);
       Swal.fire({ icon: 'error', text: err['error'], confirmButtonColor: '#33b5e5',});
       localStorage.setItem("correo", correo);
       this.router.navigateByUrl('/auth/login');

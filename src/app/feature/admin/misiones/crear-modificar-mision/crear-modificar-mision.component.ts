@@ -114,7 +114,6 @@ export class CrearModificarMisionComponent implements OnInit {
 
   uploadImage($event: any) {
     const file = $event.target.files[0];
-    console.log(file);
     const imagenReferencia = ref(this.storage, `misiones/${file.name}`);
     uploadBytes(imagenReferencia,file,{contentType:'image/png'}).then(
       response =>{
@@ -183,7 +182,6 @@ export class CrearModificarMisionComponent implements OnInit {
     }, (e) => {
       this.hayErrores = true;
       this.mensajeError = e.error;
-      console.log(e['error']);
       Swal.fire({
         icon: 'error',
         title: e['error'],

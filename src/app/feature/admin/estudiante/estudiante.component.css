@@ -1,5 +1,5 @@
 .fondo{
-  
+
   height: 65em;
   background-color: #2e2e2e;
 }
@@ -9,7 +9,7 @@
   margin-left: 16em;
   /*Efecto espejo*/
   padding: 55px;
-  background-color: #2e2e2e;
+  background-color: rgb(52,52,52);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);

@@ -12,11 +12,13 @@
         <mat-form-field appearance="fill" class="entradauc2">
           <mat-label>Contrase&ntilde;a</mat-label>
           <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" formControlName="password">
+          <mat-hint  style="color: white">* La contrase&ntilde;a debe contener minimo 6 caracteres.</mat-hint>
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon class="boton">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
       <div class="terminosCon">
+        <br>
         <a target="_window" class="vinculosT" (click)="terminosCondiciones()" style="cursor: pointer;">
           <mat-checkbox class="vinculosT" #checkboxExterno [disabled]="true"></mat-checkbox>
           Aceptar T&eacute;rminos y Condiciones
@@ -29,7 +31,7 @@
       <button class="ancho1" mat-raised-button (click)="errorTerminos()"> Crear Cuenta </button>
     </div>
     </div>
-    <br>
+
       <div class="otrac">
         <a type="submit" (click)="IngresarConGoogle()" class="ancho otrac google"></a>
         <a type="submit" (click)="IngresarConFacebook()" class="ancho otrac facebook"></a>

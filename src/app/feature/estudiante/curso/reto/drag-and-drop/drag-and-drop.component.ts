@@ -49,12 +49,14 @@ export class DragAndDropComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
+
     this.retoParam = this.route.snapshot.params['reto'];
     await this.obtenerReto();
     await this.esBasico();
     this.estudiante = JSON.parse(String(localStorage.getItem('usuario')))
     await this.ObtenetPalabras();
-    this.obtenerRetoEstudiante()
+    this.obtenerRetoEstudiante();
+
 
   }
 
@@ -197,7 +199,6 @@ export class DragAndDropComponent implements OnInit {
                     await this.actualizarEstudiante(id, this.retoParam);
                   });
                 });
-                console.log(error.error);
               }
             }else{
               Swal.fire({
@@ -263,7 +264,7 @@ export class DragAndDropComponent implements OnInit {
             text: resp,
             timer: 3000
           }).then(() => {
-            console.log("Entro al then");
+            /*console.log("Entro al then");*/
           });
         }
         window.history.back();
@@ -298,15 +299,6 @@ export class DragAndDropComponent implements OnInit {
     this.router.navigateByUrl('estudiante/curso/mapa/1');
   }
 
-  mostrarTutorial() {
-    Swal.fire({
-      html:
-        '<iframe width="440" height="315" src="{{v}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
-      showCloseButton: true,
-      focusConfirm: false,
-      showConfirmButton: false
-    })
-  }
 
   mostrarPistas() {
     Swal.fire({
@@ -319,8 +311,6 @@ export class DragAndDropComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         if (this.retoInfo.urlVideo1 !== null) {
-          console.log(this.retoInfo.urlVideo1);
-
           Swal.fire({
             title: '¿Abrir YouTube?',
             text: 'Se abrirá una nueva ventana con la página de YouTube',
@@ -412,7 +402,8 @@ export class DragAndDropComponent implements OnInit {
           showCloseButton: true,
           showConfirmButton: false
         })
-      });;
+      });
+
     }
 
 
@@ -429,6 +420,17 @@ export class DragAndDropComponent implements OnInit {
     showConfirmButton: false,
     showCloseButton: true,
     background: '#e5e5e5',
+  })
+}
+
+verTutorial() {
+  Swal.fire({
+    html:
+      '<iframe width="440" height="315" src="https://www.youtube.com/embed/HD_zesxhkC4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+    showCloseButton: true,
+    focusConfirm: false,
+    showConfirmButton: false,
+    backdrop: '',
   })
 }
 

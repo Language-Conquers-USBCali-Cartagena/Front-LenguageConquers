@@ -1,12 +1,12 @@
 .fondo{
   position: relative;
-  height: 53em;
+  height: 57em;
   width: 135.8em;
 }
 .container {
   height: 100%;
   width: 100%;
-  background-color: #2e2e2e;
+  background-color: rgb(52,52,52);
 }
 
 .ladoIzq {

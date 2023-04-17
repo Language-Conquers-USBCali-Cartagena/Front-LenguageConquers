@@ -5,9 +5,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { Observable } from 'rxjs';
 import { ServiciosLoginService } from '../../../../shared/services/Login/servicios-login.service';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog} from '@angular/material/dialog';
 import Swal from 'sweetalert2'
-import { contains } from '@firebase/util';
 import { EstudianteService } from '../../../../shared/services/estudiante/estudiante.service';
 import { ProfesorService } from 'src/app/shared/services/profesor/profesor.service';
 import { MatCheckbox } from '@angular/material/checkbox';
@@ -30,13 +29,13 @@ export class RegistroComponent implements OnInit {
 
 
   constructor(
-    private fb: UntypedFormBuilder, 
+    private fb: UntypedFormBuilder,
     private _snackbar: MatSnackBar,
-    private router: Router, 
-    private authService: AuthService, 
-    private loginService: ServiciosLoginService, 
+    private router: Router,
+    private authService: AuthService,
+    private loginService: ServiciosLoginService,
     private dialog: MatDialog,
-    private estudianteServece: EstudianteService, 
+    private estudianteServece: EstudianteService,
     private profesorService: ProfesorService,
     private administradorService: AdministradorService
     ) {
@@ -68,6 +67,7 @@ export class RegistroComponent implements OnInit {
     });
   }
 
+
   IngresarConGoogle() {
     this.authService.loginWithGoogle().then(res => {
       this.validaciones();
@@ -81,7 +81,6 @@ export class RegistroComponent implements OnInit {
   }
   IngresarConFacebook(){
     this.authService.loginWithFacebook().then(res => {
-      console.log("Ingreso: ", res);
       this.validaciones();
     }).catch(err => {
       if(this.terminos == false){
@@ -132,7 +131,6 @@ export class RegistroComponent implements OnInit {
 
     await this.estudianteServece.getEstudiantePorCorreo(email).toPromise().then((response) =>{
       this.estudianteExiste = true;
-      console.log(response);
       localStorage.setItem("usuario", JSON.stringify(response));
       this.router.navigateByUrl("/estudiante/menu");
     }).catch((error) =>{
@@ -140,13 +138,12 @@ export class RegistroComponent implements OnInit {
 
     await this.profesorService.getProfesorPorCorreo(email).toPromise().then((response) => {
       this.profesorExiste = true;
-      console.log("Existe por correo");
       localStorage.setItem("usuario", JSON.stringify(response));
       this.router.navigateByUrl("/profesor/menuProfesor");
-      
+
     }).catch((error) => {
     });
-    
+
     await this.administradorService.getadminPorCorreo(email).toPromise().then((response) => {
       this.administradorExiste = true;
       localStorage.setItem("usuario", JSON.stringify(response));
@@ -154,7 +151,7 @@ export class RegistroComponent implements OnInit {
 
     }).catch((error) => {
     });
-    
+
     if (this.estudianteExiste == true || this.profesorExiste == true || this.administradorExiste == true) {
       return true
     } else {
@@ -208,8 +205,6 @@ export class RegistroComponent implements OnInit {
           this.terminos = false;
         }
 
-      } else {
-        console.log(`modal was dismissed by ${result.dismiss}`)
       }
     });
   }
