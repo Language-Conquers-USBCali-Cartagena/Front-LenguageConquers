@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Profesor } from '../../../shared/models/profesor';
 import { ProfesorServicesService } from '../services/services.service';
 import { Curso } from 'src/app/shared/models/curso';
-import { CursoService } from 'src/app/shared/services/curso/curso.service';
-import { log } from 'console';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-menu-profesor',
@@ -30,7 +29,17 @@ export class MenuProfesorComponent implements OnInit {
 
   async obtenerCursos(){
     await this.profesorService.getCursos(Number(this.profesor.idProfesor)).toPromise().then((response) => {
-      this.cursos = response;
+      if(response.length == 0){
+        Swal.fire({
+          icon: 'warning',
+          title: 'Sin cursos asignados',
+          text: 'Usted todavia no tiene cursos asignados, por favor comuniquese con el administrador de la plataforma: languageconquersusb22@gmail.com',
+          confirmButtonColor: '#31B2C2',
+        });
+      }else{
+        this.cursos = response;
+      }
+
     })
   }
 
