@@ -1,8 +1,11 @@
+.fondo{
+  height: 65em;
+  background-color: #2e2e2e;
+}
 .tarjetaPrincipal{
-  width: 80%;
-  height: 500px;
-  margin-right: 20px;
-  margin-left: 70px;
+ width: 40em;
+  height: 26em;
+  margin-left: 16em;
   /*Efecto espejo*/
   padding: 55px;
   background-color: rgb(52,52,52);
@@ -10,7 +13,7 @@
   -webkit-backdrop-filter: blur(3px);
   box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.36);
   font-size: 30px;
-  color:rgb(213, 221, 225);
+  color:rgb(214, 223, 227);
   text-align: center;
 }
 .demo-button-container {
